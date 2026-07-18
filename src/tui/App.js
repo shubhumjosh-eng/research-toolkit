@@ -89,6 +89,13 @@ function App({ initialTopic }) {
     setConfig(prev => ({ ...prev, [key]: value }));
   }, []);
 
+  const handleCommand = useCallback((cmd) => {
+    if (cmd === 'clear') {
+      const cache = require('../utils/cache');
+      cache.clear().then(() => addLog('success', 'Cache cleared'));
+    }
+  }, [addLog]);
+
   useInput((input, key) => {
     if (key.ctrlC || key.escape) {
       if (state === STATES.RESEARCHING) {
@@ -124,7 +131,10 @@ function App({ initialTopic }) {
 
       state === STATES.IDLE && React.createElement(InputPrompt, {
         onSubmit: handleResearch,
-        onConfig: () => setState(STATES.CONFIG),
+        onConfig: (cmd) => {
+          if (cmd === 'clear') handleCommand('clear');
+          else setState(STATES.CONFIG);
+        },
         history,
         historyIndex,
         setHistoryIndex,
