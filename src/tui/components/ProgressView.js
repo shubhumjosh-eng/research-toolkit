@@ -1,58 +1,65 @@
 const React = require('react');
 const { Box, Text } = require('ink');
 
-const STEP_ORDER = ['discover', 'news', 'web', 'reddit', 'youtube', 'report'];
+const STEP_ORDER = ['discover', 'news', 'web', 'reddit', 'youtube', 'hackernews', 'bluesky', 'discourse', 'stackexchange', 'report'];
+const STEP_ICONS = {
+  discover: '🔍', news: '📰', web: '🌐', reddit: '🔴', youtube: '▶',
+  hackernews: '🟠', bluesky: '🦋', discourse: '💬', stackexchange: '📚', report: '📄',
+};
 const STEP_LABELS = {
-  discover: 'Discover subreddits',
-  news: 'News articles',
-  web: 'Web search',
-  reddit: 'Reddit scraping',
-  youtube: 'YouTube discovery',
-  report: 'Report generation',
+  discover: 'Discovering',
+  news: 'News',
+  web: 'Web Search',
+  reddit: 'Reddit',
+  youtube: 'YouTube',
+  hackernews: 'Hacker News',
+  bluesky: 'Bluesky',
+  discourse: 'Discourse',
+  stackexchange: 'Stack Exchange',
+  report: 'Report',
 };
 
 function ProgressView({ progress }) {
-  const steps = STEP_ORDER.map(key => {
-    const p = progress[key];
-    const label = STEP_LABELS[key];
-    let icon, color;
-
-    if (!p) {
-      icon = '○';
-      color = 'gray';
-    } else if (p.current >= p.target && p.target > 0) {
-      icon = '✓';
-      color = 'green';
-    } else {
-      icon = '●';
-      color = 'yellow';
-    }
-
-    const detail = p ? (p.message || `${p.current}/${p.target}`) : 'pending';
-
-    return React.createElement(Box, { key, paddingLeft: 2 },
-      React.createElement(Text, { color }, icon + ' '),
-      React.createElement(Text, { bold: true }, label.padEnd(22)),
-      React.createElement(Text, { dimColor: true }, detail),
-    );
-  });
-
-  const completed = STEP_ORDER.filter(k => {
-    const p = progress[k];
-    return p && p.current >= p.target && p.target > 0;
-  }).length;
+  const p = progress || {};
+  const completed = STEP_ORDER.filter(k => p[k] && p[k].current >= p[k].target && p[k].target > 0).length;
   const pct = Math.round((completed / STEP_ORDER.length) * 100);
+  const barWidth = 20;
+  const filled = Math.round((pct / 100) * barWidth);
 
-  return React.createElement(Box, { flexDirection: 'column', marginBottom: 1 },
-    React.createElement(Text, { bold: true },
-      '  Researching...'
-    ),
-    React.createElement(Box, { paddingLeft: 2, marginBottom: 0 },
-      React.createElement(Text, { color: 'cyan' },
-        '[' + '█'.repeat(Math.floor(pct / 5)) + '░'.repeat(20 - Math.floor(pct / 5)) + '] ' + pct + '%'
+  return React.createElement(Box, { flexDirection: 'column' },
+    React.createElement(Text, { bold: true, color: 'cyan' }, '━━━━━━ Progress ━━━━━━'),
+
+    React.createElement(Box, { marginTop: 0, marginBottom: 1 },
+      React.createElement(Text, null,
+        ' ' + '█'.repeat(filled) + '░'.repeat(barWidth - filled) + ` ${pct}%`
       ),
     ),
-    ...steps,
+
+    ...STEP_ORDER.map(step => {
+      const data = p[step];
+      const icon = STEP_ICONS[step] || '○';
+      const label = STEP_LABELS[step] || step;
+
+      let statusIcon, statusColor;
+      if (!data) {
+        statusIcon = '○';
+        statusColor = 'gray';
+      } else if (data.current >= data.target && data.target > 0) {
+        statusIcon = '✓';
+        statusColor = 'green';
+      } else {
+        statusIcon = '●';
+        statusColor = 'yellow';
+      }
+
+      const detail = data ? (data.message || (data.current !== undefined ? `${data.current}/${data.target}` : '')) : '';
+
+      return React.createElement(Box, { key: step, flexDirection: 'row' },
+        React.createElement(Text, { color: statusColor, bold: true }, ` ${statusIcon} `),
+        React.createElement(Text, null, `${icon} ${label}`),
+        React.createElement(Text, { dimColor: true }, detail ? `  ${detail}` : ''),
+      );
+    }),
   );
 }
 
