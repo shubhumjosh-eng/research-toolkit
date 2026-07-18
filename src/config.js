@@ -17,7 +17,7 @@ module.exports = {
     newsMaxResults: 50,
     webSearchRatio: 0.15,
     webSearchMax: 50,
-    redditRatio: 0.5,
+    redditRatio: 0.1,
     youtubeRatio: 0.25,
     youtubeMax: 100,
     hackernewsRatio: 0.1,
