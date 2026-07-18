@@ -3,7 +3,7 @@ const RateLimiter = require('../utils/rateLimiter');
 const redditDirect = require('../sources/reddit');
 const DynamicScraper = require('../scraping/browserScraper');
 
-const limiter = new RateLimiter(0.5);
+const limiter = new RateLimiter(0.25);
 
 const ARCTIC_SHIFT_BASE = 'https://arctic-shift.photon-reddit.com';
 const PULLPUSH_BASE = 'https://api.pullpush.io';
@@ -78,7 +78,7 @@ class RedditBulkScraper {
             this.rateLimitCount = (this.rateLimitCount || 0) + 1;
             this.consecutiveFailCount = 0;
 
-            if (this.rateLimitCount >= 3) {
+            if (this.rateLimitCount >= 2) {
               if (this.primarySource === 'arctic-shift' && !this.fallbackTriggered) {
                 this.log('warn', `Arctic Shift rate limited, switching to PullPush...`);
                 this.primarySource = 'pullpush';
@@ -198,7 +198,7 @@ class RedditBulkScraper {
 
     const postsWithComments = [];
 
-    for (const post of posts.slice(0, 15)) {
+    for (const post of posts.slice(0, 5)) {
       try {
         const comments = await this.getPostCommentsArcticShift(post.id, 30);
         post.topComments = comments;
@@ -265,7 +265,7 @@ class RedditBulkScraper {
 
     const postsWithComments = [];
 
-    for (const post of posts.slice(0, 15)) {
+    for (const post of posts.slice(0, 5)) {
       try {
         const comments = await this.getPostCommentsPullPush(post.id, 30);
         post.topComments = comments;
@@ -319,7 +319,7 @@ class RedditBulkScraper {
 
     const postsWithComments = [];
 
-    for (const post of posts.slice(0, 15)) {
+    for (const post of posts.slice(0, 5)) {
       try {
         const comments = await redditDirect.getPostComments(post.url, 30);
         post.topComments = comments;
