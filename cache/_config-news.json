@@ -1,0 +1,358 @@
+{
+  "timestamp": 1784364641744,
+  "topic": "/config",
+  "source": "news",
+  "count": 50,
+  "data": [
+    {
+      "title": "Sightlines issue no.1: Insights from Config - Figma",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5JSnNuS1pNWnBRUkEyNlc0dDRodG1RcGM1MEx1QVRycmxfT0ZaT2kwWk9yYjh0VFRmZThlc1FreWFwb0ZWY0xzWkdjQmNwVkh4OEd6THJXZG56SXFU?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 20:09:15 GMT",
+      "source": "Figma",
+      "type": "news"
+    },
+    {
+      "title": "Building a Gin Config Controlled PyTorch Pipeline with Configurable MLP Variants, Cosine Scheduling, and Runtime Parameter Overrides - MarkTechPost",
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPUmdvYU9UUktlV3ZoYy0tSWlsWEpWTDlvcTJ5YVd5RmdlU0tERGE4NUxUWFIzeER5NU53YzN0cTEyTkVXNzFnNUJINGxEWWxVajRCdzVxMUs3SUt0OGdkU1pITVZBTXJZNFVYMVNZZk43WWlDbjdfOGwtUmdmT082VnRyeVRublFvbUpkM2ExTGg4SWtjVmNYdmp6VmhRWk1XM0N6d0ZSamVUTGVBS25iUUNCOEU5ZmttRUhxd0QyeDJheG0tNFUtenNJNHBvMGNNMHpfQ1FseWxIbXJvUEFzbGotRVJtRVc3QkRvTFk0Vzd1ZTNFNE41OTl0X0Q2TmVS0gGGAkFVX3lxTE1RX000RHh5RnhoaVN3MXI0cFpvU29xazRQQmpneDdBZEJ2dDZiamN0eGwyTWtCM2xoZUNBMTNEM1lxN25tRThPRkdvZ0lIRjktcXdOazNYWGExTWFqbm0tNXFFcThFcWw0N1FoQWtGT3Q0cUdpaVZ5V0c4NHpxNnp3UXpUMXYyYklCYURBdHEyYmZvT1BkOHBRSXlsM3FxdmV0WWE3WWZrUjFUQjIyZ0w2dEV1Z0dNSHM1ZEQ0MVpJb0p2dzZvcC1hMkxNWkhYWnB2TjR3MEpXYXJIUW9jQ0FDc3hYQmxQNnh5b0t4TUJYTTJNRUpNWHN4bWFISkhEcFM0MzF4QUE?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 18:03:38 GMT",
+      "source": "MarkTechPost",
+      "type": "news"
+    },
+    {
+      "title": "Figma Brings Code Layers and Motion to the Canvas - CMSWire",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOeXpMZVF1RFpwc3pwajd4dlFsRU5KXzlNXzdfY3RIcWlRTWpMUTI4aFZfaHc4R1hCUW1ENlB3eFJfM05zRjBvaEJ0NnNRcmE5b3I2TUZBWDNHeWZ3bXBFWkVIUHNOWERibDZ1RmJrOHN4VnpzSl85dGlOekdqMDVJUHR5U2M2aHZqSFJKT21XOUJYVGM5MjVV?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "CMSWire",
+      "type": "news"
+    },
+    {
+      "title": "Introducing Sophos Firewall Config Studio 2.6 - Sophos",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1wYVZWU3YxYVY5N1MwQVJ3S3oxV2tWdFZpUUlNUnAwVmhHWmxIMVpVT3R0MXNBWWdwQ1B3emlEUDV5SHRjVmtmRmNIb01lT2djeGJTSVl2UGJCUjdFdWF5eFZPdDdRQ1psWmY2dy1zMWNzSGk5LWc?oc=5",
+      "publishedAt": "Mon, 22 Jun 2026 07:00:00 GMT",
+      "source": "Sophos",
+      "type": "news"
+    },
+    {
+      "title": "Figma Config 2026 Kicks Off Today: Virtual Attendance Still Free as In-Person Sells Out - Tech Times",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQcExLbkhhWGhwLXZVaVNNZDRxbHNoeVpvTTFBT2E1R2RuaWVhQkFlNXIyRDIyMlhwbXRzTjBSbkJ0aGY5d0xqaWZqQUlPNnhNdDhtb2Y0UUoxNTZNZDhuSlRhUFlmOFdqczJrTXZWNkplUWdSNk9feXJGY0I3OTc5RDVpeHRrTU1ENjVNTVhDcHh1SFJOUVBCMUtXZUx1U2pEbE5KZ3EtV245U1BYNWIwRjZ5Q2xtSFJQZVIyTW13bWxueW42MS1jQnZEcVBOUGQx?oc=5",
+      "publishedAt": "Mon, 22 Jun 2026 07:00:00 GMT",
+      "source": "Tech Times",
+      "type": "news"
+    },
+    {
+      "title": "Config 2026: New Materials, New Tools and a More Expressive Canvas | Figma Blog - Figma",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBDUVRiam5sUmFYc3JmOUZyVFBnRW4tcEdRN2lSdWZGQXZCZWVKeFdaYjdjV0w2NEwwcC1jLXhpRDd5RFB6MXJnaFU3OHRfZ2FiRzdldU92YzQ?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "Figma",
+      "type": "news"
+    },
+    {
+      "title": "Google Cloud configuration update disrupts VMware Engine stretched clusters - Network World",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVnB5TlI1d1lWRUdQc0ptNWtWaURhZ1dKSTJqYk5qN3B2d1pUM3BpdWZxakxjV2NoWkxCaWRGLVh6MDlpeWc3ZHd3ZlRqcWM4SEFkWEh0LU0zZGRjSWsxZGNPcVFxV1dVSXFTOUpCTmQ5TGNDV0hrc1FweENJbk5uSDExQVdvUThXdU45V0F1Q2l3QU82WnMyVV9sVldBQS1VMHdQeGg3LUlfWTRtc3QxWHRkZGF6bXlBdFhoalZNWWZ6Uzg?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 10:47:46 GMT",
+      "source": "Network World",
+      "type": "news"
+    },
+    {
+      "title": "Config 2026 - Weave brings a new layer of precision design workflows to Figma - Diginomica",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWHN6djJtTlAwVGNSaVpsdy1LZ2JhaHhjWjB5aG4wVzFEOEpIVG9ETi1WdGNjNEFIRnVHUkd6Zmc2Rm5Vb3k3WnpReEFjWnFTTGk4eWxFdXU0d09SNS1KOFRENURZVktUUU9QWU93WkJSWkdmT2RQTmp0RDB6bWlBYmloM2s1UQ?oc=5",
+      "publishedAt": "Fri, 03 Jul 2026 07:00:00 GMT",
+      "source": "Diginomica",
+      "type": "news"
+    },
+    {
+      "title": "Figma bets on human judgment at Config 2026 while the AI powering its canvas belongs to someone else - the-decoder.com",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVFllSG50ZzBnTURIeEpGNk5zbDd6U0pKR3BIbWlDT0NBX0NvNmkzRkdFY1ZHY2RQV0FJdDIweFQ4VGpfRDRYdktoem1zNTlVakpuUXJNbFY1bDh4Nzl1WTJKRmRLTWJndlJaUF9MNTJFdElLVFNScDZnMnB2T1RpVmVQNHdQUkk4RjB6aThZck8xQkJtODJWaTEzVzB4WnRydVBBV2Z6dVRmQU1LY2lnTGJsSUlyb3REUXowdUV3N0Z2a2c?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "the-decoder.com",
+      "type": "news"
+    },
+    {
+      "title": "FIG Stock Resumes Climb As AI-Powered Assistant Debuts Ahead Of Config Keynote — Retail Remains Bearish - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPRUZkd3RuYmZITmxOQm9lWHRQS2RLNWFVU3ZpU1RhUmJLR3hTUVdlRDhwUHpNYmowTm1qT3NGckc3cXpFNUswR2FNajhrUlZycmhYX0NhVG1PZzJmS1JsR0t5UUx3aXlQNHY4UWFtSnFBNVBmN2d3aXdTVGVrUXV3MDhBVy02VmE3cElGOUlRYXplSFBMZ1E?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "Yahoo Finance",
+      "type": "news"
+    },
+    {
+      "title": "Korea’s biggest manufacturers back Config, the TSMC of robot data - TechCrunch",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNTklQNzBvRmk3SndpdlFXZXJUMXlaMnpqQnFmMENaV0hOVkd4dXJnMTVXdEE1enViYVY2UXJsTHZPVzJTSEg3N2Vpd0YwbS1TeE9zT24yNDRhenc1bnA0eHYxTDk2cDREdjUycFR5RlJKcFlvdjhDRlN6c1RCZEF4cUprSUl0WXNYS2ZpN25MTXRDampQOVZVc2lybkd3T28?oc=5",
+      "publishedAt": "Mon, 11 May 2026 07:00:00 GMT",
+      "source": "TechCrunch",
+      "type": "news"
+    },
+    {
+      "title": "Foley Hoag Advises Config in $27M Seed Financing To Scale Robotic Data Operations - Foley Hoag",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOMHRrbWI4bUhjaTktRUppaXFwSHdMOFJoSk5aU3E0TU1hcjdQZmk0QlVyczBXSXVNY0dIZGd4SDgwcFJsOGpVeTFUWnJCMFRjdzVPNURZNmJndzNweUc5WndTWFZ1MUNCNTNLVFlCbGdjYWJKY3B1dG1mTGRHM2JFVWZ3RFFpVVhjcEJHUFYwU3NFODNmZXZuREwxTGtua2c0SUdjMWxhbi04VzI1NmVrOWp0XzFsUmlzbTNnTDljWlZBYktrLXlXbmtMLXR6ZzFSckE?oc=5",
+      "publishedAt": "Wed, 13 May 2026 07:00:00 GMT",
+      "source": "Foley Hoag",
+      "type": "news"
+    },
+    {
+      "title": "Figma turns its design canvas into a coding environment at Config 2026 - Startup Fortune",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOWV9LaXd5M2FHbEEwTzFwT0Y2UU9qSWtZX2dGbWtaeWlobW51U2ZtaHlJcmsxLXhBYm5JeE0xaklnTEwzSTJYUzhxWTZaSEZTOTRBR1RWX0pwcWFzcjlpOEROZnhzdGhHbjl6LTZrR2FjLVBpcGMyZGdkOHgwY1RqRWZZU1N3MTdEQW9YSVJOamV4RExsTG9WV2pXTFpVYWc?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "Startup Fortune",
+      "type": "news"
+    },
+    {
+      "title": "FIG Stock Resumes Climb As AI-Powered Assistant Debuts Ahead Of Config Keynote — Retail Remains Bearish - TradingView",
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQTmJMenZWZVBieTVRZDc2WFE5dzJOcTYxUTJlMjdaYk9IaVA4UGlWcWFRVDV6OGp4Y09RMl8yR1dOUjUzZ3Z4cEFVQzZ3XzFPYXFkN1VFRkVVSTlEd090MkVhU2l4VE4wRW43b0QyR1V4WWk1NXVUbGJYMlpCVnY5UDVHTWFwM1NCVGFuRC1PX19mbHlTNG9GOTVHSWVqQk10TWl0R09ncGU5d2dlS3F4QXNjVHJkRC05SmxmbGktT09JeHlHOTNvVDk3WlN6SjlRdXVpTmxab0lDOEV0ZHZsRE1IaTJJbHJ6QjJ2VEIyb3lPUDhC?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "TradingView",
+      "type": "news"
+    },
+    {
+      "title": "Figma now has AI motion graphics and shader tools - The Verge",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOLURnNHhzUHFmbmpyUDlCVUh4dTFQWURBc1pwNFE0Y2wtWmVPbU5ha2d5ZHUxbmFKSUlUdGhNRER0aWhfM041S2psa3Zvb2FMbC1YdzIxUktsTUlqNTZtZGlGdHYzVVNYeGhtOEQxTTkyblhWZ3VYb05GbVM5TFJQY0pYRU84ZC1uT0c0dGp0WQ?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "The Verge",
+      "type": "news"
+    },
+    {
+      "title": "Meet Blume: An Open-Source, Zero-Config Documentation Framework That Ships AI-Ready Docs From a Markdown Folder - MarkTechPost",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQRGN5QkoycUNFSzNoNGpSOEsycGQxRXpLN3BsSVBtWGF1NVBSTE1JMXNoQTZKcU1JaDZjVkZlaVYyUHRxNVo2eWVkajNuWmtEX2JZQXFrVUFBaVhxV1ZDNlpYU1VWQjdsUTNMc3JNMVJCYkx4NkNIR290NURVeEJXSUd3RkY2RktGdno2dGF3Q1hBbUhVTExpcWdaeWdoY2tyS1NId3dBOEE1SXRmX0RWOUhOTkNULWQ0TTE2SU12TER2bHFiaUxPSmpCSENqNDcyX1RJMjUyTGxtSDh4bDR4UXRMa0w?oc=5",
+      "publishedAt": "Tue, 14 Jul 2026 08:15:29 GMT",
+      "source": "MarkTechPost",
+      "type": "news"
+    },
+    {
+      "title": "Figma Config 2026: Code Layers Challenge Cursor as GPU Shaders Hit Paid Plans - Tech Times",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNkVjYVl2X0ZjUkZGcFdDcHl0UHpZYnM0MGJxU2ZQZ212bkhKTzNPb0EyM012M01uXzZPdGg2Q1VkN20tR3F2bXRzUVc1QUpLMTBFZEZVMzU1cG03VFNVdXFFYVk4MXpyanRLWWphOWF5dzcwNFN3U1VVRGpRek9TNndJZjZVOUEtSW83M1VnX0pXdnRhSDl5bjBEZHprZ2IwNEFkZUpadGFfaWRmV3NIcFEyYnZFb1VmREtjOXVyb0FBbHkyMDdj?oc=5",
+      "publishedAt": "Thu, 25 Jun 2026 07:00:00 GMT",
+      "source": "Tech Times",
+      "type": "news"
+    },
+    {
+      "title": "Figma Config 2026 Session Tests AI Growth Story And Weak Share Price - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNZmV4Zm00SG5rRmVsYTZSdGg5eUt2Z25oWGdGcm1SeGZHaDJWQVVjMmpyb0VuQ2VaZG8wTTd1a3lKcW9DZ0E3aHc0QWhPVVJPcUFqWTZmSExSM3dWYWw2a2ZqRlZZdGlDSkZrRjhzRU9pTElDWm0ycGliSlFhV3NuUzRQSnlfZ1JkVGJHaHpxSkVuemVKTW9GcHVUTUU?oc=5",
+      "publishedAt": "Sat, 13 Jun 2026 07:00:00 GMT",
+      "source": "Yahoo Finance",
+      "type": "news"
+    },
+    {
+      "title": "Config 2026 digital poster kit - Figma",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPY0l2WHdoZUdBZlFNRVRyTmRCcWZEc2ZlSThvdUx6NC0zOU5HTjdyT0NxVTh0Unh4ZHdlUUN3bkw0bW03OUNydE1GcTJJaUtabGY0N3A4U2hHSmFpMmN3bHFKbWMzNmlUZVpxNWI4QXNpWVBEVENwYUUyR09RTEJVbE1qTVY4QTltTjVOaWJ0a3E?oc=5",
+      "publishedAt": "Tue, 23 Jun 2026 10:45:35 GMT",
+      "source": "Figma",
+      "type": "news"
+    },
+    {
+      "title": "Our Config 2026 speakers on the biggest opportunities with AI - Figma",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5Ray1oOVZodzNveEdwOU03Y0NwTVZ1LXpLMV81OXpPVmlsUkg1M0ZoN004bGVETl9fOXJJLUhZNjJ1YktmR0ZZUjlGSmwwWjBMZ1NHWEFhdVlYTDExS2k5eFJnNG1hV2pqN29QYmxITQ?oc=5",
+      "publishedAt": "Tue, 03 Mar 2026 08:00:00 GMT",
+      "source": "Figma",
+      "type": "news"
+    },
+    {
+      "title": "Stop Ranking Agent Configs by Average Score - towardsdatascience.com",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNdklZcGJrX0N1V3ZaQXQ4QnR5WktPelp6TGtuVUIxcW9QUTdMT2tuZUdQaFNfd1lVWi15bjhuUjR6dldvOVJ3ejlSd19JZjhZdEcydHJ4eDN3WXNIT19XU3RLNGU2cVhlMDFJMTJaSVZYd2MxVW1rdUNWVGs3S1QxNg?oc=5",
+      "publishedAt": "Mon, 06 Jul 2026 12:00:00 GMT",
+      "source": "towardsdatascience.com",
+      "type": "news"
+    },
+    {
+      "title": "Huawei MateBook Fold 2026 Leak Reveals Kirin X9 and New Configs - Memeburn",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1kNjNaVjZsVmtUbzhzZ21MTUJLd1VfVjEwbjJFaTh5Rm8xelc2Tldoc1BGdDIwVi1WbWNVV0ZVa2hQakE5VWtmekJoZG5MVERlcFozZi1BT3hvSUNGUElfc3p3?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 07:11:39 GMT",
+      "source": "Memeburn",
+      "type": "news"
+    },
+    {
+      "title": "Airbnb Shares Architecture behind Sitar-Agent Dynamic Configuration Sidecar for Kubernetes Services - infoq.com",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1KZlBBZVl0S1BhbFpyVGJnSVE2QVdBM05Xb3NXM21vbmx2TDZIUlM2UUhESEtiS2p3djlKS2VkMGVkcFI4N3ZWemQxTjQtbXRyLThUTnNqUml6aTFBTjJ3UG1uWUFadlVPZjN5bkppNA?oc=5",
+      "publishedAt": "Wed, 08 Jul 2026 07:00:00 GMT",
+      "source": "infoq.com",
+      "type": "news"
+    },
+    {
+      "title": "Enhance the visibility of Amazon RDS instances and configuration with AWS Config and Amazon Quick Suite - Amazon Web Services (AWS)",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTG93RThUVEt3Y1JvUVJ4bkN5TEZUN093aUFKLXBjMDZIRHFueDJqTHNzanVXdVlsMzFZQ09oX2FNNGVETzJ2NmNMOTZ0SUdNWEtVNDV5cnZXczAzeFZPNDhhZGNmZGdTSFhHaWNiN0JxX3NmWmxLTTExV2k5cUtCLWVRbUFzOVFMdnd5UFNrNFZibGFSWVdGN19FOTZEemZPdWhiQXNFcFRWa200alB2V29qUlNpZE9uLUVmTjVtczlQeUtoOVp5M3dWY2h0V3BpQ1pXcjdUeWhCQQ?oc=5",
+      "publishedAt": "Tue, 27 Jan 2026 08:00:00 GMT",
+      "source": "Amazon Web Services (AWS)",
+      "type": "news"
+    },
+    {
+      "title": "Assess compliance and configuration of Kubernetes resources with AWS Config - Amazon Web Services (AWS)",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQWXZreUwxZmxXM2hlNmI1bS1sUmhLX1ktN1IzX1NGMjREblZLU2ctRW9aUGRrOENlT0luZGFoaHNEY2x2YlFiR2VuQlVfc0VPYzlWdU1FUktsMmlGbUlwdEtoRWgtMWhnbm5aaGFwLVVqb3YxWUtiOHpKLVFpcUZXMWFtWVV1WjdWTVFlY0h1YW40T1B0ZVpkQXRmT01NVm5LdkVucll3ajhFeU1a?oc=5",
+      "publishedAt": "Fri, 10 Oct 2025 07:00:00 GMT",
+      "source": "Amazon Web Services (AWS)",
+      "type": "news"
+    },
+    {
+      "title": "Figma to Host Investor and Analyst Session at Config 2026 - Business Wire",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNLVNpWFNiZWhlNlNCa3pmYXB0anBXdHk4NjNMVnU1S1lvRzJwcmFOM0ZSWmdud1B2Mmt2YWV4TVpEUmFrb1ZVcGJNX1hXbzYxX2RNdk1Xb1RuVnNhMkpiNS02blhhbjIzdGdMRVc4MWxiUThlbzJBaTFFZ1VtUTNWaFFVUWVsVUQxMEFlSnotWlVncU1iTVQwdWN6czlCNXNQclhOcjVJRm44aE5Nc0FYWEExSEE?oc=5",
+      "publishedAt": "Wed, 10 Jun 2026 07:00:00 GMT",
+      "source": "Business Wire",
+      "type": "news"
+    },
+    {
+      "title": "Industry Insights: Config, Lunar Outpost, Darkhive, WaiV Robotics, Linkerbot Funding - A3 Association for Advancing Automation",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbEI4el9rbDVtc1pmWVpjM2U2aHk5aC1ENTFESGM3OTB3V2lqOFNMVkVvSmlXeE1jV1p1SjZiNk5GUUpXT3V6VUZUZEVIa0hiVlZMZFh6RW5Tb2xXSmV3aktQTC1CRkkxckR3NXNnRm1Rekd3TFZtSlAyMDBPdnFDT1ZCMWIweE1LTDY3MkZiT1ZxdGNudFpjMzY2RktPRm9jOVBLM25DeUhmV294ZG81Unh4RGZfQQ?oc=5",
+      "publishedAt": "Wed, 13 May 2026 07:00:00 GMT",
+      "source": "A3 Association for Advancing Automation",
+      "type": "news"
+    },
+    {
+      "title": "Config 2026 Learning lab: Motion - Figma",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZVNDaWRBVHFDNVlGazM4b3hxaG45bXZNaUNxSWlQM3VKeC1QckRmOUd2a3ZNVnllRjF6V2tCd2NWc1kwcG5XeFdWQ0hPMmVFNE5MR01Ca3gtYlVfNHlSSUtlZHo3YVhLRlVoTzdJVWRMSlBQNF9INEdoTHkxSDQ5c2duT2xVZzRPZ0FKSUlNbzZGdw?oc=5",
+      "publishedAt": "Sat, 27 Jun 2026 14:06:08 GMT",
+      "source": "Figma",
+      "type": "news"
+    },
+    {
+      "title": "B-21 Raider to fly with two-pilot configuration - Air Force Times",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSmQwOXNxdlpzazU4bVg1bzRKczZiS2lYWGJxNkFGT0d0eEJKN3Q2MG9rR0NlUTNkTDF6WkloOG9LS3BmVnIwY2VFMG1KSHlfMDhwQlRTWXBLTHoxM1ZaNW1qb1JzSlp5Mk05OF9XclJqenAyN0ZlLXgzdGlCSWh3RGd5QWN3UGpWdWNRVUlPMkJ5NFNfWk5Fck1hRV9nczhzVHZoVzJWRFRCY0FGRVE?oc=5",
+      "publishedAt": "Fri, 10 Jul 2026 15:40:32 GMT",
+      "source": "Air Force Times",
+      "type": "news"
+    },
+    {
+      "title": "Smelly config files will make your agents waste tokens, researchers warn - The Register",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOQmk1SjQzZEVTSUZNTkNPbW5iSFNldHlCNWRxUlBIQkY5STktSmdjNUNDa1Jua2NYOVlJTHJIS2hzTUlxWlQ1dk1LS2dRdGMwQk9IUmx4aXNYTU5uRHZIdjZMYWlZanIyaF9EdmVCRFdzMDFnS2RVT0w3RkZLR1h1bVR1TGdnN1VLV1c4WmUwMEFGdW5GMGFySjJZb3Z2QUNrbFZuWWRQOVZGTEZvVzhqanpmR2UyUjVpenRPYWkxX3Ayem1VVWRr?oc=5",
+      "publishedAt": "Wed, 17 Jun 2026 07:00:00 GMT",
+      "source": "The Register",
+      "type": "news"
+    },
+    {
+      "title": "AI coding agents may be getting bad instructions from ‘smelly’ config files - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTG8wdkJjcjIwZGcxSlBKcUVyaDhFZlZBWFBwbkNKWHN3a2pVeGVIMTFuWE5wT3FocnpPckJlR1l4VDNtMi0wb2NHQnM0VWxLaTZISmMtejBjRVN4MFRFZUtFT1kxZXV0a281UXBMMzcxQXJfMzNiamRVQ1hPVGlUd09CQVd3WGxjLUFRem5IY25wbmczS25XTnlXU0Q0ZkNTVjdrYmJrbkdkTzA2N3B0Y0Vmd1NNUWFFSjlwOQ?oc=5",
+      "publishedAt": "Thu, 18 Jun 2026 07:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "What I've learned building an agent for Renovate config (as a cautious skeptic of AI) - HackerNoon",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMVNYM0c1QnpCQUgxVVVpWWJJVEpfQkFCWTFwU01ZakVfOU9xQTBVVFVIUGExRnNsUWdfTXI2TWNMV0RERUh4UTlOQ0h1MlZBN1c4cGRyQlZEalRtRG1wMDg1Zi0wRDQ4b0pzczcyNWpzNmpvVHJVMEJQTGVTeW5TYkZEcjZjbzZDbjBLTTJ4ODlqMHdHM3FjdlBrb1pFRXZhYTZUVzRKTVI?oc=5",
+      "publishedAt": "Fri, 23 Jan 2026 08:00:00 GMT",
+      "source": "HackerNoon",
+      "type": "news"
+    },
+    {
+      "title": "How GitHub Copilot enables zero DNS configuration for GitHub Pages - The GitHub Blog",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMFNpMnNqVDJZWDIySm1HWjdoUWxzcXp2Q3hWNU1oTVVsV0ZMOVpfUFkwb19xamhFV2JoWFpOU1FPcHRIbjIxNkpfdVJ5LUI5eGM4LTk1MzRaY0FnRTBqdm1ubXpSOEpxWkxhRTV5UFZFa1Q2SWVieGZndUZkRzBEa3pyakdCLWRFWHBiSWZSeTZlajZMLTNRdk5rQUowMGZtc2E3WFRFZDBaci05TG13WWVB?oc=5",
+      "publishedAt": "Wed, 08 Jul 2026 07:00:00 GMT",
+      "source": "The GitHub Blog",
+      "type": "news"
+    },
+    {
+      "title": "Uber Powers Cross Domain Config Validation With Neo4j Graph Intelligence - Neo4j",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE51UC1RYWVDOER5Sk10SG5WMGMzV0luV1VrbUZvazFWcF8yZTNtOVUwdXh2RU9lUU5JVlgxYk0zbG12WUhMdkNabWJLRjFTeUlNNUE?oc=5",
+      "publishedAt": "Tue, 18 Nov 2025 23:11:37 GMT",
+      "source": "Neo4j",
+      "type": "news"
+    },
+    {
+      "title": "OpenTelemetry Declarative Configuration Reaches Stability Milestone - infoq.com",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB6czhUYnZNWUlpNVFZRWowVWhfU0tkTlVMS1B1a3A4cTgwd2V2ZzVzU3NwVzlaLXJGZTdIdTNjSjhyTnVLN2NrSzdsdWdLZnI2MEhHZ19kMDk5NEk4SFZmX1ZjZkhNa1FTZExzU3c3TDBiWEZiY2RJ?oc=5",
+      "publishedAt": "Wed, 15 Apr 2026 07:00:00 GMT",
+      "source": "infoq.com",
+      "type": "news"
+    },
+    {
+      "title": "Introducing the Landing Zone Accelerator on AWS Universal Configuration and LZA Compliance Workbook - Amazon Web Services (AWS)",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQWUNMb2tnQXBIQWRkM3NMbk11bE9zRXo0d3dicUVUenJwMklSWXFJalhuclZaWkt4cmkxRDNuWS1ycVFpaG1ZX25BYnBhakNrN2k1YTJFcUZxSFdabzBzc1YyX1BGREhvV2x4RFE4bTRWeUE4anhmc3F0NGYyU1RqLS0yRGtIa01Ea0c4YmdXN1Byd1ktcWZibTBiN01MUW0yZDRsdkJ0RlJPVG5RLXdVVC1DMXNndVZOdXVLR2NBUEVCMFV2RGRmemU5ejBhNzFmWHRydw?oc=5",
+      "publishedAt": "Thu, 20 Nov 2025 08:00:00 GMT",
+      "source": "Amazon Web Services (AWS)",
+      "type": "news"
+    },
+    {
+      "title": "Cloud-init on Raspberry Pi OS - Raspberry Pi",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB0THdiVU8zZGYxdjA2RE5IX1M1R0JSb1RUaWFOckVGbHlVcjBDQWpiS1RkT0MzeUhSdEFLTUF1bzI4b2NtODk0cGppcUU3N0xVVEw0WmExUXhNX3kyODNKUkpvcHlkcTJEQ0hNWnVMYTM?oc=5",
+      "publishedAt": "Thu, 27 Nov 2025 08:00:00 GMT",
+      "source": "Raspberry Pi",
+      "type": "news"
+    },
+    {
+      "title": "Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs - The Hacker News",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1PWGM2MDZYbFd2SkJWa3RHT2pRWkdCaUNPTEVUV2tJcTBMbXFCSTNIMWtsZEttZE5EU2cwUEl1NlFwbTdFaExlR29RemNHRm5FbWlDWDR5X1lOMm16bkJZSlRnbW9DN0s0QlA1dzJ0VXlKZDFLSHNHZFdIclg?oc=5",
+      "publishedAt": "Fri, 26 Jun 2026 07:00:00 GMT",
+      "source": "The Hacker News",
+      "type": "news"
+    },
+    {
+      "title": "Figma Unveils AI Agents and Code-Native Design Tools at Config 2026 - analyticsindiamag.com",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOHVwVDFRYVJtbzg2T2Z0ZVVZanN4RVZFaUI5R3VXZnJEdmlHYk9zYWpGbnVBTVZTbk15TjVXZ0lKUXlVOEFsTTFlSHR3cEF0NU92NnJJRjlnbThvQ2J1UVRlOWVmM1o5aUFHUUdIUFJ5V29haDh0aG9WTDRqc2dka0Uxd2o3ZXBFYzRjb29sNXRFM2kxV3MxNEsza1dCN1JkRC1lV0FQUjA?oc=5",
+      "publishedAt": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "source": "analyticsindiamag.com",
+      "type": "news"
+    },
+    {
+      "title": "VS Code tasks config file abused to run malicious code - DevClass",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcllMR21FLTFVMGFLU2NMbnJINk5DNWJlNEFFOGgtVDF0aXJrWHpxR2k4cVZDd1RZYUp6U1V0SjF4blRDbkRsX0NMYTZOVDVCWWt6amJzUlNtRUZsc2RCbmtHc3VlYlNRMUZrWFV5RVFfY3ZSX25GRTJWYVdvQ1o2QURMNk9VTmd5VXhJNWVRaDlzczlNbE9yQWxiTkVuTmV1dC11WkNpSjhJY1B1enNN?oc=5",
+      "publishedAt": "Thu, 22 Jan 2026 08:00:00 GMT",
+      "source": "DevClass",
+      "type": "news"
+    },
+    {
+      "title": "Arctic Wolf Observes Malicious Configuration Changes On Fortinet FortiGate Devices via SSO Accounts - Arctic Wolf",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQQzZ4Q3h6V1Z6aG9WbHowcW5hLTVral84cVpnWk9ldlNKOFJzaEVpa19LUGF1cUxVUUMyeUM1cGVXcnZWMkNnamt2OVBFWjRDYVNROEU5WDVScXB1aWJvM2k0QW9NaFJHLXNqNVdFaXBoT2ozd1FmZ3hWN0FybHBudDR4QWJtU001NDZraTVEMlAzdEVScXhCTUQ1WGwzWG1tcmJvX0JfcmEtSEpmeEFlV2oyNTJVNmFWU0dnVWJicHBYdFhtSVBmZVZiRTlSVGFM?oc=5",
+      "publishedAt": "Wed, 21 Jan 2026 08:00:00 GMT",
+      "source": "Arctic Wolf",
+      "type": "news"
+    },
+    {
+      "title": "Copilot code review: New configurations and controls - The GitHub Blog",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQam9NSy1ZQ05qdWtkbjVQX2pQNWh4SnFrMlN2TVdHNC1hQ2t3b3dDZVg2Y01seHdNU1FUajNKdmpoLWZwMG5fLUNqcHZwZXZYMnk0WEw4OWVSNlFwWlFVc1QyeXlUNVhLNzVFNG1KLWJkUDVmemZ3ckt3M1lKMVRPMWI2Uy0xMGVrMmtCellfZFFqSTk1VFNtZg?oc=5",
+      "publishedAt": "Fri, 12 Jun 2026 07:00:00 GMT",
+      "source": "The GitHub Blog",
+      "type": "news"
+    },
+    {
+      "title": "Everything Claude Code hits 118K stars: is this the missing config layer for AI coding agents? - Augment Code",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE82WFBTSzhqWXJGa0QtajlFYlo1LUp3SlhpME9PMnVMOEI3QWhoM21oZnplZ3N6NHBnajliOWx5MmZsMk5OMWw4N04zek50OW5Yd1VaZTVfWFRuLS1LWWRFVVdfR2Fwc0VySS1nOTYtLXJoS1k4R1E?oc=5",
+      "publishedAt": "Mon, 30 Mar 2026 07:00:00 GMT",
+      "source": "Augment Code",
+      "type": "news"
+    },
+    {
+      "title": "Sophos Firewall Configuration Viewer - Sophos",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZEpDT2toTGhhQTNIN3VzLVdsOVRGSDVvVW01WlZYQ2Z1aXpCZnBzSEZma0VJY01abk8zUm80MzFBX3FKSlM0ZFh6YjhVOE5GNlhuSnBMWVI0S3d1bGwwY3owdF9yVGZwT0N4NFQzX2lVYWU0VnoxeFdrTHV3SFRuVFpXamc?oc=5",
+      "publishedAt": "Thu, 12 Feb 2026 08:00:00 GMT",
+      "source": "Sophos",
+      "type": "news"
+    },
+    {
+      "title": "AMD Adrenalin Edition 2026 Setup: 12-Step Install & Config - tech-insider.org",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBuRDZqRHZObV8zNXlJbU5hRWRMQVgySmdwWUhLR0dVeTFLbC1OMXc3bjUxZUQ2UFRYLUxUUTNLaXN3eHlBUVpPZVRiRWtzVlpmTEJEd3B4dnJOTVVVMFZhRVdFVmw5dzVZa0t4TFJydUloNGxDQUlScHFB?oc=5",
+      "publishedAt": "Mon, 22 Jun 2026 07:00:00 GMT",
+      "source": "tech-insider.org",
+      "type": "news"
+    },
+    {
+      "title": "Git 2.54 Introduces Simpler History Editing and Config-Based Hooks - HackerNoon",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9TLUdQbjhoNnJTU01LdUpMYVVyNFlQLTRqQVBqc0hDOE1LLU5VN09SMGpSZjMtUkZYWWlvZU1PQS1oeEcwODg3SEtkRWhMUVZidWE4VmpyYXJBSEU?oc=5",
+      "publishedAt": "Tue, 05 May 2026 07:00:00 GMT",
+      "source": "HackerNoon",
+      "type": "news"
+    },
+    {
+      "title": "Configuration of circum-Antarctic circulation at the last green- to icehouse climate transition - PNAS",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBuZk02ckdhRUtvdGh2M1pwM19tcXdUenFiSFhHTFdiN2lHVG1yVlV1ZmREVHcyRHIwMzN1eUFVN1liVmRCak1OMGtxWnEwWDJWdVl1bGo5Q1c2SFVq?oc=5",
+      "publishedAt": "Mon, 06 Apr 2026 21:49:23 GMT",
+      "source": "PNAS",
+      "type": "news"
+    },
+    {
+      "title": "This tiling window manager won me over by not being a config nightmare - MakeUseOf",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdVF3Y3N5YWFVMFh5VzJpU3E4ZTBoYU5jakQ5bDdZeDNXMGpUTzY0bDhFMzliZTR1OTRZRF9GRHVMRkl3ZkE3UnNJVTRsNW5VTmdJM2NhblFLXzVnT1pNWEt3dW4wSG8xWmZQSVhwbUtLVEp4VGhsUlFoa0wtWF9IX09fRDFScFFCQUNJZlFNeU5IUmJYdTgw?oc=5",
+      "publishedAt": "Thu, 23 Apr 2026 07:00:00 GMT",
+      "source": "MakeUseOf",
+      "type": "news"
+    },
+    {
+      "title": "Highlights from Git 2.54 - The GitHub Blog",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9CaXlaVTNvU3FSUG1XZGF1UVFwcXE3QWduSG1lZnZqQnNKVkxEU2wtbkJKLWJ4cHNheU13dVBSV09wMWZNMWd5WjRwZmZDdHlaekNOMEh3MUpGTmpKN2docjlnWkZJNVJEY0pYY0VB?oc=5",
+      "publishedAt": "Mon, 20 Apr 2026 07:00:00 GMT",
+      "source": "The GitHub Blog",
+      "type": "news"
+    },
+    {
+      "title": "Steam Machine buyers will receive different RAM configurations, Valve confirms - TweakTown",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPTkpRblNaWHFBOEpjTlcxeGxFZjhyNG5YNFVhdVowTk9oMEJLMWVGMzNGZ081bEZSaVlRQ1VjUks0TG1rOXhjaVpNV3BpTllsbmFSYzFXcTVEb3V5N3ZDN3p3emJVd0RLekpMbHg4ZEM1LUFnNDNKSHhiNVdXMjlmdTByc21OdXE3NnluRVhwQlc0c1dXSXRhYXJhZFg1anV0UjlMcG5Db0dJZjJnRVA0alJ4UnhYbnNfSFJnYzNJYmRTaHdn?oc=5",
+      "publishedAt": "Tue, 23 Jun 2026 07:00:00 GMT",
+      "source": "TweakTown",
+      "type": "news"
+    }
+  ]
+}
