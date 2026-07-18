@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Toolkit — Upgrade Roadmap</title>
+    <style>
+        :root {
+            --bg: #0f0f1a; --bg2: #1a1a2e; --bg3: #16213e;
+            --text: #e0e0e0; --text2: #a0a0a0; --text3: #707070;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --green: #66bb6a; --red: #ef5350;
+            --yellow: #ffd54f; --purple: #ce93d8; --orange: #ffb74d;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.6; padding: 40px 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; padding: 40px 0 30px; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
+        header h1 { font-size: 2.4em; color: var(--accent); margin-bottom: 8px; letter-spacing: -0.5px; }
+        header .subtitle { color: var(--text2); font-size: 1.1em; }
+        header .date { color: var(--text3); font-size: 0.9em; margin-top: 8px; }
+        h2 { color: var(--accent); font-size: 1.5em; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+        h3 { color: var(--text); font-size: 1.15em; margin: 25px 0 12px; }
+        .phase-badge {
+            display: inline-block; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.75em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .phase-1 { background: var(--accent); color: #000; }
+        .phase-2 { background: var(--purple); color: #000; }
+        .phase-done { background: var(--green); color: #000; }
+        .task {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 16px 20px; margin: 12px 0; transition: border-color 0.2s;
+        }
+        .task:hover { border-color: var(--accent); }
+        .task-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .task-id {
+            background: var(--bg3); color: var(--accent); font-weight: 700;
+            padding: 2px 10px; border-radius: 6px; font-size: 0.85em; font-family: monospace;
+            flex-shrink: 0;
+        }
+        .task-title { font-weight: 600; font-size: 1.05em; }
+        .task-desc { color: var(--text2); font-size: 0.92em; margin-top: 4px; }
+        .task-files {
+            display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;
+        }
+        .file-tag {
+            background: var(--bg3); color: var(--text2); padding: 2px 8px;
+            border-radius: 4px; font-size: 0.8em; font-family: monospace;
+        }
+        .pipeline {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; margin: 20px 0;
+        }
+        .pipeline-title { color: var(--accent); font-weight: 700; margin-bottom: 16px; font-size: 1.1em; }
+        .pipeline-steps { display: flex; flex-direction: column; gap: 0; }
+        .pipeline-step {
+            display: flex; align-items: center; gap: 14px; padding: 10px 0;
+            border-left: 3px solid var(--border); margin-left: 14px; padding-left: 20px;
+            position: relative;
+        }
+        .pipeline-step::before {
+            content: ''; position: absolute; left: -8px; top: 50%; transform: translateY(-50%);
+            width: 12px; height: 12px; border-radius: 50%; background: var(--border);
+        }
+        .pipeline-step.active::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .pipeline-step.done::before { background: var(--green); }
+        .pipeline-step.new::before { background: var(--yellow); }
+        .step-num { color: var(--text3); font-size: 0.85em; font-family: monospace; min-width: 24px; }
+        .step-label { font-size: 0.95em; }
+        .step-tag {
+            font-size: 0.7em; padding: 1px 6px; border-radius: 4px;
+            font-weight: 700; text-transform: uppercase;
+        }
+        .tag-existing { background: var(--bg3); color: var(--text3); }
+        .tag-new { background: rgba(255, 213, 79, 0.2); color: var(--yellow); }
+        .tag-puppeteer { background: rgba(206, 147, 216, 0.2); color: var(--purple); }
+        .comparison {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;
+        }
+        @media (max-width: 700px) { .comparison { grid-template-columns: 1fr; } }
+        .comparison-card {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+            padding: 20px;
+        }
+        .comparison-card h4 { margin-bottom: 12px; font-size: 1em; }
+        .comparison-card.before h4 { color: var(--red); }
+        .comparison-card.after h4 { color: var(--green); }
+        .comparison-card ul { list-style: none; }
+        .comparison-card li { padding: 4px 0; font-size: 0.9em; color: var(--text2); }
+        .comparison-card li::before { margin-right: 8px; }
+        .comparison-card.before li::before { content: '✕'; color: var(--red); }
+        .comparison-card.after li::before { content: '✓'; color: var(--green); }
+        .completed-list { margin: 20px 0; }
+        .completed-item {
+            display: flex; align-items: center; gap: 12px; padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .completed-item .check { color: var(--green); font-size: 1.2em; flex-shrink: 0; }
+        .completed-item .text { font-size: 0.95em; }
+        .summary-box {
+            background: linear-gradient(135deg, var(--accent2), var(--bg3));
+            border: 1px solid var(--accent); border-radius: 12px;
+            padding: 24px; margin: 30px 0; text-align: center;
+        }
+        .summary-box h3 { color: var(--accent); margin-bottom: 12px; }
+        .summary-box p { color: var(--text2); font-size: 0.95em; }
+        .stat-row { display: flex; justify-content: center; gap: 30px; margin-top: 16px; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-item .num { font-size: 1.8em; font-weight: 700; color: var(--accent); }
+        .stat-item .lbl { font-size: 0.8em; color: var(--text3); }
+        footer { text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Research Toolkit</h1>
+            <div class="subtitle">Upgrade Roadmap — From Scraper to Product</div>
+            <div class="date">July 2026</div>
+        </header>
+
+        <!-- Executive Summary -->
+        <div class="summary-box">
+            <h3>What This Roadmap Covers</h3>
+            <p>Transforming a working but fragile research scraper into a polished, reliable, user-friendly web application. Two phases: real-time observability, then full browser-based scraping.</p>
+            <div class="stat-row">
+                <div class="stat-item"><div class="num">14</div><div class="lbl">Upgrades Done</div></div>
+                <div class="stat-item"><div class="num">2</div><div class="lbl">Phases Planned</div></div>
+                <div class="stat-item"><div class="num">13</div><div class="lbl">Tasks Remaining</div></div>
+                <div class="stat-item"><div class="num">0</div><div class="lbl">API Keys Needed</div></div>
+            </div>
+        </div>
+
+        <!-- What's Already Done -->
+        <h2>Completed Upgrades (14/14)</h2>
+        <p style="color:var(--text2); margin-bottom: 16px;">These improvements are already implemented and tested.</p>
+        <div class="completed-list">
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#1</strong> — Dead code integrated as fallbacks (Reddit Direct, Web Search)</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#2</strong> — Centralized sentiment analysis in <code>utils/sentiment.js</code></span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#3</strong> — YouTube: yt-dlp primary, HTML regex fallback</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#4</strong> — Rate limiter: exponential backoff + jitter + escalation</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#5</strong> — <code>retryRequest()</code> for transient errors (ECONNRESET, 5xx)</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#6</strong> — Removed unused <code>marked</code> dependency</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#7</strong> — Reddit: 3-tier fallback (Arctic → PullPush → Reddit Direct)</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#8</strong> — File-based caching with 24h TTL</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#9</strong> — Fixed deprecated <code>page.waitForTimeout</code></span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#10</strong> — Timestamped report filenames (no collisions)</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#11</strong> — Graceful shutdown (SIGTERM/SIGINT handlers)</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#12</strong> — Magic numbers moved to <code>config.RESEARCH</code></span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#13</strong> — (Tests deferred)</span></div>
+            <div class="completed-item"><span class="check">✓</span><span class="text"><strong>#14</strong> — Renamed <code>pdfGenerator.js</code> → <code>reportGenerator.js</code></span></div>
+        </div>
+
+        <!-- Phase 1 -->
+        <h2><span class="phase-badge phase-1">Phase 1</span> Live Log Panel + Retry Fix</h2>
+        <p style="color:var(--text2); margin-bottom: 16px;">Real-time observability — see exactly what's happening during research.</p>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1a</span>
+                <span class="task-title">WebSocket Log Helper</span>
+            </div>
+            <div class="task-desc">Add <code>log(level, msg)</code> function to server.js that broadcasts timestamped log events via WebSocket. Levels: info, success, warn, error.</div>
+            <div class="task-files"><span class="file-tag">server.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1b</span>
+                <span class="task-title">Reddit Logging</span>
+            </div>
+            <div class="task-desc">Accept <code>onLog</code> callback in <code>scrapeAll()</code>. Log source switches, rate limits, retries, per-subreddit results.</div>
+            <div class="task-files"><span class="file-tag">redditBulk.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1c</span>
+                <span class="task-title">YouTube Logging</span>
+            </div>
+            <div class="task-desc">Accept <code>onLog</code> callback in <code>discover()</code>. Log yt-dlp availability, each query, video counts.</div>
+            <div class="task-files"><span class="file-tag">youtubeSearch.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1d</span>
+                <span class="task-title">Web Search Logging</span>
+            </div>
+            <div class="task-desc">Accept <code>onLog</code> callback in <code>search()</code>. Log DuckDuckGo/Brave attempts and result counts.</div>
+            <div class="task-files"><span class="file-tag">webSearch.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1e</span>
+                <span class="task-title">News Logging</span>
+            </div>
+            <div class="task-desc">Accept <code>onLog</code> callback in <code>search()</code>. Log GNews/RSS provider attempts and result counts.</div>
+            <div class="task-files"><span class="file-tag">newsApi.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1f</span>
+                <span class="task-title">Terminal Log Panel (Web UI)</span>
+            </div>
+            <div class="task-desc">Dark monospace scrolling log panel in web UI. Auto-scroll, color-coded by level, max 200 lines, clear button. Handles <code>{ type: 'log' }</code> WebSocket events.</div>
+            <div class="task-files"><span class="file-tag">index.html</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">1g</span>
+                <span class="task-title">Fix Retry Stacking Bug</span>
+            </div>
+            <div class="task-desc">Remove <code>limiter.backoff()</code> from outer catch in <code>scrapeAll()</code>. <code>retryRequest()</code> already handles retries — outer catch should only switch sources, not double-retry.</div>
+            <div class="task-files"><span class="file-tag">redditBulk.js</span></div>
+        </div>
+
+        <!-- Pipeline After Phase 1 -->
+        <div class="pipeline">
+            <div class="pipeline-title">Research Pipeline After Phase 1</div>
+            <div class="pipeline-steps">
+                <div class="pipeline-step done"><span class="step-num">1</span><span class="step-label">Discover subreddits</span></div>
+                <div class="pipeline-step done"><span class="step-num">2</span><span class="step-label">News articles (GNews / RSS)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step done"><span class="step-num">3</span><span class="step-label">Web results (DuckDuckGo + Brave)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step done"><span class="step-num">4</span><span class="step-label">Reddit posts (Arctic → PullPush → Reddit Direct)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step done"><span class="step-num">5</span><span class="step-label">YouTube videos (yt-dlp / HTML regex)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step done"><span class="step-num">6</span><span class="step-label">Generate report</span></div>
+                <div class="pipeline-step active"><span class="step-num">+</span><span class="step-label">Live terminal log throughout all steps</span><span class="step-tag tag-new">NEW</span></div>
+            </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <h2><span class="phase-badge phase-2">Phase 2</span> Puppeteer in Research Pipeline</h2>
+        <p style="color:var(--text2); margin-bottom: 16px;">Full browser-based scraping with visible window. Puppeteer as fallback when APIs/HTTP fail.</p>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">2a</span>
+                <span class="task-title">Puppeteer Config Section</span>
+            </div>
+            <div class="task-desc">Add <code>PUPPETEER</code> config: headless (default true), windowWidth (400), windowHeight (300), timeout (15s).</div>
+            <div class="task-files"><span class="file-tag">config.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">2b</span>
+                <span class="task-title">Browser Scraper: Headless Options</span>
+            </div>
+            <div class="task-desc">Accept <code>headless</code>, <code>windowWidth</code>, <code>windowHeight</code> in constructor. Add <code>isDisplayAvailable()</code> check. Auto-fallback to headless if no display.</div>
+            <div class="task-files"><span class="file-tag">browserScraper.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">2c</span>
+                <span class="task-title">Reddit Puppeteer Fallback</span>
+            </div>
+            <div class="task-desc">After all 3 API sources exhausted → Puppeteer scrapes Reddit <code>.json</code> endpoints directly. Visible browser shows Reddit pages loading.</div>
+            <div class="task-files"><span class="file-tag">redditBulk.js</span><span class="file-tag">browserScraper.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">2d</span>
+                <span class="task-title">YouTube Puppeteer Fallback</span>
+            </div>
+            <div class="task-desc">After yt-dlp + HTML regex fail → Puppeteer renders YouTube search. Extract video data from rendered DOM. Visible browser shows results.</div>
+            <div class="task-files"><span class="file-tag">youtubeSearch.js</span><span class="file-tag">browserScraper.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">2e</span>
+                <span class="task-title">Web Search Puppeteer Fallback</span>
+            </div>
+            <div class="task-desc">After DuckDuckGo HTML fails → Puppeteer renders search engine. Visible browser shows search results loading.</div>
+            <div class="task-files"><span class="file-tag">webSearch.js</span><span class="file-tag">browserScraper.js</span></div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <span class="task-id">2f</span>
+                <span class="task-title">Wire It Together</span>
+            </div>
+            <div class="task-desc">Pass Puppeteer config to all scrapers in server.js. Log browser launch/navigation events. Web UI shows "🖥 Browser opened" events.</div>
+            <div class="task-files"><span class="file-tag">server.js</span></div>
+        </div>
+
+        <!-- Pipeline After Phase 2 -->
+        <div class="pipeline">
+            <div class="pipeline-title">Research Pipeline After Phase 2</div>
+            <div class="pipeline-steps">
+                <div class="pipeline-step done"><span class="step-num">1</span><span class="step-label">Discover subreddits</span></div>
+                <div class="pipeline-step done"><span class="step-num">2</span><span class="step-label">News articles (GNews / RSS)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step done"><span class="step-num">3</span><span class="step-label">Web results (DuckDuckGo + Brave)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step new"><span class="step-num">3b</span><span class="step-label">Web results Puppeteer fallback</span><span class="step-tag tag-puppeteer">PUPPETEER</span></div>
+                <div class="pipeline-step done"><span class="step-num">4</span><span class="step-label">Reddit posts (Arctic → PullPush → Reddit Direct)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step new"><span class="step-num">4b</span><span class="step-label">Reddit Puppeteer fallback</span><span class="step-tag tag-puppeteer">PUPPETEER</span></div>
+                <div class="pipeline-step done"><span class="step-num">5</span><span class="step-label">YouTube videos (yt-dlp / HTML regex)</span><span class="step-tag tag-existing">cached</span></div>
+                <div class="pipeline-step new"><span class="step-num">5b</span><span class="step-label">YouTube Puppeteer fallback</span><span class="step-tag tag-puppeteer">PUPPETEER</span></div>
+                <div class="pipeline-step done"><span class="step-num">6</span><span class="step-label">Generate report</span></div>
+                <div class="pipeline-step active"><span class="step-num">+</span><span class="step-label">Live terminal log + visible browser window</span><span class="step-tag tag-new">NEW</span></div>
+            </div>
+        </div>
+
+        <!-- Before vs After -->
+        <h2>Before vs After</h2>
+        <div class="comparison">
+            <div class="comparison-card before">
+                <h4>Before (Original)</h4>
+                <ul>
+                    <li>Progress bars only — no detail</li>
+                    <li>Hidden headless browser</li>
+                    <li>Flat 2s sleep on errors</li>
+                    <li>One failed source = total loss</li>
+                    <li>Duplicate sentiment in 3 files</li>
+                    <li>Dead code never used</li>
+                    <li>YouTube: single HTML regex approach</li>
+                    <li>No caching — re-scrapes everything</li>
+                    <li>Report names collide</li>
+                    <li>No graceful shutdown</li>
+                    <li>Magic numbers in 4+ files</li>
+                </ul>
+            </div>
+            <div class="comparison-card after">
+                <h4>After (All Phases)</h4>
+                <ul>
+                    <li>Live terminal log — every action visible</li>
+                    <li>Visible browser window (400×300)</li>
+                    <li>Exponential backoff + jitter + retry</li>
+                    <li>3-tier fallback + Puppeteer fallback</li>
+                    <li>Centralized sentiment analysis</li>
+                    <li>All dead code integrated as fallbacks</li>
+                    <li>YouTube: yt-dlp + HTML + Puppeteer</li>
+                    <li>24h file-based caching</li>
+                    <li>Timestamped filenames</li>
+                    <li>SIGTERM/SIGINT handlers</li>
+                    <li>All config in config.js</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Web App -->
+        <h2>Web Application</h2>
+        <div class="pipeline">
+            <div class="pipeline-title">How Users Run It</div>
+            <div style="color:var(--text2); font-size: 0.95em;">
+                <p style="margin-bottom: 12px;">The project is already a self-contained web application. No cloud, no API keys, no cost.</p>
+                <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:16px; font-family:monospace; font-size:0.9em; color:var(--green); margin:12px 0;">
+                    <div>$ git clone &lt;repo&gt;</div>
+                    <div>$ cd research-toolkit</div>
+                    <div>$ npm install</div>
+                    <div>$ npm run web</div>
+                    <div style="color:var(--text3);"># opens http://localhost:3000</div>
+                </div>
+                <p>The web UI includes: topic input, depth slider, Reddit/YouTube toggles, real-time progress, report viewer, and history.</p>
+            </div>
+        </div>
+
+        <footer>
+            Research Toolkit Upgrade Roadmap — July 2026
+        </footer>
+    </div>
+</body>
+</html>
