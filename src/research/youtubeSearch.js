@@ -37,9 +37,6 @@ class YouTubeDiscovery {
 
     const queries = [
       topic,
-      `${topic} problems`,
-      `${topic} solutions`,
-      `${topic} discussion`,
       `${topic} review`,
     ];
 
