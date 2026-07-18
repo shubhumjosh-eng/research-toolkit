@@ -1,22 +1,16 @@
 const React = require('react');
 const { Box, Text } = require('ink');
 
-function Header({ config }) {
-  return React.createElement(Box, { flexDirection: 'column', marginBottom: 1 },
-    React.createElement(Text, { bold: true, color: 'cyan' },
-      '╭──────────────────────────────────────╮'
-    ),
-    React.createElement(Text, { bold: true, color: 'cyan' },
-      '│  Research Toolkit v2.0               │'
-    ),
-    React.createElement(Text, { dimColor: true },
-      '│  General-purpose deep research       │'
-    ),
-    React.createElement(Text, { dimColor: true },
-      `│  Depth: ${String(config.depth || 500).padEnd(4)} | Report: ${(config.reportFormat || 'both').padEnd(14)}│`
-    ),
-    React.createElement(Text, { bold: true, color: 'cyan' },
-      '╰──────────────────────────────────────╯'
+function Header({ config, session }) {
+  const reportFormat = config?.reportFormat || 'both';
+  const depth = config?.depth || 500;
+  const sessionInfo = session ? `Session: ${session.id}` : 'New session';
+
+  return React.createElement(Box, { flexDirection: 'column', marginBottom: 1, borderStyle: 'round', borderColor: 'cyan', padding: 1 },
+    React.createElement(Text, { bold: true, color: 'cyan' }, ' Research Toolkit v3.0'),
+    React.createElement(Text, { dimColor: true }, ' Deep research across 8 platforms — no API keys needed'),
+    React.createElement(Text, null,
+      ` Depth: ${depth} | Report: ${reportFormat} | ${sessionInfo}`
     ),
   );
 }
