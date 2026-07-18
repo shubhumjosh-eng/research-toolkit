@@ -7,13 +7,22 @@ function ResultsView({ results, logs, onNewTopic }) {
   }
 
   const meta = results.metadata || {};
-  const reportFormat = require('../configStore').get('reportFormat');
+
+  const sourceStatus = (name, count, max) => {
+    if (count === 0) return React.createElement(Text, { color: 'red' }, `  ✕ ${name}: 0 results`);
+    if (count >= (max || 10)) return React.createElement(Text, { color: 'green' }, `  ✓ ${name}: ${count} results`);
+    return React.createElement(Text, { color: 'yellow' }, `  ⚠ ${name}: ${count} results (partial)`);
+  };
 
   return React.createElement(Box, { flexDirection: 'column' },
     React.createElement(Text, { bold: true, color: 'cyan' }, '━━━━━━ Results ━━━━━━'),
-    React.createElement(Box, { marginTop: 0, marginBottom: 1 },
+    React.createElement(Box, { flexDirection: 'column', marginBottom: 1 },
+      sourceStatus('Reddit', meta.redditPosts || 0, 50),
+      sourceStatus('YouTube', meta.youtubeVideos || 0, 30),
+      sourceStatus('News', meta.newsArticles || 0, 10),
+      sourceStatus('Web Search', meta.webSearchResults || 0, 10),
       React.createElement(Text, null,
-        ` 📊 ${(meta.redditPosts || 0)} posts · ${(meta.totalComments || 0)} comments · ${(meta.youtubeVideos || 0)} videos · ${(meta.newsArticles || 0)} news · ${(meta.webSearchResults || 0)} web`
+        ` 📊 ${meta.redditPosts || 0} posts · ${meta.totalComments || 0} comments · ${meta.youtubeVideos || 0} videos · ${meta.newsArticles || 0} news · ${meta.webSearchResults || 0} web`
       ),
     ),
 
@@ -43,9 +52,6 @@ function ResultsView({ results, logs, onNewTopic }) {
     // YouTube videos
     results.youtube && results.youtube.length > 0 && React.createElement(Box, { flexDirection: 'column', marginBottom: 1 },
       React.createElement(Text, { bold: true, color: 'red' }, ' 📺 YouTube'),
-      React.createElement(Text, null,
-        ` ${results.youtube.length} videos found`
-      ),
       ...results.youtube.slice(0, 3).map((video, i) =>
         React.createElement(Text, { key: i, dimColor: true },
           ` ${i + 1}. ${(video.title || '').substring(0, 65)}`
