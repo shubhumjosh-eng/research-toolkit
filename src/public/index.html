@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Toolkit</title>
+    <style>
+        :root {
+            --bg: #0f0f1a; --bg2: #1a1a2e; --bg3: #16213e;
+            --text: #e0e0e0; --text2: #a0a0a0; --text3: #707070;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --green: #66bb6a; --red: #ef5350;
+            --yellow: #ffd54f; --purple: #ce93d8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+        header h1 { font-size: 2em; color: var(--accent); margin-bottom: 5px; }
+        header p { color: var(--text2); }
+        .main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+        .panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .panel h2 { color: var(--accent); font-size: 1.1em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+        label { display: block; color: var(--text2); font-size: 0.9em; margin-bottom: 5px; margin-top: 12px; }
+        input[type="text"], select { width: 100%; padding: 10px 14px; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1em; }
+        input[type="text"]:focus, select:focus { outline: none; border-color: var(--accent); }
+        .slider-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+        input[type="range"] { flex: 1; accent-color: var(--accent); }
+        .slider-val { color: var(--accent); font-weight: bold; min-width: 50px; }
+        .options { display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap; }
+        .options label { display: flex; align-items: center; gap: 6px; cursor: pointer; margin: 0; }
+        .options input[type="checkbox"] { accent-color: var(--accent); }
+        .btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 1em; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-primary { background: var(--accent); color: #000; width: 100%; margin-top: 20px; }
+        .btn-primary:hover { background: #81d4fa; }
+        .btn-primary:disabled { background: var(--border); color: var(--text3); cursor: not-allowed; }
+        .btn-secondary { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--accent); }
+        .progress-area { margin-top: 15px; }
+        .progress-step { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+        .progress-step:last-child { border: none; }
+        .step-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em; flex-shrink: 0; }
+        .step-icon.pending { background: var(--bg3); color: var(--text3); }
+        .step-icon.active { background: var(--accent); color: #000; animation: pulse 1s infinite; }
+        .step-icon.done { background: var(--green); color: #000; }
+        .step-icon.error { background: var(--red); color: #fff; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+        .step-info { flex: 1; }
+        .step-name { font-size: 0.9em; }
+        .step-detail { font-size: 0.8em; color: var(--text3); }
+        .progress-bar-container { height: 6px; background: var(--bg3); border-radius: 3px; margin-top: 5px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s; }
+        .report-frame { width: 100%; height: 500px; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+        .report-placeholder { display: flex; align-items: center; justify-content: center; height: 500px; color: var(--text3); font-size: 1.1em; border: 1px dashed var(--border); border-radius: 8px; }
+        .history-item { padding: 8px 12px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+        .history-item:hover { background: var(--bg3); }
+        .history-item .name { font-size: 0.9em; color: var(--text); }
+        .history-item .time { font-size: 0.75em; color: var(--text3); }
+        .empty-state { color: var(--text3); text-align: center; padding: 30px; font-size: 0.9em; }
+        .stats-row { display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap; }
+        .stat { text-align: center; flex: 1; }
+        .stat .num { font-size: 1.5em; font-weight: bold; color: var(--accent); }
+        .stat .lbl { font-size: 0.75em; color: var(--text3); }
+        .hidden { display: none; }
+        .log-panel { margin-top: 20px; }
+        .log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+        .log-header h2 { margin: 0; border: none; padding: 0; }
+        .log-clear { background: none; border: 1px solid var(--border); color: var(--text3); padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 0.8em; transition: all 0.2s; }
+        .log-clear:hover { border-color: var(--accent); color: var(--accent); }
+        .log-terminal {
+            background: #0a0a12; border: 1px solid var(--border); border-radius: 8px;
+            padding: 12px; height: 250px; overflow-y: auto; font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
+            font-size: 0.82em; line-height: 1.5;
+            scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+        }
+        .log-terminal::-webkit-scrollbar { width: 6px; }
+        .log-terminal::-webkit-scrollbar-track { background: transparent; }
+        .log-terminal::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .log-line { display: flex; gap: 10px; padding: 1px 0; }
+        .log-time { color: var(--text3); flex-shrink: 0; }
+        .log-icon { flex-shrink: 0; width: 16px; text-align: center; }
+        .log-msg { color: var(--text2); }
+        .log-line.info .log-icon { color: var(--accent); }
+        .log-line.info .log-msg { color: var(--text2); }
+        .log-line.success .log-icon { color: var(--green); }
+        .log-line.success .log-msg { color: var(--green); }
+        .log-line.warn .log-icon { color: var(--yellow); }
+        .log-line.warn .log-msg { color: var(--yellow); }
+        .log-line.error .log-icon { color: var(--red); }
+        .log-line.error .log-msg { color: var(--red); }
+        .log-empty { color: var(--text3); text-align: center; padding: 40px; font-family: monospace; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Research Toolkit</h1>
+            <p>Free deep research — Reddit, YouTube, News — zero API keys</p>
+        </header>
+
+        <div class="main">
+            <div>
+                <div class="panel">
+                    <h2>New Research</h2>
+                    <label>Topic</label>
+                    <input type="text" id="topic" placeholder="e.g. AI startup ideas, remote work challenges..." autofocus>
+
+                    <label>Depth</label>
+                    <div class="slider-row">
+                        <input type="range" id="depth" min="100" max="2000" step="100" value="500">
+                        <span class="slider-val" id="depthVal">500</span>
+                    </div>
+
+                    <div class="options">
+                        <label><input type="checkbox" id="redditOnly"> Reddit only</label>
+                        <label><input type="checkbox" id="youtubeOnly"> YouTube only</label>
+                    </div>
+
+                    <button class="btn btn-primary" id="startBtn" onclick="startResearch()">Start Research</button>
+                </div>
+
+                <div class="panel" style="margin-top:20px;">
+                    <h2>Progress</h2>
+                    <div class="progress-area" id="progressArea">
+                        <div class="empty-state">Enter a topic and click Start</div>
+                    </div>
+                    <div class="stats-row hidden" id="statsRow">
+                        <div class="stat"><div class="num" id="statReddit">0</div><div class="lbl">Reddit</div></div>
+                        <div class="stat"><div class="num" id="statComments">0</div><div class="lbl">Comments</div></div>
+                        <div class="stat"><div class="num" id="statNews">0</div><div class="lbl">News</div></div>
+                        <div class="stat"><div class="num" id="statWeb">0</div><div class="lbl">Web</div></div>
+                        <div class="stat"><div class="num" id="statYoutube">0</div><div class="lbl">Videos</div></div>
+                    </div>
+                </div>
+
+                <div class="panel" style="margin-top:20px;">
+                    <h2>History</h2>
+                    <div id="historyList"><div class="empty-state">No reports yet</div></div>
+                </div>
+
+                <div class="panel log-panel">
+                    <div class="log-header">
+                        <h2>Live Log</h2>
+                        <button class="log-clear" onclick="clearLog()">Clear</button>
+                    </div>
+                    <div class="log-terminal" id="logTerminal">
+                        <div class="log-empty">Waiting for research to start...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Report</h2>
+                <div id="reportContainer">
+                    <div class="report-placeholder">Report will appear here</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const depthSlider = document.getElementById('depth');
+    const depthVal = document.getElementById('depthVal');
+    depthSlider.oninput = () => depthVal.textContent = depthSlider.value;
+
+    let ws;
+    let steps = {};
+    const MAX_LOG_LINES = 200;
+
+    function connectWS() {
+        const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+        ws = new WebSocket(`${protocol}://${location.host}`);
+        ws.onmessage = (e) => {
+            const data = JSON.parse(e.data);
+            if (data.type === 'progress') handleProgress(data);
+            if (data.type === 'log') handleLog(data);
+            if (data.type === 'complete') handleComplete(data);
+            if (data.type === 'error') handleError(data);
+        };
+        ws.onclose = () => setTimeout(connectWS, 2000);
+    }
+
+    function handleLog(data) {
+        const terminal = document.getElementById('logTerminal');
+        const empty = terminal.querySelector('.log-empty');
+        if (empty) empty.remove();
+
+        const icons = { info: '·', success: '✓', warn: '⚠', error: '✕' };
+        const line = document.createElement('div');
+        line.className = `log-line ${data.level}`;
+        line.innerHTML = `<span class="log-time">${data.time}</span><span class="log-icon">${icons[data.level] || '·'}</span><span class="log-msg">${escapeHtml(data.msg)}</span>`;
+        terminal.appendChild(line);
+
+        while (terminal.children.length > MAX_LOG_LINES) {
+            terminal.removeChild(terminal.firstChild);
+        }
+
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function clearLog() {
+        const terminal = document.getElementById('logTerminal');
+        terminal.innerHTML = `<div class="log-empty">Log cleared.</div>`;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function handleProgress(data) {
+        const area = document.getElementById('progressArea');
+        const stepOrder = ['sources', 'news', 'web', 'reddit', 'youtube', 'report'];
+        const stepLabels = { start: 'Starting...', sources: 'Discovering Sources', news: 'News Search', web: 'Web Search', reddit: 'Reddit Scraping', youtube: 'YouTube Discovery', report: 'Generating Report' };
+        const stepIcons = { start: '▶', sources: '🔍', news: '📰', web: '🌐', reddit: '🔴', youtube: '📺', report: '📊' };
+
+        steps[data.step] = data;
+
+        let html = '';
+        for (const s of stepOrder) {
+            const d = steps[s];
+            if (!d && s !== data.step) continue;
+            const isActive = s === data.step;
+            const isDone = d && d.message && d.message.startsWith('Done') || (d && d.message && d.message.startsWith('Found') && s !== 'report');
+            const cls = isActive ? 'active' : isDone ? 'done' : 'pending';
+            const pct = d && d.target ? Math.min(Math.round((d.current / d.target) * 100), 100) : 0;
+            html += `<div class="progress-step">
+                <div class="step-icon ${cls}">${stepIcons[s] || '•'}</div>
+                <div class="step-info">
+                    <div class="step-name">${stepLabels[s] || s}</div>
+                    <div class="step-detail">${d ? d.message || '' : 'Waiting...'}</div>
+                    ${d && d.target ? `<div class="progress-bar-container"><div class="progress-bar-fill" style="width:${pct}%"></div></div>` : ''}
+                </div>
+            </div>`;
+        }
+        area.innerHTML = html;
+    }
+
+    function handleComplete(data) {
+        document.getElementById('startBtn').disabled = false;
+        document.getElementById('startBtn').textContent = 'Start Research';
+        document.getElementById('statsRow').classList.remove('hidden');
+        document.getElementById('statReddit').textContent = data.metadata.redditPosts;
+        document.getElementById('statComments').textContent = data.metadata.totalComments;
+        document.getElementById('statNews').textContent = data.metadata.newsArticles;
+        document.getElementById('statWeb').textContent = data.metadata.webSearchResults || 0;
+        document.getElementById('statYoutube').textContent = data.metadata.youtubeVideos;
+
+        document.getElementById('reportContainer').innerHTML = `<iframe class="report-frame" src="${data.url}"></iframe>`;
+        loadHistory();
+    }
+
+    function handleError(data) {
+        document.getElementById('startBtn').disabled = false;
+        document.getElementById('startBtn').textContent = 'Start Research';
+        const area = document.getElementById('progressArea');
+        area.innerHTML += `<div class="progress-step"><div class="step-icon error">✕</div><div class="step-info"><div class="step-name" style="color:var(--red)">Error</div><div class="step-detail">${data.message}</div></div></div>`;
+    }
+
+    async function startResearch() {
+        const topic = document.getElementById('topic').value.trim();
+        if (!topic) { alert('Please enter a topic'); return; }
+
+        steps = {};
+        document.getElementById('startBtn').disabled = true;
+        document.getElementById('startBtn').textContent = 'Researching...';
+        document.getElementById('statsRow').classList.add('hidden');
+        document.getElementById('progressArea').innerHTML = '';
+        document.getElementById('logTerminal').innerHTML = '';
+        document.getElementById('reportContainer').innerHTML = `<div class="report-placeholder">Research in progress...</div>`;
+
+        const res = await fetch('/api/research', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                topic,
+                depth: parseInt(depthSlider.value),
+                redditOnly: document.getElementById('redditOnly').checked,
+                youtubeOnly: document.getElementById('youtubeOnly').checked,
+            }),
+        });
+        if (!res.ok) {
+            const err = await res.json();
+            alert(err.error || 'Failed to start');
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('startBtn').textContent = 'Start Research';
+        }
+    }
+
+    async function loadHistory() {
+        try {
+            const res = await fetch('/api/reports');
+            const reports = await res.json();
+            const list = document.getElementById('historyList');
+            if (reports.length === 0) { list.innerHTML = `<div class="empty-state">No reports yet</div>`; return; }
+            list.innerHTML = reports.slice(0, 10).map(r => `
+                <div class="history-item" onclick="viewReport('${r.url}')">
+                    <div class="name">${r.name.replace(/research-|-[\d]+\.html/g, '').replace(/-/g, ' ')}</div>
+                    <div class="time">${r.name}</div>
+                </div>
+            `).join('');
+        } catch {}
+    }
+
+    function viewReport(url) {
+        document.getElementById('reportContainer').innerHTML = `<iframe class="report-frame" src="${url}"></iframe>`;
+    }
+
+    document.getElementById('topic').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') startResearch();
+    });
+
+    connectWS();
+    loadHistory();
+    </script>
+</body>
+</html>
