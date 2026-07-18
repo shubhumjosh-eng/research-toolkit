@@ -7,7 +7,13 @@ function InputPrompt({ onSubmit, onConfig, history, historyIndex, setHistoryInde
 
   useInput((input, key) => {
     if (key.return && value.trim()) {
-      onSubmit(value.trim());
+      if (value.trim() === '/config') {
+        onConfig();
+      } else if (value.trim() === '/clear') {
+        onConfig && onConfig('clear');
+      } else {
+        onSubmit(value.trim());
+      }
       setValue('');
     } else if (key.backspace || key.delete) {
       setValue(prev => prev.slice(0, -1));
@@ -28,11 +34,6 @@ function InputPrompt({ onSubmit, onConfig, history, historyIndex, setHistoryInde
       }
     } else if (key.ctrlC || key.escape) {
       // handled by parent
-    } else if (input === '/' && value === '') {
-      setValue('/');
-    } else if (value === '/config') {
-      onConfig();
-      setValue('');
     } else if (input && !key.ctrl && !key.meta) {
       setValue(prev => prev + input);
     }
@@ -51,7 +52,7 @@ function InputPrompt({ onSubmit, onConfig, history, historyIndex, setHistoryInde
         history.length > 0 ? '↑↓ history | ' : ''
       ),
       React.createElement(Text, { dimColor: true },
-        'type topic to research, /config for settings, Ctrl+C to exit'
+        'type topic, /config settings, /clear cache, Ctrl+C exit'
       ),
     ),
   );
