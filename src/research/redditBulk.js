@@ -3,7 +3,7 @@ const RateLimiter = require('../utils/rateLimiter');
 const redditDirect = require('../sources/reddit');
 const DynamicScraper = require('../scraping/browserScraper');
 
-const limiter = new RateLimiter(1);
+const limiter = new RateLimiter(0.5);
 
 const ARCTIC_SHIFT_BASE = 'https://arctic-shift.photon-reddit.com';
 const PULLPUSH_BASE = 'https://api.pullpush.io';
@@ -18,6 +18,7 @@ class RedditBulkScraper {
     this.primarySource = 'arctic-shift';
     this.fallbackTriggered = false;
     this.scraper = null;
+    this.log = () => {};
   }
 
   async scrapeAll(subreddits, queries, targetCount = 500, onProgress = null, onLog = null, options = {}) {
@@ -28,10 +29,10 @@ class RedditBulkScraper {
     this.primarySource = 'arctic-shift';
     this.fallbackTriggered = false;
     this.scraper = options.scraper || null;
-    const log = onLog || (() => {});
+    this.log = onLog || (() => {});
 
-    log('info', `Scraping Reddit: ${subreddits.length} subreddits, target ${targetCount} posts`);
-    log('info', `Source: Arctic Shift → PullPush → Reddit Direct${this.scraper ? ' → Browser' : ''}`);
+    this.log('info', `Scraping Reddit: ${subreddits.length} subreddits, target ${targetCount} posts`);
+    this.log('info', `Source: Arctic Shift → PullPush → Reddit Direct${this.scraper ? ' → Browser' : ''}`);
 
     const allPosts = [];
     const postsPerSubreddit = Math.ceil(targetCount / subreddits.length);
@@ -66,7 +67,7 @@ class RedditBulkScraper {
           }
 
           if (posts.length > 0) {
-            log('success', `r/${sub.name}: ${posts.length} posts`);
+            this.log('success', `r/${sub.name}: ${posts.length} posts`);
           }
 
           limiter.reset();
@@ -79,7 +80,7 @@ class RedditBulkScraper {
 
             if (this.rateLimitCount >= 3) {
               if (this.primarySource === 'arctic-shift' && !this.fallbackTriggered) {
-                log('warn', `Arctic Shift rate limited, switching to PullPush...`);
+                this.log('warn', `Arctic Shift rate limited, switching to PullPush...`);
                 this.primarySource = 'pullpush';
                 this.fallbackTriggered = true;
                 this.rateLimitCount = 0;
@@ -87,37 +88,37 @@ class RedditBulkScraper {
                 continue;
               }
               if (this.primarySource === 'pullpush') {
-                log('warn', `PullPush exhausted, switching to Reddit Direct...`);
+                this.log('warn', `PullPush exhausted, switching to Reddit Direct...`);
                 this.primarySource = 'reddit';
                 this.rateLimitCount = 0;
                 limiter.reset();
                 continue;
               }
               if (this.primarySource === 'reddit' && this.scraper) {
-                log('warn', `All API sources exhausted, trying browser fallback...`);
+                this.log('warn', `All API sources exhausted, trying browser fallback...`);
                 this.primarySource = 'puppeteer';
                 allSourcesFailed = true;
                 break;
               }
-              log('error', `All Reddit sources exhausted, stopping...`);
+              this.log('error', `All Reddit sources exhausted, stopping...`);
               return allPosts;
             }
 
-            log('warn', `429 on ${this.primarySource} (attempt ${this.rateLimitCount}/3)`);
-            await limiter.backoff();
+            this.log('warn', `429 on ${this.primarySource} (attempt ${this.rateLimitCount}/3)`);
+            await limiter.backoff(this.log);
           } else {
-            log('error', `r/${sub.name} failed: ${error.message}`);
+            this.log('error', `r/${sub.name} failed: ${error.message}`);
 
             if (this.primarySource === 'reddit') {
               this.consecutiveFailCount = (this.consecutiveFailCount || 0) + 1;
               if (this.consecutiveFailCount >= 3) {
                 if (this.scraper) {
-                  log('warn', `Reddit Direct blocked (403), switching to browser fallback...`);
+                  this.log('warn', `Reddit Direct blocked (403), switching to browser fallback...`);
                   this.primarySource = 'puppeteer';
                   allSourcesFailed = true;
                   break;
                 }
-                log('error', `Reddit Direct blocked and no browser available, stopping...`);
+                this.log('error', `Reddit Direct blocked and no browser available, stopping...`);
                 return allPosts;
               }
             }
@@ -128,9 +129,8 @@ class RedditBulkScraper {
       if (allSourcesFailed) break;
     }
 
-    // Puppeteer fallback: scrape remaining via browser
     if (allSourcesFailed && this.scraper && allPosts.length < targetCount) {
-      log('info', '🖥 Starting browser fallback for remaining posts...');
+      this.log('info', 'Starting browser fallback for remaining posts...');
       try {
         const browser = await this.scraper.launch();
         for (const sub of subreddits) {
@@ -147,22 +147,22 @@ class RedditBulkScraper {
                 }
               }
               if (posts.length > 0) {
-                log('success', `r/${sub.name} (browser): ${posts.length} posts`);
+                this.log('success', `r/${sub.name} (browser): ${posts.length} posts`);
               }
               if (onProgress) {
                 onProgress({ posts: this.stats.posts, comments: this.stats.comments, target: targetCount, currentSub: `${sub.name} (browser)` });
               }
             } catch (e) {
-              log('error', `r/${sub.name} browser scrape failed: ${e.message}`);
+              this.log('error', `r/${sub.name} browser scrape failed: ${e.message}`);
             }
           }
         }
       } catch (e) {
-        log('error', `Browser fallback failed: ${e.message}`);
+        this.log('error', `Browser fallback failed: ${e.message}`);
       }
     }
 
-    log('success', `Reddit done: ${this.stats.posts} posts, ${this.stats.comments} comments via ${this.primarySource}`);
+    this.log('success', `Reddit done: ${this.stats.posts} posts, ${this.stats.comments} comments via ${this.primarySource}`);
     return allPosts;
   }
 
@@ -191,7 +191,7 @@ class RedditBulkScraper {
         headers: this.headers,
         timeout: 20000,
       })
-    );
+    , 3, this.log);
 
     const posts = (response.data.data || [])
       .map(p => this.formatPostArcticShift(p, subreddit));
@@ -227,7 +227,7 @@ class RedditBulkScraper {
         headers: this.headers,
         timeout: 20000,
       })
-    );
+    , 3, this.log);
 
     const comments = response.data.data || [];
 
@@ -258,7 +258,7 @@ class RedditBulkScraper {
         headers: this.headers,
         timeout: 20000,
       })
-    );
+    , 3, this.log);
 
     const posts = (response.data.data || [])
       .map(p => this.formatPostPullPush(p, subreddit));
@@ -294,7 +294,7 @@ class RedditBulkScraper {
         headers: this.headers,
         timeout: 20000,
       })
-    );
+    , 3, this.log);
 
     const comments = response.data.data || [];
 
@@ -314,6 +314,7 @@ class RedditBulkScraper {
     const posts = await redditDirect.search(query, {
       maxResults: Math.min(limit, 25),
       subreddit,
+      onLog: this.log,
     });
 
     const postsWithComments = [];
