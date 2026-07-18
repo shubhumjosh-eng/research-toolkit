@@ -63,7 +63,7 @@ class ResearchOrchestrator {
         log('success', `Found ${results.news.length} news articles (cached)`);
       } else {
         try {
-          results.news = await newsApi.search(topic, { maxResults: Math.min(depth, config.RESEARCH.newsMaxResults) });
+          results.news = await newsApi.search(topic, { maxResults: Math.min(depth, config.RESEARCH.newsMaxResults), onLog });
           await cache.set(topic, 'news', results.news);
           log('success', `Found ${results.news.length} news articles`);
         } catch (error) {
@@ -84,7 +84,7 @@ class ResearchOrchestrator {
       } else {
         const webTarget = Math.min(Math.ceil(depth * config.RESEARCH.webSearchRatio), config.RESEARCH.webSearchMax);
         try {
-          results.webSearch = await webSearch.search(topic, { maxResults: webTarget });
+          results.webSearch = await webSearch.search(topic, { maxResults: webTarget, onLog });
           await cache.set(topic, 'web', results.webSearch);
           log('success', `Found ${results.webSearch.length} web results`);
         } catch (error) {
