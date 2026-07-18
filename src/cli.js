@@ -24,7 +24,7 @@ class ResearchCLI {
       report: null,
     };
 
-    for (let i = 1; i < this.args.length; i++) {
+    for (let i = 0; i < this.args.length; i++) {
       const arg = this.args[i];
       switch (arg) {
         case '--depth':
@@ -72,39 +72,56 @@ class ResearchCLI {
   }
 
   getTopic() {
-    const nonFlagArgs = this.args.filter((a, i) => i > 0 && !a.startsWith('-'));
-    return nonFlagArgs.find(a => a !== this.command && a !== 'research') || null;
+    const nonFlagArgs = this.args.filter(a => !a.startsWith('-') && a !== 'research');
+    return nonFlagArgs.find(a => a !== this.command) || nonFlagArgs[0] || null;
   }
 
   showHelp() {
     console.log(`
 ${'='.repeat(60)}
-  RESEARCH TOOLKIT v2.0
-  General-Purpose Deep Research for the Terminal
+  RESEARCH TOOLKIT v3.0
+  Deep Research Across 8 Platforms — No API Keys Needed
 ${'='.repeat(60)}
 
 USAGE:
   node src/cli.js                          Interactive TUI (default)
-  node src/cli.js "topic here"             Research topic in TUI
-  node src/cli.js --batch research "topic" Batch mode (pipe-friendly)
+  node src/cli.js "topic here"             Research topic directly (batch mode)
+  node src/cli.js --batch "topic here"     Same as above (explicit batch mode)
 
 OPTIONS:
   --depth <number>     Scrape depth: 100, 200, 500, 1000, 2000 (default: 500)
   --batch              Non-interactive batch mode (for scripting)
   --report <format>    Report format: terminal, html, both (default: both)
   --transcripts        Also extract YouTube video transcripts
-  --reddit-only        Only scrape Reddit
-  --youtube-only       Only scrape YouTube
   --output, -o <file>  Output filename
   --no-cache           Skip cache, fetch fresh data
 
-OTHER COMMANDS:
-  --video, -v <url>    Analyze a single video
-  --scrape, -s <url>   Scrape a single website
+PLATFORMS (all free, no API keys):
+  🔴 Reddit           Posts & comments via JSON API
+  🟢 YouTube          Video search via invidious instances
+  📰 News             Google News RSS + GNews API
+  🌐 Web Search       DuckDuckGo + Google via scraping
+  🟠 Hacker News      Algolia HN Search API
+  🦋 Bluesky          AT Protocol public search
+  💬 Discourse        40+ public forum search
+  📚 Stack Exchange   SE v2.3 API (180+ sites)
 
-INTERACTIVE COMMANDS:
-  /config              Open settings (report format, depth, theme)
-  Ctrl+C               Cancel current research or exit
+INTERACTIVE COMMANDS (TUI mode):
+  Tab                  Open slash command palette
+  /config              Open settings (depth, report format)
+  /sources             Toggle platforms on/off
+  /history             View past research sessions
+  /deep                Switch to deep search mode
+  /clear               Clear the screen
+  /help                Show command help
+
+SMART FEATURES:
+  ✓ Phrase detection ("hula hoop" stays together)
+  ✓ TF-IDF relevance ranking across all sources
+  ✓ Query expansion (6 angles per topic)
+  ✓ Automatic deduplication & clustering
+  ✓ Session memory (follow-up questions)
+  ✓ Persistent config (~/.research-toolkit/config.json)
 
 EXAMPLES:
   # Interactive mode (recommended)
@@ -114,19 +131,14 @@ EXAMPLES:
   node src/cli.js "quantum computing advances"
 
   # Batch mode for scripting
-  node src/cli.js --batch research "climate policy" --depth 1000
+  node src/cli.js --batch "climate policy" --depth 1000
 
   # Terminal-only output
   node src/cli.js "machine learning trends" --report terminal
 
-FREE FEATURES:
-  ✓ Auto-discover relevant subreddits from any topic
-  ✓ Reddit + YouTube + News + Web search
-  ✓ Comments & discussions extraction
-  ✓ Rich HTML report + terminal summary
-  ✓ Rate limiting & safeguards
-  ✓ Zero API keys required
-  ✓ Persistent settings (~/.research-toolkit/config.json)
+ZERO COST:
+  ✓ No API keys required (all platforms have free tiers)
+  ✓ Optional: GNews, Bluesky auth, StackExchange key for higher limits
 `);
   }
 
@@ -146,7 +158,8 @@ FREE FEATURES:
       return;
     }
 
-    if (this.options.batch) {
+    const topic = this.getTopic();
+    if (topic) {
       await this.runBatch();
       return;
     }
