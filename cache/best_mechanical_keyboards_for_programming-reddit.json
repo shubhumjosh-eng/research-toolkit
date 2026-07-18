@@ -1,0 +1,322 @@
+{
+  "timestamp": 1784392014665,
+  "topic": "best mechanical keyboards for programming",
+  "source": "reddit",
+  "count": 5,
+  "data": [
+    {
+      "id": "1uyyplx",
+      "title": "AULA F99 (Flame Purple) vs Ajazz AK980 V2 vs Redragon - Which one?",
+      "text": "Hi everyone,\n\nI'm looking for a wireless 96–98% mechanical keyboard for gaming, programming, and everyday use.\n\nAll three are almost the same price in my country (around $60):\n\nAULA F99 (Flame Purple switches)\n\nAjazz AK980 V2\n\nRedragon (98% gasket mount with knob)\n\nI'm mainly looking for:\n\nBest stock typing feel and sound\n\nGood build quality\n\nReliable wireless performance\n\nLow latency for gaming\n\nLong battery life\n\nI don't really care about the screen on the AK980 unless it's actually useful.\n\nIf you've owned or tried any of these keyboards, which one would you recommend and why?\n\nThanks!",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "keyboards",
+      "author": "B2_Peter",
+      "url": "https://www.reddit.com/r/keyboards/comments/1uyyplx",
+      "created": "2026-07-17T12:45:52.000Z",
+      "topComments": []
+    },
+    {
+      "id": "1tq6r7m",
+      "title": "Looking to replace an old Roccat Vulcan with hotswap keyboard",
+      "text": "I've been looking into keyboards and technically have found the ideal looking one but it's not sold in the EU nor manufactured anymore where I live. It was the Asus Flare 2 Animate.\n\nAI hasn't been any help either, usually hallucinating things into the response that don't match or ignoring companies or any combination of problems. I hope some humans can point me into the right direction better than a LLM can.\n\nIt feels like my particular combination of features sought after makes the search very difficult. I want a 100% sized mechanical that has hotswap switches (for easy replacement in the future) and the usual bells and whistles like per-key RGB, programming keys with macros and other functions like launching software and such.\n\nBasically a Flare 2 Animate but one that is still being made and sold today. That one is only a little over 4 years old from what I could gather and it being already out of production is crazy. Most keyboards I found thus far are either 96% where the numpad is missing or are wireless.\n\nI don't like wireless for two reasons: The battery runs out at the worst possible moment and leaving the cable plugged in damages the battery over time because it keeps receiving charging current and remains topped off at 100%.\n\nAs far as budget is concerned, I would go as high as 150€ if that's where the best fitting keyboards are found at. It would be even better if the LEDs were included in the switches too but such keyboards don't exist from the looks of it. Roccat keyboards were known for having LEDs break down after merely two or three years and my Vulcan is no exception. By comparison, the LEDs and everything else inside my 11 year old Roccat Nyth mouse are still in top condition.",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "keyboards",
+      "author": "rogermay78",
+      "url": "https://www.reddit.com/r/keyboards/comments/1tq6r7m",
+      "created": "2026-05-28T15:22:12.000Z",
+      "topComments": []
+    },
+    {
+      "id": "1strd12",
+      "title": "Looking for a keyboard recommendation (and maybe switches too)",
+      "text": "Hi, I want to buy a new 75% (mechanical) keyboard with the ANSI layout. The budget is $200. I want the keyboard to be wireless (dual/tri-mode is OK).\n\nRegarding switches, I'm not totally sure, what I want is something comfortable prolonged typing experience, I think I would prefer tactile switches, but I've never actually used any mechanical keyboard or tried any switches before, so I'm not completely sure, I might be okay with linear switches.\n\nRegarding the sound, I think I prefer \"creamy\" keyboard sounds, or \"thocky\" for a second place. My use cases are programming, just typing some text casually, sometimes gaming, but that's rarer.\n\nThe keyboard needs to be pre-built and I would prefer if it came with good switches by default, but if not, I would appreciate if you recommended the switches as well. Finally, it would be nice if it came with Mac keycaps and a reasonably easy way to switch between Windows and Mac \"modes\", but these two are not a requirement at all. I do not necessarily need some kind of super-mainstream brand, enthusiast-level pre-built keyboards are fine.\n\nWhat do you recommend, what do you think is the best pre-built 75% keyboard for $200 and less?",
+      "score": 2,
+      "numComments": 12,
+      "subreddit": "keyboards",
+      "author": "Ok-Author9246",
+      "url": "https://www.reddit.com/r/keyboards/comments/1strd12",
+      "created": "2026-04-23T18:35:58.000Z",
+      "topComments": [
+        {
+          "author": "gaspackanddoublecup",
+          "text": "Evo 75 is the best prebuilt out rn under $200. I find myself preferring it over my $550 Mr. Suit ! ",
+          "score": 2,
+          "created": "2026-04-23T21:57:20.000Z"
+        },
+        {
+          "author": "be4tnut",
+          "text": "Check out the Evo75 too. It’s linear switches but nice. You can probably hit your local Best Buy and feel out some linear switches on various display models of keyboards. ",
+          "score": 2,
+          "created": "2026-04-23T19:00:02.000Z"
+        },
+        {
+          "author": "Usual-Low8700",
+          "text": "I don't know very much about keyboards but spending 2 weeks searching the net, and asking here, I finally purchased gravastar v75 mercury. \n\nFull aluminium and feels very good. The sound is very satisfying and the design is out if this world. Do not know if you will like that marginal design but it is exceptional. You can check the stats from its site and right now there is up to 30% discount on their site. ",
+          "score": 2,
+          "created": "2026-04-23T18:59:04.000Z"
+        },
+        {
+          "author": "ArgentStonecutter",
+          "text": "> What do you recommend, what do you think is the best pre-built 75% keyboard for $200 and less?\n\nWomier WD75, and replace the stock linear switches with Akko Creamy Purple Pro, and XVX White Chocolate keycaps. The wooden case makes it a legitimate percussion instrument.",
+          "score": 2,
+          "created": "2026-04-23T18:41:12.000Z"
+        },
+        {
+          "author": "Clackify_Official",
+          "text": "Honestly, since you've never used a mechanical keyboard, you might find this guide pretty helpful: [https://clackify.com/pages/switch-guide](https://clackify.com/pages/switch-guide)\n\nI'm in the process of making a series of switch related guides on my site, and I also have been working on a switch comparison tool (also on the site) that allows you to compare a huge number of switch specifications side by side. Hopefully some of this will prove helpful!\n\nRegarding the board itself, I don't think I'll be much help since I'm far more familiar with switches than current board recommendations. But I wish you luck there as well! Let me know if you do happen to check out the site and have any feedback/suggestions at all. It's all still a work in progress, so I'm 100% open to suggestions :)",
+          "score": 1,
+          "created": "2026-04-24T20:04:10.000Z"
+        },
+        {
+          "author": "Evening-Nature-5241",
+          "text": "I was somewhat happy with my Epomaker G84... with some caveats. It's a triple connect (usual 2.4ghz, BT, wired)\n\nIt's a really good keyboard to type on, but... it came with a bunch of \"flawed switches\" that seemed to double-click at random. Like a dozen of them.\n\nOnce I switched them out to KTT Kang Whites, they worked perfectly. Cost me about $65. ",
+          "score": 1,
+          "created": "2026-04-24T04:51:26.000Z"
+        },
+        {
+          "author": "Clovergum",
+          "text": "osume's play75 has a tactile option",
+          "score": 1,
+          "created": "2026-04-23T22:37:16.000Z"
+        },
+        {
+          "author": "Taiwoladipupo",
+          "text": "Evo75 with Rye switches is the best keyboard I have ever used . I could code for hours on it.",
+          "score": 1,
+          "created": "2026-04-23T22:14:22.000Z"
+        },
+        {
+          "author": "ArgentStonecutter",
+          "text": "It's acoustically warm and deep.",
+          "score": 1,
+          "created": "2026-04-23T22:09:30.000Z"
+        },
+        {
+          "author": "be4tnut",
+          "text": "I work from home and so I use it all day and then in the evenings when I am gaming or doing personal work. I came from a Corsair K70 with Brown switches and so was originally looking for tactile switches. I was at Best Buy a few months back and just trying the keyboards they had there (but wasn’t interested in buying any of those) but the linear switches on the Razer keyboard there felt very smooth and nice. So I figured I’d consider linear switches too. \n\nI spent a ton of time watching YouTube videos and going down the rabbit hole on keyboard review channels and what people were recommending here. I wanted an aluminum case, thocky/creamy sound profile and VIA software compatible. I was heavily looking at building one on the Neo75 case too but figured a prebuilt may be better for my first “custom” keyboard because I was getting overwhelmed on all of the options for various parts. \n\nI saw a lot of mixed reviews on boards like the Rainy75 in regards to QC and warranty issues. I decided o",
+          "score": 1,
+          "created": "2026-04-23T19:49:04.000Z"
+        },
+        {
+          "author": "Ok-Author9246",
+          "text": "Thanks for the suggestion!\n\n>It’s linear switches but nice.\n\nAre they good for prolonged typing?",
+          "score": 1,
+          "created": "2026-04-23T19:13:56.000Z"
+        },
+        {
+          "author": "Ok-Author9246",
+          "text": "Thanks!\n\n>The wooden case makes it a legitimate percussion instrument.\n\nWhat do you mean?",
+          "score": 1,
+          "created": "2026-04-23T19:12:27.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1sh6530",
+      "title": "Review: Keychron Q6 HE 8K",
+      "text": "# Review: Keychron Q6 HE 8K & The End of Mechanical Switches\n\n**Disclaimer:** I am not employed by or affiliated with Keychron, but I did receive this Keychron Q6 HE 8K on the promise that I would review it. As always, no money changed hands, no brand had early editorial oversight, and my testing methodology remains my own.\n\nhttps://preview.redd.it/77xrqdfpt8ug1.jpg?width=3744&format=pjpg&auto=webp&s=e10396c7c93e557d0233b4ec92ad784c92e2bba8\n\n# Part 1: The Valorant Reality Check & The Copium Gap\n\nBecause of rank stagnation, I recently found my *Valorant* account demoted down to Silver. Once upon a time, this was the rank where I would occasionally smurf just to play with my son, handicapping myself to pistols-only and still completely dominating the lobby.\n\nThings have changed. And I don't just mean the usual matchmaking problems. The overall skill ceiling—and more importantly, the skill *floor*—has raised dramatically in the last year.\n\nYou don't even have to queue into a competitive match to see it; just load into a standard Deathmatch server. There are no abilities, no new maps to learn, no agent metas—just raw mechanical movement and clicking heads. Back when I played regularly against Platinum and Diamond players, I would win DM servers fairly often. Since coming back, I haven't won a single one.\n\nThe movement I am seeing is just insane. Players are stopping on a dime and outshooting me before my character has even settled.\n\nNow, I recognize that it is much easier on an aging gamer's ego to blame perceived hardware inferiority than it is to simply admit you need to \"git good.\" But I genuinely don't believe this is just my own skill decay. Why? Because I have upgraded literally every other bottleneck on my desk. I treated myself to a new 240Hz monitor as an early Christmas gift. I upgraded my CPU from a Ryzen 7 3700X to a 5700X thanks to r/hardwareswap. I snagged a new-to-me RTX 3070 Ti off Facebook Marketplace. I am even using the bleeding-edge Logitech PRO X2 SUPERSTRIKE mouse with inductive switches, which has demonstrably shaved 10 to 30ms off my raw reaction time.\n\nAnd I am *still* getting smoked.\n\nMy hypothesis? As magnetic keyboards have started to dominate the market, the physical mechanics of PC gaming have fundamentally shifted. A decade ago, upgrading from a membrane keyboard to a standard mechanical switch was mostly a tactile luxury. But the actual competitive advantage of a magnetic board is a massive, quantifiable jump. Playing a modern tac-shooter on a standard mechanical keyboard in 2026 means you are playing with your hands tied behind your back.\n\n# Part 2: The Arsenal & The Mechanical Bottleneck\n\nTo understand why standard mechanical keyboards are rapidly becoming obsolete for gaming, you have to look at the physical limitations of metal springs, and how analog sensors bypass them entirely.\n\n# The Mechanical Flaw: Coupled Travel\n\nThe root of this bottleneck lies in the total travel distance of a key. A standard mechanical sw",
+      "score": 10,
+      "numComments": 27,
+      "subreddit": "keyboards",
+      "author": "ttttubby",
+      "url": "https://www.reddit.com/r/keyboards/comments/1sh6530",
+      "created": "2026-04-09T23:38:54.000Z",
+      "topComments": [
+        {
+          "author": "AmazonDealsCanada",
+          "text": "That’s interesting, appreciate you testing it. Curious to see your results — I’ve heard mixed things about TMR consistency depending on switches and build quality.",
+          "score": 3,
+          "created": "2026-04-10T00:33:19.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "Good call on the stem wobble. I know TMR is way more sensitive to off-axis tilt than standard HE, but honestly, I haven't noticed any wobble or false inputs on my end at all. It seems like the physical tolerances on Keychron's lime switches are tight enough to keep the magnet perfectly aligned.\n\nThat said, it's a valid concern. I'm going to run some dedicated stability tests this week to see if I can physically force the sensors to misfire, and I'll drop an update in the main post with the results. Good looking out!",
+          "score": 3,
+          "created": "2026-04-10T00:12:18.000Z"
+        },
+        {
+          "author": "PickledMunkee",
+          "text": "Keychron is notorious for refusing and ignoring warranty claims.   for a good reason ....",
+          "score": 2,
+          "created": "2026-04-10T17:14:25.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "That is a severe issue. If a board is dropping inputs, it fails at its primary function.\n\n​Because TMR and HE boards rely on magnetic baselines rather than physical metal contacts, missing keystrokes are frequently a symptom of the firmware losing its calibration rather than a mechanical failure. Have you tried running the raw calibration tool in the Keychron web app to completely reset the baseline actuation points?\n\n​If a full software recalibration does not resolve the dropped inputs, you likely have a fundamentally defective PCB. My test unit has not exhibited any dropped inputs during the review period, but a hardware failure on a flagship board is unacceptable, particularly if you are hitting a wall with their RMA department",
+          "score": 2,
+          "created": "2026-04-10T17:08:49.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "Poor crosshair placement or game sense will indeed dictate a gunfight in Gold long before keyboard latency becomes the deciding factor. However, the physics of travel deletion remain constant. I am nowhere near Radiant, but the physical difference in input registration is immediately obvious to me.\n\nIt is worth noting that not every aspect of the game improves with a magnetic switch. Holding an angle requires zero movement, making actuation speed irrelevant in that specific scenario. But because peeker's advantage dictates the pace of tactical shooters, and Rapid Trigger mathematically amplifies that advantage, the hardware helps at any rank once the baseline mechanics of movement are understood.\n\nYour comment about predicting the membrane's delay highlights the exact value of the tech. You have built muscle memory to compensate for hardware latency. Analog switches remove that mechanical overhead, bringing your on-screen movement 1:1 with your physical intent. Removing the need to pre",
+          "score": 2,
+          "created": "2026-04-10T14:11:31.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "I think you have the physics regarding amplification inverted. TMR sensors inherently possess a significantly higher signal-to-noise ratio than traditional Hall Effect sensors. Standard HE is the technology that typically requires heavier firmware-level filtering to maintain stability at extreme micro-actuations like 0.01mm. TMR outputs a natively cleaner raw signal, requiring less software intervention out of the box.\n\nWooting makes excellent boards with incredibly mature firmware, so it is understandable that they stand by their current HE implementation. However, based on my testing Keychron's TMR hardware simply does not exhibit the instability issues they are referencing.",
+          "score": 2,
+          "created": "2026-04-10T05:56:57.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "South facing. Unless you are in Australia. Then the toilet flushed backwards. ",
+          "score": 2,
+          "created": "2026-04-10T05:44:06.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "I mean keychron isn't even marketing their keyboard as featuring TMR. Even so I am really happy with the consistency and feel of this keyboard on its own merits. The TMR is a bonus. ",
+          "score": 2,
+          "created": "2026-04-10T05:30:21.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "Hitting Immortal 3 on a membrane keyboard is a testament to strong raw mechanics. You are actively overcoming a hardware delay, which is impressive.\n\nRegarding your point on Deathmatches, my understanding is that Valorant does utilize a hidden MMR for DM lobbies. It's obviously wider than the MMR for competitive to prioritize faster queue times, but it's there. \n\nI agree though with your underlying premise that the general skill floor has risen for a number of reasons including the popularity of aim training. However, that is precisely why the hardware gap is relevant. As the average player's mechanics improve across the board, the margins in a gunfight narrow. TMR and Rapid Trigger don't replace skill or game sense, but they do remove the physical reset delay of a standard mechanical switch. It is ultimately about removing the hardware bottleneck in those razor-thin engagements that makes the difference between two players of equal skill. ",
+          "score": 2,
+          "created": "2026-04-10T04:49:57.000Z"
+        },
+        {
+          "author": "MiquelVz",
+          "text": "just finished reading the review, its amazing, well detailed and i commend you for being clear on everything and trying to cover every point even while i don't agree in some things",
+          "score": 2,
+          "created": "2026-04-10T04:45:02.000Z"
+        },
+        {
+          "author": "MiquelVz",
+          "text": "this seems like a great review and ill read it fully in a bit but i can tell you straight up, hardware getting better isn't the entire reason for your valorant decay, i literally just got to immortal 3 last episode with a membrane keyboard and a cheap 15$ mouse because i can't afford a magnetic one and better mouse\n\nin my opinion the shift you're seeing could be more so the fact that most players have improved overall, aim training, reaction time training, all of that has basically become mainstream\n\nlots of kidd have started playing too, and deathmatches don't have mmr so half the time you're playing against ascendant+\n\nI have experienced this shift too, i took a break on episode 6 and came back on V25 to push myself to the limits, and I noticed people's movement and aim have improved, but so did mine even with basically the same setup I had all those years ago, and it even improved relative to the general skill level, going from D1 to Immo 3",
+          "score": 2,
+          "created": "2026-04-10T04:30:36.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "Thanks!  I appreciate the vote of confidence. ",
+          "score": 2,
+          "created": "2026-04-10T00:13:28.000Z"
+        },
+        {
+          "author": "AmazonDealsCanada",
+          "text": "That’s a fair point. I’ve heard similar things about TMR stability. I guess it really comes down to whether someone prioritizes consistency and feel vs newer tech features.",
+          "score": 2,
+          "created": "2026-04-10T00:11:59.000Z"
+        },
+        {
+          "author": "lSharethepain",
+          "text": "Outstanding review. I love the data analysis. By any chance, have you had a chance to review or get hands on the Razer Huntsman V3 Pro? I am contemplating between that one and the aforementiond Q6 HE 8K. My main concern is the key feel, as someone coming from a genuine Cherry Blue MX razer blackwidow ultimate, I want the keys to retain their \"depth\", not nearly so much the original \"clack\" sound.",
+          "score": 1,
+          "created": "2026-07-16T13:21:05.000Z"
+        },
+        {
+          "author": "Mr_Self_Healer",
+          "text": "I'm currently picking between the Q6 HE 8K and non-8K (wireless, just the Q6 HE) version which has more options in terms of switches, though still HE. But I'm unsure what to go with. I like wired simply because it's one less thing to think about and I'm already used to wired. Though I went to a store recently and only tried the K10 with the purple(nebula) switches and they felt really nice. Though I'm unsure how different the lime-green will feel.",
+          "score": 1,
+          "created": "2026-05-25T01:53:26.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "From their website description: \"The Q6 HE 8K is compatible exclusively with the Keychron Ultra-fast Lime Magnetic Switch. It does not support other magnetic switches, such as the Gateron Magnetic Jade or Gateron KS-20 Magnetic switches.\"",
+          "score": 1,
+          "created": "2026-05-17T22:25:07.000Z"
+        },
+        {
+          "author": "SgtSalty11",
+          "text": "You're wrong about the Gateron Jade switches. I have had Keychron support confirm that multiple Gateron Jade switches work.",
+          "score": 1,
+          "created": "2026-05-17T18:55:41.000Z"
+        },
+        {
+          "author": "zombietrombonie",
+          "text": "It's obviously written with GPT",
+          "score": 1,
+          "created": "2026-05-05T14:13:02.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "I reached out to Keychron's engineering team directly to get their data on the stem wobble concern. I have updated the main post above with their technical response, which confirms that while TMR is more sensitive, standard mechanical tolerances do not impact real-world performance.",
+          "score": 1,
+          "created": "2026-04-13T19:55:48.000Z"
+        },
+        {
+          "author": "AmazonDealsCanada",
+          "text": "Interesting — what issues did you run into exactly?\nI’ve seen mixed feedback, but most complaints seem to be QC-related rather than across all units.\n",
+          "score": 1,
+          "created": "2026-04-12T03:42:42.000Z"
+        },
+        {
+          "author": "PickledMunkee",
+          "text": "and not registering key presses",
+          "score": 1,
+          "created": "2026-04-10T17:16:47.000Z"
+        },
+        {
+          "author": "PickledMunkee",
+          "text": "have you revied the software?  not that it matters to me since my keyboard doesnt work, but it seems to me like you can have 2 or 3 profiles so if you want to use the HE functions for games then you better only have 2 games ....",
+          "score": 1,
+          "created": "2026-04-10T17:16:16.000Z"
+        },
+        {
+          "author": "PickledMunkee",
+          "text": "build is solid but electronics are defective",
+          "score": 1,
+          "created": "2026-04-10T17:15:12.000Z"
+        },
+        {
+          "author": "PickledMunkee",
+          "text": "Does it miss keys like the Q6 HE?",
+          "score": 1,
+          "created": "2026-04-10T17:02:41.000Z"
+        },
+        {
+          "author": "MiquelVz",
+          "text": "yeah yeah, i get that, that's why I said its a good upgrade if you have a money but imo it's usually not one of the main reasons you'd be struggling in low elo (probably wrong tbh, at the end of the day im not you and I haven't experienced the way you play the game, its just more so having that as a main thing might mislead some people)\n\nits def a nice improvement though and eventually i wanna try one and get used to it :p",
+          "score": 1,
+          "created": "2026-04-10T15:14:23.000Z"
+        },
+        {
+          "author": "ttttubby",
+          "text": "Thanks man. ",
+          "score": 1,
+          "created": "2026-04-10T14:11:56.000Z"
+        },
+        {
+          "author": "AmazonDealsCanada",
+          "text": "That’s interesting actually. Makes sense if the core build is solid and TMR just adds on top of that. Curious if your testing changes your view at all.",
+          "score": 1,
+          "created": "2026-04-10T13:34:12.000Z"
+        },
+        {
+          "author": "kanakalis",
+          "text": "are the LEDs north facing or still south facing? can't seem to search contents on the mobile app",
+          "score": 1,
+          "created": "2026-04-10T05:09:12.000Z"
+        },
+        {
+          "author": "MiquelVz",
+          "text": "yeah i agree, at a really high level like once you start hitting radiant every act HE/TMR is definitely revolutionary and a must have to keep getting better, but honestly anything lower than immortal 1 I'd say it's kind of unnecessary?\n\nDon't get me wrong, its something you should buy if you can safely afford it and I love the technology, I have a wooting uwu for osu! and rapid trigger feels amazing with high actuation points\n\nBUT it's not a must and honestly not something that should be blamed for your skill even more so in silver-plat, honestly I'd use it more for the commodity of everything being lightning fast rather than for it making me better at a game\n\nA hall effect/tmr keyboard (probably HE due to cost constraints) is gonna be my next purchase, I've already tried them in events and whilst they felt great I wouldn't say it made me that much better at games, hoping to have my opinion changed though! ",
+          "score": 1,
+          "created": "2026-04-10T04:59:41.000Z"
+        },
+        {
+          "author": "JakubixIsHere",
+          "text": "Do not know if max also told you, though another argument against TMR acording to wooting. That you will need amplification to achive constantly stable good results as HE. Also another one, they did  testing on TMR and none of sensors on market is up to their standards",
+          "score": 1,
+          "created": "2026-04-10T04:52:19.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1qxodup",
+      "title": "Seeking 75–80% ANSI Keyboard for Office – Linux/Windows Dual BOot",
+      "text": "Hi everyone,\n\nI’m looking for a new mechanical keyboard for my office setup. I primarily work on **Linux**, but I dual-boot into **Windows** occasionally. I need a board that handles this transition perfectly, especially regarding customization and wireless stability on Linux. What i'm gonna do is basically programming and heavy writing.\n\n**My Requirements:**\n\n* **Layout:** ANSI (Must-have).\n* **Size:** 75% or 80% (TKL).\n* **Sound Profile:** I’m looking for a **creamy or \"thocky\"** sound. I want that deep, marble-like acoustic for the office, not a high-pitched clack.\n* **OS Compatibility:** Primarily **Linux**. I need to be able to fully customize the keyboard (remap keys, macros, RGB) without installing .exe files. Support for **QMK/VIA** or a **Web-based HID** configurator is essential.\n* **Connectivity:** Wireless (2.4GHz) is a must for a clean office desk, but it has to be stable on Linux.\n* **Extra:** I really want a **knob** for volume control.\n* **Lighting:** Backlit keycaps are important for working in dim light, but I don't need fancy RGB effects.\n* **Budget:** Ideally around **€100-€110**, but I can go up to **€140**.\n\n**What I’m considering:** I know **Keychron** is the standard recommendation for Linux—I’ve looked at the **V1 Max** and **Q1 Max**. However, I’ve heard that out-of-the-box, they might not be as \"creamy\" as some of the newer competitors.\n\nI’ve also looked at **NuPhy Halo75 V2:** I’ve heard the sound stack is incredibly thocky and it now has official QMK/VIA support. I'd love to hear any newly other supported keyboards!\n\nI’m looking for something available via Amazon to avoid customs. Any advice on which of these (or others) offers the best Linux experience? \n\nThank you all for your help!",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "keyboards",
+      "author": "await_void",
+      "url": "https://www.reddit.com/r/keyboards/comments/1qxodup",
+      "created": "2026-02-06T17:43:14.000Z",
+      "topComments": []
+    }
+  ]
+}
