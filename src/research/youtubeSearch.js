@@ -2,8 +2,9 @@ const axios = require('axios');
 const { execFile } = require('child_process');
 const RateLimiter = require('../utils/rateLimiter');
 const DynamicScraper = require('../scraping/browserScraper');
+const { sleep } = require('../utils/helpers');
 
-const limiter = new RateLimiter(1);
+const limiter = new RateLimiter(0.33);
 
 class YouTubeDiscovery {
   constructor() {
@@ -47,7 +48,7 @@ class YouTubeDiscovery {
 
       try {
         log('info', `Searching: "${query}"`);
-        const videos = await this.searchYouTube(query, Math.ceil(maxVideos / queries.length), useYtDlp);
+        const videos = await this.searchYouTube(query, Math.ceil(maxVideos / queries.length), useYtDlp, log);
 
         for (const video of videos) {
           if (!this.scrapedIds.has(video.videoId) && allVideos.length < maxVideos) {
@@ -66,6 +67,7 @@ class YouTubeDiscovery {
 
         log('success', `"${query}": ${videos.length} videos found`);
         limiter.reset();
+        await sleep(2000);
       } catch (error) {
         if (error.response && error.response.status === 429) {
           log('warn', `YouTube 429 rate limit, backing off...`);
@@ -108,11 +110,11 @@ class YouTubeDiscovery {
     return allVideos;
   }
 
-  async searchYouTube(query, maxResults = 25, useYtDlp = false) {
+  async searchYouTube(query, maxResults = 25, useYtDlp = false, log) {
     if (useYtDlp) {
       return this.searchViaYtDlp(query, maxResults);
     }
-    return this.searchViaHtml(query, maxResults);
+    return this.searchViaHtml(query, maxResults, log);
   }
 
   async searchViaYtDlp(query, maxResults) {
@@ -159,7 +161,7 @@ class YouTubeDiscovery {
     });
   }
 
-  async searchViaHtml(query, maxResults) {
+  async searchViaHtml(query, maxResults, log) {
     await limiter.wait();
 
     const searchUrl = `https://www.youtube.com/results`;
@@ -169,7 +171,7 @@ class YouTubeDiscovery {
         headers: this.headers,
         timeout: 15000,
       })
-    );
+    , 3, log);
 
     const videoIds = [];
     const regex = /"videoId":"([^"]+)"/g;
