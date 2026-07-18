@@ -1,0 +1,156 @@
+{
+  "timestamp": 1784392041497,
+  "topic": "best mechanical keyboards for programming",
+  "source": "stackexchange",
+  "count": 7,
+  "data": [
+    {
+      "id": "stackoverflow-33159240",
+      "title": "What mechanical Keyboard for taking programming heavy CS courses?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/33159240/what-mechanical-keyboard-for-taking-programming-heavy-cs-courses",
+      "author": "user5442490",
+      "authorRep": 33,
+      "score": 1,
+      "viewCount": 1405,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "keyboard"
+      ],
+      "created": "2015-10-15T21:59:56.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-56148377",
+      "title": "Execute sequence of various operations from the beginning while condition is true",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/56148377/execute-sequence-of-various-operations-from-the-beginning-while-condition-is-tru",
+      "author": "Luc A",
+      "authorRep": 98,
+      "score": 1,
+      "viewCount": 99,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "java",
+        "algorithm",
+        "optimization"
+      ],
+      "created": "2019-05-15T11:32:51.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-79747395",
+      "title": "Is there a macOS API I can call from C to make a specified Terminal&#39;s window be foreground &amp; active? (I know the pid) macOS",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/79747395/is-there-a-macos-api-i-can-call-from-c-to-make-a-specified-terminals-window-be",
+      "author": "Stan Sieler",
+      "authorRep": 770,
+      "score": 0,
+      "viewCount": 85,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "macos",
+        "pid",
+        "foreground"
+      ],
+      "created": "2025-08-26T22:57:12.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-22058447",
+      "title": "C++11 + SDL2 + Windows: Multithreaded program hangs after any input event",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/22058447/c11-sdl2-windows-multithreaded-program-hangs-after-any-input-event",
+      "author": "sadakatsu",
+      "authorRep": 1283,
+      "score": 2,
+      "viewCount": 3010,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "c++",
+        "windows",
+        "multithreading",
+        "c++11",
+        "sdl-2"
+      ],
+      "created": "2014-02-27T03:30:33.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-8763288",
+      "title": "UNIX file sort issue from Java",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/8763288/unix-file-sort-issue-from-java",
+      "author": "Mike Preston",
+      "authorRep": 163,
+      "score": 2,
+      "viewCount": 956,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "java",
+        "unix",
+        "sorting"
+      ],
+      "created": "2012-01-06T19:24:50.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-58923140",
+      "title": "IN VBA is there a good way to receive WM_HOTKEY messages or any other way to simulate Excel&#39;s Application.OnKey",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/58923140/in-vba-is-there-a-good-way-to-receive-wm-hotkey-messages-or-any-other-way-to-sim",
+      "author": "Phil",
+      "authorRep": 182,
+      "score": 0,
+      "viewCount": 412,
+      "answerCount": 0,
+      "isAnswered": false,
+      "tags": [
+        "vba",
+        "winapi",
+        "powerpoint"
+      ],
+      "created": "2019-11-18T21:24:37.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-41754709",
+      "title": "SDL2 desired multiple key sticky controls, difficulty preventing early key up misinterpretation as new command",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/41754709/sdl2-desired-multiple-key-sticky-controls-difficulty-preventing-early-key-up-mi",
+      "author": "synchronizer",
+      "authorRep": 2115,
+      "score": 1,
+      "viewCount": 768,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "c++",
+        "sdl",
+        "keyboard-events",
+        "sdl-2"
+      ],
+      "created": "2017-01-20T01:38:10.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    }
+  ]
+}
