@@ -61,9 +61,11 @@ class ResearchOrchestrator {
     // Step 1: Discover sources
     report('discover', 'Discovering relevant subreddits...', 0, 1);
     log('info', 'Discovering relevant subreddits...');
-    const subreddits = await topicAnalyzer.discoverSubreddits(topic);
-    const queries = topicAnalyzer.buildSearchQueries(topic);
-    log('success', `Found ${subreddits.length} subreddits`);
+    const allSubreddits = await topicAnalyzer.discoverSubreddits(topic);
+    const subreddits = allSubreddits.slice(0, 2);
+    const allQueries = topicAnalyzer.buildSearchQueries(topic);
+    const queries = allQueries.slice(0, 1);
+    log('success', `Found ${subreddits.length} subreddits, ${queries.length} queries`);
     report('discover', `Found ${subreddits.length} subreddits`, 1, 1);
 
     // Step 2: News search
