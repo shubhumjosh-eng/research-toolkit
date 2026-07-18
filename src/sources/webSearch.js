@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const DynamicScraper = require('../scraping/browserScraper');
+const { sleep } = require('../utils/helpers');
 
 class WebSearch {
   constructor() {
@@ -14,24 +15,22 @@ class WebSearch {
     const { maxResults = 10, onLog, scraper } = options;
     this.scraper = scraper || null;
     const log = onLog || (() => {});
-    
-    // Try DuckDuckGo Lite (free, no API key)
-    log('info', 'Searching DuckDuckGo Lite...');
-    const results = await this.searchDuckDuckGo(query, maxResults);
+
+    log('info', 'Searching the web...');
+    const results = await this.searchDuckDuckGo(query, maxResults, log);
     if (results.length > 0) {
       log('success', `DuckDuckGo returned ${results.length} results`);
       return results;
     }
-    
-    // Fallback to Brave Search
+
     log('warn', 'DuckDuckGo failed, trying Brave Search...');
-    const braveResults = await this.searchBrave(query, maxResults);
+    await sleep(2000);
+    const braveResults = await this.searchBrave(query, maxResults, log);
     if (braveResults.length > 0) {
       log('success', `Brave returned ${braveResults.length} results`);
       return braveResults;
     }
 
-    // Puppeteer fallback
     if (this.scraper) {
       log('warn', 'Brave failed, trying browser fallback...');
       try {
@@ -44,32 +43,37 @@ class WebSearch {
       }
     }
 
-    return braveResults;
+    log('warn', 'All web search sources failed, returning empty results');
+    return [];
   }
 
-  async searchDuckDuckGo(query, maxResults) {
+  async searchDuckDuckGo(query, maxResults, log) {
     try {
       const response = await axios.post('https://lite.duckduckgo.com/lite/',
         `q=${encodeURIComponent(query)}&kl=wt-wt`,
         {
           headers: { ...this.headers, 'Content-Type': 'application/x-www-form-urlencoded' },
-          timeout: 10000,
+          timeout: 15000,
         }
       );
-      
+
+      if (response.status === 202 || (response.data && response.data.includes('consent'))) {
+        log('warn', 'DuckDuckGo returned consent page, skipping');
+        return [];
+      }
+
       const $ = cheerio.load(response.data);
       const results = [];
-      
-      // Extract search results
+
       $('table tr').each((_, row) => {
         const link = $(row).find('a.result-link');
         const snippet = $(row).find('td.result-snippet');
-        
+
         if (link.length) {
           const title = link.text().trim();
           const url = link.attr('href');
           const description = snippet.text().trim();
-          
+
           if (title && url && !url.includes('duckduckgo.com')) {
             results.push({
               title,
@@ -80,21 +84,32 @@ class WebSearch {
           }
         }
       });
-      
+
+      if (results.length === 0) {
+        $('a').each((_, el) => {
+          const url = $(el).attr('href');
+          const title = $(el).text().trim();
+          if (!url || !title || title.length < 10) return;
+          if (url.includes('duckduckgo.com') || url.startsWith('#') || url.startsWith('javascript:')) return;
+          if (url.startsWith('/')) return;
+          results.push({ title: title.substring(0, 200), url, description: '', type: 'web' });
+        });
+      }
+
       return results.slice(0, maxResults);
     } catch (error) {
-      console.error('DuckDuckGo search error:', error.message);
+      log('error', `DuckDuckGo error: ${error.message}`);
       return [];
     }
   }
 
-  async searchBrave(query, maxResults = 10) {
+  async searchBrave(query, maxResults = 10, log) {
     try {
       const response = await axios.get(`https://search.brave.com/search?q=${encodeURIComponent(query)}`, {
         headers: this.headers,
-        timeout: 10000,
+        timeout: 15000,
       });
-      
+
       const $ = cheerio.load(response.data);
       const results = [];
       const seen = new Set();
@@ -112,9 +127,10 @@ class WebSearch {
 
         results.push({ title: title.substring(0, 200), url, description: description.substring(0, 300), type: 'web' });
       });
-      
+
       return results.slice(0, maxResults);
     } catch (error) {
+      log('error', `Brave Search error: ${error.message}`);
       return [];
     }
   }
