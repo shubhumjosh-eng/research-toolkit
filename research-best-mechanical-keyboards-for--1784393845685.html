@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report: best mechanical keyboards for programming</title>
+    <style>
+        :root {
+            --bg: #ffffff; --bg2: #f8f9fa; --bg3: #f0f0f0;
+            --text: #333333; --text2: #666666; --text3: #888888;
+            --accent: #1a73e8; --accent2: #e3f2fd;
+            --border: #e0e0e0; --border2: #d0d0d0;
+            --red: #c62828; --red-bg: #fce4ec;
+            --green: #2e7d32; --green-bg: #e8f5e9;
+            --blue: #1565c0; --blue-bg: #e3f2fd;
+            --purple: #7b1fa2; --purple-bg: #f3e5f5;
+            --yellow: #f57f17; --yellow-bg: #fff8e1;
+            --shadow: rgba(0,0,0,0.06);
+        }
+        .dark {
+            --bg: #1a1a2e; --bg2: #16213e; --bg3: #0f3460;
+            --text: #e0e0e0; --text2: #b0b0b0; --text3: #808080;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --border2: #3a3a5a;
+            --red: #ef9a9a; --red-bg: #3e2723;
+            --green: #a5d6a7; --green-bg: #1b5e20;
+            --blue: #90caf9; --blue-bg: #0d47a1;
+            --purple: #ce93d8; --purple-bg: #4a148c;
+            --yellow: #fff176; --yellow-bg: #f57f17;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--text); background: var(--bg);
+            max-width: 1000px; margin: 0 auto; padding: 40px 20px;
+        }
+        .dark body, body.dark { background: var(--bg); color: var(--text); }
+        h1 { color: var(--text); border-bottom: 3px solid var(--accent); padding-bottom: 12px; margin-bottom: 10px; font-size: 2.2em; }
+        h2 { color: var(--accent); margin-top: 40px; margin-bottom: 15px; font-size: 1.6em; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        h3 { color: var(--text); margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .subtitle { color: var(--text2); font-size: 1.1em; margin-bottom: 25px; }
+        .toolbar { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; align-items: center; }
+        .toolbar button {
+            padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); cursor: pointer; font-size: 0.85em;
+        }
+        .toolbar button:hover { background: var(--accent2); border-color: var(--accent); }
+        .toolbar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        #searchBox {
+            padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); font-size: 0.9em; width: 220px;
+        }
+        .toc {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; margin: 20px 0;
+        }
+        .toc h3 { margin-top: 0; color: var(--accent); font-size: 1em; text-transform: uppercase; letter-spacing: 1px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin: 6px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 0.95em; }
+        .toc a:hover { color: var(--accent); text-decoration: underline; }
+        .toc a::before { content: '→ '; color: var(--accent); }
+        .stats-bar { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .stat-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; min-width: 130px; text-align: center; flex: 1;
+        }
+        .stat-box .number { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+        .stat-box .label { font-size: 0.82em; color: var(--text2); margin-top: 2px; }
+        .charts-row { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .chart-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; flex: 1; min-width: 280px;
+        }
+        .chart-box h4 { font-size: 0.9em; color: var(--text2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+        .bar-label { width: 110px; font-size: 0.85em; color: var(--text2); text-align: right; }
+        .bar-track { flex: 1; height: 20px; background: var(--bg3); border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .bar-fill.positive { background: var(--green); }
+        .bar-fill.negative { background: var(--red); }
+        .bar-fill.neutral { background: var(--yellow); }
+        .bar-fill.reddit { background: var(--red); }
+        .bar-fill.news { background: var(--green); }
+        .bar-fill.web { background: var(--blue); }
+        .bar-fill.youtube { background: var(--purple); }
+        .bar-value { width: 40px; font-size: 0.85em; color: var(--text2); }
+        .sentiment-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.75em; font-weight: bold; margin-left: 5px;
+        }
+        .sentiment-positive { background: var(--green-bg); color: var(--green); }
+        .sentiment-negative { background: var(--red-bg); color: var(--red); }
+        .sentiment-neutral { background: var(--yellow-bg); color: var(--yellow); }
+        .section { margin-bottom: 40px; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .section-header h2 { margin: 0; border: none; padding: 0; }
+        .collapse-btn {
+            padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+            background: var(--bg2); color: var(--text2); cursor: pointer; font-size: 0.75em;
+        }
+        .collapse-btn:hover { background: var(--accent2); }
+        .post-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); transition: all 0.2s;
+        }
+        .post-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px var(--shadow); }
+        .post-card.highlight { border-left: 4px solid var(--accent); background: var(--accent2); }
+        .post-card h4 { color: var(--text); margin-bottom: 5px; font-size: 1.05em; }
+        .post-card .text { color: var(--text2); font-size: 0.93em; margin: 8px 0; }
+        .post-card .meta { color: var(--text3); font-size: 0.85em; }
+        .post-card a { color: var(--accent); text-decoration: none; }
+        .post-card a:hover { text-decoration: underline; }
+        .comment-card {
+            margin: 8px 0 8px 20px; padding: 10px 15px; background: var(--bg);
+            border-left: 3px solid var(--border); border-radius: 0 6px 6px 0;
+        }
+        .comment-card .author { color: var(--text3); font-size: 0.85em; }
+        .comment-card .text { color: var(--text); font-size: 0.93em; margin: 5px 0; }
+        .comment-card .score { color: var(--accent); font-size: 0.85em; font-weight: bold; }
+        .video-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); display: flex; gap: 15px;
+        }
+        .video-card .thumb { width: 160px; min-width: 120px; }
+        .video-card .thumb img { width: 100%; border-radius: 6px; }
+        .video-card .info { flex: 1; }
+        .video-card h4 { color: var(--text); margin-bottom: 5px; }
+        .video-card .channel { color: var(--text2); font-size: 0.9em; }
+        .video-card .meta { color: var(--text3); font-size: 0.85em; margin-top: 5px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 5px; }
+        .badge-reddit { background: var(--red-bg); color: var(--red); }
+        .badge-youtube { background: var(--purple-bg); color: var(--purple); }
+        .badge-news { background: var(--green-bg); color: var(--green); }
+        .badge-web { background: var(--blue-bg); color: var(--blue); }
+        .badge-score { background: var(--blue-bg); color: var(--blue); }
+        .cluster-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2);
+        }
+        .cluster-card h4 { color: var(--accent); font-size: 1em; margin-bottom: 4px; }
+        .cluster-card .count { color: var(--text3); font-size: 0.85em; }
+        .cluster-card .post-list { margin-top: 8px; font-size: 0.9em; color: var(--text2); }
+        .cluster-card .post-list li { margin: 3px 0; }
+        .author-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center;
+        }
+        .author-card .name { font-weight: bold; color: var(--accent); }
+        .author-card .stats { color: var(--text3); font-size: 0.85em; }
+        .collapsible-content { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible-content.collapsed { max-height: 0; }
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; text-align: center; }
+        @media print {
+            .toolbar, .toc, .collapse-btn { display: none !important; }
+            .collapsible-content { max-height: none !important; }
+            body { padding: 0; background: #fff; color: #333; }
+            .post-card, .video-card, .comment-card { page-break-inside: avoid; }
+        }
+        @media (max-width: 600px) {
+            .stats-bar { flex-direction: column; }
+            .charts-row { flex-direction: column; }
+            .video-card { flex-direction: column; }
+            .video-card .thumb { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p class="subtitle">"best mechanical keyboards for programming" &mdash; July 19, 2026</p>
+
+    <div class="toolbar">
+        <button onclick="toggleDark()" id="darkBtn">Dark Mode</button>
+        <button onclick="expandAll()">Expand All</button>
+        <button onclick="collapseAll()">Collapse All</button>
+        <button onclick="window.print()">Export PDF</button>
+        <input type="text" id="searchBox" placeholder="Search report..." oninput="filterCards(this.value)">
+    </div>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#topic-clusters">Topic Clusters</a></li>
+            <li><a href="#news-section">News Articles (50)</a></li>
+            <li><a href="#web-section">Web Results (50)</a></li>
+            <li><a href="#reddit-section">Reddit Analysis (5 posts)</a></li>
+            <li><a href="#author-section">Top Authors</a></li>
+            <li><a href="#youtube-section">YouTube Videos (59)</a></li>
+        </ul>
+    </nav>
+
+    <div class="stats-bar">
+        <div class="stat-box"><div class="number">5</div><div class="label">Reddit Posts</div></div>
+        <div class="stat-box"><div class="number">53</div><div class="label">Comments</div></div>
+        <div class="stat-box"><div class="number">50</div><div class="label">News</div></div>
+        <div class="stat-box"><div class="number">50</div><div class="label">Web</div></div>
+        <div class="stat-box"><div class="number">59</div><div class="label">Videos</div></div>
+        <div class="stat-box"><div class="number">0m 4s</div><div class="label">Time</div></div>
+    </div>
+
+    <div class="charts-row">
+        <div class="chart-box">
+            <h4>Source Breakdown</h4>
+            <div class="bar-chart">
+                <div class="bar-row"><div class="bar-label">Reddit</div><div class="bar-track"><div class="bar-fill reddit" style="width:10%"></div></div><div class="bar-value">5</div></div>
+                <div class="bar-row"><div class="bar-label">News</div><div class="bar-track"><div class="bar-fill news" style="width:100%"></div></div><div class="bar-value">50</div></div>
+                <div class="bar-row"><div class="bar-label">Web</div><div class="bar-track"><div class="bar-fill web" style="width:100%"></div></div><div class="bar-value">50</div></div>
+                <div class="bar-row"><div class="bar-label">YouTube</div><div class="bar-track"><div class="bar-fill youtube" style="width:100%"></div></div><div class="bar-value">59</div></div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Reddit Sentiment</h4>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Positive</div>
+                    <div class="bar-track"><div class="bar-fill positive" style="width:40%"></div></div>
+                    <div class="bar-value">40%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Neutral</div>
+                    <div class="bar-track"><div class="bar-fill neutral" style="width:40%"></div></div>
+                    <div class="bar-value">40%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Negative</div>
+                    <div class="bar-track"><div class="bar-fill negative" style="width:20%"></div></div>
+                    <div class="bar-value">20%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="section" id="executive-summary"><div class="section-header"><h2>Executive Summary</h2></div><h3>Top Reddit Discussions</h3>
+        <div class="post-card highlight" data-searchable="Ask HN: Most comfortable keyboard?">
+          <h4>Ask HN: Most comfortable keyboard? </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 12</span> <span class="badge badge-reddit">r/</span> 💬 21 comments · <a href="https://news.ycombinator.com/item?id=6091239" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Review: Keychron Q6 HE 8K">
+          <h4>Review: Keychron Q6 HE 8K <span class="sentiment-badge sentiment-neutral">neutral</span></h4>
+          <div class="meta"><span class="badge badge-score">⬆ 10</span> <span class="badge badge-reddit">r/keyboards</span> 💬 27 comments · <a href="https://www.reddit.com/r/keyboards/comments/1sh6530" target="_blank">View →</a></div>
+        </div><h3 style="margin-top:20px;">Top Insights</h3>
+        <div class="comment-card" data-searchable="I&amp;#x27;m rocking a keyboard called Mathias Quiet Pro. As far as the feel goes, if my blue switch CM storm gaming keyboard gets an A grade, the Quiet Pro is like an A-.The Quiet Pro is barely a hair louder than the average membrane keyboard. I work in an open office and I wouldn&amp;#x27;t dream of using">
+          <div class="text">"I&amp;#x27;m rocking a keyboard called Mathias Quiet Pro. As far as the feel goes, if my blue switch CM storm gaming keyboard gets an A grade, the Quiet Pro is like an A-.The Quiet Pro is barely a hair louder than the average membrane keyboard. I work in an open office and I wouldn&amp;#x27;t dream of using" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by SerLava in: Ask HN: Mechanical keyboards for programming</div>
+        </div>
+        <div class="comment-card" data-searchable="I bought a Rosewill mechanical keyboard[1] (Cherry MX) about a year ago. People claim it&amp;#x27;s the best bang for your buck.A few weeks ago, I spilled tea on it. While it was drying, I switched back to my Logitech K310 washable keyboard[2]. My enjoyment and productivity on the K310 are exactly the s">
+          <div class="text">"I bought a Rosewill mechanical keyboard[1] (Cherry MX) about a year ago. People claim it&amp;#x27;s the best bang for your buck.A few weeks ago, I spilled tea on it. While it was drying, I switched back to my Logitech K310 washable keyboard[2]. My enjoyment and productivity on the K310 are exactly the s" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by smt88 in: Ask HN: Mechanical keyboards for programming</div>
+        </div>
+        <div class="comment-card" data-searchable="* Razer BlackWidow Stealth Gaming keyboards for FPS and MOBA Gaming || http:&amp;#x2F;&amp;#x2F;www.razerzone.com&amp;#x2F;store&amp;#x2F;blackwidow-stealth-switchI love this.Good marketing video. https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;watch?v=kC93-h3nprs">
+          <div class="text">"* Razer BlackWidow Stealth Gaming keyboards for FPS and MOBA Gaming || http:&amp;#x2F;&amp;#x2F;www.razerzone.com&amp;#x2F;store&amp;#x2F;blackwidow-stealth-switchI love this.Good marketing video. https:&amp;#x2F;&amp;#x2F;www.youtube.com&amp;#x2F;watch?v=kC93-h3nprs" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by dbg31415 in: Ask HN: Mechanical keyboards for programming</div>
+        </div>
+        <div class="comment-card" data-searchable="Personally, I would favor any mechanical with dedicated mute and volume control. Use. Them. All. The. Time.Also, I&amp;#x27;m not sure how good it is for your health to have WHITE backlight. A warmer color would probably be better.If you are going to use it in a office, then go with a quieter switch, su">
+          <div class="text">"Personally, I would favor any mechanical with dedicated mute and volume control. Use. Them. All. The. Time.Also, I&amp;#x27;m not sure how good it is for your health to have WHITE backlight. A warmer color would probably be better.If you are going to use it in a office, then go with a quieter switch, su" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by arkitaip in: Ask HN: Mechanical keyboards for programming</div>
+        </div>
+        <div class="comment-card" data-searchable="I&amp;#x27;ve had the original Das Keyboard for 7 or so years and it works just as well as when it was new. I use it heavily, too. I tend to beat on a keyboard (literally) a few times a week, along with the usual 40+ hours of normal use per week.">
+          <div class="text">"I&amp;#x27;ve had the original Das Keyboard for 7 or so years and it works just as well as when it was new. I use it heavily, too. I tend to beat on a keyboard (literally) a few times a week, along with the usual 40+ hours of normal use per week." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by jenkstom in: Ask HN: Mechanical keyboards for programming</div>
+        </div>
+        <div class="comment-card" data-searchable="I&amp;#x27;m a fan of the Kinesis contoured keyboards, which I&amp;#x27;ve been using for 15 years now.The two major keyboard fora, which you can use to help research and discuss what would suit you, are http:&amp;#x2F;&amp;#x2F;deskthority.net&amp;#x2F; and http:&amp;#x2F;&amp;#x2F;geekhack.org&amp;#x2F;">
+          <div class="text">"I&amp;#x27;m a fan of the Kinesis contoured keyboards, which I&amp;#x27;ve been using for 15 years now.The two major keyboard fora, which you can use to help research and discuss what would suit you, are http:&amp;#x2F;&amp;#x2F;deskthority.net&amp;#x2F; and http:&amp;#x2F;&amp;#x2F;geekhack.org&amp;#x2F;" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by kps in: Ask HN: Most comfortable keyboard?</div>
+        </div>
+        <div class="comment-card" data-searchable="It depends. I&amp;#x27;ve used a lot in the ~20 years or so I&amp;#x27;ve been programming; and I&amp;#x27;ve come over the last decade or so to rely on the Kinesis Advantage. The big reason I chose it when I did is because it doesn&amp;#x27;t force your wrists into a positive angle, which always causes me pain.I u">
+          <div class="text">"It depends. I&amp;#x27;ve used a lot in the ~20 years or so I&amp;#x27;ve been programming; and I&amp;#x27;ve come over the last decade or so to rely on the Kinesis Advantage. The big reason I chose it when I did is because it doesn&amp;#x27;t force your wrists into a positive angle, which always causes me pain.I u" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by jfb in: Ask HN: Most comfortable keyboard?</div>
+        </div>
+        <div class="comment-card" data-searchable="http:&amp;#x2F;&amp;#x2F;ergodox.org&amp;#x2F; you can get more info at http:&amp;#x2F;&amp;#x2F;deskthority.net&amp;#x2F;workshop-f7&amp;#x2F;split-ergonomic-keyboard-... or geekhack.org&amp;#x2F;index.php?topic=22780.0;nowapIt&amp;#x27;s open source, but I purchased my own DIY kit a few months ago from massdrop.com">
+          <div class="text">"http:&amp;#x2F;&amp;#x2F;ergodox.org&amp;#x2F; you can get more info at http:&amp;#x2F;&amp;#x2F;deskthority.net&amp;#x2F;workshop-f7&amp;#x2F;split-ergonomic-keyboard-... or geekhack.org&amp;#x2F;index.php?topic=22780.0;nowapIt&amp;#x27;s open source, but I purchased my own DIY kit a few months ago from massdrop.com" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by mushrew in: Ask HN: Most comfortable keyboard?</div>
+        </div>
+        <div class="comment-card" data-searchable="I always wanted a HHK (happy hacking keyboard, http:&amp;#x2F;&amp;#x2F;www.pfusystems.com&amp;#x2F;embedded-keyboard&amp;#x2F;hhkb&amp;#x2F;index.html), but it seems impossible to get one around here (Brazil).At home I use a razer cyclosa (not mechanical, but feels really good though).
+At work I use a dell keyboard (w">
+          <div class="text">"I always wanted a HHK (happy hacking keyboard, http:&amp;#x2F;&amp;#x2F;www.pfusystems.com&amp;#x2F;embedded-keyboard&amp;#x2F;hhkb&amp;#x2F;index.html), but it seems impossible to get one around here (Brazil).At home I use a razer cyclosa (not mechanical, but feels really good though).
+At work I use a dell keyboard (w" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by talles in: Ask HN: Most comfortable keyboard?</div>
+        </div>
+        <div class="comment-card" data-searchable="I liked the MS Ergo but, due to an office change, needed a wireless keyboard. I switched to the Logitech wireless keyboard and have absolutely hated it. The keys are too small and I make so many mistakes while coding, and that&amp;#x27;s after a year with it. Whatever you buy, check the size against the">
+          <div class="text">"I liked the MS Ergo but, due to an office change, needed a wireless keyboard. I switched to the Logitech wireless keyboard and have absolutely hated it. The keys are too small and I make so many mistakes while coding, and that&amp;#x27;s after a year with it. Whatever you buy, check the size against the" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by ScottWhigham in: Ask HN: Most comfortable keyboard?</div>
+        </div><h3 style="margin-top:20px;">Top News Coverage</h3>
+        <div class="post-card" data-searchable="The 5 Best Mechanical Keyboards of 2026 - RTINGS.com">
+          <h4>The 5 Best Mechanical Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · July 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE11T1MwSDRLLXdJWElhbWFHUGhGcUJsTnN3c1JwTzZrTzZpd2dEZzdMX1BMOEdSdjFMbF96RXoyZ0VtQXJTaFVjd0cyU05ldUhUczF2U0xkOU9qR2hoZDdXQm9iSFp3dw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Keyboards For Programming of 2026 - RTINGS.com">
+          <h4>The 5 Best Keyboards For Programming of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · May 28, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE5qZGdWeXhXUHlyMm1tQk9hcjhPc1lyRFZ5VXlmeEJFdVc1OEgwc3preFFjRDh0SDN1NmV5TGV5N0Zta1ZpSHVaSlBHZFRseG5zaWtwV0ZyNWhHVHpSZnI2dGVJNk82SVlFR3JvQlZ1ak9ONzA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Mechanical Keyboards of 2026 | Reviews by Wirecutter - The New York Times">
+          <h4>The 6 Best Mechanical Keyboards of 2026 | Reviews by Wirecutter - The New York Times</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The New York Times · January 15, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOSTh4V2gtUUdNUDVfOTBPWk9uUmxsWjJpdHctNUs2UlNxQW1oQ3hVYlBJbFpuZlJrMTRHcF81M0k2OVFWSk14ZHM1Y3ZyaXlfN3dzbzJwLWhRamJocUF0Z2U0X2JQbV9ZWV80VmhUaDFTNVFNaUo3Q0ppeV9YMEF4RFdyUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="I Test and Take Apart Keyboards for a Living. These Are the Very Best - WIRED">
+          <h4>I Test and Take Apart Keyboards for a Living. These Are the Very Best - WIRED</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> WIRED · July 6, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE5ncFZJbTBLQkF6SDQ4R1I5Z1F1Y2tPUTUtbE1vVVpJZ1ZScWhtcVB6VndwVTQ1YzhWNVhMOWVNeTlGc0RteTdocE5ubnhRczJQTzh1MnNES1Q?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Best Mechanical Keyboards We&#039;ve Tested for 2026 - PCMag">
+          <h4>The Best Mechanical Keyboards We&#039;ve Tested for 2026 - PCMag</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PCMag · May 21, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5LbEVYalEwUVhVUWdDdGd3ZENGTC03MUhfY0p3eUFmZTRMYW1MaGZnY1ZFUV9xa2loZU1sS0pMRUg0bF9veWI1T2RycDhkdUhYMF9TeTZUXzNSRFdyN24wTUhfYkdIbS1m?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best mechanical keyboard 2026: 15 picks for gaming, typing and coding - Eurogamer.net">
+          <h4>Best mechanical keyboard 2026: 15 picks for gaming, typing and coding - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · February 13, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOWENNWEx6Y3d2MUVaSVhiV045Z0pXdXY5ODRXSUdacFREVU5rblZSQnFsVXBOTXpBd1pCMkVPeE1YN0poMF9NcE1zZXV2UGI2RnpER2Y4bm5Fc24tT1MyZW1FdnA3U0k5MmtxaHNHYmRYNVJPcjcxckJmeWthWjB1OEtKRDN5ckxnTE1IYnZnLUVIUHZ1V0U0N0UzMA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best Wireless Keyboards 2026: Our Tested Picks for Gaming, Typing, and Traveling - Tom&#039;s Hardware">
+          <h4>Best Wireless Keyboards 2026: Our Tested Picks for Gaming, Typing, and Traveling - Tom&#039;s Hardware</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Tom&#039;s Hardware · June 25, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE44dGZNVmF0SVFoLUN1Nzd2bGMxQkxucjkxR2tucmIzdTVLbzJxMTJMTUl1QVRFR0xSM2Rzei05LUlLLTRhR1gzQ01Td2dGZWliT0lDNW42N29NUS1YMkRkbVZHR2lPSGtPcnFONERITE4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Low-Profile Keyboards of 2026 - RTINGS.com">
+          <h4>The 5 Best Low-Profile Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0xWmp1NHA0cmxjWnBSOE1iTGhnY1dmVVpXeXJEX0hDYmV5Q1hjd2tmS2c3RWNhbGh6Q2JLWHNaT0t4dXBqY0hHNE92TzVFMGZ0c0FMN3Y3U1JzbEUzZnZFa3VjTWN6REU?oc=5" target="_blank">Read article →</a></div>
+        </div><h3 style="margin-top:20px;">Top Web Findings</h3>
+        <div class="post-card" data-searchable="Reddit reddit.com   › r/webdev  › keyboards that you recommend for programming?   r/webdev on Reddit: Keyboards that you recommend for programming?">
+          <h4>Reddit reddit.com   › r/webdev  › keyboards that you recommend for programming?   r/webdev on Reddit: Keyboards that you recommend for programming?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          <div class="text">Just that, I have a 100% keyboard and never try anything else but I saw a lot of developers using 60% - 80% Keyboards and I want to try something new, do you have any recommendation?</div>
+          <div class="meta"><a href="https://www.reddit.com/r/webdev/comments/18g0wcw/keyboards_that_you_recommend_for_programming/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Programmers Keyboard">
+          <h4>Programmers Keyboard</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1pro9ix/programmers_keyboard/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Good keyboard for programming">
+          <h4>Good keyboard for programming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1p2wsv0/good_keyboard_for_programming/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Looking for good keyboard for programming and gaming">
+          <h4>Looking for good keyboard for programming and gaming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1q8wlnv/looking_for_good_keyboard_for_programming_and/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Which keyboards do programmers here use?">
+          <h4>Which keyboards do programmers here use?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keys/comments/1o3xswy/which_keyboards_do_programmers_here_use/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What are the best keyboards for typing?">
+          <h4>What are the best keyboards for typing?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/typing/comments/1ps3bbk/what_are_the_best_keyboards_for_typing/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="RTINGS rtings.com   › home  › keyboard  › best   The 5 Best Keyboards For Programming of 2026 - RTINGS.com">
+          <h4>RTINGS rtings.com   › home  › keyboard  › best   The 5 Best Keyboards For Programming of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.rtings.com</div>
+          
+          <div class="meta"><a href="https://www.rtings.com/keyboard/reviews/best/by-usage/programming" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on news.ycombinator.com">
+          <h4>More on news.ycombinator.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> news.ycombinator.com</div>
+          
+          <div class="meta"><a href="https://news.ycombinator.com/item?id=20782394" target="_blank">Visit page →</a></div>
+        </div></div><div class="section" id="topic-clusters"><div class="section-header"><h2>Topic Clusters</h2></div>
+        <div class="cluster-card" data-searchable="Comparisons &amp; Reviews">
+          <h4>Comparisons &amp; Reviews <span class="count">(115 posts)</span></h4>
+          <ul class="post-list"><li>These Are 2026’s Best Mechanical Keyboards for Programming <span class="badge badge-score">⬆ undefined</span></li><li>Top 4 Best Mechanical Keyboards for Programming [Review 2025] <span class="badge badge-score">⬆ undefined</span></li><li>Ask HN: Mechanical keyboards for programming <span class="badge badge-score">⬆ 10</span></li><li>Ask HN: Most comfortable keyboard? <span class="badge badge-score">⬆ 12</span></li><li>Stop Using Bad Keyboards. Best Mechanical Keyboards for Coding (2026) <span class="badge badge-score">⬆ undefined</span></li><li>The Best Mechanical Keyboards for 2026 - PCMag UK <span class="badge badge-score">⬆ undefined</span></li><li>Looking for a keyboard recommendation (and maybe switches too) <span class="badge badge-score">⬆ 2</span></li><li>AULA F99 (Flame Purple) vs Ajazz AK980 V2 vs Redragon - Which one? <span class="badge badge-score">⬆ 1</span></li></ul></div>
+        <div class="cluster-card" data-searchable="General">
+          <h4>General <span class="count">(39 posts)</span></h4>
+          <ul class="post-list"><li>Why You need Mechanical Keyboard for Programming <span class="badge badge-score">⬆ undefined</span></li><li>Are Mechanical Keyboards worth it for Programmers? <span class="badge badge-score">⬆ undefined</span></li><li>Get Clicky With Our Favorite Custom Mechanical Keyboards - WIRED <span class="badge badge-score">⬆ undefined</span></li><li>MelGeek melgeek.com › blogs  › melgeek-lab  › wireless-mechanical-keyboards-for-... <span class="badge badge-score">⬆ undefined</span></li><li>Keychron keychron.com    Keychron | Custom Mechanical Keyboards for Mac, Windows... <span class="badge badge-score">⬆ undefined</span></li><li>After testing 100+ keyboards, these are my favorite. <span class="badge badge-score">⬆ undefined</span></li><li>Keychron K3.. I sold it for MX Keys Mechanical instead <span class="badge badge-score">⬆ undefined</span></li><li>I Tried 70 Keyboards Last Year... (So You Don&#039;t Have to) <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Getting Started">
+          <h4>Getting Started <span class="count">(12 posts)</span></h4>
+          <ul class="post-list"><li>Seeking 75–80% ANSI Keyboard for Office – Linux/Windows Dual BOot <span class="badge badge-score">⬆ 1</span></li><li>Ask HN: Advice about studies? <span class="badge badge-score">⬆ 1</span></li><li>Beginner&#039;s Guide To Mechanical Keyboards <span class="badge badge-score">⬆ undefined</span></li><li>What I Learned Spending +$2000 On Ergonomic Mechanical Keyboards <span class="badge badge-score">⬆ undefined</span></li><li>We&#039;ve tested 100+ keyboards to find the best of 2026 — here are the only ones wo... <span class="badge badge-score">⬆ undefined</span></li><li>How To Choose A Programming Keyboard <span class="badge badge-score">⬆ undefined</span></li><li>7 Tips for Buying Your FIRST Mechanical Keyboard // an Easy Beginner Guide! <span class="badge badge-score">⬆ undefined</span></li><li>RK Royal Kludge rkgamingstore.com › blogs  › community  › what-is-the-best-keybo... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tools &amp; Resources">
+          <h4>Tools &amp; Resources <span class="count">(4 posts)</span></h4>
+          <ul class="post-list"><li>HHKB hhkeyboard.us   › home  › resources  › features   Mechanical Keyboards for ... <span class="badge badge-score">⬆ undefined</span></li><li>What mechanical Keyboard for taking programming heavy CS courses? <span class="badge badge-score">⬆ 1</span></li><li>Keychron - V5 Max 96% Custom Wireless RGB Mechanical Keyboard with Programmable ... <span class="badge badge-score">⬆ undefined</span></li><li>IN VBA is there a good way to receive WM_HOTKEY messages or any other way to sim... <span class="badge badge-score">⬆ 0</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Common Problems">
+          <h4>Common Problems <span class="count">(3 posts)</span></h4>
+          <ul class="post-list"><li>Keyboard Size Comparison: Don&#039;t Make The Wrong Choice. <span class="badge badge-score">⬆ undefined</span></li><li>UNIX file sort issue from Java <span class="badge badge-score">⬆ 2</span></li><li>SDL2 desired multiple key sticky controls, difficulty preventing early key up mi... <span class="badge badge-score">⬆ 1</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Future &amp; Trends">
+          <h4>Future &amp; Trends <span class="count">(1 posts)</span></h4>
+          <ul class="post-list"><li>More on news.ycombinator.com <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Community Discussion">
+          <h4>Community Discussion <span class="count">(1 posts)</span></h4>
+          <ul class="post-list"><li>More on reddit.com <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tips &amp; Advice">
+          <h4>Tips &amp; Advice <span class="count">(1 posts)</span></h4>
+          <ul class="post-list"><li>PEP 554: Multiple Interpreters in the Stdlib <span class="badge badge-score">⬆ 0</span></li></ul></div></div><div class="section" id="news-section"><div class="section-header"><h2>News Articles (50)</h2>
+        <button class="collapse-btn" onclick="toggleSection('news-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="news-cards">
+        <div class="post-card" data-searchable="The 5 Best Mechanical Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best Mechanical Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · July 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE11T1MwSDRLLXdJWElhbWFHUGhGcUJsTnN3c1JwTzZrTzZpd2dEZzdMX1BMOEdSdjFMbF96RXoyZ0VtQXJTaFVjd0cyU05ldUhUczF2U0xkOU9qR2hoZDdXQm9iSFp3dw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Keyboards For Programming of 2026 - RTINGS.com ">
+          <h4>The 5 Best Keyboards For Programming of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · May 28, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE5qZGdWeXhXUHlyMm1tQk9hcjhPc1lyRFZ5VXlmeEJFdVc1OEgwc3preFFjRDh0SDN1NmV5TGV5N0Zta1ZpSHVaSlBHZFRseG5zaWtwV0ZyNWhHVHpSZnI2dGVJNk82SVlFR3JvQlZ1ak9ONzA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Mechanical Keyboards of 2026 | Reviews by Wirecutter - The New York Times ">
+          <h4>The 6 Best Mechanical Keyboards of 2026 | Reviews by Wirecutter - The New York Times</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The New York Times · January 15, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOSTh4V2gtUUdNUDVfOTBPWk9uUmxsWjJpdHctNUs2UlNxQW1oQ3hVYlBJbFpuZlJrMTRHcF81M0k2OVFWSk14ZHM1Y3ZyaXlfN3dzbzJwLWhRamJocUF0Z2U0X2JQbV9ZWV80VmhUaDFTNVFNaUo3Q0ppeV9YMEF4RFdyUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="I Test and Take Apart Keyboards for a Living. These Are the Very Best - WIRED ">
+          <h4>I Test and Take Apart Keyboards for a Living. These Are the Very Best - WIRED</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> WIRED · July 6, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE5ncFZJbTBLQkF6SDQ4R1I5Z1F1Y2tPUTUtbE1vVVpJZ1ZScWhtcVB6VndwVTQ1YzhWNVhMOWVNeTlGc0RteTdocE5ubnhRczJQTzh1MnNES1Q?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Best Mechanical Keyboards We&#039;ve Tested for 2026 - PCMag ">
+          <h4>The Best Mechanical Keyboards We&#039;ve Tested for 2026 - PCMag</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PCMag · May 21, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5LbEVYalEwUVhVUWdDdGd3ZENGTC03MUhfY0p3eUFmZTRMYW1MaGZnY1ZFUV9xa2loZU1sS0pMRUg0bF9veWI1T2RycDhkdUhYMF9TeTZUXzNSRFdyN24wTUhfYkdIbS1m?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best mechanical keyboard 2026: 15 picks for gaming, typing and coding - Eurogamer.net ">
+          <h4>Best mechanical keyboard 2026: 15 picks for gaming, typing and coding - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · February 13, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOWENNWEx6Y3d2MUVaSVhiV045Z0pXdXY5ODRXSUdacFREVU5rblZSQnFsVXBOTXpBd1pCMkVPeE1YN0poMF9NcE1zZXV2UGI2RnpER2Y4bm5Fc24tT1MyZW1FdnA3U0k5MmtxaHNHYmRYNVJPcjcxckJmeWthWjB1OEtKRDN5ckxnTE1IYnZnLUVIUHZ1V0U0N0UzMA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best Wireless Keyboards 2026: Our Tested Picks for Gaming, Typing, and Traveling - Tom&#039;s Hardware ">
+          <h4>Best Wireless Keyboards 2026: Our Tested Picks for Gaming, Typing, and Traveling - Tom&#039;s Hardware</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Tom&#039;s Hardware · June 25, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE44dGZNVmF0SVFoLUN1Nzd2bGMxQkxucjkxR2tucmIzdTVLbzJxMTJMTUl1QVRFR0xSM2Rzei05LUlLLTRhR1gzQ01Td2dGZWliT0lDNW42N29NUS1YMkRkbVZHR2lPSGtPcnFONERITE4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Low-Profile Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best Low-Profile Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0xWmp1NHA0cmxjWnBSOE1iTGhnY1dmVVpXeXJEX0hDYmV5Q1hjd2tmS2c3RWNhbGh6Q2JLWHNaT0t4dXBqY0hHNE92TzVFMGZ0c0FMN3Y3U1JzbEUzZnZFa3VjTWN6REU?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 4 Best Budget Mechanical Keyboards of 2026 - RTINGS.com ">
+          <h4>The 4 Best Budget Mechanical Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 22, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE5XX0JnbmVOSHdCYm1rWVBGT0E3MmduOGFRMzF2RGExQnBhSHBaV0NuakRhZEZkMnlkTjFadndFTmVidy0zbUphS3lYRzdoR0pXYWJzVVRRTEFiR2F0TXlMSzhVNWhYaHNMam9qOHA0cnNlRjVIWjJSVW5hQQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Keyboards For Mac of 2026 - RTINGS.com ">
+          <h4>The 5 Best Keyboards For Mac of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 26, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE14QlNrRVZGN0VGdllmLS1PNzVldWY1dXoxSjJBVk1vWWxHblhnaXFBMUt2eDdFU3VoZ2g0b2RQcGpiSkF0bkVuLXhPM19PQWRQS3hiSnYwNXVtOXFMaE1CaTgxUHlOTW1P?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best 75% Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best 75% Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · July 7, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5ueXJOTXViWm1Ja0I5VWVJcFpJa295V1k3bV9paXJHUzBFeVRpMDJobzhZRDlQdlJQSVF4aWVoLU9uYkkxUDdNTHdUOC1RU3R1Mnc5ejN3RUdBQjdrSjNCN0JiNFRodw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Ergonomic Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best Ergonomic Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · July 8, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1ENnJJbmtnZms5M1pLbTB4WVc5eExvajB4VTVyMzdmdHlPcU9ZOXR6ZVd4QkN3X0pzaWFrYTdZSmphN3NLamhLZnRHZGlrT0U0eVgwNUZ4bmZEdFJpU1p4dlZMRnk?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best TKL Keyboards of 2026 - RTINGS.com ">
+          <h4>The 6 Best TKL Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1seFktN2N2ZUZLWWVKcmwxNkc3WENnRmhMeldEb09wOHM3RXIyMU51VDNTZl8wOUN3ZVdseDc5QVhEenNxS1ZieXV1VGVTc0loOFV1cUdDczlMNThy?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Gaming Keyboards of 2026 - RTINGS.com ">
+          <h4>The 6 Best Gaming Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9wWFVMcnVScTNyYjFJMjdZUk9YYjF4dngtdUZ6RXQxTWlHYVV6bDlzcEFhd1RwdC1ub1h6b1ZyNk5GSk1BRndQUzE4Y25NNk0ybXNIaVZ4N2lYcVRtWC1jUFBNN3lQWG4tbkNpWQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 4 Best 60% Keyboards of 2026 - RTINGS.com ">
+          <h4>The 4 Best 60% Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 19, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBjZTY2MjlENW8tU3dqN2V5OWx0azRyYWVxelQxcnJoUGNQd0c5ei1RbDBvVnZTQzNiZkRkbkY4eEpIckVJY3JvZ09MaU1nZVRTd3pMa2Z6M0NScFZrODhnM0tWWlNpUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Office Keyboards of 2026 - RTINGS.com ">
+          <h4>The 6 Best Office Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · May 28, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE5JZmxhTDJWQ0Uwc2ZTSWFtcHVrTnRsaFRiandLd0o1SUJLa0oyMjFXLUJYNTVtcThSbTkyX3lLTW1zODZBdHplUzJSMXJaQ09fYy1YTWZuTWdCQnV3Q0E?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Keyboards of 2026 - RTINGS.com ">
+          <h4>The 6 Best Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · May 22, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE01aFk2dWZoRjk3blE1NEZCWU0xbWZTenVEX1cwdjEyUGRTT3BfVFFjSlJZdXlnZURNQTBTQlBpTW54cUVPM1l0aDlnUU5LY3NIYVYzT25qWU8yYWw3RUxsY3lIcw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 4 Best Keychron Keyboards of 2026: Reviews - RTINGS.com ">
+          <h4>The 4 Best Keychron Keyboards of 2026: Reviews - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 25, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1RWjBHR29CNDNyQ3VXS2Q1MDJ6Z0ppRjRNZEpnZDNBRUpwZkxsbjV6SFZtZDRWODFJYWlyWW9Ed083UmVUNjcyNzdzaF9jYV9VQWdSTWEtVVdaaDg3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 4 Best Razer Keyboards of 2026: Reviews - RTINGS.com ">
+          <h4>The 4 Best Razer Keyboards of 2026: Reviews - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTFBFSzU5STdtRkMxa2xyMVcza1hCWjF0d0QyYnNTRnNBX1o4VGJhQmhINXFLZ0YwcENqQ1g4LWFidFRKTGF2U2xCcVNjclFBTV9vaFEzb29iUVE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 4 Best Budget Gaming Keyboards of 2026 - RTINGS.com ">
+          <h4>The 4 Best Budget Gaming Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE0tUElXenI0TUtPTmZTcWlFS2ZUWnU4ZXhraExrOWc4V3ZvTUVxV3ZCVS1Oa1lUT0hSWlhWdDBFNWtHQ0xMNm1KYVN4OS1GTDNtRE5EN0xuNWplWEVqLWR3U1RNWnZhdzd1NUFJaHM0X3FUWVdCbGtOSlA0SQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Wireless Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best Wireless Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 18, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE80eUZoZDFXV1QzQkQtUnVrdVllX0FvcGxUM1E4aUNwWlQxXzlYc19HRW14bmtDZ2VnVTNKOG9hLXRXdWdFLW9aUkRwYi1XZlBTYU5XVURNNVowWlVWUHBfU211U0pxLXBiMnBGeFhR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Quiet Keyboards of 2026 - RTINGS.com ">
+          <h4>The 6 Best Quiet Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · April 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE90ZjM4TnhHU3g2YzBsTzNGREFzRDFfRVo2RjZGb1RhRU0yQlFHTW9ONmFTUndWRE82Y0d5cFNfcWdmRWxYV0NwWlcza0JULWp2Y2FMMnluejJzQVJhdkNn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 Best Budget And Cheap Keyboards of 2026 - RTINGS.com ">
+          <h4>The 6 Best Budget And Cheap Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE5yTTdvOF9reGJGeDBDOFVQNlNyRXNxdlVTWTc1NDdPY0NYd1JFQVhSakEwX01aTlFVai13ZGVVYjhJUVZJbEwya0NZc29yc2hSUFl5M0R6SEZ5YlRNeVVZ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Logitech Keyboards of 2026: Reviews - RTINGS.com ">
+          <h4>The 5 Best Logitech Keyboards of 2026: Reviews - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · May 28, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1jbGZGMEFlQWYxMmwwYzBsUFZuVFlJZkM0Q2Ryc0NFVk5hTzRYZ19QdHJ0dkdydmVEbTBEQTM5ZkJtYlQ1aS01MWpYZHlqeVE4V1I0OFZ3WHE3SXZs?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Get Clicky With Our Favorite Custom Mechanical Keyboards - WIRED ">
+          <h4>Get Clicky With Our Favorite Custom Mechanical Keyboards - WIRED</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> WIRED · November 28, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9zUmJ3RmZXal9nb3VrQ0JaRkpZak9pMG5oaDg5QXVMekJtUWJNTExlMEY5M3J6MEhMWFU5MS1DSU9SdUhzT0RPR2Rjd0pHWklDd2NDMjVxYnZYTHpqYmFlSUNUWEdDb3c?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The best keyboard in 2025: our top picks for typing and gaming - TechRadar ">
+          <h4>The best keyboard in 2025: our top picks for typing and gaming - TechRadar</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> TechRadar · June 2, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPMDNXMlQtQ2gwdWhBRFZCSWJqTzUtSUw1STRFNlEtaDNHVXlRdXZXVlo5ZEZGdjN5WDJ6ekgzUE1jeUJuQnJKMS1uc0ZieUVrODlkRFlqYnAteGo3eEZTdUg4VXFCcXIxN1hXRzVQa0k3SmRmWHRnWmF0cS1MUU12Y2lTWkRGQVFRNzE4cDhuUEVXNXhaVWJ6UnpUMXd5QmZCNVltTGYzNlo4MUtvc1JLN0lR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Best Mechanical Keyboards for 2026 - PCMag UK ">
+          <h4>The Best Mechanical Keyboards for 2026 - PCMag UK</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PCMag UK · May 21, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE1xbl9ILXpmMjZyRlA1T1hSVkdubzlPRjN3aFllNlNvVWNKckNLendyVlVFbTlPUXVrUDFLMmVTVno4aW1QX1dKUHB5bzV1XzZaVU1sMVZ6RXJiWlZYbjh6TTdMMjE0VFR1djc2RUNZR253cmpY?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 4 Best Corsair Keyboards of 2026: Reviews - RTINGS.com ">
+          <h4>The 4 Best Corsair Keyboards of 2026: Reviews - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · April 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9aYzUyajFkWm9pSnJKbUUzclRiYUh2SnZYZ0dKQkd4S3BwU3VZa3J5WWxUdjVLSms2bVE0cTNDQjRWZXVOZHYyb3RMVThsSWZ1bzhNdldaQ3poRFU?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best RGB Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best RGB Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · April 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5BTzRId2lMc1E3cmROd1FQYm05V0ROX0FTcWRSUHFEQ1AyekZNTUNYQ1JtMXk0VlFuNEgtSWp4M3JqcE9kelN3NzR3c2xjb3VIcjNmZWlZUF9aclZt?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 3 Best Ducky Keyboards of 2026: Reviews - RTINGS.com ">
+          <h4>The 3 Best Ducky Keyboards of 2026: Reviews - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · April 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTFB5NmdfekR3RHNmWHVSZ2tBXzBSNzZ6V1BVVlFBSzlPZEt1V0Y5LVpjSGJNYzJpSVR4a0xZQXhoM3lWY29KQklxQVZFZWVWSE4zUGEtYmZNOTQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best iPad And iPad Pro Keyboards of 2026 - RTINGS.com ">
+          <h4>The 5 Best iPad And iPad Pro Keyboards of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 2, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE04di1HbDV1RXE0Z2d4UmMxTUNObnNWTFFXSVNsWnZkWUlsblR3NHFSa1BpVEdrNERuVkVCajRqNnZFd3N4ZW9uR3VGY0x2Q3U2Sk02eUx5TzZ3SnJqbmc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 3 Best Compact Mechanical Keyboards of 2026 | Reviews by Wirecutter - The New York Times ">
+          <h4>The 3 Best Compact Mechanical Keyboards of 2026 | Reviews by Wirecutter - The New York Times</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The New York Times · January 15, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPTjJvTS0ySHBPNjAwa0xwbkxDaFhhT0dMdElseW1wdVZfeER2ZHE3ZHp3cFdVOW1ySlRJVEdaOHcwMk5ReUtTNGMyRUM1cDI3cmZ5OHlOWEhOamlsTjd6Q05TeVcybGVGWldWQ2Y1d0J1ZlRDVXFGVHBDZFJ2MzFabmxkMA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best Budget Mechanical Keyboards 2026: Our tested picks under $100 - Tom&#039;s Hardware ">
+          <h4>Best Budget Mechanical Keyboards 2026: Our tested picks under $100 - Tom&#039;s Hardware</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Tom&#039;s Hardware · June 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE84TmtFcFFydkk3blRGNTgwUERieV94YU96WmtNVkwxNUJsUU5ISC1MbXpJdmFUbDdGR0ZERWN1cjJSTk84VS00MXB1MUJvTnUtZ0tpbVBBeTRlZC1fMUJfckd2bFJ0dnAxVk5YZG9tRngtZlg3cWNhZ3MtTU0?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 12 Best Keyboards for 2026 | Reviews by Wirecutter - The New York Times ">
+          <h4>The 12 Best Keyboards for 2026 | Reviews by Wirecutter - The New York Times</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The New York Times · October 8, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBBRUlybk9rQVRHOXVaOWRyVGRsYjFvTGt2OGR4QWhWcmh1QUt5WnJyclJLMUtZSTlleW1COVhBaVZFY3FPak5sZUJRbk1YN2FtS0VtMkdxTFdZVndDR01WRVM4YUhHdGwweEE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The best keyboards for 2026 - Engadget ">
+          <h4>The best keyboards for 2026 - Engadget</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Engadget · March 3, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPWWZsNktYd3BWb0FRd2RQandIUTBRVHo1dXBON2pZRF9FN2N6dnByUFdqc2xsVmpBT0k4dkdISUhYN0V6Zk1EM3I5cUM0ZzhvZVJtcmlwMVI2RjBiUDFBTUhUdDY1NktMX2xFOFFXNkY5UjJuMGhRdk91V1ZkeThJbg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="We&#039;ve tested 100+ keyboards to find the best of 2026 — here are the only ones worth buying - Tom&#039;s Guide ">
+          <h4>We&#039;ve tested 100+ keyboards to find the best of 2026 — here are the only ones worth buying - Tom&#039;s Guide</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Tom&#039;s Guide · June 15, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE01bWVoWnAzNFVGemlOeWxtN3JRTng0ckhwRU1vYl9HY1ZrSmF3T2hBRDlTN051cjQwdGI2Z1VJWjhhZ1UwQW1GTUhtRkdaSUkxUTduSGxMTFlpOHdocFI4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Best Tenkeyless (TKL) Keyboards for 2026 - PCMag ">
+          <h4>The Best Tenkeyless (TKL) Keyboards for 2026 - PCMag</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PCMag · May 22, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1DN0tQWlcySnluZ19LTlZ1V0RGSFhSRmRINUMyVDFrM2t3dXJVNVpnS0ZhR0pQZE1QUnJoVXJwOVM0TFdwZjdTMHdFd0pJNktGNHplZFFsaXlRanBmM0FsYklhZ3NOdzJt?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best 65% keyboards for gaming, typing and programming 2026 - Eurogamer.net ">
+          <h4>Best 65% keyboards for gaming, typing and programming 2026 - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · February 23, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE5PQjNhNURKdXdGVS1XSGVYVVY5OE1lRE9PMmh6dkhSeVZ6Qk91Rzh6R21xNWxTQko2SjNneGRGOXRHWDBtay1FUG9xbFpqSHZmblJ6YldKc0h0S2ZsSnphRWRQcnZvQU1qXy1wZTNXWjlrcUhj?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Ducky OK-M Review - RTINGS.com ">
+          <h4>Ducky OK-M Review - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · May 13, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1UVXVUazI2Q2p4OU5pQ0tpb1VTZGpjUHJjYzBPbHF1U3pNNG5DOEp3ejVjYnRTMm94dXhDa3FQQXBsZ2VZN3FhNXFITjktaTZOY292SUk3WVNRRTNXQWdV?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The best ergonomic keyboards for 2026 - Engadget ">
+          <h4>The best ergonomic keyboards for 2026 - Engadget</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Engadget · February 26, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxNY1ZxeWxLY2tURTFpektfNGE1clhhQzNDSVVNUjFuZlFYVmtxODdSX1ZacU12TzhDWGZlNGZvV1ZiWEx2SzFSMk5ndHI5c0E4NHRPeWdHSUNST2h6eVdnQ3RUVjNnUjFxekxtWDM4TmFQd0tiX3owY2tTQ2hmZkV2bWZXenh2SWpDdG1jQkpR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Lofree Flow 2 Review - RTINGS.com ">
+          <h4>Lofree Flow 2 Review - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · January 22, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5zMVREV1RzdXN1MF8wZGR2RUdfaWxQVFpEUXhuMy1wVVUzSlhydzRBVVRjNEdQUVE5QV9xbXdmc3ZJeC01ZjMyX1NCVTM4dkVheDI3cHJOa016c1lfUjlKLXBfRnhRVU5xS1hYRzNCc1JyZw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best 75% mechanical keyboards for gaming and typing 2025 - Eurogamer.net ">
+          <h4>Best 75% mechanical keyboards for gaming and typing 2025 - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · November 5, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE1LekhnQmNqM0JJV3FNMFZ2Tnd2aU9nSWgwdnJiUWk4UEJZd2ZEZkk5OTJzRjlvQVIwbS1RcFQ5c1IzUkVXeWQzRkpQY3BhTWl4M1BvbGpzNzlSZWc1eDJhb01EMFJnbWxjZE1TWXk5NC1md24t?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Best Mac Keyboards We&#039;ve Tested for 2026 - PCMag ">
+          <h4>The Best Mac Keyboards We&#039;ve Tested for 2026 - PCMag</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PCMag · December 25, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1tU0VxS3RQbTdKVEY2bXBSRTA3WkVBd3VxZG9DVGtlcXJraTI2NWhVTmFGelUwbmlVaHEyMlhNUkRZbmZkc2VldDd6VlZqU3lSaDc1NC1yMXBXallHWkxDSTBLa3I?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best 60% keyboards for gaming, typing and programming 2026 - Eurogamer.net ">
+          <h4>Best 60% keyboards for gaming, typing and programming 2026 - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · February 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE15NEYxNkJpbUVXS3FNZGhQUTNtdERfek44R3NPR1gyS0ZYVGJ5a3NnVEdnQkI5R19lTl9CeWNoOFRKR0l0NGppQmFXMkpHV3NSdGtXWldzc05nV0NNYmhmU0JPVEl4UjZwNG82VzNSQVVVblgy?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 5 Best Monitors For Programming of 2026 - RTINGS.com ">
+          <h4>The 5 Best Monitors For Programming of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQNDZpUXNOTmFPdWdxaTdFbHNZVlVTcmR0cG03bHNSN1NXNDg1alB5T29oLWVzcU9TenpWVlowU2tYSG9BLVNoVVRRMEg3dnJIc2xGSEtMdlJPa1RqbE1VZm0yZk05aHlwXzRiX0d1T214Ym80U19QeC1KMmg4QkdKWQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best full-size (96%/100%) mechanical keyboards 2026 - Eurogamer.net ">
+          <h4>Best full-size (96%/100%) mechanical keyboards 2026 - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · February 23, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxOeDRudFVUUEJjX2pNM2N1RWJoN3pTamF6QVNTOExEM0cxbzVWaGMzMXpURWpFb2E0akNqVldPeVFOb01oajZ3LTlNV2F2SWZub01PbG5NZ2dhM0NETzVvYlNUNi1OYTNKOWZHQmZwWHpzek83aHFGRXh6WEhLTnJTLURIUjcxOU1tNXpJNlBwSlc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Wooting 60HE v2 Review - RTINGS.com ">
+          <h4>Wooting 60HE v2 Review - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · January 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBaXzdXckZwNDNSWVhleDF3aFd5Y2VCQjJxLTRkOHhlYmtSZWJ0UHYxVVVxd21qdGQ3ejFtTjUzWk9CT3lBUnJNSjl5Y3psczVwMEROcmp0RUYzRUIyVkZVVk16T05jVTRwMTI0NGpwRU12Zw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best wireless gaming keyboard in 2026: my top picks for cable-free typing delights - PC Gamer ">
+          <h4>Best wireless gaming keyboard in 2026: my top picks for cable-free typing delights - PC Gamer</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PC Gamer · January 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1CVjRvSmJtblVQYTQyY0R5dk9kS0lteHJSUkMyMGlVelIzMlpRaUpLNWFoaW8yaUJzWW5pTjgxV2pZeDZjaUFfTTZYdW9kMTVnLXhDYzRIdjc1TGJjLUhRcVhNVjY?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The 6 best TKL Keyboards for 2026 - Eurogamer.net ">
+          <h4>The 6 best TKL Keyboards for 2026 - Eurogamer.net</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Eurogamer.net · February 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE5neW41Z0VvTDNHZnRLQ3lpYzNWc3J6c3hFZktrZ3BWa0hVeXYyWUw1WDNhY2hySW0wZWdTRHN2OWhBZmlmMXJZd1Z3UFd2T1VqZ0JpcFlJNnAtRmxsR0E?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Sony INZONE KBD-H75 Review - RTINGS.com ">
+          <h4>Sony INZONE KBD-H75 Review - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> RTINGS.com · October 20, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTFBPZ2hLTnp5YkRBYmQ5YkxWaFVTQ3hLM01MWm9GT0RPRFNhME1ybS1LNlFLOUU4dkdlUU1zeEstNzd5dGdwMVhBQ0JOWWdqYUNXRzRuU0o1Wk4xWVBVc28zVnRteE9TSjZxRi1r?oc=5" target="_blank">Read article →</a></div>
+        </div></div></div><div class="section" id="web-section"><div class="section-header"><h2>Web Results (50)</h2>
+        <button class="collapse-btn" onclick="toggleSection('web-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="web-cards">
+        <div class="post-card" data-searchable="Reddit reddit.com   › r/webdev  › keyboards that you recommend for programming?   r/webdev on Reddit: Keyboards that you recommend for programming? Just that, I have a 100% keyboard and never try anything else but I saw a lot of developers using 60% - 80% Keyboards and I want to try something new, do you have any recommendation?">
+          <h4>Reddit reddit.com   › r/webdev  › keyboards that you recommend for programming?   r/webdev on Reddit: Keyboards that you recommend for programming?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          <div class="text">Just that, I have a 100% keyboard and never try anything else but I saw a lot of developers using 60% - 80% Keyboards and I want to try something new, do you have any recommendation?</div>
+          <div class="meta"><a href="https://www.reddit.com/r/webdev/comments/18g0wcw/keyboards_that_you_recommend_for_programming/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Programmers Keyboard ">
+          <h4>Programmers Keyboard</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1pro9ix/programmers_keyboard/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Good keyboard for programming ">
+          <h4>Good keyboard for programming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1p2wsv0/good_keyboard_for_programming/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Looking for good keyboard for programming and gaming ">
+          <h4>Looking for good keyboard for programming and gaming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1q8wlnv/looking_for_good_keyboard_for_programming_and/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Which keyboards do programmers here use? ">
+          <h4>Which keyboards do programmers here use?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keys/comments/1o3xswy/which_keyboards_do_programmers_here_use/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What are the best keyboards for typing? ">
+          <h4>What are the best keyboards for typing?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/typing/comments/1ps3bbk/what_are_the_best_keyboards_for_typing/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="RTINGS rtings.com   › home  › keyboard  › best   The 5 Best Keyboards For Programming of 2026 - RTINGS.com ">
+          <h4>RTINGS rtings.com   › home  › keyboard  › best   The 5 Best Keyboards For Programming of 2026 - RTINGS.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.rtings.com</div>
+          
+          <div class="meta"><a href="https://www.rtings.com/keyboard/reviews/best/by-usage/programming" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on news.ycombinator.com ">
+          <h4>More on news.ycombinator.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> news.ycombinator.com</div>
+          
+          <div class="meta"><a href="https://news.ycombinator.com/item?id=20782394" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on reddit.com ">
+          <h4>More on reddit.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/webdev/comments/1ff2jr8/keyboards_for_programming/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on reddit.com ">
+          <h4>More on reddit.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1n2q5tm/coding_gaming_he_and_mechanical_keyboard/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Learn more ">
+          <h4>Learn more</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> discussions</div>
+          
+          <div class="meta"><a href="/help/discussions" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="logitech.com logitech.com   › logitech united states  › discover  › boutique  › mx for coders   MX for Coders ">
+          <h4>logitech.com logitech.com   › logitech united states  › discover  › boutique  › mx for coders   MX for Coders</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.logitech.com</div>
+          
+          <div class="meta"><a href="https://www.logitech.com/en-us/discover/c/mx-coders" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="09:53  YouTube I Found The ABSOLUTE Best Keyboards For Programming in 2026 - YouTube February 28, 2026 ">
+          <h4>09:53  YouTube I Found The ABSOLUTE Best Keyboards For Programming in 2026 - YouTube February 28, 2026</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=p4MNdG0w_Vc" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="11:00  YouTube Best Keyboard for Programming 2026: An HONEST Takedown - YouTube February 16, 2026 ">
+          <h4>11:00  YouTube Best Keyboard for Programming 2026: An HONEST Takedown - YouTube February 16, 2026</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=GXJw-hmSJLY" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="04:55  YouTube Best Keyboard for Programming 2026 - YouTube April 5, 2026 ">
+          <h4>04:55  YouTube Best Keyboard for Programming 2026 - YouTube April 5, 2026</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=2xhyVCpxiZc" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="12:35  YouTube My favorite keyboard for programming and writing - YouTube February 7, 2026 ">
+          <h4>12:35  YouTube My favorite keyboard for programming and writing - YouTube February 7, 2026</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=gaHH5R7REuQ" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="09:55  YouTube The BEST Keyboard For Programming in 2025? STAY AWAY FROM THESE ... November 17, 2025 ">
+          <h4>09:55  YouTube The BEST Keyboard For Programming in 2025? STAY AWAY FROM THESE ... November 17, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=5jFYgjw_MPM" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="12:05  YouTube 7 Best Mechanical Keyboard for Programming 2025! Speed, Comfort ... August 17, 2025 ">
+          <h4>12:05  YouTube 7 Best Mechanical Keyboard for Programming 2025! Speed, Comfort ... August 17, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=ZzUhLq158Rs" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="HHKB hhkeyboard.us   › home  › resources  › features   Mechanical Keyboards for Programming - HHKB ">
+          <h4>HHKB hhkeyboard.us   › home  › resources  › features   Mechanical Keyboards for Programming - HHKB</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> hhkeyboard.us</div>
+          
+          <div class="meta"><a href="https://hhkeyboard.us/resources/features/mechanical-keyboards-for-programming" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="RK Royal Kludge rkgamingstore.com › blogs  › community  › what-is-the-best-keyboard-for-programmers   What Is The Best Keyboard For Programmers? A Beginner-Friendly Guide ( – RK Royal Kludge ">
+          <h4>RK Royal Kludge rkgamingstore.com › blogs  › community  › what-is-the-best-keyboard-for-programmers   What Is The Best Keyboard For Programmers? A Beginner-Friendly Guide ( – RK Royal Kludge</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> rkgamingstore.com</div>
+          
+          <div class="meta"><a href="https://rkgamingstore.com/blogs/community/what-is-the-best-keyboard-for-programmers" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="NYTimes nytimes.com   › electronics  › accessories  › the best mechanical keyboards   The 6 Best Mechanical Keyboards of 2026 | Reviews by Wirecutter ">
+          <h4>NYTimes nytimes.com   › electronics  › accessories  › the best mechanical keyboards   The 6 Best Mechanical Keyboards of 2026 | Reviews by Wirecutter</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.nytimes.com</div>
+          
+          <div class="meta"><a href="https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Amazon amazon.com › coding-keyboard  › s   Amazon.com: Coding Keyboard ">
+          <h4>Amazon amazon.com › coding-keyboard  › s   Amazon.com: Coding Keyboard</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.amazon.com</div>
+          
+          <div class="meta"><a href="https://www.amazon.com/coding-keyboard/s?k=coding+keyboard" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Kinetic Labs kineticlabs.com › blog  › can-mechanical-keyboards-make-you-a-better-programmer   Are Mechanical Keyboards Better for Programming? ">
+          <h4>Kinetic Labs kineticlabs.com › blog  › can-mechanical-keyboards-make-you-a-better-programmer   Are Mechanical Keyboards Better for Programming?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> kineticlabs.com</div>
+          
+          <div class="meta"><a href="https://kineticlabs.com/blog/can-mechanical-keyboards-make-you-a-better-programmer" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best Buy bestbuy.com   › best buy  › computers &amp; tablets  › pc gaming  › pc gaming accessories  › gaming keyboards   Best Mechanical Keyboard For Programming - Best Buy ">
+          <h4>Best Buy bestbuy.com   › best buy  › computers &amp; tablets  › pc gaming  › pc gaming accessories  › gaming keyboards   Best Mechanical Keyboard For Programming - Best Buy</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.bestbuy.com</div>
+          
+          <div class="meta"><a href="https://www.bestbuy.com/site/shop/best-mechanical-keyboard-for-programming" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Logitech - G PRO TKL Wired Mechanical GX Blue Clicky Switch Gaming Keyboard with RGB Backlighting for PC - Black  4.7 $119.99 ">
+          <h4>Logitech - G PRO TKL Wired Mechanical GX Blue Clicky Switch Gaming Keyboard with RGB Backlighting for PC - Black  4.7 $119.99</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.bestbuy.com</div>
+          
+          <div class="meta"><a href="https://www.bestbuy.com/product/logitech-g-pro-tkl-wired-mechanical-gx-blue-clicky-switch-gaming-keyboard-with-rgb-backlighting-for-pc-black/J7H7ZYXWCJ" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="SteelSeries - Apex 7 Full Size Wired Mechanical Red Linear Switch Gaming Keyboard with Rapid Tap - Black  4.8 $148.99 ">
+          <h4>SteelSeries - Apex 7 Full Size Wired Mechanical Red Linear Switch Gaming Keyboard with Rapid Tap - Black  4.8 $148.99</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.bestbuy.com</div>
+          
+          <div class="meta"><a href="https://www.bestbuy.com/product/steelseries-apex-7-full-size-wired-mechanical-red-linear-switch-gaming-keyboard-with-rapid-tap-black/J3LG47V94C" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Keychron - V5 Max 96% Custom Wireless RGB Mechanical Keyboard with Programmable QMK/VIA Hot-Swappable Red Switch - Black  4.8 $104.99 ">
+          <h4>Keychron - V5 Max 96% Custom Wireless RGB Mechanical Keyboard with Programmable QMK/VIA Hot-Swappable Red Switch - Black  4.8 $104.99</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.bestbuy.com</div>
+          
+          <div class="meta"><a href="https://www.bestbuy.com/product/keychron-v5-max-96-custom-wireless-rgb-mechanical-keyboard-with-programmable-qmk-via-hot-swappable-red-switch-black/CGC7F9C2WZ" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="KINESIS - Advantage360 USB Wired Split Contoured Keyboard - Gray  $504.00 ">
+          <h4>KINESIS - Advantage360 USB Wired Split Contoured Keyboard - Gray  $504.00</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.bestbuy.com</div>
+          
+          <div class="meta"><a href="https://www.bestbuy.com/product/kinesis-advantage360-usb-wired-split-contoured-keyboard-gray/J2VQY7ZJL7" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="ThatSoftwareDude.com thatsoftwaredude.com › content  › 11459  › the-best-programming-keyboards-for-everyday-developers   The best programming keyboards for everyday developers - ThatSoftwareDude.com ">
+          <h4>ThatSoftwareDude.com thatsoftwaredude.com › content  › 11459  › the-best-programming-keyboards-for-everyday-developers   The best programming keyboards for everyday developers - ThatSoftwareDude.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.thatsoftwaredude.com</div>
+          
+          <div class="meta"><a href="https://www.thatsoftwaredude.com/content/11459/the-best-programming-keyboards-for-everyday-developers" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MelGeek melgeek.com › blogs  › melgeek-lab  › wireless-mechanical-keyboards-for-programmers-optimize-your-coding-setup   Wireless Mechanical Keyboards for Programmers: Optimize Your Coding Se – MelGee ">
+          <h4>MelGeek melgeek.com › blogs  › melgeek-lab  › wireless-mechanical-keyboards-for-programmers-optimize-your-coding-setup   Wireless Mechanical Keyboards for Programmers: Optimize Your Coding Se – MelGee</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.melgeek.com</div>
+          
+          <div class="meta"><a href="https://www.melgeek.com/blogs/melgeek-lab/wireless-mechanical-keyboards-for-programmers-optimize-your-coding-setup" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="DEV Community dev.to › joelbonetr  › the-best-keyboard-i-ever-had-for-coding-l3m   Best Keyboard for Programming: The best keyboard I ever had for coding - DEV Community ">
+          <h4>DEV Community dev.to › joelbonetr  › the-best-keyboard-i-ever-had-for-coding-l3m   Best Keyboard for Programming: The best keyboard I ever had for coding - DEV Community</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> dev.to</div>
+          
+          <div class="meta"><a href="https://dev.to/joelbonetr/the-best-keyboard-i-ever-had-for-coding-l3m" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Deskthority deskthority.net › viewtopic.php   Good mechanical keyboard for programming? - deskthority ">
+          <h4>Deskthority deskthority.net › viewtopic.php   Good mechanical keyboard for programming? - deskthority</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> deskthority.net</div>
+          
+          <div class="meta"><a href="https://deskthority.net/viewtopic.php?t=15249" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Akkogear akkogear.eu   › home  › news  › news   Which Keyboard is Best for Programming? 2026 Developer Picks ">
+          <h4>Akkogear akkogear.eu   › home  › news  › news   Which Keyboard is Best for Programming? 2026 Developer Picks</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> akkogear.eu</div>
+          
+          <div class="meta"><a href="https://akkogear.eu/blogs/news/best-keyboard-for-programming" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="KeebFinder keeb-finder.com   › home  › keyboards  › programming   Best Programming Keyboards 2026 | KeebFinder ">
+          <h4>KeebFinder keeb-finder.com   › home  › keyboards  › programming   Best Programming Keyboards 2026 | KeebFinder</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> keeb-finder.com</div>
+          
+          <div class="meta"><a href="https://keeb-finder.com/keyboards/filter/programming" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="PCMAG pcmag.com   › home  › best products  › input devices  › keyboards   The Best Mechanical Keyboards We&#039;ve Tested for 2026 | PCMag ">
+          <h4>PCMAG pcmag.com   › home  › best products  › input devices  › keyboards   The Best Mechanical Keyboards We&#039;ve Tested for 2026 | PCMag</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.pcmag.com</div>
+          
+          <div class="meta"><a href="https://www.pcmag.com/picks/the-best-mechanical-keyboards" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Wikipedia en.wikipedia.org › wiki  › Keyboard_layout   Keyboard layout - Wikipedia ">
+          <h4>Wikipedia en.wikipedia.org › wiki  › Keyboard_layout   Keyboard layout - Wikipedia</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> en.wikipedia.org</div>
+          
+          <div class="meta"><a href="https://en.wikipedia.org/wiki/Keyboard_layout" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Physical, visual, and functional terminology ">
+          <h4>Physical, visual, and functional terminology</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> en.wikipedia.org</div>
+          
+          <div class="meta"><a href="https://en.wikipedia.org/wiki/Keyboard_layout#Physical,_visual,_and_functional_terminology" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Conventional Latin-script ">
+          <h4>Conventional Latin-script</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> en.wikipedia.org</div>
+          
+          <div class="meta"><a href="https://en.wikipedia.org/wiki/Keyboard_layout#Conventional_Latin-script" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Other Latin-script ">
+          <h4>Other Latin-script</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> en.wikipedia.org</div>
+          
+          <div class="meta"><a href="https://en.wikipedia.org/wiki/Keyboard_layout#Other_Latin-script" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Non-Latin phonetic scripts ">
+          <h4>Non-Latin phonetic scripts</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> en.wikipedia.org</div>
+          
+          <div class="meta"><a href="https://en.wikipedia.org/wiki/Keyboard_layout#Non-Latin_phonetic_scripts" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="East Asian languages ">
+          <h4>East Asian languages</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> en.wikipedia.org</div>
+          
+          <div class="meta"><a href="https://en.wikipedia.org/wiki/Keyboard_layout#East_Asian_languages" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Keychron keychron.com    Keychron | Custom Mechanical Keyboards for Mac, Windows and Phones ">
+          <h4>Keychron keychron.com    Keychron | Custom Mechanical Keyboards for Mac, Windows and Phones</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.keychron.com</div>
+          
+          <div class="meta"><a href="https://www.keychron.com/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="keychron q5 max ">
+          <h4>keychron q5 max</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=keychron%20q5%20max&amp;source=rel</div>
+          
+          <div class="meta"><a href="/search?q=keychron%20q5%20max&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="best mechanical keyboard for typing ">
+          <h4>best mechanical keyboard for typing</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=best%20mechanical%20keyboard%2</div>
+          
+          <div class="meta"><a href="/search?q=best%20mechanical%20keyboard%20for%20typing&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="best keyboard for programming and gaming ">
+          <h4>best keyboard for programming and gaming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=best%20keyboard%20for%20progra</div>
+          
+          <div class="meta"><a href="/search?q=best%20keyboard%20for%20programming%20and%20gaming&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="best keyboard for programming reddit ">
+          <h4>best keyboard for programming reddit</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=best%20keyboard%20for%20progra</div>
+          
+          <div class="meta"><a href="/search?q=best%20keyboard%20for%20programming%20reddit&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="keychron v3 ">
+          <h4>keychron v3</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=keychron%20v3&amp;source=relatedQu</div>
+          
+          <div class="meta"><a href="/search?q=keychron%20v3&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="best budget mechanical keyboard ">
+          <h4>best budget mechanical keyboard</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=best%20budget%20mechanical%20k</div>
+          
+          <div class="meta"><a href="/search?q=best%20budget%20mechanical%20keyboard&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="best mechanical keyboard for gaming ">
+          <h4>best mechanical keyboard for gaming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=best%20mechanical%20keyboard%2</div>
+          
+          <div class="meta"><a href="/search?q=best%20mechanical%20keyboard%20for%20gaming&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="best keyboard for programming ">
+          <h4>best keyboard for programming</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=best%20keyboard%20for%20progra</div>
+          
+          <div class="meta"><a href="/search?q=best%20keyboard%20for%20programming&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div></div></div><div class="section" id="reddit-section"><div class="section-header"><h2>Reddit Analysis (5 posts)</h2>
+        <button class="collapse-btn" onclick="toggleSection('reddit-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="reddit-cards">
+        <div class="post-card" data-searchable="Review: Keychron Q6 HE 8K # Review: Keychron Q6 HE 8K &amp; The End of Mechanical Switches
+
+**Disclaimer:** I am not employed by or affiliated with Keychron, but I did receive this Keychron Q6 HE 8K on the promise that I would review it. As always, no money changed hands, no brand had early editorial oversight, and my testing methodology remains my own.
+
+https://preview.redd.it/77xrqdfpt8ug1.jpg?width=3744&amp;format=pjpg&amp;auto=webp&amp;s=e10396c7c93e557d0233b4ec92ad784c92e2bba8
+
+# Part 1: The Valorant Reality Check &amp; The Copium Gap
+
+Because of rank stagnation, I recently found my *Valorant* account demoted down to Silver. Once upon a time, this was the rank where I would occasionally smurf just to play with my son, handicapping myself to pistols-only and still completely dominating the lobby.
+
+Things have changed. And I don&#039;t just mean the usual matchmaking problems. The overall skill ceiling—and more importantly, the skill *floor*—has raised dramatically in the last year.
+
+You don&#039;t even have to queue into a competitive match to see it; just load into a standard Deathmatch server. There are no abilities, no new maps to learn, no agent metas—just raw mechanical movement and clicking heads. Back when I played regularly against Platinum and Diamond players, I would win DM servers fairly often. Since coming back, I haven&#039;t won a single one.
+
+The movement I am seeing is just insane. Players are stopping on a dime and outshooting me before my character has even settled.
+
+Now, I recognize that it is much easier on an aging gamer&#039;s ego to blame perceived hardware inferiority than it is to simply admit you need to &quot;git good.&quot; But I genuinely don&#039;t believe this is just my own skill decay. Why? Because I have upgraded literally every other bottleneck on my desk. I treated myself to a new 240Hz monitor as an early Christmas gift. I upgraded my CPU from a Ryzen 7 3700X to a 5700X thanks to r/hardwareswap. I snagged a new-to-me RTX 3070 Ti off Facebook Marketplace. I am even using the bleeding-edge Logitech PRO X2 SUPERSTRIKE mouse with inductive switches, which has demonstrably shaved 10 to 30ms off my raw reaction time.
+
+And I am *still* getting smoked.
+
+My hypothesis? As magnetic keyboards have started to dominate the market, the physical mechanics of PC gaming have fundamentally shifted. A decade ago, upgrading from a membrane keyboard to a standard mechanical switch was mostly a tactile luxury. But the actual competitive advantage of a magnetic board is a massive, quantifiable jump. Playing a modern tac-shooter on a standard mechanical keyboard in 2026 means you are playing with your hands tied behind your back.
+
+# Part 2: The Arsenal &amp; The Mechanical Bottleneck
+
+To understand why standard mechanical keyboards are rapidly becoming obsolete for gaming, you have to look at the physical limitations of metal springs, and how analog sensors bypass them entirely.
+
+# The Mechanical Flaw: Coupled Travel
+
+The root of this bottleneck lies in the total travel distance of a key. A standard mechanical sw ttttubby">
+          <h4>Review: Keychron Q6 HE 8K</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/keyboards</span>
+            <span class="badge badge-score">⬆ 10</span>
+            <span class="sentiment-badge sentiment-neutral">neutral</span>
+            💬 27 comments · ttttubby · April 10, 2026
+          </div>
+          <div class="text"># Review: Keychron Q6 HE 8K &amp; The End of Mechanical Switches
+
+**Disclaimer:** I am not employed by or affiliated with Keychron, but I did receive this Keychron Q6 HE 8K on the promise that I would review it. As always, no money changed hands, no brand had early editorial oversight, and my testing methodology remains my own.
+
+https://preview.redd.it/77xrqdfpt8ug1.jpg?width=3744&amp;format=pjpg&amp;auto=webp&amp;s=e10396c7c93e557d0233b4ec92ad784c92e2bba8
+
+# Part 1: The Valorant Reality Check &amp; The Copium Gap
+...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1sh6530" target="_blank">View on Reddit →</a></div><div style="margin-top:10px;"><strong>Top Comments:</strong></div>
+            <div class="comment-card">
+              <div class="author">AmazonDealsCanada <span class="score">⬆ 3</span></div>
+              <div class="text">That’s interesting, appreciate you testing it. Curious to see your results — I’ve heard mixed things about TMR consistency depending on switches and build quality.</div>
+            </div>
+            <div class="comment-card">
+              <div class="author">ttttubby <span class="score">⬆ 3</span></div>
+              <div class="text">Good call on the stem wobble. I know TMR is way more sensitive to off-axis tilt than standard HE, but honestly, I haven&#039;t noticed any wobble or false inputs on my end at all. It seems like the physical tolerances on Keychron&#039;s lime switches are tight enough to keep the magnet perfectly aligned.
+
+That said, it&#039;s a valid concern. I&#039;m going to run som...</div>
+            </div>
+            <div class="comment-card">
+              <div class="author">PickledMunkee <span class="score">⬆ 2</span></div>
+              <div class="text">Keychron is notorious for refusing and ignoring warranty claims.   for a good reason ....</div>
+            </div></div>
+        <div class="post-card" data-searchable="Looking for a keyboard recommendation (and maybe switches too) Hi, I want to buy a new 75% (mechanical) keyboard with the ANSI layout. The budget is $200. I want the keyboard to be wireless (dual/tri-mode is OK).
+
+Regarding switches, I&#039;m not totally sure, what I want is something comfortable prolonged typing experience, I think I would prefer tactile switches, but I&#039;ve never actually used any mechanical keyboard or tried any switches before, so I&#039;m not completely sure, I might be okay with linear switches.
+
+Regarding the sound, I think I prefer &quot;creamy&quot; keyboard sounds, or &quot;thocky&quot; for a second place. My use cases are programming, just typing some text casually, sometimes gaming, but that&#039;s rarer.
+
+The keyboard needs to be pre-built and I would prefer if it came with good switches by default, but if not, I would appreciate if you recommended the switches as well. Finally, it would be nice if it came with Mac keycaps and a reasonably easy way to switch between Windows and Mac &quot;modes&quot;, but these two are not a requirement at all. I do not necessarily need some kind of super-mainstream brand, enthusiast-level pre-built keyboards are fine.
+
+What do you recommend, what do you think is the best pre-built 75% keyboard for $200 and less? Ok-Author9246">
+          <h4>Looking for a keyboard recommendation (and maybe switches too)</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/keyboards</span>
+            <span class="badge badge-score">⬆ 2</span>
+            <span class="sentiment-badge sentiment-neutral">neutral</span>
+            💬 12 comments · Ok-Author9246 · April 24, 2026
+          </div>
+          <div class="text">Hi, I want to buy a new 75% (mechanical) keyboard with the ANSI layout. The budget is $200. I want the keyboard to be wireless (dual/tri-mode is OK).
+
+Regarding switches, I&#039;m not totally sure, what I want is something comfortable prolonged typing experience, I think I would prefer tactile switches, but I&#039;ve never actually used any mechanical keyboard or tried any switches before, so I&#039;m not completely sure, I might be okay with linear switches.
+
+Regarding the sound, I think I prefer &quot;creamy&quot; key...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1strd12" target="_blank">View on Reddit →</a></div><div style="margin-top:10px;"><strong>Top Comments:</strong></div>
+            <div class="comment-card">
+              <div class="author">gaspackanddoublecup <span class="score">⬆ 2</span></div>
+              <div class="text">Evo 75 is the best prebuilt out rn under $200. I find myself preferring it over my $550 Mr. Suit ! </div>
+            </div>
+            <div class="comment-card">
+              <div class="author">be4tnut <span class="score">⬆ 2</span></div>
+              <div class="text">Check out the Evo75 too. It’s linear switches but nice. You can probably hit your local Best Buy and feel out some linear switches on various display models of keyboards. </div>
+            </div>
+            <div class="comment-card">
+              <div class="author">Usual-Low8700 <span class="score">⬆ 2</span></div>
+              <div class="text">I don&#039;t know very much about keyboards but spending 2 weeks searching the net, and asking here, I finally purchased gravastar v75 mercury. 
+
+Full aluminium and feels very good. The sound is very satisfying and the design is out if this world. Do not know if you will like that marginal design but it is exceptional. You can check the stats from its s...</div>
+            </div></div>
+        <div class="post-card" data-searchable="AULA F99 (Flame Purple) vs Ajazz AK980 V2 vs Redragon - Which one? Hi everyone,
+
+I&#039;m looking for a wireless 96–98% mechanical keyboard for gaming, programming, and everyday use.
+
+All three are almost the same price in my country (around $60):
+
+AULA F99 (Flame Purple switches)
+
+Ajazz AK980 V2
+
+Redragon (98% gasket mount with knob)
+
+I&#039;m mainly looking for:
+
+Best stock typing feel and sound
+
+Good build quality
+
+Reliable wireless performance
+
+Low latency for gaming
+
+Long battery life
+
+I don&#039;t really care about the screen on the AK980 unless it&#039;s actually useful.
+
+If you&#039;ve owned or tried any of these keyboards, which one would you recommend and why?
+
+Thanks! B2_Peter">
+          <h4>AULA F99 (Flame Purple) vs Ajazz AK980 V2 vs Redragon - Which one?</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/keyboards</span>
+            <span class="badge badge-score">⬆ 1</span>
+            <span class="sentiment-badge sentiment-positive">positive</span>
+            💬 0 comments · B2_Peter · July 17, 2026
+          </div>
+          <div class="text">Hi everyone,
+
+I&#039;m looking for a wireless 96–98% mechanical keyboard for gaming, programming, and everyday use.
+
+All three are almost the same price in my country (around $60):
+
+AULA F99 (Flame Purple switches)
+
+Ajazz AK980 V2
+
+Redragon (98% gasket mount with knob)
+
+I&#039;m mainly looking for:
+
+Best stock typing feel and sound
+
+Good build quality
+
+Reliable wireless performance
+
+Low latency for gaming
+
+Long battery life
+
+I don&#039;t really care about the screen on the AK980 unless it&#039;s actually useful.
+
+I...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1uyyplx" target="_blank">View on Reddit →</a></div></div>
+        <div class="post-card" data-searchable="Looking to replace an old Roccat Vulcan with hotswap keyboard I&#039;ve been looking into keyboards and technically have found the ideal looking one but it&#039;s not sold in the EU nor manufactured anymore where I live. It was the Asus Flare 2 Animate.
+
+AI hasn&#039;t been any help either, usually hallucinating things into the response that don&#039;t match or ignoring companies or any combination of problems. I hope some humans can point me into the right direction better than a LLM can.
+
+It feels like my particular combination of features sought after makes the search very difficult. I want a 100% sized mechanical that has hotswap switches (for easy replacement in the future) and the usual bells and whistles like per-key RGB, programming keys with macros and other functions like launching software and such.
+
+Basically a Flare 2 Animate but one that is still being made and sold today. That one is only a little over 4 years old from what I could gather and it being already out of production is crazy. Most keyboards I found thus far are either 96% where the numpad is missing or are wireless.
+
+I don&#039;t like wireless for two reasons: The battery runs out at the worst possible moment and leaving the cable plugged in damages the battery over time because it keeps receiving charging current and remains topped off at 100%.
+
+As far as budget is concerned, I would go as high as 150€ if that&#039;s where the best fitting keyboards are found at. It would be even better if the LEDs were included in the switches too but such keyboards don&#039;t exist from the looks of it. Roccat keyboards were known for having LEDs break down after merely two or three years and my Vulcan is no exception. By comparison, the LEDs and everything else inside my 11 year old Roccat Nyth mouse are still in top condition. rogermay78">
+          <h4>Looking to replace an old Roccat Vulcan with hotswap keyboard</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/keyboards</span>
+            <span class="badge badge-score">⬆ 1</span>
+            <span class="sentiment-badge sentiment-negative">negative</span>
+            💬 0 comments · rogermay78 · May 28, 2026
+          </div>
+          <div class="text">I&#039;ve been looking into keyboards and technically have found the ideal looking one but it&#039;s not sold in the EU nor manufactured anymore where I live. It was the Asus Flare 2 Animate.
+
+AI hasn&#039;t been any help either, usually hallucinating things into the response that don&#039;t match or ignoring companies or any combination of problems. I hope some humans can point me into the right direction better than a LLM can.
+
+It feels like my particular combination of features sought after makes the search very...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1tq6r7m" target="_blank">View on Reddit →</a></div></div>
+        <div class="post-card" data-searchable="Seeking 75–80% ANSI Keyboard for Office – Linux/Windows Dual BOot Hi everyone,
+
+I’m looking for a new mechanical keyboard for my office setup. I primarily work on **Linux**, but I dual-boot into **Windows** occasionally. I need a board that handles this transition perfectly, especially regarding customization and wireless stability on Linux. What i&#039;m gonna do is basically programming and heavy writing.
+
+**My Requirements:**
+
+* **Layout:** ANSI (Must-have).
+* **Size:** 75% or 80% (TKL).
+* **Sound Profile:** I’m looking for a **creamy or &quot;thocky&quot;** sound. I want that deep, marble-like acoustic for the office, not a high-pitched clack.
+* **OS Compatibility:** Primarily **Linux**. I need to be able to fully customize the keyboard (remap keys, macros, RGB) without installing .exe files. Support for **QMK/VIA** or a **Web-based HID** configurator is essential.
+* **Connectivity:** Wireless (2.4GHz) is a must for a clean office desk, but it has to be stable on Linux.
+* **Extra:** I really want a **knob** for volume control.
+* **Lighting:** Backlit keycaps are important for working in dim light, but I don&#039;t need fancy RGB effects.
+* **Budget:** Ideally around **€100-€110**, but I can go up to **€140**.
+
+**What I’m considering:** I know **Keychron** is the standard recommendation for Linux—I’ve looked at the **V1 Max** and **Q1 Max**. However, I’ve heard that out-of-the-box, they might not be as &quot;creamy&quot; as some of the newer competitors.
+
+I’ve also looked at **NuPhy Halo75 V2:** I’ve heard the sound stack is incredibly thocky and it now has official QMK/VIA support. I&#039;d love to hear any newly other supported keyboards!
+
+I’m looking for something available via Amazon to avoid customs. Any advice on which of these (or others) offers the best Linux experience? 
+
+Thank you all for your help! await_void">
+          <h4>Seeking 75–80% ANSI Keyboard for Office – Linux/Windows Dual BOot</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/keyboards</span>
+            <span class="badge badge-score">⬆ 1</span>
+            <span class="sentiment-badge sentiment-positive">positive</span>
+            💬 0 comments · await_void · February 7, 2026
+          </div>
+          <div class="text">Hi everyone,
+
+I’m looking for a new mechanical keyboard for my office setup. I primarily work on **Linux**, but I dual-boot into **Windows** occasionally. I need a board that handles this transition perfectly, especially regarding customization and wireless stability on Linux. What i&#039;m gonna do is basically programming and heavy writing.
+
+**My Requirements:**
+
+* **Layout:** ANSI (Must-have).
+* **Size:** 75% or 80% (TKL).
+* **Sound Profile:** I’m looking for a **creamy or &quot;thocky&quot;** sound. I want...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/keyboards/comments/1qxodup" target="_blank">View on Reddit →</a></div></div></div></div><div class="section" id="author-section"><div class="section-header"><h2>Top Authors</h2></div>
+        <div class="author-card" data-searchable="ttttubby">
+          <div>
+            <div class="name">u/ttttubby</div>
+            <div class="stats">1 posts · ⬆ 10 total · avg ⬆ 10</div>
+            <div class="stats">Active in: r/keyboards</div>
+          </div>
+        </div>
+        <div class="author-card" data-searchable="Ok-Author9246">
+          <div>
+            <div class="name">u/Ok-Author9246</div>
+            <div class="stats">1 posts · ⬆ 2 total · avg ⬆ 2</div>
+            <div class="stats">Active in: r/keyboards</div>
+          </div>
+        </div>
+        <div class="author-card" data-searchable="B2_Peter">
+          <div>
+            <div class="name">u/B2_Peter</div>
+            <div class="stats">1 posts · ⬆ 1 total · avg ⬆ 1</div>
+            <div class="stats">Active in: r/keyboards</div>
+          </div>
+        </div>
+        <div class="author-card" data-searchable="rogermay78">
+          <div>
+            <div class="name">u/rogermay78</div>
+            <div class="stats">1 posts · ⬆ 1 total · avg ⬆ 1</div>
+            <div class="stats">Active in: r/keyboards</div>
+          </div>
+        </div>
+        <div class="author-card" data-searchable="await_void">
+          <div>
+            <div class="name">u/await_void</div>
+            <div class="stats">1 posts · ⬆ 1 total · avg ⬆ 1</div>
+            <div class="stats">Active in: r/keyboards</div>
+          </div>
+        </div></div><div class="section" id="youtube-section"><div class="section-header"><h2>YouTube Analysis (59 videos)</h2>
+        <button class="collapse-btn" onclick="toggleSection('youtube-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="youtube-cards">
+        <div class="video-card" data-searchable="I Finally Tried The Aula F75.... (S̶o̶ ̶Y̶o̶u̶ ̶D̶o̶n̶&#039;̶t̶ ̶H̶a̶v̶e̶ ̶to̶.) Hipyo Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/TcMG9FItrFw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB3ryA9rphhCMGMspJV88iSO69zCQ" alt="I Finally Tried The Aula F75.... (S̶o̶ ̶Y̶o̶u̶ ̶D̶o̶n̶&#039;̶t̶ ̶H̶a̶v̶e̶ ̶to̶.)" loading="lazy"></div>
+          <div class="info">
+            <h4>I Finally Tried The Aula F75.... (S̶o̶ ̶Y̶o̶u̶ ̶D̶o̶n̶&#039;̶t̶ ̶H̶a̶v̶e̶ ̶to̶.)</h4>
+            <div class="channel">Hipyo Tech</div>
+            <div class="meta">
+              👁 2,026,152 views
+               · ⏱ 12:27
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=TcMG9FItrFw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How I Type INSANELY Fast (160 WPM) - The Best Keyboards for Fast Typing Ali Abdaal">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wmQt-QM0mbQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCKzBHTLqILK3_-bGPJvUwz9TNGvg" alt="How I Type INSANELY Fast (160 WPM) - The Best Keyboards for Fast Typing" loading="lazy"></div>
+          <div class="info">
+            <h4>How I Type INSANELY Fast (160 WPM) - The Best Keyboards for Fast Typing</h4>
+            <div class="channel">Ali Abdaal</div>
+            <div class="meta">
+              👁 1,575,509 views
+               · ⏱ 15:25
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wmQt-QM0mbQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="WHAT is Keychron Thinking!? Hipyo Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/cl-3j-4aBDk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLADA5WqCYKxTrj2KJSkbtvu79UHzQ" alt="WHAT is Keychron Thinking!?" loading="lazy"></div>
+          <div class="info">
+            <h4>WHAT is Keychron Thinking!?</h4>
+            <div class="channel">Hipyo Tech</div>
+            <div class="meta">
+              👁 1,104,841 views
+               · ⏱ 9:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=cl-3j-4aBDk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Keyboard at Every Price (Don’t Waste your Money) Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/8ta4dSQ-P9c/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBQ6Xf1rxsd5d3_He1C0ssljQDdnw" alt="The Best Keyboard at Every Price (Don’t Waste your Money)" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Keyboard at Every Price (Don’t Waste your Money)</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 1,090,224 views
+               · ⏱ 18:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=8ta4dSQ-P9c" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The BEST 65% Mechanical Keyboards for Typing Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/iu5gvMYQMX4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDeeFKdGotUBk18bcGKZdjl0h-33A" alt="The BEST 65% Mechanical Keyboards for Typing" loading="lazy"></div>
+          <div class="info">
+            <h4>The BEST 65% Mechanical Keyboards for Typing</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 930,308 views
+               · ⏱ 13:34
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=iu5gvMYQMX4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="After testing 100+ keyboards, these are my favorite. Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/LGp8VlcbEoA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCV7YfTGyfmNrsyMw8X-1-xqVjzzg" alt="After testing 100+ keyboards, these are my favorite." loading="lazy"></div>
+          <div class="info">
+            <h4>After testing 100+ keyboards, these are my favorite.</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 750,535 views
+               · ⏱ 10:46
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=LGp8VlcbEoA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I Tried 70 Keyboards Last Year... (So You Don&#039;t Have to) Hipyo Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/lDCybjkNAFk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBwy29jYYbzE5dQA7v6E-2QlGbKJA" alt="I Tried 70 Keyboards Last Year... (So You Don&#039;t Have to)" loading="lazy"></div>
+          <div class="info">
+            <h4>I Tried 70 Keyboards Last Year... (So You Don&#039;t Have to)</h4>
+            <div class="channel">Hipyo Tech</div>
+            <div class="meta">
+              👁 640,227 views
+               · ⏱ 15:46
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=lDCybjkNAFk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Choose the Perfect Keyboard Switch For YOU. Hipyo Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/0VkOFPANar8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCnyaEcydRHSRw1Pu4yoq2SIy5PXw" alt="How to Choose the Perfect Keyboard Switch For YOU." loading="lazy"></div>
+          <div class="info">
+            <h4>How to Choose the Perfect Keyboard Switch For YOU.</h4>
+            <div class="channel">Hipyo Tech</div>
+            <div class="meta">
+              👁 594,695 views
+               · ⏱ 12:01
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=0VkOFPANar8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Full-Sized Keyboards! Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_vPkeqVYicw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAhhHVsquW0nfuj-p5kjRXi-tTbPw" alt="The Best Full-Sized Keyboards!" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Full-Sized Keyboards!</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 558,064 views
+               · ⏱ 11:59
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_vPkeqVYicw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Beginner&#039;s Guide To Mechanical Keyboards Brad Colbow">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/BWQFUPm6XE0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBIkyYJ_kP3n4rA3pjKgoXPQBHk9A" alt="Beginner&#039;s Guide To Mechanical Keyboards" loading="lazy"></div>
+          <div class="info">
+            <h4>Beginner&#039;s Guide To Mechanical Keyboards</h4>
+            <div class="channel">Brad Colbow</div>
+            <div class="meta">
+              👁 548,511 views
+               · ⏱ 11:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=BWQFUPm6XE0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Keychron K3.. I sold it for MX Keys Mechanical instead Samuel Nam">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/4W_LTnFB9xY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDX0ZItbR_Ac8HefvDE03IvUWv34w" alt="Keychron K3.. I sold it for MX Keys Mechanical instead" loading="lazy"></div>
+          <div class="info">
+            <h4>Keychron K3.. I sold it for MX Keys Mechanical instead</h4>
+            <div class="channel">Samuel Nam</div>
+            <div class="meta">
+              👁 530,128 views
+               · ⏱ 7:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=4W_LTnFB9xY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Keyboards of 2025 Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/hgu3zwvKVFw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA2hzZZ6CjF5RHr9ne6762Wk62kbA" alt="The Best Keyboards of 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Keyboards of 2025</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 473,974 views
+               · ⏱ 19:20
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=hgu3zwvKVFw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The BEST Mac Keyboard Options for Every Type of User! Kyle Erickson">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/N8u7qQPKUD4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBEzA4pxsnubqryN7XyoxECFB2-gw" alt="The BEST Mac Keyboard Options for Every Type of User!" loading="lazy"></div>
+          <div class="info">
+            <h4>The BEST Mac Keyboard Options for Every Type of User!</h4>
+            <div class="channel">Kyle Erickson</div>
+            <div class="meta">
+              👁 345,256 views
+               · ⏱ 16:11
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=N8u7qQPKUD4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="After Testing 15 Low-Profile Keyboards... Get this. Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wAtVyyKify0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAGBHooyAc1eQpkfahJz2KDfTXygA" alt="After Testing 15 Low-Profile Keyboards... Get this." loading="lazy"></div>
+          <div class="info">
+            <h4>After Testing 15 Low-Profile Keyboards... Get this.</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 312,358 views
+               · ⏱ 11:18
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wAtVyyKify0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="7 Tips for Buying Your FIRST Mechanical Keyboard // an Easy Beginner Guide! KeebNews">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/HB309x2bU4s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB7_eXMgUbYnbeYZ7zYPbvHPG-G5A" alt="7 Tips for Buying Your FIRST Mechanical Keyboard // an Easy Beginner Guide!" loading="lazy"></div>
+          <div class="info">
+            <h4>7 Tips for Buying Your FIRST Mechanical Keyboard // an Easy Beginner Guide!</h4>
+            <div class="channel">KeebNews</div>
+            <div class="meta">
+              👁 301,477 views
+               · ⏱ 13:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=HB309x2bU4s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Low-Profile Keyboards of 2025 Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/rr83ycQAFRs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDTFE8s0mtAuioYEcsLPQXCIkCFfg" alt="The Best Low-Profile Keyboards of 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Low-Profile Keyboards of 2025</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 293,090 views
+               · ⏱ 13:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=rr83ycQAFRs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How To Choose A Programming Keyboard Hallden">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/qtFdH-Z9NWY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCsn4Mp3YxIk4wxygLJFfO7zGAowQ" alt="How To Choose A Programming Keyboard" loading="lazy"></div>
+          <div class="info">
+            <h4>How To Choose A Programming Keyboard</h4>
+            <div class="channel">Hallden</div>
+            <div class="meta">
+              👁 271,550 views
+               · ⏱ 13:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=qtFdH-Z9NWY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I&#039;ve tried 4 split keyboards. Which is best? If Coding Were Natural">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_uFZEb6fnkc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDRJQLo2aYCr9LyDfeNfHDA5Gwjzw" alt="I&#039;ve tried 4 split keyboards. Which is best?" loading="lazy"></div>
+          <div class="info">
+            <h4>I&#039;ve tried 4 split keyboards. Which is best?</h4>
+            <div class="channel">If Coding Were Natural</div>
+            <div class="meta">
+              👁 270,085 views
+               · ⏱ 19:35
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_uFZEb6fnkc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Silent Keyboards to Buy in 2025 (they&#039;re actually GOOD now) Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/lnpyVnuh8tE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDZLZ6l_BP5DauyvjxiesRYd9XIqA" alt="The Best Silent Keyboards to Buy in 2025 (they&#039;re actually GOOD now)" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Silent Keyboards to Buy in 2025 (they&#039;re actually GOOD now)</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 267,398 views
+               · ⏱ 13:50
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=lnpyVnuh8tE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Full-Sized Keyboards are FINALLY Good in 2026. Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/3rKPzh3Pr0o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLATmGB6ZlS-CDl6WvbbEFDXvviR5Q" alt="Full-Sized Keyboards are FINALLY Good in 2026." loading="lazy"></div>
+          <div class="info">
+            <h4>Full-Sized Keyboards are FINALLY Good in 2026.</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 260,256 views
+               · ⏱ 13:31
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=3rKPzh3Pr0o" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Keyboard of 2025 (no contest) Switch and Click">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/-ANpduG6mmg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB3k1IFXbD930RTfbdiudQ_UW2v0w" alt="The Best Keyboard of 2025 (no contest)" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Keyboard of 2025 (no contest)</h4>
+            <div class="channel">Switch and Click</div>
+            <div class="meta">
+              👁 249,019 views
+               · ⏱ 12:30
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=-ANpduG6mmg" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Is this best keyboard for coders ? Hitesh Choudhary">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ouM1sfR49_8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbYOj6Dn-Umz7oa7JDmIxGAPGJfA" alt="Is this best keyboard for coders ?" loading="lazy"></div>
+          <div class="info">
+            <h4>Is this best keyboard for coders ?</h4>
+            <div class="channel">Hitesh Choudhary</div>
+            <div class="meta">
+              👁 245,935 views
+               · ⏱ 7:15
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ouM1sfR49_8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Keyboard Size Comparison: Don&#039;t Make The Wrong Choice. Joshua Chang">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/CCkirAxRR-A/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDMNHCWyQlHSJ4HkyfKh2PCtC_hhg" alt="Keyboard Size Comparison: Don&#039;t Make The Wrong Choice." loading="lazy"></div>
+          <div class="info">
+            <h4>Keyboard Size Comparison: Don&#039;t Make The Wrong Choice.</h4>
+            <div class="channel">Joshua Chang</div>
+            <div class="meta">
+              👁 225,939 views
+               · ⏱ 11:07
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=CCkirAxRR-A" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Ultimate Minimalist Keyboard For Programming | Wireless Corne Josean Martinez">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wTMcH7u-vu0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMRuAZxnK_tIRFH8O7scIkDiJYFg" alt="The Ultimate Minimalist Keyboard For Programming | Wireless Corne" loading="lazy"></div>
+          <div class="info">
+            <h4>The Ultimate Minimalist Keyboard For Programming | Wireless Corne</h4>
+            <div class="channel">Josean Martinez</div>
+            <div class="meta">
+              👁 213,959 views
+               · ⏱ 13:30
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wTMcH7u-vu0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Why You need Mechanical Keyboard for Programming Aivars Meijers">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/LSRvDtt3tjY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCv4ntKwiesIFHvZnb98KcCTRHBrQ" alt="Why You need Mechanical Keyboard for Programming" loading="lazy"></div>
+          <div class="info">
+            <h4>Why You need Mechanical Keyboard for Programming</h4>
+            <div class="channel">Aivars Meijers</div>
+            <div class="meta">
+              👁 185,349 views
+               · ⏱ 5:39
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=LSRvDtt3tjY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Logitech MX Keys Review: Is this the BEST Ultra Low-Profile Keyboard in 2025? Cameron Dougherty Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/uM3ALvXWXPc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBLHq5HeMzD7lPYpSpQ4hzVCNmM0A" alt="Logitech MX Keys Review: Is this the BEST Ultra Low-Profile Keyboard in 2025?" loading="lazy"></div>
+          <div class="info">
+            <h4>Logitech MX Keys Review: Is this the BEST Ultra Low-Profile Keyboard in 2025?</h4>
+            <div class="channel">Cameron Dougherty Tech</div>
+            <div class="meta">
+              👁 181,875 views
+               · ⏱ 20:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=uM3ALvXWXPc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What makes this the #1 Sold Keyboard? — Aula F75 Review Project Ace">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/74QC68X-MLk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHTHrZXeQTd_40xMpJD1N5l_9iPA" alt="What makes this the #1 Sold Keyboard? — Aula F75 Review" loading="lazy"></div>
+          <div class="info">
+            <h4>What makes this the #1 Sold Keyboard? — Aula F75 Review</h4>
+            <div class="channel">Project Ace</div>
+            <div class="meta">
+              👁 160,919 views
+               · ⏱ 5:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=74QC68X-MLk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Keychron EXPLAINED! The BEST Keychron Series for Your Needs Keyboard House">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/E-pyDKkhxDQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAaZwJCJNCdBmNFDAPXsOhrqIjncw" alt="Keychron EXPLAINED! The BEST Keychron Series for Your Needs" loading="lazy"></div>
+          <div class="info">
+            <h4>Keychron EXPLAINED! The BEST Keychron Series for Your Needs</h4>
+            <div class="channel">Keyboard House</div>
+            <div class="meta">
+              👁 142,323 views
+               · ⏱ 13:02
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=E-pyDKkhxDQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Keyboard &amp; Mouse for Productivity? Sohail Abdulla">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/l6TvcyA2Yw0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLANMJmyshbM7V9QXuQ0K72w807g9A" alt="The Best Keyboard &amp; Mouse for Productivity?" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Keyboard &amp; Mouse for Productivity?</h4>
+            <div class="channel">Sohail Abdulla</div>
+            <div class="meta">
+              👁 121,073 views
+               · ⏱ 8:04
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=l6TvcyA2Yw0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I Split My Keyboard In Half To Write Code. Worth It? Josean Martinez">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/4YZ0PWvIXGY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBlexKS2dfq8I5LmjMZMWi_4pi64A" alt="I Split My Keyboard In Half To Write Code. Worth It?" loading="lazy"></div>
+          <div class="info">
+            <h4>I Split My Keyboard In Half To Write Code. Worth It?</h4>
+            <div class="channel">Josean Martinez</div>
+            <div class="meta">
+              👁 109,758 views
+               · ⏱ 7:54
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=4YZ0PWvIXGY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What I Learned Spending +$2000 On Ergonomic Mechanical Keyboards Your Average Tech Bro">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/8qJFkFUTqms/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBsvUM4zlPMr09YE8V3h8UpTTCsIw" alt="What I Learned Spending +$2000 On Ergonomic Mechanical Keyboards" loading="lazy"></div>
+          <div class="info">
+            <h4>What I Learned Spending +$2000 On Ergonomic Mechanical Keyboards</h4>
+            <div class="channel">Your Average Tech Bro</div>
+            <div class="meta">
+              👁 105,606 views
+               · ⏱ 12:56
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=8qJFkFUTqms" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="This unconventional keyboard is a must-have for power-programmers Business Insider">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ntVNHfUgc5E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAhrB-tJFAIMXs1FQRkim4tXr_CvA" alt="This unconventional keyboard is a must-have for power-programmers" loading="lazy"></div>
+          <div class="info">
+            <h4>This unconventional keyboard is a must-have for power-programmers</h4>
+            <div class="channel">Business Insider</div>
+            <div class="meta">
+              👁 95,783 views
+               · ⏱ 1:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ntVNHfUgc5E" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I Tested Every Best Mechanical Keyboard Consumer Tech Review">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_fthGXcfN34/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxX0cYbLBn_9eN8g2W_NeCJwxb7g" alt="I Tested Every Best Mechanical Keyboard" loading="lazy"></div>
+          <div class="info">
+            <h4>I Tested Every Best Mechanical Keyboard</h4>
+            <div class="channel">Consumer Tech Review</div>
+            <div class="meta">
+              👁 72,971 views
+               · ⏱ 37:12
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_fthGXcfN34" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Probably The Best Keyboard I Bought Marko">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/kurAo_N6tCQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAqCYY1Bjkkq4T6fYkBEg7RWpeXVQ" alt="Probably The Best Keyboard I Bought" loading="lazy"></div>
+          <div class="info">
+            <h4>Probably The Best Keyboard I Bought</h4>
+            <div class="channel">Marko</div>
+            <div class="meta">
+              👁 54,239 views
+               · ⏱ 10:16
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=kurAo_N6tCQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The V10 Max: A customizable split keyboard that doesn&#039;t break the bank. Dreams of Code">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/gpcmimZyMlo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAU83DVZm6KFzITaSnrd2sB_brDFg" alt="The V10 Max: A customizable split keyboard that doesn&#039;t break the bank." loading="lazy"></div>
+          <div class="info">
+            <h4>The V10 Max: A customizable split keyboard that doesn&#039;t break the bank.</h4>
+            <div class="channel">Dreams of Code</div>
+            <div class="meta">
+              👁 52,764 views
+               · ⏱ 9:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=gpcmimZyMlo" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Why Keychron Q11 Is the BEST Value Ergo Split Keyboard in 2025! JSyntax">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/B5KT5ph6xqQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLClEH0lNGxN8bfVr6hlB4NjPP61fA" alt="Why Keychron Q11 Is the BEST Value Ergo Split Keyboard in 2025!" loading="lazy"></div>
+          <div class="info">
+            <h4>Why Keychron Q11 Is the BEST Value Ergo Split Keyboard in 2025!</h4>
+            <div class="channel">JSyntax</div>
+            <div class="meta">
+              👁 50,222 views
+               · ⏱ 17:40
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=B5KT5ph6xqQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Dygma Defy: An Impressive Beginner Friendly Split Ergonomic Keyboard Josean Martinez">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/sMeixRiQhd4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCRkFFur5zieGw08ygHT3cuTvESQw" alt="Dygma Defy: An Impressive Beginner Friendly Split Ergonomic Keyboard" loading="lazy"></div>
+          <div class="info">
+            <h4>Dygma Defy: An Impressive Beginner Friendly Split Ergonomic Keyboard</h4>
+            <div class="channel">Josean Martinez</div>
+            <div class="meta">
+              👁 49,290 views
+               · ⏱ 8:07
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=sMeixRiQhd4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="This is the BEST Split Keyboard for Software Engineers Melkey">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/bHdYbviOhSA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB6vX5ZgvFfHikFtQZyYJqOAyGutQ" alt="This is the BEST Split Keyboard for Software Engineers" loading="lazy"></div>
+          <div class="info">
+            <h4>This is the BEST Split Keyboard for Software Engineers</h4>
+            <div class="channel">Melkey</div>
+            <div class="meta">
+              👁 44,873 views
+               · ⏱ 9:35
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=bHdYbviOhSA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="my favorite keyboard for coding and writing (keyboard tour 2025) Reysu">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/5zM0U_akFew/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCuHOnLe2XaKffIRIankrnTA_eK4g" alt="my favorite keyboard for coding and writing (keyboard tour 2025)" loading="lazy"></div>
+          <div class="info">
+            <h4>my favorite keyboard for coding and writing (keyboard tour 2025)</h4>
+            <div class="channel">Reysu</div>
+            <div class="meta">
+              👁 41,966 views
+               · ⏱ 11:07
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=5zM0U_akFew" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="ThePrimeagen&#039;s programming keyboard: Kinesis Advantage | Lex Fridman Podcast Clips Lex Clips">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/MDlUqPmTrvk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA8h0hM2fJEpKB1JEr5SLOGYyX8KQ" alt="ThePrimeagen&#039;s programming keyboard: Kinesis Advantage | Lex Fridman Podcast Clips" loading="lazy"></div>
+          <div class="info">
+            <h4>ThePrimeagen&#039;s programming keyboard: Kinesis Advantage | Lex Fridman Podcast Clips</h4>
+            <div class="channel">Lex Clips</div>
+            <div class="meta">
+              👁 33,841 views
+               · ⏱ 2:09
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=MDlUqPmTrvk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Keyboard for Developers With a Major Flaw ArjanCodes">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/83jGr826Ow8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAS61TvjJ7uTRAiQ3t1RQ0OJ2YzZw" alt="The Best Keyboard for Developers With a Major Flaw" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Keyboard for Developers With a Major Flaw</h4>
+            <div class="channel">ArjanCodes</div>
+            <div class="meta">
+              👁 30,415 views
+               · ⏱ 7:29
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=83jGr826Ow8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Mechanical Keyboard For Coding Jeremiah Peoples">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/oCqi5apDcTE/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCok8e9vk_QzXGr55hnA_eD1E1Rxw" alt="The Best Mechanical Keyboard For Coding" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Mechanical Keyboard For Coding</h4>
+            <div class="channel">Jeremiah Peoples</div>
+            <div class="meta">
+              👁 28,414 views
+               · ⏱ 10:06
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=oCqi5apDcTE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I found the best keyboard for programming, day in the life of a software engineer Volo In Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/XF_-lOgv_kU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBhHb6vKQsbnAZEoP61VWI9EzSbKg" alt="I found the best keyboard for programming, day in the life of a software engineer" loading="lazy"></div>
+          <div class="info">
+            <h4>I found the best keyboard for programming, day in the life of a software engineer</h4>
+            <div class="channel">Volo In Tech</div>
+            <div class="meta">
+              👁 16,010 views
+               · ⏱ 3:45
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=XF_-lOgv_kU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The BEST Keyboard For Developers in 2025 ISN&#039;T What You Expect TechByTravis">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ktVsExjgIaQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCe5gC6dMQo1VNe6MlpTHHr-stNhA" alt="The BEST Keyboard For Developers in 2025 ISN&#039;T What You Expect" loading="lazy"></div>
+          <div class="info">
+            <h4>The BEST Keyboard For Developers in 2025 ISN&#039;T What You Expect</h4>
+            <div class="channel">TechByTravis</div>
+            <div class="meta">
+              👁 14,278 views
+               · ⏱ 10:36
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ktVsExjgIaQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I Found The BEST Mechanical Keyboard For Programming in 2025 TechByTravis">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/3az8wZg9EGI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDjRWsXBxCKjly_d2_1R5x1u6px6Q" alt="I Found The BEST Mechanical Keyboard For Programming in 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>I Found The BEST Mechanical Keyboard For Programming in 2025</h4>
+            <div class="channel">TechByTravis</div>
+            <div class="meta">
+              👁 10,625 views
+               · ⏱ 10:22
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=3az8wZg9EGI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The BEST Keyboard For Programming in 2025? STAY AWAY FROM THESE 10BestOnes">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/5jFYgjw_MPM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAU9D0JC9WoiWjk17ab6X-vmYcNOQ" alt="The BEST Keyboard For Programming in 2025? STAY AWAY FROM THESE" loading="lazy"></div>
+          <div class="info">
+            <h4>The BEST Keyboard For Programming in 2025? STAY AWAY FROM THESE</h4>
+            <div class="channel">10BestOnes</div>
+            <div class="meta">
+              👁 10,097 views
+               · ⏱ 9:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=5jFYgjw_MPM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Are Mechanical Keyboards worth it for Programmers? FUTC">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/0VlvOOel-mE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB_4yC9FeJ4cA5nzAfEKuAhf8Wwxg" alt="Are Mechanical Keyboards worth it for Programmers?" loading="lazy"></div>
+          <div class="info">
+            <h4>Are Mechanical Keyboards worth it for Programmers?</h4>
+            <div class="channel">FUTC</div>
+            <div class="meta">
+              👁 6,191 views
+               · ⏱ 11:42
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=0VlvOOel-mE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I Found The ABSOLUTE Best Keyboards For Programming in 2026 Audioviser">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/p4MNdG0w_Vc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLApdv5jw0OGyMHQfNl1x7QFxmpc3Q" alt="I Found The ABSOLUTE Best Keyboards For Programming in 2026" loading="lazy"></div>
+          <div class="info">
+            <h4>I Found The ABSOLUTE Best Keyboards For Programming in 2026</h4>
+            <div class="channel">Audioviser</div>
+            <div class="meta">
+              👁 6,151 views
+               · ⏱ 9:53
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=p4MNdG0w_Vc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Best Keyboard for Programming 2026 TheTechMag">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/2xhyVCpxiZc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDF4ffROJq6iLsQCMFHo3Xh6njFbQ" alt="Best Keyboard for Programming 2026" loading="lazy"></div>
+          <div class="info">
+            <h4>Best Keyboard for Programming 2026</h4>
+            <div class="channel">TheTechMag</div>
+            <div class="meta">
+              👁 3,862 views
+               · ⏱ 4:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=2xhyVCpxiZc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Top 8 Best Keyboard for Programming Review in 2023 Secure Gear">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_mXqyO-ei9E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDPGlIEylRcIJX7S4mI9qTxpv7Isw" alt="Top 8 Best Keyboard for Programming Review in 2023" loading="lazy"></div>
+          <div class="info">
+            <h4>Top 8 Best Keyboard for Programming Review in 2023</h4>
+            <div class="channel">Secure Gear</div>
+            <div class="meta">
+              👁 2,145 views
+               · ⏱ 6:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_mXqyO-ei9E" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="These Are 2026’s Best Mechanical Keyboards for Programming TechByTravis">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/u8q6G2p7dDA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAMoOWbz31ZvOHWE4Cg26CkYH1tqg" alt="These Are 2026’s Best Mechanical Keyboards for Programming" loading="lazy"></div>
+          <div class="info">
+            <h4>These Are 2026’s Best Mechanical Keyboards for Programming</h4>
+            <div class="channel">TechByTravis</div>
+            <div class="meta">
+              👁 1,698 views
+               · ⏱ 13:03
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=u8q6G2p7dDA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="✅Top 5 Best Keyboards For Programming in 2026 — Mechanical, Wireless &amp; Budget Picks! Best Product Reviews">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ckUD5vYQpVs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC1wHEsXphGA3u4301_4Ee4zc1k-Q" alt="✅Top 5 Best Keyboards For Programming in 2026 — Mechanical, Wireless &amp; Budget Picks!" loading="lazy"></div>
+          <div class="info">
+            <h4>✅Top 5 Best Keyboards For Programming in 2026 — Mechanical, Wireless &amp; Budget Picks!</h4>
+            <div class="channel">Best Product Reviews</div>
+            <div class="meta">
+              👁 586 views
+               · ⏱ 11:54
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ckUD5vYQpVs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Top 4 Best Mechanical Keyboards for Programming [Review 2025] Step Style">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Oh5r8Of2cgk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC0bK1_y_NkgompgKH6TdcQXcCv2A" alt="Top 4 Best Mechanical Keyboards for Programming [Review 2025]" loading="lazy"></div>
+          <div class="info">
+            <h4>Top 4 Best Mechanical Keyboards for Programming [Review 2025]</h4>
+            <div class="channel">Step Style</div>
+            <div class="meta">
+              👁 261 views
+               · ⏱ 4:10
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Oh5r8Of2cgk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Top 12 Best Keyboards for Programmers in 2026 💻 | Coding, Typing &amp; Productivity Tech &amp; Gadget Reviews">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/f-59EmoCwt0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBddmOGmAbx0Csw9Jgr8l_OGXHzPg" alt="Top 12 Best Keyboards for Programmers in 2026 💻 | Coding, Typing &amp; Productivity" loading="lazy"></div>
+          <div class="info">
+            <h4>Top 12 Best Keyboards for Programmers in 2026 💻 | Coding, Typing &amp; Productivity</h4>
+            <div class="channel">Tech &amp; Gadget Reviews</div>
+            <div class="meta">
+              👁 156 views
+               · ⏱ 11:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=f-59EmoCwt0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Stop Using Bad Keyboards. Best Mechanical Keyboards for Coding (2026) Jand P">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/QFSZBCDNcgA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD-gNu3srHhqGr-68DuBNsK3_XjJQ" alt="Stop Using Bad Keyboards. Best Mechanical Keyboards for Coding (2026)" loading="lazy"></div>
+          <div class="info">
+            <h4>Stop Using Bad Keyboards. Best Mechanical Keyboards for Coding (2026)</h4>
+            <div class="channel">Jand P</div>
+            <div class="meta">
+              👁 88 views
+               · ⏱ 5:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=QFSZBCDNcgA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Best Keyboards For Programming in 2024 - Must Watch Before Buying! THE TOP PICKS">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/4SYW4NGFAAk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAHwmetxBj-rirZtGET6xjyaxEsRA" alt="The Best Keyboards For Programming in 2024 - Must Watch Before Buying!" loading="lazy"></div>
+          <div class="info">
+            <h4>The Best Keyboards For Programming in 2024 - Must Watch Before Buying!</h4>
+            <div class="channel">THE TOP PICKS</div>
+            <div class="meta">
+              👁 64 views
+               · ⏱ 7:30
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=4SYW4NGFAAk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="✅ 3 Best Keyboards For Programmers! 🔥 OnlyBestOnes">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_iDkb9P54zc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAONceRs_J8aslIBUqzjNXMehLacw" alt="✅ 3 Best Keyboards For Programmers! 🔥" loading="lazy"></div>
+          <div class="info">
+            <h4>✅ 3 Best Keyboards For Programmers! 🔥</h4>
+            <div class="channel">OnlyBestOnes</div>
+            <div class="meta">
+              👁 54 views
+               · ⏱ 4:23
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_iDkb9P54zc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="✅Best Keyboards for Programming 2026 | Top Keyboards for Developers &amp; Coders Product Review">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Wqe-rbo_lvE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCr_CziCnqizOGctt_Q2GUSQeYZwQ" alt="✅Best Keyboards for Programming 2026 | Top Keyboards for Developers &amp; Coders" loading="lazy"></div>
+          <div class="info">
+            <h4>✅Best Keyboards for Programming 2026 | Top Keyboards for Developers &amp; Coders</h4>
+            <div class="channel">Product Review</div>
+            <div class="meta">
+              👁 34 views
+               · ⏱ 8:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Wqe-rbo_lvE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="🔥Top 5 Best Mechanical Keyboard for Programming in 2026 — Ultimate Picks for Coders!🔥 PickPilot Tech">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/-8qcJbEHSVI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBd5z41c5agecAwllYyQQ6VIDOpcA" alt="🔥Top 5 Best Mechanical Keyboard for Programming in 2026 — Ultimate Picks for Coders!🔥" loading="lazy"></div>
+          <div class="info">
+            <h4>🔥Top 5 Best Mechanical Keyboard for Programming in 2026 — Ultimate Picks for Coders!🔥</h4>
+            <div class="channel">PickPilot Tech</div>
+            <div class="meta">
+              👁 32 views
+               · ⏱ 6:34
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=-8qcJbEHSVI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div></div></div>
+    <div class="footer">
+        <p>Generated by Research Toolkit · 2026-07-18T16:57:21.672Z</p>
+        <p>Free &amp; Open Source · Zero API Keys Required</p>
+    </div>
+
+    <script>
+    function toggleDark() {
+        document.documentElement.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+        document.getElementById('darkBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+    (function() {
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            document.getElementById('darkBtn').textContent = 'Light Mode';
+        }
+    })();
+
+    function toggleSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('collapsed');
+    }
+
+    function expandAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.remove('collapsed'));
+    }
+
+    function collapseAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.add('collapsed'));
+    }
+
+    function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        document.querySelectorAll('.post-card, .comment-card, .video-card, .cluster-card, .author-card').forEach(card => {
+            if (!q) { card.style.display = ''; return; }
+            const text = (card.getAttribute('data-searchable') || card.textContent).toLowerCase();
+            card.style.display = text.includes(q) ? '' : 'none';
+        });
+    }
+
+    const POSITIVE=["love","great","amazing","excellent","awesome","fantastic","best","perfect","brilliant","wonderful","excited","happy","recommend","success","win"];const NEGATIVE=["hate","terrible","awful","worst","horrible","bad","fail","problem","struggle","difficult","frustrat","annoying","waste","scam","avoid"];const NEUTRAL=["maybe","perhaps","might","could","think","opinion","consider","wonder"];
+    function getSentimentText(text) {
+        const lower = text.toLowerCase();
+        let p=0,n=0,ne=0;
+        for(const w of POSITIVE){if(lower.includes(w))p++;}
+        for(const w of NEGATIVE){if(lower.includes(w))n++;}
+        for(const w of NEUTRAL){if(lower.includes(w))ne++;}
+        if(p>n&&p>ne)return'positive';if(n>p&&n>ne)return'negative';return'neutral';
+    }
+    </script>
+</body>
+</html>
