@@ -1,7 +1,7 @@
 {
   "name": "research-toolkit",
-  "version": "1.0.0",
-  "description": "General-purpose deep research tool for the terminal",
+  "version": "3.0.0",
+  "description": "Deep research assistant for the terminal — searches 8 platforms (Reddit, YouTube, Hacker News, Bluesky, Discourse, Stack Exchange, News, Web) with smart query understanding and cross-source analysis",
   "main": "src/cli.js",
   "bin": {
     "research": "./src/cli.js"
@@ -12,7 +12,7 @@
     "tui": "node src/cli.js",
     "batch": "node src/cli.js --batch",
     "web": "node src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node src/cli.js --batch \"test\" --depth 100"
   },
   "keywords": [
     "research",
@@ -21,10 +21,17 @@
     "terminal",
     "tui",
     "reddit",
-    "youtube"
+    "youtube",
+    "hacker-news",
+    "bluesky",
+    "discourse",
+    "stack-overflow",
+    "ai",
+    "search",
+    "analysis"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Research Toolkit Contributors",
+  "license": "BSL-1.1",
   "dependencies": {
     "axios": "^1.18.1",
     "cheerio": "^1.2.0",
