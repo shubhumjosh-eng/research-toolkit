@@ -1,44 +1,45 @@
 require('dotenv').config();
 
 module.exports = {
-  // Free news API (no key required for basic use)
   GNEWS_API_KEY: process.env.GNEWS_API_KEY || '',
-  
-  // Web scraping settings
+  BLUESKY_IDENTIFIER: process.env.BLUESKY_IDENTIFIER || '',
+  BLUESKY_PASSWORD: process.env.BLUESKY_PASSWORD || '',
+  STACKEXCHANGE_API_KEY: process.env.STACKEXCHANGE_API_KEY || '',
+
   SCRAPING: {
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    delayBetweenRequests: 2000, // 2 seconds between requests
+    delayBetweenRequests: 2000,
     maxRetries: 3,
     timeout: 30000,
   },
-  
-  // Research pipeline settings
+
   RESEARCH: {
     newsMaxResults: 50,
-    webSearchRatio: 0.2,    // 20% of depth
+    webSearchRatio: 0.15,
     webSearchMax: 50,
-    redditRatio: 0.7,       // 70% of depth
-    youtubeRatio: 0.3,      // 30% of depth
+    redditRatio: 0.5,
+    youtubeRatio: 0.25,
     youtubeMax: 100,
+    hackernewsRatio: 0.1,
+    blueskyRatio: 0.1,
+    discourseRatio: 0.1,
+    stackexchangeRatio: 0.1,
     cacheTTLDays: 1,
   },
 
-  // Puppeteer browser settings
   PUPPETEER: {
-    headless: true,         // false = visible browser window
+    headless: true,
     windowWidth: 400,
     windowHeight: 300,
     timeout: 15000,
   },
-  
-  // Video analysis settings
+
   VIDEO: {
     tempDir: '/tmp/research-toolkit/temp',
-    maxVideoDuration: 600, // 10 minutes max
-    whisperModel: 'base', // tiny, base, small, medium, large
+    maxVideoDuration: 600,
+    whisperModel: 'base',
   },
-  
-  // Report settings
+
   REPORT: {
     outputDir: './reports',
     templateDir: './src/report/templates',
