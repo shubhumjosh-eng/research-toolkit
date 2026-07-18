@@ -1,0 +1,358 @@
+{
+  "timestamp": 1784358144321,
+  "topic": "test",
+  "source": "news",
+  "count": 50,
+  "data": [
+    {
+      "title": "Hegseth announces new policy to test troops for low testosterone and offer them hormone replacement therapy - PBS",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOdXVtNTRtLXhqRzQ3YTFBVHlNOFFmQUN0UUVwMnN4T3NlLXhuYmRxbTZ4N3hwa3hGMnNmUGtwRFFUZElEUGp1aHV5OE1iZVJLdHEtbDA5aHZKV205MjBuR2FQeVgyNGEtbW9vclBiOS1QMmZlTWNGQ2I1aTlsc0p4LTlVYWZaanZSXzBhcXFRamZZclI1dlJTazRPNkdTU0ZhenA4MzY5bmxBVzMyRnliOWstSlQyNDBtUTlaeG1oeEcxeEc2c2dIdDJET1RSenRlTzRfdDRUT0k2UQ?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 21:03:33 GMT",
+      "source": "PBS",
+      "type": "news"
+    },
+    {
+      "title": "What Urologists Think of the Military’s New Testosterone Testing Policy - Time Magazine",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMC16MVNicVRoejhZQ080NFp4LTdCVWh5N2Q3aUhfNmNpUUZDQkszaG4wanF0OVk2Y2VuX0lVODI2TkhpVGdFUksyOFR0SVFMd2JJZEstXzE3QUdTU3dkSVN0M09WUzFEejh5Qk1meFNRb09PZUNWRmkwNHF1WTFUT0d0ZHVlemY0bUh5cGp2elRlS2RTMVNWQXJkSF9ZbEE0aWMtSWlISEVWMFhubFVELQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 16:20:05 GMT",
+      "source": "Time Magazine",
+      "type": "news"
+    },
+    {
+      "title": "U.S. military will test service members’ testosterone levels, Pete Hegseth says - NBC News",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQR1YwazNEV2x0MkxTU1Y1M2t1T2I0Y2pBRi1KOEJMb2NEbWVHVUk1azJObHVIcDlfbWxralJ3dGZHNE83OFB3dlVCUVRJdGZLMy1ONE05LURTMjg0ZXZoRmhUeWlBZk13SFM4dmI5VGVJVUxDbWdjdExZR2g1VVNLdS1aZVlHRHh1RHExMENpMDc3NFRFdVVVRXpka2EzSkFzSlluSXZRU3RRS1BGVzkyTUIySkMxNkNzazcxZUx5OHVkSGNIQmNtRmZhd3c3U3Z4?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 18:57:08 GMT",
+      "source": "NBC News",
+      "type": "news"
+    },
+    {
+      "title": "SpaceX stock has cratered nearly 23% since the company joined the Nasdaq-100 - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc21oNXhvdFpCcjFXaTFITG1GSmF4ODZoa2hYTXo3bDlJSTlaUGRnbV9yVVZ6Rk10WFZTQ1habFhpWUJSQnVkaVZKSS1WX1F4azE3dE5MbE1UcFk4T0V4b0FHc3M3Z3VTR0tpUldhYzMwdWtwTE1ZN0lNODBxbEUxcTFpY3HSAYoBQVVfeXFMTzhyNHlJbHRMS295Z3F0RExtSGxvc05ELW9lRGU0VjgwdWlJeDdzTWFMMnYzMndyeXBLS3l3QVhEMEEzTkF5UEE1ZDd6aGVaNGtQYUE5cG0xak56MVBaSjY1d25JeVBUTF93THJLNV93dW56c1pzRm5aU0tEOWlBY0ROdUJvcmwzZWtB?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 10:06:32 GMT",
+      "source": "CNBC",
+      "type": "news"
+    },
+    {
+      "title": "Will SpaceX’s 13th Test Flight of Starship Be Lucky? - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNMlRkZW5IVUFRQm1VZmd6V0Y2dk5yUDZqU3lNTnEwb2x4QmpMcGNLUU1JeTViVFN5X1U2X3k4ZXY1ajExVDQ0dmpIT2tuSWVBSjJWSFQzcG5mUzlFbkwtZk1EREJtSkNHekRxd0lrbHVrVWdDU25xNDdBMnhGQWdESmRDOXBic00?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 13:33:04 GMT",
+      "source": "The New York Times",
+      "type": "news"
+    },
+    {
+      "title": "Starship's Thirteenth Flight Test - SpaceX",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE41MGFNdXBjRXNHRjlCY21CWXJNYVBNdGwzdnE2RWlzeDJ3dGw1SG41MkQyS0ZrZklJekZRejIzRzREZmhkd3Fwc3J6RUxhTUNvMi1VWjF6TndQSkN1c0tN?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 22:45:00 GMT",
+      "source": "SpaceX",
+      "type": "news"
+    },
+    {
+      "title": "Opinion | A Test Isn’t Racist. Assumptions About Black Kids Can Be. - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbTczdjg0SGdEU1JVVnRfN1YxQUNMZlQ3azFNMnRzeDN6ck1HREc2OTRwRzhFU2ZHSXpyV2JFbFU0UGQzRXB3RTFHV1p1b19fazdsZHp6aXllX1pDbUlCTWxvVWFvMUlIWXozdVYxb0hrVmVpc1F5XzFGMTljSWhkTzNDMUVjU28?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 19:00:03 GMT",
+      "source": "The New York Times",
+      "type": "news"
+    },
+    {
+      "title": "Langer leads shortlist to become next England Test coach after Flower rules himself out - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQNEFJam5FNmhhSy1fM3d4ZkJKb0RSTXE5LWtCeUp1emU2Q09fTGZwOGs3OFlMSzFHTlFESy1udlFBY3VEY1BTUUhPRnNLOG03WEZWNkptaEFCMWg3Y2NiMmNOQUU1dnctbEY2dGZ0dWR0S1NXcnpjOFJlN1kwYWNJcmFBM3B3WlJLcFh0dnNhVlBjNEptT0Vzc2lhY1RhZVFkNTZmVmJueERHaHJJd2xDVzNtNTBzcW9pdUxzdXA3WlZzeEl0YXc?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 12:08:00 GMT",
+      "source": "The Guardian",
+      "type": "news"
+    },
+    {
+      "title": "Learn how to apply for the Duskbloods Network Test - nintendo.com",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQLXdKLXIyb2tMVzVCcWpaWVg4QzdGOXN4eHlZenNiYnZvMHpXd2pTZjJjMjJBSzJCU2FsdC1hTWhoUGxGeWdfa1d0eXRoV3pNbGdFcXV5bVlvWmlhcjJTT1FkN3FhbTlENUhVRmU2TWh2d08teVBhTGdtSVk0Mk1IaFQtaEhBSk5vTWtTSF9lbjBMQQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 21:57:01 GMT",
+      "source": "nintendo.com",
+      "type": "news"
+    },
+    {
+      "title": "Fallout 76: Inside the Vault – Psychophants Of Appalachia Public Test Server - Fallout | Bethesda.net",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSlc0d0hIMHhueC1XSGpoTDZ0UGRsT2xzeWpxUHhCLWN2SXFjd1Rkc1BvVlI0MjlyNnFDNTRPZkMzY0E0WEs0SmZ3SjBIdHpqdzdDNGRTYmNsT3NqN3A2c1k0RWJ3QlFwRTlRR3oxbnZtLVllX01CZEVHdmttS09fejhrQVRDLUFYbTZPN3dDRUVCV2dsODRUSUsybVpORGRpaVlsUHBoUFNNc3ZxWDVjMk1MWHJFLVZ3dmdYdDZuUDNQcUI4YXZOSHdxSFJzSGxPZ2c?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 18:02:15 GMT",
+      "source": "Fallout | Bethesda.net",
+      "type": "news"
+    },
+    {
+      "title": "Family says urgent care failed to notify teen of positive HIV test later determined to be incorrect - WSB-TV",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOYTVxNUxpaWVCNGxXYko4TWlwcDN3UXlYX0k2aE9fNHI3QzRXUmxFUzgtd2tpd0dJZ0dnTHB5VGFGMF9NNllNNHEwX1g3d0U2LUJTX3dwY3hhcERIMzVrTURGMHZpYUpOV2ZkRG16enFjLVQzWW1EQWRqbGQ4dFdQZ1pnSHNxTENxMjRTeHN4blNRdVAtLVFqUG1lMWdiVmxQeXlKNE5YUWVVcFJXR2xyUmxpUmhnbE9TSUM3MW5GU0E0NFVpTXJQYWNSMFI2QWp6S1dGS2FaMmRhak15U1hYeG9kT0JDQdIB-gFBVV95cUxPbkp0Wm5yYzE1aFM0WW5QWlliVG1FR3o0czBOenFERVg2eV85d2ZTc0dxRUJIaVJLc1dTVzdWVkpURGpxS2NSS2l2bl9QNUY1UlcwU0d2dVZWMk1EVkxLanE0VDZwTS0yVHhNbUhWNG5qYWZrMVNfN2NyMlQ4UVB5a0NTaFZOUzhCdER0Y2JJbmpzQ1FPOHJpeVVvUlZmOWFxOHhwR3JSbW9aSW5ncHBBYlJhcXB6b19VaFRINjZVZ0RCem9TTHl6dWtMaTcxbXNSRlBtT1pWcFEyOWxQT2JuTVhMcVViMlMtcVpqajVMckd2N2hraVU2LXRR?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 22:29:47 GMT",
+      "source": "WSB-TV",
+      "type": "news"
+    },
+    {
+      "title": "MCHD: 2 local people test positive for cyclosporiasis - fox10tv.com",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNY1hFT3ljUFRzbTN3elJsSkU2T2JyT3hZZXRSUWdORlBXaUl0LWlNcDBxLS1FQm5EUklyYmlxV0xSSTgwR0lYREdMcDNwTUtFTE81S2Q0V3NVVVN1cmZDd1c4NVVCaThTMWdMcmZOMk9xV29oZFVLWjJTWHlVNkVmam9lSHJVUkZiWTc4UdIBoAFBVV95cUxPM2ZSOWFjZ1VBLUE1X2VfYlZMNXpuSXF1NlBPdmlocXhtMDBSV2drdFJpTjREdVZ2OUkxejIxbGVBcTJQSE94VFdMM1hMUlJQdjRKZGtRelY1TUlObU1lYjNaZmx2ak5tUFdoYWNfdk1vRVBzODBycnMwZ1lHOUlCTUUtUUc3bE56eTVHdEpsVTA1ZEdOSkpQMjVMQjRwRVRC?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 23:13:00 GMT",
+      "source": "fox10tv.com",
+      "type": "news"
+    },
+    {
+      "title": "Arvid Lindblad shares driving test update ahead of F1 Belgian GP - Motorsport.com",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQnkzZ3V0Z1JUcmFDMHViTmx3cTV2OTlBYUkzTjVLTFdiREYzTGNyQ25qTWxJZlNpZDAwTXg0U3ZGYURBSnhubFFvNk5mZE10NTBmNlBnbFFoamtiVTJDMWZvOU9qQk83NE9vcVZEbEVNcE8yWmF6cjJheEdfVUdzRkpiTk5Nd243SERnbWZUa1QycHdHUTFVLVFDckx4TlNGb01nTmZtRTlrSkdoM2c?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 22:23:42 GMT",
+      "source": "Motorsport.com",
+      "type": "news"
+    },
+    {
+      "title": "New Navy destroyer testing responsible for explosion off Florida coast - WKMG",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQVWo3MG1UQUhXSHdaLVlOUWpaRnBuRU9NcDlyZS1hcXRTN1lpUDZ4emxnNlRRRmFNV3hncFhCMXBfTEpJcFdoTW9QbUtzWHVXbUNSWlVic3VCRHhHeUd6U2V6N0xvRENFRjdEQzZjZ2dvUTc1SzFDWUFFaUNZbzRhTzUtMkNsVHB4cHVBQ0k0azJLOHdLTS1FZnRqMk42ZUFTNHp0R0lwWkZYWDE1MEVQUnp2M0s3ZTh5OWdHc1Fubw?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 15:56:03 GMT",
+      "source": "WKMG",
+      "type": "news"
+    },
+    {
+      "title": "Air Force conducts live-fire test for Collaborative Combat Aircraft program - af.mil",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNTEJGZUlwTnB3VHdXUDBKQjFBQmdwQUxxR3QwVmtFc3dBdHQ4NF80QUhTOXBXb2UzeVd3YkRwUmREVDFSSmk5Y3h3YUMxOVhUc1ZjM2tSc3RIeTczMEFTYnNsMVpqQkU5NkNMT2dUVHhORy1US2hQb1BucS1lM1pqd0J1Qkd5MEEwcVFKZlVoTjVpaFdtSVhjTG9aUV9vTV9uSHNuS0lFRDJYU0ZRZUhMbmJsZE9FREdJQ0wxWXZnNHdPQ1VTa2tSTzlUOXI?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 03:53:44 GMT",
+      "source": "af.mil",
+      "type": "news"
+    },
+    {
+      "title": "New blood test could help doctors spot Alzheimer’s-related indicators - K8 News | Jonesboro, Arkansas",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbUY0ZXMzZFFGc2NjMm5aQXlRUTc5Wjl1bXpFaC1oekFFM0tCTm9FMWJPMTJwcFFDazd0ZWU1T0xXRDRPYVMtWnQyd040TEFtRGtCc3ZQRkd2aTR2VW5UbEZjYzhTVjNZQXRkMFkyRE9qakdCVGFaa3pidGRuTUR3X2NnaHRJcGduYzB4WEhxbmpyN2lsWm9BUkRZX2d3c0JqR20zN9IBuAFBVV95cUxOQ25seWhCNERSMmRXcWV4VW5ySlNtQ0V0bVN4Ri1XVzdwdXY5M0p4dzZNbEhFSmh0QmVNVC11SjdReHlVOUU0VzBiRTZ0LTlaSXR1QjNZQWlxdGgxSVZ6bl80X3hwc0NuSHBLZG11bGtFeElnR1dlS04yRjZ3UDhHNnExbGVra1hiaVBqbVlBb0x6ZGZHZ1BBOW1Xenl1VE5FazlHRW95QXgyakVva1lESDVLdFIzY0ZB?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 22:46:00 GMT",
+      "source": "K8 News | Jonesboro, Arkansas",
+      "type": "news"
+    },
+    {
+      "title": "FIU researchers test video game as anxiety treatment for teens - Florida International University",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQeVBMaDJud2VGYjVVdF9qVFNxeGh1MUxyamFpN2FPLTlxdzU3MTlJWVZLWVUxQlAtTVQ0cDdMZTZfai1qcUJTaW1DeEowaHlfaHhHcjlDTi1XYzIxMEVSR0dSTEU5LWJFUjFPWkhRUFRlTVF2ckNCLXZ3UjdBRHN1eUlvSFgyVmhNWldjS1VpNklkQQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 16:30:00 GMT",
+      "source": "Florida International University",
+      "type": "news"
+    },
+    {
+      "title": "What's the Best Way to Test for Cyclospora Infection? - MedPage Today",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9RMUhkMDRYU3N4RlhSMGpfSV9wTW9Ub1Z5UEhKZXViZWoxN052TU9rQXFGODRuWVdxWVkySkFsV09MSkJ4UzI0OWFZNGFpTm41dE9yNS1ESGJUb0hwT1ZWc2xhSDJiWk5YWmZmSUVsNGxHS0dy?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 17:04:41 GMT",
+      "source": "MedPage Today",
+      "type": "news"
+    },
+    {
+      "title": "I Can’t Believe This New Hegseth Proposal Isn’t a Parody - Slate Magazine",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNYkY2RUl4aFEtcVVyYmotc2lpYXdORzhhLURjLWV4YnBwZTZWT3hNcVpoUlpyX0pZZlJoTHZSSmFVcHFqNndaX2V0TzFpWlcyeGJKY0dmTnNvcVZhV2RsUWdYNnJqNXljNEE2QmRwaHkyZE5MZ2lYNEw5bUc2aW9BWVFSOVUtdnNHbXpmdnI3NjdXN0xtY3c?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 18:59:00 GMT",
+      "source": "Slate Magazine",
+      "type": "news"
+    },
+    {
+      "title": "SpaceX Starship Flight Test 13 takes issue with the 'flight' bit - The Register",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaW9va0YwaWF0cmlYNmhlcFFnZGd0and0MFZnUmMzRUFJbk53ODNSV3BteUZ4dkxnQW1UWkdBWlBfcFUzbzdyR3VOb01scUxFSDQ0RjhjcEVpbnRJUzRKYnZrQ1ZlZFUtS3FKZm1XTHlpNjJVMWF1Vk5sVWFhMFBKeWlpV3RoQUpBSm5pOGJfWm9Mc2RpdVFYbXViN092akMzZlRBSHlZOHdmOWl0aHBKeFhJb1lqTW90?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 11:15:00 GMT",
+      "source": "The Register",
+      "type": "news"
+    },
+    {
+      "title": "Men sue hospital after DNA tests showed they were switched at birth 38 years ago - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPa3dmSkJSbF9xOGp1d1lXV1RJVElhY3drWHk3cW9Fb0VzNG1vWktmZHV2U2JvZTZGM3JjNFQxeEFfb0RyN2VabUYyNWctTHFLZGtyWWZ2dHd1b29TczBWaTI3eTQ3OTljYnRvSHhrZk13Ykp6SHpzeFdtOXdfV0RtUXlJam9Fa215bkY5SkdibjRIX2REV0RaaXVHMNIBoAFBVV95cUxNZXowam1NUy13MGRNdUhLUXczMm5wUFg4LTA4bUZabnJyWjQ2UldOR3FkQzJ0RWVhRG5xYktyN2VnekxmM2dwMGgyeU1tajhwWWpubU1aSHYwcE8xbnp1eG8xbnQ2Z3ZlZ0RxZUMwbkY4YVM3YTVqYms5eDYtQTJ2S3ZyT0szZjF2czIwcjRhX0M4aXJoRkdabFNqM042Q3Bw?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 23:11:54 GMT",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "type": "news"
+    },
+    {
+      "title": "New chip-based sensor could let consumers test food for contaminants at home - CBS News",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQSU8zelpkSy0yb2xHRzRZWUZxRmtHQ2dpYlkzQndCdjc5TW9KdW1JV2FzNVdnbkxUV28xOXVQcnJKYXZjQVREamdIR0RxSVBsTG1EdV8xc202WXBhZmRKLUcxc1VUMDZsLVprTHBvelRtV2JGRTJrNjJZT1NIcVl1YWZGWVp1UjdNRnJubWZnN3g?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 00:43:41 GMT",
+      "source": "CBS News",
+      "type": "news"
+    },
+    {
+      "title": "Video - Little Leathernecks: MCBH hosts physical fitness events and Presidential Fitness Test - DVIDS",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOOW5mVlVub3hkR1RMbVNBTHVxbDF4TWhweTU1RGRjYU5HdGFtb1RjTGR1MloyMTE5OWVvcmhrUjM0MlNDSkp0N3pUeUMtcElRTjhVMWxaSUZid3FjZnowSTdiOEZiNEg0bnNvR0h5TzctdEhOZUxfWnE4UjNUdG4tTTFUbERhVmZUbi1wTWJVbTltRzFEVDdIWmhTc05JVjh5RFpyNFVpTUphUFhuQ0ltNEVwWlc1a1hfOW50SGNPNUE?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 01:42:00 GMT",
+      "source": "DVIDS",
+      "type": "news"
+    },
+    {
+      "title": "What’s next for Alzheimer’s blood tests? Experts predict the future of dementia detection - Raleigh News & Observer",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE12d3hwLTVyeWVjbTQxSDBTNG4xeEVmcVVERlVKeEpjRzhsNFRJVF9MbzZaQVZBSTBMc2VKdXgzM2Z1YkJNZUthTVlQQ1c1S21oNTR0OFN1Mk5pWnB4VzY5SW1YWXNTX05x0gFoQVVfeXFMTjV5LTh1NEFUSXp6QnpBRFU4TGEwLVFEcDMxQ3U1RVRhNFQxd1BnbHM4THJGNVRIRUZaTlVKSktrdDRxRHg5eHYtcFh4VWVlWkJWUTRpaVVTM3U1c2RDaldXV3VFY0MyYV8?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 01:00:00 GMT",
+      "source": "Raleigh News &amp; Observer",
+      "type": "news"
+    },
+    {
+      "title": "MCHD: 2 local people test positive for cyclosporiasis - fox10tv.com",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOc2NFTkJkYS1fWHlUXzZMbURBLU5wRzVkdmY3MHoyN3paMDZ0SVl4bm53OVlrenR1U1ZJdmJ2czd1WG5jVVdkZUhJNVJSRzgtVFN6ZXF6XzdPQjhZZVFfckd4bjBXcmd5dllac01wVGhmVFhuWG0xX2EzR2dnbF81VzlIRGpiYlZtYjc0bVlpQWE0WkYz?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 22:18:00 GMT",
+      "source": "fox10tv.com",
+      "type": "news"
+    },
+    {
+      "title": "New blood test could help doctors spot Alzheimer’s-related indicators - K8 News | Jonesboro, Arkansas",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPNGw3VTJKRlVndjFlM0Q2S3VtMk1fNjJ6djR4Tnc4bGFnSUhJYWdyekZSV1dUajRTaUd1WnFZRklybGN6QVl1NWZWRnZJREx5TDhTMHBtZmZHNFRUZlZoaXBvX1R4SUtmLUR4dW1jOEExYnM0ZjJ0VV9HZ2JjY1NJMzZoNmVhVk85ZHI0bFktNDFoWWZHdlYwVlZRUFF5RzhUUndtUnlTSzhQeG92?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 03:10:30 GMT",
+      "source": "K8 News | Jonesboro, Arkansas",
+      "type": "news"
+    },
+    {
+      "title": "Lil Leathernecks: MCBH Hosts Physical Fitness Events and Presidential Fitness Test [Image 8 of 23] - DVIDS",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxONTB2VUJfVDJ2VDJ5UE0xWGMtQ2t6aFB1RWE5VW85VDRnRmhNckZqVWpwNHZ1OEN1THF5eEJHeGY3bDV0NnFCLVRsNEVtaVdzZjhzb3BJR2VadThQVks1Q00zOEotcHJKNVkwVmttTGxhWFlOVklOQ3loMnNvZEkzZC1pX2J2QVZTZ19yNTI2Szk3UWRSZWxWdUhfUFJDSm8ydC1XY25MOHRLSS1WUXJhdWFTeXlfNkNLdE90bA?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 02:47:00 GMT",
+      "source": "DVIDS",
+      "type": "news"
+    },
+    {
+      "title": "Lil Leathernecks: MCBH Hosts Physical Fitness Events and Presidential Fitness Test [Image 14 of 23] - DVIDS",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQM1dDTFpWYzM4Zll2M19MT0Ryd3pGeHppYmdidm83bDRMRndvU1l1cERobkpNcDZSR3BKQTJ2S1liYnloSVo3cTlTc1AtYk41NzBPSzZfaDhVb21YUU9qaUJKd2VuTE5TbXRQWGZiUnZmYkxObzJpTUVjeGI1bnh4cEZmQjR6d2tPS210TF9YcEpfazZXazB5dHJxcExTb1pLbVlyU1NsalJiMkNOVTJaUUhWNUpiZjFVRTJCSQ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 02:47:00 GMT",
+      "source": "DVIDS",
+      "type": "news"
+    },
+    {
+      "title": "11,000 California drivers will have to retake written test. Here's why - NBC Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0J2MlZTOHJMYVNnRVNQWC12RmxCOTgyVVJjQzdGc1FSRHhoTFd1ZTYtVjc5WDhlckR4THdwNXZ6aENCUTBKVGJzdVN4OGdfdDNLYjNOTHVUWktKMVhKTTdVYmdVSnR2M3cxUnppdGUwdUMwdkg4UmlYNXdHdkxZa1JGTHliQkhRekJBNHNyUkdpQ3RtWGlJem1nX0dPMGg3TzNFamNmZUFRUUtrcHRYaWpTRlp1V2JM0gHAAUFVX3lxTE9BVmsxRVBRWENRMjJpa1RXS2wzeHJwenpKUUMwNS04WHJfUER5MkpQV095TnVHalhGbzEtMTE1Y2NueEg3VTNPN2w3TW9TczdGZ1VtZ3J2SWxPc01KaHlnYWJMWmE2RVRwaXNoY0lwTURFYkVKRmE2dUNDbWxpWHdxN2Q1WWlOSk5ma3FQODFNemRYYldSTmRxTGl2akVFLVlqTmdjelN2M3hmSDFXMVN1a3ZnSnRtVG1sTmJfX1ptMA?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 20:58:32 GMT",
+      "source": "NBC Los Angeles",
+      "type": "news"
+    },
+    {
+      "title": "SpaceX Aborts Starship Test Flight 13 After Engine Failure, Completes SDA Mission - Investor's Business Daily",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNOW91dXZkU2JGa0dXTjNIVGZiMDNCU0NXSUNVUjZMLUl0VUFzVVpBYkhYeEVfVjk1V210V0hFWk50S3p5U01pWXpTTVhWTXFiaUVsTUxsWU9Pd0dDNk9lY0c4WmxlMDZXRU96bFhsUWlMcE9ReGRqdURYMzhlMFJvMlRFcEFHa1dQRUh1YVR4cXVSMEZFSTFjdVdaNjdXOGFiOTFZY2lqT3d1RXBlT0d3S1F2M1BrMVk?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 13:42:00 GMT",
+      "source": "Investor's Business Daily",
+      "type": "news"
+    },
+    {
+      "title": "California DMV Demands Thousands of Drivers Retake the Written Test or Lose Their License - Car and Driver",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSUlBall6N29PT1ZuR0NJWk9GeklaXzYzSEtZV0tjS25ISDBXUXUyajlOTU1Za0VSbmZ5SjcxT3N5S05FWTJWeHFKa2wtcGJXQk1HWUpoSlltcXdCTVphenZoYXoyVVNNbm5kY1JIbVltTmR3Y210bU1EYjNsMnMwSDNVbkZEZ0ZMbjkwbkJ0NzFuY1lCSU9LaXZPTFg?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 21:03:17 GMT",
+      "source": "Car and Driver",
+      "type": "news"
+    },
+    {
+      "title": "GSK Drug From $2B Deal Sputters in Phase 3 Test in Chronic Cough - MedCity News",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZEtnRzlIVHFGa1picjB1aWdQMW1ucFFZTG5nMmFqUmdUbjlUMHNsVDFrMTc2cW1nODAxWlJkUmNuanFJX1FFalFkYkt5MkRRbGhIZ291U1N6TTFJc05CY3RiZkxFa1phUlY5VlNwdDlRLXRDSTEtY2lxU2ZpUjl6eUZDUE1aUGE0cjRZcjlzNF8?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 19:47:52 GMT",
+      "source": "MedCity News",
+      "type": "news"
+    },
+    {
+      "title": "Kids test their stamina in Crossroads Triathlon - WQAD",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOWVhwX3ZDc3lqMDlMX2dybUVoc3hKcWhmS0VVLVYzRHduV2ZpQl9uRmlHalVOSmNycXQ0N2ctZWM3QUZnQ1VscmpwVmhmdzhHTzFCQlM5WHFpcXM2QmF5ZjZ5N1BUcFlyXzNITi1tV3VJN1h3cy1xbE1RVkdwcXFaR193dmFZTW1pRVdEaDk0Y1kyWHZ0ZEgxSU1fTmRnMUxYdnBhZ2czc2hYazRvaXFwOUI5MzF3VnhDbXQzQl9iZmEtdXY3?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 03:06:00 GMT",
+      "source": "WQAD",
+      "type": "news"
+    },
+    {
+      "title": "'Toughest test!' - Kelly feted by British rival ahead of rematch test - DAZN",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPZUVWY1BUZGpQR280OXRNZzVDY1Q5Qy1xYmZuaEtsY0FLZzMxcGNkdXk2QmhuYlJTWFhfNVktUU9LampQRDQxd2FtUHlTZGlqc0NlMFhZWjJOSUFfeXhtMjZIcFdmVXVuQ2VHZTBKSDBscjd2ekRKQUhYOE9hZmVKY3BQX1ktZXpqS0NEellRcnBFX05TMDBMNU12U2xTbTRZNWF2V3R3NUpBRDhVSHdmdmNadHNsdUxFTEY4Z3ZINTA4X3g4QkFFNDBuTlJ3SFdjbEhn?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 21:00:00 GMT",
+      "source": "DAZN",
+      "type": "news"
+    },
+    {
+      "title": "4 ENC sites fail Swim Guide Week 8 tests - WITN",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE53X1AtdkZXeFk0YTRlblFhWGtBMGFkd0hud0xkWl9IZjdGdlpQTGVrc3E4LTVkZFF5ZHlfQzQwYVhLMm5MWDgwMXZiSHAxSG5UTnVfQk1zUTNweXNnSUIzaDRzVlNtcnpld2xWdkwyQUdRU1dnMWpOOGQ0d3BuZw?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 21:25:00 GMT",
+      "source": "WITN",
+      "type": "news"
+    },
+    {
+      "title": "East Hartford’s school test scores show improvement, bucking national trends - Connecticut Public",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOTVE1aXJabVZlWWFGdW5yWnV2anRNVnc1OE95YkpCZHUtUS1JT0JUNmJsVGVmMHh6MTZDUTRxQlJlUm9Wc1NOdjlIMmJoVElVMzJYb3lnOEFpWWdNd2FuNzZDQjh5UFg2QVlnb2FBMGtRa20zNTl3S0luckRQX1hXYWhnR0trRE0zWV9pRFcwWXhBUmg3OUhSNVoyYXZ1b2otLW9SeEZGYlBpLXc0MjlEa3ZJYk9VUQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 17:57:00 GMT",
+      "source": "Connecticut Public",
+      "type": "news"
+    },
+    {
+      "title": "Nevada city dubs itself a test case for data centers on federal lands near communities - Wyoming Public Media",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNGpHOTBhd3FrMnNya1VUYWZHLWJpeXVscER2ZE1fNElTREo5TE9wLURLcGNpVUdHX19mZjZVRTN6TTZiaS1hMGw3cTVOSm1SSXRhWUstMVdTM0lCM1ZPQm1ha1gxWWVIZ2ZXQ0dwNXFOYm9RanVVQ0hheW9jSTQ1ZldJMTRPTkFQMEFzN013QVMwRGMwV1l2eVU1STZnWnVHb0pqWmdiN0hxaEgzVm9BSG9reEN4LUV4OFllYnN4SkYzYXE4QTZ3OEF0MHY?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 16:29:00 GMT",
+      "source": "Wyoming Public Media",
+      "type": "news"
+    },
+    {
+      "title": "Lil Leathernecks: MCBH Hosts Physical Fitness Events and Presidential Fitness Test [Image 16 of 23] - DVIDS",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPcEpEbTdISi12RUx3djJ5UlhyQlNjTGoyVllCd3hKa1p4T2RjbEUtc0ctak5wVmIwYmVJOFVPem5oalVDX1I2c0REcGFYcTBEZHRwU3BZaEpBY3l2akhHMEoxUE80bEFHeEZGUlNyeWVTVG9Odmt5NzNsVXdIbHg3YTdscEpDM0RKMElSMWYza1YwSmdSTTF0QmNpcUppUmZfLVFXSTZETVA2ZUVBMWg4OU9aeEJOZXF6TkNDMQ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 02:47:00 GMT",
+      "source": "DVIDS",
+      "type": "news"
+    },
+    {
+      "title": "Lil Leathernecks: MCBH Hosts Physical Fitness Events and Presidential Fitness Test [Image 7 of 23] - DVIDS",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQcDhfbjVvcVhXWnZKTW03dVg4Z2NLdi1JZm5wd1dvNGNzeFp1RXZKTFIzVFpmQ1RDekN0UUNFcVRUVk02ZHoxWkpVbVpmSXpZdTl3WDRFYVM3WWZFNnM5QmJ0ZVdnWWh2ekRqOFJkLWFENGRzVkNLT0Nld0t5YzZmbTFxTUxxcU9ZWk9OUDl1VF9PRG4tNHdXTjV2TkxscnRvMDRHaU5rRURXbGFOQk91QVUyaWFoSE16d2ZCbA?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 02:47:00 GMT",
+      "source": "DVIDS",
+      "type": "news"
+    },
+    {
+      "title": "Lil Leathernecks: MCBH Hosts Physical Fitness Events and Presidential Fitness Test [Image 3 of 23] - DVIDS",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQU0xpcnVUb3RWeHBpRkFTRElyQnNDNFJVUWlmeXpPSDA4Z29uM05YblFzajFrWXM2aDlqc2prdXlpZTc2b1ZQRENTQ0hBbnlKUmdPaUhpekthcXJJYUVudDhZQnBSVmZKVnNlZk9FdUFySDlKZGZvdXhRTmhjbG14Y0FUaFdqb2F0RFgwZEdCOHBvNWJla1JTX1pSM3N6TnNDenZyWFJIWi1wUE5tTXRkdlppR0pxdzkzNjNHNg?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 02:47:00 GMT",
+      "source": "DVIDS",
+      "type": "news"
+    },
+    {
+      "title": "Only 13% survive this cancer. A blood test just detected 90% of early cases - Newsweek",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMGI4cjBoM1hZQjFDU0s5ZjN6N3l0Ym1Cdzdyc1dnZ2pvcnRSTjd2Qm5JQWZMMU0xakF1N0tCQlFuMnVYeTFvVFpCckxQZnQyYk5yTWNsV255cG1xQzl5bnFrUjVYbDM1bUhMeU9UYzhRS3VfQjJ4Y0FYdGdKLVh3SXhzWDRjQWlsQVZEZTNBdWM0bUtnaVJHalE4ZF9kVFJzUmU0cktfNXk?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 18:37:00 GMT",
+      "source": "Newsweek",
+      "type": "news"
+    },
+    {
+      "title": "Why it’s time to phase out animal testing in pharma - The World Economic Forum",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZE9uTWthMFdiSmRWaXF2OG9FajYteWktdEhqQ2wzQkJabVFTeHpjUkVDSC16ek04cWliOUdPeTI0S2k1eTk0NDJFUHVMcUhyUWRKT24tWkRtRnNiQ2QzWTE1S3ZlcnJmZVltcmdiaHM2TThWU2N1eDJtSjVFTWY4SHFOTkhTazRZ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 19:00:00 GMT",
+      "source": "The World Economic Forum",
+      "type": "news"
+    },
+    {
+      "title": "SpaceX sees engine failure at rocket test - The Arkansas Democrat-Gazette",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQRVp0ZWV0QWFhaUF1V3JPdVJnU1JHc0RhaFVpdEJlc0dqMDBnaHdWVXhnUTE2dnhOaWpzOWVPanJtV3M5ZkZtMlg3ZzFOZDNORDF2cW96bWNZODBMaDZQNDFYX3R3Ni1GODBJMkFDQll3S0JDNjRIakxEeU8xbmpxbFk2NlFHU05jMVlocEVVbjc1elZS?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 06:48:00 GMT",
+      "source": "The Arkansas Democrat-Gazette",
+      "type": "news"
+    },
+    {
+      "title": "Pakistan cricketer Nawaz sanctioned after cannabis-related positive test - Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNc1djSmd3M1lybDBEaVFJc0pOZlF0Ti1vWnI1cVpaQ3l5UlhDTFlqOUJlMGx2bGJidjJXeUtfak5SbDNVdmEtV0FFSnhVWFFuaDV0dVVVRmxpcDNhQU9keE4wLXNmQk9DR3RFU2xERk53REMyMFdRUjlrUmVqQ3Q3Tjl0M0l1bkg5dHBxZ1BTWjBRZnpOcUZhVlJSSkI3aWg0S2NKNU9HUUtwc0tEYnp2eHZpWWVPUdIBuwFBVV95cUxOaWJqREpIRWwwdHJtblRiYW1xZlE1V2dLT1AwNm9VQ3dRTzJkcU9XbklvNk5Zb3pUa2xxOGZiSjdSeWZjaExzQi1XaWRUb0hZUFU2S1ljTkR0RUI3Y1Q4QUgyLVlqd1RsRUpGODM5WDYybkdXdEpyMkMtM1NkYU95VzVDeHFfdVp0RVJ1QXk1YnQ2WTZLVGp4VWtuV25SUVNpenlYZFdUaXNmYm5pMmdyb2FLdTlNT1Q0bDlr?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 16:29:20 GMT",
+      "source": "Al Jazeera",
+      "type": "news"
+    },
+    {
+      "title": "Multisite Test Strip Boosts Mosquito-Borne Virus Detection | Newswise - Newswise",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOWnJ5TUhhY05TaHpQYVBwMGFZUm0yRzNWM1dDQ1drbTQ4aWVuYi1NZEdWSXlpeHlra3hOS2g4VlFyUFJIcEJEQ0RwWWJkdE9NRnU2clcydE1nd3Z2YTlkeW1IT2xGSVhrSFdWWC1OdXJxc2JWTEo0d3BmZHlWYkVWeWRKVXB2X1ZMQzktN001YjZKVGxRSkMw0gGXAUFVX3lxTE5acnlNSGFjTlNoelBhUHAwYVlSbTJHM1YzV0NDV2ttNDhpZW5iLU1kR1ZJeWl4eWtreE5LaDhWUXJQUkhwQkRDRHBZYmR0T01GdTZyVzJ0TWd3dnZhOWR5bUhPbEZJWGtIV1ZYLU51cnFzYlZMSjR3cGZkeVZiRVZ5ZEpVcHZfVkxDOS03TTViNkpUbFFKQzA?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 22:20:00 GMT",
+      "source": "Newswise",
+      "type": "news"
+    },
+    {
+      "title": "New ctDNA blood test improves personalized prostate cancer treatment - News-Medical",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSW1uckk4RjQ0NV90dFc2TzNDemwtX1ExYTUxQnB5b25oT3ExTlRQa0RXa1Y1M2docjVlcElvOWtwc1RlampCOFBDTjVSbkNLSlota2hYbUU3ODBnZ01rY2tkdmpwVG1UMFhzeHE2NzdNek9PamF4MVg3cDY1NTVjUjdCWVNYRnRNbzlqVzUzRlN3dUpGc2tvWGpOeVNRZ1lFOTZkWklDQkFibEdwWTJJbmphV0xYdUE?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 19:56:00 GMT",
+      "source": "News-Medical",
+      "type": "news"
+    },
+    {
+      "title": "Opinion | China’s missile test from a submarine is no guarantee of regional stability - South China Morning Post",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPUFZxQlRSVVFRb2JnV2J5OWxVbzFaY3RPTm1WMmRDaU1uWDhOelN3QTBqU0JZUklld2dDOVBMdzA4cWdEX0FnTHJPNWQyNEJJX19QdGU1Z21qczJqTUxwM1ptUHZKUlhIeHZUX0RLV1NOMzhLMXNjSnpxVTJpNnNUU21sVG1lVjBDVVg0UDJmc0p2VnYxSVJuOEREcmVwS2RGQzdiU3FZMXFjcFpQbERNRWl6VU1rSW5taVBNUtIBvAFBVV95cUxNUU1jRmFkZTV2MzdVY2JBcVo1eFFSOThwV3JwSzM0bUZqdzVvZHM5R0FINWFFcUJBMklwR3FSMy1HN2VsMjZfMnpPdXZfSC1Ic0pranF2Z3ZGZjhPb0I0b1dWWFZVT2xRUm0xQmQ3aEFzOW5tTDI3R29JTG9pMmg2TVRJSFVuOFFJQTgwdkQ0dkFqelNuc2EtcXJUcDVhLU44REdpa0JVc2x0b2M0UUxubXg0QktvQnRJclRaaQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 21:30:05 GMT",
+      "source": "South China Morning Post",
+      "type": "news"
+    },
+    {
+      "title": "Military services leaning into handheld blood testing devices to diagnose TBIs - DefenseScoop",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSXREUlZqRDh0czh0SG9VQzRsdG9zbmNYcjNPRUhVZUJkdUdiU0g0eWZwYzdUZmNubDQzd1dxQjIyWENGbHFJS1Brb1dRanpiOHEtbllQUzB6ZVU5cU5PRXROQ1d5UVJLUUVJQ2N2emRSa2tYUlY4ZXNicWFTOGxHYVN4Ul8zSlBTbk11MDFuQUlFWGM?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 21:23:50 GMT",
+      "source": "DefenseScoop",
+      "type": "news"
+    },
+    {
+      "title": "New portable strip test accurately detects mosquito-borne viruses - News-Medical",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYXlGX09jYkZ3aF8yb2JiSWVycWRzVmVvd3hTRG9lV3RCT0JSbDloY0IxeUdvM1l3anh3aWc2ajhiZVhGdm5GRU53V3gwSmU0TFFqUFlUVzYwMFRpNDJpTjZFZFZlamM4b2VkYnhmS3EzMTJpUjZ3TE9kc2dCdzR0bjZrNnBMU05hRHgwVnBOdlV0SXlqRjF6alNWbGpabW42bDVNSmRhTDE3UWZadFI5TEwwTQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 20:03:00 GMT",
+      "source": "News-Medical",
+      "type": "news"
+    },
+    {
+      "title": "1A field a true test — again - Messenger News -",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRVhGdWVHRDhIQmozNmZEV0tmbkluMlZJMWtVN05tTnQ5U0NKNHprdE5VNk01MS1wbUFhT1BPTGVYdWJRYzdpUldQenQ1bHpZNWhJZDU4elZhSlp1ejlCMVQ1clc3eFNPWWxJQUtiUWNlRTJDSmc3cko4UTdpOXhLN3l6SnR6cUdtdHVpRkpR?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 05:45:32 GMT",
+      "source": "Messenger News -",
+      "type": "news"
+    }
+  ]
+}
