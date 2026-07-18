@@ -7,10 +7,13 @@ const ProgressView = require('./components/ProgressView');
 const ResultsView = require('./components/ResultsView');
 const LogPanel = require('./components/LogPanel');
 const ConfigMenu = require('./components/ConfigMenu');
+const CommandPalette = require('./components/CommandPalette');
 const orchestrator = require('../research/orchestrator');
 const configStore = require('./configStore');
+const sessionStore = require('./sessionStore');
+const cache = require('../utils/cache');
 
-const STATES = { IDLE: 'idle', RESEARCHING: 'researching', RESULTS: 'results', CONFIG: 'config' };
+const STATES = { IDLE: 'idle', RESEARCHING: 'researching', RESULTS: 'results', CONFIG: 'config', COMMANDS: 'commands' };
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.error) {
       return React.createElement(Box, { flexDirection: 'column', padding: 1 },
-        React.createElement(Text, { color: 'red', bold: true }, '✕ Error: ' + this.state.error.message),
+        React.createElement(Text, { color: 'red', bold: true }, 'Error: ' + this.state.error.message),
         React.createElement(Text, { dimColor: true }, 'Returning to prompt...'),
       );
     }
@@ -45,13 +48,20 @@ function App({ initialTopic }) {
   const [history, setHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [config, setConfig] = useState(configStore.load());
+  const [session, setSession] = useState(null);
+  const [sessionHistory, setSessionHistory] = useState([]);
   const { exit } = useApp();
   const runningRef = useRef(false);
   const initialDone = useRef(false);
 
+  useEffect(() => {
+    const recent = sessionStore.listRecent(10);
+    setSessionHistory(recent);
+  }, []);
+
   const addLog = useCallback((level, msg) => {
     const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    setLogs(prev => [...prev.slice(-99), { time, level, msg }]);
+    setLogs(prev => [...prev.slice(-149), { time, level, msg }]);
   }, []);
 
   const handleProgress = useCallback((p) => {
@@ -68,14 +78,24 @@ function App({ initialTopic }) {
     setHistory(prev => [topic, ...prev.filter(t => t !== topic)].slice(0, config.historySize || 20));
     setHistoryIndex(-1);
 
+    const newSession = sessionStore.create(topic);
+    setSession(newSession);
+
     try {
       const result = await orchestrator.run(topic, {
         depth: config.depth || 500,
         onLog: addLog,
         onProgress: handleProgress,
       });
+
+      sessionStore.updateResults(newSession.id, result, result.reportPath);
+      sessionStore.addQuery(newSession.id, { original: topic, resultCount: Object.values(result).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0) });
+
       setResults(result);
       setState(STATES.RESULTS);
+
+      const updated = sessionStore.listRecent(10);
+      setSessionHistory(updated);
     } catch (error) {
       addLog('error', `Research failed: ${error.message}`);
       setState(STATES.IDLE);
@@ -84,23 +104,59 @@ function App({ initialTopic }) {
     }
   }, [config, addLog, handleProgress]);
 
+  const handleFollowUp = useCallback(async (question) => {
+    if (!results || runningRef.current) return;
+    const contextTopic = `${results.topic} ${question}`;
+    await handleResearch(contextTopic);
+  }, [results, handleResearch]);
+
+  const handleCommand = useCallback((cmd) => {
+    switch (cmd) {
+      case '/config':
+        setState(STATES.CONFIG);
+        break;
+      case '/clear':
+        cache.clear().then(() => {
+          sessionStore.clearAll();
+          setSessionHistory([]);
+          addLog('success', 'Cache and sessions cleared');
+        });
+        break;
+      case '/history':
+        addLog('info', `Recent sessions (${sessionHistory.length}):`);
+        sessionHistory.forEach(s => {
+          addLog('info', `  ${s.topic} — ${s.queryCount} queries — ${s.startedAt?.split('T')[0] || '?'}`);
+        });
+        break;
+      case '/help':
+        addLog('info', 'Commands: /config /history /clear /help /deep /sources');
+        addLog('info', 'Type any topic to research. Follow-ups use previous context.');
+        break;
+      case '/deep':
+        addLog('info', 'Deep search mode: uses depth 1000, searches all 8 platforms');
+        setConfig(prev => ({ ...prev, depth: 1000 }));
+        break;
+      case '/sources':
+        addLog('info', 'Active sources: Reddit, YouTube, News, Web, HN, Bluesky, Discourse, StackExchange');
+        break;
+      default:
+        addLog('warn', `Unknown command: ${cmd}`);
+    }
+    setState(STATES.IDLE);
+  }, [addLog, sessionHistory]);
+
   const handleConfigSave = useCallback((key, value) => {
     configStore.set(key, value);
     setConfig(prev => ({ ...prev, [key]: value }));
   }, []);
-
-  const handleCommand = useCallback((cmd) => {
-    if (cmd === 'clear') {
-      const cache = require('../utils/cache');
-      cache.clear().then(() => addLog('success', 'Cache cleared'));
-    }
-  }, [addLog]);
 
   useInput((input, key) => {
     if (key.ctrlC || key.escape) {
       if (state === STATES.RESEARCHING) {
         addLog('warn', 'Research cancelled by user');
         runningRef.current = false;
+        setState(STATES.IDLE);
+      } else if (state === STATES.CONFIG || state === STATES.COMMANDS) {
         setState(STATES.IDLE);
       } else {
         exit();
@@ -125,19 +181,30 @@ function App({ initialTopic }) {
     );
   }
 
+  if (state === STATES.COMMANDS) {
+    return React.createElement(ErrorBoundary, { onError: () => setState(STATES.IDLE) },
+      React.createElement(CommandPalette, {
+        onSelect: (cmd) => {
+          setState(STATES.IDLE);
+          handleCommand(cmd);
+        },
+        onClose: () => setState(STATES.IDLE),
+      })
+    );
+  }
+
   return React.createElement(ErrorBoundary, { onError: () => setState(STATES.IDLE) },
     React.createElement(Box, { flexDirection: 'column', padding: 1 },
-      React.createElement(Header, { config }),
+      React.createElement(Header, { config, session }),
 
       state === STATES.IDLE && React.createElement(InputPrompt, {
-        onSubmit: handleResearch,
-        onConfig: (cmd) => {
-          if (cmd === 'clear') handleCommand('clear');
-          else setState(STATES.CONFIG);
-        },
+        onSubmit: results ? handleFollowUp : handleResearch,
+        onCommand: handleCommand,
+        onOpenCommands: () => setState(STATES.COMMANDS),
         history,
         historyIndex,
         setHistoryIndex,
+        hasResults: !!results,
       }),
 
       state === STATES.RESEARCHING && React.createElement(Box, { flexDirection: 'column' },
