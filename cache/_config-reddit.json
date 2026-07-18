@@ -1,0 +1,1847 @@
+{
+  "timestamp": 1784365292690,
+  "topic": "/config",
+  "source": "reddit",
+  "count": 45,
+  "data": [
+    {
+      "id": "s4qxa4",
+      "title": "TIL An Airbus A400M crashed because engine config files were accidentally deleted after an upgrade",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "spottyrx",
+      "url": "https://www.reddit.com/r/todayilearned/comments/s4qxa4",
+      "created": "2022-01-15T18:37:53.000Z",
+      "topComments": []
+    },
+    {
+      "id": "aylbye",
+      "title": "Did you know that when you run .NET Core at IIS it will make on the fly a Web.config file from appsettings.json and other applicable things.",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/aylbye",
+      "created": "2019-03-08T03:01:20.000Z",
+      "topComments": []
+    },
+    {
+      "id": "aon3rw",
+      "title": "Use environment.ts for the Web.config/appsettings.json settings stuff in an Angular 7 app.",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/aon3rw",
+      "created": "2019-02-09T00:33:22.000Z",
+      "topComments": []
+    },
+    {
+      "id": "8v1der",
+      "title": "TIL that what is Firebase Remote Config and how we can use it in android to force android app users to update the app.",
+      "text": "",
+      "score": 0,
+      "numComments": 13,
+      "subreddit": "todayilearned",
+      "author": "davidkonal",
+      "url": "https://www.reddit.com/r/todayilearned/comments/8v1der",
+      "created": "2018-06-30T11:59:00.000Z",
+      "topComments": [
+        {
+          "author": "kinyutaka",
+          "text": "TIL we don't need to make a coherent statement for TIL posts",
+          "score": 3,
+          "created": "2018-06-30T12:03:29.000Z"
+        },
+        {
+          "author": "kinyutaka",
+          "text": "It's a recent source. It's reported.",
+          "score": 2,
+          "created": "2018-06-30T12:25:21.000Z"
+        },
+        {
+          "author": "TerribleEveDev",
+          "text": "this is a fuckin advertisement lol.\n\nnot gonna lie its a good one so im not gonna report it since this really is informational, but pleeeeeease dont start spamming fake TIL like this, David.",
+          "score": 2,
+          "created": "2018-06-30T12:23:51.000Z"
+        },
+        {
+          "author": "kinyutaka",
+          "text": "\"TIL that what is\" makes no grammatical sense.\n\nEither \"TIL what X is.\" (Which would be stricken by the mods as too vague) or \"TIL that X is Y\"\n\nIn any case, this article was written only 2 days ago, and isn't valid for TIL.",
+          "score": 2,
+          "created": "2018-06-30T12:22:27.000Z"
+        },
+        {
+          "author": "TerribleEveDev",
+          "text": "\"TIL how to do this long tutorial on an obscure website\"\n\nvs\n\n\"til this fact heres a link of a fact\"\n\nbasically the wording is obviously you selling the usefulness of it vs just that its a thing.",
+          "score": 1,
+          "created": "2018-06-30T13:07:57.000Z"
+        },
+        {
+          "author": "davidkonal",
+          "text": "I didn't posted in /r/androiddev about the bug. I just posted this same link\n",
+          "score": 1,
+          "created": "2018-06-30T12:33:48.000Z"
+        },
+        {
+          "author": "kinyutaka",
+          "text": "Yeah, you should. And you should stop trying to use general user subreddits to advertise.",
+          "score": 1,
+          "created": "2018-06-30T12:33:36.000Z"
+        },
+        {
+          "author": "kinyutaka",
+          "text": "Because you posted on /r/androiddev about bug you were finding in your newest version of this program.\n\nThree strikes, man. You're out.",
+          "score": 1,
+          "created": "2018-06-30T12:31:01.000Z"
+        },
+        {
+          "author": "davidkonal",
+          "text": "Got it. Thanks for explaining. Should I delete it now? ",
+          "score": 1,
+          "created": "2018-06-30T12:29:48.000Z"
+        },
+        {
+          "author": "kinyutaka",
+          "text": "Read the rules of the sub. No recent sources.\n\nIf your source was only written in the past couple days, then it's not TIL material. TIL is for things that have been around a while (at least a few months) that you just found out about today.",
+          "score": 1,
+          "created": "2018-06-30T12:28:33.000Z"
+        },
+        {
+          "author": "davidkonal",
+          "text": "How do you know that it is advertisment?",
+          "score": 1,
+          "created": "2018-06-30T12:27:19.000Z"
+        },
+        {
+          "author": "davidkonal",
+          "text": "Am sorry about that, I am not a native English speaker.\n\nMoreover, I never said that this article is written today. I am just saying that I learned it today.",
+          "score": 1,
+          "created": "2018-06-30T12:24:47.000Z"
+        },
+        {
+          "author": "davidkonal",
+          "text": "Hey, I don't understand what you are talking about. Can you please explain it a little further.\n\nThanks",
+          "score": 1,
+          "created": "2018-06-30T12:14:27.000Z"
+        }
+      ]
+    },
+    {
+      "id": "8idvtw",
+      "title": "Make manual changes to webpack.config.js and webpack.config.vendor.js at a .NET Core Angular application stick!",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/8idvtw",
+      "created": "2018-05-10T10:34:03.000Z",
+      "topComments": []
+    },
+    {
+      "id": "8i4w90",
+      "title": "Page 48 of \"ASP.NET Core 2 and Angular 5\" by Valerio De Sanctis suggests a manual correction to webpack.config.vendor.js at an ASP.NET Core Angular application.",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/8i4w90",
+      "created": "2018-05-09T10:25:09.000Z",
+      "topComments": []
+    },
+    {
+      "id": "8i189u",
+      "title": "Make a change to webpack.config.js in a .NET Core Angular application to get the AoT compliation working.",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/8i189u",
+      "created": "2018-05-08T23:11:19.000Z",
+      "topComments": []
+    },
+    {
+      "id": "84i31j",
+      "title": "git config --system core.longpaths true",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/84i31j",
+      "created": "2018-03-14T23:40:17.000Z",
+      "topComments": []
+    },
+    {
+      "id": "7c9gv0",
+      "title": "Where do I keep the equivalent of Web.config appSettings in an Angular app?",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/7c9gv0",
+      "created": "2017-11-11T16:53:31.000Z",
+      "topComments": []
+    },
+    {
+      "id": "70afqx",
+      "title": "TIL to stop webpage videos from autoplay, in Firefox, type 'about:config' in the address bar, search for media.autoplay.enabled, right click 'toggle' to 'false'. Thanks /u/ImTrulyAwesome",
+      "text": "[deleted]",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "[deleted]",
+      "url": "https://www.reddit.com/r/todayilearned/comments/70afqx",
+      "created": "2017-09-15T15:09:12.000Z",
+      "topComments": []
+    },
+    {
+      "id": "705n07",
+      "title": "Code generated using the T4 templates for Database First and Model First development may not work correctly if used in Code First mode. To continue using Database First or Model First ensure that the Entity Framework connection string is specified in the config file of executing application.",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/705n07",
+      "created": "2017-09-14T22:19:26.000Z",
+      "topComments": []
+    },
+    {
+      "id": "64uhow",
+      "title": "make Web.config look into another file for appSettings",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "jaeschke",
+      "url": "https://www.reddit.com/r/todayilearned/comments/64uhow",
+      "created": "2017-04-11T23:16:10.000Z",
+      "topComments": []
+    },
+    {
+      "id": "4pv0az",
+      "title": "TIL Half-Life is the first shooter game that came with WSAD config by default, paving the way for the now ubiquitous industry standard",
+      "text": "",
+      "score": 1,
+      "numComments": 1,
+      "subreddit": "todayilearned",
+      "author": "kimilil",
+      "url": "https://www.reddit.com/r/todayilearned/comments/4pv0az",
+      "created": "2016-06-25T23:32:32.000Z",
+      "topComments": [
+        {
+          "author": "kimilil",
+          "text": "From article:\n\n> And yet games, strangely, took a while to catch up. Carmack may have bundled Thresh’s config with Quake 2, but when it released in 1997 the default controls were still arrow keys. A year later, though, that changed. If Thresh's Quake tournament win was WASD's first watershed moment, the second came in 1998 with the release of Half-Life. The Quake and Doom players at Valve—perhaps influenced directly or indirectly by Carmack, Thresh, and other top Doom and Quake players—included WASD in Half-Life’s default keyboard and mouse config, which helped solidify it as the first-person shooter standard.\n\nThe significance of this is that HL is pretty much my first FPS game, I was only about 5 at the time. ",
+          "score": 1,
+          "created": "2016-06-25T23:34:17.000Z"
+        }
+      ]
+    },
+    {
+      "id": "4ldf9o",
+      "title": "TIL you can switch between Firefox tabs with control+tab (must turn on first in about:config)",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "thgntlmnfrmtrlfmdr",
+      "url": "https://www.reddit.com/r/todayilearned/comments/4ldf9o",
+      "created": "2016-05-27T23:35:17.000Z",
+      "topComments": []
+    },
+    {
+      "id": "3gd9fr",
+      "title": "SSH Server Setup & Config | Kali Linux | Mac OS X | Windows 7/8.1/10",
+      "text": "",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "todayilearned",
+      "author": "[deleted]",
+      "url": "https://www.reddit.com/r/todayilearned/comments/3gd9fr",
+      "created": "2015-08-09T17:34:09.000Z",
+      "topComments": []
+    },
+    {
+      "id": "1utw74b",
+      "title": "In movie Interstellar, how did humans turn into 4D + 1 (4D of space and time) beings from 3D + 1 (3D of space and time, the current config we live in) beings?",
+      "text": "Cooper: \"Don't you get it yet, TARS? They're not beings... they're us! What I've been doing for Murph, they're doing for me, for all of us.\"\n\nTARS: \"Cooper, people couldn't build this.\"\n\nCooper: \"No. No, not yet. But one day. Not you and me, but a people, a civilization that's evolved beyond the four dimensions we know.",
+      "score": 0,
+      "numComments": 26,
+      "subreddit": "NoStupidQuestions",
+      "author": "SuccessfulMeaning43",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1utw74b",
+      "created": "2026-07-11T21:26:31.000Z",
+      "topComments": [
+        {
+          "author": "cjgaia",
+          "text": "They didn’t 'turn into' anything. Cooper is saying that future humans evolved to perceive time as a physical dimension (like a mountain you can climb). They built the Tesseract to help their ancestors (us) survive so they could exist. It’s a paradox bootstrap, not a transformation.\n\nThere are other angle to the plot as well.",
+          "score": 5,
+          "created": "2026-07-11T21:32:14.000Z"
+        },
+        {
+          "author": "Ill-Dependent2976",
+          "text": "Somebody ran a level 2 diagnostic on a samoflange.",
+          "score": 3,
+          "created": "2026-07-11T22:01:48.000Z"
+        },
+        {
+          "author": "Ill-Dependent2976",
+          "text": "They reversed the polarity of the power conduits.",
+          "score": 3,
+          "created": "2026-07-11T21:37:31.000Z"
+        },
+        {
+          "author": "Informal_Test_4061",
+          "text": "I always interpreted it less as “humans evolved into 5D beings” and more as “they gained the ability to interact with higher dimensions.” Just like a 2D creature couldn’t comprehend a 3D object, we’re not really equipped to understand what they became.",
+          "score": 3,
+          "created": "2026-07-11T21:32:05.000Z"
+        },
+        {
+          "author": "free_meson",
+          "text": "I think some people already have a grasp on 4D, and the tesseract in the movie is a good representation. You could say even the black hole ray tracing by Kibble in the movie is a good understanding of spacetime. You can understand it, but it takes some getting used to. \nI think the movie didn't mention 5D specifically, but that is not that much different.\nI think first when Cartesian geometry was discussed, started people thinking in abstract high dimensional spaces, and nowadays people even discuss multiple times dimensions. ",
+          "score": 2,
+          "created": "2026-07-11T22:45:24.000Z"
+        },
+        {
+          "author": "nifty-necromancer",
+          "text": "Based on current physics, no. Humans can’t evolve into beings that directly perceive a fourth spatial dimension. We can model higher dimensions mathematically, but our brains only receive information from three large spatial dimensions.",
+          "score": 2,
+          "created": "2026-07-11T22:21:26.000Z"
+        },
+        {
+          "author": "Informal_Test_4061",
+          "text": "That’s kind of the point, the movie doesn’t explain it. Cooper is speculating about a civilization so far beyond us that asking “how did their brains adapt?” is like asking how a 2D stick figure could evolve to understand 3D space. The audience isn’t meant to know the mechanism, only that it happened over an unimaginably long timescale.",
+          "score": 2,
+          "created": "2026-07-11T21:55:57.000Z"
+        },
+        {
+          "author": "Ill-Dependent2976",
+          "text": "It's like when you turn the middle side topwise.",
+          "score": 2,
+          "created": "2026-07-11T21:49:04.000Z"
+        },
+        {
+          "author": "KlNDR3D",
+          "text": "damn well spotted! that is indeed what you end up with",
+          "score": 1,
+          "created": "2026-07-12T11:17:23.000Z"
+        },
+        {
+          "author": "Adkit",
+          "text": "\"Is there any current science and mathematics which supports the magic in Harry Potter?\"",
+          "score": 1,
+          "created": "2026-07-12T06:23:54.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Yeah, perhaps the movie was completely fictional in that particular scene",
+          "score": 1,
+          "created": "2026-07-12T06:11:29.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Need to check on multiple time dimensions.",
+          "score": 1,
+          "created": "2026-07-12T06:09:59.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Bro, I'm frustrated with this comment that movie is fictional. I know it is not some documentary based on some real event. Also, I'm not asking about accuracy of the said scene, I just want to know if there is any theory or hypothesis or way around in current science and mathematics which supports that thing? ",
+          "score": 1,
+          "created": "2026-07-12T06:05:37.000Z"
+        },
+        {
+          "author": "Mental-Ask8077",
+          "text": "Oh, is that how you get everything everywhere all at once?",
+          "score": 1,
+          "created": "2026-07-12T03:14:01.000Z"
+        },
+        {
+          "author": "KlNDR3D",
+          "text": "yea i’m not sure reversing the polarity works here (in the movie at least), because you have to factor the Bose-Einstein constant or else you break supersymmetry and get infinite everywhere in the equation",
+          "score": 1,
+          "created": "2026-07-11T23:30:53.000Z"
+        },
+        {
+          "author": "Adkit",
+          "text": "Ok, so you don't know what \"fiction\" mean... Great...",
+          "score": 1,
+          "created": "2026-07-11T22:40:48.000Z"
+        },
+        {
+          "author": "Adkit",
+          "text": "You do realize this is a fictional movie, right?",
+          "score": 1,
+          "created": "2026-07-11T22:40:18.000Z"
+        },
+        {
+          "author": "gord_m",
+          "text": "No. Try philosophy.",
+          "score": 1,
+          "created": "2026-07-11T22:19:16.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Need to check more on that",
+          "score": 1,
+          "created": "2026-07-11T22:02:56.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "I know it, it's fine from the perspective of the movie, but is there any way as per our current understanding of physics and mathematics which could explain it? ",
+          "score": 1,
+          "created": "2026-07-11T21:59:03.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Ok, but how did that happen? ",
+          "score": 1,
+          "created": "2026-07-11T21:57:26.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Still, how they evolve their mind to perceive it so? ",
+          "score": 1,
+          "created": "2026-07-11T21:50:31.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "Still, how did they gain the ability to do so? Our brain is wired to 3D, how did they rewire it for 4D? ",
+          "score": 1,
+          "created": "2026-07-11T21:49:35.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "I mean it's fiction, but if we assume what he said was correct? ",
+          "score": 1,
+          "created": "2026-07-11T21:48:13.000Z"
+        },
+        {
+          "author": "SuccessfulMeaning43",
+          "text": "What that means? ",
+          "score": 1,
+          "created": "2026-07-11T21:47:41.000Z"
+        },
+        {
+          "author": "Delehal",
+          "text": "The movie doesn't explicitly say how that happened. Cooper's hunch makes sense, and fits well with the themes of the movie, but it's not directly confirmed either. These details are intentionally left unsaid for the audience to imagine and interpret.",
+          "score": 1,
+          "created": "2026-07-11T21:36:31.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1ust6mk",
+      "title": "Why cant i (an Arch user btw) get Mythical linux femboys?",
+      "text": "So after years of getting absolutely nowhere with girls i started seeing all these memes about femboys using linux and i was like hold on maybe the problem isnt me maybe im just running windows like a breeder so i did what any reasonable person would do i nuked my drive installed arch and spent the next six hours trying to figure out why i had no internet because apparently installing an operating system doesnt include the very controversial feature of being able to connect to the internet\n\nanyway after i got everything working i expected to immediately become more attractive but instead i just developed this uncontrollable urge to tell everyone i use arch btw like i genuinely cant stop doing it, even when my doctor asked if i had any allergies i said i dont have an allergy but i use arch btw\n\nthen i figured i should actually go meet these mythical linux femboys everyone keeps talking about so i joined a few linux discords spent an entire weekend making my hyprland config look cute downloaded catppuccin for literally everything my terminal my browser my gtk theme my discord my spotify my soul i even installed those little anime cat command line programs because i thought maybe thats what theyre into\n\nfinally i saw someone with an anime profile picture and cat ears in their profile banner and i was like omg this is literally my chance so i casually mentioned i use arch and got ignored, okay maybe they didnt see it so i mentioned that i compile my own kernel still nothing then i said i use wayland and hyprland and the aur and pipewire and btrfs snapshots and i swear i was one message away from posting my neofetch before they finally replied with \"cute\"\n\nnot cute as in flirting cute as in the way you call a toddler cute after they tell you they know the alphabet because literally everyone in that server was running arch\n\ni realized the only thing arch femboys love more than talking about arch is pretending installing arch isnt impressive anymore, every time i flexed my rice somebody posted theirs and it looked like a nasa control room designed by hello kitty, at some point i genuinely started considering installing nixos just so i could be interesting again\n\nso now here i am no girlfriend no boyfriend no social skills my desktop has a billion shades of pastel pink my terminal meows at me every time i open it and every weekend i sacrifice a perfectly functional arch install to the update gods because having a stable computer would make me a poser",
+      "score": 6,
+      "numComments": 13,
+      "subreddit": "NoStupidQuestions",
+      "author": "vg_123476",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1ust6mk",
+      "created": "2026-07-10T16:50:33.000Z",
+      "topComments": [
+        {
+          "author": "Savallator",
+          "text": "You misunderstood..arch is not for getting you femboys, it's for turning you into one.",
+          "score": 17,
+          "created": "2026-07-10T16:52:15.000Z"
+        },
+        {
+          "author": "Bupod",
+          "text": "I don’t care if this is against the sub rules, this is a fucking work of art. ",
+          "score": 12,
+          "created": "2026-07-10T16:53:16.000Z"
+        },
+        {
+          "author": "Lamp_Evening",
+          "text": "Go outside for a little bit.",
+          "score": 5,
+          "created": "2026-07-10T16:52:48.000Z"
+        },
+        {
+          "author": "DuelJ",
+          "text": "Booooooooo",
+          "score": 2,
+          "created": "2026-07-10T17:04:02.000Z"
+        },
+        {
+          "author": "vg_123476",
+          "text": "the mods got me",
+          "score": 2,
+          "created": "2026-07-10T17:03:14.000Z"
+        },
+        {
+          "author": "ndubitably",
+          "text": "Oh no.\n\nDid you...look in a mirror recently?",
+          "score": 2,
+          "created": "2026-07-10T17:02:02.000Z"
+        },
+        {
+          "author": "vg_123476",
+          "text": "i drank all of them :",
+          "score": 2,
+          "created": "2026-07-10T17:01:00.000Z"
+        },
+        {
+          "author": "ndubitably",
+          "text": "Did you try leaving a case of White Monster cans outside?",
+          "score": 2,
+          "created": "2026-07-10T16:59:10.000Z"
+        },
+        {
+          "author": "MagicalMoosicorn",
+          "text": "Baaaabe, new copy pasta just dropped. ",
+          "score": 2,
+          "created": "2026-07-10T16:58:32.000Z"
+        },
+        {
+          "author": "Pripyatic",
+          "text": "Be the femboy of your dreams",
+          "score": 2,
+          "created": "2026-07-10T16:58:28.000Z"
+        },
+        {
+          "author": "Niven42",
+          "text": "Arch in this case is not a noun but a verb.",
+          "score": 1,
+          "created": "2026-07-10T17:06:25.000Z"
+        },
+        {
+          "author": "NoStupidQuestionsBot",
+          "text": "Thanks for your submission /u/vg_123476, but it has been removed for the following reason:\n\nDisallowed question area: **Joke questions or trolling.**\r\n\r\nThis sub is meant for genuine questions...and it looks like yours isn't. Maybe it's a joke, maybe you're trying to bait people into reacting, or maybe we just can't figure out what you're trying to say (sorry). Either way, we've removed your post.\r\n\r\n* Trying to get a laugh out of people? While jokes, memes and song lyrics are all amusing, they're not what we're looking for here. Try /r/ShittyAskReddit.\r\n\r\n* Taking the sub name as a challenge and trying to post a stupid question *isn't* amusing, and it's *also* not the point of the sub (read the sidebar!). You're looking for /r/StupidQuestions.\r\n\r\n* Asking a question to show off a clever observation? Try /r/ShowerThoughts (but phrase it as an observation, not a question).\r\n\r\n* Testing a riddle? When you already know the answer, it's not a genuine question - but the users of /r/Riddles ",
+          "score": 1,
+          "created": "2026-07-10T17:01:20.000Z"
+        },
+        {
+          "author": "vg_123476",
+          "text": "this one is an original story, trust me 👀",
+          "score": 1,
+          "created": "2026-07-10T16:59:24.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-07-10T16:53:58.000Z"
+        },
+        {
+          "author": "Ganceany",
+          "text": "Because you are an Arch user. all the Mythical Femboys are in TempleOS",
+          "score": 1,
+          "created": "2026-07-10T16:53:19.000Z"
+        },
+        {
+          "author": "Jam_Sees",
+          "text": "Can comfort my best friend began the transformation the moment he began distro hopping ",
+          "score": 0,
+          "created": "2026-07-10T16:56:28.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1q6ir3f",
+      "title": "Need help for my Networking course.",
+      "text": "I have a assignment to do, which requires CISCO. At this point I don't even know how to config or use it . I saw some YT class but they don't use CISCO. Is there any good video I can see( Not Jeremy CCNA).",
+      "score": 3,
+      "numComments": 5,
+      "subreddit": "NoStupidQuestions",
+      "author": "shafayat_999",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1q6ir3f",
+      "created": "2026-01-07T15:43:41.000Z",
+      "topComments": [
+        {
+          "author": "AccountNumber478",
+          "text": "Sure, here is an [example](https://asecuritysite.com/cisco). The site provides a whole bunch of different Cisco devices and what appear to be challenges for different networking tasks with those. This [challenge](https://asecuritysite.com/cisco/router?chall=1) for example has you set up a basic hostname and ethernet interface, and presents you with a text-based simulation of the console of an actual Cisco router. \n\nI'm not sure to what extent the simulators emulate actual Cisco devices on that page, so not all capabilities might be there to play around with. But at least it gives you the opportunity to test out some of them for the various tasks. You might reach out to whoever owns the site for suggestions on either how to get simulation capability for your specific needs or maybe a referral to someplace that does, or some separate software package you could install and work with.",
+          "score": 2,
+          "created": "2026-01-07T15:59:48.000Z"
+        },
+        {
+          "author": "TehNolz",
+          "text": "You want [this](https://www.netacad.com/cisco-packet-tracer).",
+          "score": 2,
+          "created": "2026-01-07T15:56:10.000Z"
+        },
+        {
+          "author": "shafayat_999",
+          "text": "Yeah I have tried this, but at some point it feels like they jumping one from another too fast",
+          "score": 1,
+          "created": "2026-01-07T15:57:19.000Z"
+        },
+        {
+          "author": "shafayat_999",
+          "text": "Can you explain like how to do that?",
+          "score": 1,
+          "created": "2026-01-07T15:52:19.000Z"
+        },
+        {
+          "author": "AccountNumber478",
+          "text": "There are some websites and software that can simulate various Cisco brand routers and similar devices, maybe try getting hold of one of those?",
+          "score": 1,
+          "created": "2026-01-07T15:48:19.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1jb85ev",
+      "title": "Help With GlazeWM config",
+      "text": "Noob here with no experience coding.\n\nI have been using GlazeWM for a few weeks and like it. That said, I have been attempting to customize it some. I have been able to get custom keybindings to open what I use most, and I even added them to the startup command so they launch when I start the app.  I have been trying to accomplish two things that I haven't been able to find the answers to.\n\n1. When I open the browser (Firefox) using key bindings that point to a website, they will not open in a new window just add a new tab to the current window. However, if I use the keybinding to open a browser that is not going to a website, it will open new windows every time.\n\nThis will open a new window each time.\n\n     - commands: ['shell-exec firefox'] \n       bindings: ['alt+q']\n\nThis will only open a tab and not a new window.\n\n\n\n    - commands: ['shell-exec firefox https://www.youtube.com/'] \n      bindings: ['alt+z']\n\n1. I would like to assign a specific window to a predetermined workspace. I have found a few examples on the various GitHub forks, but none have worked.\n\nAn example I found is.\n\n    window_rules:\n    - commands: [\"move --workspace 1\"] \n      match:\n        # Move browsers to workspace 1. \n         - window_process: { regex: \"msedge|brave|chrome\" }\n\nAfter playing around with it a lot and failing, this is what I am using that won't give me an error when loading the config. However, it still stacks the web pages in tabs and opens all apps on the same workspace.\n\n    window_rules:\n     - commands: [\"move --workspace 1\"]\n       match:\n         # Move browsers to workspace 1.\n          - window_process: { regex: \"firefox.exe\" }\n            window_title: { regex: \".*http://www.youtube/com.*\" }\n          - window_process: { regex: \"firefox.exe\" }\n            window_title: { regex: \".*http://reddit/com.*\" }\n    \n     - commands: [\"move --workspace 2\"]\n       match:\n         # Move browsers to workspace 2.\n          - window_process: { regex: \"firefox.exe\" }\n    \n     - commands: [\"move --workspace 3\"]\n       match:\n          # Move VMware to workspace 3.\n          - window_process: { regex: \"firefox.exe\" }\n            window_title: { regex: \".*https://remotedesktop.google.com/access.*\" }\n     - commands: [\"move --workspace 4\"]\n       match:\n         # Move VS Code to workspace 4.\n          - window_process: { regex: \"vmware.exe\" }\n    \n     - commands: [\"move --workspace 5\"]\n       match:\n         # Move CMD to workspace 5.\n          - window_process: { regex: \"code.exe\" }\n          \n       match:\n         # Move CMD to workspace 5.\n          - window_process: { regex: \"code.exe\" }\n    window_rules:\n     - commands: [\"move --workspace 1\"]\n       match:\n         # Move browsers to workspace 1.\n          - window_process: { regex: \"firefox.exe\" }\n            window_title: { regex: \".*http://www.youtube/com.*\" }\n          - window_process: { regex: \"firefox.exe\" }\n            window_title: { regex: \".*http://reddit/com.*\" }\n    \n    \n     - commands: ",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "NoStupidQuestions",
+      "author": "JuniorDepth8935",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1jb85ev",
+      "created": "2025-03-14T16:35:31.000Z",
+      "topComments": []
+    },
+    {
+      "id": "1i2z3r6",
+      "title": "can you somehow 'overclock' a game's fps?",
+      "text": "i just got my first >60hz monitor today after my entire life of 60. obviously my newer titles im used to seeing fps dropdowns but what if a game has none and the frame counter says 60 but my monitor is on 144, is the game itself locked to 60 or is there some config file you can change so it can go higher?",
+      "score": 1,
+      "numComments": 5,
+      "subreddit": "NoStupidQuestions",
+      "author": "bbbbbbbirdistheword",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1i2z3r6",
+      "created": "2025-01-16T20:55:11.000Z",
+      "topComments": [
+        {
+          "author": "eggs-benedryl",
+          "text": "Generally yes, as others have said.\n\nYour best bet is to google \"game name + unlock framerate\"",
+          "score": 1,
+          "created": "2025-01-16T21:26:37.000Z"
+        },
+        {
+          "author": "Jim777PS3",
+          "text": "For many games yes.\n\nThe two settings you want to look for are Frame Rate Limit and VSync.\n\nVSync keeps the frame rate in a multiple of 30. (30, 60, 90, 120) and will round down. So if the game runs at 110 you'll be at 90. This prevents screen tearing. If you have GSync or FreeSync those allow you to avoid tearing at any frame rate.\n\nRegardless disable this optoin and any frame rate limit to get the most frames your machine can produce.",
+          "score": 1,
+          "created": "2025-01-16T21:03:17.000Z"
+        },
+        {
+          "author": "Disastrous_Visit9319",
+          "text": "You probably didn't set your monitor to 144 and the game has vsync enabled if you didn't see an obvious fps limit in the options.",
+          "score": 1,
+          "created": "2025-01-16T20:58:50.000Z"
+        },
+        {
+          "author": "Luminaria19",
+          "text": "It depends on the game.  Some games are locked with no way for the user to modify it.  Most allow you to select the max fps or turn on Vsync (which locks the frame rate to your monitor's refresh rate).",
+          "score": 1,
+          "created": "2025-01-16T20:58:17.000Z"
+        },
+        {
+          "author": "TehWildMan_",
+          "text": "Depends on the game.  Some games tie physics to a frame rate and force a 60fps cap.  Modding/overriding that might either speed up the game or cause some glitchy behavior.",
+          "score": 1,
+          "created": "2025-01-16T20:56:33.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1hv0jv8",
+      "title": "How do I setup mail config for my custom domain?",
+      "text": "Hey guys, my school has hired me for their IT department and im responsible for setting up things like the website and online enrollment, etc. School's like one year old so we have nothing yet, and so I've bought an edu domain and have gotten it set up for the website and stuff, but how do I set up the email thing? Like I want teachers and the principal to have a name@school.edu email that they can both receive and send mails to wherever, like how do i do that?? I use riseup for my personal domain email but idk if it's fit for a school. I've been on exchange programs to other schools and I peeked and I can see their teachers just google the word \"email log in\" and click on a purple link down there and it asks for email and password, they enter their @school.edu email and voila, they can read and send mails from that web portal. Wtf service are they using??? can i do that for free too??? I'm not looking to self host or have a server up locally at school. Any suggestions? I've set up the domain in cloudflare dns but haven't configured anything yet, only some A records and CNAMEs. No mail dns configs. what i do?????????\n\nour school has about 1000 students, so with the requirement for admins to be able to read mails/change passwords of students (cause theyre idiots and they'll probably forget and lose the passwords sooner or later) so how do i set that up too with an admin panel? i heard outlook has service with $5/month/user but that's gonna be $5000/month which is like $60k/year just for some mail wtf??",
+      "score": 0,
+      "numComments": 2,
+      "subreddit": "NoStupidQuestions",
+      "author": "DavidNyan10",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1hv0jv8",
+      "created": "2025-01-06T14:43:04.000Z",
+      "topComments": [
+        {
+          "author": "AccountNumber478",
+          "text": "You could see if the registrar that controls your school's .edu domain offers email services as part of their hosting package and follow directions to use it.\n\nIf this is a real job it's puzzling you got \"hired\" because knowing how to manage email appropriately for an organization is kind of a big deal. If you fuck something up you could enable bad actors to hack into the system and use it to spam thousands if not millions of people worldwide.",
+          "score": 3,
+          "created": "2025-01-06T14:46:50.000Z"
+        },
+        {
+          "author": "brock_lee",
+          "text": "Usually, they have set up a mail server, like Exchange, and pointed the domain's MX record to it.  Then it's simple administeration on the Exchange server. \n\nAlso, some places, even schools, use gmail to handle their mail.  Gmail never shows, it would be yourschool.edu.  This can be a good solution if you don't want to install and maintain a mail server. \n\nhttps://workspace.google.com/solutions/business-email/",
+          "score": 2,
+          "created": "2025-01-06T14:48:24.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1gqhnsa",
+      "title": "How do I re-enable right click?",
+      "text": "New User Pass Phrase: I hope this isn't a stupid question\nOkay so, this is sort of due to my own stupidity and hubris, but I still, want to ask.\n\nI'm a college student, and some time ago we were using this in-browser program for doing team projects that had some very weird restrictions on right click, so I sought out how to disable the disabling of the right click in order to use full functionalities.\nProject was done, we got a good grade, all great.\n\nBut now, a year later, I find myself having to do another different project on another different in-browser program, and in this one, base right-click functionality is eclipsing those of the program, which are great.\n\nI use Mozilla, and I remember I disabled it the first time by using the about:config stuff, but I can't remember how I did it, nor I am able to find any tips on how I did it the first time online. So, any tips or ideas?\n\nThanks in advance.",
+      "score": 2,
+      "numComments": 11,
+      "subreddit": "NoStupidQuestions",
+      "author": "Secondary_MacAccount",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1gqhnsa",
+      "created": "2024-11-13T17:01:40.000Z",
+      "topComments": [
+        {
+          "author": "akulowaty",
+          "text": "Ah, sorry, didn't read it thoroughly. Try opening about:config and search for something that says \"context\". I don't have firefox right now but according to its documentation it may be \"dom. event. contextmenu. enabled\"",
+          "score": 2,
+          "created": "2024-11-13T18:08:59.000Z"
+        },
+        {
+          "author": "Secondary_MacAccount",
+          "text": "I don't have any. As I said, I disabled it manually by editing something in about:config; I just can't remember what.",
+          "score": 2,
+          "created": "2024-11-13T17:43:11.000Z"
+        },
+        {
+          "author": "goodreadKB",
+          "text": "Is it disabled for everything or just your web browser?",
+          "score": 2,
+          "created": "2024-11-13T17:15:27.000Z"
+        },
+        {
+          "author": "Secondary_MacAccount",
+          "text": "Yes, but the thing is those extensions are for disabling the block. Paradoxically, I want to re-enable it.",
+          "score": 2,
+          "created": "2024-11-13T17:14:50.000Z"
+        },
+        {
+          "author": "eggs-benedryl",
+          "text": "there's browser extensions for this, just search right click in the respective addon \"Store\"",
+          "score": 2,
+          "created": "2024-11-13T17:02:42.000Z"
+        },
+        {
+          "author": "Secondary_MacAccount",
+          "text": "Thanks a lot! This worked\nI would give you gold if I could",
+          "score": 1,
+          "created": "2024-11-13T21:39:21.000Z"
+        },
+        {
+          "author": "goodreadKB",
+          "text": "Well here is how you disable it for windows explorer. You'll need to find your browser (instead of Explorer) and do the opposite (step K) changing the value back to zero. \n\nFollow these steps to disable mouse right click option on Windows.\n\na.       Click “Start” button.\n\nb.      Type “regedit” without quotes in the search box and hit enter.\n\nc.       Navigate to the following registry value.\n\nComputer\\\\HKEY\\_CURRENT\\_USER\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\Explorer\n\nd.      Right click on the right pane.\n\ne.      Select “New” and then select “DWORD (32 bit) value.\n\nf.        Name it as “NoViewContextMenu”.\n\ng.       Double left click on “NoViewContextMenu”.\n\nh.      Change the value from “0” to “1”.\n\ni.         Close the Registry Window.\n\nj.        Restart the computer for changes to take effect.\n\nk.       To enable the right click option, you have to change the “NoViewContextMenu” value from “1” to “0”.\n\nl.         Then restart your computer.",
+          "score": 1,
+          "created": "2024-11-13T19:21:06.000Z"
+        },
+        {
+          "author": "akulowaty",
+          "text": "Ah, sorry, didn't read it thoroughly. Try opening about:config and search for something that says \"context\"",
+          "score": 1,
+          "created": "2024-11-13T18:07:15.000Z"
+        },
+        {
+          "author": "Secondary_MacAccount",
+          "text": "Thing is, my problem is the opposite one. I disabled it somehow editing about:config manually, and now I can do right click where I don't want to; that's what I want to fix, I want to re-enable the block.",
+          "score": 1,
+          "created": "2024-11-13T17:44:45.000Z"
+        },
+        {
+          "author": "Secondary_MacAccount",
+          "text": "Just web browser. I edited something inside the about:config of Mozilla, but I can't remember what.",
+          "score": 1,
+          "created": "2024-11-13T17:43:50.000Z"
+        },
+        {
+          "author": "akulowaty",
+          "text": "It's control right click on firefox iirc. There are also couple of add-ons that permanently block right click override but they may break some sites.",
+          "score": 1,
+          "created": "2024-11-13T17:29:51.000Z"
+        },
+        {
+          "author": "DavidManvell",
+          "text": "Remove the extension.",
+          "score": 1,
+          "created": "2024-11-13T17:26:06.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1d3z5h7",
+      "title": "Can you edit a unity C# project without recompiling by simply rewriting variables in a .GLOB file that are in plaintext?",
+      "text": "There is a mod for KSP that has some very annoying incompatibilities.\n\nI looked at the source code, and through it found a .GLOB file that's in plaintext.\n\nHowever, I never worked with Unity nor C#. I know in BYOND, you have plaintext config files that are read on runtime to set variables. You can do the same with C/C++.\n\nIs this GLOB file like that?\n\nBasically the problem is...\n\nprogram sets the size of a \"DIY kit\" based on the final mass of the structure that's built. Unfortunately, there's a mod that balanced its ground structures to force in situ construction by making them VERY HEAVY. \n\nLike a 10 meter diameter mun structure that's 150 tons. \n\nThe mod calculates the volume of the construction box as 0.5 kg/m^3 density. \n\n150 tons means the final volume is an enormous 272 THOUSAND cubic meters. This wouldn't be an issue... if the mod didn't have a max distance from the construction site of 300 meters and if you're within the deployment area, shit explodes.\n\nI could also try and recompile it, but the mod author did this project super weirdly using undeclared dependencies on their other mods for it to compile and their github is a mess of submodules.",
+      "score": 1,
+      "numComments": 1,
+      "subreddit": "NoStupidQuestions",
+      "author": "Hoihe",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1d3z5h7",
+      "created": "2024-05-30T08:29:29.000Z",
+      "topComments": [
+        {
+          "author": "Az1doaz1deAz1de",
+          "text": "Yes.",
+          "score": 1,
+          "created": "2024-05-30T08:36:47.000Z"
+        }
+      ]
+    },
+    {
+      "id": "19bt79p",
+      "title": "people with i6 engines what is it like to drive vehicles with those types of engines config?...twin turbos included too as well",
+      "text": "both gas and diesel engines\n\n&#x200B;\n\n&#x200B;\n\nThis post was inspired by the hurricane engine and cummins diesel engine's",
+      "score": 1,
+      "numComments": 1,
+      "subreddit": "NoStupidQuestions",
+      "author": "P25HamRadio-SW266",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/19bt79p",
+      "created": "2024-01-21T02:48:04.000Z",
+      "topComments": [
+        {
+          "author": "neomicc",
+          "text": "Driving a vehicle with an i6 engine, especially one equipped with twin turbos, can be quite exhilarating. Here are some key aspects you might experience:",
+          "score": 1,
+          "created": "2024-01-21T02:53:36.000Z"
+        }
+      ]
+    },
+    {
+      "id": "18wegxf",
+      "title": "anyone know how i can fix this?",
+      "text": "fyi i know it says \"This extension will NOT work until you set dom.events.asyncClipboard.clipboardItem to true in about:config! The Clipboard API is fairly new so not every part of it is enabled by default (for now)\" but i already went into about:config and set it to true.",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "NoStupidQuestions",
+      "author": "ZimZamTheSpaceMan200",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/18wegxf",
+      "created": "2024-01-02T02:46:41.000Z",
+      "topComments": []
+    },
+    {
+      "id": "18rcbh5",
+      "title": "Have you ever had friends telling you that AMD laptops are bad?",
+      "text": "One of my friends (Novice apple user) always told me not to get an AMD laptop... \n\nBut on my desktop my 3200G still works perfectly with windows 10 , even though it wasn't working when I tried it on Linux (due to iommu config stuff) it had horizontal lines on screen\nHonestly I really doubt that it would not quite work with windows 11 ..\n\n\n\nAnyway, I thought if getting like an AMD 7000/9000 series Vivobook in the future, why should I not get AMD? \n\n\nRight now I use my  i5 1135g7 daily for everything (playing league and making office works in libre office..)",
+      "score": 1,
+      "numComments": 8,
+      "subreddit": "NoStupidQuestions",
+      "author": "RedRayTrue",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/18rcbh5",
+      "created": "2023-12-26T16:49:11.000Z",
+      "topComments": [
+        {
+          "author": "llTiredSlothll",
+          "text": "You can't take apple users seriously",
+          "score": 3,
+          "created": "2023-12-26T17:04:48.000Z"
+        },
+        {
+          "author": "The-SkullMan",
+          "text": "Why the heck would you ever take tech advice from an apple user of all people...\n\nTry it, use it and get your own preferences in.\n\nMy boss is deeply against Seagate HDDs because they apparently don't last long/are faulty. I have one for about 15 years (About 10 of which were as C.) and it's still working to this day.",
+          "score": 2,
+          "created": "2023-12-27T04:10:20.000Z"
+        },
+        {
+          "author": "NoveltyEducation",
+          "text": "Right now laptops are better and more affordable than ever before no matter the brand.",
+          "score": 2,
+          "created": "2023-12-26T17:20:51.000Z"
+        },
+        {
+          "author": "Chip-off-the-pickle",
+          "text": "AMD used to make some really shit products. They've improved dramatically recently",
+          "score": 1,
+          "created": "2023-12-26T18:07:28.000Z"
+        },
+        {
+          "author": "RedRayTrue",
+          "text": "Hmm, interesting\n\nI'm still learning about laptops, cuz despite having my vivobook, the power of this chip and it's efficiency is astonishing\n\nLike my old 7300hq was a 15W cpu, but this one goes up to 33W almost in afterburner, with a constant 17W when playing league",
+          "score": 1,
+          "created": "2023-12-26T17:23:34.000Z"
+        },
+        {
+          "author": "RedRayTrue",
+          "text": "I see, thanks",
+          "score": 1,
+          "created": "2023-12-26T17:09:35.000Z"
+        },
+        {
+          "author": "RedRayTrue",
+          "text": "Well, you have a point , that's a good point",
+          "score": 1,
+          "created": "2023-12-26T17:08:53.000Z"
+        },
+        {
+          "author": "Mekoides1",
+          "text": "Both AMD and Intel are fine, and work with any modern operating system. There are differences that should be considered with your intended use and budget, but one is not inherently better than the other.",
+          "score": 1,
+          "created": "2023-12-26T17:08:19.000Z"
+        }
+      ]
+    },
+    {
+      "id": "18hczds",
+      "title": "you tube shorts",
+      "text": "I find my kids addicted to youtube shorts. How do I blocj you tube shorts but enable the long/normal you tube videos, ( which are educational and helpful in revision etc). I am planning to use a router config based on opendns, whic means i need to put links to block. Any suggestion? ",
+      "score": 3,
+      "numComments": 6,
+      "subreddit": "NoStupidQuestions",
+      "author": "lionel8888",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/18hczds",
+      "created": "2023-12-13T09:23:13.000Z",
+      "topComments": [
+        {
+          "author": "f00barbuz",
+          "text": "Thanks for the advice!",
+          "score": 2,
+          "created": "2023-12-14T11:53:23.000Z"
+        },
+        {
+          "author": "Direct_Tank_3263",
+          "text": "I saw your recent reply on “YouTube” Just wanted to mention something I've noticed, sometimes certain words in replies or posts are hidden from view making them invisible to others when I checked your account I could see your reply there, but it didn't show up when I clicked to see the whole post.. It seems like some words might be hidden in your post maybe try changing some words next time to see if they become visible and thank you for the hard work🤍🤍",
+          "score": 2,
+          "created": "2023-12-14T11:49:23.000Z"
+        },
+        {
+          "author": "Direct_Tank_3263",
+          "text": "I love youuuuuuuuu ❤️ thanksssss",
+          "score": 2,
+          "created": "2023-12-14T11:12:53.000Z"
+        },
+        {
+          "author": "f00barbuz",
+          "text": "I suggest using YouTube via your browser and enhancing the experience with browser extensions such as [UnTrap for YouTube](http://untrap.app) to eliminate unnecessary elements.",
+          "score": 1,
+          "created": "2023-12-13T21:50:36.000Z"
+        },
+        {
+          "author": "IceSmiley",
+          "text": "Enable YouTube again when you are showing them longer vids",
+          "score": 1,
+          "created": "2023-12-13T12:21:19.000Z"
+        },
+        {
+          "author": "Hopelessly_Awake",
+          "text": "\"https://yo \nutube.com/shorts/\"\n\nTry stuff starting with this, maybe it will work lol",
+          "score": 1,
+          "created": "2023-12-13T09:40:40.000Z"
+        }
+      ]
+    },
+    {
+      "id": "186vmd4",
+      "title": "Popular games?",
+      "text": "Hi! I want to build a cheap gaming computer with an i5 and a 1030 GPU. My goal is that the machine run smooth popular games for kids (fortnite, Minecraft, among us, etc.)\n\n1- Is it realistic\n2- What's the most popular games (that run on a low config) the kids playing now?\n\nThanks!",
+      "score": 1,
+      "numComments": 2,
+      "subreddit": "NoStupidQuestions",
+      "author": "QcJonny",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/186vmd4",
+      "created": "2023-11-29T17:56:34.000Z",
+      "topComments": [
+        {
+          "author": "TooLateRunning",
+          "text": "I'd say it's better to define a budget and then work from there rather than choose a gpu/cpu and work from there. You can run those games on a 1030 although fortnite will have to be at lowest settings and you'll still be seeing noticeable performance issues.\n\nRoblox is probably the other big kids game that will run on those specs.",
+          "score": 2,
+          "created": "2023-11-29T18:09:31.000Z"
+        },
+        {
+          "author": "QcJonny",
+          "text": "Thanks!",
+          "score": 1,
+          "created": "2023-11-29T20:15:40.000Z"
+        }
+      ]
+    },
+    {
+      "id": "17q2aez",
+      "title": "Why renew website hosting plans when you can migrate?",
+      "text": "I am in no way an expert. My first ever Wordpress website is nearing the end of the hosting plan on Siteground. Renewal costs almost **300 euros/year.** I understand that I can use various migration tools or do a manual migration myself, (where I download my wp-config.php, wp-content, and database), and then upload it when I buy a new hosting plan for just **36 euros/year.**\n\nWhy do people renew their hosting plans instead of migrate? Is it just the effort or am I missing something here? Please be kind to a newbie.  \n(p/s also having a lot of financial problems so 300 euros is something I cannot afford right now.)",
+      "score": 1,
+      "numComments": 2,
+      "subreddit": "NoStupidQuestions",
+      "author": "SnugglesBiscuits",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/17q2aez",
+      "created": "2023-11-07T19:31:08.000Z",
+      "topComments": [
+        {
+          "author": "HelloMiaw",
+          "text": "There are few people are not expert in this field so maybe migrating website will take a lot of effort. I also used SG in the past and I'm shocked with their renewal price, it cost 3 times higher. I'm sorry I can stay with them since it is very expensive for me. I then moved to other provider. If I can recommend, for EU server, you may take a look at Hostforlife.eu hosting service. They are cheap and reliable.",
+          "score": 1,
+          "created": "2023-11-08T06:58:39.000Z"
+        },
+        {
+          "author": "SnugglesBiscuits",
+          "text": "Thank you so much. I get what you're saying and it helps clarify things for me.",
+          "score": 1,
+          "created": "2023-11-07T20:15:34.000Z"
+        },
+        {
+          "author": "Angerx76",
+          "text": "The time it takes to migrate is sometimes not worth more than the cost to renew. \n\nI faced a similar situation when I used to live in apartments and my rent would raise is each year. The question I always asked myself is, “Does the time it take to research alternative apartments, move, do all the paperwork, etc, worth saving the $X amount of money?”",
+          "score": 1,
+          "created": "2023-11-07T19:54:24.000Z"
+        }
+      ]
+    },
+    {
+      "id": "17ng8ev",
+      "title": "Openbullet Config",
+      "text": "Can anyone help me fix my config?",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "NoStupidQuestions",
+      "author": "PipeOriginal2973",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/17ng8ev",
+      "created": "2023-11-04T07:14:00.000Z",
+      "topComments": []
+    },
+    {
+      "id": "1i760k9",
+      "title": "ELI5: Why in USA there is an ISP Router often/always installed ?",
+      "text": "I live another country where a fiber GPON/XPON connection is most common, ISP only installs ONU Terminal for fiber cable connection, then connects it to your router and tells you the config for WAN that you need to apply (or applying configuration for you). With most ISP's I can even swap their ONU Terminal for my device (terminal or sfp ONU). If I need to replace my router - it takes up to 10 minutes, ISP need to replace a Mac address linked to my account. So why in a lot of cases in the US you can't replace the ISP router with your own device ?",
+      "score": 2,
+      "numComments": 16,
+      "subreddit": "explainlikeimfive",
+      "author": "No-Morning-8951",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1i760k9",
+      "created": "2025-01-22T07:43:58.000Z",
+      "topComments": [
+        {
+          "author": "RandyFunRuiner",
+          "text": "This wasn’t always the case. I remember having DSL service in high school and our ISP provided modem to connect to the internet and a router cost extra. So I bought a router for gaming out of pocket rather than use the one the ISP provided. Did this in college too.\n\nBut part of this is because cable companies began taking over the ISP marketshare and it was their norm to provide boxes for cable services. And since they provided service through the Coax-line, they had to install equipment for you that connected to the coax-cable because it wasn’t so common to get a modem that had a coax connection independently.\n\nOn top of that, you have a shift from about the late 00s/early ‘10s of modems and routers being merged into one single device and again, ISPs, now mostly either cable companies (or subsidiaries of them) or cellular providers were able to get these for pretty cheap and they became the cheapest option for consumers. Especially because as these devices got better and could produce",
+          "score": 16,
+          "created": "2025-01-22T08:07:34.000Z"
+        },
+        {
+          "author": "skrimpbizkit",
+          "text": "I'm in the US, and I've always still purchased my own modem/router. ",
+          "score": 14,
+          "created": "2025-01-22T08:16:08.000Z"
+        },
+        {
+          "author": "NotAnotherFNG",
+          "text": "You can replace your modem too in most cases. You just plug it in, call their support line, and they activate it on their end. My ISP has a list of recommended/tested modems on their website but you're not required to use them, they just don't guarantee results if you use something else.\n\nI also haven't been charged extra for ISP provided modems in years. That was a thing early on during the switch from dial-up to DSL but that's been a while. My ISP even called me recently to come in and swap out my modem that was a few years old for a new one. They also included a Plume SuperPod.\n\nThe only time they charge for equipment is if you end the service and don't return it.",
+          "score": 9,
+          "created": "2025-01-22T08:25:59.000Z"
+        },
+        {
+          "author": "jamcdonald120",
+          "text": "You can replace your ISP router with your own device just fine.  What you cant replace is your Modem/ONT.  ISPs just like to rent you a router so people don't complain about not having wifi with their internet.  (and it gives them another thing to charge you for)\n\nHere it takes no time at all to swap in a router.  Just unplug your old one, and plug a new one in.  No talking to your ISP at all. (Unless you are replacing theirs and want to send it back to them to stop renting theirs, then you have to talk to them).  The only thing that has to be setup by your ISP is the Modem.",
+          "score": 6,
+          "created": "2025-01-22T08:06:54.000Z"
+        },
+        {
+          "author": "Dje4321",
+          "text": "Highly depends on the ISP but typically dont announce it because americans consumers are ***DUMB***. They do not understand the tech, what issues actually mean, or how to even access the settings menu. They expect everything to work flawlessly regardless of the plan they are on. If netflix goes down for internal server issues, its an ISP issue and tech support has to deal with it. Having a 3rd party modem they cant access or configure only complicates the matter. \n\nMy ISP will let you provide your own router on the condition that you handle your own support. Unless its on their end, your not allowed to ring them for support.",
+          "score": 4,
+          "created": "2025-01-22T09:52:19.000Z"
+        },
+        {
+          "author": "Representative-Cost6",
+          "text": "The companies in the US charge you a monthly fee to rent them. So $$$",
+          "score": 4,
+          "created": "2025-01-22T08:21:18.000Z"
+        },
+        {
+          "author": "TheBamPlayer",
+          "text": ">I remember having DSL service in high school and our ISP provided modem to connect to the internet \n\nThat was also the case with us in Germany. We had a DSL modem until 2014/2015, when it finally broke, we got a router.",
+          "score": 3,
+          "created": "2025-01-22T09:53:16.000Z"
+        },
+        {
+          "author": "Forsaken-Sun5534",
+          "text": "Americans like paying for convenience. Sometimes we even like paying for inconvenience because things that are too cheap get mistrusted. We can definitely replace the router if we want, but many people are happy to pay a monthly fee to the ISP instead.",
+          "score": 2,
+          "created": "2025-01-22T07:48:09.000Z"
+        },
+        {
+          "author": "explainlikeimfive-ModTeam",
+          "text": "**Please read this entire message**\n\n---\n\nYour submission has been removed for the following reason(s):\n\n* Loaded questions, **or** ones based on a false premise, are not allowed on ELI5 (Rule 6).\n\n---\n\nIf you would like this removal reviewed, please read the [detailed rules](https://www.reddit.com/r/explainlikeimfive/wiki/detailed_rules) first. **If you believe this was removed erroneously, please [use this form](https://old.reddit.com/message/compose?to=%2Fr%2Fexplainlikeimfive&subject=Please%20review%20my%20thread?&message=Link:%20{https://www.reddit.com/r/explainlikeimfive/comments/1i760k9/-/}%0A%0APlease%20answer%20the%20following%203%20questions:%0A%0A1.%20The%20concept%20I%20want%20explained:%0A%0A2.%20List%20the%20search%20terms%20you%20used%20to%20look%20for%20past%20posts%20on%20ELI5:%0A%0A3.%20How%20does%20your%20post%20differ%20from%20your%20recent%20search%20results%20on%20the%20sub:) and we will review your submission.**",
+          "score": 1,
+          "created": "2025-01-22T13:56:32.000Z"
+        },
+        {
+          "author": "dnuohxof-1",
+          "text": "The ISPs will claim it’s so they can provide you better service and security, since they manage the device and know best, you sit back and relax. No config, no hassle.\n\nSounds great on paper, especially with a large percent of Americans being very tech illiterate. GPON? SFP? ONU? A normal American with think you’re an IT wizard speaking like that.\n\nI have fiber service that terms at an ONT and get an Ethernet handoff to my own router, and most cable companies that provide broadband will allow you to use your own router, and sometimes even your own modem, if you do all the work and agree that their support strictly ends at the physical condition of their demarc.\n\nNow the REAL reason they do it, is money. They’ll sell you a whole “cable tv, out of home cable streaming, home voice, 500/50 Mbps internet” for $149/mo for the first year. Then after that it goes up to $210 with the equipment rental fees, sometimes as high as $10/mo for a shitty Cisco docsis dual modem/router that has less pro",
+          "score": 1,
+          "created": "2025-01-22T11:44:07.000Z"
+        },
+        {
+          "author": "XsNR",
+          "text": "Yeah, there might be a deposit of some kind, depending on the type of service area you're in. If you have plenty of options, then they'll aim for more incentives to get you to swap, and the easiest one of those is free router with a ToS charge if you don't return it when requested. Otherwise it'll be part of a \"connection fee\", that in the modern day is just plugging in the router they sent you.",
+          "score": 1,
+          "created": "2025-01-22T10:22:00.000Z"
+        },
+        {
+          "author": "Robborboy",
+          "text": "It is a optional tool the provide because not everyone wants to shell out the extra money and maintain a router.\n\n\nThat said, they're often terrible, and based off anecdotal experience helping people fix them, I do not ever suggest to use it unless you have to. ",
+          "score": 1,
+          "created": "2025-01-22T10:02:34.000Z"
+        },
+        {
+          "author": "TehWildMan_",
+          "text": "A huge problem for DSL customers right now is that very few companies still make Bonded VDSL modems: the model offered by the ISP is pretty much the only solution on the market (especially given that huawei equipment is sanctioned in the US)",
+          "score": 1,
+          "created": "2025-01-22T09:58:16.000Z"
+        },
+        {
+          "author": "Dje4321",
+          "text": "Ive had a few modems that let you spoof the mac address so you dont even have to call the ISP",
+          "score": 1,
+          "created": "2025-01-22T08:52:06.000Z"
+        },
+        {
+          "author": "Kamoot-",
+          "text": "Until a few years ago, you used to be able to replace the provided router with whichever one you liked. In fact my current home is still set up in this manner.\n\nThen about 5-10 years ago routers and cable modems began combining into the same device and when they began installing fiber in the neighborhoods they started to force you to use their provided device. My current home is still on the older cable connection, but I used to live in an apartment complex that had undergone a renovation, and part of the renovation was to replace everything with fiber.\n\nThough the idea of a ISP router/modem combo might seem convenient for consumers from a maintenance and tech support standpoint, ironically it made things more of a hassle. I remember switching ownership of the AT&T account when the person in charge of paying bills moved out, and you would think such a switch could be completed remotely.\n\nBut no, they required us to wait for a technician to come out and physically swap the device for an",
+          "score": 1,
+          "created": "2025-01-22T08:29:23.000Z"
+        },
+        {
+          "author": "jamcdonald120",
+          "text": "Yah, its just the router they were trying to charge me for, the modem is included.",
+          "score": 1,
+          "created": "2025-01-22T08:28:20.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1ehfbb0",
+      "title": "How doesn't available current or mAh doesn't increase in Series config.",
+      "text": "[removed]",
+      "score": 1,
+      "numComments": 1,
+      "subreddit": "explainlikeimfive",
+      "author": "NoExpert8695",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1ehfbb0",
+      "created": "2024-08-01T12:22:59.000Z",
+      "topComments": [
+        {
+          "author": "AutoModerator",
+          "text": "Hello NoExpert8695,\n\n[Your {submission}](https://www.reddit.com/r/explainlikeimfive/comments/1ehfbb0/how_doesnt_available_current_or_mah_doesnt/) has been removed because **you didn't start your title with ELI5**. By making sure users follow this rule, we hope they will also learn and follow *all* the rules of the sub, helping us to maintain the quality users come here for.\n\nPlease re-submit your post. At the end of this message is a link to submit a new ELI5 post with your title (and the \"ELI5\" tag of course!) already there. Please ensure that the title is copied correctly. **We are unable to preserve the formatting of the body of the post if you have it, so instead we will copy it here and you can copy and paste it into your submission.** Ideally, you can click the \"source\" button under this message and copy the text from *that* so that the formatting is perfect. We're sorry, but an issue with the Reddit app on mobile breaks the resubmit link - you may want to try it from your phone'",
+          "score": 1,
+          "created": "2024-08-01T12:23:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "181wy6l",
+      "title": "ELI5 ESP32 C6 IDF V.5.1.1 eth2 wifi example",
+      "text": "Hello!  \nI have the latest ESP-IDF version (5.1.1).  \nI was looking for an example on how to use the ESP32 as a transparent wifi bridge and found this in https://github.com/espressif/esp-iot-solution/tree/master/examples  \n/\\* Ethernet to WiFi data forwarding Example  \n   For other examples please check:  \n   https://github.com/espressif/esp-iot-solution/tree/master/examples  \n   This example code is in the Public Domain (or CC0 licensed, at your option.)  \n   Unless required by applicable law or agreed to in writing, this  \n   software is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR  \n   CONDITIONS OF ANY KIND, either express or implied.  \n \\*/  \n\\#include <string.h>  \n\\#include \"freertos/FreeRTOS.h\"  \n\\#include \"freertos/task.h\"  \n\\#include \"esp\\_event.h\"  \n\\#include \"esp\\_event\\_loop.h\"  \n\\#include \"esp\\_log.h\"  \n\\#include \"esp\\_eth.h\"  \n\\#include \"esp\\_private/wifi.h\"  \n\\#include \"esp\\_wifi.h\"  \n\\#include \"nvs\\_flash.h\"  \nstatic const char\\* TAG = \"eth2wifi\\_demo\";  \n\\#define FLOW\\_CONTROL\\_QUEUE\\_TIMEOUT\\_MS (100)  \n\\#define FLOW\\_CONTROL\\_QUEUE\\_LENGTH (40)  \n\\#define FLOW\\_CONTROL\\_WIFI\\_SEND\\_TIMEOUT\\_MS (100)  \ntypedef struct {  \nvoid\\* packet;  \nuint16\\_t length;  \n} flow\\_control\\_msg\\_t;  \nstatic bool mac\\_is\\_set = false;  \nstatic xQueueHandle eth\\_queue\\_handle;  \nstatic bool wifi\\_is\\_connected = false;  \nstatic bool ethernet\\_is\\_connected = false;  \nstatic uint8\\_t eth\\_mac\\[6\\];  \nstatic esp\\_eth\\_handle\\_t s\\_eth\\_handle = NULL;  \nstatic void ethernet2wifi\\_mac\\_status\\_set(bool status)  \n{  \nmac\\_is\\_set = status;  \n}  \nstatic bool ethernet2wifi\\_mac\\_status\\_get(void)  \n{  \nreturn mac\\_is\\_set;  \n}  \nstatic esp\\_err\\_t pkt\\_eth2wifi(esp\\_eth\\_handle\\_t handle, uint8\\_t\\* buffer, uint32\\_t len)  \n{  \nesp\\_err\\_t ret = ESP\\_OK;  \nflow\\_control\\_msg\\_t msg = {  \n.packet = buffer,  \n.length = len,  \n};  \nif (xQueueSend(eth\\_queue\\_handle, &msg, pdMS\\_TO\\_TICKS(FLOW\\_CONTROL\\_QUEUE\\_TIMEOUT\\_MS)) != pdTRUE) {  \nESP\\_LOGE(TAG, \"Send flow control message failed or timeout\");  \nfree(buffer);  \nret = ESP\\_FAIL;  \n}  \nreturn ret;  \n}  \nstatic void eth\\_task(void\\* pvParameter)  \n{  \nflow\\_control\\_msg\\_t msg;  \nint res = 0;  \nuint32\\_t timeout = 0;  \nfor (;;)  \n {  \nif (xQueueReceive(eth\\_queue\\_handle, &msg, (portTickType)portMAX\\_DELAY) == pdTRUE) {  \ntimeout = 0;  \nif (msg.length) {  \ndo {  \nif (!ethernet2wifi\\_mac\\_status\\_get()) {  \nmemcpy(eth\\_mac, (uint8\\_t\\*)msg.packet + 6, sizeof(eth\\_mac));  \nESP\\_ERROR\\_CHECK(esp\\_wifi\\_start());  \n\\#ifdef CONFIG\\_ETH\\_TO\\_STATION\\_MODE  \nesp\\_wifi\\_set\\_mac(WIFI\\_IF\\_STA, eth\\_mac);  \nesp\\_wifi\\_connect();  \n\\#else  \nesp\\_wifi\\_set\\_mac(WIFI\\_IF\\_AP,eth\\_mac);  \n\\#endif  \nethernet2wifi\\_mac\\_status\\_set(true);  \n}  \nvTaskDelay(pdMS\\_TO\\_TICKS(timeout));  \ntimeout += 2;  \nif (wifi\\_is\\_connected) {  \n\\#ifdef CONFIG\\_ETH\\_TO\\_STATION\\_MODE  \nres = esp\\_wifi\\_internal\\_tx(ESP\\_IF\\_WIFI\\_STA, msg.packet, msg.length);  \n\\#else  \nres = esp\\_wifi\\_internal\\_tx(ESP\\_IF\\_WIFI\\_AP, msg.pack",
+      "score": 0,
+      "numComments": 1,
+      "subreddit": "explainlikeimfive",
+      "author": "Brendeando",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/181wy6l",
+      "created": "2023-11-23T08:52:06.000Z",
+      "topComments": [
+        {
+          "author": "explainlikeimfive-ModTeam",
+          "text": "**Please read this entire message**\n\n---\n\nYour submission has been removed for the following reason(s):\n\n* Rule #2 - Questions must seek objective explanations\n\n* ELI5 requires that your question be obvious from your post topic (Rule 2)\n\n---\nIf you would like this removal reviewed, please read the [detailed rules](https://www.reddit.com/r/explainlikeimfive/wiki/detailed_rules) first. **If you believe this submission was removed erroneously, please [use this form](https://old.reddit.com/message/compose?to=%2Fr%2Fexplainlikeimfive&subject=Please%20review%20my%20thread?&message=Link:%20{https://www.reddit.com/r/explainlikeimfive/comments/181wy6l/-/}%0A%0APlease%20answer%20the%20following%203%20questions:%0A%0A1.%20The%20concept%20I%20want%20explained:%0A%0A2.%20List%20the%20search%20terms%20you%20used%20to%20look%20for%20past%20posts%20on%20ELI5:%0A%0A3.%20How%20does%20your%20post%20differ%20from%20your%20recent%20search%20results%20on%20the%20sub:) and we will review your submission.**",
+          "score": 1,
+          "created": "2023-11-23T08:55:10.000Z"
+        }
+      ]
+    },
+    {
+      "id": "10w06od",
+      "title": "eli5 - Backend Code",
+      "text": "Hello?\n\nCan someone explain me with explain how we can not get windows backend code?  I mean we reverse engineer all programs and config files in windows to watch what is used in backend\n\nThen why it is said that We can not see backend coding of windows etc?",
+      "score": 0,
+      "numComments": 8,
+      "subreddit": "explainlikeimfive",
+      "author": "Business-Ad-9940",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/10w06od",
+      "created": "2023-02-07T12:05:01.000Z",
+      "topComments": [
+        {
+          "author": "pseudopad",
+          "text": "Are you talking about the source code? Back-end is something else.\n\nYou can't see the source code because it's not freely available. It is possible to decompile a program, but making sense of the resulting decompiled code is difficult, as it is far less human-readable than the original source code, and lacks things like code comments, which programmers (ideally) use to make sense of what they're looking at.\n\nIt's sort of like trying to de-bake a cake. If you don't know the original recipe, you could try to analyze the finished cake to try to figure out which ingredients were used, and in what order, but it's gonna take a lot of time and skill to do so. And the \"recipe\" for windows is a hundred thousand times longer than a recipe for a cake. \n\nThe various config files you can see in windows is just a tiny piece of the puzzle. They don't contain nearly enough information to let people easily figure out how things are done. \n\nNow the *back end* is for example the code that controls your b",
+          "score": 7,
+          "created": "2023-02-07T12:25:47.000Z"
+        },
+        {
+          "author": "pseudopad",
+          "text": "ReactOS depends greatly on the work and discoveries made by the wine project. It likely couldn't exist without it.\n\nThat said, wine's goal is not to make a full fledged OS, but to let the Linux kernel do the kernel stuff, and just replace the APIs that programs mostly use to interact with the windows kernel, with APIs that instead interact with the Linux kernel.\n\nReactOS attempts to also implement its own windows-compatible kernel.\n\nIt's also worth mentioning that getting ReactOS to work on bare metal is pretty difficult. They can't use Linux drivers as-is, and it's not imitating the windows kernel well enough for you to be able to use windows drivers either. This means the driver selection is very limited once you step outside of a virtual machine.\n\n*Theoretically*, if programs avoided using direct kernel calls (this is generally discouraged for userland applications anyway) the kernel in use wouldn't matter at all, only the APIs. You (or rather, Microsoft) could conceivably make some",
+          "score": 4,
+          "created": "2023-02-07T14:04:57.000Z"
+        },
+        {
+          "author": "good_luck_fucker",
+          "text": "People are, but it's slow going \n\nhttps://reactos.org/",
+          "score": 3,
+          "created": "2023-02-07T12:26:44.000Z"
+        },
+        {
+          "author": "lensvol",
+          "text": "Don't forget about ReactOS project! It's closer to actually reimplementing Windows than Wine, if I am not mistaken.",
+          "score": 2,
+          "created": "2023-02-07T13:48:01.000Z"
+        },
+        {
+          "author": "Business-Ad-9940",
+          "text": "Got it. Thanks bro",
+          "score": 2,
+          "created": "2023-02-07T12:30:38.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[deleted]",
+          "score": 1,
+          "created": "2023-02-07T14:05:44.000Z"
+        },
+        {
+          "author": "pseudopad",
+          "text": "That won't give you the originally used code, only a system that performs more or less the same task. Reverse engineered products often do it differently than how the original system does it.",
+          "score": 1,
+          "created": "2023-02-07T12:30:19.000Z"
+        },
+        {
+          "author": "Tomatinos",
+          "text": "Because in order to see it we need to reverse engineer it and even still I don't think it's actually seeing the code, just figuring the functionality and see where it happens but I may be wrong",
+          "score": 1,
+          "created": "2023-02-07T12:14:19.000Z"
+        },
+        {
+          "author": "Business-Ad-9940",
+          "text": "Yeah but we can reverse engineer it",
+          "score": -2,
+          "created": "2023-02-07T12:15:18.000Z"
+        }
+      ]
+    },
+    {
+      "id": "gsuh03",
+      "title": "ELI5 why .ini (or other config) files exist if they are just plain text?",
+      "text": "I mean just a .txt would suffice, right?",
+      "score": 24,
+      "numComments": 36,
+      "subreddit": "explainlikeimfive",
+      "author": "PoederRuiker",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/gsuh03",
+      "created": "2020-05-29T14:56:54.000Z",
+      "topComments": [
+        {
+          "author": "Pocok5",
+          "text": "Convention. You can rename config.ini to cheeseburger.avi, as long as the content structure remains the same and the program looks for that file name, it will work.\n\nHowever, in IT culture this is considered a dick move, so people simply don't do it.",
+          "score": 36,
+          "created": "2020-05-29T17:45:48.000Z"
+        },
+        {
+          "author": "Eraesr",
+          "text": "Unfortunately, MIME type detection is still done by filename extension in most situations, so renaming config.ini to cheeseburger.avi will cause windows to open Media Player which in turn will error out. That is one of the least harmful situations though.",
+          "score": 7,
+          "created": "2020-05-29T18:11:45.000Z"
+        },
+        {
+          "author": "Psyk60",
+          "text": "Because different applications have their own conventions and formats for configs. They may use something that is somewhat standardised like ini or xml, or they might have something unique so the developers gave it a unique file extension. Or maybe a file extension has some particular meaning to the application.",
+          "score": 6,
+          "created": "2020-05-29T16:14:12.000Z"
+        },
+        {
+          "author": "mizonnz",
+          "text": "Well, yes, it is usually done by file extension because that’s the whole point of having file extensions. You have to have some way of determining what type of file something is, so why not put it as a code at the end of the name? This makes it easy to read and easy to change.",
+          "score": 5,
+          "created": "2020-05-29T19:20:02.000Z"
+        },
+        {
+          "author": "Arth_Urdent",
+          "text": "File extensions for that kind of stuff are very \"windows\" though. If you look at the other large family of OSes in the unix family are much less extension happy/dependent.",
+          "score": 5,
+          "created": "2020-05-29T18:59:24.000Z"
+        },
+        {
+          "author": "Splintert",
+          "text": "They operate the same way. The only difference is the userbase is more likely to know extensions really mean nothing. Desktop shells still use them to determine default programs.",
+          "score": 4,
+          "created": "2020-05-29T19:18:34.000Z"
+        },
+        {
+          "author": "FormCore",
+          "text": ">why not put it as a code at the end of the name?\n\nBecause file names aren't *part* of the file?\n\nAnybody who's done data-recovery of a damaged file-system will tell you that those filenames do *NOT* always survive.\n\nFilenames are just a little post-it note the OS keeps.\n\nYou can use a file-header, where you can actually attach the mime-type to the very beginning of the file along with information about size, length, creation-date etc. (Think about how your photographs can contain date-taken and camera model, though that's somewhat different)\n\nALSO, what about when a file is INSIDE a database and not a file-system? then you need to keep track of the file-type yourself anyway! \n\nNOT TO MENTION that a .mp4 can actually be one of MANY different \"types\" of MP4, some of which your computer can play and some of which your computer can *NOT* play without new codecs.\n\n\nfilenames are a suggestion, and a fragile suggestion at that.",
+          "score": 3,
+          "created": "2020-05-29T19:54:55.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[deleted]",
+          "score": 3,
+          "created": "2020-05-29T18:07:04.000Z"
+        },
+        {
+          "author": "Kryptochef",
+          "text": "That's not right. An ini file is literally just a text file with some additional structure. It can be edited the same way as a .txt - it's just that the text follows a computer-parsable structure. A *file extension* is literally just part of a name and doesn't change anything about how the file is stored.",
+          "score": 3,
+          "created": "2020-05-29T16:38:01.000Z"
+        },
+        {
+          "author": "Renmauzuo",
+          "text": "If you get down to it, lots of things can be stored as a text file. Even an image could be rendered as text, since pixels can be represented as numbers. [Video example](https://www.youtube.com/watch?v=6rZ8NJhymPc) Having different file types helps tell computers what to expect when they open it.\n\nTo use an ELI5 analogy, a school book and a newspaper are both just words and pictures on paper, but we call them different things and treat them differently because they serve specific purposes.\n\nEdit to add: Most of those config file formats also have specific format requirements, which some editors will try to enforce based on the extension. A lot of config files use JSON, which has strict syntax requirements. If I open a .json file in an editor like Visual Studio code it will know it's supposed to be JSON and warn me if things are wrong, but the same won't happen if I open a .txt file that happens to contain JSON content.",
+          "score": 3,
+          "created": "2020-05-29T16:03:48.000Z"
+        },
+        {
+          "author": "Scavenger53",
+          "text": "These are all windows answers. \n\nOn linux, many config files and other files have no extension. So yes, to your question. Windows tries to use extensions for various reasons. Linux has many instances where it doesn't matter, as long as it knows the file name.",
+          "score": 2,
+          "created": "2020-05-29T18:34:25.000Z"
+        },
+        {
+          "author": "Mirean",
+          "text": "Something similar is used in bash for scripts - you put the interpreter as a first line (e.g. \n\\#/bin/bash).  \nThen, if you execute it, the extension doesn't matter - in fact, you don't need one at all",
+          "score": 2,
+          "created": "2020-05-29T18:18:38.000Z"
+        },
+        {
+          "author": "Renmauzuo",
+          "text": "HTML files do something kind of like that with the DOCTYPE declaration, but the reason that works is the DOCTYPE is valid HTML. The problem with something like \"filetype=json\" is that's not valid JSON, so if it's in a config file and it's read by an editor or parser that's *not* setup to look for that header, it'll break. \n\nSomething like that could work, but it would have to be applied near universally, and at that point if you have a header in every  config file stating if it's JSON, INI, XML, or what you might as well just use different file extensions.",
+          "score": 2,
+          "created": "2020-05-29T16:22:45.000Z"
+        },
+        {
+          "author": "blizznwins",
+          "text": "That is not JSON, but it is plain text, I think that's what you meant.",
+          "score": 1,
+          "created": "2020-05-30T14:27:55.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2020-05-29T21:46:35.000Z"
+        },
+        {
+          "author": "X7123M3-256",
+          "text": "You don't have to give a file an extension. It's just convention so you can easily see what kind of file it is. On Linux it's common for executable files to have no extension.",
+          "score": 1,
+          "created": "2020-05-29T21:27:27.000Z"
+        },
+        {
+          "author": "mizonnz",
+          "text": "File types are also not part of the file.\n\nSure, you could put all your metadata including file type in a standardised header on every file, but then you *could* put the file name there too if you wanted. File names and file types are both just metadata, no matter where you put it it will be just as fragile to corruption.\n\nAnd technically a .mp4 file is one particular type of file, with a particular internal layout, it just doesn't specify exactly which encoding scheme is used for the video data, but the rest of the info (length, resolution, etc) is in a standard mp4 format.\n\nAnd really when it comes down to it, file types are just a fragile suggestion too. Is an .ini file a text file? Well, kind of... but more of a specific type of text file. Just like an HTML file is kind of a specific XML file, which is itself a specific type of text file. It all gets messy trying to define what a file is and what can and cannot open it.",
+          "score": 1,
+          "created": "2020-05-29T20:33:45.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[deleted]",
+          "score": 1,
+          "created": "2020-05-29T20:04:12.000Z"
+        },
+        {
+          "author": "Alundra828",
+          "text": "You're right, .txt would suffice, but software developers would find that incredibly unhelpful.\n\nGenerally, if you're a software developer developing a game for example, you're likely working in a team of people. This means you need to force yourself into a certain work flow and coding style so that any code you write is easy to understand by your co-workers. \n\nPart of this style that you have to develop is naming conventions. Everyone should be naming things that are point blank obvious to everyone, and follows a certain design language so anyone joining the team can look in and understand what something means. \n\nBack in the early windows days, windows engineers would make these distinctions by changing file extensions to something that would communicate what the file is intended for.\n\nBecause windows engineers did it like this, other developers followed suit. They set a precedent and people followed. The result is, that now in the software developer community, it's common knowledge t",
+          "score": 1,
+          "created": "2020-05-29T19:55:07.000Z"
+        },
+        {
+          "author": "Gevase",
+          "text": "It groups things together so they are easier to find by type, even through programming, and it reminds me what the file is without opening it in 6 months when I have to update the config.",
+          "score": 1,
+          "created": "2020-05-29T19:34:32.000Z"
+        },
+        {
+          "author": "tokkyuuressha",
+          "text": "config is a text file but not every text file is a config. you might want to differentiate. txt is something person can read but ini not necessarily.",
+          "score": 1,
+          "created": "2020-05-29T18:56:41.000Z"
+        },
+        {
+          "author": "Steve_SCOTI_UK",
+          "text": "Essentially the difference is in:\n\nDon't do that.\n\nDON'T DO THAT.\n\nOne is a statement and the other is an instruction. In computing (generally) you would make a statement in a .txt file and tell a program what to do with it in an .ini file.",
+          "score": 1,
+          "created": "2020-05-29T18:51:10.000Z"
+        },
+        {
+          "author": "Seygantte",
+          "text": "More accurately, DOCTYPE is valid SGML, which is extended to HTML.",
+          "score": 1,
+          "created": "2020-05-29T18:50:14.000Z"
+        },
+        {
+          "author": "Vondrehle",
+          "text": "So you know what they are. Extensions don't really exist, nor do folders and long filenames. They're all put there to make things easier for the human. \n\nThe computer only sees a huge pile of short named files with no folder structure or extensions. The file header tells the computer everything it needs to know about the file.",
+          "score": 1,
+          "created": "2020-05-29T18:25:58.000Z"
+        },
+        {
+          "author": "Someguy981240",
+          "text": "An ini file is a text file which has a specific expected format and is a way of giving a program initialization instructions. \n\nIt is a text file because the settings are often of direct interest to users - it needs to be editable by a human.  It is not a checkbox in a GUI because the settings are not often set - they are set and forget kind of things, and not worth the cost of implementing a GUI.   They also often augment the GUI option setting functions by being the place the program remembers the setting preference for the next time it starts.  \n\nMost modern windows programs no longer use them.  The registry plus an options dialog box is usually used instead. \n\nLinux uses very similar configuration files for very similar reasons.",
+          "score": 1,
+          "created": "2020-05-29T18:17:39.000Z"
+        },
+        {
+          "author": "WeAreAllinIt2WinIt",
+          "text": "Yes this is possible.  As long as the file coming in is a text file (not to be confused with a file with the extension .txt).  \n\nIf you really want a better understand take a look at text vs binary files.  \n\nI am going to greatly simplify this but most .ini are just text files.  So are .JSON files and many many more 'common' programming file types.  All text files are basically read the same way at the lowest level.  Now most modern programming languages have built in parsers to pull data out of resulting string (typically a stream actually) you get from the text file (json, ini, config, ect) and put it in a nice data object for you.  However the original reading of the text file is the same regardless of the extension.",
+          "score": 1,
+          "created": "2020-05-29T17:31:56.000Z"
+        },
+        {
+          "author": "Kryptochef",
+          "text": "Interestingly, other OSes kinda do it like that sometimes. For example, while most files under linux will have file extensions, executables (what would be \".exe\" in windows) and a lot of config files don't. With most (binary) file types, there are other ways to identify files - most start with some \"magic number\", for example PNG files will always start with 0x89 followed by \"PNG\" in ascii. Linux file browsers will sometimes depend on that to choose the software to open files with.\n\nAlso useful is the concept of \"MIME types\" - those are basically just standardized names for file types (PNG would be image/png). They are especially useful on the web - a well-configured web server will tell the browser what kind of file to expect by its mime type. Occasionaly, there can even be security vulnerabilities if it doesn't, because confusing different data formats can lead to bad things!",
+          "score": 1,
+          "created": "2020-05-29T17:10:44.000Z"
+        },
+        {
+          "author": "PoederRuiker",
+          "text": "I reckon you could (if software would allow it, which it probably won't since this is the current framework and has been for a long time) not give a file an extension and let the interpreter read the 'extension' from within the file by a 'filetype=json'?\n\nJust thinking out loud to see if I understand the concept, am learning programming",
+          "score": 1,
+          "created": "2020-05-29T16:12:10.000Z"
+        },
+        {
+          "author": "akak1972",
+          "text": "Usually not. Again the idea is to discourage you to edit it. \n\nFor example, if you played a racing game with 5 different tracks and 5 different cars, these files might store data of cars and tracks in these files. Or data to replay the race.",
+          "score": 1,
+          "created": "2020-05-29T16:01:06.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[deleted]",
+          "score": 0,
+          "created": "2020-05-29T20:18:17.000Z"
+        }
+      ]
+    },
+    {
+      "id": "etx373",
+      "title": "ELI5: What is OpenGl? What is its relation to WebGL, WebRender, and WebGPU?",
+      "text": "I saw these terms in the 'about:config' preference page of Firefox and just know they each have something to do with gpu's and hardware acceleration.",
+      "score": 1,
+      "numComments": 3,
+      "subreddit": "explainlikeimfive",
+      "author": "thefallen0419",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/etx373",
+      "created": "2020-01-25T21:40:22.000Z",
+      "topComments": [
+        {
+          "author": "DeHackEd",
+          "text": "OpenGL is a programming API in the same style as Microsoft's DirectX or more specifically Direct3D: image and more specifically 3d rendering, like for games or Google Earth. OpenGL is a more available standard though and runs on many systems besides Windows and Xbox.\n\nSo as part of the trend of making a web browser able to do *everything* 3D support was added in the form of WebGL, allowing applications in Javascript on a web page to do 3d stuff. So now Google Earth doesn't need to be a distinctly downloaded and install application on your PC to see a 3d model of the earth in all its glory - your browser can do it built-in just by visiting a web page! Similar ideas for the other Web stuff you named in the post.\n\nOf course, there are opponents of the idea. Running the code of someone else's writing without question only because a user clicked a link that brought them there is questionable from a security standpoint... and now you are giving that person access to your graphics card. Will ",
+          "score": 3,
+          "created": "2020-01-25T22:06:22.000Z"
+        },
+        {
+          "author": "gplusplus314",
+          "text": "I am totally in agreement. I miss the days of actual desktop applications.",
+          "score": 2,
+          "created": "2020-01-27T10:33:15.000Z"
+        },
+        {
+          "author": "thefallen0419",
+          "text": "thank you so much for the explanation, definitely has me interested in learning more about API's and other programming topics.",
+          "score": 1,
+          "created": "2020-01-28T05:06:38.000Z"
+        }
+      ]
+    },
+    {
+      "id": "dk9vo4",
+      "title": "ELI5: Why do gaming apps like Steam and Origin update so often?",
+      "text": "Often times, there's no visible change to the app. I realize content needs to change, new games are added, etc... but I feel this can be done via a simple config file or database.\n\nIf it's for bug fixes, why can't they bundle them together and release them once every few months?",
+      "score": 12,
+      "numComments": 6,
+      "subreddit": "explainlikeimfive",
+      "author": "TotalBismuth",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/dk9vo4",
+      "created": "2019-10-19T21:19:44.000Z",
+      "topComments": [
+        {
+          "author": "krystar78",
+          "text": "because software is complicated.  and it runs on a wide variety of environments.    some customers run in environments where they encounter bugs.   other customers don't run in those environments.    a release is made to fix the program so it runs bugfree in all environments.  \n\nthey release it fast because it solves those customer's problems immediate.   how would you like it if your Steam crashes every day and they waited for that fix to be bundled in the next release 6 months from now?",
+          "score": 21,
+          "created": "2019-10-19T21:54:50.000Z"
+        },
+        {
+          "author": "Muroid",
+          "text": "Also, any updates always run a risk of causing some new, unforeseen problem once they are out in the wild. If you bundle up 6 months worth of changes, release them all at once and then something breaks, that is a ton of possible culprits that you need to sift through looking for the source of the problem.\n\nIf you release a couple of minor updates at a time and something goes wrong, it’s much, much easier to figure out what the problem is.",
+          "score": 14,
+          "created": "2019-10-19T22:38:13.000Z"
+        },
+        {
+          "author": "BroForceOne",
+          "text": "You can just read what the updates are here  [https://store.steampowered.com/news/?feed=steam\\_client](https://store.steampowered.com/news/?feed=steam_client) \n\nAs you can see, various security vulnerabilities, UI bug fixes, improvements that would be unnoticeable to you unless it was pointed out, features you may not care or know existed, etc. \n\nBundling all those updates together every few months is a great way to create more bugs that take more time to untangle as is harder to figure out which update unintentionally broke something else.",
+          "score": 10,
+          "created": "2019-10-19T22:25:37.000Z"
+        },
+        {
+          "author": "dale_glass",
+          "text": "The more changes you include in a release, the higher the chance that one of them will go wrong. It's far easier to figure out what went wrong in a week's worth of changes than in two months' worth. It can also help the users be happier: you get less backlash if you break one thing than if you break 4 in one big release.\n\nIt's also a good thing to be able to \"fail early\". You want to know your new direction isn't the right one as soon as possible, and not after months of work have been done in the wrong direction.\n\nReally whether to make frequent releases or not is a matter of personal preference. Steam has an easy time making frequent updates as it's all online by nature anyway, so why not? Other programs get a lot of offline use and there frequent updates might not work so well.",
+          "score": 6,
+          "created": "2019-10-19T21:57:29.000Z"
+        },
+        {
+          "author": "ProtonicEngine",
+          "text": "They also close possible security issues regularly. Which is the cheating and software piracy is a rare topic on Steam.",
+          "score": 3,
+          "created": "2019-10-20T10:30:17.000Z"
+        },
+        {
+          "author": "mimi-is-me",
+          "text": "> I realize content needs to change, new games are added, etc... but I feel this can be done via a simple config file or database.\n\nYou've got it wrong here - the store is effectively a web browser. No updates needed!\n\nThe real reason, as you say is for bug fixes, in particular security fixes. Most software you have is worth, maybe a couple hundred dollars, max? And you almost certainly aren't going to spend more.\n\nCompare this to steam, which could potentially be used to install thousands of dollars of software, and you could potentially spend a hundred dollars or more in one go, and that wouldn't be so out of the ordinary for steam.\n\nWith amounts of money in those ranges, steam better be secure. If someone can exploit a flaw in the application and lock you out of your account, or spend hundreds of dollars of your money, then that needs to be fixed urgently. So, steam needs to provide a system by which they can push fixes quickly.\n\nAnd if they can make fixes quickly, why shouldn't the",
+          "score": 2,
+          "created": "2019-10-20T09:49:04.000Z"
+        }
+      ]
+    },
+    {
+      "id": "dc3my7",
+      "title": "ELI5: Configuring stuff on a computer like \"Configure PC Hosts\" and \"Configure basic switch settings\"",
+      "text": "I'm taking a networking course, and I actually don't know what the word configure means in the context because we never went over it.\n\nWhat does it mean to Configure a pc host, or to configure an IP address or configure basic switch settings. Also, what is a config file?\n\nAlso, what does \"global configuration mode mean\" ?? Sorry for all these questions.\n\n&#x200B;\n\nPlease try to explain simple, but you can add some tech terms I guess, but I'm just trying to understand.",
+      "score": 0,
+      "numComments": 2,
+      "subreddit": "explainlikeimfive",
+      "author": "Ownanteater6",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/dc3my7",
+      "created": "2019-10-02T01:53:08.000Z",
+      "topComments": [
+        {
+          "author": "Jak1977",
+          "text": "Configure means to change settings for your needs.\n\nA switch or a computer will pretty much work out of the box for domestic use. You buy your router/modem, plug it in, and join a phone or laptop to the wireless network with the password provided. This works because all the configuration has been done for you in advance.\n\nHowever, in a commercial setting, devices have to be configured for an existing network with its own settings. So the switches need to be configured (settings changed) for the particular IP address range that they use, rules applied for which traffic is allowed to go where, and even more advanced things like VLANs (this is too complicated to explain here, but you'll learn about it later).\n\nA computer will need to be configured to join the domain (if you have one).\n\nA PC Host is a bit of an odd term. Are you setting a PC up to be a 'server'? Normally the PC is the client, and connects to a server. But if you are using a PC to host network services like DHCP (gives out ",
+          "score": 2,
+          "created": "2019-10-02T02:07:50.000Z"
+        },
+        {
+          "author": "RickyFL",
+          "text": "You can think of it as meaning to set up  \nTo set the proper settings to make it work\n\nIf you were to configure the ip address\n\nyou would either set it up with with DHCP address or manually give it an ip address, subnet mask, dns server and default gateway",
+          "score": 1,
+          "created": "2019-10-02T02:10:48.000Z"
+        }
+      ]
+    },
+    {
+      "id": "cfzmpp",
+      "title": "ELI5: What is no_root_squash in exports config file of NFS?",
+      "text": "[removed]",
+      "score": 0,
+      "numComments": 3,
+      "subreddit": "explainlikeimfive",
+      "author": "rohit_arasu",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/cfzmpp",
+      "created": "2019-07-21T14:35:22.000Z",
+      "topComments": [
+        {
+          "author": "Gnonthgol",
+          "text": "Firstly NFS does not work with user names but rather with user id which is a number. The issue that root\\_squash is intended to solve is that creating a file with root permissions on a server might be a security issue. If a user is able to execute commands as root on an NFS client he might then be able to create files on the NFS server with permissions which allows him to execute files as root on the server as well. This is of course a very bad idea. So when NFS is asked to create a file or change owner of a file to uid 0 (root) then it will rewrite the uid to an anonymoust uid that have been configured. By default this is uid 65534 which usually does not map to any user. The no\\_root\\_squash option gets rid of this security feature.",
+          "score": 1,
+          "created": "2019-07-21T14:58:53.000Z"
+        },
+        {
+          "author": "ElfMage83",
+          "text": "r/linux4noobs might know better, or r/linuxmasterrace.",
+          "score": 1,
+          "created": "2019-07-21T14:56:21.000Z"
+        },
+        {
+          "author": "enjoyoutdoors",
+          "text": "No_root_squash active means that root on the CLIENT gets root privileges on the server.\n\nA compromised client and a poorly configured server makes it possible (in theory) to take over a server and all of its clients.\n\nThe only time you really want root privileges to survive is when the / file system is mounted from a server.\n\nIn all other cases, you don’t want to assume that you can trust the client.",
+          "score": 1,
+          "created": "2019-07-21T14:43:45.000Z"
+        }
+      ]
+    },
+    {
+      "id": "a37mbv",
+      "title": "ELI5: When did IP addresses change to that new format and how does it work?",
+      "text": "Did an IP Config tonight and instead of the old format of [123.123.123.123](https://123.123.123.123), I've got something that looks more like a MAC address. When did this change? ",
+      "score": 3,
+      "numComments": 13,
+      "subreddit": "explainlikeimfive",
+      "author": "c-park",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/a37mbv",
+      "created": "2018-12-05T02:06:53.000Z",
+      "topComments": [
+        {
+          "author": "ryschwith",
+          "text": "That’s IPv6 (as opposed to the familiar IPv4). The standard has been around for quite some time and is slowly gaining traction. Most infrastructure anymore can route both, and you’ll sometimes see both addresses for your hardware. The big advantage of v6 is that allows for many, many more IP addresses than v4–we’re actually on the brink of running out of assignable v4 addresses. However, it’s pretty difficult to get the entire Internet to change over all at once so it’ll take some time. ",
+          "score": 7,
+          "created": "2018-12-05T02:10:15.000Z"
+        },
+        {
+          "author": "mb34i",
+          "text": "IPv4 is 32 bits, with each of the numbers being 8 bits (in decimal, that's 0 - 255).\n\nIPv6 is 128 bits, 8 fields of 16 bits each.  So each number would be (0 - 65535 in decimal), but it's easier to express 16 bits as a hex code, so that's why it looks like a MAC address (which is also a hex code).\n\nUltimately, they made the IP address have more bits, so they can express more addresses on the internet.  Cause they were running out.",
+          "score": 5,
+          "created": "2018-12-05T02:18:10.000Z"
+        },
+        {
+          "author": "mmmmmmBacon12345",
+          "text": "The old format that looks like 192.168.242.128 is called IPv4 but poses a problem for the internet because it only has ~4 billion unique addresses and there are a bunch of reserved blocks\n\nThe new format that looks like 2001:0db8:0000:0042:0000:8a2e:0370:7334 is IPv6 and supports 2^128 addresses.  It was created back in 1998 but rolled out very very slowly through the years.  There was a push in the late 00s to switch systems over to IPv6 and that's been rolling out for the last decade.\n\nGenerally local networking still occurs with IPv4 addresses because they're nice and human enterable, but your modem will have an IPv6 address from your ISP so they can support tons of devices in their subnet without needing to worry about running out of addresses",
+          "score": 4,
+          "created": "2018-12-05T02:11:56.000Z"
+        },
+        {
+          "author": "the_unfinished_I",
+          "text": "Others have answered this correctly, but also it's worth noting that your ISP deserves a pat on the back for rolling out IPv6. This isn't such an easy process and in many cases there's no immediate benefit to them until enough of the Internet has switched it on. \n\nWe're really heading towards a crunch in terms of running out of unused IPv4 addresses. In the last few years a secondary market has emerged where networks are selling addresses to each other - there's some big money changing hands. A single IP address can go for as much as $20 USD these days. We're even seeing people stealing addresses to sell them on the black market! \n\nAPNIC publishes a map showing per-country IPv6 deployment levels - still a long way to go until IPv6 is the dominant protocol on the Internet: \nhttps://stats.labs.apnic.net/ipv6",
+          "score": 3,
+          "created": "2018-12-05T15:13:41.000Z"
+        },
+        {
+          "author": "MmmVomit",
+          "text": "As /u/ryschwith has already mentioned, the new \"format\" is IPv6, as opposed to IPv4, which is what you are already familiar with.\n\nAn IPv4 address is four bytes long. The typical notation is four decimal numbers for the four bytes, separated by dots.\n\nIPv6 addresses are 16 bytes long, and usually written in hexadecimal, separated by colons. Because the addresses are so much longer, they're usually abbreviated to remove most of the zeros. So, if a full IPv6 address looks like this...\n\n    1234:0000:0000:0000:000a:0031:8052:0123\n\n... the abbreviated form looks like this.\n\n    1234::a:31:8052:123\n\nNotice, `000a` becomes `a`. Also, the three groups that are all zeroes are simply replaced by `::`.\n\nIPv6 also redefines which addresses are special. In v4, the address `127.0.0.1` is the \"loopback\" or \"localhost\" address, and always refers to the local computer. In v6 the loopback address is `::1`, or all zeros with a one at the end.",
+          "score": 3,
+          "created": "2018-12-05T02:23:39.000Z"
+        },
+        {
+          "author": "r4ge4holic",
+          "text": "I know. ",
+          "score": 2,
+          "created": "2018-12-05T02:46:21.000Z"
+        },
+        {
+          "author": "Burrito6920",
+          "text": "Oh yeah, whoops. I couldn't remember which one it was and went with that",
+          "score": 1,
+          "created": "2018-12-05T14:54:53.000Z"
+        },
+        {
+          "author": "the_unfinished_I",
+          "text": ">If you're saying that your IP address has updated from IPV5 to IPV6\n\nJust to add a mostly-needless clarification - the upgrade is from IPv4 to IPv6 - we skipped IPv5! \n\nhttps://www.lifewire.com/what-happened-to-ipv5-3971327",
+          "score": 1,
+          "created": "2018-12-05T14:52:58.000Z"
+        },
+        {
+          "author": "MmmVomit",
+          "text": "Yep. To use the :: notation, there has to be enough other information in the address to infer how many zeros are missing. Fortunately, a group that is all zeros can simply be replaced with a single zero.\n\n    009a:0000:0000:0000:0000:00b2:0000:00fa\n\n... would turn into...\n\n    9a::b2:0:fa",
+          "score": 1,
+          "created": "2018-12-05T03:35:12.000Z"
+        },
+        {
+          "author": "whitcwa",
+          "text": "Very interesting. If anyone else is wondering how :: can replace different numbers of blocks of 0000, \n\n>[The double colon may only be used once in an address, as multiple use would render the address indeterminate.](https://en.wikipedia.org/wiki/IPv6#Address_representation)",
+          "score": 1,
+          "created": "2018-12-05T03:24:34.000Z"
+        },
+        {
+          "author": "r4ge4holic",
+          "text": "It's not a link. It's an IP Address ",
+          "score": 1,
+          "created": "2018-12-05T02:13:16.000Z"
+        },
+        {
+          "author": "Burrito6920",
+          "text": "Everything on this subreddit is so serious. It's like you guys are trying to learn or something. Damn.\n\nTo answer the question, your IP address can change any time you restart your computer unless you have a static IP address. Internet service providers rarely have as many IP addresses as they do customers, and as such when your computer is offline, the IP address will likely be different when you reconnect, as your old one is likely in use by somebody else.\n\nIf you're saying that your IP address has updated from IPV5 to IPV6, then that could be a firmware update from your router or an update from your ISP",
+          "score": 0,
+          "created": "2018-12-05T02:24:02.000Z"
+        },
+        {
+          "author": "Burrito6920",
+          "text": "The link you sent doesn't work, I don't know what you're talking about. But I thought I should let you know",
+          "score": -1,
+          "created": "2018-12-05T02:09:43.000Z"
+        }
+      ]
+    },
+    {
+      "id": "9nibij",
+      "title": "ELI5: What's the difference between using a scripting language and hacking?",
+      "text": "Everytime I am editing config files or writing scripts for a Minecraft mod, my boyfriend jokes around that I'm \"hacking the Pentagon\". He can't figure out the difference between the two and knows very very little about computers in general, much less scripting/programming/etc. How can I explain it to him in terms he'll get?",
+      "score": 0,
+      "numComments": 10,
+      "subreddit": "explainlikeimfive",
+      "author": "xAlicatt",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/9nibij",
+      "created": "2018-10-12T07:51:02.000Z",
+      "topComments": [
+        {
+          "author": "Arumai12",
+          "text": "What you should do is smash your keys for 2 seconds. Then say \"im in\". ",
+          "score": 3,
+          "created": "2018-10-12T12:37:38.000Z"
+        },
+        {
+          "author": "kryzsec",
+          "text": "First what he is saying is a joke. Second, scripting and hacking aren't exactly exclusive. A scripting language (like Python for example) is very commonly used for pen testing, but beyond that it is also used in a more traditional meaning of the word hacking when relating to computers (which is problem solving).\n\nAnyways, hacking in its most basic is problem solving. If you are editing a config file then are you solving any problems? Generally no. However, you may want to just learn to accept the joke, everytime I a start writing a script to do something I have tons of friends that joke about me \"hacking into the CIA\" even though we all know I am not.\n\n\nThis being said, editing a config file can be hacking (generally not illegal). For instance, there are some games that with nothing but editing the config file can actually change the mechanics of the game itself (Borderlands is an example where modifying the config file can allow you to change the number of inventory slots you contain ",
+          "score": 3,
+          "created": "2018-10-12T08:22:41.000Z"
+        },
+        {
+          "author": "kryzsec",
+          "text": "Don't forget the random smashing of a keyboard in hopes that you are typing faster than the other person.... Or when they are faced against a \"virus\" and they need to type faster than their own computer (generally impossible, my keyboard can handle something like 10-20 thousand inputs per second theoretically, my processor can handle 2.4 billion operations per second... I wouldn't be surprised if the processor could magically write more keystrokes, but the bigger question is why would malware be typing?)",
+          "score": 2,
+          "created": "2018-10-12T16:29:46.000Z"
+        },
+        {
+          "author": "VoteLobster",
+          "text": "The funny thing is that passes as \"hacking\" on TV.",
+          "score": 2,
+          "created": "2018-10-12T15:49:46.000Z"
+        },
+        {
+          "author": "xAlicatt",
+          "text": "Yeah I know it's a joke. That's why I always go \"haha I'm not hacking\" in a silly tone....but for some reason tonight he wanted to know why it wasn't hacking.",
+          "score": 2,
+          "created": "2018-10-12T08:36:59.000Z"
+        },
+        {
+          "author": "Dodgeballrocks",
+          "text": "Even from the beginning hacking has meant taking a system and making it do something it wasn't intended to do. ",
+          "score": 1,
+          "created": "2018-10-12T16:22:12.000Z"
+        },
+        {
+          "author": "Dodgeballrocks",
+          "text": "A scripting language is just a tool. It can be used for hacking or for normal boring computer stuff.\n\n&#x200B;\n\nJust like a crow bar is a tool. You could use it to break into someone's house, or you could use it to pull up nails during a construction project. ",
+          "score": 1,
+          "created": "2018-10-12T16:20:24.000Z"
+        },
+        {
+          "author": "homedoggieo",
+          "text": "Scripting just means writing commands that the computer follows.\n\nHacking is exploiting loopholes in code to make it do something it wasn’t originally intended to do (such as giving you access without you having a password). This could be a result of the code being poorly-written, or just antiquated code that hasn’t been updated to accommodate new tools.",
+          "score": 1,
+          "created": "2018-10-12T16:02:42.000Z"
+        },
+        {
+          "author": "ameoba",
+          "text": "There modern usage of the term \"hacking\" generally implies doing something you're not supposed to do. Editing a confirmation fine let's you change things the developers wanted you to have control over.",
+          "score": 1,
+          "created": "2018-10-12T08:29:09.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2018-10-12T07:58:34.000Z"
+        }
+      ]
+    },
+    {
+      "id": "7ar9ni",
+      "title": "PhpStorm Config for Mac",
+      "text": "[removed]",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "explainlikeimfive",
+      "author": "MisewellDanny",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/7ar9ni",
+      "created": "2017-11-04T15:27:27.000Z",
+      "topComments": []
+    },
+    {
+      "id": "6q66cm",
+      "title": "ELI5: How do video game 'config' files work? Or any game files for that matter? Does the game read the info and just convert it into a game?",
+      "text": "So this curiosity started with the Pokémon go phase. People were talking about spoofing their location by inputting lines of code into the config files or whatever.\n\n\nIt was all really fascinating but I don't understand how video games can have all of your game data saved as text files and what not. If I play a game on another computer I just need to transfer those files over....it's like magic.",
+      "score": 1,
+      "numComments": 3,
+      "subreddit": "explainlikeimfive",
+      "author": "Leadha",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/6q66cm",
+      "created": "2017-07-28T19:34:44.000Z",
+      "topComments": [
+        {
+          "author": "marisachan",
+          "text": "Config files aren't the game. Config files usually store settings and things and the game program reads these files when appropriate, looking for this that or the other setting. Save files are similar - they are created by the game to store various settings that the game reads back in when it's loading the save. \n\nI don't know about the Pokemon Go thing, but in PC gaming, it's very common to edit config files or save games to do things that you can't do from within the game. Often, for example, there are additional graphics settings that aren't incorporated into the in-game menu that you can edit that the game will scan in when it launches and adjust the output of the video appropriately. Save game editors exist for a lot of games too where you can change your inventory or edit decisions or stats that are then put into effect when the game loads the save. ",
+          "score": 2,
+          "created": "2017-07-28T19:43:08.000Z"
+        },
+        {
+          "author": "batman1177",
+          "text": "Here's a over-simplified version of how location spoofing works. Pokemon Go has access to the GPS location data on your phone. There's an \"address\" that tells applications where data is stored. So to make the game think that your somewhere else, you change that \"address\" and point it to a value that you decide. ",
+          "score": 1,
+          "created": "2017-07-28T20:11:57.000Z"
+        },
+        {
+          "author": "Qwerty_Resident",
+          "text": "So, in a typical computer program, you'll start with what's called \"initialization of variables\". \n\nThis is a confusing term if you're not a programmer, but the basic idea is that if you know that your program is going to, for instance, simulate gravity, then it makes sense to make a reserved variable for gravity so that it is consistent whenever you reference it. \n\nThis is useful because, should you find that you used the wrong number for gravity, you only need to change the number in one place; it might cost a bit more computationally to store a variable and recall it when you could just give it a static number in the calculation, but A) I'm not good enough at coding to know if that's actually true, and B) even if it is, it's a very marginal cost for a very substantial benefit.\n\nSo, in the case of games with config files, the code will reference the file and pull the variable name.\n\nTypically in config files you'll see a lot of [word]=[number] statements, for instance one I remember ",
+          "score": 1,
+          "created": "2017-07-28T20:05:05.000Z"
+        }
+      ]
+    },
+    {
+      "id": "6q642s",
+      "title": "How do video game config files work? Or any game files for that matter? Does the game read the info and just convert it into a game?",
+      "text": "[removed]",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "explainlikeimfive",
+      "author": "Leadha",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/6q642s",
+      "created": "2017-07-28T19:24:47.000Z",
+      "topComments": []
+    },
+    {
+      "id": "4qvo1x",
+      "title": "ELI5: Engine configurations and vibrations in automobiles.",
+      "text": "So, I really like cars. I take every opportunity I can to learn about cars. However, I never really understood why we have inline, straight, flat, V, and W (possibly more...?) configurations. I also don't understand why some of these need balance shafts to counteract vibrations. Where do these vibrations come from? What do the balance shafts do to nullify the vibrations? I've been reading wiki's left and right, but there are a lot (a lot) and its really not written well in my opinion. What are the benefits for each config? What are the pros? Is one more desirable than the other? Am I forgetting to ask something important out of ignorance?\n\nEdit: Also, why does (for example) an inline 4 need a balance shaft, but not an inline 6?\n\nEdit2: What is primary and secondary mechanical vibrations? (Read this when I looked up \"Inline 6\" and went to the wiki.)",
+      "score": 8,
+      "numComments": 14,
+      "subreddit": "explainlikeimfive",
+      "author": "some_kid_lmao",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/4qvo1x",
+      "created": "2016-07-02T03:56:24.000Z",
+      "topComments": [
+        {
+          "author": "M15CH13F",
+          "text": "To answer the first part of your question, different engine configurations come up because they have different characteristics that may be desirable, and the designers decide that the advantages of a particular design are worth whatever other disadvantages there are. So for example straight 6's are inherently balanced and smooth (we'll get to that in a minute) but are a very awkward size and proportionally heavier (due to having a much longer crankshaft) than a V or flat arrangement of the same size. VR and W engines (a specialty of VW cars) are very compact but complex. Even engines which look very similar may be very different, flat engines and boxer engines have a very big fundamental difference in the way the internal components are arranged. \n\nBalance and vibration in an engine come from two main sources; the pistons transitioning from upward to downward movement and combustion events. Even though pistons travel in a pretty much linear path within the cylinders the connecting rods",
+          "score": 3,
+          "created": "2016-07-02T08:54:26.000Z"
+        },
+        {
+          "author": "epchipko",
+          "text": "You may find researching motorcycle engines a bit easier to comprehend.  The small form factor makes them somewhat simpler.  And there is still a lot of variation, from single cylinder up to I-6.  V-Twins,  Horizontal twins (older triumphs) and boxer twins (BMW).  Triples, 4 cylinder in various orientations but usually I-4.\n\n ",
+          "score": 1,
+          "created": "2016-07-02T18:10:39.000Z"
+        },
+        {
+          "author": "buttutter",
+          "text": "Everything's a trade-off with engines.  \n\nLarger cylinders? Slower max engine speed.\nSmaller cylinders? Lower torque, more friction.  \nInline 6? Long engine.  \nV6? More expensive because you need two heads.  \n\nI'm saying that there is an ideal solution to each set of requirements. For general transportation, manufacturing cost, packaging (because that impacts vehicle cost) and efficiency drive the design.  For sports cars, engine performance is more important.  The average Ferrari customer isn't worried about getting 18 mpg.\n\n The Bugatti Veyron is an example for you, they have a W-16, which is an extremely short block for 16 cylinders.  And they need the space - the Veyron is stuffed with radiators to cool their massive powerplant.  Older Bugattis have some crazy configurations, too - I8 was common.\n\nOlder cars have some really odd configurations, because we weren't very good at optimizing, and a bunch of people made cars, a few of which succeeded.  The less optimal configurations wer",
+          "score": 1,
+          "created": "2016-07-02T17:22:55.000Z"
+        },
+        {
+          "author": "some_kid_lmao",
+          "text": "wb a V12? I know ferrari and other sports cars like flat 12s. Which config would be best for a 12? \n\nAnd basically you are saying it is best to have more pistons with a smaller displacement per cylinder, but have a large displacement overall? But it also has to be compact, because the larger the crankshaft, the heavier it is and the more energy it needs to move?",
+          "score": 1,
+          "created": "2016-07-02T16:45:26.000Z"
+        },
+        {
+          "author": "buttutter",
+          "text": "The engine configuration has a bigger effect on power delivery.  (But /u/Xivios makes an important point that larger pistons can't rev as high.  There is an ideal piston size that gives the best balance between efficiency, power, reliability, and cost.  Vehicular Engine Design by Kevin Hoag goes into much more detail.)\n\nEach piston adds energy during the power stroke, and needs energy during the compression stroke.  A one cylinder engine will be constantly speeding up and slowing down because it stores kinetic energy via the engine speed.  With two, you can have one piston power the other but it's not a perfect overlap.  As you add more pistons, you get more overlap, and a smoother torque output over the entire crankshaft rotation.  More pistons means smoother power delivery.  \n\nThe major concern driving configuration is packaging.  The I6 is the simplest perfectly balanced configuration, but it's long and skinny and takes up half the car.  You can't sit a passenger next to it because ",
+          "score": 1,
+          "created": "2016-07-02T15:44:19.000Z"
+        },
+        {
+          "author": "M15CH13F",
+          "text": "No engine configuration creates more power than any other if displacement and manifold pressure are all the same. However there are certain engine designs which can provide better power to weight ratios based on how big a crankshaft they have. The bigger the crank the more the engine will weight (obviously) so ideally you would want the deign that feature the shortest crankshaft. ",
+          "score": 1,
+          "created": "2016-07-02T08:57:35.000Z"
+        },
+        {
+          "author": "Xivios",
+          "text": "Not directly, but layouts with more cylinders for a given displacement can usually rev higher, and since power follows a formula where torque is multiplied by RPM, a faster spinning motor can make more power. \n\nArguably the most extreme example of this is the Honda RC159 Grand Prix bike. Competing in the 125cc class in 1966, it crammed 5 cylinders into 125cc's, only 25cc's a cylinder, and spun to 20,000rpm, despite the techological limits of the time, and being a 4-stroke (2 strokes are more power-dense). It made about 35 horsepower. For comparison, a fully modern but single cylinder 125 4-stroke, such as used in the Honda Grom, makes under 10.\n\nEngine layout can affect other things as well though, that might influence power. The inline-6 layout for example is naturally strong and very smooth, which made it the layout of choice for high-performance cars of BMW and 90's Japan, in the Nissan Skyline, Toyota Supra, and other vehicles related to them. But it has fallen from favor in recent",
+          "score": 1,
+          "created": "2016-07-02T06:50:23.000Z"
+        },
+        {
+          "author": "crossedstaves",
+          "text": "I'm not an expert on this, but I don't think the layout of the cylinders has a direct bearing on power. ",
+          "score": 1,
+          "created": "2016-07-02T06:20:48.000Z"
+        },
+        {
+          "author": "some_kid_lmao",
+          "text": "Makes sense. Are any engine configs more powerful than others?",
+          "score": 1,
+          "created": "2016-07-02T06:11:37.000Z"
+        },
+        {
+          "author": "crossedstaves",
+          "text": "Vibrations are noisy and unpleasant, people want a smooth quiet ride. And it will reduce stress on the engine mountings and the rest of the car.  The engine is sturdy, contains thousands of explosion every minute, it can handle a little bit of extra stress. ",
+          "score": 1,
+          "created": "2016-07-02T06:05:15.000Z"
+        },
+        {
+          "author": "some_kid_lmao",
+          "text": "Secondary vibrations make sense now, thanks. But wouldn't balance shafts canceling the vibration still put stress on the engine? Why cancel vibrations?",
+          "score": 1,
+          "created": "2016-07-02T05:53:21.000Z"
+        },
+        {
+          "author": "crossedstaves",
+          "text": "Not extends versus contracts.  The middle point in the crank's spin between top and bottom isn't the middle point in the piston's movement between top and bottom. As the crank rotates from the bottom to the middle, the piston is moving slower, than as the crank rotates from the middle to the top.    So half the cycle is unbalanced.  \n\n\nAs for how to figure out when the vibration cancels, well I'm using a bit of general mathematical and physics knowledge. They're sine waves, and so take a look at this \nhttp://acousticslab.org/psychoacoustics/PMFiles/PMImages/DestructiveInterference.jpg  If you add two waves together that are shifted in that way so that the peak of one wave is at the bottom of the other then every single point adds to a net of 0.  The waves repeat every 360 degrees, as the engine turns over every time it makes a complete circle its back to where it was right, so that two waves are the same if they're shifted by that much.  If they're shifted by 180 degrees, they're oppos",
+          "score": 1,
+          "created": "2016-07-02T05:45:18.000Z"
+        },
+        {
+          "author": "some_kid_lmao",
+          "text": "Still a bit confused on secondary vibration. It occurs because when the piston extends it is going faster than when it contracts?\n\nAlso, how did you figure out when the vibration cancels?\n\nEdit: Any idea how the balance shaft works?",
+          "score": 1,
+          "created": "2016-07-02T05:08:05.000Z"
+        },
+        {
+          "author": "crossedstaves",
+          "text": "Primary vibration would be like... you know those little electronic motors with the unbalanced weight on them they use inside game controllers and stuff to vibrate?  Its a consequence of the system being unbalanced, so its vibration at the same rate as the crankshaft is turning, every time it makes a cycle it shifts a weight around and causes things to lurch.  \n\nVibrations that happen twice every cycle are secondary. \n\nSome drew a picture of why secondary vibrations happen http://s170.photobucket.com/user/ben_eberle/media/second_harmonic.jpg.html .  See because of the angle the connecting rods go through when on the left or the right they're not at the actual middle.  This means that one half of the cycle when the piston is moving up it covers more distance than the other half of the cycle.  So as it goes to top dead center from the left and back down its moving faster than as it goes down to bottom dead center from the right.  \n\ndifferent speeds over different halves means the forces ",
+          "score": 1,
+          "created": "2016-07-02T04:59:25.000Z"
+        }
+      ]
+    }
+  ]
+}
