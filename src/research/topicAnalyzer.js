@@ -1,7 +1,7 @@
 const axios = require('axios');
 const RateLimiter = require('../utils/rateLimiter');
 
-const limiter = new RateLimiter(1);
+const limiter = new RateLimiter(0.5);
 
 const ARCTIC_SHIFT_BASE = 'https://arctic-shift.photon-reddit.com';
 
@@ -12,39 +12,95 @@ class TopicAnalyzer {
     };
 
     this.generalSubreddits = [
-      'todayilearned', 'AskReddit', 'NoStupidQuestions', 'explainlikeimfive',
-      'science', 'worldnews', 'books', 'history', 'philosophy',
-      'Technology', 'Futurology', 'InternetIsBeautiful', 'dataisbeautiful',
-      'LifeProTips', 'YouShouldKnow',
+      'NoStupidQuestions', 'explainlikeimfive', 'TooAfraidToAsk',
+      'InternetIsBeautiful', 'dataisbeautiful', 'LifeProTips',
     ];
 
     this.topicSubredditMap = {
-      physics: ['Physics', 'askscience', 'PhysicsStudents', 'AskPhysics'],
-      science: ['science', 'askscience', 'chemistry', 'biology', 'space', 'astronomy'],
-      tech: ['technology', 'programming', 'webdev', 'MachineLearning', 'artificial', 'LocalLLaMA'],
+      keyboard: ['MechanicalKeyboards', 'keyboards', 'MouseReview', 'desksetup'],
+      mechanical: ['MechanicalKeyboards', 'keyboards', 'InputDevices'],
+      programming: ['learnprogramming', 'cscareerquestions', 'coding', 'webdev', 'javascript', 'Python', 'rust', 'golang', 'java', 'cpp'],
       coding: ['learnprogramming', 'cscareerquestions', 'coding', 'webdev', 'javascript', 'Python'],
-      ai: ['MachineLearning', 'artificial', 'LocalLLaMA', 'singularity', 'ChatGPT'],
-      health: ['health', 'fitness', 'nutrition', 'mentalhealth', 'MedicalAdvice', 'AskDocs'],
-      education: ['learnprogramming', 'College', 'HomeworkHelp', 'GetStudying', 'GradSchool', 'Education'],
-      finance: ['personalfinance', 'investing', 'stocks', 'CryptoCurrency', 'FinancialPlanning', 'frugal'],
-      gaming: ['gaming', 'Games', 'pcgaming', 'nintendo', 'playstation', 'xbox'],
+      developer: ['ExperiencedDevs', 'dev', 'programmer', 'codemonkey'],
+      software: ['softwareengineering', 'SoftwareArchitecture', 'programming'],
+      web: ['webdev', 'web_design', 'reactjs', 'vuejs', 'angular', 'nextjs', 'svelte'],
+      frontend: ['reactjs', 'vuejs', 'angular', 'svelte', 'tailwindcss', 'webdev'],
+      backend: ['node', 'django', 'rails', 'golang', 'rust', 'java'],
+      data: ['datascience', 'machinelearning', 'statistics', 'analytics', 'dataengineering'],
+      ai: ['MachineLearning', 'artificial', 'LocalLLaMA', 'singularity', 'ChatGPT', 'OpenAI', 'ClaudeAI', 'StableDiffusion'],
+      machine: ['MachineLearning', 'deeplearning', 'LocalLLaMA', 'computer_vision'],
+      llm: ['LocalLLaMA', 'ChatGPT', 'artificial', 'LanguageTechnology'],
+      tech: ['technology', 'Futurology', 'gadgets', 'TechSupport', 'buildapc', 'pcmasterrace'],
+      computer: ['buildapc', 'pcmasterrace', 'hardware', 'Intel', 'nvidia', 'AMD'],
+      laptop: ['laptops', 'thinkpad', 'DellXPS', 'MacBookPro', 'LenovoLegion'],
+      gaming: ['gaming', 'Games', 'pcgaming', 'nintendo', 'playstation', 'xbox', 'GameDeals', 'patientgamers'],
+      game: ['gaming', 'pcgaming', 'IndieGaming', 'IndieDev', 'gamedev'],
+      science: ['science', 'askscience', 'chemistry', 'biology', 'space', 'astronomy', 'physics'],
+      physics: ['Physics', 'askscience', 'PhysicsStudents', 'AskPhysics', 'TheoreticalPhysics'],
+      math: ['math', 'learnmath', 'MathHelp', 'mathematics'],
+      biology: ['biology', 'molecularbiology', 'ecology', 'evolution'],
+      chemistry: ['chemistry', 'chemhelp', 'chempros'],
+      health: ['health', 'fitness', 'nutrition', 'mentalhealth', 'MedicalAdvice', 'AskDocs', 'Supplements'],
+      fitness: ['fitness', 'bodyweightfitness', 'weightlifting', 'running', 'yoga'],
+      exercise: ['fitness', 'running', 'cycling', 'swimming', 'yoga', 'bodyweightfitness'],
+      nutrition: ['nutrition', 'EatCheapAndHealthy', 'MealPrepSunday', 'vegan', 'keto'],
+      mental: ['mentalhealth', 'Anxiety', 'depression', 'ADHD', 'selfimprovement', 'socialskills'],
+      medicine: ['MedicalAdvice', 'AskDocs', 'pharmacy', 'nursing', 'medical'],
       food: ['cooking', 'food', 'recipes', 'AskCulinary', 'MealPrepSunday', 'EatCheapAndHealthy'],
-      travel: ['travel', 'solotravel', 'backpacking', 'DigitalNomad', 'RoadTrips'],
-      music: ['Music', 'WeAreTheMusicMakers', 'guitar', 'piano', 'listentothis'],
-      movies: ['movies', 'moviecritic', 'NetflixBestOf', 'tipofmytongue', 'television'],
-      environment: ['environment', 'climate', 'sustainability', 'RenewableEnergy', 'ZeroWaste'],
+      cooking: ['cooking', 'AskCulinary', 'recipes', 'MealPrepSunday', 'CookingForBeginners'],
+      recipe: ['recipes', 'Old_Recipes', 'BudgetFood', 'castiron'],
+      restaurant: ['restaurants', 'kitchenconfidential', 'talesfromthecustomer'],
+      finance: ['personalfinance', 'investing', 'stocks', 'CryptoCurrency', 'FinancialPlanning', 'frugal', 'FIRE'],
+      investing: ['investing', 'stocks', 'wallstreetbets', 'CryptoCurrency', 'Bogleheads'],
+      crypto: ['CryptoCurrency', 'Bitcoin', 'ethereum', 'altcoin', 'CryptoMarkets'],
+      money: ['personalfinance', 'Frugal', 'povertyfinance', 'FinancialPlanning'],
+      budget: ['Frugal', 'personalfinance', 'BudgetFood', 'povertyfinance'],
+      travel: ['travel', 'solotravel', 'backpacking', 'DigitalNomad', 'RoadTrips', 'Flights'],
+      education: ['learnprogramming', 'College', 'HomeworkHelp', 'GetStudying', 'GradSchool', 'Education', 'college'],
+      study: ['GetStudying', 'studytips', 'CollegeRant', 'homework_help'],
+      student: ['College', 'GradSchool', 'college', 'UniUK', 'ApplyingToCollege'],
+      books: ['books', 'suggestmeabook', 'booksuggestions', 'whatsthatbook', '52book'],
+      reading: ['books', 'audiobooks', 'kindle', 'bookclub'],
+      environment: ['environment', 'climate', 'sustainability', 'RenewableEnergy', 'ZeroWaste', 'electricvehicles'],
+      climate: ['climate', 'environment', 'RenewableEnergy', 'climatechange'],
+      energy: ['RenewableEnergy', 'solar', 'electricvehicles', 'Energy'],
       psychology: ['psychology', 'AskPsychology', 'cognitivepsychology', 'socialpsychology'],
-      history: ['history', 'AskHistorians', 'HistoryPorn', 'ArtHistory'],
-      philosophy: ['philosophy', 'askphilosophy', 'Ethics', 'Existentialism'],
-      law: ['LegalAdvice', 'law', 'Ask_Law', 'legaladviceofftopic'],
-      art: ['Art', 'DigitalArt', 'photography', 'Drawing', 'ArtCrit'],
-      diy: ['DIY', 'HowTo', 'LifeProTips', 'YouShouldKnow'],
-      sports: ['sports', 'nfl', 'nba', 'soccer', 'MMA', 'boxing'],
+      history: ['history', 'AskHistorians', 'HistoryPorn', 'ArtHistory', 'ancienthistory'],
+      philosophy: ['philosophy', 'askphilosophy', 'Ethics', 'Existentialism', 'Stoicism'],
+      law: ['LegalAdvice', 'law', 'Ask_Law', 'legaladviceofftopic', 'tax'],
+      art: ['Art', 'DigitalArt', 'photography', 'Drawing', 'ArtCrit', 'ArtStore'],
+      diy: ['DIY', 'HowTo', 'LifeProTips', 'YouShouldKnow', 'HomeImprovement'],
+      home: ['HomeImprovement', 'HomeAutomation', 'interiordesign', 'InteriorDesign', 'furniture'],
+      cars: ['cars', 'Cartalk', 'auto', 'whatcarshouldIbuy', 'carsales', 'ElectricVehicles'],
+      sports: ['sports', 'nfl', 'nba', 'soccer', 'MMA', 'boxing', 'CFB', 'formula1'],
       business: ['Entrepreneur', 'smallbusiness', 'startups', 'SideProject', 'indiehackers'],
-      cars: ['cars', 'Cartalk', 'auto', 'whatcarshouldIbuy'],
-      parenting: ['Parenting', 'daddit', 'mommit', 'BabyBumps'],
-      relationships: ['relationships', 'relationship_advice', 'dating', 'marriage'],
-      pets: ['pets', 'dogs', 'cats', 'parrots', 'fish'],
+      marketing: ['marketing', 'digital_marketing', 'SEO', 'socialmedia', 'dropship'],
+      parenting: ['Parenting', 'daddit', 'mommit', 'BabyBumps', 'toddlers'],
+      relationships: ['relationships', 'relationship_advice', 'dating', 'marriage', 'dating_advice'],
+      pets: ['pets', 'dogs', 'cats', 'parrots', 'fish', 'Reptiles'],
+      dog: ['dogs', 'DogAdvice', 'puppy101', 'reactivedogs'],
+      cat: ['cats', 'CatAdvice', 'CatsAreAssholes', 'kitten'],
+      music: ['Music', 'WeAreTheMusicMakers', 'guitar', 'piano', 'listentothis', 'spotify'],
+      movies: ['movies', 'moviecritic', 'NetflixBestOf', 'tipofmytongue', 'television', 'MovieDetails'],
+      tv: ['television', ' television', 'NetflixBestOf', 'HBOmax', 'DisneyPlus'],
+      photography: ['photography', 'AskPhotography', 'photo', 'itookapicture', 'photoshop'],
+      fashion: ['malefashionadvice', 'femalefashionadvice', 'sneakers', 'watches', 'frugalmalefashion'],
+      language: ['languagelearning', 'Spanish', 'french', 'German', 'Japanese', 'Korean', 'ChineseLanguage'],
+      space: ['space', 'spacex', 'nasa', 'astrophysics', 'astronomy'],
+      military: ['military', 'army', 'airforce', 'navy', 'USMC', 'veterans'],
+      legal: ['LegalAdvice', 'law', 'Ask_Law', 'legaladviceofftopic'],
+      housing: ['personalfinance', 'RealEstate', 'firsttimehomebuyer', 'apartments', 'roommates'],
+      apartment: ['apartments', 'InteriorDesign', 'furniture', 'HomeImprovement'],
+      wedding: ['wedding', 'weddingplanning', 'weddingsunder10k', 'WeddingsUnder10k'],
+      makeup: ['MakeupAddiction', 'SkincareAddiction', 'AsianBeauty', 'drugstoreMUA'],
+      skincare: ['SkincareAddiction', 'AsianBeauty', '30PlusSkinCare', 'acne'],
+      cleaning: ['CleaningTips', 'Organization', 'declutter'],
+      gardening: ['gardening', 'IndoorGarden', 'houseplants', 'vegetablegardening', 'Permaculture'],
+      vegan: ['vegan', 'VeganFood', 'veganrecipes', 'vegancirclejerk'],
+      coffee: ['coffee', 'espresso', 'roasting', 'FrenchPress'],
+      tea: ['tea', 'TeaPorn', 'puer', 'matcha'],
+      beer: ['beer', 'Homebrewing', 'craftbeer', 'BeerPorn'],
+      wine: ['wine', 'winemaking', 'WinePorn'],
     };
   }
 
@@ -62,9 +118,10 @@ class TopicAnalyzer {
 
     // Find matching subreddits from topic keyword map
     const topicLower = topic.toLowerCase();
+    const allWords = topicLower.split(/\s+/);
     const matchedSubs = new Set();
     for (const [key, subs] of Object.entries(this.topicSubredditMap)) {
-      if (topicLower.includes(key)) {
+      if (allWords.includes(key) || topicLower.includes(`${key} `) || topicLower.includes(` ${key}`)) {
         subs.forEach(s => matchedSubs.add(s));
       }
     }
