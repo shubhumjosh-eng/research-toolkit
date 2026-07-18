@@ -311,7 +311,7 @@ class PdfGenerator {
         <div class="cluster-card" data-searchable="${this.esc(cluster.name)}">
           <h4>${this.esc(cluster.name)} <span class="count">(${cluster.count} posts)</span></h4>
           <ul class="post-list">`;
-        for (const post of cluster.posts) {
+        for (const post of cluster.items) {
           html += `<li>${this.esc(post.title.substring(0, 80))}${post.title.length > 80 ? '...' : ''} <span class="badge badge-score">⬆ ${post.score}</span></li>`;
         }
         html += `</ul></div>`;
@@ -345,7 +345,7 @@ class PdfGenerator {
         html += `
         <div class="post-card" data-searchable="${this.esc(result.title || '')} ${this.esc(result.description || '')}">
           <h4>${this.esc(result.title || 'Untitled')}</h4>
-          <div class="meta"><span class="badge badge-web">WEB</span> ${this.esc(new URL(result.url).hostname)}</div>
+          <div class="meta"><span class="badge badge-web">WEB</span> ${this.esc(this.extractHostname(result.url))}</div>
           ${result.description ? `<div class="text">${this.esc(result.description.substring(0, 400))}${result.description.length > 400 ? '...' : ''}</div>` : ''}
           <div class="meta"><a href="${result.url}" target="_blank">Visit page →</a></div>
         </div>`;
@@ -497,6 +497,15 @@ class PdfGenerator {
     const max = 50;
     const pct = Math.min(Math.round((count / max) * 100), 100);
     return `<div class="bar-row"><div class="bar-label">${label}</div><div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div><div class="bar-value">${count}</div></div>`;
+  }
+
+  extractHostname(url) {
+    if (!url) return '';
+    try {
+      return new URL(url).hostname;
+    } catch {
+      return url.split('/')[2] || url.substring(0, 40);
+    }
   }
 
   esc(str) {
