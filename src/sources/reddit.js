@@ -1,7 +1,7 @@
 const axios = require('axios');
 const RateLimiter = require('../utils/rateLimiter');
 
-const limiter = new RateLimiter(0.5);
+const limiter = new RateLimiter(0.33);
 
 class RedditSearch {
   constructor() {
@@ -11,7 +11,8 @@ class RedditSearch {
   }
 
   async search(query, options = {}) {
-    const { maxResults = 25, subreddit = null, sort = 'relevance' } = options;
+    const { maxResults = 25, subreddit = null, sort = 'relevance', onLog } = options;
+    const log = onLog || (() => {});
 
     await limiter.wait();
 
@@ -44,10 +45,16 @@ class RedditSearch {
         topComments: [],
       }));
     } catch (error) {
-      if (error.response && error.response.status === 403) {
+      const status = error.response?.status;
+      if (status === 403) {
+        log('warn', `Reddit blocked (403): r/${subreddit || 'search'}`);
         throw new Error(`Reddit blocked (403): ${error.message}`);
+      } else if (status === 429) {
+        log('warn', `Reddit rate limited (429): r/${subreddit || 'search'}`);
+        throw error;
+      } else {
+        log('error', `Reddit search error: ${error.message}`);
       }
-      console.error('Reddit search error:', error.message);
       return [];
     }
   }
@@ -75,10 +82,12 @@ class RedditSearch {
         topComments: [],
       }));
     } catch (error) {
-      if (error.response && error.response.status === 403) {
+      const status = error.response?.status;
+      if (status === 403) {
         throw new Error(`Reddit blocked (403): ${error.message}`);
+      } else if (status === 429) {
+        throw error;
       }
-      console.error('Reddit fetch error:', error.message);
       return [];
     }
   }
@@ -109,7 +118,6 @@ class RedditSearch {
       if (error.response && error.response.status === 403) {
         throw new Error(`Reddit comments blocked (403): ${error.message}`);
       }
-      console.error('Reddit comments error:', error.message);
       return [];
     }
   }
