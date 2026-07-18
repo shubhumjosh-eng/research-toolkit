@@ -24,12 +24,12 @@ class RateLimiter {
     this.lastRequest = Date.now();
   }
 
-  async backoff() {
+  async backoff(log) {
     const base = this.minDelay * Math.pow(2, this.consecutive429s);
     const jitter = Math.random() * this.minDelay;
     const delay = Math.min(base + jitter, this.maxBackoffMs);
     this.consecutive429s++;
-    console.log(`   Backing off ${Math.round(delay / 1000)}s (attempt ${this.consecutive429s})`);
+    if (log) log('warn', `Backing off ${Math.round(delay / 1000)}s (attempt ${this.consecutive429s})`);
     await sleep(delay);
   }
 
@@ -37,7 +37,7 @@ class RateLimiter {
     this.consecutive429s = 0;
   }
 
-  async retryRequest(fn, maxRetries = 3) {
+  async retryRequest(fn, maxRetries = 3, log) {
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
         return await fn();
@@ -46,10 +46,10 @@ class RateLimiter {
           throw err;
         }
         if (err.response && err.response.status === 429) {
-          await this.backoff();
+          await this.backoff(log);
         } else {
           const delay = 1000 * attempt + Math.random() * 1000;
-          console.log(`   Transient error, retry ${attempt}/${maxRetries} in ${Math.round(delay / 1000)}s`);
+          if (log) log('warn', `Transient error, retry ${attempt}/${maxRetries} in ${Math.round(delay / 1000)}s`);
           await sleep(delay);
         }
       }
