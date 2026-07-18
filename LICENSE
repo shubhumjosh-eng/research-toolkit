@@ -1,0 +1,56 @@
+Business Source License 1.1
+
+Licensor: Research Toolkit Contributors
+Licensed Work: Research Toolkit
+Change Date: 2030-07-18
+Change License: Apache License, Version 2.0
+
+Copyright (c) 2026 Research Toolkit Contributors
+
+Terms and Conditions
+
+1. Definitions
+
+1.1 "Contributor" means each individual or legal entity that creates, contributes to the creation of, or owns the Licensed Work.
+
+1.2 "Licensor" means the entity that owns the Licensed Work.
+
+1.3 "Licensed Work" means the work of authorship, including the Source Code, whether or not accompanied by any compiled object code, whether or not included in a larger work.
+
+1.4 "Change Date" means the date the Licensed Work transitions from this License to the Change License.
+
+1.5 "Change License" means the Apache License, Version 2.0, as published by the Apache Software Foundation.
+
+1.6 "External Deployment" means the use, distribution, or communication of the Licensed Work in any way such that the Licensed Work may be used by anyone other than You, and those uses must be accomplished through means other than mere distribution of copies of the Licensed Work.
+
+2. Grant of Rights
+
+2.1 Copyright Grant. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, royalty-free, non-exclusive, irrevocable copyright license to reproduce, prepare derivative works of, publicly display, publicly perform, sublicense, and distribute the Licensed Work and such derivative works in Source and Object form.
+
+2.2 Patent Grant. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, royalty-free, non-exclusive, irrevocable patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Licensed Work, where such license applies only to those patent claims, both currently owned or controlled by the Contributor and acquired in the course of or in connection with the Licensed Work, that are necessarily infringed by the Licensed Work.
+
+3. Restrictions
+
+3.1 You may not sell, distribute, or make the Licensed Work available as a service to third parties (such as hosted or managed services, SaaS, or similar) until the Change Date. After the Change Date, You may do so under the Change License.
+
+3.2 You may not remove or alter any copyright, patent, trademark, or attribution notices from the Licensed Work.
+
+3.3 If You distribute the Licensed Work, You must include a copy of this License and all attribution notices.
+
+4. Trademarks
+
+This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor.
+
+5. Disclaimer of Warranty
+
+The Licensed Work is provided "AS IS" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+6. Limitation of Liability
+
+In no event shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Licensed Work.
+
+7. Acceptance of Warranty and Additional Terms
+
+By accepting the Licensed Work, You agree to comply with any additional terms, limitations, or restrictions imposed by the Licensor.
+
+After the Change Date, this License automatically transitions to the Change License (Apache License, Version 2.0). No action is required on Your part for this transition to occur.
