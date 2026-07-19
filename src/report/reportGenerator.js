@@ -7,7 +7,7 @@ class PdfGenerator {
   async generateResearchReport(data, outputPath) {
     await ensureDir(path.dirname(outputPath));
 
-    const { executiveSummary, clusters, sentiment, authorProfiles, redditAnalysis, youtubeAnalysis, newsAnalysis, webSearchAnalysis, metadata } = data;
+    const { executiveSummary, clusters, sentiment, authorProfiles, redditAnalysis, youtubeAnalysis, newsAnalysis, webSearchAnalysis, hackernewsAnalysis, blueskyAnalysis, discourseAnalysis, stackexchangeAnalysis, semanticScholarAnalysis, arxivAnalysis, metadata } = data;
 
     const sentimentData = sentiment || { positive: 0, negative: 0, neutral: 0, positivePct: 0, negativePct: 0, neutralPct: 0 };
     const clusterData = clusters || [];
@@ -151,6 +151,12 @@ class PdfGenerator {
         .badge-news { background: var(--green-bg); color: var(--green); }
         .badge-web { background: var(--blue-bg); color: var(--blue); }
         .badge-score { background: var(--blue-bg); color: var(--blue); }
+        .badge-hn { background: #FF660015; color: #FF6600; }
+        .badge-bluesky { background: #0085FF15; color: #0085FF; }
+        .badge-discourse { background: #0A0A0A15; color: #666; }
+        .badge-se { background: #F4802415; color: #F48024; }
+        .badge-ss { background: #1857B615; color: #1857B6; }
+        .badge-arxiv { background: #B31B1B15; color: #B31B1B; }
         .cluster-card {
             border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
             margin-bottom: 10px; background: var(--bg2);
@@ -204,6 +210,12 @@ class PdfGenerator {
             <li><a href="#reddit-section">Reddit Analysis (${metadata.redditPosts || 0} posts)</a></li>
             ${authorData.length > 0 ? '<li><a href="#author-section">Top Authors</a></li>' : ''}
             <li><a href="#youtube-section">YouTube Videos (${metadata.youtubeVideos || 0})</a></li>
+            <li><a href="#hn-section">Hacker News (${metadata.hackernewsStories || 0})</a></li>
+            <li><a href="#bluesky-section">Bluesky (${metadata.blueskyPosts || 0})</a></li>
+            <li><a href="#discourse-section">Discourse (${metadata.discourseTopics || 0})</a></li>
+            <li><a href="#se-section">Stack Exchange (${metadata.stackexchangeAnswers || 0})</a></li>
+            ${metadata.semanticScholarPapers ? '<li><a href="#ss-section">Semantic Scholar (' + metadata.semanticScholarPapers + ')</a></li>' : ''}
+            ${metadata.arxivPapers ? '<li><a href="#arxiv-section">arXiv (' + metadata.arxivPapers + ')</a></li>' : ''}
         </ul>
     </nav>
 
@@ -213,6 +225,10 @@ class PdfGenerator {
         <div class="stat-box"><div class="number">${metadata.newsArticles || 0}</div><div class="label">News</div></div>
         <div class="stat-box"><div class="number">${metadata.webSearchResults || 0}</div><div class="label">Web</div></div>
         <div class="stat-box"><div class="number">${metadata.youtubeVideos || 0}</div><div class="label">Videos</div></div>
+        <div class="stat-box"><div class="number">${metadata.hackernewsStories || 0}</div><div class="label">HN</div></div>
+        <div class="stat-box"><div class="number">${metadata.blueskyPosts || 0}</div><div class="label">Bluesky</div></div>
+        <div class="stat-box"><div class="number">${metadata.discourseTopics || 0}</div><div class="label">Discourse</div></div>
+        <div class="stat-box"><div class="number">${metadata.stackexchangeAnswers || 0}</div><div class="label">SE</div></div>
         <div class="stat-box"><div class="number">${metadata.duration}</div><div class="label">Time</div></div>
     </div>
 
@@ -224,6 +240,10 @@ class PdfGenerator {
                 ${this.sourceBar('News', metadata.newsArticles, 'news')}
                 ${this.sourceBar('Web', metadata.webSearchResults || 0, 'web')}
                 ${this.sourceBar('YouTube', metadata.youtubeVideos, 'youtube')}
+                ${this.sourceBar('HN', metadata.hackernewsStories || 0, 'news')}
+                ${this.sourceBar('Bluesky', metadata.blueskyPosts || 0, 'web')}
+                ${this.sourceBar('Discourse', metadata.discourseTopics || 0, 'reddit')}
+                ${this.sourceBar('SE', metadata.stackexchangeAnswers || 0, 'youtube')}
             </div>
         </div>
         <div class="chart-box">
@@ -295,7 +315,7 @@ class PdfGenerator {
         html += `
         <div class="post-card" data-searchable="${this.esc(web.title)}">
           <h4>${this.esc(web.title)}</h4>
-          <div class="meta"><span class="badge badge-web">WEB</span> ${this.esc(new URL(web.url).hostname)}</div>
+          <div class="meta"><span class="badge badge-web">WEB</span> ${this.esc(this.extractHostname(web.url))}</div>
           ${web.description ? `<div class="text">${this.esc(web.description.substring(0, 300))}${web.description.length > 300 ? '...' : ''}</div>` : ''}
           <div class="meta"><a href="${web.url}" target="_blank">Visit page →</a></div>
         </div>`;
@@ -425,6 +445,155 @@ class PdfGenerator {
               ${video.publishedAt ? ` · ${video.publishedAt}` : ''}
             </div>
             <div class="meta"><a href="${video.url}" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    // ── Hacker News Section ──
+    if (hackernewsAnalysis && hackernewsAnalysis.length > 0) {
+      html += `<div class="section" id="hn-section"><div class="section-header"><h2>Hacker News (${hackernewsAnalysis.length} stories)</h2>
+        <button class="collapse-btn" onclick="toggleSection('hn-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="hn-cards">`;
+      for (const story of hackernewsAnalysis) {
+        html += `
+        <div class="post-card" data-searchable="${this.esc(story.title || '')}">
+          <h4>${this.esc(story.title || 'Untitled')}</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            ${story.score ? `<span class="badge badge-score">⬆ ${story.score}</span>` : ''}
+            ${story.commentCount ? `💬 ${story.commentCount} comments` : ''}
+            ${story.author ? `· ${this.esc(story.author)}` : ''}
+            ${story.publishedAt ? `· ${formatDate(story.publishedAt)}` : ''}
+          </div>
+          <div class="meta">
+            <a href="${story.url || story.hackerNewsUrl || '#'}" target="_blank">${story.url ? 'Read article →' : 'View on HN →'}</a>
+            ${story.hackerNewsUrl && story.url ? ` · <a href="${story.hackerNewsUrl}" target="_blank">HN Discussion →</a>` : ''}
+          </div>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    // ── Bluesky Section ──
+    if (blueskyAnalysis && blueskyAnalysis.length > 0) {
+      html += `<div class="section" id="bluesky-section"><div class="section-header"><h2>Bluesky (${blueskyAnalysis.length} posts)</h2>
+        <button class="collapse-btn" onclick="toggleSection('bluesky-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="bluesky-cards">`;
+      for (const post of blueskyAnalysis) {
+        const sent = getSentiment(post.text || post.title || '');
+        const sentBadge = `<span class="sentiment-badge sentiment-${sent}">${sent}</span>`;
+        html += `
+        <div class="post-card" data-searchable="${this.esc(post.text || post.title || '')} ${this.esc(post.author || '')}">
+          <h4>${this.esc((post.text || post.title || 'No text').substring(0, 200))}${(post.text || post.title || '').length > 200 ? '...' : ''}</h4>
+          <div class="meta">
+            <span class="badge badge-bluesky">BLUESKY</span>
+            ${post.likeCount ? `❤ ${post.likeCount}` : ''}
+            ${post.repostCount ? ` · 🔁 ${post.repostCount}` : ''}
+            ${post.replyCount ? ` · 💬 ${post.replyCount}` : ''}
+            ${sentBadge}
+            · ${this.esc(post.author || 'unknown')}
+            ${post.publishedAt ? ` · ${formatDate(post.publishedAt)}` : ''}
+          </div>
+          ${post.text && post.text.length > 200 ? `<div class="text">${this.esc(post.text.substring(0, 400))}...</div>` : ''}
+          <div class="meta"><a href="${post.url || '#'}" target="_blank">View on Bluesky →</a></div>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    // ── Discourse Section ──
+    if (discourseAnalysis && discourseAnalysis.length > 0) {
+      html += `<div class="section" id="discourse-section"><div class="section-header"><h2>Discourse (${discourseAnalysis.length} topics)</h2>
+        <button class="collapse-btn" onclick="toggleSection('discourse-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="discourse-cards">`;
+      for (const topic of discourseAnalysis) {
+        html += `
+        <div class="post-card" data-searchable="${this.esc(topic.title || '')}">
+          <h4>${this.esc(topic.title || 'Untitled')}</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ ${topic.score || 0}</span>
+            💬 ${topic.postsCount || 0} posts
+            ${topic.views ? ` · 👁 ${topic.views} views` : ''}
+            ${topic.author ? ` · ${this.esc(topic.author)}` : ''}
+            ${topic.lastPostedAt ? ` · ${formatDate(topic.lastPostedAt)}` : ''}
+          </div>
+          ${topic.blurb ? `<div class="text">${this.esc(topic.blurb.substring(0, 400))}${topic.blurb.length > 400 ? '...' : ''}</div>` : ''}
+          <div class="meta"><a href="${topic.url || '#'}" target="_blank">View topic →</a></div>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    // ── Stack Exchange Section ──
+    if (stackexchangeAnalysis && stackexchangeAnalysis.length > 0) {
+      html += `<div class="section" id="se-section"><div class="section-header"><h2>Stack Exchange (${stackexchangeAnalysis.length} questions)</h2>
+        <button class="collapse-btn" onclick="toggleSection('se-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="se-cards">`;
+      for (const q of stackexchangeAnalysis) {
+        html += `
+        <div class="post-card" data-searchable="${this.esc(q.title || '')}">
+          <h4>${this.esc(q.title || 'Untitled')}</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ ${q.score || 0}</span>
+            💬 ${q.answerCount || 0} answers
+            ${q.views ? ` · 👁 ${q.views} views` : ''}
+            ${q.accepted ? ' · ✅ Accepted' : ''}
+            ${q.author ? ` · ${this.esc(q.author)}` : ''}
+          </div>
+          ${q.tags && q.tags.length > 0 ? `<div class="meta" style="margin-top:5px;">${q.tags.map(t => '<span class="badge badge-web" style="margin-right:3px;">' + this.esc(t) + '</span>').join('')}</div>` : ''}
+          ${q.body ? `<div class="text">${this.esc(q.body.substring(0, 400))}${q.body.length > 400 ? '...' : ''}</div>` : ''}
+          <div class="meta"><a href="${q.url || '#'}" target="_blank">View on SE →</a></div>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    // ── Semantic Scholar Section ──
+    if (semanticScholarAnalysis && semanticScholarAnalysis.length > 0) {
+      html += `<div class="section" id="ss-section"><div class="section-header"><h2>Semantic Scholar (${semanticScholarAnalysis.length} papers)</h2>
+        <button class="collapse-btn" onclick="toggleSection('ss-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="ss-cards">`;
+      for (const paper of semanticScholarAnalysis) {
+        html += `
+        <div class="post-card" data-searchable="${this.esc(paper.title || '')} ${this.esc(paper.authors || '')}">
+          <h4>${this.esc(paper.title || 'Untitled')}</h4>
+          <div class="meta">
+            <span class="badge badge-ss">SEMANTIC SCHOLAR</span>
+            ${paper.citationCount ? `📚 ${paper.citationCount} citations` : ''}
+            ${paper.year ? ` · ${paper.year}` : ''}
+            ${paper.influenceCount ? ` · ⭐ ${paper.influenceCount} influential` : ''}
+          </div>
+          <div class="meta">${this.esc(paper.authors || 'Unknown authors')}</div>
+          ${paper.abstract ? `<div class="text">${this.esc(paper.abstract.substring(0, 400))}${paper.abstract.length > 400 ? '...' : ''}</div>` : ''}
+          <div class="meta"><a href="${paper.url || '#'}" target="_blank">View paper →</a></div>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    // ── arXiv Section ──
+    if (arxivAnalysis && arxivAnalysis.length > 0) {
+      html += `<div class="section" id="arxiv-section"><div class="section-header"><h2>arXiv (${arxivAnalysis.length} papers)</h2>
+        <button class="collapse-btn" onclick="toggleSection('arxiv-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="arxiv-cards">`;
+      for (const paper of arxivAnalysis) {
+        html += `
+        <div class="post-card" data-searchable="${this.esc(paper.title || '')} ${this.esc((paper.authors || []).join(', '))}">
+          <h4>${this.esc(paper.title || 'Untitled')}</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            ${paper.published ? `· ${paper.published.split('T')[0]}` : ''}
+          </div>
+          <div class="meta">${this.esc((paper.authors || []).join(', ') || 'Unknown authors')}</div>
+          ${paper.categories && paper.categories.length > 0 ? `<div class="meta" style="margin-top:5px;">${paper.categories.slice(0, 5).map(c => '<span class="badge badge-arxiv" style="margin-right:3px;">' + this.esc(c) + '</span>').join('')}</div>` : ''}
+          ${paper.summary ? `<div class="text">${this.esc(paper.summary.substring(0, 400))}${paper.summary.length > 400 ? '...' : ''}</div>` : ''}
+          <div class="meta">
+            <a href="${paper.url || '#'}" target="_blank">View abstract →</a>
+            ${paper.pdfUrl ? ` · <a href="${paper.pdfUrl}" target="_blank">PDF →</a>` : ''}
           </div>
         </div>`;
       }
