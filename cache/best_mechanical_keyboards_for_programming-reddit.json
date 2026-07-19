@@ -1,9 +1,70 @@
 {
-  "timestamp": 1784392014665,
+  "timestamp": 1784436441524,
   "topic": "best mechanical keyboards for programming",
   "source": "reddit",
-  "count": 5,
+  "count": 6,
   "data": [
+    {
+      "id": "1pyzjbe",
+      "title": "UHK 60 v2 - Split Keyboard Review",
+      "text": "I have been using the Ultimate Hacking Keyboard 60 v2 for about 10 months now and I figure I owe them a full review.\n\n10/10 This is the best designed product I have ever owned, full stop.\n\nIt feels like every feature is executed as well as I could have hoped for, it is truly a pleasure to use. Note that I am not a mechanical keyboard aficionado, prior to this I owned the Kinesis Freestyle Pro and was not satisfied with it, and I tried out a bunch of coworkers' keyboards/got their opinions when deciding on the UHK. Despite not having any passion for keyboards, I now have the irrational urge to show off my keyboard to anyone who will listen.\n\n**Price:** Big drawback, very pricey. Setup pictured (keyboard, wooden palm rests, keypad module, trackpad module) is currently $650 including shipping to the US (shipping is DHL express, extraordinarily quick but adds a lot to cost.)\n\nThe most basic setup I would personally buy (keyboard + palm rests) is $500, again including shipping to the US.\n\nThose quoted prices are with recent price hikes, it looks like since I bought everything has been hiked about 15%, which is the current US general tariff for Hungary (where the boards are designed and assembled.) Not sure how DHL or whoever is importer of record would assess the tariff, possibly this is just general cost increase or possibly they are rolling in tariff cost for a mostly US consumer base. Not sure.\n\n**Basic Features:**\n\n* Split keyboard, but you can just slide the two halves together and it is seamlessly starts communicating over that connection, so you can have a compact and aesthetically clean keyboard that instantly transforms into a split keyboard.\n* Hot swappable switches\n* Extensive and intuitive key programming software that works on Windows, Mac, and Linux.\n* Default keys are high quality and shine-through, so you can take full advantage of the per-key fully programmable RGB lighting.\n* Default tenting is minor but sufficient for me and very quick and easy to add/modify/remove.\n* Great hardware addons. Beech wood palm rests are comfortable and attractive, the key cluster module has mouse buttons and minor scroll wheel, they also have more intense risers for granular and dramatic angle adjustment, a lenovo-style trackpoint module, and more choices.\n\n**What I Like:** As I opened with, I think this is just a sublime example of design, merging form and function. Here's a little more about how that affects the experience\n\n* Programmability - The software is a dream. Most simple remappings/key combo macros are a couple clicks, very intuitive to setup a single keyboard layout or change multiple at once. Also simple to switch between layouts, or program different ways to switch between them. The LED screen at the top can broadcast the 3 letter name of the layout by default, but you can also write to it in macros to give you feedback on what's happening there. Per-key RGB is set up by default in a useful way, color coded by key function (modifier, macro",
+      "score": 15,
+      "numComments": 8,
+      "subreddit": "MechanicalKeyboards",
+      "author": "aboardreading",
+      "url": "https://www.reddit.com/r/MechanicalKeyboards/comments/1pyzjbe",
+      "created": "2025-12-29T21:59:10.000Z",
+      "topComments": [
+        {
+          "author": "aboardreading",
+          "text": "Genuinely curious if maybe you're experiencing a display issue.",
+          "score": 1,
+          "created": "2025-12-30T16:48:26.000Z"
+        },
+        {
+          "author": "flembag",
+          "text": "I hate that this board didn't come with a return key so you could split into paragraphs.",
+          "score": 1,
+          "created": "2025-12-30T15:23:45.000Z"
+        },
+        {
+          "author": "aboardreading",
+          "text": "No work was done by me, I just felt like not enough people talk about these guys and I think they're making incredible keyboards. \n\nI want them to be around in 10 years when I want to replace this one and that means people need to hear about them.",
+          "score": 1,
+          "created": "2025-12-30T07:35:35.000Z"
+        },
+        {
+          "author": "Ok_Crazy_4960",
+          "text": "i thought the keyboard got smashed in half bro, well done nice work",
+          "score": 1,
+          "created": "2025-12-30T07:17:17.000Z"
+        },
+        {
+          "author": "aboardreading",
+          "text": "Yeah I'm quite satisfied with the keycaps it comes with, and I know this has posed some difficulty for people, but I have seen multiple people who have successfully fit MT3 caps to the board, not sure how much trouble they went through to do so.",
+          "score": 1,
+          "created": "2025-12-30T00:45:57.000Z"
+        },
+        {
+          "author": "AutoModerator",
+          "text": "If you are posting a Review, Make sure you fully disclose any potential conflicts of interest such as whether you were sponsored for the product, received it for free, or sell similar products. \n\nGuide posts should be novel to contribute to the community knowledge base - simple build / assembly videos should use photos flair, and reviews should use the review flair.  \n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MechanicalKeyboards) if you have any questions or concerns.*",
+          "score": 1,
+          "created": "2025-12-30T00:33:46.000Z"
+        },
+        {
+          "author": "FansForFlorida",
+          "text": "Another drawback is that it has nonstandard keycap sizes; they shortened all the keys on the right column by 0.5u. I assume they did to keep the two halves symmetrical, but this means that you are going to have a hard time finding replacement keycaps for it that match the row heights and are not mislabeled. You can order custom keycaps for the UHK from https://yuzukeycaps.com, but you are limited to either Cherry or KAM profile. You are out of luck if you want any other keycap profile like MTNU, DSS, MDA, or MT3.",
+          "score": 1,
+          "created": "2025-12-29T23:47:16.000Z"
+        },
+        {
+          "author": "AutoModerator",
+          "text": "Please check if your post is a help request. \n\nAs per the rules, \"Help requests, keyboard buying advice, and simple questions must be posted in the daily post stickied to the top of the subreddit or it will be removed without explanation.\"\n\nPlease post the question [here.](https://www.reddit.com/r/MechanicalKeyboards/about/sticky)\n\nHistorical and current daily help threads can be found [here](https://www.reddit.com/r/MechanicalKeyboards/collection/e165f7df-8d98-4f14-88dd-94a278c5b553)\n\nIf this message was in error, please report this comment or send a modmail with a link to your post for manual approval.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MechanicalKeyboards) if you have any questions or concerns.*",
+          "score": 1,
+          "created": "2025-12-29T21:59:12.000Z"
+        }
+      ]
+    },
     {
       "id": "1uyyplx",
       "title": "AULA F99 (Flame Purple) vs Ajazz AK980 V2 vs Redragon - Which one?",
