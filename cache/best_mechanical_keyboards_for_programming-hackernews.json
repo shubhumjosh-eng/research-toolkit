@@ -1,8 +1,8 @@
 {
-  "timestamp": 1784436461382,
+  "timestamp": 1784439043593,
   "topic": "best mechanical keyboards for programming",
   "source": "hackernews",
-  "count": 4,
+  "count": 3,
   "data": [
     {
       "id": "12833415",
@@ -94,25 +94,6 @@
       "source": "hackernews",
       "sourceUrl": "https://news.ycombinator.com/item?id=1597904",
       "topComments": []
-    },
-    {
-      "id": "20503135",
-      "title": "Ask HN: What's the best way to get tagged training data for NLP",
-      "text": "I&#x27;m looking to have technical keywords tagged such as programming languages, frameworks, etc. I would use mechanical turk, but since this data is very technical, I&#x27;m not sure the turks would be able to do it properly?<p>I was thinking about making a game and having technical recruiters tag words for the system. Thoughts?",
-      "url": "https://news.ycombinator.com/item?id=20503135",
-      "author": "mrburton",
-      "score": 1,
-      "numComments": 2,
-      "created": "2019-07-22T23:10:40Z",
-      "source": "hackernews",
-      "sourceUrl": "https://news.ycombinator.com/item?id=20503135",
-      "topComments": [
-        {
-          "author": "PaulHoule",
-          "text": "You might be able to tag enough samples yourself, particularly if you use transfer learning, data augmentation and focus effort on the hard cases.",
-          "score": 0
-        }
-      ]
     }
   ]
 }
