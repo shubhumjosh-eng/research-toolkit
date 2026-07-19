@@ -45,6 +45,9 @@ class Cache {
   async set(topic, source, data) {
     if (!this.enabled || !data || data.length === 0) return;
 
+    const hasContent = data.some(item => item.text && item.text.trim().length > 0);
+    if (!hasContent) return;
+
     await ensureDir(CACHE_DIR);
     const filePath = this.getKey(topic, source);
 
