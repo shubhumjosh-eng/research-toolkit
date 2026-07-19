@@ -3,7 +3,7 @@ const { sleep } = require('./helpers');
 function isTransient(err) {
   if (!err) return false;
   if (err.code && ['ECONNRESET', 'ETIMEDOUT', 'ECONNREFUSED', 'ENOTFOUND'].includes(err.code)) return true;
-  if (err.response && [500, 502, 503, 504].includes(err.response.status)) return true;
+  if (err.response && [422, 500, 502, 503, 504].includes(err.response.status)) return true;
   return false;
 }
 
