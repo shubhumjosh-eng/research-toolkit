@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report: climate change solutions 2025</title>
+    <style>
+        :root {
+            --bg: #ffffff; --bg2: #f8f9fa; --bg3: #f0f0f0;
+            --text: #333333; --text2: #666666; --text3: #888888;
+            --accent: #1a73e8; --accent2: #e3f2fd;
+            --border: #e0e0e0; --border2: #d0d0d0;
+            --red: #c62828; --red-bg: #fce4ec;
+            --green: #2e7d32; --green-bg: #e8f5e9;
+            --blue: #1565c0; --blue-bg: #e3f2fd;
+            --purple: #7b1fa2; --purple-bg: #f3e5f5;
+            --yellow: #f57f17; --yellow-bg: #fff8e1;
+            --shadow: rgba(0,0,0,0.06);
+        }
+        .dark {
+            --bg: #1a1a2e; --bg2: #16213e; --bg3: #0f3460;
+            --text: #e0e0e0; --text2: #b0b0b0; --text3: #808080;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --border2: #3a3a5a;
+            --red: #ef9a9a; --red-bg: #3e2723;
+            --green: #a5d6a7; --green-bg: #1b5e20;
+            --blue: #90caf9; --blue-bg: #0d47a1;
+            --purple: #ce93d8; --purple-bg: #4a148c;
+            --yellow: #fff176; --yellow-bg: #f57f17;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--text); background: var(--bg);
+            max-width: 1000px; margin: 0 auto; padding: 40px 20px;
+        }
+        .dark body, body.dark { background: var(--bg); color: var(--text); }
+        h1 { color: var(--text); border-bottom: 3px solid var(--accent); padding-bottom: 12px; margin-bottom: 10px; font-size: 2.2em; }
+        h2 { color: var(--accent); margin-top: 40px; margin-bottom: 15px; font-size: 1.6em; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        h3 { color: var(--text); margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .subtitle { color: var(--text2); font-size: 1.1em; margin-bottom: 25px; }
+        .toolbar { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; align-items: center; }
+        .toolbar button {
+            padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); cursor: pointer; font-size: 0.85em;
+        }
+        .toolbar button:hover { background: var(--accent2); border-color: var(--accent); }
+        .toolbar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        #searchBox {
+            padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); font-size: 0.9em; width: 220px;
+        }
+        .toc {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; margin: 20px 0;
+        }
+        .toc h3 { margin-top: 0; color: var(--accent); font-size: 1em; text-transform: uppercase; letter-spacing: 1px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin: 6px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 0.95em; }
+        .toc a:hover { color: var(--accent); text-decoration: underline; }
+        .toc a::before { content: '→ '; color: var(--accent); }
+        .stats-bar { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .stat-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; min-width: 130px; text-align: center; flex: 1;
+        }
+        .stat-box .number { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+        .stat-box .label { font-size: 0.82em; color: var(--text2); margin-top: 2px; }
+        .charts-row { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .chart-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; flex: 1; min-width: 280px;
+        }
+        .chart-box h4 { font-size: 0.9em; color: var(--text2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+        .bar-label { width: 110px; font-size: 0.85em; color: var(--text2); text-align: right; }
+        .bar-track { flex: 1; height: 20px; background: var(--bg3); border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .bar-fill.positive { background: var(--green); }
+        .bar-fill.negative { background: var(--red); }
+        .bar-fill.neutral { background: var(--yellow); }
+        .bar-fill.reddit { background: var(--red); }
+        .bar-fill.news { background: var(--green); }
+        .bar-fill.web { background: var(--blue); }
+        .bar-fill.youtube { background: var(--purple); }
+        .bar-value { width: 40px; font-size: 0.85em; color: var(--text2); }
+        .sentiment-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.75em; font-weight: bold; margin-left: 5px;
+        }
+        .sentiment-positive { background: var(--green-bg); color: var(--green); }
+        .sentiment-negative { background: var(--red-bg); color: var(--red); }
+        .sentiment-neutral { background: var(--yellow-bg); color: var(--yellow); }
+        .section { margin-bottom: 40px; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .section-header h2 { margin: 0; border: none; padding: 0; }
+        .collapse-btn {
+            padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+            background: var(--bg2); color: var(--text2); cursor: pointer; font-size: 0.75em;
+        }
+        .collapse-btn:hover { background: var(--accent2); }
+        .post-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); transition: all 0.2s;
+        }
+        .post-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px var(--shadow); }
+        .post-card.highlight { border-left: 4px solid var(--accent); background: var(--accent2); }
+        .post-card h4 { color: var(--text); margin-bottom: 5px; font-size: 1.05em; }
+        .post-card .text { color: var(--text2); font-size: 0.93em; margin: 8px 0; }
+        .post-card .meta { color: var(--text3); font-size: 0.85em; }
+        .post-card a { color: var(--accent); text-decoration: none; }
+        .post-card a:hover { text-decoration: underline; }
+        .comment-card {
+            margin: 8px 0 8px 20px; padding: 10px 15px; background: var(--bg);
+            border-left: 3px solid var(--border); border-radius: 0 6px 6px 0;
+        }
+        .comment-card .author { color: var(--text3); font-size: 0.85em; }
+        .comment-card .text { color: var(--text); font-size: 0.93em; margin: 5px 0; }
+        .comment-card .score { color: var(--accent); font-size: 0.85em; font-weight: bold; }
+        .video-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); display: flex; gap: 15px;
+        }
+        .video-card .thumb { width: 160px; min-width: 120px; }
+        .video-card .thumb img { width: 100%; border-radius: 6px; }
+        .video-card .info { flex: 1; }
+        .video-card h4 { color: var(--text); margin-bottom: 5px; }
+        .video-card .channel { color: var(--text2); font-size: 0.9em; }
+        .video-card .meta { color: var(--text3); font-size: 0.85em; margin-top: 5px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 5px; }
+        .badge-reddit { background: var(--red-bg); color: var(--red); }
+        .badge-youtube { background: var(--purple-bg); color: var(--purple); }
+        .badge-news { background: var(--green-bg); color: var(--green); }
+        .badge-web { background: var(--blue-bg); color: var(--blue); }
+        .badge-score { background: var(--blue-bg); color: var(--blue); }
+        .cluster-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2);
+        }
+        .cluster-card h4 { color: var(--accent); font-size: 1em; margin-bottom: 4px; }
+        .cluster-card .count { color: var(--text3); font-size: 0.85em; }
+        .cluster-card .post-list { margin-top: 8px; font-size: 0.9em; color: var(--text2); }
+        .cluster-card .post-list li { margin: 3px 0; }
+        .author-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center;
+        }
+        .author-card .name { font-weight: bold; color: var(--accent); }
+        .author-card .stats { color: var(--text3); font-size: 0.85em; }
+        .collapsible-content { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible-content.collapsed { max-height: 0; }
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; text-align: center; }
+        @media print {
+            .toolbar, .toc, .collapse-btn { display: none !important; }
+            .collapsible-content { max-height: none !important; }
+            body { padding: 0; background: #fff; color: #333; }
+            .post-card, .video-card, .comment-card { page-break-inside: avoid; }
+        }
+        @media (max-width: 600px) {
+            .stats-bar { flex-direction: column; }
+            .charts-row { flex-direction: column; }
+            .video-card { flex-direction: column; }
+            .video-card .thumb { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p class="subtitle">"climate change solutions 2025" &mdash; July 19, 2026</p>
+
+    <div class="toolbar">
+        <button onclick="toggleDark()" id="darkBtn">Dark Mode</button>
+        <button onclick="expandAll()">Expand All</button>
+        <button onclick="collapseAll()">Collapse All</button>
+        <button onclick="window.print()">Export PDF</button>
+        <input type="text" id="searchBox" placeholder="Search report..." oninput="filterCards(this.value)">
+    </div>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#topic-clusters">Topic Clusters</a></li>
+            <li><a href="#news-section">News Articles (50)</a></li>
+            <li><a href="#web-section">Web Results (30)</a></li>
+            <li><a href="#reddit-section">Reddit Analysis (1 posts)</a></li>
+            <li><a href="#author-section">Top Authors</a></li>
+            <li><a href="#youtube-section">YouTube Videos (95)</a></li>
+        </ul>
+    </nav>
+
+    <div class="stats-bar">
+        <div class="stat-box"><div class="number">1</div><div class="label">Reddit Posts</div></div>
+        <div class="stat-box"><div class="number">16</div><div class="label">Comments</div></div>
+        <div class="stat-box"><div class="number">50</div><div class="label">News</div></div>
+        <div class="stat-box"><div class="number">30</div><div class="label">Web</div></div>
+        <div class="stat-box"><div class="number">95</div><div class="label">Videos</div></div>
+        <div class="stat-box"><div class="number">0m 53s</div><div class="label">Time</div></div>
+    </div>
+
+    <div class="charts-row">
+        <div class="chart-box">
+            <h4>Source Breakdown</h4>
+            <div class="bar-chart">
+                <div class="bar-row"><div class="bar-label">Reddit</div><div class="bar-track"><div class="bar-fill reddit" style="width:2%"></div></div><div class="bar-value">1</div></div>
+                <div class="bar-row"><div class="bar-label">News</div><div class="bar-track"><div class="bar-fill news" style="width:100%"></div></div><div class="bar-value">50</div></div>
+                <div class="bar-row"><div class="bar-label">Web</div><div class="bar-track"><div class="bar-fill web" style="width:60%"></div></div><div class="bar-value">30</div></div>
+                <div class="bar-row"><div class="bar-label">YouTube</div><div class="bar-track"><div class="bar-fill youtube" style="width:100%"></div></div><div class="bar-value">95</div></div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Reddit Sentiment</h4>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Positive</div>
+                    <div class="bar-track"><div class="bar-fill positive" style="width:100%"></div></div>
+                    <div class="bar-value">100%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Neutral</div>
+                    <div class="bar-track"><div class="bar-fill neutral" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Negative</div>
+                    <div class="bar-track"><div class="bar-fill negative" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="section" id="executive-summary"><div class="section-header"><h2>Executive Summary</h2></div><h3>Top Reddit Discussions</h3>
+        <div class="post-card highlight" data-searchable="Las Vegas is embracing a simple climate solution: More trees">
+          <h4>Las Vegas is embracing a simple climate solution: More trees </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 162</span> <span class="badge badge-reddit">r/</span> 💬 139 comments · <a href="https://www.npr.org/2025/06/09/nx-s1-5340363/las-vegas-climate-change-solution-trees" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Computer Models of Civilization Offer Routes to Ending Global Warming">
+          <h4>Computer Models of Civilization Offer Routes to Ending Global Warming </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 42</span> <span class="badge badge-reddit">r/</span> 💬 25 comments · <a href="https://www.npr.org/2021/08/14/1027370891/climate-change-solutions-global-warming-computer-models-paris" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Copenhagen is adapting to a warmer world with rain tunnels and &#039;sponge parks&#039;">
+          <h4>Copenhagen is adapting to a warmer world with rain tunnels and &#039;sponge parks&#039; </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 25</span> <span class="badge badge-reddit">r/</span> 💬 1 comments · <a href="https://www.npr.org/2025/06/13/nx-s1-5340710/copenhagen-climate-change-solutions-flooding" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Ask HN: Who is at the forefront of fighting climate change?">
+          <h4>Ask HN: Who is at the forefront of fighting climate change? </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 11</span> <span class="badge badge-reddit">r/</span> 💬 10 comments · <a href="https://news.ycombinator.com/item?id=35837729" target="_blank">View →</a></div>
+        </div><h3 style="margin-top:20px;">Top Insights</h3>
+        <div class="comment-card" data-searchable="Should have done that 40 years ago.Sacramento planted 2.2M trees since 1975 and cooler than historical data (still reaches 90s and 100s)">
+          <div class="text">"Should have done that 40 years ago.Sacramento planted 2.2M trees since 1975 and cooler than historical data (still reaches 90s and 100s)" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by egberts1 in: Las Vegas is embracing a simple climate solution: More trees</div>
+        </div>
+        <div class="comment-card" data-searchable="This should have been a precondition for land development.">
+          <div class="text">"This should have been a precondition for land development." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by cosmicgadget in: Las Vegas is embracing a simple climate solution: More trees</div>
+        </div>
+        <div class="comment-card" data-searchable="In Texas, local governments plant trees all the time. The problem is that they don&amp;#x27;t water them and they die.">
+          <div class="text">"In Texas, local governments plant trees all the time. The problem is that they don&amp;#x27;t water them and they die." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by jmugan in: Las Vegas is embracing a simple climate solution: More trees</div>
+        </div>
+        <div class="comment-card" data-searchable="BBC - Climate change: Planting new forests &amp;#x27;can do more harm than good&amp;#x27;- https:&amp;#x2F;&amp;#x2F;www.bbc.com&amp;#x2F;news&amp;#x2F;science-environment-53138178">
+          <div class="text">"BBC - Climate change: Planting new forests &amp;#x27;can do more harm than good&amp;#x27;- https:&amp;#x2F;&amp;#x2F;www.bbc.com&amp;#x2F;news&amp;#x2F;science-environment-53138178" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by litbear2022 in: Las Vegas is embracing a simple climate solution: More trees</div>
+        </div>
+        <div class="comment-card" data-searchable="Best A&amp;#x2F;C I&amp;#x27;ve ever had was a huge tree that put our house in Mountain View in permanent shade!It&amp;#x27;s always better - if possible - to stop something from happening than to try to counteract it afterwards.">
+          <div class="text">"Best A&amp;#x2F;C I&amp;#x27;ve ever had was a huge tree that put our house in Mountain View in permanent shade!It&amp;#x27;s always better - if possible - to stop something from happening than to try to counteract it afterwards." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by BurningFrog in: Las Vegas is embracing a simple climate solution: More trees</div>
+        </div>
+        <div class="comment-card" data-searchable="Probably obvious to most people, but for the other dippers like me, this is about Copenhagen the city, not cope the smokeless tobacco">
+          <div class="text">"Probably obvious to most people, but for the other dippers like me, this is about Copenhagen the city, not cope the smokeless tobacco" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by freedomben in: Copenhagen is adapting to a warmer world with rain tunnels and &#039;sponge parks&#039;</div>
+        </div>
+        <div class="comment-card" data-searchable="I suppose that each of these gentlemen must be thinking -- if they know of this post -- &amp;quot;Well, man, when you become a billionaire, you can decide how to use your money. But in the meantime...&amp;quot;">
+          <div class="text">"I suppose that each of these gentlemen must be thinking -- if they know of this post -- &amp;quot;Well, man, when you become a billionaire, you can decide how to use your money. But in the meantime...&amp;quot;" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by pmdulaney in: Open Letter to Elon Musk, Bill Gates, Jeff Bezos</div>
+        </div>
+        <div class="comment-card" data-searchable="While I don&amp;#x27;t doubt that there are indeed pathways to countering (most of) climate change, it seems like a very weird idea to try and predict more than 40 years into the future when we can&amp;#x27;t predict basic input parameters like oil demand even three months in advance. (OTOH, scientists are ">
+          <div class="text">"While I don&amp;#x27;t doubt that there are indeed pathways to countering (most of) climate change, it seems like a very weird idea to try and predict more than 40 years into the future when we can&amp;#x27;t predict basic input parameters like oil demand even three months in advance. (OTOH, scientists are " </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by WJW in: Computer Models of Civilization Offer Routes to Ending Global Warming</div>
+        </div>
+        <div class="comment-card" data-searchable="&amp;gt; Then the scientists force their virtual worlds to change courseI think this is where the exercise fails. Yes, if we change course we can do a lot of different things that may work. The problem isn’t that we don’t have any options, it’s that we can’t convince society to change course in the firs">
+          <div class="text">"&amp;gt; Then the scientists force their virtual worlds to change courseI think this is where the exercise fails. Yes, if we change course we can do a lot of different things that may work. The problem isn’t that we don’t have any options, it’s that we can’t convince society to change course in the firs" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by ModernMech in: Computer Models of Civilization Offer Routes to Ending Global Warming</div>
+        </div>
+        <div class="comment-card" data-searchable="The way out of climate change will be carbon-capture technology.  No developing country is going to stop developing because the west became too decadent.  The US isn&amp;#x27;t going to relinquish their position of power.  China and India won&amp;#x27;t stop.  It&amp;#x27;s simple game theory - no one will risk">
+          <div class="text">"The way out of climate change will be carbon-capture technology.  No developing country is going to stop developing because the west became too decadent.  The US isn&amp;#x27;t going to relinquish their position of power.  China and India won&amp;#x27;t stop.  It&amp;#x27;s simple game theory - no one will risk" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by Mikeb85 in: Computer Models of Civilization Offer Routes to Ending Global Warming</div>
+        </div><h3 style="margin-top:20px;">Top News Coverage</h3>
+        <div class="post-card" data-searchable="Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver - United Nations Sustainable Development Group">
+          <h4>Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver - United Nations Sustainable Development Group</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> United Nations Sustainable Development Group · September 26, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPTC1yWWw3QmVLaUZub0luTmVnWkxVU2ROOGhHQ1IyVXRaQU1OWEZFT0RBQXdQRHBCRXFDMFhKRGh5bWkyWDBlMTZBaENYT1lYZDIxMVNvU0hSRFcwSnhuNDZRdVYtNGdHTW16d19OYmVxdHU2bkR2MnlsaTJBQUl1YnhxZF9YdkExS0swY0VUSURWaDRXV0VYWHdn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="NYCERS Annual Climate Report FY2025 - NYC.gov">
+          <h4>NYCERS Annual Climate Report FY2025 - NYC.gov</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> NYC.gov · April 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5BTlNHSHMxMHRZOGVJZkZhdXJPTlpJV1p5dngxWHI4NWtNc3lFdkJtdVhqdkhHdVlJYlhQZnVyMTNsck5tdnY1OW96T1NpMFV1bUx3M2VsdWtYN2dLcVJaVlRRUkNLZk01SEFIcWJZRFg2WFV2bVhmTnZyTlc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World-leading economy and climate solutions: California’s emissions drop in 2023, driven by clean transportation - California State Portal | CA.gov">
+          <h4>World-leading economy and climate solutions: California’s emissions drop in 2023, driven by clean transportation - California State Portal | CA.gov</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> California State Portal | CA.gov · November 6, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOWWtLYzNFZ3k2bVlvYmY3OXRURHc0dUJtQ1YwSURDa1gxMjVHNjctT2MtMklua2ZfUjdOTFNZVGdHNVl0R3dOX2RzeHZ3b1gwcldlUk5XcUhrQWlUV0lQX0taT2RKS2xMWjBvSFVrWGdSU3JwS2dDeUwwOFY2YzRlakR6NjU0V01fdXljNjkxR2NEdk1CWDdfbnZUN2F3VnpGVFNtR2hKQ2FzekZGa3o4YmZOWk9YZGkybzVSdFN2UTB3XzQySzNtX3ZBNlBXUjNzQndWaWw2VW5vY01f?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Growing Low Carbon Solutions - Exxon Mobil Corporation">
+          <h4>Growing Low Carbon Solutions - Exxon Mobil Corporation</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Exxon Mobil Corporation · May 5, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOU0VjRzlic3p3aVg1RV9XTHRMR1Jscm9oYWdXUXFPelp1NGkxNlhfME8xaUxkejRXT210LXpQRkpLXzVsNTlSaGxyZGR4UkVlbDE2TU1RRC1PaU1FNWppTWI0ems2T3NqOE45TmZsRTdjUjFuQ1ZCalFtOFAxNXBSTUg5REFldGV6QXRVdEZOMlJDMmVodVBNeTB6NEZiNFQzSENfaA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Planetary health: 10 emerging technology solutions - The World Economic Forum">
+          <h4>Planetary health: 10 emerging technology solutions - The World Economic Forum</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The World Economic Forum · October 15, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPZldpYXBvX0dCR2szcUdoTHJIZTE5dnA5XzAxM0dFQUU5enFxMllXUWthYkFrR3ZLZDdYaVBodEV1ck8wT3RXaG1oN21BZlJqY2dBVG9YMkh1c0JrLUpQS3M4ZE5rczNfeGdTT1EzQUF6Q0VnQWo1U0xYRUg1ajFMVTlMLWh0bS1idFNsQUk0U1ZtdFE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Climate change wrapped: The top five Texas climate moments of 2025 - Environment America">
+          <h4>Climate change wrapped: The top five Texas climate moments of 2025 - Environment America</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Environment America · February 2, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRVdVNTkxekZLNkJHbFFpbG1aNnZNd09BTHhRYkp0WFZJY0d5N3RibGxIWWtRRlBTbUN0eVd0aE1BZUN2dV9KYUdLS0dKZHlqN1RuMHpLMWh0eXlTUXJVbWgxUVZyQlVlV08wOUhFZE1hY0xscldaVTdCRlNUd1pNUDZxWUtRUnV5RDBSTEtHVlhUTm1jYUpJNU5LOEZYS3NKU056RDVrb1YyQmNEaXBBVDhlam5nVkxsMHYw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Creative Solutions for a Changing Climate - Pratt Institute">
+          <h4>Creative Solutions for a Changing Climate - Pratt Institute</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Pratt Institute · September 18, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE50aXhrXzJSQmJudjlGMURZV2F5UVctQzVYeGVDVUN2emJQUmlqdHpzbk9yNUw1TkFuN2k0WUtlckJJUGVfYWlTQ3QyRE1ia2dNaVB4Rl9ZUXVIRVNyRGNFVU91aGpIQkRseWFSOTYzV1R4Y3IwdFU3cA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Top 5 environment stories of 2025: Climate solutions in Minnesota - Sahan Journal">
+          <h4>Top 5 environment stories of 2025: Climate solutions in Minnesota - Sahan Journal</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Sahan Journal · December 25, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxOYTBKVFRYMTRwR0lIUTRnS0YyM0prLV9BWHhFN0hHMkpZMkRKcUM4Yll6RFBXNzlRX3JwbTlmU3NSVWgtUldKQWJ1bk1OSkVPVll6bTNIcXZMTWp3dG9Pa1BpSnJEU05hR3MzWHVXdFJITTFCZFpsd1ItazNMWTBRMTZXczNwZ2s?oc=5" target="_blank">Read article →</a></div>
+        </div><h3 style="margin-top:20px;">Top Web Findings</h3>
+        <div class="post-card" data-searchable="UNSDG unsdg.un.org › latest  › stories  › climate-summit-2025-scaling-10-solutions-can-still-deliver   Unsdg | Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver">
+          <h4>UNSDG unsdg.un.org › latest  › stories  › climate-summit-2025-scaling-10-solutions-can-still-deliver   Unsdg | Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> unsdg.un.org</div>
+          
+          <div class="meta"><a href="https://unsdg.un.org/latest/stories/climate-summit-2025-scaling-10-solutions-can-still-deliver" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MIT Solve solve.mit.edu › challenges  › 2025-global-climate-challenge   2025 Global Climate Challenge | MIT Solve">
+          <h4>MIT Solve solve.mit.edu › challenges  › 2025-global-climate-challenge   2025 Global Climate Challenge | MIT Solve</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> solve.mit.edu</div>
+          
+          <div class="meta"><a href="https://solve.mit.edu/challenges/2025-global-climate-challenge" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="04:28  YouTube Record-breaking climate change: 2025 edition - YouTube December 15, 2025">
+          <h4>04:28  YouTube Record-breaking climate change: 2025 edition - YouTube December 15, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=VF9M-sDW7HI" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="55:56  YouTube Climate Solutions in Action: How Project Drawdown is Making the ... December 12, 2025">
+          <h4>55:56  YouTube Climate Solutions in Action: How Project Drawdown is Making the ... December 12, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=dhPWzfzaScE" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="23:47  YouTube Climate Correction™ 2025: Building Toward Bipartisan Solutions ... April 22, 2025">
+          <h4>23:47  YouTube Climate Correction™ 2025: Building Toward Bipartisan Solutions ... April 22, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=CZgmUXFjanI" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="instagram.com UN Youth Office | Apply now for the #Youth4Climate Call for ...">
+          <h4>instagram.com UN Youth Office | Apply now for the #Youth4Climate Call for ...</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.instagram.com</div>
+          
+          <div class="meta"><a href="https://www.instagram.com/reel/DIzIBIjyhPX/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="01:19:39  YouTube Local Solutions to Water Challenges | 2025 Climate Change Conference ... March 24, 2025   43">
+          <h4>01:19:39  YouTube Local Solutions to Water Challenges | 2025 Climate Change Conference ... March 24, 2025   43</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=ceu1CIcnlfQ" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="climategfl.org March 2025 Update — Climate Solutions Accelerator March 19, 2025">
+          <h4>climategfl.org March 2025 Update — Climate Solutions Accelerator March 19, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.climategfl.org</div>
+          
+          <div class="meta"><a href="https://www.climategfl.org/video-updates/march-2025-update" target="_blank">Visit page →</a></div>
+        </div></div><div class="section" id="topic-clusters"><div class="section-header"><h2>Topic Clusters</h2></div>
+        <div class="cluster-card" data-searchable="General">
+          <h4>General <span class="count">(104 posts)</span></h4>
+          <ul class="post-list"><li>March 2025 Movement Café: The Science and Solutions of Climate Change <span class="badge badge-score">⬆ undefined</span></li><li>Open Letter to Elon Musk, Bill Gates, Jeff Bezos <span class="badge badge-score">⬆ 3</span></li><li>Ask HN: Who is at the forefront of fighting climate change? <span class="badge badge-score">⬆ 11</span></li><li>Climate Change Summit 2025 <span class="badge badge-score">⬆ undefined</span></li><li>The Heat: Climate Change 2025 <span class="badge badge-score">⬆ undefined</span></li><li>China &#039;focusing on solutions&#039; to combat emissions and climate change, analyst sa... <span class="badge badge-score">⬆ undefined</span></li><li>Hong Kong seeks innovative green solutions to tackle climate change, extreme wea... <span class="badge badge-score">⬆ undefined</span></li><li>Engineering the Thermodynamic Rebalance: The Biomimetic 24-Gon Thermal Matrix <span class="badge badge-score">⬆ 1</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Comparisons &amp; Reviews">
+          <h4>Comparisons &amp; Reviews <span class="count">(30 posts)</span></h4>
+          <ul class="post-list"><li>Top 10 Most Impactful Climate Change Solutions <span class="badge badge-score">⬆ undefined</span></li><li>Min. of Agriculture, Fisheries, Food Security and Climate Change Year In Review ... <span class="badge badge-score">⬆ undefined</span></li><li>Climate change wrapped: The top five Texas climate moments of 2025 - Environment... <span class="badge badge-score">⬆ undefined</span></li><li>6 best solutions to climate change for businesses - Forest Stewardship Council (... <span class="badge badge-score">⬆ undefined</span></li><li>Munro Climate Change Leaders Fund Year in Review <span class="badge badge-score">⬆ undefined</span></li><li>Critical Review &quot;Young People Are the Solution to Climate Change&quot; - Vish Dhar (T... <span class="badge badge-score">⬆ undefined</span></li><li>The Climate Book || Greta Thunberg || Book Review || Mahfuz Masum || Climate Cha... <span class="badge badge-score">⬆ undefined</span></li><li>How a Bush-era ‘green’ solution made climate change worse - Yale Climate Connect... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Future &amp; Trends">
+          <h4>Future &amp; Trends <span class="count">(27 posts)</span></h4>
+          <ul class="post-list"><li>Fungi &amp; Climate Change: Hidden Solutions and New Risks <span class="badge badge-score">⬆ undefined</span></li><li>Climate Change Solutions That ACTUALLY Work (Finally Some Good News!) <span class="badge badge-score">⬆ undefined</span></li><li>Ultra-processed diets drive obesity and climate change — but solutions are withi... <span class="badge badge-score">⬆ undefined</span></li><li>Bioplastics and other innovations against climate change | DW Documentary <span class="badge badge-score">⬆ undefined</span></li><li>Innovation curse: the wastefulness of technologies believed to mitigate climate ... <span class="badge badge-score">⬆ undefined</span></li><li>Kenya&#039;s Great Carbon Valley: a bold new gamble to fight climate change <span class="badge badge-score">⬆ 3</span></li><li>Welcome to Kenya&#039;s Great Carbon Valley a bold new gamble to fight climate change <span class="badge badge-score">⬆ 3</span></li><li>How climate change is turning camels into the new cows <span class="badge badge-score">⬆ 3</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Common Problems">
+          <h4>Common Problems <span class="count">(8 posts)</span></h4>
+          <ul class="post-list"><li>Climate Change in 2025 – Real Problems, Real Solutions | English Speech | <span class="badge badge-score">⬆ undefined</span></li><li>01:19:39  YouTube Local Solutions to Water Challenges | 2025 Climate Change Conf... <span class="badge badge-score">⬆ undefined</span></li><li>Climate Change Challenge Global Finals 2025 <span class="badge badge-score">⬆ undefined</span></li><li>Global Center on Adaptation gca.org   › home  › blog  › what to expect in climat... <span class="badge badge-score">⬆ undefined</span></li><li>Pushing boundaries: Yale-affiliated projects are winners in climate solutions/AI... <span class="badge badge-score">⬆ undefined</span></li><li>MIT Solve solve.mit.edu › challenges  › 2025-global-climate-challenge   2025 Glo... <span class="badge badge-score">⬆ undefined</span></li><li>Small Fixes for a Big Problem - The New York Times <span class="badge badge-score">⬆ undefined</span></li><li>Report a security issue <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Community Discussion">
+          <h4>Community Discussion <span class="count">(8 posts)</span></h4>
+          <ul class="post-list"><li>Climate Change and Solutions with Petteri Taalas and Mari Lundström - Nordic Bus... <span class="badge badge-score">⬆ undefined</span></li><li>Evaluate the potential solutions provided below for addressing climate change Co... <span class="badge badge-score">⬆ undefined</span></li><li>World Economic Forum weforum.org › stories  › 2025  › 10  › climate-and-nature-a... <span class="badge badge-score">⬆ undefined</span></li><li>Massachusetts Clean Energy and Climate Plans 2025/2030 &amp; 2050: Natural and Worki... <span class="badge badge-score">⬆ undefined</span></li><li>Opinion | CalPERS’ $60 billion investment in ‘climate solutions’ lacks environme... <span class="badge badge-score">⬆ undefined</span></li><li>How China, not the U.S., became the main climate solution story in 2025 - NPR <span class="badge badge-score">⬆ undefined</span></li><li>How nature-based solutions are tackling climate displacement - The World Economi... <span class="badge badge-score">⬆ undefined</span></li><li>Planetary health: 10 emerging technology solutions - The World Economic Forum <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Expert Opinions">
+          <h4>Expert Opinions <span class="count">(7 posts)</span></h4>
+          <ul class="post-list"><li>Environmental and Energy Study Institute eesi.org › newsletters  › view  › clima... <span class="badge badge-score">⬆ undefined</span></li><li>Researchers hope AI can help accelerate climate solutions <span class="badge badge-score">⬆ undefined</span></li><li>Climate Research Showcase 2025: Changing Trends in Climate Research <span class="badge badge-score">⬆ undefined</span></li><li>New tool helps scientists share and compare solutions to climate threats | ABC N... <span class="badge badge-score">⬆ undefined</span></li><li>Fossil fuel industry&#039;s &#039;climate false solutions&#039; reinforce its power, aggravate ... <span class="badge badge-score">⬆ undefined</span></li><li>World Resources Institute wri.org › research  › state-climate-action-2025   Stat... <span class="badge badge-score">⬆ undefined</span></li><li>YSE Experts to Share Pathways to Progress at Climate Week NYC - Yale School of t... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Getting Started">
+          <h4>Getting Started <span class="count">(7 posts)</span></h4>
+          <ul class="post-list"><li>SolarTech solartechonline.com   › home  › 2025-b  › what can we do to stop clima... <span class="badge badge-score">⬆ undefined</span></li><li>Climate Change and Global Warming: Explained in Simple Words for Beginners <span class="badge badge-score">⬆ undefined</span></li><li>Together, We Can: How to move climate solutions forward in 2025 | Featuring Dr. ... <span class="badge badge-score">⬆ undefined</span></li><li>State Environmental Quality Review Act (SEQRA) Basics 2025 <span class="badge badge-score">⬆ undefined</span></li><li>We Just Crossed Our FIRST Tipping Point… And It’s NOT What You Think <span class="badge badge-score">⬆ undefined</span></li><li>Global Warming - The End Game | The Dr. Binocs Show | Best Learning Videos For K... <span class="badge badge-score">⬆ undefined</span></li><li>How to Start IELTS Speaking Answers Like a Band 9 Student <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tools &amp; Resources">
+          <h4>Tools &amp; Resources <span class="count">(3 posts)</span></h4>
+          <ul class="post-list"><li>World Resources Institute wri.org › insights  › climate-action-progress-1-5-degr... <span class="badge badge-score">⬆ undefined</span></li><li>instagram.com UN Youth Office | Apply now for the #Youth4Climate Call for ... <span class="badge badge-score">⬆ undefined</span></li><li>World Resources Institute wri.org › insights  › strategies-achieve-climate-mitig... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tips &amp; Advice">
+          <h4>Tips &amp; Advice <span class="count">(2 posts)</span></h4>
+          <ul class="post-list"><li>The Tipping Points of Climate Change — and Where We Stand | Johan Rockström | TE... <span class="badge badge-score">⬆ undefined</span></li><li>Housing in Alaska can’t survive climate change. This group is trying a new model <span class="badge badge-score">⬆ 2</span></li></ul></div></div><div class="section" id="news-section"><div class="section-header"><h2>News Articles (50)</h2>
+        <button class="collapse-btn" onclick="toggleSection('news-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="news-cards">
+        <div class="post-card" data-searchable="Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver - United Nations Sustainable Development Group ">
+          <h4>Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver - United Nations Sustainable Development Group</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> United Nations Sustainable Development Group · September 26, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPTC1yWWw3QmVLaUZub0luTmVnWkxVU2ROOGhHQ1IyVXRaQU1OWEZFT0RBQXdQRHBCRXFDMFhKRGh5bWkyWDBlMTZBaENYT1lYZDIxMVNvU0hSRFcwSnhuNDZRdVYtNGdHTW16d19OYmVxdHU2bkR2MnlsaTJBQUl1YnhxZF9YdkExS0swY0VUSURWaDRXV0VYWHdn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="NYCERS Annual Climate Report FY2025 - NYC.gov ">
+          <h4>NYCERS Annual Climate Report FY2025 - NYC.gov</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> NYC.gov · April 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5BTlNHSHMxMHRZOGVJZkZhdXJPTlpJV1p5dngxWHI4NWtNc3lFdkJtdVhqdkhHdVlJYlhQZnVyMTNsck5tdnY1OW96T1NpMFV1bUx3M2VsdWtYN2dLcVJaVlRRUkNLZk01SEFIcWJZRFg2WFV2bVhmTnZyTlc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World-leading economy and climate solutions: California’s emissions drop in 2023, driven by clean transportation - California State Portal | CA.gov ">
+          <h4>World-leading economy and climate solutions: California’s emissions drop in 2023, driven by clean transportation - California State Portal | CA.gov</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> California State Portal | CA.gov · November 6, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOWWtLYzNFZ3k2bVlvYmY3OXRURHc0dUJtQ1YwSURDa1gxMjVHNjctT2MtMklua2ZfUjdOTFNZVGdHNVl0R3dOX2RzeHZ3b1gwcldlUk5XcUhrQWlUV0lQX0taT2RKS2xMWjBvSFVrWGdSU3JwS2dDeUwwOFY2YzRlakR6NjU0V01fdXljNjkxR2NEdk1CWDdfbnZUN2F3VnpGVFNtR2hKQ2FzekZGa3o4YmZOWk9YZGkybzVSdFN2UTB3XzQySzNtX3ZBNlBXUjNzQndWaWw2VW5vY01f?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Growing Low Carbon Solutions - Exxon Mobil Corporation ">
+          <h4>Growing Low Carbon Solutions - Exxon Mobil Corporation</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Exxon Mobil Corporation · May 5, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOU0VjRzlic3p3aVg1RV9XTHRMR1Jscm9oYWdXUXFPelp1NGkxNlhfME8xaUxkejRXT210LXpQRkpLXzVsNTlSaGxyZGR4UkVlbDE2TU1RRC1PaU1FNWppTWI0ems2T3NqOE45TmZsRTdjUjFuQ1ZCalFtOFAxNXBSTUg5REFldGV6QXRVdEZOMlJDMmVodVBNeTB6NEZiNFQzSENfaA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Planetary health: 10 emerging technology solutions - The World Economic Forum ">
+          <h4>Planetary health: 10 emerging technology solutions - The World Economic Forum</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The World Economic Forum · October 15, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPZldpYXBvX0dCR2szcUdoTHJIZTE5dnA5XzAxM0dFQUU5enFxMllXUWthYkFrR3ZLZDdYaVBodEV1ck8wT3RXaG1oN21BZlJqY2dBVG9YMkh1c0JrLUpQS3M4ZE5rczNfeGdTT1EzQUF6Q0VnQWo1U0xYRUg1ajFMVTlMLWh0bS1idFNsQUk0U1ZtdFE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Climate change wrapped: The top five Texas climate moments of 2025 - Environment America ">
+          <h4>Climate change wrapped: The top five Texas climate moments of 2025 - Environment America</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Environment America · February 2, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRVdVNTkxekZLNkJHbFFpbG1aNnZNd09BTHhRYkp0WFZJY0d5N3RibGxIWWtRRlBTbUN0eVd0aE1BZUN2dV9KYUdLS0dKZHlqN1RuMHpLMWh0eXlTUXJVbWgxUVZyQlVlV08wOUhFZE1hY0xscldaVTdCRlNUd1pNUDZxWUtRUnV5RDBSTEtHVlhUTm1jYUpJNU5LOEZYS3NKU056RDVrb1YyQmNEaXBBVDhlam5nVkxsMHYw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Creative Solutions for a Changing Climate - Pratt Institute ">
+          <h4>Creative Solutions for a Changing Climate - Pratt Institute</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Pratt Institute · September 18, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE50aXhrXzJSQmJudjlGMURZV2F5UVctQzVYeGVDVUN2emJQUmlqdHpzbk9yNUw1TkFuN2k0WUtlckJJUGVfYWlTQ3QyRE1ia2dNaVB4Rl9ZUXVIRVNyRGNFVU91aGpIQkRseWFSOTYzV1R4Y3IwdFU3cA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Top 5 environment stories of 2025: Climate solutions in Minnesota - Sahan Journal ">
+          <h4>Top 5 environment stories of 2025: Climate solutions in Minnesota - Sahan Journal</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Sahan Journal · December 25, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxOYTBKVFRYMTRwR0lIUTRnS0YyM0prLV9BWHhFN0hHMkpZMkRKcUM4Yll6RFBXNzlRX3JwbTlmU3NSVWgtUldKQWJ1bk1OSkVPVll6bTNIcXZMTWp3dG9Pa1BpSnJEU05hR3MzWHVXdFJITTFCZFpsd1ItazNMWTBRMTZXczNwZ2s?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Tracking business opportunities for climate solutions using AI in regulated accounting reports - Nature ">
+          <h4>Tracking business opportunities for climate solutions using AI in regulated accounting reports - Nature</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Nature · November 5, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE4xWU8yRldPdHloQ0pDVmJfYmw0Y09LVXRPby11SzRKZGZ6QW5QM3R5dUZUSUFVU2dnVkwzbXdhZjBmYzlOaU45NTRjOEZYNS1PMUowVmdPX182V3hYSmM0?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Over 1,000 MIT students inspired to work toward climate solutions - MIT News ">
+          <h4>Over 1,000 MIT students inspired to work toward climate solutions - MIT News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> MIT News · October 21, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxNUEVCQWZESEpvNDNvcERlWUNXUllNOVFEZ19kMmVheFhiaThFLVc2cFhjY050emczRlBsTzl1ZVNib2duaHpJWXhJSmpUYmhMV2lBU3l0dzkzODJKajU3YXBrVDJSRXk5V0p5RmFCeG5oN0l6aGs0UTIzMUY3NnpKSGpvNGxyRXZzTDFqSHRlc2xwaWJKMS1V?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="As severe weather tests the grid, utilities consider burying more power lines - NPR ">
+          <h4>As severe weather tests the grid, utilities consider burying more power lines - NPR</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> NPR · May 19, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPVks2ckJSeG5TSWRKOGtaVlBnc3BhU3d5UXhES3VWX3hyek84eFZkSjNFYzhfMnNfM3lVa3Z0SlFoRjNuQXB1bG9qdnhHa3UxTlUtSjEySWJGaUxqVVpVTlJFTXZHaHZnUjF5X0I2WHhHUGc0eWFxME1DajBrb0FPeVlBaGZzdDA2TGdXMFpB?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Governor joins U.S. delegation at climate conference in Brazil - Office of the Governor - Michelle Lujan Grisham - governor.state.nm.us ">
+          <h4>Governor joins U.S. delegation at climate conference in Brazil - Office of the Governor - Michelle Lujan Grisham - governor.state.nm.us</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> governor.state.nm.us · November 3, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdFFPV2hnWURpUkxpZDBpOVh1akZ1REhSVS1HVFUxalhNazZyUFM2OUhGWWdLdG5tcWJMWERIbjYzNXFPZjd3Y1hCcnVlUk9XdGRZWHJMcnVuS3lCaDN2Z21SMGNGTW96dGNaOWZGNkhfVEVMaGFyWjRjX1ByTU1zLTRWampsc3lQdHI0a2E5MjZKNmRFNUpRX2hJRjU2MmthaUg3UVl6YmY5UQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="At COP30, chemical companies push biobased climate solutions - Chemical &amp; Engineering News ">
+          <h4>At COP30, chemical companies push biobased climate solutions - Chemical &amp; Engineering News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Chemical &amp;amp; Engineering News · November 21, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxONl9ET1NtcnZxd3ZqWWN2VWpaNklVVUpuamNsTVRnTjNpekVvM3VkX0hSbUdIeXc1a1lJLTVWeUJGcUF3NFJLWUlTckFFNmtnY2VoUWdIZ0tzNGdFQkJmdGFXMWhKNzRLN3B4bHVGSmNqbGV0VFZBU0RaSlhMcVdaYTlmbEJJMlduS3RHeUsweGNjODhjV05xLWEyWTM0bDFNUi05UWp3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Big Oil’s Climate Ads Have Propped Up Fake Promises and False Solutions for Past 25 Years, Report Finds - Inside Climate News ">
+          <h4>Big Oil’s Climate Ads Have Propped Up Fake Promises and False Solutions for Past 25 Years, Report Finds - Inside Climate News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Inside Climate News · December 11, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxQYmxCUUVRUUhHenBweWU2dXgzN1lSY3lJVDVIWGpNVnlrV1NxUmI5YXhPRXZMclRzWWtORkQ4VGROM1hLLXhIRzJXT0tvVnUzSFFmYW1wRFE0d1h2UnRmcEY1R2lSa3lCeUprcnBJMnZubVFDLVVobkdHa2YyZ0t0TXNkb2hlUkN2ejMtdTNjamxza3Nu?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Opinion | CalPERS’ $60 billion investment in ‘climate solutions’ lacks environmental standards, transparency - CalMatters ">
+          <h4>Opinion | CalPERS’ $60 billion investment in ‘climate solutions’ lacks environmental standards, transparency - CalMatters</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> CalMatters · December 18, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxOM2wxMS13Z3N1TG82RG9DbzlyeWY4R0ppaGdwX3FFbVdXVTlISGFjSWE3QVNKYTNrQ0EtdUNmeEZnWERhdXdmZDhIbnAxUnAwMnNWcmdfcC1Fc2VBWHgzTU94THU4TVNLM1lBdlFDTmozQUdwUmtRUWdyYWRLTmFZUm9Gd0xwdDNhcjIwWHp6end1cUlGNGUw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Turning Food Waste Prevention into a Scalable Climate Solution - Welcome to the United Nations ">
+          <h4>Turning Food Waste Prevention into a Scalable Climate Solution - Welcome to the United Nations</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Welcome to the United Nations · March 30, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxNUWFzbEx4MlVmT0FQNWIyU09qWURYYWZTMGdKY0lLQTY4eHlzQmFSS3ZkTk9MMjB3T0ZKRkVqRTJ0RTFKYl9STW94aEV4MWRzcVdiV3NEZkJFSjEtdmI3T21Xbjk1dm9vNUJYbmRxY0RTYTI4LTR4Z2dQTlZJVXJaZ2JLMmYwZG4tdFdPYTB3QVBEOFBk?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Innovation curse: the wastefulness of technologies believed to mitigate climate change - Nature ">
+          <h4>Innovation curse: the wastefulness of technologies believed to mitigate climate change - Nature</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Nature · November 24, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE9td2dJdUtDYURNMDhxc3AyVTNYdndlX1lqa2NITnVtbm13TDUza2tsakdjOVdyS2x3R1A1U1FEZU1BTG01UW13c2M4V1FfWDZsR2czdmtKTXZjRnE1MUNj?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How China, not the U.S., became the main climate solution story in 2025 - NPR ">
+          <h4>How China, not the U.S., became the main climate solution story in 2025 - NPR</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> NPR · December 8, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPYlFJQVprMVFPa1RlUlFFWTRWWWZSUHd3dUd3Q0t5X2tIcWFlYXVzZTJJUXlUc0hVUkR5VVFZRE1JeV82MFRWZ1QyYnFGenBYSmNkSll3aHVtTTgybmEzZFJfOEVINHVFVmpLcVV0MHlNdV9Ucm5jd0dZLWZWd0hzTHJpb19pck4wZnc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How nature-based solutions are tackling climate displacement - The World Economic Forum ">
+          <h4>How nature-based solutions are tackling climate displacement - The World Economic Forum</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The World Economic Forum · October 17, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOUnZjaFlqRzlUaUU3REZIay1TN203MHdTVUNGaGRHenBRSGlHcS1TdVI4NXVkbHc3YnBPSVpVbUx5ME52a1ZObzVtaG5pSWxQbEdIbFQ5eWVmZ0dpWEwwZnBxUjg5ekJRNUdpaTRIU2lQbW95UGh5MGFKVUpmZ3hidmw2TFN6QkNDMl9GTWlib1Z0YWdDUk5jOGFhcVRWWGZlemt1ODFn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="COP30: Climate crisis is a health crisis, WHO warns as philanthropies pledge $300m for solutions - UN News ">
+          <h4>COP30: Climate crisis is a health crisis, WHO warns as philanthropies pledge $300m for solutions - UN News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> UN News · November 14, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE91ZUtsb2RPdTF4aElFYk1vc1gtZm1qT1FVN2xGVkc5T3dsZ19vUVVfYmdRRmswSDYzLWVOTE1pZHFHbThxd0dpMUxsTTdUMTZ3TUJ2NVdMQQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How broadcast TV networks covered climate change in 2025 - Media Matters for America ">
+          <h4>How broadcast TV networks covered climate change in 2025 - Media Matters for America</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Media Matters for America · March 4, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNQzVpajNvQ2F6UWJXd09XSHZFU2ZacFRtdnF4bkQ0OFJiM3FVak5JMlBzU204REEwSHBPMXRhU3ljNVVRZzg3aXExUUNPSWY5XzMxTF94MUhrWkFmc1Z2ZTBrU3BlbFNMZkxLd3pQa0RtaVVoQTk1aXdTdldRbWkxQUFxMklzOXJfT2I4U25BdjBhSjY5NGROMHJ0cC13cUF4XzRR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World leaders gather for second day of COP30 meetings in Brazil, seeking climate change solutions - PBS ">
+          <h4>World leaders gather for second day of COP30 meetings in Brazil, seeking climate change solutions - PBS</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PBS · November 7, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPbC01TkpGRGhoUDNkMnBkSHJ0OVdvdm9FbTQ5WEdaME4wN3lMNnJaU2hmc1ZUbDFSQV91UnBta0xZU2xxQXhKQ3Q2ZndzRE0wdEtzelY1YW5ETndnWmYwam5fUXRTYm50cW1lZnJHMGZmREExcExQZmNFSVplS1ctc2RKeXpLeXRIUHBCbFF2cDBJNDNPVkxJNG4tVzBmbmZOeFE5WkF0d0pZOHp2ekdmT3RMUjVIQkw0QS0wZk1zRzhkdmZvUlBYY2JkYw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Advancing Climate Solutions and Sustainability Executive Summary - Exxon Mobil Corporation ">
+          <h4>Advancing Climate Solutions and Sustainability Executive Summary - Exxon Mobil Corporation</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Exxon Mobil Corporation · February 12, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPbFJGb2ZZZGhmalpqZHBnUE15b3gzYXUxc0lVOTMzTEc3RDdxTGNvOHRIZFpsZDBRRWlzdXRDblJ0M2lYNFloYlN3dnZHVG5tNGFJWEhvRmM4djFfQm96X0RxcFFlTFNaa0hOWWRSUmtiT2NkWVROZDZNWUxlaXdybUNXWjY?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Building Trust in Soil Carbon as a Climate Solution Requires Stronger Evidence - Yale School of the Environment ">
+          <h4>Building Trust in Soil Carbon as a Climate Solution Requires Stronger Evidence - Yale School of the Environment</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Yale School of the Environment · September 23, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOaGtuQ1hObTU3TDllWlJFdGF6V2xMVWZFR0l5Sm9jWHk5TlRLdHdycmVFVVBpUWJSZGNVdTNIVkVmSTRhRVBpcDc5QldhY2p3RGtJdHRqTUhwNW51LWcyY2kzMzVzU29XbVI1TkdCaGl2VWpBVHBpV2pQeEJvcXZPeXc0QmE2RTBvZkxvX1VjVTlWR1NKYUxQN0xzOVFJTjcyMnVFWUVRRmxoclVvS2E1VkV3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Ultra-processed diets drive obesity and climate change — but solutions are within reach - The New Lede ">
+          <h4>Ultra-processed diets drive obesity and climate change — but solutions are within reach - The New Lede</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The New Lede · December 18, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQckg3VDFyME1IaGRxRncxWXpzQVZCaHUxeWMxOEFnZkdtdkRJQ3I0OU9KTUNyeHJxZEJTVm1Uc0UxVm1XRUpWeXhYeWVFelh3dXF2a0VWbFdfRkNxZlNVV0NMWG1Bb0pGc1NSbjhyRGIya05BUzkxYUZMeHVxQ1plUklCR1NpaXM?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Responding to the climate impact of generative AI - MIT News ">
+          <h4>Responding to the climate impact of generative AI - MIT News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> MIT News · September 30, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE5GeUsybzdsQ3Y0c3YtaHBLLWI2TkNYV1ZYSWl4SHo1Z0RYOUlOMEUtVlJJUjFVdVI0RGNpLXdhQVV5X1dEWDRBcHhlYUlCSXkyY2VtY3Rrczd1OVppazNzRGV3dE9vRkgxUUpyU0tIVnIwcWtLNWZDZktXcmZDZw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="2025 Grand Seminar to explore global warming and climate solutions - Loyola University Maryland ">
+          <h4>2025 Grand Seminar to explore global warming and climate solutions - Loyola University Maryland</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Loyola University Maryland · September 29, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE82NkxDYjZCZHZ1blpzakFlcUJEQkM0UXJpaHNZQW9pMEhYVFNobHVnRUNtVXQzeVVPNU1IZnRhdU54R2oxWkdycHpPcWVqS0ZiaVJaQVNQNEctQ012YXpUS1JYSThJckdzQjV6Sw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="For nature-based climate solutions to work, they must be restructured - UC Santa Barbara ">
+          <h4>For nature-based climate solutions to work, they must be restructured - UC Santa Barbara</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> UC Santa Barbara · August 5, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxObFVJNUc1Tm1hdlpzem9OdDlVZEprRE5GN29GdlQwZTFQaGZFd0JnZ2dDZ1RhOXlDUHhEZ2M0UHluY09Ya0Q3eXY4SGQ3dDA0SkdQZDJiaDBLWTFUT0V1cTJyNTNncnZkQU1iSFhjU3NrWUJNSXNHZVZIdmdoNm96WmVjdV81RG1OUFdaWGlXcFZvaWFvZmFPM0ZoNA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Using Virtual Reality, Students Help Visualize Climate Change Solutions at Point Lookout State Park - Maryland.gov ">
+          <h4>Using Virtual Reality, Students Help Visualize Climate Change Solutions at Point Lookout State Park - Maryland.gov</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Maryland.gov · October 7, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxNU0ZDUnVseVV3ZW9yOFFLY0Z0TU50d1JpaFJzMXRUQ3lsdms5V1RGdnlENk5KQ3F2ck9SWGdKOXZ2dHVPbGZVSHdfTmtwVGp3Ulc4VzNQSy1nSGRpaTJuMXNzbTZFN2VDZVJ4YnlsbGRBUVFKMHV4TU9LTGZVSHR5SDllMjNfMzBTOGx4SXJVNV9IdzF6ZktJSC0zNTRfWlNRc0UxclJ0b1YxaUFaVDJZcHVIbmNBNjlHVjFuLS1QVVRGMjY0OUt6SHJyYnRTTURyQmR0akc5MA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Co-designing soft climate adaptation: citizen centred solutions across four European pilots - Frontiers ">
+          <h4>Co-designing soft climate adaptation: citizen centred solutions across four European pilots - Frontiers</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Frontiers · January 13, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPbE83RUs0MlcyWjRla0NxZE8tRDhuMFNiVUszSllvRUpNQnAycnc4VE5TNjh4RE5iN0Z3Vm1JRjNjWlBsenZqeGtXaVRZZE1NVDFZZGxPb2E4ZEV1M2Fsd1FTbXlxeEV3QkVEREtqek1PX3ZkUnNRU0wxRDdFc3RpTkdlRzU0NEgwU05GSEtn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How a Bush-era ‘green’ solution made climate change worse - Yale Climate Connections ">
+          <h4>How a Bush-era ‘green’ solution made climate change worse - Yale Climate Connections</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Yale Climate Connections · October 17, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPejk3a0NTUldxYjZMTktDOV9ZOFFKMkpibFNlaHdRX2h5Q1JTdjlWb3hXdm9ITkYtRWRVSWQ4bHhGcHNwTEZMbkNVR2cxVHRVbS1halRrT25IaHhnbUVYQVZybEFGUWllUjRlSGpIOG1aRzRJSEEyNExRdHFGb2ItMVVIN24xVW80STFnTXY5NmFFMXZFU0k3TGxZazFxdGMw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="New Report: “Big Oil’s Deceptive Climate Ads” - Center for Climate Integrity ">
+          <h4>New Report: “Big Oil’s Deceptive Climate Ads” - Center for Climate Integrity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Center for Climate Integrity · December 11, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxORkxuVnBLSkkxbS1tb1JuVk5wdUNMMjdpSzhFdnRjTWd1Sk5mZWlQRFMyRnZsRGd2bmxGa3hzYnk3MDlKa0lBLU54cFAxcGdDLWtqQVZoZ3prVE1oVWhVSTB6T1VtdnA1ZEV2M1lncXhlbEExc3kxbXdTV0dWa3BPVUlMMWxKcnM?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Fossil fuel industry&#039;s &#039;climate false solutions&#039; reinforce its power, aggravate environmental injustice, study suggests - Phys.org ">
+          <h4>Fossil fuel industry&#039;s &#039;climate false solutions&#039; reinforce its power, aggravate environmental injustice, study suggests - Phys.org</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Phys.org · December 16, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE9TTFBualpXUnhVWjBpSVFMdm5TdHlubzRiaEtra3o4eEdDN2Nubk5GSXFrR21wa3o3VXIwZXA4Nnc1R3ZFQ2Y1RWJnVXJfenItSzhVZ1VXSUJhcUozbG5oN0VGX2ZHU3JRYVBERTZxSlhDeDBYNUkzVg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Media Shied Away From Climate Coverage in 2025 Despite Increased Reader Interest - Earth.Org ">
+          <h4>Media Shied Away From Climate Coverage in 2025 Despite Increased Reader Interest - Earth.Org</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Earth.Org · January 23, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOVkFEUkI5UzBIWGR1ZnVqR21RT3ZxUWJ3S1ByNThLcnlQUTR6MDRNeGtzRGJiaV81RTFKRHkwdGZjTjF5bm9ZblVqNUlDazAzTXZKLTQzdDJZM2c0c0h3YmFESmhoMERya0k3SWFxbDZWZnhoOFh1d0dBeDJfQlV2V1dTOUZxMy14cHJKYU5obUVXOTZibEk2MXR3eXltRGs5?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Small Fixes for a Big Problem - The New York Times ">
+          <h4>Small Fixes for a Big Problem - The New York Times</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The New York Times · December 11, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTFAwemNmT2REazF0bVkzTE1US1pKc1ZEeVk5Ty1iVFNzTlZIRDMzdWFCVjBOVFFTVUZ2TnduMTByc1hlR1RSdzFVZjB3V1pycnM5RzBpVWdVQk94czh0ZDFZdFpyNThhY2VnWWJ4U3oxTU1nVWtvMWROSHpmUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="New Jersey Pine Barrens offer up answers to tough climate questions - WHYY ">
+          <h4>New Jersey Pine Barrens offer up answers to tough climate questions - WHYY</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> WHYY · November 10, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxQamhaX09aQ21tb2tEaUhrcUtIa1NjSF9ETlZReV9CRU5HTEdhM21rZTRuZ1RhT3g0dkVoRmMwOF9YejlzVm5sRG9JVURxUTZ3TW9yUVlGTXhRVEpqREozbFhRRGtpMlV1MmJ6M2pBNW9LQ0Fqc1FLRVlzb3RQaWsxTjB3QVV2MVFsWl9BLTdob1V6U2swLWNYN2tB?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Why strong institutions, transparency and inclusive leadership are key to delivering climate solutions at COP30 and beyond - United Nations Development Programme ">
+          <h4>Why strong institutions, transparency and inclusive leadership are key to delivering climate solutions at COP30 and beyond - United Nations Development Programme</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> United Nations Development Programme · November 12, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxPdGlsN0Z4NFRIVWJubjd5ZlZTdHliNnVzSlhpRmlRT182dHJZckxLcDM2YW1zVTJ4d1JoQXhlUGRWdjNLVFFHNzVpdmNMRG8yU01icUFQcDNTOHdLTG56MXNFMFVoQU94TnNnSzRIQWFEQWFQNzFnLXI4M1Etb1ZUazk5RWZ1RW50RlZRa2ZFdGVMV0t1M0tuNU1IRlZqLTZUTUlEWERsUXJfR3RMa1NvVXpTcWNoYXdmZ211bkwtRVVFS0FhcUE5QU1wZ0lHdHRUeTdKVDlwRFA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="6 best solutions to climate change for businesses - Forest Stewardship Council (FSC) ">
+          <h4>6 best solutions to climate change for businesses - Forest Stewardship Council (FSC)</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Forest Stewardship Council (FSC) · August 7, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5hQUI1UkpzaHVKaGhMQXhnaWYxVmJ3Y3hQQkRETXVIYXlEcXh2LUozMG1tMl95bkl4aHU5T2xabmkyTlBsZXFZRVk5LW9hNVpFVjN5azlFOVBuU2JBaklSeg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Symposium shows creativity, conviction are key to communicating climate solutions - UC Santa Cruz - News ">
+          <h4>Symposium shows creativity, conviction are key to communicating climate solutions - UC Santa Cruz - News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> UC Santa Cruz - News · September 30, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTFBsTHFpNkxBUkcwWVBjU19MUHZnV3BzWWpibDc2RWFVVmV6bXdCdFYzanFwRnVaZnFBc0x5N3NuSDVVR1dXdlN4TXRqN3NqUEZMLVVXd3NLZTVfbFcxR2k3V243UkNyd01fdV9OTFRHeVZLT1dha1FBU2poZVlkZw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="PBS News Student Reporting Labs&#039; &#039;Second Nature&#039; series focuses on climate solutions - PBS ">
+          <h4>PBS News Student Reporting Labs&#039; &#039;Second Nature&#039; series focuses on climate solutions - PBS</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> PBS · October 28, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi_wFBVV95cUxORGdERkFnMloxTE4zSm1zbXd2QzBsZ1UyVEVPbFlNTzhxWEZNOEtha2Q5bHd3MVpobmJiRkpzaUpnRkZLN2c4WmFmOW4xVHdVRXlZTnhyRVBScndVMlZIOFVJZ05xMzVTc0xxY1J4bHlEc25QYUxrSlljNlJEc0J4V1VfTWt4enp6Y1dzRXZJRHpQZWtTTHktMk1uWFRwNWl2V3dPbWN3eFVSbGZTYnJ2VUdhT0tPeTBYQ2tmdm5jMHplQWJudWhhQ1gxS2w0cHhnU2ZPQ2N1U3ZFZm5fVC1YV2h3SmwxS2xwaFRoZjR3Rm5LcWZLZHdwTVVHMEFyQTQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="UNECE launches guidance at COP-30 to harness Nature-based Solutions for Sustainable Infrastructure - UNECE ">
+          <h4>UNECE launches guidance at COP-30 to harness Nature-based Solutions for Sustainable Infrastructure - UNECE</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> UNECE · November 20, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPMjRmQjRYRk1maC1nT2g0RURRblNCNmc2TUJid0JQcmxRUmZyYTlmWm02SzhQTDdtUVFSeUNlX3BQOFdScnFIMDlNbjNLemlBb3RQMHVhdlFZMUp3eWxIdEZJV1hSeGxjUEJ1MnFzVnU4NG9KX2JKaHU4blJETHduWmtKODJLVkpZMEIzNWtHREpzaWszYnU0bVpuZnpnbW1nZjZLM0ZtbTlKcE00ekhSUlVn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Successes from our Climate Solutions Partnership (2020-2025) - WWF ">
+          <h4>Successes from our Climate Solutions Partnership (2020-2025) - WWF</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> WWF · March 10, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE55c25xWmZqRGUtVlJoUFNPTzh4RWRXVDdVNjJjUjhCQXNyaXZDOFlYY3FjUGs1bk1IUVFkTzRmZWc0d29Wa0pJNmdNQ0cwSFJxZ2xXQTVGRGFqbWs2MXBXUjJiZ3FBWk1ac0EtUjBVblVoVndyX3V3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="U.S. Solar and Wind Growth in 2025 - Climate Central ">
+          <h4>U.S. Solar and Wind Growth in 2025 - Climate Central</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Climate Central · March 25, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE1RbzI3T3NNemwzV2w5MEY5RkJwNk95a1B4bE54dUJ3MjhyaVZKNkhHN3lvWU9JRUZpNEQ4SU1ZWHF0bGZ4Sm5ZQVU3WXlhdXV5UzFLMDdjWTloQUliNTQ1VDJmRHZsX1VFaVRrZ0dSSlp3OG5Z?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Indigenous-Led Nature-Based Solutions Align Net-Zero Emissions and Biodiversity Targets in Canada - AGU Publications ">
+          <h4>Indigenous-Led Nature-Based Solutions Align Net-Zero Emissions and Biodiversity Targets in Canada - AGU Publications</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> AGU Publications · October 23, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFB2b0g2SEx6Sm52a2pJcHpqQUxWcmhKWklYWmo0YkM1d3ZJUUlRTWt3MGdKR1NUOU1Oc09OOHRjX2FnRGpBTl9RYnZVSS0xdGtOV3lud1hVNHZvOHJGLXJZYTlWamlmOHlvNnN4b1JzaHpxSzNjb3lJNg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Seven quiet wins for climate and nature in 2025 - BBC ">
+          <h4>Seven quiet wins for climate and nature in 2025 - BBC</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> BBC · December 15, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPdUlYZi05Nl9VaUpZSFhpZF92MTIzYTV6bVBHUW5PcXppdFZnVldSb1BsX3EzZDNnRFpJX1VOUDFQaHQ2WGR3eUx2MERkVlVBc0lJdlFDXy1ac1lVNm95TEtmcmp2dXpBZXYwOU0zblJBZWVPYzAxVDZ5NU1zUm05NEZjZXo3aUFUbGNlbUE1X3A4Q3FOdEE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Harvard Students, Faculty Attend COP30 in Brazil To Implement Climate Change Solutions - The Harvard Crimson ">
+          <h4>Harvard Students, Faculty Attend COP30 in Brazil To Implement Climate Change Solutions - The Harvard Crimson</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Harvard Crimson · November 20, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5wejM1ZE1ZZ2NTdmhfSjBsS0lBRzNqSWdUaFZIdmNIcTlhMFJieXljeXljRlowNXh6MmZwaC1nLUNvYTZCZkMzT3luOHY0X1dXQTItQS1iWU5rX0x6OHB2NndqZUxrX29QamZjTkl6UGE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Pushing boundaries: Yale-affiliated projects are winners in climate solutions/AI challenge - YaleNews ">
+          <h4>Pushing boundaries: Yale-affiliated projects are winners in climate solutions/AI challenge - YaleNews</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> YaleNews · October 23, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNVVl5REpORE1CbFRoWG5kUmZ4Sm9rR1k0Y3llYTgwRDlVd093TlV2emFpT2RzSC1HdGlCOGhnVlZNXzE2V0ltTVZrVkZxcERRNUdTTlB3Y3EyalJYUkxPVno2bDBiX2Q1X2x0ODNyQ3EwbzBpQTZuRnc5NTBXcXRvWXdEaU9Rd1kyUDJpLWt3aDlXZFRNZE5abDdHYmZmeml5RXlrQy0xeXZJUVk2N3BJQk1HTHozNWFoQ1E?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="YSE Experts to Share Pathways to Progress at Climate Week NYC - Yale School of the Environment ">
+          <h4>YSE Experts to Share Pathways to Progress at Climate Week NYC - Yale School of the Environment</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Yale School of the Environment · September 16, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOV1FWZU82NmJ1dlZZV1RoaERLdjhWNmF0NzRzdGFoc0VaaEcwcVZ3TE8tSE1BQjhLWmhYSlZZUk5DZWREUEdQLS01eXdlZkV6SkZSVzNfQnUzRFh3V2owY25rVGhzSFZ4bHM5REF6RXhKQjgxZ0Rfc3VpbTFaRXNqLWdIUC1GeFhY?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Worried about climate change? The evidence shows these are the most impactful actions you can take - BBC ">
+          <h4>Worried about climate change? The evidence shows these are the most impactful actions you can take - BBC</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> BBC · October 1, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNVThSc1BweUpibjBpQnlGRDdOazVDZzZsVVA4R1lmZVZmQzFBUzVXaHVQRWpVdHJiWkJVT09qUW1NVEo5U3E4Q0hmbXpySE5POGtXTXBZNlJKYmNTZFU1WEw3bG81OVppQnhFY3dFelhOR1o2OUxRMGVxMHpTTGo0OFl3NVRpU0FrYkkxcFpsTXVoUnZ1d1JmZk1Ha2hoYlZtMmxFMm9VYzdSa3FobnRmRThBTjJVX19NREE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Editorial: Nature-based solutions for climate change adaptation - Frontiers ">
+          <h4>Editorial: Nature-based solutions for climate change adaptation - Frontiers</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Frontiers · September 4, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNT1A4SGc1QjBOZzBUQm9KN29QNS04MDJ6b2UwV0pOZGp3alkydFVrRXpkZ2lQbnBKWkMxMFQ2UkV1ckJxQWFBbjkxOVNVZjAzZkROVmxwNzV3aG9nRU5VaWpvUGJGUXg4M0F1WTdlUXJ0SFpMaDNfbVZUb2lpalRxYU5STWZYbG9nYzRWQmZrYlVjU1ZOdm90M2FtbmpoUnlF?oc=5" target="_blank">Read article →</a></div>
+        </div></div></div><div class="section" id="web-section"><div class="section-header"><h2>Web Results (30)</h2>
+        <button class="collapse-btn" onclick="toggleSection('web-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="web-cards">
+        <div class="post-card" data-searchable="UNSDG unsdg.un.org › latest  › stories  › climate-summit-2025-scaling-10-solutions-can-still-deliver   Unsdg | Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver ">
+          <h4>UNSDG unsdg.un.org › latest  › stories  › climate-summit-2025-scaling-10-solutions-can-still-deliver   Unsdg | Climate Summit 2025: Scaling 10 Solutions That Can Still Deliver</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> unsdg.un.org</div>
+          
+          <div class="meta"><a href="https://unsdg.un.org/latest/stories/climate-summit-2025-scaling-10-solutions-can-still-deliver" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MIT Solve solve.mit.edu › challenges  › 2025-global-climate-challenge   2025 Global Climate Challenge | MIT Solve ">
+          <h4>MIT Solve solve.mit.edu › challenges  › 2025-global-climate-challenge   2025 Global Climate Challenge | MIT Solve</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> solve.mit.edu</div>
+          
+          <div class="meta"><a href="https://solve.mit.edu/challenges/2025-global-climate-challenge" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="04:28  YouTube Record-breaking climate change: 2025 edition - YouTube December 15, 2025 ">
+          <h4>04:28  YouTube Record-breaking climate change: 2025 edition - YouTube December 15, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=VF9M-sDW7HI" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="55:56  YouTube Climate Solutions in Action: How Project Drawdown is Making the ... December 12, 2025 ">
+          <h4>55:56  YouTube Climate Solutions in Action: How Project Drawdown is Making the ... December 12, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=dhPWzfzaScE" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="23:47  YouTube Climate Correction™ 2025: Building Toward Bipartisan Solutions ... April 22, 2025 ">
+          <h4>23:47  YouTube Climate Correction™ 2025: Building Toward Bipartisan Solutions ... April 22, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=CZgmUXFjanI" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="instagram.com UN Youth Office | Apply now for the #Youth4Climate Call for ... ">
+          <h4>instagram.com UN Youth Office | Apply now for the #Youth4Climate Call for ...</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.instagram.com</div>
+          
+          <div class="meta"><a href="https://www.instagram.com/reel/DIzIBIjyhPX/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="01:19:39  YouTube Local Solutions to Water Challenges | 2025 Climate Change Conference ... March 24, 2025   43 ">
+          <h4>01:19:39  YouTube Local Solutions to Water Challenges | 2025 Climate Change Conference ... March 24, 2025   43</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=ceu1CIcnlfQ" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="climategfl.org March 2025 Update — Climate Solutions Accelerator March 19, 2025 ">
+          <h4>climategfl.org March 2025 Update — Climate Solutions Accelerator March 19, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.climategfl.org</div>
+          
+          <div class="meta"><a href="https://www.climategfl.org/video-updates/march-2025-update" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-june-3-2025   Climate Change Solutions - June 3, 2025 | Newsletter | EESI ">
+          <h4>Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-june-3-2025   Climate Change Solutions - June 3, 2025 | Newsletter | EESI</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.eesi.org</div>
+          
+          <div class="meta"><a href="https://www.eesi.org/newsletters/view/climate-change-solutions-june-3-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="UCSB news.ucsb.edu › 2025  › 021979  › nature-based-climate-solutions-work-they-must-be-restructured   For nature-based climate solutions to work, they must be restructured | The Current ">
+          <h4>UCSB news.ucsb.edu › 2025  › 021979  › nature-based-climate-solutions-work-they-must-be-restructured   For nature-based climate solutions to work, they must be restructured | The Current</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> news.ucsb.edu</div>
+          
+          <div class="meta"><a href="https://news.ucsb.edu/2025/021979/nature-based-climate-solutions-work-they-must-be-restructured" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World Economic Forum weforum.org › stories  › 2025  › 10  › climate-and-nature-action-changing-new-mindsets-and-solutions   Climate and nature action is changing: How new mindsets and solutions will h ">
+          <h4>World Economic Forum weforum.org › stories  › 2025  › 10  › climate-and-nature-action-changing-new-mindsets-and-solutions   Climate and nature action is changing: How new mindsets and solutions will h</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.weforum.org</div>
+          
+          <div class="meta"><a href="https://www.weforum.org/stories/2025/10/climate-and-nature-action-changing-new-mindsets-and-solutions/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="United Nations un.org › en  › climatechange  › climate-summit-2025   Climate Summit 2025 | United Nations ">
+          <h4>United Nations un.org › en  › climatechange  › climate-summit-2025   Climate Summit 2025 | United Nations</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.un.org</div>
+          
+          <div class="meta"><a href="https://www.un.org/en/climatechange/climate-summit-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-september-9-2025   Climate Change Solutions - September 9, 2025 | Newsletter | EESI ">
+          <h4>Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-september-9-2025   Climate Change Solutions - September 9, 2025 | Newsletter | EESI</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.eesi.org</div>
+          
+          <div class="meta"><a href="https://www.eesi.org/newsletters/view/climate-change-solutions-september-9-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Global Center on Adaptation gca.org   › home  › blog  › what to expect in climate change in 2025: opportunities amid challenges   What to Expect in Climate Change in 2025: Opportunities Amid Challenge ">
+          <h4>Global Center on Adaptation gca.org   › home  › blog  › what to expect in climate change in 2025: opportunities amid challenges   What to Expect in Climate Change in 2025: Opportunities Amid Challenge</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> gca.org</div>
+          
+          <div class="meta"><a href="https://gca.org/what-to-expect-in-climate-change-in-2025-opportunities-amid-challenges/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-april-22-2025   Climate Change Solutions - April 22, 2025 | Newsletter | EESI ">
+          <h4>Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-april-22-2025   Climate Change Solutions - April 22, 2025 | Newsletter | EESI</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.eesi.org</div>
+          
+          <div class="meta"><a href="https://www.eesi.org/newsletters/view/climate-change-solutions-april-22-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Clean Air Task Force catf.us   › home  › post archive  › the climate pivot: 2025 impact highlights   The climate pivot: 2025 impact highlights – Clean Air Task Force ">
+          <h4>Clean Air Task Force catf.us   › home  › post archive  › the climate pivot: 2025 impact highlights   The climate pivot: 2025 impact highlights – Clean Air Task Force</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.catf.us</div>
+          
+          <div class="meta"><a href="https://www.catf.us/2025/12/the-climate-pivot-2025-impact-highlights/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World Resources Institute wri.org › insights  › climate-action-progress-1-5-degrees-c-2025   The State of Climate Action in 2025: 10 Key Findings | World Resources Institute ">
+          <h4>World Resources Institute wri.org › insights  › climate-action-progress-1-5-degrees-c-2025   The State of Climate Action in 2025: 10 Key Findings | World Resources Institute</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.wri.org</div>
+          
+          <div class="meta"><a href="https://www.wri.org/insights/climate-action-progress-1-5-degrees-c-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-december-2-2025   Climate Change Solutions - December 2, 2025 | Newsletter | EESI ">
+          <h4>Environmental and Energy Study Institute eesi.org › newsletters  › view  › climate-change-solutions-december-2-2025   Climate Change Solutions - December 2, 2025 | Newsletter | EESI</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.eesi.org</div>
+          
+          <div class="meta"><a href="https://www.eesi.org/newsletters/view/climate-change-solutions-december-2-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World Resources Institute wri.org › research  › state-climate-action-2025   State of Climate Action 2025 | World Resources Institute ">
+          <h4>World Resources Institute wri.org › research  › state-climate-action-2025   State of Climate Action 2025 | World Resources Institute</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.wri.org</div>
+          
+          <div class="meta"><a href="https://www.wri.org/research/state-climate-action-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="United Nations un.org › en  › climatechange   ClimateChange | United Nations ">
+          <h4>United Nations un.org › en  › climatechange   ClimateChange | United Nations</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.un.org</div>
+          
+          <div class="meta"><a href="https://www.un.org/en/climatechange" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="USDA usda.gov › about-usda  › general-information  › priorities  › climate-solutions   Climate Solutions | USDA ">
+          <h4>USDA usda.gov › about-usda  › general-information  › priorities  › climate-solutions   Climate Solutions | USDA</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.usda.gov</div>
+          
+          <div class="meta"><a href="https://www.usda.gov/about-usda/general-information/priorities/climate-solutions" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="BBC bbc.com › future  › article  › 20251212-seven-quiet-wins-for-climate-and-nature-in-2025   Seven quiet wins for climate and nature in 2025 ">
+          <h4>BBC bbc.com › future  › article  › 20251212-seven-quiet-wins-for-climate-and-nature-in-2025   Seven quiet wins for climate and nature in 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.bbc.com</div>
+          
+          <div class="meta"><a href="https://www.bbc.com/future/article/20251212-seven-quiet-wins-for-climate-and-nature-in-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="World Resources Institute wri.org › insights  › strategies-achieve-climate-mitigation-adaptation-simultaneously   6 Strategies that Achieve Climate Mitigation and Adaptation Simultaneously ">
+          <h4>World Resources Institute wri.org › insights  › strategies-achieve-climate-mitigation-adaptation-simultaneously   6 Strategies that Achieve Climate Mitigation and Adaptation Simultaneously</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.wri.org</div>
+          
+          <div class="meta"><a href="https://www.wri.org/insights/strategies-achieve-climate-mitigation-adaptation-simultaneously" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="SolarTech solartechonline.com   › home  › 2025-b  › what can we do to stop climate change? a comprehensive guide to climate action in 2025   What Can We Do To Stop Climate Change? 50+ Proven Solutions ">
+          <h4>SolarTech solartechonline.com   › home  › 2025-b  › what can we do to stop climate change? a comprehensive guide to climate action in 2025   What Can We Do To Stop Climate Change? 50+ Proven Solutions</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> solartechonline.com</div>
+          
+          <div class="meta"><a href="https://solartechonline.com/blog/what-can-we-do-to-stop-climate-change/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="+1 619-743-9193 ">
+          <h4>+1 619-743-9193</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> </div>
+          
+          <div class="meta"><a href="tel:+1 619-743-9193" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Project Drawdown® drawdown.org › explorer   Drawdown Explorer™ ">
+          <h4>Project Drawdown® drawdown.org › explorer   Drawdown Explorer™</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> drawdown.org</div>
+          
+          <div class="meta"><a href="https://drawdown.org/explorer" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="UNDP climatepromise.undp.org › what-we-do  › flagship-initiatives  › climate-promise-2025   Climate Promise 2025 | UNDP Climate Promise ">
+          <h4>UNDP climatepromise.undp.org › what-we-do  › flagship-initiatives  › climate-promise-2025   Climate Promise 2025 | UNDP Climate Promise</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> climatepromise.undp.org</div>
+          
+          <div class="meta"><a href="https://climatepromise.undp.org/what-we-do/flagship-initiatives/climate-promise-2025" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Brave Search Help ">
+          <h4>Brave Search Help</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /help</div>
+          
+          <div class="meta"><a href="/help" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Report a security issue ">
+          <h4>Report a security issue</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> hackerone.com</div>
+          
+          <div class="meta"><a href="https://hackerone.com/brave" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Privacy Policy ">
+          <h4>Privacy Policy</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> privacy-policy</div>
+          
+          <div class="meta"><a href="/help/privacy-policy" target="_blank">Visit page →</a></div>
+        </div></div></div><div class="section" id="reddit-section"><div class="section-header"><h2>Reddit Analysis (1 posts)</h2>
+        <button class="collapse-btn" onclick="toggleSection('reddit-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="reddit-cards">
+        <div class="post-card" data-searchable="Engineering the Thermodynamic Rebalance: The Biomimetic 24-Gon Thermal Matrix **Beyond the Thermometer: 5 Surprising Realities of Our Changing Planet**  
+For years, the public narrative around climate change has been tethered to a single, blunt instrument: the thermometer. We have been taught to watch the mercury as if it were the only indicator of a world in flux. However, the data emerging from the 2026 Bonn Climate Conference and recent breakthroughs from IIT Kharagpur suggest that this air-temperature obsession has left us with a dangerous blind spot.  
+While we monitored the heat, the fundamental chemistry of our atmosphere and oceans was shifting beneath us. We are beginning to realize that the climate crisis is not merely a &quot;warming&quot; event; it is a profound transformation of our planet’s chemical and geometric reality. The &quot;curiosity gap&quot; is widening—we are discovering that some of our most successful environmental policies are inadvertently accelerating warming, while our most effective solutions might lie in the ancient logic of biomimicry.  
+The following five realities, distilled from the latest engineering and atmospheric research, move beyond the headlines to reveal a planet that is operating under a new set of rules. From toxic chemical &quot;double-agents&quot; to the &quot;vortex flow&quot; of next-generation solar energy, these insights redefine the strategic landscape of our survival.  
+**1. The Toxic Combo: Why Heatwaves are a Chemical Double-Agent**  
+We have traditionally viewed heatwaves through the lens of thermodynamics—as periods of intense heat stress that strain the electrical grid and the human heart. But recent research from IIT Kharagpur, published in *npj Clean Air*, reveals that heatwaves are actually acting as chemical catalysts. They are driving a &quot;compound heat-air pollution crisis&quot; by accelerating the formation of ground-level ozone.  
+In 2024, this toxic combination was linked to over 26,500 deaths in India, with the mortality burden split between ischaemic heart disease (15,615 deaths) and chronic obstructive pulmonary disease (10,898 deaths). The mechanism is a perfect storm of chemistry and physics: heat, sunlight, and stagnant pollutants (nitrogen oxides and VOCs) react to form surface ozone, a severe respiratory irritant. The 2024 crisis was exacerbated by the absence of active &quot;Western Disturbances&quot;—the atmospheric systems that usually provide convective relief—trapping these pollutants in prolonged, toxic cycles.  
+&quot;The most severe hotspots include north-west India, the Indo-Gangetic Plain, north-central India, the north-east, and the western Himalaya,&quot; explains Jayanarayanan Kuttippurath of CORAL, IIT Kharagpur, noting that ozone levels frequently peaked at 115% above WHO limits.  
+**Strategic Analysis:** This creates a massive liability for municipal governments. Current Heat Action Plans are fundamentally flawed because they focus almost exclusively on hydration and cooling centers while ignoring air quality metrics. Strategically, we must transition to integrated &quot;Climate-Health Advisories&quot; that Serious-Gas4639">
+          <h4>Engineering the Thermodynamic Rebalance: The Biomimetic 24-Gon Thermal Matrix</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/climatechange</span>
+            <span class="badge badge-score">⬆ 1</span>
+            <span class="sentiment-badge sentiment-positive">positive</span>
+            💬 0 comments · Serious-Gas4639 · June 27, 2026
+          </div>
+          <div class="text">**Beyond the Thermometer: 5 Surprising Realities of Our Changing Planet**  
+For years, the public narrative around climate change has been tethered to a single, blunt instrument: the thermometer. We have been taught to watch the mercury as if it were the only indicator of a world in flux. However, the data emerging from the 2026 Bonn Climate Conference and recent breakthroughs from IIT Kharagpur suggest that this air-temperature obsession has left us with a dangerous blind spot.  
+While we monit...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/climatechange/comments/1ugulew" target="_blank">View on Reddit →</a></div></div></div></div><div class="section" id="author-section"><div class="section-header"><h2>Top Authors</h2></div>
+        <div class="author-card" data-searchable="Serious-Gas4639">
+          <div>
+            <div class="name">u/Serious-Gas4639</div>
+            <div class="stats">1 posts · ⬆ 1 total · avg ⬆ 1</div>
+            <div class="stats">Active in: r/climatechange</div>
+          </div>
+        </div></div><div class="section" id="youtube-section"><div class="section-header"><h2>YouTube Analysis (95 videos)</h2>
+        <button class="collapse-btn" onclick="toggleSection('youtube-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="youtube-cards">
+        <div class="video-card" data-searchable="Climate Change Song Hopscotch Songs">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/cn9PhiDJp-A/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYgBk5j-4vIy3AJ5oBVq6FW_hWzg" alt="Climate Change Song" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change Song</h4>
+            <div class="channel">Hopscotch Songs</div>
+            <div class="meta">
+              👁 8,573,166 views
+               · ⏱ 4:25
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=cn9PhiDJp-A" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Causes and Effects of Climate Change | National Geographic National Geographic">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/G4H1N_yXBiA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBg_Jh5oS3uwPNA8S-rUwIotY8n_g" alt="Causes and Effects of Climate Change | National Geographic" loading="lazy"></div>
+          <div class="info">
+            <h4>Causes and Effects of Climate Change | National Geographic</h4>
+            <div class="channel">National Geographic</div>
+            <div class="meta">
+              👁 6,101,796 views
+               · ⏱ 3:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=G4H1N_yXBiA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Which country has the best education in the world? - The Global Story podcast, BBC World Service BBC World Service">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/liyn5xWvx44/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDVy_lYafQHDFlIzBaV8zCVMOWZjw" alt="Which country has the best education in the world? - The Global Story podcast, BBC World Service" loading="lazy"></div>
+          <div class="info">
+            <h4>Which country has the best education in the world? - The Global Story podcast, BBC World Service</h4>
+            <div class="channel">BBC World Service</div>
+            <div class="meta">
+              👁 5,392,653 views
+               · ⏱ 22:13
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=liyn5xWvx44" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Explained | World&#039;s Water Crisis | FULL EPISODE | Netflix Netflix">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/C65iqOSCZOY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDLpWT4H-rku4HvNTZdcJdRiezEnQ" alt="Explained | World&#039;s Water Crisis | FULL EPISODE | Netflix" loading="lazy"></div>
+          <div class="info">
+            <h4>Explained | World&#039;s Water Crisis | FULL EPISODE | Netflix</h4>
+            <div class="channel">Netflix</div>
+            <div class="meta">
+              👁 4,899,580 views
+               · ⏱ 18:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=C65iqOSCZOY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Global Warming - The End Game | The Dr. Binocs Show | Best Learning Videos For Kids | Peekaboo Kidz Peekaboo Kidz">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Y3gqoDUtmt4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAmJms8LVt_qk7ZKw6rqfsqIlV10A" alt="Global Warming - The End Game | The Dr. Binocs Show | Best Learning Videos For Kids | Peekaboo Kidz" loading="lazy"></div>
+          <div class="info">
+            <h4>Global Warming - The End Game | The Dr. Binocs Show | Best Learning Videos For Kids | Peekaboo Kidz</h4>
+            <div class="channel">Peekaboo Kidz</div>
+            <div class="meta">
+              👁 4,278,709 views
+               · ⏱ 6:12
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Y3gqoDUtmt4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How much progress have we made on climate change? Simon Clark">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/h1jOqyjcO4g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAf7wUeXRLOBtYPovEhxIWBPNxYaQ" alt="How much progress have we made on climate change?" loading="lazy"></div>
+          <div class="info">
+            <h4>How much progress have we made on climate change?</h4>
+            <div class="channel">Simon Clark</div>
+            <div class="meta">
+              👁 2,935,291 views
+               · ⏱ 19:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=h1jOqyjcO4g" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Global renewables: Pioneering the energy transition | DW Documentary DW Documentary">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/UVf2Yw7uFoE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA9MBZpmAg9Cz3ub6Kxd3hSjwly7A" alt="Global renewables: Pioneering the energy transition | DW Documentary" loading="lazy"></div>
+          <div class="info">
+            <h4>Global renewables: Pioneering the energy transition | DW Documentary</h4>
+            <div class="channel">DW Documentary</div>
+            <div class="meta">
+              👁 2,466,660 views
+               · ⏱ 42:26
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=UVf2Yw7uFoE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How I Think About Climate Change StarTalk">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/tRA2SfSk2Tc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB2lfzbdPQsrqhsQMRVvdHqGFlszw" alt="How I Think About Climate Change" loading="lazy"></div>
+          <div class="info">
+            <h4>How I Think About Climate Change</h4>
+            <div class="channel">StarTalk</div>
+            <div class="meta">
+              👁 2,401,284 views
+               · ⏱ 9:46
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=tRA2SfSk2Tc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change - A Short Film [4K] DJI Captures">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/jAa58N4Jlos/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDLeHdqW6-THKB0KlowSBmJVH5rPw" alt="Climate Change - A Short Film [4K]" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change - A Short Film [4K]</h4>
+            <div class="channel">DJI Captures</div>
+            <div class="meta">
+              👁 2,351,919 views
+               · ⏱ 3:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=jAa58N4Jlos" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Surprising Solutions to the World&#039;s Water Crisis | The Future With Hannah Fry Bloomberg Originals">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/FDY2McKLvlM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCGu9fO2NZED0X0EsCXXOdwzyAmGw" alt="The Surprising Solutions to the World&#039;s Water Crisis | The Future With Hannah Fry" loading="lazy"></div>
+          <div class="info">
+            <h4>The Surprising Solutions to the World&#039;s Water Crisis | The Future With Hannah Fry</h4>
+            <div class="channel">Bloomberg Originals</div>
+            <div class="meta">
+              👁 1,627,800 views
+               · ⏱ 24:02
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=FDY2McKLvlM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Tipping Points of Climate Change — and Where We Stand | Johan Rockström | TED TED">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Vl6VhCAeEfQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbMoyd8MHs0oxTm1UxZFagb3DKWw" alt="The Tipping Points of Climate Change — and Where We Stand | Johan Rockström | TED" loading="lazy"></div>
+          <div class="info">
+            <h4>The Tipping Points of Climate Change — and Where We Stand | Johan Rockström | TED</h4>
+            <div class="channel">TED</div>
+            <div class="meta">
+              👁 1,549,154 views
+               · ⏱ 18:36
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Vl6VhCAeEfQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What Earth in 2050 could look like - Shannon Odell TED-Ed">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/2njn71TqkjA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBrjlTSnKV1LWFEjiPcEHQHvtxisA" alt="What Earth in 2050 could look like - Shannon Odell" loading="lazy"></div>
+          <div class="info">
+            <h4>What Earth in 2050 could look like - Shannon Odell</h4>
+            <div class="channel">TED-Ed</div>
+            <div class="meta">
+              👁 1,409,441 views
+               · ⏱ 5:00
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=2njn71TqkjA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Start IELTS Speaking Answers Like a Band 9 Student IELTS Advantage">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/WP2LcgMq-_8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAsbTuHgleWJPnv_ELVSGNdPkospw" alt="How to Start IELTS Speaking Answers Like a Band 9 Student" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Start IELTS Speaking Answers Like a Band 9 Student</h4>
+            <div class="channel">IELTS Advantage</div>
+            <div class="meta">
+              👁 981,216 views
+               · ⏱ 14:56
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=WP2LcgMq-_8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="We Just Crossed Our FIRST Tipping Point… And It’s NOT What You Think PBS Terra">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ECYMHIbBYyI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAtva6Jy5fgAgEmck4B_O_M1wavHw" alt="We Just Crossed Our FIRST Tipping Point… And It’s NOT What You Think" loading="lazy"></div>
+          <div class="info">
+            <h4>We Just Crossed Our FIRST Tipping Point… And It’s NOT What You Think</h4>
+            <div class="channel">PBS Terra</div>
+            <div class="meta">
+              👁 848,636 views
+               · ⏱ 13:30
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ECYMHIbBYyI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="A Controversial Play — and What It Taught Me About the Psychology of Climate | David Finnigan | TED TED">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/MHZMQLDr-OA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBUC9ai9C4mGY_6CuQQpuAydJT0Aw" alt="A Controversial Play — and What It Taught Me About the Psychology of Climate | David Finnigan | TED" loading="lazy"></div>
+          <div class="info">
+            <h4>A Controversial Play — and What It Taught Me About the Psychology of Climate | David Finnigan | TED</h4>
+            <div class="channel">TED</div>
+            <div class="meta">
+              👁 759,676 views
+               · ⏱ 10:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=MHZMQLDr-OA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change and Global Warming: Explained in Simple Words for Beginners Science ABC">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/G9t__9Tmwv4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBtkPTJqCnzC_HwMtqT3ArLHuSD5g" alt="Climate Change and Global Warming: Explained in Simple Words for Beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change and Global Warming: Explained in Simple Words for Beginners</h4>
+            <div class="channel">Science ABC</div>
+            <div class="meta">
+              👁 747,254 views
+               · ⏱ 5:56
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=G9t__9Tmwv4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Inside the planet’s most urgent climate warning | Global Warning E1 | Featured Documentary Al Jazeera English">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/F8vI5_gN90g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLABynnSorjTuKvz1ExXoA7wmJqENA" alt="Inside the planet’s most urgent climate warning | Global Warning E1 | Featured Documentary" loading="lazy"></div>
+          <div class="info">
+            <h4>Inside the planet’s most urgent climate warning | Global Warning E1 | Featured Documentary</h4>
+            <div class="channel">Al Jazeera English</div>
+            <div class="meta">
+              👁 634,975 views
+               · ⏱ 47:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=F8vI5_gN90g" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Why Climate Action Is Unstoppable — and “Climate Realism” Is a Myth  | Al Gore | TED TED">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Ztx0Bch3h9s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBkdGE7ylh8z5gKYpcdLLQlP2FxNw" alt="Why Climate Action Is Unstoppable — and “Climate Realism” Is a Myth  | Al Gore | TED" loading="lazy"></div>
+          <div class="info">
+            <h4>Why Climate Action Is Unstoppable — and “Climate Realism” Is a Myth  | Al Gore | TED</h4>
+            <div class="channel">TED</div>
+            <div class="meta">
+              👁 587,382 views
+               · ⏱ 24:11
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Ztx0Bch3h9s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Top 10 Major Global Environmental Issues In The World - List Of Global Environmental Problems [2021] District10TV">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/aTrWtFR_FrQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCvxiQKznek5InyrCggTWDtA7VcMw" alt="Top 10 Major Global Environmental Issues In The World - List Of Global Environmental Problems [2021]" loading="lazy"></div>
+          <div class="info">
+            <h4>Top 10 Major Global Environmental Issues In The World - List Of Global Environmental Problems [2021]</h4>
+            <div class="channel">District10TV</div>
+            <div class="meta">
+              👁 358,745 views
+               · ⏱ 8:34
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=aTrWtFR_FrQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The best climate news all year Simon Clark">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/F1MGJUaxQPk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBHsBCnHqGy4-0nQwghJQCvYieS7Q" alt="The best climate news all year" loading="lazy"></div>
+          <div class="info">
+            <h4>The best climate news all year</h4>
+            <div class="channel">Simon Clark</div>
+            <div class="meta">
+              👁 335,151 views
+               · ⏱ 32:11
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=F1MGJUaxQPk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Could &#039;degrowth&#039; save the world? | BBC News BBC News">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/596dU6pDEU8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCEyxujUvdoVr2bw9WAjFIDH1zGDg" alt="Could &#039;degrowth&#039; save the world? | BBC News" loading="lazy"></div>
+          <div class="info">
+            <h4>Could &#039;degrowth&#039; save the world? | BBC News</h4>
+            <div class="channel">BBC News</div>
+            <div class="meta">
+              👁 266,321 views
+               · ⏱ 21:10
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=596dU6pDEU8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Simple Solution to Fast Fashion | Josephine Philips | TED TED">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Bh8dnw67rE0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDT9I19CI3TgWhgC1MI5W0EUDlr4g" alt="The Simple Solution to Fast Fashion | Josephine Philips | TED" loading="lazy"></div>
+          <div class="info">
+            <h4>The Simple Solution to Fast Fashion | Josephine Philips | TED</h4>
+            <div class="channel">TED</div>
+            <div class="meta">
+              👁 208,387 views
+               · ⏱ 8:26
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Bh8dnw67rE0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Will We Survive Climate Change? – A Question of Science with Brian Cox The Francis Crick Institute">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/57x_SWsv6QU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB7KF03iFl7ukiMtAPINzya-_MgeQ" alt="Will We Survive Climate Change? – A Question of Science with Brian Cox" loading="lazy"></div>
+          <div class="info">
+            <h4>Will We Survive Climate Change? – A Question of Science with Brian Cox</h4>
+            <div class="channel">The Francis Crick Institute</div>
+            <div class="meta">
+              👁 165,682 views
+               · ⏱ 44:34
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=57x_SWsv6QU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Environmental Effects of Climate Change On Our Planet | Breakthrough Curiosity Stream">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/UkhaC6Pc0ZM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDRCNV8uL35RJH12DiDecExpHi0Fw" alt="The Environmental Effects of Climate Change On Our Planet | Breakthrough" loading="lazy"></div>
+          <div class="info">
+            <h4>The Environmental Effects of Climate Change On Our Planet | Breakthrough</h4>
+            <div class="channel">Curiosity Stream</div>
+            <div class="meta">
+              👁 140,682 views
+               · ⏱ 15:57
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=UkhaC6Pc0ZM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Is China&#039;s renewables revolution moving fast enough? - The Climate Question, BBC World Service BBC World Service">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/t3-wI90Jkeo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDi4RfoT7Q93fLmf1HA0Np0Ky5uFg" alt="Is China&#039;s renewables revolution moving fast enough? - The Climate Question, BBC World Service" loading="lazy"></div>
+          <div class="info">
+            <h4>Is China&#039;s renewables revolution moving fast enough? - The Climate Question, BBC World Service</h4>
+            <div class="channel">BBC World Service</div>
+            <div class="meta">
+              👁 108,110 views
+               · ⏱ 22:49
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=t3-wI90Jkeo" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Bioplastics and other innovations against climate change | DW Documentary DW Documentary">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/6xVYIDkXGYM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCrrUzyyriG6CEKbECg691jp1gIpQ" alt="Bioplastics and other innovations against climate change | DW Documentary" loading="lazy"></div>
+          <div class="info">
+            <h4>Bioplastics and other innovations against climate change | DW Documentary</h4>
+            <div class="channel">DW Documentary</div>
+            <div class="meta">
+              👁 85,931 views
+               · ⏱ 25:56
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=6xVYIDkXGYM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Climate Solutions Worth Funding — Now | Jonathan Foley | TED TED">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JJPfmH5r99k/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0ok5w59fQeURUTJEQ9CZt8LcdEw" alt="The Climate Solutions Worth Funding — Now | Jonathan Foley | TED" loading="lazy"></div>
+          <div class="info">
+            <h4>The Climate Solutions Worth Funding — Now | Jonathan Foley | TED</h4>
+            <div class="channel">TED</div>
+            <div class="meta">
+              👁 60,686 views
+               · ⏱ 10:27
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JJPfmH5r99k" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="China &#039;focusing on solutions&#039; to combat emissions and climate change, analyst says • FRANCE 24 FRANCE 24 English">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/aZYpzgBm738/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAYmosi6zvXln3sCEbaZdSn6IGv_w" alt="China &#039;focusing on solutions&#039; to combat emissions and climate change, analyst says • FRANCE 24" loading="lazy"></div>
+          <div class="info">
+            <h4>China &#039;focusing on solutions&#039; to combat emissions and climate change, analyst says • FRANCE 24</h4>
+            <div class="channel">FRANCE 24 English</div>
+            <div class="meta">
+              👁 49,027 views
+               · ⏱ 12:03
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=aZYpzgBm738" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="June 2025 Earth &amp; Space Science Regents – Full NYSSLS Exam Walkthrough (NEW FORMAT) I Teach You Science">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/-bG1AjU5l58/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD5HVjjnqBlf6-3WRi_nrX7dcSwHQ" alt="June 2025 Earth &amp; Space Science Regents – Full NYSSLS Exam Walkthrough (NEW FORMAT)" loading="lazy"></div>
+          <div class="info">
+            <h4>June 2025 Earth &amp; Space Science Regents – Full NYSSLS Exam Walkthrough (NEW FORMAT)</h4>
+            <div class="channel">I Teach You Science</div>
+            <div class="meta">
+              👁 29,991 views
+               · ⏱ 2:09:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=-bG1AjU5l58" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The current state of climate finance | Stories to Watch 2025 World Resources Institute">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/CTRI3tWPgno/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCFRdleLoonLQD_vydqv8E7V4LHCA" alt="The current state of climate finance | Stories to Watch 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>The current state of climate finance | Stories to Watch 2025</h4>
+            <div class="channel">World Resources Institute</div>
+            <div class="meta">
+              👁 10,922 views
+               · ⏱ 46:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=CTRI3tWPgno" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="10 New Inventions Saving Planet Earth | ChangeNOW Expo 2025 Going Green">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/qMCD0xfkRC0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAKqq8yu8FVmfVn0M-yoS2wGMu8cg" alt="10 New Inventions Saving Planet Earth | ChangeNOW Expo 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>10 New Inventions Saving Planet Earth | ChangeNOW Expo 2025</h4>
+            <div class="channel">Going Green</div>
+            <div class="meta">
+              👁 5,391 views
+               · ⏱ 7:46
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=qMCD0xfkRC0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Fungi &amp; Climate Change: Hidden Solutions and New Risks Climate Emergency Forum">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/fHSpi5XhLOE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA67-hs646hyb7dJ8vUlDyK3QPP5Q" alt="Fungi &amp; Climate Change: Hidden Solutions and New Risks" loading="lazy"></div>
+          <div class="info">
+            <h4>Fungi &amp; Climate Change: Hidden Solutions and New Risks</h4>
+            <div class="channel">Climate Emergency Forum</div>
+            <div class="meta">
+              👁 4,231 views
+               · ⏱ 32:06
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=fHSpi5XhLOE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Heat: Climate Change 2025 CGTN America">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/tu7asa1o988/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBjVD0mx9-xGn2OFhHBN1za8M-Ejg" alt="The Heat: Climate Change 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>The Heat: Climate Change 2025</h4>
+            <div class="channel">CGTN America</div>
+            <div class="meta">
+              👁 3,583 views
+               · ⏱ 27:49
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=tu7asa1o988" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="ANU Climate Update 2025: If not now, when? ANU Climate, Energy &amp; Disaster Solutions">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JHwuzr3eLhI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLALII_5JWh_M7y0sMUWNaz3UGWHZg" alt="ANU Climate Update 2025: If not now, when?" loading="lazy"></div>
+          <div class="info">
+            <h4>ANU Climate Update 2025: If not now, when?</h4>
+            <div class="channel">ANU Climate, Energy &amp; Disaster Solutions</div>
+            <div class="meta">
+              👁 3,547 views
+               · ⏱ 1:12:37
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JHwuzr3eLhI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change Challenge Global Finals 2025 Saïd Business School, University of Oxford">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/zR-pywqkQ7k/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCSr6xW35Z5tguXQZoHvavk00ZS1g" alt="Climate Change Challenge Global Finals 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change Challenge Global Finals 2025</h4>
+            <div class="channel">Saïd Business School, University of Oxford</div>
+            <div class="meta">
+              👁 3,474 views
+               · ⏱ 4:06:54
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=zR-pywqkQ7k" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Statistical Review of World Energy 2025 Center for Strategic &amp; International Studies">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/XrSBa_vViK0/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhIIE4oZTAP&rs=AOn4CLC8ZrJDm3lVUCWf2R29nwqhOllgZw" alt="Statistical Review of World Energy 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Statistical Review of World Energy 2025</h4>
+            <div class="channel">Center for Strategic &amp; International Studies</div>
+            <div class="meta">
+              👁 2,321 views
+               · ⏱ 58:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=XrSBa_vViK0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Together, We Can: How to move climate solutions forward in 2025 | Featuring Dr. Jonathan Foley Project Drawdown">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/mEQLWHsIVRo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAUBLBqlnJXTDTMNxbavcMJysOCrQ" alt="Together, We Can: How to move climate solutions forward in 2025 | Featuring Dr. Jonathan Foley" loading="lazy"></div>
+          <div class="info">
+            <h4>Together, We Can: How to move climate solutions forward in 2025 | Featuring Dr. Jonathan Foley</h4>
+            <div class="channel">Project Drawdown</div>
+            <div class="meta">
+              👁 1,816 views
+               · ⏱ 58:54
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=mEQLWHsIVRo" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change in 2025 – Real Problems, Real Solutions | English Speech | ESY Learning English">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/bQ1YqkTUYJg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAp_k5r1pBfnpnvpYy24UnbVqJQAg" alt="Climate Change in 2025 – Real Problems, Real Solutions | English Speech |" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change in 2025 – Real Problems, Real Solutions | English Speech |</h4>
+            <div class="channel">ESY Learning English</div>
+            <div class="meta">
+              👁 1,412 views
+               · ⏱ 8:02
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=bQ1YqkTUYJg" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="2025 Year in Review and 2026 Market Outlook Munro Partners">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/7b3teDPBCXs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAZH3jm4Cr7EybbGFG9kshikJBkxA" alt="2025 Year in Review and 2026 Market Outlook" loading="lazy"></div>
+          <div class="info">
+            <h4>2025 Year in Review and 2026 Market Outlook</h4>
+            <div class="channel">Munro Partners</div>
+            <div class="meta">
+              👁 1,400 views
+               · ⏱ 16:23
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=7b3teDPBCXs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Chat Year In Review 2025 Climate Chat">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/uoUNmt-yOKY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBW3F6pitG__54hDgkA8MtOFmwajA" alt="Climate Chat Year In Review 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Chat Year In Review 2025</h4>
+            <div class="channel">Climate Chat</div>
+            <div class="meta">
+              👁 1,329 views
+               · ⏱ 1:29:15
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=uoUNmt-yOKY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change Summit 2025 We Don&#039;t Have Time">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/C6p8T9Qg98s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCeXQg_5w6afHb-eV_n4DLY9uJc6Q" alt="Climate Change Summit 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change Summit 2025</h4>
+            <div class="channel">We Don&#039;t Have Time</div>
+            <div class="meta">
+              👁 1,274 views
+               · ⏱ 10:39:48
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=C6p8T9Qg98s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Top 10 Most Impactful Climate Change Solutions SamuLabs">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/FsdLX6LIWjY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLALb51pbl9W_Qr4DYpuGO0qFiBb_g" alt="Top 10 Most Impactful Climate Change Solutions" loading="lazy"></div>
+          <div class="info">
+            <h4>Top 10 Most Impactful Climate Change Solutions</h4>
+            <div class="channel">SamuLabs</div>
+            <div class="meta">
+              👁 1,230 views
+               · ⏱ 8:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=FsdLX6LIWjY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Hong Kong seeks innovative green solutions to tackle climate change, extreme weather CNA">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/0OlL2x-jooI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBEzZJQhe3Vz4aDXZf2GB-_LbukwQ" alt="Hong Kong seeks innovative green solutions to tackle climate change, extreme weather" loading="lazy"></div>
+          <div class="info">
+            <h4>Hong Kong seeks innovative green solutions to tackle climate change, extreme weather</h4>
+            <div class="channel">CNA</div>
+            <div class="meta">
+              👁 1,050 views
+               · ⏱ 4:36
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=0OlL2x-jooI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="New tool helps scientists share and compare solutions to climate threats | ABC News ABC News (Australia)">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Q4vYt5yNX7E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBsUklusxwcaVy_rHmDGRQHXJR50g" alt="New tool helps scientists share and compare solutions to climate threats | ABC News" loading="lazy"></div>
+          <div class="info">
+            <h4>New tool helps scientists share and compare solutions to climate threats | ABC News</h4>
+            <div class="channel">ABC News (Australia)</div>
+            <div class="meta">
+              👁 957 views
+               · ⏱ 1:39
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Q4vYt5yNX7E" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Economics of nature-based solutions for mitigating climate change. Edward B Barbier. Oxford Nature Network">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/5qQiI2eEQxY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAnOy9etvQrjMh1jIGNVQYENAsEcg" alt="Economics of nature-based solutions for mitigating climate change. Edward B Barbier." loading="lazy"></div>
+          <div class="info">
+            <h4>Economics of nature-based solutions for mitigating climate change. Edward B Barbier.</h4>
+            <div class="channel">Oxford Nature Network</div>
+            <div class="meta">
+              👁 941 views
+               · ⏱ 1:37:34
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=5qQiI2eEQxY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="2025 Sustainability Year in Review Hippy In A Suit">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/PAXWvY9K2UI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLArdtRB2PyoORakCNk965mj1T5Wvg" alt="2025 Sustainability Year in Review" loading="lazy"></div>
+          <div class="info">
+            <h4>2025 Sustainability Year in Review</h4>
+            <div class="channel">Hippy In A Suit</div>
+            <div class="meta">
+              👁 901 views
+               · ⏱ 12:22
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=PAXWvY9K2UI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Researchers hope AI can help accelerate climate solutions CNA">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/qvXUf45Rkug/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDpxmJSaBQV9AHND5aqK1mAwttTTw" alt="Researchers hope AI can help accelerate climate solutions" loading="lazy"></div>
+          <div class="info">
+            <h4>Researchers hope AI can help accelerate climate solutions</h4>
+            <div class="channel">CNA</div>
+            <div class="meta">
+              👁 625 views
+               · ⏱ 4:02
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=qvXUf45Rkug" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="A Year In Review: Climate Hope Exists Climate Action Now">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/lM7xAN7AFSk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC25pLhBGWJj3tQbRQqXQQkLUyCjA" alt="A Year In Review: Climate Hope Exists" loading="lazy"></div>
+          <div class="info">
+            <h4>A Year In Review: Climate Hope Exists</h4>
+            <div class="channel">Climate Action Now</div>
+            <div class="meta">
+              👁 608 views
+               · ⏱ 1:00:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=lM7xAN7AFSk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Science for the Planet: Creating Climate Solutions with Urban Communities Columbia Climate School">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/qdz1N9OteDs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCgXM-PHhZ2n18Rtyh0WGhbVFaWuA" alt="Science for the Planet: Creating Climate Solutions with Urban Communities" loading="lazy"></div>
+          <div class="info">
+            <h4>Science for the Planet: Creating Climate Solutions with Urban Communities</h4>
+            <div class="channel">Columbia Climate School</div>
+            <div class="meta">
+              👁 527 views
+               · ⏱ 3:07
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=qdz1N9OteDs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Nature Based Solutions for Climate Resilience Workshop (Bonaire) 2025 Mangrove Maniacs - Bonaire">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/g00Y99KQJLQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLASb_crK_kdKionGm0g1U6b3SuRuA" alt="Nature Based Solutions for Climate Resilience Workshop (Bonaire) 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Nature Based Solutions for Climate Resilience Workshop (Bonaire) 2025</h4>
+            <div class="channel">Mangrove Maniacs - Bonaire</div>
+            <div class="meta">
+              👁 517 views
+               · ⏱ 8:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=g00Y99KQJLQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Research Showcase 2025: Changing Trends in Climate Research Grantham Institute, Imperial College London">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Df4kUDykLx4/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARgTIFQofzAP&rs=AOn4CLDQMq3qtLdoCqwS-1UUDnkyOXxsgQ" alt="Climate Research Showcase 2025: Changing Trends in Climate Research" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Research Showcase 2025: Changing Trends in Climate Research</h4>
+            <div class="channel">Grantham Institute, Imperial College London</div>
+            <div class="meta">
+              👁 508 views
+               · ⏱ 58:07
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Df4kUDykLx4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change Summit 2025 - Green Stage Social Innovation Solutions">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/FuVSX8-xCr0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCtf6fq2c1o_9lxjXoiKxcvuEhACw" alt="Climate Change Summit 2025 - Green Stage" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change Summit 2025 - Green Stage</h4>
+            <div class="channel">Social Innovation Solutions</div>
+            <div class="meta">
+              👁 489 views
+               · ⏱ 7:34:01
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=FuVSX8-xCr0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="2025 Climate Solutions Prize Festival Climate Solutions Prize">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/mfnnZohv2N4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA7mb_MiSgURRljkq1RIYzibbSsbA" alt="2025 Climate Solutions Prize Festival" loading="lazy"></div>
+          <div class="info">
+            <h4>2025 Climate Solutions Prize Festival</h4>
+            <div class="channel">Climate Solutions Prize</div>
+            <div class="meta">
+              👁 382 views
+               · ⏱ 3:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=mfnnZohv2N4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="New Climate Futures 2025 Newlab">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/HF2O9cHsx4s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCKYi1WXPbX9c2NLRSnkoUQuKmbHQ" alt="New Climate Futures 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>New Climate Futures 2025</h4>
+            <div class="channel">Newlab</div>
+            <div class="meta">
+              👁 380 views
+               · ⏱ 4:09:30
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=HF2O9cHsx4s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Earth and Space Sciences Regents Exam (June 2025) The Apollo Tutor">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/p5whsLuI4eI/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhiIGIoYjAP&rs=AOn4CLCZOSHfCKo_FmEkjAofuGFvnes-ww" alt="Earth and Space Sciences Regents Exam (June 2025)" loading="lazy"></div>
+          <div class="info">
+            <h4>Earth and Space Sciences Regents Exam (June 2025)</h4>
+            <div class="channel">The Apollo Tutor</div>
+            <div class="meta">
+              👁 360 views
+               · ⏱ 1:49:50
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=p5whsLuI4eI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Solutions House NYC 2024: Climate Power Moves for 2025: Levelling-up Corporate Climate Action Solutions House">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/vkPVoOAlB2E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAl-V4CN4DcIR54_NSTou3n2t0weA" alt="Solutions House NYC 2024: Climate Power Moves for 2025: Levelling-up Corporate Climate Action" loading="lazy"></div>
+          <div class="info">
+            <h4>Solutions House NYC 2024: Climate Power Moves for 2025: Levelling-up Corporate Climate Action</h4>
+            <div class="channel">Solutions House</div>
+            <div class="meta">
+              👁 359 views
+               · ⏱ 49:48
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=vkPVoOAlB2E" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="10 Insights in Climate Science 2025/2026 Press Conference Future Earth">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/M25AWv7cmLU/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhqIGooajAP&rs=AOn4CLCzfZe7jdXCSS9A9_uvEGuVns3q0Q" alt="10 Insights in Climate Science 2025/2026 Press Conference" loading="lazy"></div>
+          <div class="info">
+            <h4>10 Insights in Climate Science 2025/2026 Press Conference</h4>
+            <div class="channel">Future Earth</div>
+            <div class="meta">
+              👁 339 views
+               · ⏱ 31:22
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=M25AWv7cmLU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Lagos International Climate Change Summit 2025 Channels Television">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/caBOkamkmD0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDCwmpaIMHPCa2uP2XKtmKHVpyanQ" alt="Lagos International Climate Change Summit 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Lagos International Climate Change Summit 2025</h4>
+            <div class="channel">Channels Television</div>
+            <div class="meta">
+              👁 337 views
+               · ⏱ 2:14:44
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=caBOkamkmD0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Week NYC 2025 | Navigating Turbulent Times: Adaptive Strategies for Ocean-Climate Solutions Ocean Visions">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wbB70ogudDM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAvI2TaP4k5-hE9ALfEmohsJBZNJA" alt="Climate Week NYC 2025 | Navigating Turbulent Times: Adaptive Strategies for Ocean-Climate Solutions" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Week NYC 2025 | Navigating Turbulent Times: Adaptive Strategies for Ocean-Climate Solutions</h4>
+            <div class="channel">Ocean Visions</div>
+            <div class="meta">
+              👁 322 views
+               · ⏱ 1:48:47
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wbB70ogudDM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="A Year In Review: Your 2025 Dose of Climate Hope! Climate Action Now">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/iVbDcgCyfEg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxuRyUR9Cm4-slqfUFqkK3Cbb5dQ" alt="A Year In Review: Your 2025 Dose of Climate Hope!" loading="lazy"></div>
+          <div class="info">
+            <h4>A Year In Review: Your 2025 Dose of Climate Hope!</h4>
+            <div class="channel">Climate Action Now</div>
+            <div class="meta">
+              👁 306 views
+               · ⏱ 1:03:24
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=iVbDcgCyfEg" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="State Environmental Quality Review Act (SEQRA) Basics 2025 Division of Local Government Services">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/lNF5G2VZXnI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLABT0euNeFrcf4jGGJDXdxNwiXugQ" alt="State Environmental Quality Review Act (SEQRA) Basics 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>State Environmental Quality Review Act (SEQRA) Basics 2025</h4>
+            <div class="channel">Division of Local Government Services</div>
+            <div class="meta">
+              👁 289 views
+               · ⏱ 1:49:21
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=lNF5G2VZXnI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Munro Climate Change Leaders Fund Year in Review Munro Partners">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/acZqvRrFcPc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCVHzTI2xC6EYXfLNecs-nISJFzYg" alt="Munro Climate Change Leaders Fund Year in Review" loading="lazy"></div>
+          <div class="info">
+            <h4>Munro Climate Change Leaders Fund Year in Review</h4>
+            <div class="channel">Munro Partners</div>
+            <div class="meta">
+              👁 286 views
+               · ⏱ 9:03
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=acZqvRrFcPc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="ERM Foundation Annual Review 2025 ERM Global">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wLuoQYBmuPA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBxOBtbApzcDyYyxydV3bPxqvlTsw" alt="ERM Foundation Annual Review 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>ERM Foundation Annual Review 2025</h4>
+            <div class="channel">ERM Global</div>
+            <div class="meta">
+              👁 236 views
+               · ⏱ 2:36
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wLuoQYBmuPA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Bhutan’s 2025 SDG Progress | Third Voluntary National Review UNDP in Bhutan">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/FLvt7UfS8B8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA73rBTnI_b4HpqKqv3ZvmZFG4p-g" alt="Bhutan’s 2025 SDG Progress | Third Voluntary National Review" loading="lazy"></div>
+          <div class="info">
+            <h4>Bhutan’s 2025 SDG Progress | Third Voluntary National Review</h4>
+            <div class="channel">UNDP in Bhutan</div>
+            <div class="meta">
+              👁 218 views
+               · ⏱ 3:01
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=FLvt7UfS8B8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Environmental Peacebuilding: The Year in Review and the Year Ahead Environmental Peacebuilding">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ahZ05EnYNW8/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gSAAugCigIMCAAQARg8IFgocjAP&rs=AOn4CLAWu3EnWJd2QgtvRFGylYo5G3ejtg" alt="Environmental Peacebuilding: The Year in Review and the Year Ahead" loading="lazy"></div>
+          <div class="info">
+            <h4>Environmental Peacebuilding: The Year in Review and the Year Ahead</h4>
+            <div class="channel">Environmental Peacebuilding</div>
+            <div class="meta">
+              👁 186 views
+               · ⏱ 1:29:48
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ahZ05EnYNW8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Ursula von der Leyen - Climate Change Solutions World Economic Forum Video">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/MF2KfABQ5C0/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARgWIBMofzAP&rs=AOn4CLDeGNObuD22PSVW2elAmSIV7fN5Ug" alt="Ursula von der Leyen - Climate Change Solutions" loading="lazy"></div>
+          <div class="info">
+            <h4>Ursula von der Leyen - Climate Change Solutions</h4>
+            <div class="channel">World Economic Forum Video</div>
+            <div class="meta">
+              👁 163 views
+               · ⏱ 0:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=MF2KfABQ5C0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Meet Climate Solutions Catalyst Cohort 1 - Dr Joanna Sadler (Edinburgh): Turning Waste Into Wealth Grantham Institute, Imperial College London">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/xYCVUIJOKvA/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhWIGUoWTAP&rs=AOn4CLD8wnnT2iL5yj9sYiMaKbspkKCK4w" alt="Meet Climate Solutions Catalyst Cohort 1 - Dr Joanna Sadler (Edinburgh): Turning Waste Into Wealth" loading="lazy"></div>
+          <div class="info">
+            <h4>Meet Climate Solutions Catalyst Cohort 1 - Dr Joanna Sadler (Edinburgh): Turning Waste Into Wealth</h4>
+            <div class="channel">Grantham Institute, Imperial College London</div>
+            <div class="meta">
+              👁 160 views
+               · ⏱ 0:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=xYCVUIJOKvA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Meet Climate Solutions Catalyst Cohort 1 - Dr Andrea Laybourn (Leeds) Grantham Institute, Imperial College London">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_CrX2Fe7fJE/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLDXp8O_bfZMNchTiLezbob43UV46w" alt="Meet Climate Solutions Catalyst Cohort 1 - Dr Andrea Laybourn (Leeds)" loading="lazy"></div>
+          <div class="info">
+            <h4>Meet Climate Solutions Catalyst Cohort 1 - Dr Andrea Laybourn (Leeds)</h4>
+            <div class="channel">Grantham Institute, Imperial College London</div>
+            <div class="meta">
+              👁 155 views
+               · ⏱ 0:56
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_CrX2Fe7fJE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Full Recording  |  Livelihoods Rendez-vous 2025  |  Pre-COP30 Livelihoods">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/KsYSLIPUY8M/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCxqzBX_vnT2qEgeKpYohwQyDvQ4Q" alt="Full Recording  |  Livelihoods Rendez-vous 2025  |  Pre-COP30" loading="lazy"></div>
+          <div class="info">
+            <h4>Full Recording  |  Livelihoods Rendez-vous 2025  |  Pre-COP30</h4>
+            <div class="channel">Livelihoods</div>
+            <div class="meta">
+              👁 151 views
+               · ⏱ 1:42:07
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=KsYSLIPUY8M" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="SPC’s 2025 Year in Review Pacific Community">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/mZLYl9yBNww/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLARYw7RVfiXHnEkMMYnCqsX-tiwRw" alt="SPC’s 2025 Year in Review" loading="lazy"></div>
+          <div class="info">
+            <h4>SPC’s 2025 Year in Review</h4>
+            <div class="channel">Pacific Community</div>
+            <div class="meta">
+              👁 135 views
+               · ⏱ 7:09
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=mZLYl9yBNww" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change and Solutions with Petteri Taalas and Mari Lundström - Nordic Business Forum 2025 Nordic Business Forum">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/dDBBpF7eAac/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIEUoUDAP&rs=AOn4CLCLFjxI5x6J561c943_9_y8enobRg" alt="Climate Change and Solutions with Petteri Taalas and Mari Lundström - Nordic Business Forum 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change and Solutions with Petteri Taalas and Mari Lundström - Nordic Business Forum 2025</h4>
+            <div class="channel">Nordic Business Forum</div>
+            <div class="meta">
+              👁 123 views
+               · ⏱ 14:53
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=dDBBpF7eAac" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Adaptations through Nature Based Solutions: Coastal Resilience Meeting April 2025 IARPC Collaborations">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/GDouOgQiMr4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDM_LIMqnx3_4ZutO9LB5FTbQQTdA" alt="Climate Adaptations through Nature Based Solutions: Coastal Resilience Meeting April 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Adaptations through Nature Based Solutions: Coastal Resilience Meeting April 2025</h4>
+            <div class="channel">IARPC Collaborations</div>
+            <div class="meta">
+              👁 115 views
+               · ⏱ 44:47
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=GDouOgQiMr4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Solutions Conference 2025 - Launch Promo Hannah Scott">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/V5rbkc-Xpl8/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIFgoTTAP&rs=AOn4CLDEuafz1ZKVG3xAJnIbxJIea0xlWA" alt="Climate Solutions Conference 2025 - Launch Promo" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Solutions Conference 2025 - Launch Promo</h4>
+            <div class="channel">Hannah Scott</div>
+            <div class="meta">
+              👁 91 views
+               · ⏱ 1:36
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=V5rbkc-Xpl8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Solutions to Climate Change Kimberly Walters">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/RhUWeaXg8v8/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARguIFsocjAP&rs=AOn4CLBw_nOMZJsLe81VfT7RbHVG2Szs6w" alt="Solutions to Climate Change" loading="lazy"></div>
+          <div class="info">
+            <h4>Solutions to Climate Change</h4>
+            <div class="channel">Kimberly Walters</div>
+            <div class="meta">
+              👁 83 views
+               · ⏱ 1:05:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=RhUWeaXg8v8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Massachusetts Clean Energy and Climate Plans 2025/2030 &amp; 2050: Natural and Working Lands Discussion Sierra Club Massachusetts">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/MX8Ehm4Y_sw/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhWIGUoTjAP&rs=AOn4CLCplSAM946TTNRMUxyhaYMN1dmpNg" alt="Massachusetts Clean Energy and Climate Plans 2025/2030 &amp; 2050: Natural and Working Lands Discussion" loading="lazy"></div>
+          <div class="info">
+            <h4>Massachusetts Clean Energy and Climate Plans 2025/2030 &amp; 2050: Natural and Working Lands Discussion</h4>
+            <div class="channel">Sierra Club Massachusetts</div>
+            <div class="meta">
+              👁 75 views
+               · ⏱ 1:13:00
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=MX8Ehm4Y_sw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="UN Refugee Strategy 2025: Climate Change, Forced Displacement, and Global Human Rights Crisis Geneva Council for Rights and Liberties">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/1AGaufIpTj4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAtbKhrCAE48Kk33oqRRmSosEtkSg" alt="UN Refugee Strategy 2025: Climate Change, Forced Displacement, and Global Human Rights Crisis" loading="lazy"></div>
+          <div class="info">
+            <h4>UN Refugee Strategy 2025: Climate Change, Forced Displacement, and Global Human Rights Crisis</h4>
+            <div class="channel">Geneva Council for Rights and Liberties</div>
+            <div class="meta">
+              👁 67 views
+               · ⏱ 1:49
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=1AGaufIpTj4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Livestock and Climate Solutions Hub: Driving change together International Livestock Research Institute (ILRI)">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/PBLqurVpjx0/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB8AeAAtAFigIMCAAQARhXIGUoPDAP&rs=AOn4CLAgX0GDwxR9eP07ltlUubZnP5sL3w" alt="The Livestock and Climate Solutions Hub: Driving change together" loading="lazy"></div>
+          <div class="info">
+            <h4>The Livestock and Climate Solutions Hub: Driving change together</h4>
+            <div class="channel">International Livestock Research Institute (ILRI)</div>
+            <div class="meta">
+              👁 51 views
+               · ⏱ 3:10
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=PBLqurVpjx0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="March 2025 Movement Café: The Science and Solutions of Climate Change UM Creation Justice Movement">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/GuRbNPVAf5c/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDNKzppFNu_vv1nC9J7uO8_a74Bww" alt="March 2025 Movement Café: The Science and Solutions of Climate Change" loading="lazy"></div>
+          <div class="info">
+            <h4>March 2025 Movement Café: The Science and Solutions of Climate Change</h4>
+            <div class="channel">UM Creation Justice Movement</div>
+            <div class="meta">
+              👁 44 views
+               · ⏱ 1:11:21
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=GuRbNPVAf5c" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Solutions for Restaurant Survival Campaign Update 2.28 James Beard Foundation">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/aMyYfZ7fQNI/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB3gmAAtAFigIMCAAQARhyIFsoLDAP&rs=AOn4CLDmgn_Lx9GFHPylmGxjWbmPl8eYQQ" alt="Climate Solutions for Restaurant Survival Campaign Update 2.28" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Solutions for Restaurant Survival Campaign Update 2.28</h4>
+            <div class="channel">James Beard Foundation</div>
+            <div class="meta">
+              👁 41 views
+               · ⏱ 33:46
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=aMyYfZ7fQNI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Climate Book || Greta Thunberg || Book Review || Mahfuz Masum || Climate Change || Positive World">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/u1_goUZFoQU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDy7WNTFCLANnRA30U5juerUOYqGw" alt="The Climate Book || Greta Thunberg || Book Review || Mahfuz Masum || Climate Change ||" loading="lazy"></div>
+          <div class="info">
+            <h4>The Climate Book || Greta Thunberg || Book Review || Mahfuz Masum || Climate Change ||</h4>
+            <div class="channel">Positive World</div>
+            <div class="meta">
+              👁 35 views
+               · ⏱ 7:29
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=u1_goUZFoQU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Here’s our #2025 in review #gogreen #goehsi GoGreen (GOEHSI)">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/iRb7hD3dbfs/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhUIFsoZTAP&rs=AOn4CLBW36sZ4irQZ-GJMdC5785g-OD2Ww" alt="Here’s our #2025 in review #gogreen #goehsi" loading="lazy"></div>
+          <div class="info">
+            <h4>Here’s our #2025 in review #gogreen #goehsi</h4>
+            <div class="channel">GoGreen (GOEHSI)</div>
+            <div class="meta">
+              👁 28 views
+               · ⏱ 5:57
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=iRb7hD3dbfs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="2025 Teach-In on Climate: Climate Science and Solutions Elmira College">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/VMX11Hyxi7I/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGEoWDAP&rs=AOn4CLB_GLLIH21bRJA4dEh4EXPba_5Prg" alt="2025 Teach-In on Climate: Climate Science and Solutions" loading="lazy"></div>
+          <div class="info">
+            <h4>2025 Teach-In on Climate: Climate Science and Solutions</h4>
+            <div class="channel">Elmira College</div>
+            <div class="meta">
+              👁 24 views
+               · ⏱ 55:09
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=VMX11Hyxi7I" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Mapping the Global Infrastructure for Countering Climate Disinformation: A Tool Ecosystem Review Disinformation Congress">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/GPjBots3X6k/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLD3vUhhBviP1H3q2Bw4Q74AqiP_-g" alt="Mapping the Global Infrastructure for Countering Climate Disinformation: A Tool Ecosystem Review" loading="lazy"></div>
+          <div class="info">
+            <h4>Mapping the Global Infrastructure for Countering Climate Disinformation: A Tool Ecosystem Review</h4>
+            <div class="channel">Disinformation Congress</div>
+            <div class="meta">
+              👁 24 views
+               · ⏱ 12:54
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=GPjBots3X6k" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Critical Review &quot;Young People Are the Solution to Climate Change&quot; - Vish Dhar (TEDx Talk) wulan askania">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/GfBKfiMjjnU/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIF0oRTAP&rs=AOn4CLDuvbnsqOlUHfdmSOt16NoygP-d7w" alt="Critical Review &quot;Young People Are the Solution to Climate Change&quot; - Vish Dhar (TEDx Talk)" loading="lazy"></div>
+          <div class="info">
+            <h4>Critical Review &quot;Young People Are the Solution to Climate Change&quot; - Vish Dhar (TEDx Talk)</h4>
+            <div class="channel">wulan askania</div>
+            <div class="meta">
+              👁 20 views
+               · ⏱ 2:48
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=GfBKfiMjjnU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What If We Get It Right review and Climate Solutions reading list Treesong">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Lnu_J813uRA/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGABwAcABBvABAfgBtgiAArgIigIMCAAQARghIFYofzAP&rs=AOn4CLCHf6W5g2HhLkyxvwNUxR9ETN-GRw" alt="What If We Get It Right review and Climate Solutions reading list" loading="lazy"></div>
+          <div class="info">
+            <h4>What If We Get It Right review and Climate Solutions reading list</h4>
+            <div class="channel">Treesong</div>
+            <div class="meta">
+              👁 19 views
+               · ⏱ 25:41
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Lnu_J813uRA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="WHAT ABOUT CARBON REMOVAL? Climate solution or corporate distraction? Fossil vs Future ">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wH-jfOKqkYk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC1n3E6YmyksvizbTTLeQFEgg800A" alt="WHAT ABOUT CARBON REMOVAL? Climate solution or corporate distraction?" loading="lazy"></div>
+          <div class="info">
+            <h4>WHAT ABOUT CARBON REMOVAL? Climate solution or corporate distraction?</h4>
+            <div class="channel">Fossil vs Future </div>
+            <div class="meta">
+              👁 19 views
+               · ⏱ 41:10
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wH-jfOKqkYk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Min. of Agriculture, Fisheries, Food Security and Climate Change Year In Review 2025. Ministry of Agriculture SLU">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/-0ID9fbMbeo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCnzyeIFUS90miJdUSQE7EzUpcY8w" alt="Min. of Agriculture, Fisheries, Food Security and Climate Change Year In Review 2025." loading="lazy"></div>
+          <div class="info">
+            <h4>Min. of Agriculture, Fisheries, Food Security and Climate Change Year In Review 2025.</h4>
+            <div class="channel">Ministry of Agriculture SLU</div>
+            <div class="meta">
+              👁 12 views
+               · ⏱ 32:29
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=-0ID9fbMbeo" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Role of AI in Climate Change Solutions|USA podcast Kim Shmy  podcast ">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JsrerLNSWYY/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IEsoLjAP&rs=AOn4CLDicIEVf-pHWFqWZNqcK0WY4AD6uA" alt="The Role of AI in Climate Change Solutions|USA podcast" loading="lazy"></div>
+          <div class="info">
+            <h4>The Role of AI in Climate Change Solutions|USA podcast</h4>
+            <div class="channel">Kim Shmy  podcast </div>
+            <div class="meta">
+              👁 8 views
+               · ⏱ 7:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JsrerLNSWYY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="🌍 Daily Climate News: November 3rd, 2025 — Monday Daily Climate News">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/b4p-cs-l0HE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAW-04MaCW1S9ypA6G-jIoEM6XUBw" alt="🌍 Daily Climate News: November 3rd, 2025 — Monday" loading="lazy"></div>
+          <div class="info">
+            <h4>🌍 Daily Climate News: November 3rd, 2025 — Monday</h4>
+            <div class="channel">Daily Climate News</div>
+            <div class="meta">
+              👁 7 views
+               · ⏱ 2:37
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=b4p-cs-l0HE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Change Solutions That ACTUALLY Work (Finally Some Good News!) innovate - CORTEXVİSİON">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Wev-NMz5XFM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC0I3_ue6iAkpXSuQcLUwi2VFQmdw" alt="Climate Change Solutions That ACTUALLY Work (Finally Some Good News!)" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Change Solutions That ACTUALLY Work (Finally Some Good News!)</h4>
+            <div class="channel">innovate - CORTEXVİSİON</div>
+            <div class="meta">
+              👁 6 views
+               · ⏱ 5:03
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Wev-NMz5XFM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="TLIG EVENT REVIEW - WORLD CLIMATE INVESTMENT SUMMIT 2025 TLIG AFRICA TV">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/TmuhbGuzlrg/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDu4uXGz-uqbOi_cfMrOMWfgh8wZA" alt="TLIG EVENT REVIEW - WORLD CLIMATE INVESTMENT SUMMIT 2025" loading="lazy"></div>
+          <div class="info">
+            <h4>TLIG EVENT REVIEW - WORLD CLIMATE INVESTMENT SUMMIT 2025</h4>
+            <div class="channel">TLIG AFRICA TV</div>
+            <div class="meta">
+              👁 6 views
+               · ⏱ 4:16
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=TmuhbGuzlrg" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Evaluate the potential solutions provided below for addressing climate change Consider the history o Wesley Forster">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/EERNyIfHLqM/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB1AaAAuADigIMCAAQARhjIGMoYzAP&rs=AOn4CLBcHg9QlvVYR8a-dwGviEa5Fw4CCQ" alt="Evaluate the potential solutions provided below for addressing climate change Consider the history o" loading="lazy"></div>
+          <div class="info">
+            <h4>Evaluate the potential solutions provided below for addressing climate change Consider the history o</h4>
+            <div class="channel">Wesley Forster</div>
+            <div class="meta">
+              👁 2 views
+               · ⏱ 0:45
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=EERNyIfHLqM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="🚧US Net Zero Carbon Strategy: Review of Hurdles and Solutions PODCAST LOVER&#039;S ">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/hsi1qxoyfwg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmerInY8-4LTSPM0rzF2XeIWP6ew" alt="🚧US Net Zero Carbon Strategy: Review of Hurdles and Solutions" loading="lazy"></div>
+          <div class="info">
+            <h4>🚧US Net Zero Carbon Strategy: Review of Hurdles and Solutions</h4>
+            <div class="channel">PODCAST LOVER&#039;S </div>
+            <div class="meta">
+              
+               · ⏱ 14:16
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=hsi1qxoyfwg" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Cure: Unveiling Game-Changing Solutions - Maryanne Richardson Free Audiobooks">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/YsJQ_cIKLxM/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGABwAcABBvABAfgBtgiAArgIigIMCAAQARh_IEQoNTAP&rs=AOn4CLAhOJziM8jG_JayFVkArMeVQj2KHw" alt="Climate Cure: Unveiling Game-Changing Solutions - Maryanne Richardson" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Cure: Unveiling Game-Changing Solutions - Maryanne Richardson</h4>
+            <div class="channel">Free Audiobooks</div>
+            <div class="meta">
+              
+               · ⏱ 3:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=YsJQ_cIKLxM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Climate Cure: Unveiling Game-Changing Solutions - Maryanne Richardson Free Audiobooks">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/R1GChl5ErR0/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGABwAcABBvABAfgBtgiAArgIigIMCAAQARh_IEMoNTAP&rs=AOn4CLAPr63PvqXtN8ohB6ROj20BZhAHiA" alt="Climate Cure: Unveiling Game-Changing Solutions - Maryanne Richardson" loading="lazy"></div>
+          <div class="info">
+            <h4>Climate Cure: Unveiling Game-Changing Solutions - Maryanne Richardson</h4>
+            <div class="channel">Free Audiobooks</div>
+            <div class="meta">
+              
+               · ⏱ 3:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=R1GChl5ErR0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div></div></div>
+    <div class="footer">
+        <p>Generated by Research Toolkit · 2026-07-19T05:32:56.033Z</p>
+        <p>Free &amp; Open Source · Zero API Keys Required</p>
+    </div>
+
+    <script>
+    function toggleDark() {
+        document.documentElement.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+        document.getElementById('darkBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+    (function() {
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            document.getElementById('darkBtn').textContent = 'Light Mode';
+        }
+    })();
+
+    function toggleSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('collapsed');
+    }
+
+    function expandAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.remove('collapsed'));
+    }
+
+    function collapseAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.add('collapsed'));
+    }
+
+    function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        document.querySelectorAll('.post-card, .comment-card, .video-card, .cluster-card, .author-card').forEach(card => {
+            if (!q) { card.style.display = ''; return; }
+            const text = (card.getAttribute('data-searchable') || card.textContent).toLowerCase();
+            card.style.display = text.includes(q) ? '' : 'none';
+        });
+    }
+
+    const POSITIVE=["love","great","amazing","excellent","awesome","fantastic","best","perfect","brilliant","wonderful","excited","happy","recommend","success","win"];const NEGATIVE=["hate","terrible","awful","worst","horrible","bad","fail","problem","struggle","difficult","frustrat","annoying","waste","scam","avoid"];const NEUTRAL=["maybe","perhaps","might","could","think","opinion","consider","wonder"];
+    function getSentimentText(text) {
+        const lower = text.toLowerCase();
+        let p=0,n=0,ne=0;
+        for(const w of POSITIVE){if(lower.includes(w))p++;}
+        for(const w of NEGATIVE){if(lower.includes(w))n++;}
+        for(const w of NEUTRAL){if(lower.includes(w))ne++;}
+        if(p>n&&p>ne)return'positive';if(n>p&&n>ne)return'negative';return'neutral';
+    }
+    </script>
+</body>
+</html>
