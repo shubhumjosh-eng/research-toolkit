@@ -2,7 +2,7 @@
   <h1 align="center">Research Toolkit</h1>
   <p align="center">
     <strong>Deep research assistant for the terminal</strong><br>
-    Search 10 platforms with smart query understanding, TF-IDF ranking, and automatic clustering.
+    Search 10 platforms simultaneously — no API keys, no subscriptions, no BS.
   </p>
 </p>
 
@@ -12,7 +12,49 @@
   <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg" alt="Node.js"></a>
   <a href="#platforms"><img src="https://img.shields.io/badge/platforms-10-orange.svg" alt="Platforms"></a>
   <a href="#smart-features"><img src="https://img.shields.io/badge/AI-free-yes-brightgreen.svg" alt="AI-free"></a>
+  <a href="#export-formats"><img src="https://img.shields.io/badge/export-html%20%7C%20md%20%7C%20json-blue.svg" alt="Export"></a>
 </p>
+
+---
+
+Tired of searching Reddit, YouTube, Google, Hacker News, arXiv, and a dozen browser tabs for every research topic? Research Toolkit searches **10 platforms at once** and gives you a ranked, clustered, deduplicated report — in one command.
+
+```bash
+npx research-toolkit "quantum computing advances"
+```
+
+<!-- TODO: Render this GIF with VHS (requires ffmpeg on a real system):
+  vhs demo.tape > demo.gif
+  Then uncomment the line below: -->
+<!-- ![Research Toolkit Demo](demo.gif) -->
+
+---
+
+## Features at a Glance
+
+- **10 platforms, one command** — Reddit, YouTube, News, Web, HN, Bluesky, Discourse, Stack Exchange, Semantic Scholar, arXiv
+- **Smart query understanding** — phrase detection, TF-IDF ranking, automatic query expansion
+- **Parallel fetching** — all 10 sources searched simultaneously (~8s at depth 100)
+- **Academic sources** — Semantic Scholar papers + arXiv preprints with citation counts
+- **Export anywhere** — HTML (interactive), Markdown, JSON
+- **Zero API keys** — everything works without accounts (optional keys for higher limits)
+- **Persistent sessions** — pick up where you left off, ask follow-up questions
+
+---
+
+## Why Not Just Use...?
+
+| | Research Toolkit | Perplexity AI | Google Scholar | Elicit | Manual Searching |
+|---|---|---|---|---|---|
+| **Cost** | Free forever | $20/mo Pro | Free | $10/mo+ | Free |
+| **Platforms** | 10 (Reddit, YouTube, HN, arXiv, ...) | Web only | Papers only | Papers only | 1 tab = 1 platform |
+| **Academic papers** | Semantic Scholar + arXiv | Sometimes | Yes | Yes | Manual |
+| **Social discussion** | Reddit, HN, Bluesky, Discourse | No | No | No | Separate tabs |
+| **Video sources** | YouTube (yt-dlp) | No | No | No | Separate tabs |
+| **Export formats** | HTML, Markdown, JSON | Web only | BibTeX | CSV | Copy-paste |
+| **Rate limits** | Respectful (with fallbacks) | N/A | Aggressive | N/A | N/A |
+| **Offline capable** | Reports are local files | No | No | No | N/A |
+| **No account needed** | Yes | No | No | No | Yes |
 
 ---
 
@@ -25,200 +67,7 @@ npm install
 node src/cli.js "your topic here"
 ```
 
-No API keys. No accounts. No setup. Just type and research.
-
----
-
-## What It Does
-
-Research Toolkit searches Reddit, YouTube, News, Web, Hacker News, Bluesky, Discourse forums, and Stack Exchange simultaneously — then ranks, deduplicates, and clusters the results for you.
-
-```
-$ node src/cli.js "best mechanical keyboards for programming"
-
-   Research: "best mechanical keyboards for programming" (depth: 500)
-   Phrases: [best mechanical keyboards for, mechanical keyboards for programming]
-   Intent: comparison | Expanded: 6 queries
-
-   Discovering relevant subreddits...        ✓ Found 2 subreddits
-   Searching news articles...                ✓ Found 50 news articles
-   Searching the web...                      ✓ Found 50 web results
-   Scraping Reddit...                        ✓ 6 posts, 50 comments
-   Discovering YouTube videos...             ✓ 81 videos found
-   Searching Hacker News...                  ✓ 4 stories
-   Searching Bluesky...                      ⚠ Auth required for search
-   Searching Discourse forums...             ✓ 10 posts
-   Searching Stack Exchange...               ✓ 7 results
-
-   ✓ Research complete: 201 total sources across 8 platforms
-     Duration: 0m 59s | Report: research-best-mechanical-keyboards-....html
-```
-
----
-
-## Why Research Toolkit?
-
-| Problem | Research Toolkit |
-|---------|-----------------|
-| API keys for every platform | **Zero API keys** — uses free public APIs |
-| Copy-pasting between 8 browser tabs | **One command** searches everything |
-| Duplicated results across sources | **TF-IDF deduplication** merges overlaps |
-| Raw dump of 200+ links | **Smart clustering** groups by theme |
-| No way to compare sources | **Cross-platform ranking** by relevance |
-| Forget what you researched yesterday | **Session memory** remembers your history |
-
----
-
-## Usage
-
-### Direct Research (Recommended)
-
-```bash
-node src/cli.js "your topic here"
-```
-
-Type a topic, get a comprehensive report. That's it.
-
-### Interactive TUI
-
-```bash
-node src/cli.js
-```
-
-Opens a full-screen terminal interface with real-time progress, slash commands, and follow-up questions.
-
-### Batch Mode (For Scripting)
-
-```bash
-node src/cli.js --batch "your topic" --depth 1000
-node src/cli.js "topic" --report terminal    # Terminal only, no HTML
-node src/cli.js "topic" --output report.html # Custom output path
-```
-
-### Slash Commands (TUI Mode)
-
-| Command | Description |
-|---------|-------------|
-| `Tab` | Open command palette |
-| `/config` | Adjust depth, report format |
-| `/sources` | Toggle platforms on/off |
-| `/history` | View past research sessions |
-| `/deep` | Switch to 5-10 minute deep search |
-| `/clear` | Clear the screen |
-| `/help` | Show all commands |
-
----
-
-## Platforms
-
-All 10 platforms work without API keys. Optional keys increase rate limits.
-
-| | Platform | Source | API Key |
-|---|----------|--------|---------|
-| 🔴 | **Reddit** | Arctic Shift + PullPush APIs | No |
-| 🟢 | **YouTube** | yt-dlp + invidious instances | No |
-| 📰 | **News** | Google News RSS + GNews | Optional |
-| 🌐 | **Web Search** | DuckDuckGo + Google scraping | No |
-| 🟠 | **Hacker News** | Algolia HN Search API | No |
-| 🦋 | **Bluesky** | AT Protocol (auth required) | Required |
-| 💬 | **Discourse** | REST API (40+ forums) | No |
-| 📚 | **Stack Exchange** | SE v2.3 API (180+ sites) | Optional |
-| 📄 | **Semantic Scholar** | S2 Graph API | No (rate limited) |
-| 📑 | **arXiv** | arXiv Atom API | No |
-
-### Platform Details
-
-**Reddit** — Searches via Arctic Shift (primary), PullPush (fallback), or Reddit Direct (fallback). Fetches posts + top comments. Rate limit aware with automatic source switching.
-
-**YouTube** — Uses yt-dlp CLI for fast, reliable search. Falls back to invidious API. Returns video metadata, channel info, view counts.
-
-**News** — Google News RSS feed (free, no key). Optional GNews API key for higher limits.
-
-**Web Search** — DuckDuckGo HTML scraping + Google search scraping. No API key needed.
-
-**Hacker News** — Algolia HN Search API. Returns stories + top comments. No key needed.
-
-**Bluesky** — AT Protocol search. **Requires authentication** — create an app password at [bsky.app/settings/app-passwords](https://bsky.app/settings/app-passwords).
-
-**Discourse** — Searches 40+ public Discourse forums. Smart forum selection based on topic keywords.
-
-**Stack Exchange** — Searches 180+ Stack Exchange sites (Stack Overflow, Super User, Server Fault, etc.). Optional API key increases daily quota from 300 to 10,000.
-
-**Semantic Scholar** — Academic paper search via Semantic Scholar Graph API. Returns titles, authors, citation counts, abstracts. Rate limited without API key (~100 requests/5 minutes).
-
-**arXiv** — Preprint paper search via arXiv Atom API. Returns titles, authors, abstracts, categories, PDF links. No rate limits.
-
----
-
-## Smart Features
-
-### Phrase Detection
-
-"machine learning" stays as one concept. "hula hoop" doesn't split into separate words. The query analyzer identifies known phrases before searching.
-
-### Query Expansion
-
-Every topic generates 6 targeted search angles automatically:
-
-```
-Topic: "best mechanical keyboards for programming"
-
-Expanded queries:
-  1. best mechanical keyboards for programming
-  2. best mechanical keyboards for programming overview guide
-  3. best mechanical keyboards for programming discussion reddit
-  4. best mechanical keyboards for programming tips advice
-  5. best mechanical keyboards for programming latest trends
-  6. best mechanical keyboards for programming expert opinion
-```
-
-### TF-IDF Relevance Ranking
-
-Results are scored 0-100 based on term frequency, inverse document frequency, and position. The most relevant results surface first, regardless of which platform they came from.
-
-### Automatic Clustering
-
-Results are grouped into thematic clusters:
-
-- **Getting Started** — tutorials, guides, introductions
-- **Comparisons & Reviews** — vs posts, alternatives, recommendations
-- **Common Problems** — issues, errors, troubleshooting
-- **Tips & Advice** — recommendations, suggestions, best practices
-- **Expert Opinions** — research, studies, academic perspectives
-- **Community Discussion** — personal experiences, stories, opinions
-
-### Session Memory
-
-Your research history persists across runs. Ask follow-up questions that build on previous results.
-
-### Persistent Config
-
-Settings saved at `~/.research-toolkit/config.json`:
-
-```json
-{
-  "depth": 500,
-  "reportFormat": "both"
-}
-```
-
----
-
-## Installation
-
-### Requirements
-
-- Node.js 18+
-- npm
-- (Optional) [yt-dlp](https://github.com/yt-dlp/yt-dlp) — significantly improves YouTube search speed
-
-### Install
-
-```bash
-git clone https://github.com/shubhumjosh-eng/research-toolkit.git
-cd research-toolkit
-npm install
-```
+Open the generated HTML report in your browser. Done.
 
 ### Global Install (Optional)
 
@@ -229,11 +78,151 @@ research "quantum computing advances"
 
 ---
 
+## Usage
+
+### Direct Research (Default)
+
+```bash
+node src/cli.js "best mechanical keyboards for programming"
+```
+
+### Interactive TUI
+
+```bash
+node src/cli.js
+```
+
+Opens a full-screen terminal interface with real-time progress, slash commands, and follow-up questions.
+
+### Batch Mode (Scripting)
+
+```bash
+node src/cli.js --batch "climate policy" --depth 1000
+```
+
+### Export Formats
+
+```bash
+# HTML (default, interactive with dark mode, search, collapse)
+node src/cli.js "topic"
+
+# Markdown (for READMEs, notes, documentation)
+node src/cli.js "topic" --format markdown
+
+# JSON (for programmatic processing)
+node src/cli.js "topic" --format json
+```
+
+### Date Filtering
+
+```bash
+# Last 30 days only
+node src/cli.js "AI safety" --since 30d
+
+# Specific date range
+node src/cli.js "COVID vaccine" --since 2025-01-01 --until 2025-12-31
+```
+
+### Slash Commands (TUI Mode)
+
+| Command | Description |
+|---------|-------------|
+| `Tab` | Open command palette |
+| `/config` | Adjust depth, report format |
+| `/sources` | Toggle platforms on/off |
+| `/history` | View past research sessions |
+| `/deep` | Switch to deep search mode |
+| `/clear` | Clear the screen |
+| `/help` | Show all commands |
+
+---
+
+## Example Output
+
+```
+$ node src/cli.js "attention is all you need"
+
+   Research: "attention is all you need" (depth: 500)
+   Phrases: [] | Keywords: [attention]
+   Intent: general | Expanded: 6 queries
+
+   Discovering relevant subreddits...        ✓ Found 2 subreddits
+   Searching all platforms in parallel...
+   ✓  Found 50 news articles
+   ✓  Found 50 web results
+   ✓  Stack Exchange done: 15 results
+   ✓  HN done: 15 stories
+   ✓  Discourse done: 12 posts
+   ✓  arXiv done: 10 papers
+   ✓  Semantic Scholar done: 10 papers
+   ✓  Bluesky done: 0 posts
+
+   ✓ Research complete: 127 total sources across 10 platforms
+     Duration: 0m 8s | Report: research-attention-is-all-you-need.html
+```
+
+---
+
+## Platforms
+
+| Platform | Source | Key Required |
+|----------|--------|:---:|
+| Reddit | Arctic Shift + PullPush APIs | No |
+| YouTube | yt-dlp + invidious instances | No |
+| News | Google News RSS + GNews | Optional |
+| Web Search | DuckDuckGo + Google scraping | No |
+| Hacker News | Algolia HN Search API | No |
+| Bluesky | AT Protocol (auth required) | Required |
+| Discourse | REST API (40+ forums) | No |
+| Stack Exchange | SE v2.3 API (180+ sites) | Optional |
+| Semantic Scholar | S2 Graph API | No (rate limited) |
+| arXiv | arXiv Atom API | No |
+
+**Reddit** uses 3 fallback sources (Arctic Shift → PullPush → Reddit Direct) with automatic switching on rate limits. **YouTube** uses yt-dlp CLI for speed, falling back to invidious API. **Bluesky** requires a free app password from [bsky.app](https://bsky.app/settings/app-passwords).
+
+---
+
+## Smart Features
+
+### Phrase Detection
+
+"machine learning" stays as one concept. "hula hoop" doesn't split. The query analyzer identifies 500+ known phrases before searching.
+
+### Query Expansion
+
+Every topic generates 6 targeted search angles automatically:
+
+```
+Topic: "best mechanical keyboards for programming"
+
+  1. best mechanical keyboards for programming
+  2. best mechanical keyboards for programming overview guide
+  3. best mechanical keyboards for programming discussion reddit
+  4. best mechanical keyboards for programming tips advice
+  5. best mechanical keyboards for programming latest trends
+  6. best mechanical keyboards for programming expert opinion
+```
+
+### TF-IDF Relevance Ranking
+
+Results scored 0–100 by term frequency, inverse document frequency, and position. Most relevant results surface first across all platforms.
+
+### Automatic Clustering
+
+Results grouped into thematic clusters:
+
+- **Getting Started** — tutorials, guides, introductions
+- **Comparisons & Reviews** — vs posts, alternatives, recommendations
+- **Common Problems** — issues, errors, troubleshooting
+- **Tips & Advice** — best practices, recommendations
+- **Expert Opinions** — research, studies, academic perspectives
+- **Community Discussion** — personal experiences, stories
+
+---
+
 ## Configuration
 
 ### Environment Variables
-
-Create a `.env` file in the project root:
 
 ```bash
 # Optional: Higher news search limits (free at gnews.io)
@@ -251,29 +240,21 @@ STACKEXCHANGE_API_KEY=
 
 | Depth | Sources | Time | Use Case |
 |-------|---------|------|----------|
-| 100 | ~100 | ~30s | Quick overview |
-| 500 | ~200 | ~1m | Standard research (default) |
-| 1000 | ~400 | ~2m | Thorough analysis |
-| 2000 | ~800 | ~4m | Deep dive |
+| 100 | ~100 | ~8s | Quick overview |
+| 500 | ~200 | ~30s | Standard research (default) |
+| 1000 | ~400 | ~1m | Thorough analysis |
+| 2000 | ~800 | ~2m | Deep dive |
 
----
+### Config File
 
-## Output
+Settings persist at `~/.research-toolkit/config.json`:
 
-Reports are generated as interactive HTML files with:
-
-- Executive summary with sentiment analysis
-- Cross-platform ranked results
-- Topic clusters with grouped results
-- Per-platform breakdown (Reddit, YouTube, News, etc.)
-- Searchable and filterable interface
-
-```bash
-# Open report in browser
-node src/cli.js "topic" && open research-*.html
-
-# Terminal-only output (no HTML file)
-node src/cli.js "topic" --report terminal
+```json
+{
+  "depth": 500,
+  "reportFormat": "both",
+  "theme": "dark"
+}
 ```
 
 ---
@@ -282,41 +263,44 @@ node src/cli.js "topic" --report terminal
 
 ```
 src/
-├── cli.js                     # Entry point (auto-detects TUI vs batch)
-├── config.js                  # Global configuration
-├── tui/                       # Ink-based terminal interface
-│   ├── App.js                 #   Main state machine
-│   ├── sessionStore.js        #   Persistent session memory
-│   ├── configStore.js         #   Config persistence
+├── cli.js                       # Entry point (auto-detects TUI vs batch)
+├── config.js                    # Global configuration
+├── tui/                         # Ink-based terminal interface
+│   ├── App.js                   #   Main state machine
+│   ├── sessionStore.js          #   Persistent session memory
+│   ├── configStore.js           #   Config persistence
 │   └── components/
-│       ├── Header.js          #   Banner with version
-│       ├── InputPrompt.js     #   Input with command palette
-│       ├── ProgressView.js    #   8-platform progress display
-│       ├── ResultsView.js     #   Ranked results + themes
-│       ├── CommandPalette.js  #   Slash command menu
-│       ├── LogPanel.js        #   Color-coded log
-│       └── ConfigMenu.js      #   Settings editor
+│       ├── Header.js            #   Banner with version
+│       ├── InputPrompt.js       #   Input with command palette
+│       ├── ProgressView.js      #   10-platform progress display
+│       ├── ResultsView.js       #   Ranked results + themes
+│       ├── CommandPalette.js    #   Slash command menu
+│       ├── LogPanel.js          #   Color-coded log
+│       └── ConfigMenu.js        #   Settings editor
 ├── research/
-│   ├── orchestrator.js        # Main research pipeline
-│   ├── queryAnalyzer.js       # Phrase detection, TF-IDF, clustering
-│   ├── topicAnalyzer.js       # Subreddit discovery + keyword map
-│   ├── redditBulk.js          # Reddit bulk scraping (3 fallback sources)
-│   └── youtubeSearch.js       # YouTube discovery (yt-dlp + invidious)
+│   ├── orchestrator.js          # Main research pipeline (parallel)
+│   ├── queryAnalyzer.js         # Phrase detection, TF-IDF, clustering
+│   ├── topicAnalyzer.js         # Subreddit discovery + keyword map
+│   ├── redditBulk.js            # Reddit bulk scraping (3 fallback sources)
+│   └── youtubeSearch.js         # YouTube discovery (yt-dlp + invidious)
 ├── sources/
-│   ├── reddit.js              # Reddit JSON API
-│   ├── webSearch.js           # DuckDuckGo + Google
-│   ├── newsApi.js             # Google News RSS + GNews
-│   ├── hackerNews.js          # Algolia HN Search
-│   ├── bluesky.js             # AT Protocol search
-│   ├── discourse.js           # Discourse forum search
-│   └── stackExchange.js       # SE v2.3 API
+│   ├── reddit.js                # Reddit JSON API
+│   ├── webSearch.js             # DuckDuckGo + Google
+│   ├── newsApi.js               # Google News RSS + GNews
+│   ├── hackerNews.js            # Algolia HN Search
+│   ├── bluesky.js               # AT Protocol search
+│   ├── discourse.js             # Discourse forum search
+│   ├── stackExchange.js         # SE v2.3 API
+│   ├── semanticScholar.js       # Semantic Scholar Graph API
+│   └── arxiv.js                 # arXiv Atom API
 ├── utils/
-│   ├── rateLimiter.js         # Rate limiting with exponential backoff
-│   ├── cache.js               # Result caching (avoids re-fetching)
-│   ├── sentiment.js           # Basic sentiment analysis
-│   └── helpers.js             # Shared utilities
+│   ├── rateLimiter.js           # Rate limiting with exponential backoff
+│   ├── cache.js                 # Result caching (avoids re-fetching)
+│   ├── sentiment.js             # Basic sentiment analysis
+│   └── helpers.js               # Shared utilities
 └── report/
-    └── reportGenerator.js     # Interactive HTML report generation
+    ├── reportGenerator.js       # Interactive HTML report generation
+    └── exportReport.js          # Markdown + JSON export
 ```
 
 ---
@@ -324,16 +308,16 @@ src/
 ## Frequently Asked Questions
 
 **Q: Do I need API keys?**
-A: No. Reddit, YouTube, Web Search, News, Hacker News, and Discourse all work without any keys. Bluesky requires a free account + app password. Stack Exchange and GNews have optional free keys for higher limits.
+A: No. Reddit, YouTube, Web Search, News, Hacker News, Discourse, Semantic Scholar, and arXiv all work without any keys. Bluesky requires a free app password. Stack Exchange and GNews have optional free keys for higher limits.
 
-**Q: How long does a search take?**
-A: ~30-90 seconds depending on depth and platform rate limits. Cached results return in ~4 seconds.
+**Q: How fast is it?**
+A: Depth 100 takes ~8s. Depth 500 takes ~30s. All 10 platforms run in parallel via `Promise.allSettled`, so total time equals the slowest single platform, not the sum.
 
 **Q: Does it work on Windows/Mac/Linux?**
 A: Yes. Anywhere Node.js runs. Tested on Linux (Termux, Ubuntu, Debian), macOS, and Windows (WSL).
 
 **Q: What about rate limits?**
-A: The tool respects all platform rate limits with exponential backoff. If one source is rate-limited, it automatically falls back to alternatives (e.g., Arctic Shift → PullPush → Reddit Direct).
+A: The tool respects all platform rate limits with exponential backoff. Reddit has 3 fallback sources. Semantic Scholar retries on 429. If one source is down, others continue.
 
 **Q: Can I use it as a library?**
 A: Yes. Import individual sources directly:
@@ -341,7 +325,22 @@ A: Yes. Import individual sources directly:
 ```javascript
 const reddit = require('./src/sources/reddit');
 const results = await reddit.search('machine learning', { maxResults: 10 });
+
+const arxiv = require('./src/sources/arxiv');
+const papers = await arxiv.searchArxiv('transformer attention', { maxResults: 10 });
 ```
+
+**Q: What export formats are supported?**
+A: Three formats via `--format`:
+- **HTML** (default) — Interactive report with dark mode, search, collapse/expand, sentiment badges
+- **Markdown** — Clean `.md` file for documentation, notes, READMEs
+- **JSON** — Full structured data for programmatic processing
+
+**Q: How do I render the demo GIF?**
+A: Install [VHS](https://github.com/charmbracelet/vhs) and ffmpeg, then run `vhs demo.tape`. Requires a real system (not PRoot/Termux).
+
+**Q: Can I search only specific platforms?**
+A: Use `--reddit-only`, `--youtube-only`, or toggle platforms in TUI mode with `/sources`.
 
 ---
 
