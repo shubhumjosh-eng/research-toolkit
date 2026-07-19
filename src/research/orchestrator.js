@@ -8,6 +8,8 @@ const hackerNews = require('../sources/hackerNews');
 const bluesky = require('../sources/bluesky');
 const discourse = require('../sources/discourse');
 const stackExchange = require('../sources/stackExchange');
+const semanticScholar = require('../sources/semanticScholar');
+const arxiv = require('../sources/arxiv');
 const pdfGenerator = require('../report/reportGenerator');
 const { sleep } = require('../utils/helpers');
 const { getSentiment, analyzeBatch } = require('../utils/sentiment');
@@ -51,6 +53,8 @@ class ResearchOrchestrator {
       bluesky: [],
       discourse: [],
       stackexchange: [],
+      semanticScholar: [],
+      arxiv: [],
       analysis,
     };
 
@@ -68,190 +72,119 @@ class ResearchOrchestrator {
     log('success', `Found ${subreddits.length} subreddits, ${queries.length} queries`);
     report('discover', `Found ${subreddits.length} subreddits`, 1, 1);
 
-    // Step 2: News search
-    if (!youtubeOnly) {
-      report('news', 'Searching news articles...', 0, 1);
-      log('info', 'Searching news articles...');
-      const cachedNews = await cache.get(topic, 'news');
-      if (cachedNews) {
-        results.news = cachedNews;
-        log('success', `Found ${results.news.length} news articles (cached)`);
-      } else {
-        try {
-          results.news = await newsApi.search(topic, { maxResults: Math.min(depth, config.RESEARCH.newsMaxResults), onLog });
-          if (results.news.length > 0) await cache.set(topic, 'news', results.news);
-          log('success', `Found ${results.news.length} news articles`);
-        } catch (error) {
-          log('error', `News search failed: ${error.message}`);
-        }
-      }
-      report('news', `Found ${results.news.length} news articles`, 1, 1);
-    }
+    // Step 2: Search all independent sources in parallel
+    report('search', 'Searching all platforms in parallel...', 0, 8);
+    log('info', 'Searching all platforms in parallel...');
 
-    // Step 3: Web search
-    if (!youtubeOnly) {
-      report('web', 'Searching the web...', 0, 1);
-      log('info', 'Searching the web...');
-      const cachedWeb = await cache.get(topic, 'web');
-      if (cachedWeb) {
-        results.webSearch = cachedWeb;
-        log('success', `Found ${results.webSearch.length} web results (cached)`);
-      } else {
+    const fetchNews = async () => {
+      if (youtubeOnly) return [];
+      const cached = await cache.get(topic, 'news');
+      if (cached) { log('success', `Found ${cached.length} news articles (cached)`); return cached; }
+      try {
+        const r = await newsApi.search(topic, { maxResults: Math.min(depth, config.RESEARCH.newsMaxResults), onLog });
+        if (r.length > 0) await cache.set(topic, 'news', r);
+        log('success', `Found ${r.length} news articles`);
+        return r;
+      } catch (e) { log('error', `News search failed: ${e.message}`); return []; }
+    };
+
+    const fetchWeb = async () => {
+      if (youtubeOnly) return [];
+      const cached = await cache.get(topic, 'web');
+      if (cached) { log('success', `Found ${cached.length} web results (cached)`); return cached; }
+      try {
         const webTarget = Math.min(Math.ceil(depth * config.RESEARCH.webSearchRatio), config.RESEARCH.webSearchMax);
-        try {
-          results.webSearch = await webSearch.search(topic, { maxResults: webTarget, onLog });
-          if (results.webSearch.length > 0) await cache.set(topic, 'web', results.webSearch);
-          log('success', `Found ${results.webSearch.length} web results`);
-        } catch (error) {
-          log('error', `Web search failed: ${error.message}`);
-        }
-      }
-      report('web', `Found ${results.webSearch.length} web results`, 1, 1);
-    }
+        const r = await webSearch.search(topic, { maxResults: webTarget, onLog });
+        if (r.length > 0) await cache.set(topic, 'web', r);
+        log('success', `Found ${r.length} web results`);
+        return r;
+      } catch (e) { log('error', `Web search failed: ${e.message}`); return []; }
+    };
 
-    // Step 4: Reddit scraping
-    if (!youtubeOnly) {
-      report('reddit', 'Scraping Reddit...', 0, 1);
-      log('info', 'Scraping Reddit...');
-      const cachedReddit = await cache.get(topic, 'reddit');
-      if (cachedReddit) {
-        results.reddit = cachedReddit;
-        log('success', `Found ${results.reddit.length} Reddit posts (cached)`);
-      } else {
-        const redditTarget = Math.ceil(depth * config.RESEARCH.redditRatio);
-        const redditProgress = (p) => {
-          report('reddit', `r/${p.currentSub}: ${p.posts}/${p.target} posts`, p.posts, p.target);
-        };
+    const fetchHN = async () => {
+      if (youtubeOnly || redditOnly) return [];
+      const cached = await cache.get(topic, 'hackernews');
+      if (cached) { log('success', `Found ${cached.length} HN stories (cached)`); return cached; }
+      try {
+        const r = await hackerNews.searchWithComments(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), maxCommentsPerPost: 5, onLog });
+        if (r.length > 0) await cache.set(topic, 'hackernews', r);
+        log('success', `HN done: ${r.length} stories`);
+        return r;
+      } catch (e) { log('error', `HN search failed: ${e.message}`); return []; }
+    };
 
-        try {
-          results.reddit = await redditBulk.scrapeAll(subreddits, queries, redditTarget, redditProgress, log);
-          if (results.reddit.length > 0) await cache.set(topic, 'reddit', results.reddit);
-          log('success', `Reddit done: ${results.reddit.length} posts`);
-        } catch (error) {
-          log('error', `Reddit scraping failed: ${error.message}`);
-        }
-      }
-      report('reddit', `Found ${results.reddit.length} Reddit posts`, 1, 1);
-    }
+    const fetchBluesky = async () => {
+      if (youtubeOnly || redditOnly) return [];
+      const cached = await cache.get(topic, 'bluesky');
+      if (cached) { log('success', `Found ${cached.length} Bluesky posts (cached)`); return cached; }
+      try {
+        const r = await bluesky.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog });
+        if (r.length > 0) await cache.set(topic, 'bluesky', r);
+        log('success', `Bluesky done: ${r.length} posts`);
+        return r;
+      } catch (e) { log('error', `Bluesky search failed: ${e.message}`); return []; }
+    };
 
-    // Step 5: YouTube discovery
-    if (!redditOnly) {
-      report('youtube', 'Discovering YouTube videos...', 0, 1);
-      log('info', 'Discovering YouTube videos...');
-      const cachedYouTube = await cache.get(topic, 'youtube');
-      if (cachedYouTube) {
-        results.youtube = cachedYouTube;
-        log('success', `Found ${results.youtube.length} YouTube videos (cached)`);
-      } else {
-        const youtubeTarget = Math.min(Math.ceil(depth * config.RESEARCH.youtubeRatio), config.RESEARCH.youtubeMax);
-        const youtubeProgress = (p) => {
-          report('youtube', `${p.videos}/${p.target} videos`, p.videos, p.target);
-        };
+    const fetchDiscourse = async () => {
+      if (youtubeOnly || redditOnly) return [];
+      const cached = await cache.get(topic, 'discourse');
+      if (cached) { log('success', `Found ${cached.length} Discourse posts (cached)`); return cached; }
+      try {
+        const r = await discourse.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog, keywords: analysis.keywords });
+        if (r.length > 0) await cache.set(topic, 'discourse', r);
+        log('success', `Discourse done: ${r.length} posts`);
+        return r;
+      } catch (e) { log('error', `Discourse search failed: ${e.message}`); return []; }
+    };
 
-        try {
-          results.youtube = await youtubeDiscovery.discover(topic, youtubeTarget, youtubeProgress, log);
-          if (results.youtube.length > 0) await cache.set(topic, 'youtube', results.youtube);
-          log('success', `YouTube done: ${results.youtube.length} videos`);
-        } catch (error) {
-          log('error', `YouTube discovery failed: ${error.message}`);
-        }
-      }
-      report('youtube', `Found ${results.youtube.length} YouTube videos`, 1, 1);
-    }
+    const fetchSE = async () => {
+      if (youtubeOnly || redditOnly) return [];
+      const cached = await cache.get(topic, 'stackexchange');
+      if (cached) { log('success', `Found ${cached.length} SE results (cached)`); return cached; }
+      try {
+        const r = await stackExchange.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog });
+        if (r.length > 0) await cache.set(topic, 'stackexchange', r);
+        log('success', `Stack Exchange done: ${r.length} results`);
+        return r;
+      } catch (e) { log('error', `SE search failed: ${e.message}`); return []; }
+    };
 
-    // Step 6: Hacker News
-    if (!youtubeOnly && !redditOnly) {
-      report('hackernews', 'Searching Hacker News...', 0, 1);
-      log('info', 'Searching Hacker News...');
-      const cachedHN = await cache.get(topic, 'hackernews');
-      if (cachedHN) {
-        results.hackernews = cachedHN;
-        log('success', `Found ${results.hackernews.length} HN stories (cached)`);
-      } else {
-        try {
-          results.hackernews = await hackerNews.searchWithComments(topic, {
-            maxResults: Math.min(25, Math.ceil(depth * 0.15)),
-            maxCommentsPerPost: 5,
-            onLog,
-          });
-          if (results.hackernews.length > 0) await cache.set(topic, 'hackernews', results.hackernews);
-          log('success', `HN done: ${results.hackernews.length} stories`);
-        } catch (error) {
-          log('error', `HN search failed: ${error.message}`);
-        }
-      }
-      report('hackernews', `Found ${results.hackernews.length} HN stories`, 1, 1);
-    }
+    const fetchSS = async () => {
+      const cached = await cache.get(topic, 'semanticScholar');
+      if (cached) { log('success', `Found ${cached.length} Semantic Scholar papers (cached)`); return cached; }
+      try {
+        const r = await semanticScholar.searchSemanticScholar(topic, { maxResults: Math.min(20, Math.ceil(depth * 0.1)) });
+        if (r.results && r.results.length > 0) { await cache.set(topic, 'semanticScholar', r.results); log('success', `Semantic Scholar done: ${r.results.length} papers`); return r.results; }
+        log('info', 'No Semantic Scholar results');
+        return [];
+      } catch (e) { log('error', `Semantic Scholar failed: ${e.message}`); return []; }
+    };
 
-    // Step 7: Bluesky
-    if (!youtubeOnly && !redditOnly) {
-      report('bluesky', 'Searching Bluesky...', 0, 1);
-      log('info', 'Searching Bluesky...');
-      const cachedBSky = await cache.get(topic, 'bluesky');
-      if (cachedBSky) {
-        results.bluesky = cachedBSky;
-        log('success', `Found ${results.bluesky.length} Bluesky posts (cached)`);
-      } else {
-        try {
-          results.bluesky = await bluesky.search(topic, {
-            maxResults: Math.min(25, Math.ceil(depth * 0.15)),
-            onLog,
-          });
-          if (results.bluesky.length > 0) await cache.set(topic, 'bluesky', results.bluesky);
-          log('success', `Bluesky done: ${results.bluesky.length} posts`);
-        } catch (error) {
-          log('error', `Bluesky search failed: ${error.message}`);
-        }
-      }
-      report('bluesky', `Found ${results.bluesky.length} Bluesky posts`, 1, 1);
-    }
+    const fetchArxiv = async () => {
+      const cached = await cache.get(topic, 'arxiv');
+      if (cached) { log('success', `Found ${cached.length} arXiv papers (cached)`); return cached; }
+      try {
+        const r = await arxiv.searchArxiv(topic, { maxResults: Math.min(20, Math.ceil(depth * 0.1)) });
+        if (r.results && r.results.length > 0) { await cache.set(topic, 'arxiv', r.results); log('success', `arXiv done: ${r.results.length} papers`); return r.results; }
+        log('info', 'No arXiv results');
+        return [];
+      } catch (e) { log('error', `arXiv search failed: ${e.message}`); return []; }
+    };
 
-    // Step 8: Discourse forums
-    if (!youtubeOnly && !redditOnly) {
-      report('discourse', 'Searching Discourse forums...', 0, 1);
-      log('info', 'Searching Discourse forums...');
-      const cachedDisc = await cache.get(topic, 'discourse');
-      if (cachedDisc) {
-        results.discourse = cachedDisc;
-        log('success', `Found ${results.discourse.length} Discourse posts (cached)`);
-      } else {
-        try {
-          results.discourse = await discourse.search(topic, {
-            maxResults: Math.min(25, Math.ceil(depth * 0.15)),
-            onLog,
-            keywords: analysis.keywords,
-          });
-          if (results.discourse.length > 0) await cache.set(topic, 'discourse', results.discourse);
-          log('success', `Discourse done: ${results.discourse.length} posts`);
-        } catch (error) {
-          log('error', `Discourse search failed: ${error.message}`);
-        }
-      }
-      report('discourse', `Found ${results.discourse.length} Discourse posts`, 1, 1);
-    }
+    const [newsRes, webRes, hnRes, bskyRes, discRes, seRes, ssRes, arxivRes] = await Promise.allSettled([
+      fetchNews(), fetchWeb(), fetchHN(), fetchBluesky(), fetchDiscourse(), fetchSE(), fetchSS(), fetchArxiv()
+    ]);
 
-    // Step 9: Stack Exchange
-    if (!youtubeOnly && !redditOnly) {
-      report('stackexchange', 'Searching Stack Exchange...', 0, 1);
-      log('info', 'Searching Stack Exchange...');
-      const cachedSE = await cache.get(topic, 'stackexchange');
-      if (cachedSE) {
-        results.stackexchange = cachedSE;
-        log('success', `Found ${results.stackexchange.length} SE results (cached)`);
-      } else {
-        try {
-          results.stackexchange = await stackExchange.search(topic, {
-            maxResults: Math.min(25, Math.ceil(depth * 0.15)),
-            onLog,
-          });
-          if (results.stackexchange.length > 0) await cache.set(topic, 'stackexchange', results.stackexchange);
-          log('success', `Stack Exchange done: ${results.stackexchange.length} results`);
-        } catch (error) {
-          log('error', `Stack Exchange search failed: ${error.message}`);
-        }
-      }
-      report('stackexchange', `Found ${results.stackexchange.length} SE results`, 1, 1);
-    }
+    results.news = newsRes.status === 'fulfilled' ? newsRes.value : [];
+    results.webSearch = webRes.status === 'fulfilled' ? webRes.value : [];
+    results.hackernews = hnRes.status === 'fulfilled' ? hnRes.value : [];
+    results.bluesky = bskyRes.status === 'fulfilled' ? bskyRes.value : [];
+    results.discourse = discRes.status === 'fulfilled' ? discRes.value : [];
+    results.stackexchange = seRes.status === 'fulfilled' ? seRes.value : [];
+    results.semanticScholar = ssRes.status === 'fulfilled' ? ssRes.value : [];
+    results.arxiv = arxivRes.status === 'fulfilled' ? arxivRes.value : [];
+
+    report('search', `Found ${results.news.length} news, ${results.webSearch.length} web, ${results.hackernews.length} HN, ${results.bluesky.length} bsky, ${results.discourse.length} discourse, ${results.stackexchange.length} SE, ${results.semanticScholar.length} SS, ${results.arxiv.length} arXiv`, 8, 8);
 
     // Step 10: Rank, cluster, and generate report
     report('report', 'Analyzing and generating report...', 0, 1);
@@ -266,6 +199,8 @@ class ResearchOrchestrator {
       ...results.bluesky.map(r => ({ ...r, platform: 'Bluesky' })),
       ...results.discourse.map(r => ({ ...r, platform: 'Discourse' })),
       ...results.stackexchange.map(r => ({ ...r, platform: 'StackExchange' })),
+      ...results.semanticScholar.map(r => ({ ...r, platform: 'SemanticScholar' })),
+      ...results.arxiv.map(r => ({ ...r, platform: 'arXiv' })),
     ];
 
     const ranked = queryAnalyzer.rankAndDeduplicate(allResults, analysis);
@@ -290,6 +225,8 @@ class ResearchOrchestrator {
       blueskyAnalysis: results.bluesky,
       discourseAnalysis: results.discourse,
       stackexchangeAnalysis: results.stackexchange,
+      semanticScholarAnalysis: results.semanticScholar,
+      arxivAnalysis: results.arxiv,
       rankedResults: ranked.slice(0, 30),
       queryAnalysis: analysis,
       metadata: {
@@ -303,8 +240,10 @@ class ResearchOrchestrator {
         webSearchResults: results.webSearch.length,
         hackernewsStories: results.hackernews.length,
         blueskyPosts: results.bluesky.length,
-        discoursePosts: results.discourse.length,
-        stackexchangeResults: results.stackexchange.length,
+        discourseTopics: results.discourse.length,
+        stackexchangeAnswers: results.stackexchange.length,
+        semanticScholarPapers: results.semanticScholar.length,
+        arxivPapers: results.arxiv.length,
         totalComments: results.reddit.reduce((sum, p) => sum + (p.topComments?.length || 0), 0)
           + results.hackernews.reduce((sum, p) => sum + (p.topComments?.length || 0), 0),
         totalSources: allResults.length,
@@ -318,7 +257,7 @@ class ResearchOrchestrator {
     await pdfGenerator.generateResearchReport(reportData, finalPath);
 
     const totalSources = Object.values(results).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0);
-    log('success', `Research complete: ${totalSources} total sources across 8 platforms`);
+    log('success', `Research complete: ${totalSources} total sources across 10 platforms`);
     log('info', `Duration: ${minutes}m ${seconds}s | Report: ${finalPath}`);
     report('report', `Report saved: ${finalPath}`, 1, 1);
 
