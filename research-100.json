@@ -1,0 +1,2352 @@
+{
+  "clusters": [
+    {
+      "name": "General",
+      "count": 57,
+      "items": [
+        {
+          "id": "29416606",
+          "title": "100 years of whatever this will be",
+          "text": "",
+          "url": "https://apenwarr.ca/log/20211201",
+          "author": "mumblemumble",
+          "score": 1475,
+          "numComments": 896,
+          "created": "2021-12-02T14:35:47Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=29416606",
+          "topComments": [
+            {
+              "author": "dash2",
+              "text": "I think most sensible people had figured this out already. The people that don&#x27;t and honestly believe everything will be fixed by a DAO or whatever... they&#x27;re beyond reason.",
+              "score": 0
+            },
+            {
+              "author": "JanisL",
+              "text": "I strongly believe that money itself has been corrupted lately, this then causes all number of bad flow on effects to happen. A massive shift happened when central banks started getting involved in direct purchases of various asset types and we started to see a major distortion happen in monetary policy that which has distorted the functioning of money itself. For example who would care if their business is completely unprofitable if it could get access to freshly printed money every quarter to ",
+              "score": 0
+            },
+            {
+              "author": "pezzana",
+              "text": "&gt; Everyone seems to have an increasingly horrifically misguided idea of how distributed systems work.&gt; There is of course the most obvious horrifically misguided recently-popular &quot;decentralized&quot; system, whose name shall not be spoken in this essay. Instead let&#x27;s back up to something older and better understood: markets. The fundamental mechanism of the capitalist model.This article would benefit from being more specific. Take on that un-named &quot;decentralized&quot; system",
+              "score": 0
+            },
+            {
+              "author": "dougmwne",
+              "text": "Maybe there is already a better alternative that is enjoying meteoric success along many dimensions. Maybe that alternative already dominates the supply of physical goods and supply chains. Or maybe not.",
+              "score": 0
+            },
+            {
+              "author": "indymike",
+              "text": "The first step in solving a problem is realizing there actually is a problem. If you think about it, humanity really is getting better and better over time. That thought really doesn&#x27;t help much when you are fighting with a big bank about $261 in random fees, though.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "100 years of whatever this will be"
+        },
+        {
+          "id": "21594793",
+          "title": "1000fps image projection on deforming non-rigid surface",
+          "text": "",
+          "url": "http://www.k2.t.u-tokyo.ac.jp/vision/DPM/",
+          "author": "hongzi",
+          "score": 1306,
+          "numComments": 128,
+          "created": "2019-11-21T15:10:46Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=21594793",
+          "topComments": [
+            {
+              "author": "deedubaya",
+              "text": "This is pretty neat.",
+              "score": 0
+            },
+            {
+              "author": "cheschire",
+              "text": "This seems like an extremely advanced version of those sand tables at science centers that kids play with, where digging a trench in sand with your hand modifies the projection to affect virtual water flow.The youtube video[0] from that page is especially interesting.0: https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=-bh1MHuA5jU",
+              "score": 0
+            },
+            {
+              "author": "pvinis",
+              "text": "This is crazy awesome! And look at this one! I don&#x27;t know if it comes from the same project, but looks cool. https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=c40cxE-dfPg",
+              "score": 0
+            },
+            {
+              "author": "ohadron",
+              "text": "This is from 2016, but still very cool.",
+              "score": 0
+            },
+            {
+              "author": "kuu",
+              "text": "Simple but effective. Really cool.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "1000fps image projection on deforming non-rigid surface"
+        },
+        {
+          "id": "5489039",
+          "title": "If the Earth were 100 pixels wide",
+          "text": "",
+          "url": "http://www.distancetomars.com/",
+          "author": "oseibonsu",
+          "score": 996,
+          "numComments": 208,
+          "created": "2013-04-03T21:02:48Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=5489039",
+          "topComments": [
+            {
+              "author": "3327",
+              "text": "if I leave it running will I get to mars? just out of curiosity? ( i do have better things to do ).",
+              "score": 0
+            },
+            {
+              "author": "austenallred",
+              "text": "This is the first time I've actually been able to comprehend the perspective of distances so big they don't mean much as a number. Thank you.",
+              "score": 0
+            },
+            {
+              "author": "ashwinaj",
+              "text": "Awesome. Thumbs up!!",
+              "score": 0
+            },
+            {
+              "author": "rsingla",
+              "text": "I'd love to see one of these for the other planets in our solar system. Maybe even Pluto!",
+              "score": 0
+            },
+            {
+              "author": "ldh",
+              "text": "Beautiful, I love it!",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "If the Earth were 100 pixels wide"
+        },
+        {
+          "id": "37137110",
+          "title": "We reduced the cost of building Mastodon at Twitter-scale by 100x",
+          "text": "",
+          "url": "https://blog.redplanetlabs.com/2023/08/15/how-we-reduced-the-cost-of-building-twitter-at-twitter-scale-by-100x/",
+          "author": "tekacs",
+          "score": 954,
+          "numComments": 355,
+          "created": "2023-08-15T17:54:13Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=37137110",
+          "topComments": [
+            {
+              "author": "NoraCodes",
+              "text": "I would argue that this is not &quot;a Mastodon instance&quot;, since it is not running Mastodon - other than that, very very neat work! I&#x27;m excited for that &quot;Source Code&quot; link to be live :)",
+              "score": 0
+            },
+            {
+              "author": "riffic",
+              "text": "the group involved here may want to be mindful of the Mastodon gGmbH trademarks. Using the Mastodon logo on redplanetlabs.com to pitch a reimplementation of ActivityPub might be seen as infringing.https:&#x2F;&#x2F;joinmastodon.org&#x2F;trademarkremoved part about the mastodon subreddit since this is clearly not about the Mastodon software per se.",
+              "score": 0
+            },
+            {
+              "author": "ceejayoz",
+              "text": "Headline: &quot;building Twitter at Twitter-scale&quot;Article: &quot;building Mastodon at sub-Twitter-scale&quot;",
+              "score": 0
+            },
+            {
+              "author": "sharms",
+              "text": "The performance on the example Mastodon instance is very responsive - almost anywhere I clicked loaded nearly instantly.  I created an account and the only thing I found missing was it doesn&#x27;t implement full text search unless my user was tagged, but that might be a Mastodon specific item.I think they have thought a lot about typical hard problems, such as having the timeline processing happen along side the pipeline, taking network &#x2F; storage etc out of the picture.  Nice work!",
+              "score": 0
+            },
+            {
+              "author": "whateverman23",
+              "text": "ctrl+f &quot;ads&quot;ctrl+f &quot;monetization&quot;ctrl+f &quot;moderation&quot;ctrl+f &quot;existing infrastructure&quot;ctrl+f &quot;personalization&quot;etc etcYeah about what I expect from a &quot;we rebuilt twitter for cheap&quot; post. There&#x27;s no point to the comparisons with the Twitter codebase size&#x2F;cost. It completely distracts from what is probably a perfectly fine project.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "We reduced the cost of building Mastodon at Twitter-scale by 100x"
+        },
+        {
+          "id": "35904773",
+          "title": "100K Context Windows",
+          "text": "",
+          "url": "https://www.anthropic.com/index/100k-context-windows",
+          "author": "samwillis",
+          "score": 924,
+          "numComments": 389,
+          "created": "2023-05-11T16:46:19Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=35904773",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "100K Context Windows"
+        },
+        {
+          "id": "40791829",
+          "title": "Polyfill supply chain attack hits 100K+ sites",
+          "text": "",
+          "url": "https://sansec.io/research/polyfill-supply-chain-attack",
+          "author": "gnabgib",
+          "score": 887,
+          "numComments": 370,
+          "created": "2024-06-25T18:27:30Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=40791829",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "Polyfill supply chain attack hits 100K+ sites"
+        },
+        {
+          "id": "48061884",
+          "title": "David Attenborough's 100th Birthday",
+          "text": "",
+          "url": "https://www.bbc.com/news/articles/cp3pww9g0p5o",
+          "author": "defrost",
+          "score": 886,
+          "numComments": 164,
+          "created": "2026-05-08T12:03:26Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=48061884",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "David Attenborough's 100th Birthday"
+        },
+        {
+          "id": "stackoverflow-6654958",
+          "title": "Make body have 100% of the browser height",
+          "text": "",
+          "url": "https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height",
+          "author": "bodyofheat",
+          "authorRep": 11263,
+          "score": 1126,
+          "viewCount": 1336339,
+          "answerCount": 25,
+          "isAnswered": true,
+          "tags": [
+            "html",
+            "css",
+            "height"
+          ],
+          "created": "2011-07-11T18:50:56.000Z",
+          "source": "stackexchange",
+          "sourceSite": "stackoverflow",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 85,
+          "snippet": "Make body have 100% of the browser height"
+        }
+      ]
+    },
+    {
+      "name": "Future & Trends",
+      "count": 14,
+      "items": [
+        {
+          "id": "46720395",
+          "title": "GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers",
+          "text": "",
+          "url": "https://gptzero.me/news/neurips/",
+          "author": "segmenta",
+          "score": 937,
+          "numComments": 507,
+          "created": "2026-01-22T15:20:48Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=46720395",
+          "topComments": [
+            {
+              "author": "cogman10",
+              "text": "Yuck, this is going to really harm scientific research.There is already a problem with papers falsifying data&#x2F;samples&#x2F;etc, LLMs being able to put out plausible papers is just going to make it worse.On the bright side, maybe this will get the scientific community and science journalists to finally take reproducibility more seriously.  I&#x27;d love to see future reporting that instead of saying &quot;Research finds amazing chemical x which does y&quot; you see &quot;Researcher reproduce",
+              "score": 0
+            },
+            {
+              "author": "qwertox",
+              "text": "It would be great if those scientists who use AI without disclosing it get fucked for life.",
+              "score": 0
+            },
+            {
+              "author": "jordanpg",
+              "text": "If these are so easy to identify, why not just incorporate some kind of screening into the early stages of peer review?",
+              "score": 0
+            },
+            {
+              "author": "direwolf20",
+              "text": "Wow! They&#x27;re literally submitting references to papers by Firstname Lastname, John Doe and Jane Smith and nobody is noticing or punishing them.",
+              "score": 0
+            },
+            {
+              "author": "CGMthrowaway",
+              "text": "Which is worse:a) p-hacking and suppressing null resultsb) hallucinationsc) falsifying dataWould be cool to see an analysis of this",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers"
+        },
+        {
+          "title": "Dangerous storms put more than 100 million at risk across the Northeast - NBC News",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOUFpRcTBXTDdlR2l4Y0ktRHFOcFZSWmp4ZHBfUG9abUZsdU5waS0xeW4wUjFDYWJ4UUJZdzdkMHlBODJpTW8xYUk0NUNJTGJaYjhFaVhjdTVVcXZzdHFZU2dmS09ub3hsT245SGVSNlYxaFNmcHA4NnRHUEUwYkc4NGNIT3pVX2ZjaFhUSWl5MWFBUXdJVzBzOTQ3R3k5TlJMNUJSRTRQem40RHVYNHdVeEx6YXZGQnJERVQzOWZSVGJmeXFTaWc?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 23:08:43 GMT",
+          "source": "NBC News",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Dangerous storms put more than 100 million at risk across the Northeast - NBC News"
+        },
+        {
+          "title": "Massive fire becomes Norway's largest in modern times after destroying more than 100 homes - AP News",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQU3NsZmphQi1MWWJvejdxMUhGQi1oMlFhQkxZbHRNMnhYZDlSRUdSYTF4b3FGcGtacTdfOWxnbVAxb1ppR1VGU0w0UkV3blJvNVBFV21ZcHcxc0w4LXJnODQ4REJjNG5uNnJRQ3l2NXk5Tlhnb3JsQkg2cGU4eG05THRfZDZOdw?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 16:55:00 GMT",
+          "source": "AP News",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Massive fire becomes Norway's largest in modern times after destroying more than 100 homes - AP News"
+        },
+        {
+          "title": "Victim’s family seeks traffic changes 100 days after fatal Makiki hit-and-run - Hawaii News Now",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPS2R3aXRFRHRVWGc1RXo5ajVSQWVnTFdsXzd5T3dTcV9kZXFoamkwZkw2RTdqVC10dGRmTHNmR2EzV29vbzUtdldnZHc4aGZlMFk0Tk9hRy1mOWVtSDZoNHlnNUkzSl9VRkxmV0tfRExaVS1uNTZLSTRld2xiS2xtVnVVNkh2Nm5yeHBPNm5DZ01DdlBBcDJUX3daa1JGaDNEV1FPTWFPZG1YcnM1YzJnZzJhb21YUE5sbHfSAc4BQVVfeXFMTm1aN0JBS1N0a3ZGYndMY2ZOSXlCbE5aR0RHMUhlWFJxaGNpMndseHZBNGlTTzBPZmttNWhCTTA5eXk4c25qWC1fOFZQbExsOENfVXBDYWpOM1F1UWEzX2Z1VldSdFNWX1dKdVpkNlhqbm5zMG5PTnl2d0g1SlpXMzRKLU9HTmVqdG9PLVdYNkJqbDBpMWlsU1Iyb0dSZXMwdXJiRkNMSzF6T051RUY1ZjA0eklaYnlwZ1lNczlNZy1sbEVqcHdqSV9tOTBuTEE?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 03:43:00 GMT",
+          "source": "Hawaii News Now",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Victim’s family seeks traffic changes 100 days after fatal Makiki hit-and-run - Hawaii News Now"
+        },
+        {
+          "title": "S&P 500, Nasdaq 100 Forecast for Next Week: Is This It? - FOREX.com",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNakk4YktLZXkxZHZtX2J2Z01nZzZ5anZxSG8wLTQteUkwNUViQzRtQlRyLUUyb3VvNFAySXNoNW1rdEdsZ3JMSFpjRXpEX3drTDVKMWJwRnNZM3JIUnplYTV0Qm41bmZ5Wkc5WV9oek5qOEFBMVRDakI2cFBaNVZhdDVORTI3VTlOWU9ab2tBeWs0anRwNEZRaHBqNGFZdHF4V19n0gGvAUFVX3lxTFBVSG9wN0dDLTBqWmt3bW1MOVh2Vzl5SGJBalpkUjNCOTA5NzBQYlpWTW94QXd0SU81YnRxaHFna2pBVkljaTRfVXFTZU4xSWdxNXFxSnlyNFdGY19COURfN3FWZ1ZiN2NuSHBmUWRqNVN6RXhkUWUzd3hzQ3ZTVjFpc2dYbktQa1YtSzR2R2REYmJiWUNnTG5QRjFERnJiUmhxbFBNMHNFa19oY1JMaTQ?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 03:02:14 GMT",
+          "source": "FOREX.com",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "S&P 500, Nasdaq 100 Forecast for Next Week: Is This It"
+        },
+        {
+          "title": "More than 100 riders raise nearly $9,000 for suicide prevention during annual Fargo motorcycle ride - Valley News Live",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPVUhkWXNHY05KV3ZCcUlJX1UtX2RrMVk0aE9aWDZNeGFJNUUweS1rWlM1UkZuemY3Y01kYl9hUHc4V2NIdTdRem1Jd28xZ0VJWTVvX2xZYWlyYk5TdjJIaTRuMXZIWmdkVVptRHF3SXhtTVY2SUp4YTJQMEJJd2VRclJMVHpwRE9SVWtaNjFEVXp0THNJa0JWV1dxRHVXemNuZVY5dmFHTEE0Y2hwSTR5U2pYRFRZWHZIRFk0S2d5dHZ4WGI1LVdaRFZWUzhfUVU2M0HSAeYBQVVfeXFMUFFaNkRoM0RER2xyREg5elRPR0pUWTFaNkl3bDI4Sm1QUDNwQWFNNmFaUVhhWUV5bjlvVzZOeDVWUmRQZW52a3cxd0JnYnI5U2ZzVHVzeHVUVzF5VGFiTjhCUWpDQ3pNaUtKajAzcW5QakRSdDlMV1daSG10WUgwT195Q01qUFhsVHBmbmNaNDE5ZUpJZ1lCR0dpY0U0SjlDQk5PU3k5TlphVjBQdktBb1JqRGxpc3hSMThNQl8xcW0xd1VLYnppVUgwM3duZDg1b09LRjJieVFCaDR0LTkxQjl6NHo0N1E?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 01:39:00 GMT",
+          "source": "Valley News Live",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "More than 100 riders raise nearly $9,000 for suicide prevention during annual Fargo motorcycle ride - Valley News Live"
+        },
+        {
+          "title": "Lake Charles WWII Veteran Bennie Maylen turns 100 - KPLC 7 News",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSldLYncwdE1tZHhlWmRSMkVvejBvLWlKanNLdTZoUm1oWnJ0LVhEZkg5ZGxQZlh0bVNLNnRWMzZNLTQ4MTdaSVBhZnhERzFaR05kWW5qcHNRZWw2TGJxdFpQNHpESVdZOUYzTlBoY0xsaXVzel9Zc1hWdkNweC1pOFlvTzk4QkNraXpoadIBoAFBVV95cUxPNTZ3dUlhc3JnSkoxS2RpRWdMdmlsQXBYT09vaWNZSzEzMkN3Y2hIVTBaMnN3MDgtUF9KS05kUll6VlYyQmJEOWZsWmEyZTYzU2FiLXhpcHRnUTdHWmk1SW5uenlvcnZEVFRvbDA0TDBHaTVHTUtmTkJnQjZCdlRMb3RWTG13R2pkbHd2NlNLZ3dibU1oNjFlTGtOM3pDNkVZ?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 22:00:00 GMT",
+          "source": "KPLC 7 News",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Lake Charles WWII Veteran Bennie Maylen turns 100 - KPLC 7 News"
+        },
+        {
+          "title": "Over 100 aircraft depart La Crosse for EAA AirVenture in Oshkosh - news8000.com",
+          "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPT1FDb2RSalpPb0Rqb0ZITDYzdFRaeUplRjNrOEpYS3lESmVmbUpQcFU1eU0tQXRuUVJyLUpPY3NtMzZrMmxyV1hmWmhRcDQxTlBqV2lMTV9oZ0J5SkNwMHZ1S0tSNkZ2TndvdVV1TVBkQlJKTUpjbllFWW1mcHlwQ0UyTVdMUGhkYXBjNTBqWFU0RzM2NVFJWVc4dFhwUzhwdWsxYV9adnEzcmQxWEYwc1JUdHZTTzJGbjlWaEEwUUJKb0VvaWF6T2F3VHJlcmVYSHk2NGJrTEFYWi15WnhrQm9DRldXMnExMUpsSjh3UHZSbG16Nk85dw?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 21:33:20 GMT",
+          "source": "news8000.com",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Over 100 aircraft depart La Crosse for EAA AirVenture in Oshkosh - news8000"
+        }
+      ]
+    },
+    {
+      "name": "Comparisons & Reviews",
+      "count": 10,
+      "items": [
+        {
+          "title": "Top 100 Baseball Prospects - MLB.com",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zajFKVnRUN3liRzhRZG5zeWhqLTlzS1FrMlZBSjBzeUZwZng4UUVsNk1oeHUzU29qWlFzQnh1MWdiTW9CS0oxZWs1Qk9qbGtOYTFZU0dnUHlkUEsyamZzWDNtY2U3eVlnR2c?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 06:00:14 GMT",
+          "source": "MLB.com",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Top 100 Baseball Prospects - MLB"
+        },
+        {
+          "title": "Brandon Clarke tops 100 mph on the mound - MLB.com",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5KU1BucGQ1cFNiZ2c2X1RJdEs5cXBfUlY3TU8zQUFPc0RyczUxSjBiMnY0QmFrbTRVallnWjNMcnJCODlscVEyNzNmVU04U3c1NGJ6bVE5Z3dieEVpREY0bEdBOXZjQkw3cWhoX1BaQXNPZXlz?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 03:32:21 GMT",
+          "source": "MLB.com",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Brandon Clarke tops 100 mph on the mound - MLB"
+        },
+        {
+          "title": "Looking ahead to best chance at 100-degree weather - FOX Carolina News",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNbTBqTEZxUms5UU91c3VMZHBESkp6amZsR1JtU0lScG43ZXhNdk8xYVNja0ppaTAzTzNuUUt2b1VGaTRyVTltUGZVYWJDbzhiZW4yajEweWVSU3liQ0txWlRydVNHdlZMbXhDZ1JzV3dVbGYxbmZfYVRGa1A3cGVqMXVCREw2NXdZanlMMXUwTklQbDZf?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 02:16:00 GMT",
+          "source": "FOX Carolina News",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Looking ahead to best chance at 100-degree weather - FOX Carolina News"
+        },
+        {
+          "title": "Montanans put pedal to the metal in top performances of Butte 100 - SWX Local Sports",
+          "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNOGp6Y3pxZmVhRTI1TVJLZ0stenRXUmp1TmlJVUN1elVvanlLUjBUdEZJbFJ3dFp3SnZteVJDOWlzSlpBSnhkWFRuangxYXFiLXJYd05CZDV1QTR4ZmpTMDMtemRFRi1WSExhMjNRRkMya0FaMDc5ZWdFM0JSRldEMnZCMHVNLWhtcklrTXJwRzJET1pKM0xUb25JUU1lQnNuMS16bmZuY1pIaHIxTklpbXp0VmtKWjZwN0xZSDNRYUdGY3JTek9aN2UzdERmRFJBRm95eXE3MVd3VzNGeXZqbWFDOF8yZFBJN1k0QzJIOUp5UQ?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 03:00:00 GMT",
+          "source": "SWX Local Sports",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Montanans put pedal to the metal in top performances of Butte 100 - SWX Local Sports"
+        },
+        {
+          "title": "Cowboys countdown to kickoff: Top 100 iconic games – Day 57 - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMU9yUVBfNXJORXhreTBNZkZMbHE3TEZ5djNCNTFaSVBzVlhXemtMcEpTRVdjLW03dDU2RXV4SEFBZ2Vxd1lqNmdjMnJvRExldlVfNDRNenZfNFA5UGdWblY2SV92NFdJV1RlajJ1VkZ2Z1V1ckNRSVRmVmpoTWMyUFR5WnZxTHg3TkE?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 19:00:00 GMT",
+          "source": "Yahoo Sports",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Cowboys countdown to kickoff: Top 100 iconic games – Day 57 - Yahoo Sports"
+        },
+        {
+          "title": "Over 100 passengers evacuate after Metrolink train stops due to mechanical issues in Anaheim - ABC7 Los Angeles",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQeE8tY28wV1RFU3ZMQ1ZNNnBiZmJ5WEZrOG1FSzRTZTJ6bmxkOFlZVXRMSjFJY1JrTGVNWTBvRjNoendOTjhsMU5hVmV5ZVdiRkFJaHE0V2ItTmY5bHB0SVpjM2ZnVTUybmtwbUdPVGFvcll3Q0FheWNoaktNZmROaE9zN2lXVlZqQ19YQm16MENCMll5S3NkZjZTVW81NnRzNWc0cFdscTQ4dDTSAbABQVVfeXFMTl9mUm1HdE1ocW1tQks4bWVXdUpjWl9YSzNmV083VUJGcEw4VEdaVUZXR1ZGRGJ2STZQODFCNWNlMjg0ZFh4T0Z4REZXVEFTc29Ra3RfMGJHczRZNVJoVndYOTlJWFZXdllGXzN3ZWpIbGZKYWgzUGtmWndSb1Rrb2VEM0h6N1AyVzFKdGNSWFpHZUs4UTA2MVRLcGVvNkxaeWdfeTFQdHJ0bVkweDVsbkQ?oc=5",
+          "publishedAt": "Sun, 19 Jul 2026 02:11:41 GMT",
+          "source": "ABC7 Los Angeles",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Over 100 passengers evacuate after Metrolink train stops due to mechanical issues in Anaheim - ABC7 Los Angeles"
+        },
+        {
+          "title": "Morning Break: Chris Olave makes NFL Top 100 - New Orleans Saints | NewOrleansSaints.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUWRJWmxHYlh0Q0RPZjhqYVgwbUltdVIwMHhvdkc1UkM3c0Nmbms5dUk4QkRoSzMtMDI1TEJkMTVldmZCNkprcmR5NEkwT09FQjZQamxPWDAyVEV2RU1jWUFEdXRuc3R4eXZEUkhBMjM5S2ZEU0ZjLXhGaUhQdzFtaXc2ZDBPdWtxR2FmejQyb0w3dDNkM25sY1pXZDU5YUVzZ3pwek0wZndlckNVNUpaUlhHckZldw?oc=5",
+          "publishedAt": "Fri, 17 Jul 2026 14:02:17 GMT",
+          "source": "New Orleans Saints | NewOrleansSaints.com",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Morning Break: Chris Olave makes NFL Top 100 - New Orleans Saints | NewOrleansSaints"
+        },
+        {
+          "title": "The 4 Best FTSE 100 ETFs to Buy - Morningstar",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5xOF9HeEtsQ0dCdUtvcUdkeXJfV1UySGx1cWhqRzRVNlN2MmlMM0VHSjlzQ0IteEhiR2E0a0ZEa21FUEwzQnJ4eFlpOVBJSENqS29qQ3JJaTRCblBybWdRR2RGTmZJLWtTbVVKY190Ty1CQnNU?oc=5",
+          "publishedAt": "Thu, 16 Jul 2026 17:20:03 GMT",
+          "source": "Morningstar",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "The 4 Best FTSE 100 ETFs to Buy - Morningstar"
+        }
+      ]
+    },
+    {
+      "name": "Tools & Resources",
+      "count": 9,
+      "items": [
+        {
+          "id": "11614116",
+          "title": "WhatsApp, Used by 100M Brazilians, Shut Down Nationwide Today by a Single Judge",
+          "text": "",
+          "url": "https://theintercept.com/2016/05/02/whatsapp-used-by-100-million-brazilians-was-shut-down-nationwide-today-by-a-single-judge/",
+          "author": "tshtf",
+          "score": 972,
+          "numComments": 608,
+          "created": "2016-05-02T18:31:53Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=11614116",
+          "topComments": [
+            {
+              "author": "verganileonardo",
+              "text": "2nd time in less than 12 months.\nprobably, we are going to see a surge in telegram downloads&#x2F;usage today.",
+              "score": 0
+            },
+            {
+              "author": "myth_drannon",
+              "text": "Unlike in N. America, in Brazil a lot of businesses depend on WhatsApp. You can talk with your doctor, call a plumber, claim insurance. \nOn billboards no one puts a website address or an email, just phone number and WhatsUp.\nThat&#x27;s an economy cripling move and it&#x27;s shocking how one judge can do it.",
+              "score": 0
+            },
+            {
+              "author": "notliketherest",
+              "text": "What most people outside of Brazil don&#x27;t realize is that WhatsApp is almost universally used by Brazillians to communicate about EVERYTHING, even your doctor [0][1]. My wife is Brazillian and uses it to communicate with her family in Brazil every day. This will have disastrous consequences for Brazilians domestically and internationally. This policy is being put in place by unelected judges and cartel of monopolistic telcos - all at the expense of the people.[0]http:&#x2F;&#x2F;www.cityam.c",
+              "score": 0
+            },
+            {
+              "author": "vezycash",
+              "text": "Would a p2p architecture thwart this kinda blocking?",
+              "score": 0
+            },
+            {
+              "author": "dceddia",
+              "text": "The title makes it sound much worse than it is -- it&#x27;s actually only a 72-hour shutdown. From the beginning of the article:&gt; A BRAZILIAN STATE JUDGE ordered mobile phone operators to block nationwide the extremely popular WhatsApp chat service for 72 hours...",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "WhatsApp, Used by 100M Brazilians, Shut Down Nationwide Today by a Single Judge"
+        },
+        {
+          "id": "18339448",
+          "title": "We posed as 100 Senators to run ads on Facebook. Facebook approved all of them",
+          "text": "",
+          "url": "https://news.vice.com/en_us/article/xw9n3q/we-posed-as-100-senators-to-run-ads-on-facebook-facebook-approved-all-of-them",
+          "author": "pulisse",
+          "score": 970,
+          "numComments": 332,
+          "created": "2018-10-30T17:53:52Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=18339448",
+          "topComments": [
+            {
+              "author": "citilife",
+              "text": "Could this not be considered identity theft?",
+              "score": 0
+            },
+            {
+              "author": "forgottenpass",
+              "text": "By telling Facebook to gatekeep what gets advertised better, there is a tacit admission that adverting is manipulative in a way that can not be defended from by the viewer, but simultaneously fine to expose the public to as long as we control that the manipulation happens in the ways editors at the large news organs agree with.",
+              "score": 0
+            },
+            {
+              "author": "josefresco",
+              "text": "&quot;In announcing new transparency efforts or tools to combat foreign influence, Facebook included a caveat. “These changes will not prevent abuse entirely. We’re up against smart, creative and well-funded adversaries who change their tactics as we spot abuse,” Leathern wrote. But we believe that they will help prevent future interference in elections on Facebook. And it is why they are so important.”But posing as 100 senators didn’t require being smart, creative, or even particularly well-fun",
+              "score": 0
+            },
+            {
+              "author": "Bucephalus355",
+              "text": "I’ve noticed on AWS I can sign up for and get an AWSGov account from my plain old personal account. It fully works, I can run EC2 Servers, get a weird style government bill that I have to pay, etc.Also, can anyone really believe Facebooks first attempts on this would be any kind of successful? Just a year ago their fake news plan was to link to verification about articles to facts on WIKIPEDIA. Do they not know how the internet works?",
+              "score": 0
+            },
+            {
+              "author": "rchaud",
+              "text": "I&#x27;d like to see more of this type of &#x27;stress testing&#x27; of adtech networks, conducted by third parties, with the methodology and results made available to the public.Programmatic advertising is a black box as far as ad buyers and ad viewers are concerned. And it is exactly for this reason that companies can claim to have &quot;machine learning based fraud detection systems&quot; or whatever and have those claims go unchallenged.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "We posed as 100 Senators to run ads on Facebook Facebook approved all of them"
+        },
+        {
+          "id": "37125118",
+          "title": "Show HN: LLMs can generate valid JSON 100% of the time",
+          "text": "Outlines is a Python library that focuses on text generation with large language models. Brandon and I are not LLM experts and started the project a few months ago because we wanted to understand better how the generation process works. Our original background is probabilistic, relational and symbolic programming.<p>Recently we came up with a fast way to generate text that matches a regex (<a href=\"https:&#x2F;&#x2F;blog.normalcomputing.ai&#x2F;posts&#x2F;2023-07-27-regex-guided-generation&#x2F;regex-guided-generation.html\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;blog.normalcomputing.ai&#x2F;posts&#x2F;2023-07-27-regex-guide...</a>). The basic idea is simple: regular expressions have an equivalent Deterministic-Finite Automaton (DFA) representation. We can transform this DFA into a generative model: in each state we get a list of symbols which correspond to completions that partially match the regular expression. We mask the other symbols in the logits returned by a large language model, sample a new symbol and move to the next state. The subtelty is that language models work with tokens, not symbols, so we derive a new FSM whose alphabet is the model&#x27;s vocabulary. We can do this in only one pass over the vocabulary.<p>Generating the token masks thus only requires a dictionary lookup at each state. Our method blows other libraries like Microsoft&#x27;s guidance out of the water.<p>From there it was only a small leap to be able to generate text that follows a JSON schema (<a href=\"https:&#x2F;&#x2F;json-schema.org&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;json-schema.org&#x2F;</a>), or is parseable into a Pydantic model (<a href=\"https:&#x2F;&#x2F;docs.pydantic.dev&#x2F;latest&#x2F;usage&#x2F;models&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;docs.pydantic.dev&#x2F;latest&#x2F;usage&#x2F;models&#x2F;</a>). The method works with union types, optional types, nested schemas, arrays, everything. It is guaranteed that the output is parseable.<p>I think it&#x27;s cool, and I&#x27;ve spent a lot of time watching even tiny models output valid JSON over the weekend. Hope you will too.<p>I look forward to feedback, bug reports, feature requests and discussions!<p>Edit: Link to our pre-print explaining the method and how this can be extended to generate text that follows a Context-Free Grammar <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2307.09702\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2307.09702</a>",
+          "url": "https://github.com/normal-computing/outlines",
+          "author": "remilouf",
+          "score": 854,
+          "numComments": 303,
+          "created": "2023-08-14T18:52:54Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=37125118",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "Outlines is a Python library that focuses on text generation with large language models Our original background is probabilistic, relational and symbolic programming Hope you will too"
+        },
+        {
+          "title": "An AI searched nearly 100 million old Hubble images in two and a half days and found 1,300 cosmic oddities — more than 800 of them had never appeared in the scientific literature - Space Daily",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOY1VtSzEzOWVoa242bHk5bTVKaDJOM3lNUFdpUTBMOThVTUNxQTRna2xwWG1uLW9MWHBDUUxLT2RrNUFzdFZiWnd6NEJfTzAwaDlvcURONHBtV0J0U19IRjM3Ym1sSWFVUVVJeUtGRnY2QjhJUDE4MmRaQmYwSHJpcmxKU0RPRU5rZUpz?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 19:30:48 GMT",
+          "source": "Space Daily",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "An AI searched nearly 100 million old Hubble images in two and a half days and found 1,300 cosmic oddities — more than 800 of them had never appeared in the scientific literature - Space Daily"
+        },
+        {
+          "title": "Local historian preserving more than 100 years of local history at Malden Public Library - WHDH",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeHNGQVN6VDFQMlc1X0RkQWtfdms2Z2cyNDFFNlREY2ZIMjhpd0p6S1RoRTM0TlpjRHBTb3Y0NXJjalJPcWFqcDFTRjBlb0lMNXlkN3J6WmQ5ZEpsM2pJT0lnSGdpeURvVU1KVHhsZ3JkWWhsclhsOTVrS25DMmlBZ2xrRzlwVG1PZ1NjY082cjIydlJKRWh1UXlTS1J6aG52a3JTM0Y5UEdWVTM0aGNLSg?oc=5",
+          "publishedAt": "Sat, 18 Jul 2026 23:18:40 GMT",
+          "source": "WHDH",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "Local historian preserving more than 100 years of local history at Malden Public Library - WHDH"
+        },
+        {
+          "id": "meta.discourse.org-203976",
+          "title": "Discourse overloaded real traffic or DDOS? 100% CPU usage despite of decent traffic and high specs server",
+          "text": "All 8 vCPUs usage on our https://howtodiscuss.com/ site is 100%. Our users get this message often, Due to extreme load, this is temporarily being shown to everyone as a logged out user would see it. Our droplet s...",
+          "url": "https://meta.discourse.org/t/discourse-overloaded-real-traffic-or-ddos-100-cpu-usage-despite-of-decent-traffic-and-high-specs-server/203976",
+          "author": "Faizan_Zahid",
+          "score": 0,
+          "views": 0,
+          "replyCount": 19,
+          "created": "2021-09-25T00:42:20.571Z",
+          "source": "discourse",
+          "sourceForum": "meta.discourse.org",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "com/ site is 100% All 8 vCPUs usage on our https://howtodiscuss Our users get this message often, Due to extreme load, this is temporarily being shown to everyone as a logged out user would see it"
+        },
+        {
+          "id": "meta.discourse.org-327577",
+          "title": "Increase the 100 character limit for Watched Word links",
+          "text": "...) I can work around this by using a link shortening service (such as the excellent http://short.io short.io ), but it seems a bit arbitrary to have a 100 character limit for this - especially when plenty of naughty websites out there seem to breeze through that limit easily.",
+          "url": "https://meta.discourse.org/t/increase-the-100-character-limit-for-watched-word-links/327577",
+          "author": "nathank",
+          "score": 0,
+          "views": 0,
+          "replyCount": 2,
+          "created": "2025-04-20T14:48:27.966Z",
+          "source": "discourse",
+          "sourceForum": "meta.discourse.org",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "io ), but it seems a bit arbitrary to have a 100 character limit for this - especially when plenty of naughty websites out there seem to breeze through that limit easily"
+        },
+        {
+          "id": "community.openai.com-970327",
+          "title": "Seeking Feedback and Verification on AGI Stage 5 Achievement via Tool Integration at 100%",
+          "text": "...to present a proposal for integrating various AI tools to achieve AGI Stage 5 and seek your feedback, verification, and confidence in this approach. 1000344528 Overview of Approach: To achieve AGI Stage 5, I've identified five key functional modules: Communication and Task Execution (20%) Data Process...",
+          "url": "https://community.openai.com/t/seeking-feedback-and-verification-on-agi-stage-5-achievement-via-tool-integration-at-100/970327",
+          "author": "harishiew42",
+          "score": 0,
+          "views": 0,
+          "replyCount": 2,
+          "created": "2024-10-07T13:10:08.282Z",
+          "source": "discourse",
+          "sourceForum": "community.openai.com",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "1000344528 Overview of Approach: To achieve AGI Stage 5, I've identified five key functional modules: Communication and Task Execution (20%) Data Process"
+        }
+      ]
+    },
+    {
+      "name": "Getting Started",
+      "count": 5,
+      "items": [
+        {
+          "id": "9920121",
+          "title": "Web Design: The First 100 Years (2014)",
+          "text": "",
+          "url": "http://idlewords.com/talks/web_design_first_100_years.htm",
+          "author": "jmduke",
+          "score": 988,
+          "numComments": 233,
+          "created": "2015-07-21T01:22:58Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=9920121",
+          "topComments": [
+            {
+              "author": "Animats",
+              "text": "&quot;The White Nerd&#x27;s Burden&quot; - must use that one. Kipling&#x27;s words almost fit:    Take up the White Man’s burden—\n    Send forth the best ye breed—\n    Go send your sons to exile\n    To serve your captives&#x27; need\n    To wait in heavy harness\n    On fluttered folk and wild—\n    Your new-caught, sullen peoples,\n    Half devil and half child\n    Take up the White Man’s burden\n    In patience to abide\n    To veil the threat of terror\n    And check the show of pride;\n    By open s",
+              "score": 0
+            },
+            {
+              "author": "manachar",
+              "text": "This comes across a little like &quot;get off my lawn&quot;, but you got to admit, the web has gotten pretty awful in the last few years.I enjoy my time online less and less as more content is stuffed into single-page app walled gardens that load massive quantities of cruft, ads, and tracking code. I almost preferred the flash-era.It seems that the goal of the web as being user-centric has taken the back seat to trying to convince the user that they&#x27;re just a passive recipient of crafted ex",
+              "score": 0
+            },
+            {
+              "author": "_mgr",
+              "text": "&quot;We see a whole ecosystem of startups and businesses that seem to exist only to serve one other[sic]&quot;This line should have &quot;...with ads&quot; appended to it. Or &quot;...Javascript Frameworks&quot;.",
+              "score": 0
+            },
+            {
+              "author": "hrayr",
+              "text": "This seems to be an older version of the talk.https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=nwhZ3KEqUlw",
+              "score": 0
+            },
+            {
+              "author": "nulltype",
+              "text": "If you like this dude (or maybe if you don&#x27;t like him) you can help send him to Antarctica: https:&#x2F;&#x2F;www.kickstarter.com&#x2F;projects&#x2F;431908798&#x2F;send-idle-wor...",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "Web Design: The First 100 Years (2014)"
+        },
+        {
+          "id": "stackoverflow-1575141",
+          "title": "How to make a div 100% height of the browser window",
+          "text": "",
+          "url": "https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window",
+          "author": "mike",
+          "authorRep": 27135,
+          "score": 2707,
+          "viewCount": 2854216,
+          "answerCount": 44,
+          "isAnswered": true,
+          "tags": [
+            "html",
+            "css",
+            "height"
+          ],
+          "created": "2009-10-15T21:18:43.000Z",
+          "source": "stackexchange",
+          "sourceSite": "stackoverflow",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 85,
+          "snippet": "How to make a div 100% height of the browser window"
+        },
+        {
+          "title": "100-Day Countdown to Centennial Edition of Homecoming Begins - North Carolina A&T University",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1MdER3R0VzbE5vLUVfV2NSN0p6WWtOLXhianRfOEdqNU1hZ3FCaXkxcnV1SFJnLWhnSUJMQlRNbzFLNTJFTllwdFBIZnh1d3FWOEVYdEVFcWZFQ3dTdFBQOXc3cWxCYUk?oc=5",
+          "publishedAt": "Fri, 17 Jul 2026 18:08:33 GMT",
+          "source": "North Carolina A&amp;T University",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 65,
+          "snippet": "100-Day Countdown to Centennial Edition of Homecoming Begins - North Carolina A&T University"
+        },
+        {
+          "id": "stackoverflow-2010892",
+          "title": "How to store objects in HTML5 localStorage/sessionStorage",
+          "text": "",
+          "url": "https://stackoverflow.com/questions/2010892/how-to-store-objects-in-html5-localstorage-sessionstorage",
+          "author": "Kristopher Johnson",
+          "authorRep": 82784,
+          "score": 3103,
+          "viewCount": 1499373,
+          "answerCount": 24,
+          "isAnswered": true,
+          "tags": [
+            "javascript",
+            "html",
+            "local-storage"
+          ],
+          "created": "2010-01-06T04:05:51.000Z",
+          "source": "stackexchange",
+          "sourceSite": "stackoverflow",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 20,
+          "snippet": "How to store objects in HTML5 localStorage/sessionStorage"
+        },
+        {
+          "title": "Learn more",
+          "url": "/help/discussions",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 0,
+          "snippet": "Learn more"
+        }
+      ]
+    },
+    {
+      "name": "Common Problems",
+      "count": 4,
+      "items": [
+        {
+          "id": "17499137",
+          "title": "Goodbye Microservices: From 100s of problem children to 1 superstar",
+          "text": "",
+          "url": "https://segment.com/blog/goodbye-microservices/",
+          "author": "manigandham",
+          "score": 1277,
+          "numComments": 753,
+          "created": "2018-07-10T15:49:10Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=17499137",
+          "topComments": [
+            {
+              "author": "alexrbarlow",
+              "text": "I&#x27;m not sure what they&#x27;ve been left with is a monolith after all. I would say they just have a new service, which is the size of what they should have originally attempted before splitting.In particular, as to their original problem, the shared library seems to be the main source of pain and that isn&#x27;t technically solved by a monolith, along with not following the basic rule of services &quot;put together first, split later&quot;.I feel prematurely splitting services like that is ",
+              "score": 0
+            },
+            {
+              "author": "thermodynthrway",
+              "text": "I&#x27;ve always said if the Linux kernel can be a giant monolith, in C no less, than there&#x27;s maybe 100 web applications in the world that need to be split into multiple services.I&#x27;ve worked with microservices a lot. It&#x27;s a never-ending nightmare. You push data consistency concerns out of the database and between service boundaries.Fanning out one big service in parallel with a matching scalable DB is by far the most sane way to build things.",
+              "score": 0
+            },
+            {
+              "author": "justinzollars",
+              "text": "I knew this day would come. We have come full circle. Also I really like this comment:&gt; You push data consistency concerns out of the database and between service boundaries.",
+              "score": 0
+            },
+            {
+              "author": "topicseed",
+              "text": "I think that with the rise in popularity of functions as a service (lambda, gcf, azure), we are heading more and more towards nanoservices.Small services are easier to develop with several teams, in my opinion. Each team knows what to input, and output. They can do whatever in between as long as these two contracts are respected.But the overlooking of all these moving pieces changing at different paces is tough. And the smaller the services get, the harder it will become.Not a size fits all, cle",
+              "score": 0
+            },
+            {
+              "author": "kraftman",
+              "text": "So they split everything apart because their tests were failing and they didn&#x27;t want to spend time fixing them, and they they merged it back together by spending time fixing and improving their tests?It seems like the problem here was bad testing and micro repos, not microservices.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "Goodbye Microservices: From 100s of problem children to 1 superstar"
+        },
+        {
+          "id": "meta.discourse.org-52807",
+          "title": "Docker install failing on bootstrap - that make the CPU Usage 100%",
+          "text": "That make the CPU Usage 100%.And then i could not connect to the VPS. It failed when the all Ruby Gems completely installed,the i found the CPU Usage 100%. Is there sth. wrong w...",
+          "url": "https://meta.discourse.org/t/docker-install-failing-on-bootstrap-that-make-the-cpu-usage-100/52807",
+          "author": "ghostsf",
+          "score": 0,
+          "views": 0,
+          "replyCount": 2,
+          "created": "2016-11-11T20:09:36.357Z",
+          "source": "discourse",
+          "sourceForum": "meta.discourse.org",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "That make the CPU Usage 100% It failed when the all Ruby Gems completely installed,the i found the CPU Usage 100% And then i could not connect to the VPS"
+        },
+        {
+          "id": "community.openai.com-729876",
+          "title": "Max 100 files in vector store",
+          "text": "...ds ) I get openai.BadRequestError: Error code: 400 - {'error': {'message': \"Invalid 'file_ids': array too long. Expected an array with maximum length 100, but got an array with length 300 instead.\", 'type': 'invalid_request_error', 'param': 'file_ids', 'code': 'array_above_max_length'}} So how can file...",
+          "url": "https://community.openai.com/t/max-100-files-in-vector-store/729876",
+          "author": "beyonce",
+          "score": 0,
+          "views": 0,
+          "replyCount": 10,
+          "created": "2024-05-10T22:26:01.404Z",
+          "source": "discourse",
+          "sourceForum": "community.openai.com",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "Expected an array with maximum length 100, but got an array with length 300 instead ds ) I get openai BadRequestError: Error code: 400 - {'error': {'message': \"Invalid 'file_ids': array too long"
+        },
+        {
+          "id": "forums.unrealengine.com-2497615",
+          "title": "BP_Hero dies in one hit although damage is set to 100, health set to 1000 ",
+          "text": "I'm not sure what I'm doing wrong. The hp of BP_hero is set to 1000, but he dies to a structure doing 100 damage.",
+          "url": "https://forums.unrealengine.com/t/bp-hero-dies-in-one-hit-although-damage-is-set-to-100-health-set-to-1000/2497615",
+          "author": "iFydoe",
+          "score": 0,
+          "views": 0,
+          "replyCount": 3,
+          "created": "2025-05-09T04:11:11.917Z",
+          "source": "discourse",
+          "sourceForum": "forums.unrealengine.com",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "The hp of BP_hero is set to 1000, but he dies to a structure doing 100 damage I'm not sure what I'm doing wrong"
+        }
+      ]
+    },
+    {
+      "name": "Community Discussion",
+      "count": 2,
+      "items": [
+        {
+          "id": "meta.discourse.org-214291",
+          "title": "Jobs::PeriodicalUpdates is the cause of high CPU (over 100%)",
+          "text": "Jobs::PeriodicalUpdates is the cause of high CPU (over 100%) When we check: sidekiq/scheduler/history I see, Jobs::PeriodicalUpdates reached 79 secs. Causing the CPU to increase, users accessing the website a...",
+          "url": "https://meta.discourse.org/t/jobs-periodicalupdates-is-the-cause-of-high-cpu-over-100/214291",
+          "author": "hokod",
+          "score": 0,
+          "views": 0,
+          "replyCount": 13,
+          "created": "2022-12-28T15:29:57.668Z",
+          "source": "discourse",
+          "sourceForum": "meta.discourse.org",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 65,
+          "snippet": "Jobs::PeriodicalUpdates is the cause of high CPU (over 100%) When we check: sidekiq/scheduler/history I see, Jobs::PeriodicalUpdates reached 79 secs"
+        },
+        {
+          "title": "More on old.reddit.com",
+          "url": "https://old.reddit.com/r/GameDeals/comments/1urss0n/epic_games_nova_lands_tattoo_tycoon_100_off_free/",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 0,
+          "snippet": "More on old.reddit.com"
+        }
+      ]
+    },
+    {
+      "name": "Tips & Advice",
+      "count": 1,
+      "items": [
+        {
+          "id": "48713832",
+          "title": "HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88",
+          "text": "",
+          "url": "https://danunparsed.com/p/hackerrank-open-source-ats",
+          "author": "sambellll",
+          "score": 1032,
+          "numComments": 433,
+          "created": "2026-06-29T01:44:40Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=48713832",
+          "topComments": [
+            {
+              "author": "glouwbug",
+              "text": "I guess at least HR doesn’t have to read 1,000 resumes. Heck, to be frank, could they make sense of the first 10 resumes?",
+              "score": 0
+            },
+            {
+              "author": "dc3k",
+              "text": "Disregarding the fact that this thing is completely broken, its grading rubric is ridiculous to begin with (as was mentioned in the article itself, but I must reiterate how completely stupid this is):&gt; 35 points for open source contributions&gt; 30 for personal projectsI don&#x27;t contribute to open source or have personal projects because I don&#x27;t spend my free time doing what I do 40 hours a week to make a living. My 15 years of work experience is worth a maximum of 25%, so any company",
+              "score": 0
+            },
+            {
+              "author": "jerrythegerbil",
+              "text": "&gt; I fail 65% of the time. Same exact resume, different luck.As someone who’s run hiring pipelines for technical roles in the past few years, that’s actually a fantastic number. I objectively hate saying that, but it’s true.35% chance of elevating a technical individual to the next stage with no effort? I’ve seen as many as 100+ applicants an hour even when including a domain specific screener question. That’s 35 “screened” applicants in an hour. Were valid candidates screened out? Yes. Does y",
+              "score": 0
+            },
+            {
+              "author": "dvt",
+              "text": "An alarming number of people don&#x27;t understand that LLMs work via purely stochastic processes, so I&#x27;m happy to see in-depth pieces like this. I&#x27;m looking for a job and maybe this is why it&#x27;s so hard to get a callback these days: resumes are just dumped in some LLM black hole and no one really knows how it works. The author says:&gt; temperature 0.1 — low, supposedly nudging the model toward deterministic outputsThis is not correct (and is briefly touched on later in the piece ",
+              "score": 0
+            },
+            {
+              "author": "cyberax",
+              "text": "Ah... The AI learned the old HR trick: take 50% of resumes and throw them out without looking. Rationale: &quot;we don&#x27;t need unlucky losers&quot;.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "My resume scored 90/100 HackerRank open sourced its ATS"
+        }
+      ]
+    },
+    {
+      "name": "Expert Opinions",
+      "count": 1,
+      "items": [
+        {
+          "id": "39281178",
+          "title": "SQL for data scientists in 100 queries",
+          "text": "",
+          "url": "https://gvwilson.github.io/sql-tutorial/",
+          "author": "Anon84",
+          "score": 834,
+          "numComments": 158,
+          "created": "2024-02-06T21:50:26Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=39281178",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 95,
+          "snippet": "SQL for data scientists in 100 queries"
+        }
+      ]
+    }
+  ],
+  "redditAnalysis": [],
+  "youtubeAnalysis": [],
+  "newsAnalysis": [
+    {
+      "title": "Dangerous storms put more than 100 million at risk across the Northeast - NBC News",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOUFpRcTBXTDdlR2l4Y0ktRHFOcFZSWmp4ZHBfUG9abUZsdU5waS0xeW4wUjFDYWJ4UUJZdzdkMHlBODJpTW8xYUk0NUNJTGJaYjhFaVhjdTVVcXZzdHFZU2dmS09ub3hsT245SGVSNlYxaFNmcHA4NnRHUEUwYkc4NGNIT3pVX2ZjaFhUSWl5MWFBUXdJVzBzOTQ3R3k5TlJMNUJSRTRQem40RHVYNHdVeEx6YXZGQnJERVQzOWZSVGJmeXFTaWc?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 23:08:43 GMT",
+      "source": "NBC News",
+      "type": "news"
+    },
+    {
+      "title": "Top 100 Baseball Prospects - MLB.com",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zajFKVnRUN3liRzhRZG5zeWhqLTlzS1FrMlZBSjBzeUZwZng4UUVsNk1oeHUzU29qWlFzQnh1MWdiTW9CS0oxZWs1Qk9qbGtOYTFZU0dnUHlkUEsyamZzWDNtY2U3eVlnR2c?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 06:00:14 GMT",
+      "source": "MLB.com",
+      "type": "news"
+    },
+    {
+      "title": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You Season 3 English Dub Reveals Release Date, Cast and Crew - Crunchyroll",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNbS1DQlltbDZkQTRkZlhjSmwtanU2SGRjNWFvb0NrZjNneW9SUXJrVERlWDkwMmNEM2RrLTBPcm1Ka1pKck81bm9Kc1FZN1huZHpEbzdrQzhLemlwLTlZTzk3TUNwcl9NeXUwMnRxMWJCVEZ3ZEFDcHh3YTE3R0Y2cHhNX29hMjRzNWJjelNDSnVraFQ5TFZEdTY5Ql9DYVd0b1R3dnpMRWsyYWJDS25lTTd2cEdpLUZaX3NlbUw0UHBzNHV3ZGZfaW9yS0FPVS1vUk1LQzNUUVdHV29nNmpWUktwZTFYY2d0UXgtSDkwbzA0amZVdXY5cDdfREdEeHdROV81NA?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 17:00:00 GMT",
+      "source": "Crunchyroll",
+      "type": "news"
+    },
+    {
+      "title": "Norway: Huge fire destroys 100 homes, sparks evacuations - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQRVJhSkhRa0IzUmY3MXJYR0p4U21kWG45UUdxSmZuQkM4TGhmVWttNkd2YUdMRVdMTXdET2VYUkdIa25mdGdycExwNnJVWkVEbFF2N0RKSFRVUUx0R1JpcWpBNlZwZXR0bnF5T1dMMEEwWW84X0JBZTlyVUJ5eDcyMmZhcE95OUJPOWg2WDRLMWnSAZABQVVfeXFMT0xCZlVlcTdKX1Q4TDkwZElDY1ZSNkVUNEFjSTlJU1NrUXcycWMxemtYZkhEZEhZRWwyNF9XSmdwUmVmSnV4SUxMSkh3emdYdndRc0xLU1hDVFdENDNPaWpiN0loV01HenRNeGdISTd6RC1rTW0tYnpzZENmMFBVNkxSSG44cGxEMU9hTXRubU5v?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 00:33:04 GMT",
+      "source": "DW.com",
+      "type": "news"
+    },
+    {
+      "title": "More than 100 homes destroyed in Norway fire - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNeXZ4SFJQQnBFWmtET1E1cGF2MmY1VTBTRXcta3FCaVduQ3dFZ2F0U1AyMnFUZ1h0QVN4YmFYdGtEeHE5ZnJYd2NGUENWaUpmM3RKR1N4aUJQeEUtVFhJRkZVcUVzNWFxeXZMODJyT2RaN3VYQVQ1WHViOTQ2Ukh4RnowSEc3WWtGZ0hwVnpLd3pJSEtBUDJ6ZE8xNXdQZw?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 17:56:00 GMT",
+      "source": "Reuters",
+      "type": "news"
+    },
+    {
+      "title": "Massive fire becomes Norway's largest in modern times after destroying more than 100 homes - AP News",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQU3NsZmphQi1MWWJvejdxMUhGQi1oMlFhQkxZbHRNMnhYZDlSRUdSYTF4b3FGcGtacTdfOWxnbVAxb1ppR1VGU0w0UkV3blJvNVBFV21ZcHcxc0w4LXJnODQ4REJjNG5uNnJRQ3l2NXk5Tlhnb3JsQkg2cGU4eG05THRfZDZOdw?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 16:55:00 GMT",
+      "source": "AP News",
+      "type": "news"
+    },
+    {
+      "title": "Victim’s family seeks traffic changes 100 days after fatal Makiki hit-and-run - Hawaii News Now",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPS2R3aXRFRHRVWGc1RXo5ajVSQWVnTFdsXzd5T3dTcV9kZXFoamkwZkw2RTdqVC10dGRmTHNmR2EzV29vbzUtdldnZHc4aGZlMFk0Tk9hRy1mOWVtSDZoNHlnNUkzSl9VRkxmV0tfRExaVS1uNTZLSTRld2xiS2xtVnVVNkh2Nm5yeHBPNm5DZ01DdlBBcDJUX3daa1JGaDNEV1FPTWFPZG1YcnM1YzJnZzJhb21YUE5sbHfSAc4BQVVfeXFMTm1aN0JBS1N0a3ZGYndMY2ZOSXlCbE5aR0RHMUhlWFJxaGNpMndseHZBNGlTTzBPZmttNWhCTTA5eXk4c25qWC1fOFZQbExsOENfVXBDYWpOM1F1UWEzX2Z1VldSdFNWX1dKdVpkNlhqbm5zMG5PTnl2d0g1SlpXMzRKLU9HTmVqdG9PLVdYNkJqbDBpMWlsU1Iyb0dSZXMwdXJiRkNMSzF6T051RUY1ZjA0eklaYnlwZ1lNczlNZy1sbEVqcHdqSV9tOTBuTEE?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 03:43:00 GMT",
+      "source": "Hawaii News Now",
+      "type": "news"
+    },
+    {
+      "title": "Video shows over 100 e-bike and e-moto riders on Broadway - KDVR",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQalBrUk43Y2pteHlZNTFjVjJRdkk0V2UxTUxHenc0alktZE44UEpNZW1LeVNyYmYzaHU0X2pjaHhhQkNId09yMkRld0lMcHFWTkZMWFZpZmtVbEVjV0JybjMxSVFlR2w0LXdybi1Qa0xUaGpUSzdMYklBeERIM1VEUEYwOWdnSmlwdlRSMjU2c9IBlAFBVV95cUxPcUNWNG53WVpKUUg3dDJiX2F4SjB0MHFXOEZPOE5fUVdwRDVFOENLbWtaaDdkMjgtSGw5VXI0REEybzRMam4xbDM0UEtlaGZxajhybXZ5NzR6djVpUXR6TTktejQzLWt6REVQcFBRQ2lxRWxHanFZajZ0TjRLU3gyNWk0UUVadkE5REg5RFFmY3lnS2o4?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 17:34:17 GMT",
+      "source": "KDVR",
+      "type": "news"
+    },
+    {
+      "title": "An AI searched nearly 100 million old Hubble images in two and a half days and found 1,300 cosmic oddities — more than 800 of them had never appeared in the scientific literature - Space Daily",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOY1VtSzEzOWVoa242bHk5bTVKaDJOM3lNUFdpUTBMOThVTUNxQTRna2xwWG1uLW9MWHBDUUxLT2RrNUFzdFZiWnd6NEJfTzAwaDlvcURONHBtV0J0U19IRjM3Ym1sSWFVUVVJeUtGRnY2QjhJUDE4MmRaQmYwSHJpcmxKU0RPRU5rZUpz?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 19:30:48 GMT",
+      "source": "Space Daily",
+      "type": "news"
+    },
+    {
+      "title": "Miami-Dade's brushfires helped reveal that ICE violated over 100 court orders in South Florida - WLRN",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQSFkzNkRCUk9ZVWtkMEhPOFc4R2FiNUM4Y3A4U1hqOGlOYm5fa1NWQnp5MHlaQXdSb0daTzUwYzRURlpBZURoblF3bWszX1dkTzVOeC1qRE5jY0xfak5NSGNiSGRMR3lEU1llWmdteHJRekN0Z2pDLTVPZ05lY1gwa2JTZEd1WGtUWEFMUHZkckVtUGlsN1JVYnlDbGEtUGRCQUVEUXQ5Nk5IeS1wMzZXeEdhanQxNWdDNXFLZEpSQUZZMnhPMjl0eWc0MFRTMmUzZDVINDdVa2tKTEFFdFE?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 18:10:00 GMT",
+      "source": "WLRN",
+      "type": "news"
+    },
+    {
+      "title": "Shaine Casas Swims 50.89 100 Fly on Night 3 of Austin Sectionals - SwimSwam",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNc3FIb1ZuRGI5cko1ekM3Y2RmOXF1SkY4QlQ4T1NudENaY19uOHFxeW9LcTV2WGQ5UnlxX0V3N1J2NVhMYmY3UHVIQzgzc3hPUGk3eWdkZFRoTEtWT0tIZFhNLWdVS0JSMmVZYkJadFJlQXlYYWZZTEstOTRzVmp0YXliVWE5am16UUctcGNsTQ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 20:44:32 GMT",
+      "source": "SwimSwam",
+      "type": "news"
+    },
+    {
+      "title": "Austin weather: July 18 morning forecast - FOX 7 Austin",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPOEFSMHhic25VVWxwdXYtenlhWnU1c0JkMWljSEh5RXBrTjg4NjVCcGxEbVVYaHpnRkpnbjBSb21YMExMZDY1dXdaQW5Fb2xBRTFUaW5xYTFXT29aUTUwdVJKa21TSzViUmVBS2k1ZDZCZzNMaXZTcWpCZUxnWUN2ZGRDejJ5WEpfTFZJa2YyR2FqMkY5QnhEb1RyMW1SX1JqM1BQaWNFU21EQ1XSAbABQVVfeXFMTnpSNXNiX3lNTHFmWmVZQ0pMbmhGUFhJbWxzMC1iQkIwQnZiOTFLU1dzYk1hQVdnTG9QWG9wbFRzVEpvVThIbGFkbzN0WlNTbzU5QUdSMHViTHFOaktpUWY2MFNjNERBUnZfTXkwNnl0dlFXMkFvTkx3MlpJd3lydnZRWkxSQVJGcjhwRWtFMjQ2RUF4bmtYMU5CYm9JbXRYN1IyT0pFTXNiNENUbG1XcjQ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 13:44:51 GMT",
+      "source": "FOX 7 Austin",
+      "type": "news"
+    },
+    {
+      "title": "Before The 100, Part 2 - The Trek",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5sV3FOejI4c2FhdkFpU19rXzhUZWFROFlTWXpxNy1rclFPM21QbFdQMVJSaHdaVnR5SFlJbWR0OVZUdm00WWhlT2JTbTdVa19fNzFxZ2loaUh6MHFGSzdkV2llQXFoVXZmZHJn?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 21:26:52 GMT",
+      "source": "The Trek",
+      "type": "news"
+    },
+    {
+      "title": "Brandon Clarke tops 100 mph on the mound - MLB.com",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5KU1BucGQ1cFNiZ2c2X1RJdEs5cXBfUlY3TU8zQUFPc0RyczUxSjBiMnY0QmFrbTRVallnWjNMcnJCODlscVEyNzNmVU04U3c1NGJ6bVE5Z3dieEVpREY0bEdBOXZjQkw3cWhoX1BaQXNPZXlz?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 03:32:21 GMT",
+      "source": "MLB.com",
+      "type": "news"
+    },
+    {
+      "title": "S&P 500, Nasdaq 100 Forecast for Next Week: Is This It? - FOREX.com",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNakk4YktLZXkxZHZtX2J2Z01nZzZ5anZxSG8wLTQteUkwNUViQzRtQlRyLUUyb3VvNFAySXNoNW1rdEdsZ3JMSFpjRXpEX3drTDVKMWJwRnNZM3JIUnplYTV0Qm41bmZ5Wkc5WV9oek5qOEFBMVRDakI2cFBaNVZhdDVORTI3VTlOWU9ab2tBeWs0anRwNEZRaHBqNGFZdHF4V19n0gGvAUFVX3lxTFBVSG9wN0dDLTBqWmt3bW1MOVh2Vzl5SGJBalpkUjNCOTA5NzBQYlpWTW94QXd0SU81YnRxaHFna2pBVkljaTRfVXFTZU4xSWdxNXFxSnlyNFdGY19COURfN3FWZ1ZiN2NuSHBmUWRqNVN6RXhkUWUzd3hzQ3ZTVjFpc2dYbktQa1YtSzR2R2REYmJiWUNnTG5QRjFERnJiUmhxbFBNMHNFa19oY1JMaTQ?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 03:02:14 GMT",
+      "source": "FOREX.com",
+      "type": "news"
+    },
+    {
+      "title": "Looking ahead to best chance at 100-degree weather - FOX Carolina News",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNbTBqTEZxUms5UU91c3VMZHBESkp6amZsR1JtU0lScG43ZXhNdk8xYVNja0ppaTAzTzNuUUt2b1VGaTRyVTltUGZVYWJDbzhiZW4yajEweWVSU3liQ0txWlRydVNHdlZMbXhDZ1JzV3dVbGYxbmZfYVRGa1A3cGVqMXVCREw2NXdZanlMMXUwTklQbDZf?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 02:16:00 GMT",
+      "source": "FOX Carolina News",
+      "type": "news"
+    },
+    {
+      "title": "More than 100 riders raise nearly $9,000 for suicide prevention during annual Fargo motorcycle ride - Valley News Live",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPVUhkWXNHY05KV3ZCcUlJX1UtX2RrMVk0aE9aWDZNeGFJNUUweS1rWlM1UkZuemY3Y01kYl9hUHc4V2NIdTdRem1Jd28xZ0VJWTVvX2xZYWlyYk5TdjJIaTRuMXZIWmdkVVptRHF3SXhtTVY2SUp4YTJQMEJJd2VRclJMVHpwRE9SVWtaNjFEVXp0THNJa0JWV1dxRHVXemNuZVY5dmFHTEE0Y2hwSTR5U2pYRFRZWHZIRFk0S2d5dHZ4WGI1LVdaRFZWUzhfUVU2M0HSAeYBQVVfeXFMUFFaNkRoM0RER2xyREg5elRPR0pUWTFaNkl3bDI4Sm1QUDNwQWFNNmFaUVhhWUV5bjlvVzZOeDVWUmRQZW52a3cxd0JnYnI5U2ZzVHVzeHVUVzF5VGFiTjhCUWpDQ3pNaUtKajAzcW5QakRSdDlMV1daSG10WUgwT195Q01qUFhsVHBmbmNaNDE5ZUpJZ1lCR0dpY0U0SjlDQk5PU3k5TlphVjBQdktBb1JqRGxpc3hSMThNQl8xcW0xd1VLYnppVUgwM3duZDg1b09LRjJieVFCaDR0LTkxQjl6NHo0N1E?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 01:39:00 GMT",
+      "source": "Valley News Live",
+      "type": "news"
+    },
+    {
+      "title": "Montanans put pedal to the metal in top performances of Butte 100 - SWX Local Sports",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNOGp6Y3pxZmVhRTI1TVJLZ0stenRXUmp1TmlJVUN1elVvanlLUjBUdEZJbFJ3dFp3SnZteVJDOWlzSlpBSnhkWFRuangxYXFiLXJYd05CZDV1QTR4ZmpTMDMtemRFRi1WSExhMjNRRkMya0FaMDc5ZWdFM0JSRldEMnZCMHVNLWhtcklrTXJwRzJET1pKM0xUb25JUU1lQnNuMS16bmZuY1pIaHIxTklpbXp0VmtKWjZwN0xZSDNRYUdGY3JTek9aN2UzdERmRFJBRm95eXE3MVd3VzNGeXZqbWFDOF8yZFBJN1k0QzJIOUp5UQ?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 03:00:00 GMT",
+      "source": "SWX Local Sports",
+      "type": "news"
+    },
+    {
+      "title": "Rockies hit 100 games on pace to avoid 100 losses after overpowering Reds - Denver Sports 104.3 The Fan",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE42aWhzNGNNSDBuanZGZ2dlVWFianUtZm1qb1kta1Z2MlBPUHVycWVtRTQyVjZiZUtfd1U5NTNtWmI3Wm4tVm1VTExXNXNPem4yTGo1QnJVMW9UNE5Ga2cyQnhZYzVGYmg3cVhFQmhB?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 04:13:07 GMT",
+      "source": "Denver Sports 104.3 The Fan",
+      "type": "news"
+    },
+    {
+      "title": "Lake Charles WWII Veteran Bennie Maylen turns 100 - KPLC 7 News",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSldLYncwdE1tZHhlWmRSMkVvejBvLWlKanNLdTZoUm1oWnJ0LVhEZkg5ZGxQZlh0bVNLNnRWMzZNLTQ4MTdaSVBhZnhERzFaR05kWW5qcHNRZWw2TGJxdFpQNHpESVdZOUYzTlBoY0xsaXVzel9Zc1hWdkNweC1pOFlvTzk4QkNraXpoadIBoAFBVV95cUxPNTZ3dUlhc3JnSkoxS2RpRWdMdmlsQXBYT09vaWNZSzEzMkN3Y2hIVTBaMnN3MDgtUF9KS05kUll6VlYyQmJEOWZsWmEyZTYzU2FiLXhpcHRnUTdHWmk1SW5uenlvcnZEVFRvbDA0TDBHaTVHTUtmTkJnQjZCdlRMb3RWTG13R2pkbHd2NlNLZ3dibU1oNjFlTGtOM3pDNkVZ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 22:00:00 GMT",
+      "source": "KPLC 7 News",
+      "type": "news"
+    },
+    {
+      "title": "Cowboys countdown to kickoff: Top 100 iconic games – Day 57 - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMU9yUVBfNXJORXhreTBNZkZMbHE3TEZ5djNCNTFaSVBzVlhXemtMcEpTRVdjLW03dDU2RXV4SEFBZ2Vxd1lqNmdjMnJvRExldlVfNDRNenZfNFA5UGdWblY2SV92NFdJV1RlajJ1VkZ2Z1V1ckNRSVRmVmpoTWMyUFR5WnZxTHg3TkE?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 19:00:00 GMT",
+      "source": "Yahoo Sports",
+      "type": "news"
+    },
+    {
+      "title": "Over 100 aircraft depart La Crosse for EAA AirVenture in Oshkosh - news8000.com",
+      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPT1FDb2RSalpPb0Rqb0ZITDYzdFRaeUplRjNrOEpYS3lESmVmbUpQcFU1eU0tQXRuUVJyLUpPY3NtMzZrMmxyV1hmWmhRcDQxTlBqV2lMTV9oZ0J5SkNwMHZ1S0tSNkZ2TndvdVV1TVBkQlJKTUpjbllFWW1mcHlwQ0UyTVdMUGhkYXBjNTBqWFU0RzM2NVFJWVc4dFhwUzhwdWsxYV9adnEzcmQxWEYwc1JUdHZTTzJGbjlWaEEwUUJKb0VvaWF6T2F3VHJlcmVYSHk2NGJrTEFYWi15WnhrQm9DRldXMnExMUpsSjh3UHZSbG16Nk85dw?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 21:33:20 GMT",
+      "source": "news8000.com",
+      "type": "news"
+    },
+    {
+      "title": "WATCH: Over 100 Bonanzas take off from La Crosse for EAA - wizmnews.com",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZElVa2lFREZhQ3FwQXhaeF9BSW9Ea08tR2FSd3RmYm5CX3l2OEttaWlka2VXM0M4QTFtTms4UFdZTDVrU0NfNFNfaW01NElXWlMwTXZWR2xnMkRBcUw1UnpjTDFtcGZFR052N2gwRkFOaGU0OVlZaXNERXoyWnhGdGxOTWk3MVVmNVpaN2cwNNIBlAFBVV95cUxQSzFWcU5mR2gwbTJqYUlOc3RoUlFZV1ZXZzBobXFaUFdmYlpiSHVlZF96b29aby16c3VscnhpS2pJZzNXRlI2S0VEWEVyTmZlTFYxeTFmX2hjSDFrYVY5X1hOYUl0YWtIMnIwUXFtTmg0eFFkTmpjeGMtdHRkVEJNUnA2NnQ5djFMR0wyME5zajEzNndP?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 00:26:44 GMT",
+      "source": "wizmnews.com",
+      "type": "news"
+    },
+    {
+      "title": "Over 100 passengers evacuate after Metrolink train stops due to mechanical issues in Anaheim - ABC7 Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQeE8tY28wV1RFU3ZMQ1ZNNnBiZmJ5WEZrOG1FSzRTZTJ6bmxkOFlZVXRMSjFJY1JrTGVNWTBvRjNoendOTjhsMU5hVmV5ZVdiRkFJaHE0V2ItTmY5bHB0SVpjM2ZnVTUybmtwbUdPVGFvcll3Q0FheWNoaktNZmROaE9zN2lXVlZqQ19YQm16MENCMll5S3NkZjZTVW81NnRzNWc0cFdscTQ4dDTSAbABQVVfeXFMTl9mUm1HdE1ocW1tQks4bWVXdUpjWl9YSzNmV083VUJGcEw4VEdaVUZXR1ZGRGJ2STZQODFCNWNlMjg0ZFh4T0Z4REZXVEFTc29Ra3RfMGJHczRZNVJoVndYOTlJWFZXdllGXzN3ZWpIbGZKYWgzUGtmWndSb1Rrb2VEM0h6N1AyVzFKdGNSWFpHZUs4UTA2MVRLcGVvNkxaeWdfeTFQdHJ0bVkweDVsbkQ?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 02:11:41 GMT",
+      "source": "ABC7 Los Angeles",
+      "type": "news"
+    },
+    {
+      "title": "Ceremony marks 100 years of Heritage Christian, Canton Lincoln schools - Canton Repository",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOT2liNnNOYk5rS05qc3F2cVkwdC0tN05GRkV0MnlfWFFkSUNrRlpxOXNSa3NUZ2NaMUxyT1hjSEVGQV9ZcFdlOVFuTFVGSTFfRFd5dS1GYUNJUjVxbko3UkNsbW00eHRSeURrVXFqVWE4SzNaY3Z4c0pzTmhWWml3VElTTTFXSTdvXzVxM3VzYjZQLVFnYkdPYktDRzBRTk9mN2JJWFdhNUdUbkdNV3lHUE5rUHVXeUFWSDdMVU5ZSDVuTTZjdzdodEpfRGVLdDRZUXFVT3pjbw?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 18:23:00 GMT",
+      "source": "Canton Repository",
+      "type": "news"
+    },
+    {
+      "title": "Victim's family seeks traffic changes 100 days after Makiki hit-and-run - Hawaii News Now",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZ3FpY3Vqb0ZnMTZQS2pOUGc5X3NLVWpOVVdxZkhrbUZsYmNUY3dOdjUwU1RuV08yU1ltb0V3dmZMa0VERjJIMk5KTVczM0V4bzdHdnlUaUlYZFdHWDV1WUxac0otU3VVRVFBWjdnQTVXdmlDY0xFLXMzZGdkV2Y1LUtoM1ZRdExicnFUZ0x0dE4zZWV6a25BZXlGYzBsNXhZbUhXd29wWHdKVi0tOFlBa0F0TDNBRlNZTnc?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 01:43:29 GMT",
+      "source": "Hawaii News Now",
+      "type": "news"
+    },
+    {
+      "title": "Gold Fire 100% contained, firefighters say - KOLO | 8 News Now",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZDcwSUxUTTI1emNkanhLSFJzbEVvRkNJWWtYeTF0a1VXOW1FdHJQdHNQRjFkOGhacWFaWW1jY1Q0d0IzRHlMOUc0N1dFRUdMTmdSSnp5dEEzdGNGMlpHRmNGNjljVkR4cUZBVGE5TzA2enFkU2p3TmdDWXBnRGN3VtIBlAFBVV95cUxOU19PRzY1VW1aVTVZYWg4YXAtcWRxejZHMXNfZUEwdUdfRWF4NFYxUm9sVXVHMVpUYjUzWVIxd1l3WTVRbldnSE5HQ1UtSWR5NVlUZmoxUkFkNVRoYUJOd09pQzJya08wMFFmSFg4RE5HcmtnUVFWVGVfQXJBYmpsV1RhTldjOXhmV1BldHhFdmFHQ3o5?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 18:13:00 GMT",
+      "source": "KOLO | 8 News Now",
+      "type": "news"
+    },
+    {
+      "title": "Local historian preserving more than 100 years of local history at Malden Public Library - WHDH",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeHNGQVN6VDFQMlc1X0RkQWtfdms2Z2cyNDFFNlREY2ZIMjhpd0p6S1RoRTM0TlpjRHBTb3Y0NXJjalJPcWFqcDFTRjBlb0lMNXlkN3J6WmQ5ZEpsM2pJT0lnSGdpeURvVU1KVHhsZ3JkWWhsclhsOTVrS25DMmlBZ2xrRzlwVG1PZ1NjY082cjIydlJKRWh1UXlTS1J6aG52a3JTM0Y5UEdWVTM0aGNLSg?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 23:18:40 GMT",
+      "source": "WHDH",
+      "type": "news"
+    },
+    {
+      "title": "Yukon celebrates 100 years of Route 66 with downtown celebration - KOCO",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZnQtTEZTOVpRSkwzWFEtOXJIZ0xBaUNORTFlUklMSjdXWUxVMFIzNDkwbS1idVZyZkhxbjRsTjdiekVKUWN0MDc4clFHVm9HRjVUejBRQ2cxaGdWM2NLWmMzM2lHWGtodW1BS3lsLTMwUXdhNWQ1NHVVVHppMFlTaUJFRGFNMjdfQm9OenAxa3dZV24xWjhqdlR3?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 22:32:41 GMT",
+      "source": "KOCO",
+      "type": "news"
+    },
+    {
+      "title": "Loveland WWII veteran turns 100 and credits his long life to optimism - Loveland Reporter-Herald",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQSUZ5S1JWLWZNXzZGTmQ0XzF0M0JQT05tczU3QzFiZldIOU5lMUhWQVNwRHBHdDJJRkhFTS1sWTN6M1dOM3YxR2Rjb0dHUFhvUGxUdTk2Q2t0R1cxbFRRN2U4bWZJTXdDb3Y3LWVEYVp5SFo1OU1hSy1PQkJJclFwOW84bS1MRkhqd2hBUWtjM25DU21kVnc?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 00:10:46 GMT",
+      "source": "Loveland Reporter-Herald",
+      "type": "news"
+    },
+    {
+      "title": "Bell’s Skating Rink in New Haven kicks off 100 year celebration - WPTA | 21Alive | Fort Wayne, IN",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQTDIzcWNyS2k1enlRcGdPV0t2ZmxKc3BnWF9qNnp2Y2ktRXBzUUxJWVphZVNxUk0xdEVEeEZWMENUZXU1M09UTEFsd0NRdm81ZFVSOG1Ud1U4akpMd2YydnlmeklOSWRyR1NlOS1RY2U0b19aQmozMW5QUkpFTm9WbTBRN3VqWXU2ZDA5VFE4VHZJYUM4RVRlbTllRENSRFZY0gG0AUFVX3lxTE1yMGI3aC1CaXlqTVZEb2ZxZlkwSERtMEZVNjc4Q1NsYmJSeW9wZDBLQmNhMHpJdmE0VnkteHJKclBTMDF0am43aHN0RmRvNU1UbllzU1JnZzlhVFJnNTN2YmdUWWV2cFlMdmVkTHg4dV8ybXpBLXRFRjRITXJ3emhWUUNBNm5QQ2o2VU0yMmZON3kwSXJiZlNsVXM0TGV2RVptSHhaS3ZNd2ZVWHhHNkRWNzNUUg?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 16:16:00 GMT",
+      "source": "WPTA | 21Alive | Fort Wayne, IN",
+      "type": "news"
+    },
+    {
+      "title": "Literally Just 100 Funny Photos That Made Me Laugh Through The General Pain Of Existence - BuzzFeed",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1MUUd3VVdDdXJhdEZISTZQTnN3bXAwNW53ZHFTaU1FSTJaZEtQbEl4N0QxQ2xJZXIzOXd1RGo4OTNUYVNKOGNwTEhoeVNWdFdVNjg3UjBFcGVoMlBvaDJwMXgxMUZuZmpT?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 01:31:03 GMT",
+      "source": "BuzzFeed",
+      "type": "news"
+    },
+    {
+      "title": "Family awarded over $100 million from ghost gun company for death of teen in historic verdict - Upper Michigan's Source",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQcGtJZmRORWhTYmdlS2JQN3MzTHRhWGJPQkdHWmdnVi1wVkJvUzVNQjRvWk1Gc3VTMUhRczczbDU1ODVnX3VtWGZ4OVJRTWtYaFh5RjNsTGt3RGRLYXh5MXpBdXN3VXBDaldUOUt2c1g3Z0ZnX3BuNHhldGh3VkZ3Q2dKakdveUkxcHEtdVhPQldySVlURzY1RWUwb0JxUXNqMURDdHMybnNwdFc1MmRFbFBRZ09nWWlRdmdxTm5FV3U3d3Ax0gHYAUFVX3lxTE96WVJtV0p0RV9LTWpuQzcyTVRLMXYtMmlXTzBzMlhwUXo0OHpyVGJGaEpKZ2VoYzlMaDlCaWlTc2s5LTRBVy1HRWRmVWEyQkcyTXF3NGVRSWw2cDBwLXpLdHFReTQxZ0VtUEFCemNGbU9PYXZWdDhXWmMxQmpDQUplci1EdU1uaWZhdXpfdHR6S3dEOTFQYXlFSi1rUWpXSjFOWUdlYlhHMzhqaXd0ZGpfdE16Sm16a3dhZVBBU0dneGJIVXVhdGlacjlZMFRfRUNMOUVueGxJSg?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 01:38:00 GMT",
+      "source": "Upper Michigan's Source",
+      "type": "news"
+    },
+    {
+      "title": "Massive fire destroys 100 homes in Norway and forces hundreds to evacuate - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNcE9aTDY2SUtPbkFja1QzNS0wTkJzT3dGLWRPOVBqQ09TTzdQUHVVdWNYd1dDV3Zjb3pBbFFtWVNlYWZEMHM0T3FnYzBhR2pDT1Q3cFM4ekg5VFNCYUZ2bFZtd3RSUFBmTlgyRDNlaEJDb1MyS1ByQmUtN2JBaVBEaVQ1TTd4dGxheHJqTHVIN05pMmxuTEVRMDBwb1V5Q2k0VzNHakhITG9kTzFv0gGyAUFVX3lxTE9xSFhSX3RaSTYxZ3VpVUJabkJqektVbnhJLWl6TE1ncWk2dW9qTFdLV1VORWJMSThKWkFWRjU1UU1uLU9nVC0zeXAzMG9XNFljamEzYm5iOWxaTXUwbGw1dTl6V0h1Ni01MVVySzlULXNOSVlWMklTWVgya2pUcS11b3JBbFdtY3NDenhxVGhRWWJrVURlQk8xYnlBS0luVFBENWE0ZVNra0w0NDlHb2hibmc?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 11:09:44 GMT",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "type": "news"
+    },
+    {
+      "title": "Crenshaw Chamber Connects Small Businesses to Loans With Up to 100% Forgiveness - Los Angeles Sentinel",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUl9qNzNYejJjVTltQmdPejA4RmE1RC1hZm5WMlJtQVJ6ejctTnJmZGRwdHVDS18zanBIM0h5UUJRVHBhMVhZUXVkZFhDV25rOHdTaEdOSnl1WEVVMEg3N1h5VGN2Y2FMM203UHVDU2NPRVEwN0VyTVRaR043Mi10RTZ3MzBsOXZ5aWhZX2RoMFA5eU9QbnVMVXFfa3gxZUx5akNzRHhfZkhRQQ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 23:16:30 GMT",
+      "source": "Los Angeles Sentinel",
+      "type": "news"
+    },
+    {
+      "title": "100-Day Countdown to Centennial Edition of Homecoming Begins - North Carolina A&T University",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1MdER3R0VzbE5vLUVfV2NSN0p6WWtOLXhianRfOEdqNU1hZ3FCaXkxcnV1SFJnLWhnSUJMQlRNbzFLNTJFTllwdFBIZnh1d3FWOEVYdEVFcWZFQ3dTdFBQOXc3cWxCYUk?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 18:08:33 GMT",
+      "source": "North Carolina A&amp;T University",
+      "type": "news"
+    },
+    {
+      "title": "Brush High School to mark 100 years with alumni activities, Blue Moons dance planned for Oct. 2-3 - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQWlZLOVAxQXhFN1ZlamZsMFlMVU5LSlJtdHVaUXMwdll2V0hyTzVOaDM5aEZtWUNpN3VfYlMyUzFPb3dsZDNiQzZuNVlzTks5bksxZ1A2OHR0Z2RjWWhZSTVpaWFMQXFMdWVreDViZlNwVUdHVFBSZjZqSkF4c1pwaUJ0S2d1UVZrNW9fM18tVy1QRWstWlhXXzVoM2pCNHRyMFZuVlQ2RlFVVGc3RlVvUTYyT1hhcnJpQ1JmWFRkVHpadkpsaWxVaUJuS18zOFpjTDVZYVVnQ0NUWUpp?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 03:29:00 GMT",
+      "source": "Cleveland.com",
+      "type": "news"
+    },
+    {
+      "title": "Grand Ole Opry’s Opry 100 Honors to Celebrate Charley Pride’s Career and Legacy - Billboard",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOT1Bsb3dzcGFVWHB0UWRfMkxickk3eUtYWmxSTktYQ1l6NG9KaG4zQ2JsRDZBMS1XSV9VeXEzNVN1czVvb3ptd0Q3aExIbHBNdEgxLVY1OTRpUXgxa09pTXJzREdwQm1BQzJ6dmpwaUx1WDVBOUkzUzgyMXNHNzl0c3VfVFhSLTRkWHU2QXJoTFF4bC1sR05DYmNISWo?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 21:54:55 GMT",
+      "source": "Billboard",
+      "type": "news"
+    },
+    {
+      "title": "Ashwaubenon’s Jamyana Witte wins 100 hurdles at Nike Outdoor Nationals - Green Bay Press Times",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPajliZ0xTTXpGOXI0U2p2YzUyUWJjbk92SElvNEFSM0Fyc3NELXIxS0JpajBOakRXTnI5NFFrSFEwc3dOOW5wODc0TmR2R3dEU3RQR09FV1YxV3RKS1BsSVh3TzZVUVNhTW9XMGdhcnc3NFdiYVBTWWNic3YtUU5tUmZZdzdQalpXSl9YZjdreFZsT1JrcC14cjVGVWtTSExxWTE5T21kcXBtZUp1TlE?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 17:00:00 GMT",
+      "source": "Green Bay Press Times",
+      "type": "news"
+    },
+    {
+      "title": "Russell Albers sentenced to more than 100 years for 2022 double murder in Pine Hill - Times-Standard",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPaExmWXQ2a2pvTVpjd0w4WG8xN25vRTdERzhTNFRpVi1xMUZhWFdfQWFFZDA2Y3lSd3IxNG82d3BoTEp5bUt2TlRFQzBZN3ZjbHl1MF9ZT0dieHUzYmQzd0dtUGZFV1lGV2EwZFVxTk4zRUh1dTJmeFlYOEEzTEhtN2RodTZwSmtYb0tSNDh2VUxISVJReW4zTXNFeXdTbVdpNVRicVJyY0NHZFkzcS1hVjg2RHc1d2dsRmh5XzVfb1hXTTQx?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 21:34:19 GMT",
+      "source": "Times-Standard",
+      "type": "news"
+    },
+    {
+      "title": "More scattered storms and heat index near 100° for Sunday - WTVR.com",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOeWluSnB0TTZLY0swcXBMYUgya0lNVzdWZVhwM1luZ3hjRFp5Q3R0OHREbHBlelQ4SHVQZWdfaS0yUW43UnZWcFB3dzdIWng0MGlEMVd0M3pONDBDMnZSYWNxNzF2TXM4Q3g2aHQ5bl95bncxMFh5TTZ3aGRFTDUwVg?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 00:18:00 GMT",
+      "source": "WTVR.com",
+      "type": "news"
+    },
+    {
+      "title": "More than 100 federal border buoys break loose in flooded Rio Grande - Texas Public Radio | TPR",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPemV6ZUZRTDhFczFtY1JyTGxNU3hESXo1TFZRRTRQT2dRaEQtT2pzYXdLSTd3X2VsRkVXak1HYXdqcm1DOEYwQnR0MmxhaDJsb25zU0VBaTV6UHFyeC11NXNOeERQa3gyYTFPYWl0TkJZaU9na0VrVk5qVHNaMGFZZlFWUWRjdXBRS0FiNWQtelhJelh1cVNkbVdUaGhZV2hwYkNoc0JtNHRQeFRCdGp1QV83Y05zV1ByOEE?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 14:06:00 GMT",
+      "source": "Texas Public Radio | TPR",
+      "type": "news"
+    },
+    {
+      "title": "Bell’s Skating Rink in New Haven kicks off 100 year celebration - WPTA | 21Alive | Fort Wayne, IN",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSVlxMHFMOTI0VXNRYUlucWJWYTM4QnlYU0QtVC1uWnpacTg5MVBJMm5vQUlsSTFZREZ5Mll2UkR6cFdxZjN6VWx0QURMMGlBcXMwemNZUmdhUVl0WDJLTGFBNEJSZXJnTTFsNHlzYm1iX0IybTNsdmY1QnlnamFjaE1KdlM1ZjM3aEFTdUFfTnJpZVNnV2FRT1VOM0hYUlBveF9KU25vamI?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 18:30:28 GMT",
+      "source": "WPTA | 21Alive | Fort Wayne, IN",
+      "type": "news"
+    },
+    {
+      "title": "Morning Break: Chris Olave makes NFL Top 100 - New Orleans Saints | NewOrleansSaints.com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUWRJWmxHYlh0Q0RPZjhqYVgwbUltdVIwMHhvdkc1UkM3c0Nmbms5dUk4QkRoSzMtMDI1TEJkMTVldmZCNkprcmR5NEkwT09FQjZQamxPWDAyVEV2RU1jWUFEdXRuc3R4eXZEUkhBMjM5S2ZEU0ZjLXhGaUhQdzFtaXc2ZDBPdWtxR2FmejQyb0w3dDNkM25sY1pXZDU5YUVzZ3pwek0wZndlckNVNUpaUlhHckZldw?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 14:02:17 GMT",
+      "source": "New Orleans Saints | NewOrleansSaints.com",
+      "type": "news"
+    },
+    {
+      "title": "'They put 100% effort into looking after you': Wary soccer fans stunned by a look at the real America, not the image they've been sold by the media - Fortune",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOUVUtQ2xjZWxDdEo4TnI5ZXN4a3hfdFZpbGhxR1BjMkh1TDhEYXNtR1g3Mk5mSVBFMGZhSXVlQnI0V0ZTMDdyZ2V6ZnlQNXE2Q1VHdkhlQXVPSDlxdW5NbTV3Y0EyYjBUc3J5b3p1aVRONFQwMEVfcU53bnhmSGZubVFnaFkwNGdTYUE?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 14:34:00 GMT",
+      "source": "Fortune",
+      "type": "news"
+    },
+    {
+      "title": "The 4 Best FTSE 100 ETFs to Buy - Morningstar",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5xOF9HeEtsQ0dCdUtvcUdkeXJfV1UySGx1cWhqRzRVNlN2MmlMM0VHSjlzQ0IteEhiR2E0a0ZEa21FUEwzQnJ4eFlpOVBJSENqS29qQ3JJaTRCblBybWdRR2RGTmZJLWtTbVVKY190Ty1CQnNU?oc=5",
+      "publishedAt": "Thu, 16 Jul 2026 17:20:03 GMT",
+      "source": "Morningstar",
+      "type": "news"
+    },
+    {
+      "title": "OOPSY 2026 Midseason Top 100 Prospects - FanGraphs",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45dnhha2dwMHR2SUNrWEJmaWprWnU3VllPOTBFVEdsaUdMUEw3Z1BoUkl0T0s2N1k3eHB0b1RNTVBEbUN0Smg2UldGMWRIUjRCSkJKNm5jeVhueDRZSTZlRFh3c2NRbFNGWWZPSEVYMmF4d0FsOE1mdA?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 16:33:38 GMT",
+      "source": "FanGraphs",
+      "type": "news"
+    },
+    {
+      "title": "Over 100 million Americans under air quality alerts from Canadian wildfires - WFTV",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPRHdiMXBHVWZ1bnhLbldJd0hoWjF6aXpGb0tiSkxkLWVFOU9ORHp6MFRSSm1Jb3ZLMTZnMHFKUVpqUHBrMkxtZHRwRVpKbVFrdy1qNDNMQWp3WHNlSXQyY2M5TzVyMnptbm5aeUZPNG1hTWRXdDV1VkYxR1E1dzYtQi04ZG0wQlFtdjFXQ2xNUk9XS085TC04T2lBUHFKak5QTnQ4b3B2TTlSd2I2Q21TZjVEdm9GX3k2MDNxcFc5bEJpdThUREJVaTRPUmZwLTQ?oc=5",
+      "publishedAt": "Sat, 18 Jul 2026 17:46:54 GMT",
+      "source": "WFTV",
+      "type": "news"
+    },
+    {
+      "title": "In seismic shift, more than 100 House Democrats vote to end Israel aid - Politico",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOeTJoSmVEUC1ZTnJjWFJwRjJvU0c2Njc0VG1hM0x5anN2cnphdHVfUms0ZFRkYTNBVWN0SVB0VllvZDF4ejU5SnRoTEY2SFQxRkJWeWM1Y2x1Tm54TzdoZXlwUnh5ckk3bkl5T2hma2ViNVFDSEpwbVlLZmNXVWxDMmpZNWotZ3FO?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 21:38:00 GMT",
+      "source": "Politico",
+      "type": "news"
+    },
+    {
+      "title": "Governor Shapiro Invests More Than $134 Million in 100 Community and Economic Development Projects across Southwestern Pennsylvania - PA Department of Community & Economic Development (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNZFBZR0pWc2gzaHliYTE1OTNLeUFFb19IakdGakhocXBqUTQ3M0ZWVGt2NG1LSGZkMkl4d3ZpRjRWUk1mcTRJX0dnWi14aGZjaGs3VmdRSzVKYlFrMlpUTGZoZzQyXzBzNFVRSjgxZm9iRk1tVHZEaGZQalNWZTNqdlVOU3hiNkJIUXU3SWo5OUpmYmdIMEloRWRWbnV5Q1UtVk1BTUo4Q1BFYjFMSXVxTEdndk81djVtZDBFTWlFa3F6VDZHckVacjNQQmZIeEVkQWtyUFRDYnd1SVdNM081Z1FvWlRoMGM4YWVuU0ZSZWJoUQ?oc=5",
+      "publishedAt": "Fri, 17 Jul 2026 13:59:56 GMT",
+      "source": "PA Department of Community &amp; Economic Development (.gov)",
+      "type": "news"
+    }
+  ],
+  "webSearchAnalysis": [
+    {
+      "title": "IMDb imdb.com › title  › tt2661044   The 100 (TV Series 2014–2020) - IMDb",
+      "url": "https://www.imdb.com/title/tt2661044/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Eliza Taylor",
+      "url": "https://www.rottentomatoes.com/celebrity/eliza_taylor_cotter",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Paige Turco",
+      "url": "https://www.rottentomatoes.com/celebrity/paige_turco",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Bob Morley",
+      "url": "https://www.rottentomatoes.com/celebrity/bob_morley",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Wikipedia en.wikipedia.org › wiki  › The_100_(TV_series)   The 100 (TV series) - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/The_100_(TV_series)",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Cast and characters",
+      "url": "https://en.wikipedia.org/wiki/The_100_(TV_series)#Cast_and_characters",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Production",
+      "url": "https://en.wikipedia.org/wiki/The_100_(TV_series)#Production",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Home media",
+      "url": "https://en.wikipedia.org/wiki/The_100_(TV_series)#Home_media",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Cancelled prequel series",
+      "url": "https://en.wikipedia.org/wiki/The_100_(TV_series)#Cancelled_prequel_series",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "More on old.reddit.com",
+      "url": "https://old.reddit.com/r/GameDeals/comments/1urss0n/epic_games_nova_lands_tattoo_tycoon_100_off_free/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "More on old.reddit.com",
+      "url": "https://old.reddit.com/r/loanhelp_/comments/1t24uga/req_50_or_100_repay_friday_double_if_i_can/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "More on old.reddit.com",
+      "url": "https://old.reddit.com/r/Loan_/comments/1u151l9/req_100_belton_tx_usa_repay_by_62126_cash_app_or/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "More on old.reddit.com",
+      "url": "https://old.reddit.com/r/loansharks/comments/1st2g3b/tx_100_in_need_of_funds_just_for_the_night/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Learn more",
+      "url": "/help/discussions",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "04:23  YouTube Ella Mai - 100 (Official Music Video) - YouTube January 14, 2026",
+      "url": "https://www.youtube.com/watch?v=hTvp0Vgs42M",
+      "description": "",
+      "type": "web"
+    }
+  ],
+  "hackernewsAnalysis": [
+    {
+      "id": "29416606",
+      "title": "100 years of whatever this will be",
+      "text": "",
+      "url": "https://apenwarr.ca/log/20211201",
+      "author": "mumblemumble",
+      "score": 1475,
+      "numComments": 896,
+      "created": "2021-12-02T14:35:47Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29416606",
+      "topComments": [
+        {
+          "author": "dash2",
+          "text": "I think most sensible people had figured this out already. The people that don&#x27;t and honestly believe everything will be fixed by a DAO or whatever... they&#x27;re beyond reason.",
+          "score": 0
+        },
+        {
+          "author": "JanisL",
+          "text": "I strongly believe that money itself has been corrupted lately, this then causes all number of bad flow on effects to happen. A massive shift happened when central banks started getting involved in direct purchases of various asset types and we started to see a major distortion happen in monetary policy that which has distorted the functioning of money itself. For example who would care if their business is completely unprofitable if it could get access to freshly printed money every quarter to ",
+          "score": 0
+        },
+        {
+          "author": "pezzana",
+          "text": "&gt; Everyone seems to have an increasingly horrifically misguided idea of how distributed systems work.&gt; There is of course the most obvious horrifically misguided recently-popular &quot;decentralized&quot; system, whose name shall not be spoken in this essay. Instead let&#x27;s back up to something older and better understood: markets. The fundamental mechanism of the capitalist model.This article would benefit from being more specific. Take on that un-named &quot;decentralized&quot; system",
+          "score": 0
+        },
+        {
+          "author": "dougmwne",
+          "text": "Maybe there is already a better alternative that is enjoying meteoric success along many dimensions. Maybe that alternative already dominates the supply of physical goods and supply chains. Or maybe not.",
+          "score": 0
+        },
+        {
+          "author": "indymike",
+          "text": "The first step in solving a problem is realizing there actually is a problem. If you think about it, humanity really is getting better and better over time. That thought really doesn&#x27;t help much when you are fighting with a big bank about $261 in random fees, though.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "21594793",
+      "title": "1000fps image projection on deforming non-rigid surface",
+      "text": "",
+      "url": "http://www.k2.t.u-tokyo.ac.jp/vision/DPM/",
+      "author": "hongzi",
+      "score": 1306,
+      "numComments": 128,
+      "created": "2019-11-21T15:10:46Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=21594793",
+      "topComments": [
+        {
+          "author": "deedubaya",
+          "text": "This is pretty neat.",
+          "score": 0
+        },
+        {
+          "author": "cheschire",
+          "text": "This seems like an extremely advanced version of those sand tables at science centers that kids play with, where digging a trench in sand with your hand modifies the projection to affect virtual water flow.The youtube video[0] from that page is especially interesting.0: https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=-bh1MHuA5jU",
+          "score": 0
+        },
+        {
+          "author": "pvinis",
+          "text": "This is crazy awesome! And look at this one! I don&#x27;t know if it comes from the same project, but looks cool. https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=c40cxE-dfPg",
+          "score": 0
+        },
+        {
+          "author": "ohadron",
+          "text": "This is from 2016, but still very cool.",
+          "score": 0
+        },
+        {
+          "author": "kuu",
+          "text": "Simple but effective. Really cool.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "17499137",
+      "title": "Goodbye Microservices: From 100s of problem children to 1 superstar",
+      "text": "",
+      "url": "https://segment.com/blog/goodbye-microservices/",
+      "author": "manigandham",
+      "score": 1277,
+      "numComments": 753,
+      "created": "2018-07-10T15:49:10Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=17499137",
+      "topComments": [
+        {
+          "author": "alexrbarlow",
+          "text": "I&#x27;m not sure what they&#x27;ve been left with is a monolith after all. I would say they just have a new service, which is the size of what they should have originally attempted before splitting.In particular, as to their original problem, the shared library seems to be the main source of pain and that isn&#x27;t technically solved by a monolith, along with not following the basic rule of services &quot;put together first, split later&quot;.I feel prematurely splitting services like that is ",
+          "score": 0
+        },
+        {
+          "author": "thermodynthrway",
+          "text": "I&#x27;ve always said if the Linux kernel can be a giant monolith, in C no less, than there&#x27;s maybe 100 web applications in the world that need to be split into multiple services.I&#x27;ve worked with microservices a lot. It&#x27;s a never-ending nightmare. You push data consistency concerns out of the database and between service boundaries.Fanning out one big service in parallel with a matching scalable DB is by far the most sane way to build things.",
+          "score": 0
+        },
+        {
+          "author": "justinzollars",
+          "text": "I knew this day would come. We have come full circle. Also I really like this comment:&gt; You push data consistency concerns out of the database and between service boundaries.",
+          "score": 0
+        },
+        {
+          "author": "topicseed",
+          "text": "I think that with the rise in popularity of functions as a service (lambda, gcf, azure), we are heading more and more towards nanoservices.Small services are easier to develop with several teams, in my opinion. Each team knows what to input, and output. They can do whatever in between as long as these two contracts are respected.But the overlooking of all these moving pieces changing at different paces is tough. And the smaller the services get, the harder it will become.Not a size fits all, cle",
+          "score": 0
+        },
+        {
+          "author": "kraftman",
+          "text": "So they split everything apart because their tests were failing and they didn&#x27;t want to spend time fixing them, and they they merged it back together by spending time fixing and improving their tests?It seems like the problem here was bad testing and micro repos, not microservices.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "48713832",
+      "title": "HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88",
+      "text": "",
+      "url": "https://danunparsed.com/p/hackerrank-open-source-ats",
+      "author": "sambellll",
+      "score": 1032,
+      "numComments": 433,
+      "created": "2026-06-29T01:44:40Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=48713832",
+      "topComments": [
+        {
+          "author": "glouwbug",
+          "text": "I guess at least HR doesn’t have to read 1,000 resumes. Heck, to be frank, could they make sense of the first 10 resumes?",
+          "score": 0
+        },
+        {
+          "author": "dc3k",
+          "text": "Disregarding the fact that this thing is completely broken, its grading rubric is ridiculous to begin with (as was mentioned in the article itself, but I must reiterate how completely stupid this is):&gt; 35 points for open source contributions&gt; 30 for personal projectsI don&#x27;t contribute to open source or have personal projects because I don&#x27;t spend my free time doing what I do 40 hours a week to make a living. My 15 years of work experience is worth a maximum of 25%, so any company",
+          "score": 0
+        },
+        {
+          "author": "jerrythegerbil",
+          "text": "&gt; I fail 65% of the time. Same exact resume, different luck.As someone who’s run hiring pipelines for technical roles in the past few years, that’s actually a fantastic number. I objectively hate saying that, but it’s true.35% chance of elevating a technical individual to the next stage with no effort? I’ve seen as many as 100+ applicants an hour even when including a domain specific screener question. That’s 35 “screened” applicants in an hour. Were valid candidates screened out? Yes. Does y",
+          "score": 0
+        },
+        {
+          "author": "dvt",
+          "text": "An alarming number of people don&#x27;t understand that LLMs work via purely stochastic processes, so I&#x27;m happy to see in-depth pieces like this. I&#x27;m looking for a job and maybe this is why it&#x27;s so hard to get a callback these days: resumes are just dumped in some LLM black hole and no one really knows how it works. The author says:&gt; temperature 0.1 — low, supposedly nudging the model toward deterministic outputsThis is not correct (and is briefly touched on later in the piece ",
+          "score": 0
+        },
+        {
+          "author": "cyberax",
+          "text": "Ah... The AI learned the old HR trick: take 50% of resumes and throw them out without looking. Rationale: &quot;we don&#x27;t need unlucky losers&quot;.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "5489039",
+      "title": "If the Earth were 100 pixels wide",
+      "text": "",
+      "url": "http://www.distancetomars.com/",
+      "author": "oseibonsu",
+      "score": 996,
+      "numComments": 208,
+      "created": "2013-04-03T21:02:48Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=5489039",
+      "topComments": [
+        {
+          "author": "3327",
+          "text": "if I leave it running will I get to mars? just out of curiosity? ( i do have better things to do ).",
+          "score": 0
+        },
+        {
+          "author": "austenallred",
+          "text": "This is the first time I've actually been able to comprehend the perspective of distances so big they don't mean much as a number. Thank you.",
+          "score": 0
+        },
+        {
+          "author": "ashwinaj",
+          "text": "Awesome. Thumbs up!!",
+          "score": 0
+        },
+        {
+          "author": "rsingla",
+          "text": "I'd love to see one of these for the other planets in our solar system. Maybe even Pluto!",
+          "score": 0
+        },
+        {
+          "author": "ldh",
+          "text": "Beautiful, I love it!",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "9920121",
+      "title": "Web Design: The First 100 Years (2014)",
+      "text": "",
+      "url": "http://idlewords.com/talks/web_design_first_100_years.htm",
+      "author": "jmduke",
+      "score": 988,
+      "numComments": 233,
+      "created": "2015-07-21T01:22:58Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=9920121",
+      "topComments": [
+        {
+          "author": "Animats",
+          "text": "&quot;The White Nerd&#x27;s Burden&quot; - must use that one. Kipling&#x27;s words almost fit:    Take up the White Man’s burden—\n    Send forth the best ye breed—\n    Go send your sons to exile\n    To serve your captives&#x27; need\n    To wait in heavy harness\n    On fluttered folk and wild—\n    Your new-caught, sullen peoples,\n    Half devil and half child\n    Take up the White Man’s burden\n    In patience to abide\n    To veil the threat of terror\n    And check the show of pride;\n    By open s",
+          "score": 0
+        },
+        {
+          "author": "manachar",
+          "text": "This comes across a little like &quot;get off my lawn&quot;, but you got to admit, the web has gotten pretty awful in the last few years.I enjoy my time online less and less as more content is stuffed into single-page app walled gardens that load massive quantities of cruft, ads, and tracking code. I almost preferred the flash-era.It seems that the goal of the web as being user-centric has taken the back seat to trying to convince the user that they&#x27;re just a passive recipient of crafted ex",
+          "score": 0
+        },
+        {
+          "author": "_mgr",
+          "text": "&quot;We see a whole ecosystem of startups and businesses that seem to exist only to serve one other[sic]&quot;This line should have &quot;...with ads&quot; appended to it. Or &quot;...Javascript Frameworks&quot;.",
+          "score": 0
+        },
+        {
+          "author": "hrayr",
+          "text": "This seems to be an older version of the talk.https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=nwhZ3KEqUlw",
+          "score": 0
+        },
+        {
+          "author": "nulltype",
+          "text": "If you like this dude (or maybe if you don&#x27;t like him) you can help send him to Antarctica: https:&#x2F;&#x2F;www.kickstarter.com&#x2F;projects&#x2F;431908798&#x2F;send-idle-wor...",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "11614116",
+      "title": "WhatsApp, Used by 100M Brazilians, Shut Down Nationwide Today by a Single Judge",
+      "text": "",
+      "url": "https://theintercept.com/2016/05/02/whatsapp-used-by-100-million-brazilians-was-shut-down-nationwide-today-by-a-single-judge/",
+      "author": "tshtf",
+      "score": 972,
+      "numComments": 608,
+      "created": "2016-05-02T18:31:53Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=11614116",
+      "topComments": [
+        {
+          "author": "verganileonardo",
+          "text": "2nd time in less than 12 months.\nprobably, we are going to see a surge in telegram downloads&#x2F;usage today.",
+          "score": 0
+        },
+        {
+          "author": "myth_drannon",
+          "text": "Unlike in N. America, in Brazil a lot of businesses depend on WhatsApp. You can talk with your doctor, call a plumber, claim insurance. \nOn billboards no one puts a website address or an email, just phone number and WhatsUp.\nThat&#x27;s an economy cripling move and it&#x27;s shocking how one judge can do it.",
+          "score": 0
+        },
+        {
+          "author": "notliketherest",
+          "text": "What most people outside of Brazil don&#x27;t realize is that WhatsApp is almost universally used by Brazillians to communicate about EVERYTHING, even your doctor [0][1]. My wife is Brazillian and uses it to communicate with her family in Brazil every day. This will have disastrous consequences for Brazilians domestically and internationally. This policy is being put in place by unelected judges and cartel of monopolistic telcos - all at the expense of the people.[0]http:&#x2F;&#x2F;www.cityam.c",
+          "score": 0
+        },
+        {
+          "author": "vezycash",
+          "text": "Would a p2p architecture thwart this kinda blocking?",
+          "score": 0
+        },
+        {
+          "author": "dceddia",
+          "text": "The title makes it sound much worse than it is -- it&#x27;s actually only a 72-hour shutdown. From the beginning of the article:&gt; A BRAZILIAN STATE JUDGE ordered mobile phone operators to block nationwide the extremely popular WhatsApp chat service for 72 hours...",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "18339448",
+      "title": "We posed as 100 Senators to run ads on Facebook. Facebook approved all of them",
+      "text": "",
+      "url": "https://news.vice.com/en_us/article/xw9n3q/we-posed-as-100-senators-to-run-ads-on-facebook-facebook-approved-all-of-them",
+      "author": "pulisse",
+      "score": 970,
+      "numComments": 332,
+      "created": "2018-10-30T17:53:52Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=18339448",
+      "topComments": [
+        {
+          "author": "citilife",
+          "text": "Could this not be considered identity theft?",
+          "score": 0
+        },
+        {
+          "author": "forgottenpass",
+          "text": "By telling Facebook to gatekeep what gets advertised better, there is a tacit admission that adverting is manipulative in a way that can not be defended from by the viewer, but simultaneously fine to expose the public to as long as we control that the manipulation happens in the ways editors at the large news organs agree with.",
+          "score": 0
+        },
+        {
+          "author": "josefresco",
+          "text": "&quot;In announcing new transparency efforts or tools to combat foreign influence, Facebook included a caveat. “These changes will not prevent abuse entirely. We’re up against smart, creative and well-funded adversaries who change their tactics as we spot abuse,” Leathern wrote. But we believe that they will help prevent future interference in elections on Facebook. And it is why they are so important.”But posing as 100 senators didn’t require being smart, creative, or even particularly well-fun",
+          "score": 0
+        },
+        {
+          "author": "Bucephalus355",
+          "text": "I’ve noticed on AWS I can sign up for and get an AWSGov account from my plain old personal account. It fully works, I can run EC2 Servers, get a weird style government bill that I have to pay, etc.Also, can anyone really believe Facebooks first attempts on this would be any kind of successful? Just a year ago their fake news plan was to link to verification about articles to facts on WIKIPEDIA. Do they not know how the internet works?",
+          "score": 0
+        },
+        {
+          "author": "rchaud",
+          "text": "I&#x27;d like to see more of this type of &#x27;stress testing&#x27; of adtech networks, conducted by third parties, with the methodology and results made available to the public.Programmatic advertising is a black box as far as ad buyers and ad viewers are concerned. And it is exactly for this reason that companies can claim to have &quot;machine learning based fraud detection systems&quot; or whatever and have those claims go unchallenged.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "37137110",
+      "title": "We reduced the cost of building Mastodon at Twitter-scale by 100x",
+      "text": "",
+      "url": "https://blog.redplanetlabs.com/2023/08/15/how-we-reduced-the-cost-of-building-twitter-at-twitter-scale-by-100x/",
+      "author": "tekacs",
+      "score": 954,
+      "numComments": 355,
+      "created": "2023-08-15T17:54:13Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=37137110",
+      "topComments": [
+        {
+          "author": "NoraCodes",
+          "text": "I would argue that this is not &quot;a Mastodon instance&quot;, since it is not running Mastodon - other than that, very very neat work! I&#x27;m excited for that &quot;Source Code&quot; link to be live :)",
+          "score": 0
+        },
+        {
+          "author": "riffic",
+          "text": "the group involved here may want to be mindful of the Mastodon gGmbH trademarks. Using the Mastodon logo on redplanetlabs.com to pitch a reimplementation of ActivityPub might be seen as infringing.https:&#x2F;&#x2F;joinmastodon.org&#x2F;trademarkremoved part about the mastodon subreddit since this is clearly not about the Mastodon software per se.",
+          "score": 0
+        },
+        {
+          "author": "ceejayoz",
+          "text": "Headline: &quot;building Twitter at Twitter-scale&quot;Article: &quot;building Mastodon at sub-Twitter-scale&quot;",
+          "score": 0
+        },
+        {
+          "author": "sharms",
+          "text": "The performance on the example Mastodon instance is very responsive - almost anywhere I clicked loaded nearly instantly.  I created an account and the only thing I found missing was it doesn&#x27;t implement full text search unless my user was tagged, but that might be a Mastodon specific item.I think they have thought a lot about typical hard problems, such as having the timeline processing happen along side the pipeline, taking network &#x2F; storage etc out of the picture.  Nice work!",
+          "score": 0
+        },
+        {
+          "author": "whateverman23",
+          "text": "ctrl+f &quot;ads&quot;ctrl+f &quot;monetization&quot;ctrl+f &quot;moderation&quot;ctrl+f &quot;existing infrastructure&quot;ctrl+f &quot;personalization&quot;etc etcYeah about what I expect from a &quot;we rebuilt twitter for cheap&quot; post. There&#x27;s no point to the comparisons with the Twitter codebase size&#x2F;cost. It completely distracts from what is probably a perfectly fine project.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "46720395",
+      "title": "GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers",
+      "text": "",
+      "url": "https://gptzero.me/news/neurips/",
+      "author": "segmenta",
+      "score": 937,
+      "numComments": 507,
+      "created": "2026-01-22T15:20:48Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=46720395",
+      "topComments": [
+        {
+          "author": "cogman10",
+          "text": "Yuck, this is going to really harm scientific research.There is already a problem with papers falsifying data&#x2F;samples&#x2F;etc, LLMs being able to put out plausible papers is just going to make it worse.On the bright side, maybe this will get the scientific community and science journalists to finally take reproducibility more seriously.  I&#x27;d love to see future reporting that instead of saying &quot;Research finds amazing chemical x which does y&quot; you see &quot;Researcher reproduce",
+          "score": 0
+        },
+        {
+          "author": "qwertox",
+          "text": "It would be great if those scientists who use AI without disclosing it get fucked for life.",
+          "score": 0
+        },
+        {
+          "author": "jordanpg",
+          "text": "If these are so easy to identify, why not just incorporate some kind of screening into the early stages of peer review?",
+          "score": 0
+        },
+        {
+          "author": "direwolf20",
+          "text": "Wow! They&#x27;re literally submitting references to papers by Firstname Lastname, John Doe and Jane Smith and nobody is noticing or punishing them.",
+          "score": 0
+        },
+        {
+          "author": "CGMthrowaway",
+          "text": "Which is worse:a) p-hacking and suppressing null resultsb) hallucinationsc) falsifying dataWould be cool to see an analysis of this",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "35904773",
+      "title": "100K Context Windows",
+      "text": "",
+      "url": "https://www.anthropic.com/index/100k-context-windows",
+      "author": "samwillis",
+      "score": 924,
+      "numComments": 389,
+      "created": "2023-05-11T16:46:19Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=35904773",
+      "topComments": []
+    },
+    {
+      "id": "40791829",
+      "title": "Polyfill supply chain attack hits 100K+ sites",
+      "text": "",
+      "url": "https://sansec.io/research/polyfill-supply-chain-attack",
+      "author": "gnabgib",
+      "score": 887,
+      "numComments": 370,
+      "created": "2024-06-25T18:27:30Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=40791829",
+      "topComments": []
+    },
+    {
+      "id": "48061884",
+      "title": "David Attenborough's 100th Birthday",
+      "text": "",
+      "url": "https://www.bbc.com/news/articles/cp3pww9g0p5o",
+      "author": "defrost",
+      "score": 886,
+      "numComments": 164,
+      "created": "2026-05-08T12:03:26Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=48061884",
+      "topComments": []
+    },
+    {
+      "id": "37125118",
+      "title": "Show HN: LLMs can generate valid JSON 100% of the time",
+      "text": "Outlines is a Python library that focuses on text generation with large language models. Brandon and I are not LLM experts and started the project a few months ago because we wanted to understand better how the generation process works. Our original background is probabilistic, relational and symbolic programming.<p>Recently we came up with a fast way to generate text that matches a regex (<a href=\"https:&#x2F;&#x2F;blog.normalcomputing.ai&#x2F;posts&#x2F;2023-07-27-regex-guided-generation&#x2F;regex-guided-generation.html\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;blog.normalcomputing.ai&#x2F;posts&#x2F;2023-07-27-regex-guide...</a>). The basic idea is simple: regular expressions have an equivalent Deterministic-Finite Automaton (DFA) representation. We can transform this DFA into a generative model: in each state we get a list of symbols which correspond to completions that partially match the regular expression. We mask the other symbols in the logits returned by a large language model, sample a new symbol and move to the next state. The subtelty is that language models work with tokens, not symbols, so we derive a new FSM whose alphabet is the model&#x27;s vocabulary. We can do this in only one pass over the vocabulary.<p>Generating the token masks thus only requires a dictionary lookup at each state. Our method blows other libraries like Microsoft&#x27;s guidance out of the water.<p>From there it was only a small leap to be able to generate text that follows a JSON schema (<a href=\"https:&#x2F;&#x2F;json-schema.org&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;json-schema.org&#x2F;</a>), or is parseable into a Pydantic model (<a href=\"https:&#x2F;&#x2F;docs.pydantic.dev&#x2F;latest&#x2F;usage&#x2F;models&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;docs.pydantic.dev&#x2F;latest&#x2F;usage&#x2F;models&#x2F;</a>). The method works with union types, optional types, nested schemas, arrays, everything. It is guaranteed that the output is parseable.<p>I think it&#x27;s cool, and I&#x27;ve spent a lot of time watching even tiny models output valid JSON over the weekend. Hope you will too.<p>I look forward to feedback, bug reports, feature requests and discussions!<p>Edit: Link to our pre-print explaining the method and how this can be extended to generate text that follows a Context-Free Grammar <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2307.09702\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2307.09702</a>",
+      "url": "https://github.com/normal-computing/outlines",
+      "author": "remilouf",
+      "score": 854,
+      "numComments": 303,
+      "created": "2023-08-14T18:52:54Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=37125118",
+      "topComments": []
+    },
+    {
+      "id": "39281178",
+      "title": "SQL for data scientists in 100 queries",
+      "text": "",
+      "url": "https://gvwilson.github.io/sql-tutorial/",
+      "author": "Anon84",
+      "score": 834,
+      "numComments": 158,
+      "created": "2024-02-06T21:50:26Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=39281178",
+      "topComments": []
+    }
+  ],
+  "blueskyAnalysis": [],
+  "discourseAnalysis": [
+    {
+      "id": "meta.discourse.org-203976",
+      "title": "Discourse overloaded real traffic or DDOS? 100% CPU usage despite of decent traffic and high specs server",
+      "text": "All 8 vCPUs usage on our https://howtodiscuss.com/ site is 100%. Our users get this message often, Due to extreme load, this is temporarily being shown to everyone as a logged out user would see it. Our droplet s...",
+      "url": "https://meta.discourse.org/t/discourse-overloaded-real-traffic-or-ddos-100-cpu-usage-despite-of-decent-traffic-and-high-specs-server/203976",
+      "author": "Faizan_Zahid",
+      "score": 0,
+      "views": 0,
+      "replyCount": 19,
+      "created": "2021-09-25T00:42:20.571Z",
+      "source": "discourse",
+      "sourceForum": "meta.discourse.org",
+      "topComments": []
+    },
+    {
+      "id": "meta.discourse.org-214291",
+      "title": "Jobs::PeriodicalUpdates is the cause of high CPU (over 100%)",
+      "text": "Jobs::PeriodicalUpdates is the cause of high CPU (over 100%) When we check: sidekiq/scheduler/history I see, Jobs::PeriodicalUpdates reached 79 secs. Causing the CPU to increase, users accessing the website a...",
+      "url": "https://meta.discourse.org/t/jobs-periodicalupdates-is-the-cause-of-high-cpu-over-100/214291",
+      "author": "hokod",
+      "score": 0,
+      "views": 0,
+      "replyCount": 13,
+      "created": "2022-12-28T15:29:57.668Z",
+      "source": "discourse",
+      "sourceForum": "meta.discourse.org",
+      "topComments": []
+    },
+    {
+      "id": "meta.discourse.org-52807",
+      "title": "Docker install failing on bootstrap - that make the CPU Usage 100%",
+      "text": "That make the CPU Usage 100%.And then i could not connect to the VPS. It failed when the all Ruby Gems completely installed,the i found the CPU Usage 100%. Is there sth. wrong w...",
+      "url": "https://meta.discourse.org/t/docker-install-failing-on-bootstrap-that-make-the-cpu-usage-100/52807",
+      "author": "ghostsf",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2016-11-11T20:09:36.357Z",
+      "source": "discourse",
+      "sourceForum": "meta.discourse.org",
+      "topComments": []
+    },
+    {
+      "id": "meta.discourse.org-327577",
+      "title": "Increase the 100 character limit for Watched Word links",
+      "text": "...) I can work around this by using a link shortening service (such as the excellent http://short.io short.io ), but it seems a bit arbitrary to have a 100 character limit for this - especially when plenty of naughty websites out there seem to breeze through that limit easily.",
+      "url": "https://meta.discourse.org/t/increase-the-100-character-limit-for-watched-word-links/327577",
+      "author": "nathank",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2025-04-20T14:48:27.966Z",
+      "source": "discourse",
+      "sourceForum": "meta.discourse.org",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-970327",
+      "title": "Seeking Feedback and Verification on AGI Stage 5 Achievement via Tool Integration at 100%",
+      "text": "...to present a proposal for integrating various AI tools to achieve AGI Stage 5 and seek your feedback, verification, and confidence in this approach. 1000344528 Overview of Approach: To achieve AGI Stage 5, I've identified five key functional modules: Communication and Task Execution (20%) Data Process...",
+      "url": "https://community.openai.com/t/seeking-feedback-and-verification-on-agi-stage-5-achievement-via-tool-integration-at-100/970327",
+      "author": "harishiew42",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2024-10-07T13:10:08.282Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-1386881",
+      "title": "A 100% Hallucination Free backend code-gen LLM",
+      "text": "...also a functional PL, where each individual function invocation goes indirectly through the execution layer - Which can be restricted, sandboxed, and 100% perfectly controlled deterministically, allowing the agent to be \"creative in composition, not in vocabulary\" - Effectively eliminating an entire ax...",
+      "url": "https://community.openai.com/t/a-100-hallucination-free-backend-code-gen-llm/1386881",
+      "author": "thomas11",
+      "score": 0,
+      "views": 0,
+      "replyCount": 5,
+      "created": "2026-07-17T12:11:57.401Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-729876",
+      "title": "Max 100 files in vector store",
+      "text": "...ds ) I get openai.BadRequestError: Error code: 400 - {'error': {'message': \"Invalid 'file_ids': array too long. Expected an array with maximum length 100, but got an array with length 300 instead.\", 'type': 'invalid_request_error', 'param': 'file_ids', 'code': 'array_above_max_length'}} So how can file...",
+      "url": "https://community.openai.com/t/max-100-files-in-vector-store/729876",
+      "author": "beyonce",
+      "score": 0,
+      "views": 0,
+      "replyCount": 10,
+      "created": "2024-05-10T22:26:01.404Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-581384",
+      "title": "Conversation count capped at 100 on leaderboard",
+      "text": "In the GPT Store, my custom GPT ( https://chat.openai.com/g/g-hGwJJjX2v-pearl-diver ) appears to be stuck at 100 conversations. It was at about 138 yesterday, changed to 100 today for some reason, and I've had conversations with it since then but the number isn'...",
+      "url": "https://community.openai.com/t/conversation-count-capped-at-100-on-leaderboard/581384",
+      "author": "SuitablePaella",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2024-01-10T20:29:50.591Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-2497615",
+      "title": "BP_Hero dies in one hit although damage is set to 100, health set to 1000 ",
+      "text": "I'm not sure what I'm doing wrong. The hp of BP_hero is set to 1000, but he dies to a structure doing 100 damage.",
+      "url": "https://forums.unrealengine.com/t/bp-hero-dies-in-one-hit-although-damage-is-set-to-100-health-set-to-1000/2497615",
+      "author": "iFydoe",
+      "score": 0,
+      "views": 0,
+      "replyCount": 3,
+      "created": "2025-05-09T04:11:11.917Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-2675979",
+      "title": "Rigging the SO-ARM 100 Robot: A Control Rig Journey",
+      "text": "...Short Video presentation: https://www.youtube.com/watch More information and download files 3D models, rig: https://www.mepi.pl/video/rigging-so-arm-100-control-rig Screenshot 2025-11-17 185601 Opensource Github with source code for moving real robot in Unreal: Link TBA here (a week or two after this...",
+      "url": "https://forums.unrealengine.com/t/rigging-the-so-arm-100-robot-a-control-rig-journey/2675979",
+      "author": "BartBarlowski",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2025-11-17T20:57:53.322Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-1225098",
+      "title": "Does the payout threshold of $100 need to be reached every month?",
+      "text": "Does the payout threshold of $100 need to be reached every month to receive payment? I'm wondering because I received payment for April were I made over $100, but the next month the d...",
+      "url": "https://forums.unrealengine.com/t/does-the-payout-threshold-of-100-need-to-be-reached-every-month/1225098",
+      "author": "Kosmic-Kiyote",
+      "score": 0,
+      "views": 0,
+      "replyCount": 3,
+      "created": "2023-07-11T08:45:41.356Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-594220",
+      "title": "Better Hosting Strategy for Positional Voice chat supported Multiplayer Game with 100 players",
+      "text": "Hi All, I am currently looking into developing a Multiplayer game with 100 players at Max. Each player will be having a Positional Voice chat. My Game will be having 100 Metahuman each having the positional voice chat. (Let...",
+      "url": "https://forums.unrealengine.com/t/better-hosting-strategy-for-positional-voice-chat-supported-multiplayer-game-with-100-players/594220",
+      "author": "anonymous_user_4b950463",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2022-06-30T15:00:38.262Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    }
+  ],
+  "stackexchangeAnalysis": [
+    {
+      "id": "stackoverflow-1575141",
+      "title": "How to make a div 100% height of the browser window",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window",
+      "author": "mike",
+      "authorRep": 27135,
+      "score": 2707,
+      "viewCount": 2854216,
+      "answerCount": 44,
+      "isAnswered": true,
+      "tags": [
+        "html",
+        "css",
+        "height"
+      ],
+      "created": "2009-10-15T21:18:43.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-90178",
+      "title": "Make a div fill the height of the remaining screen space",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space",
+      "author": "Vincent McNabb",
+      "authorRep": 35059,
+      "score": 2861,
+      "viewCount": 2065186,
+      "answerCount": 43,
+      "isAnswered": true,
+      "tags": [
+        "html",
+        "css",
+        "html-table"
+      ],
+      "created": "2008-09-18T05:06:17.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-6654958",
+      "title": "Make body have 100% of the browser height",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height",
+      "author": "bodyofheat",
+      "authorRep": 11263,
+      "score": 1126,
+      "viewCount": 1336339,
+      "answerCount": 25,
+      "isAnswered": true,
+      "tags": [
+        "html",
+        "css",
+        "height"
+      ],
+      "created": "2011-07-11T18:50:56.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-15381172",
+      "title": "How can I make Flexbox children 100% height of their parent?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/15381172/how-can-i-make-flexbox-children-100-height-of-their-parent",
+      "author": "Raz",
+      "authorRep": 9911,
+      "score": 940,
+      "viewCount": 1687649,
+      "answerCount": 15,
+      "isAnswered": true,
+      "tags": [
+        "css",
+        "flexbox"
+      ],
+      "created": "2013-03-13T09:19:00.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-485827",
+      "title": "CSS 100% height with padding/margin",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/485827/css-100-height-with-padding-margin",
+      "author": "Toji",
+      "authorRep": 34628,
+      "score": 897,
+      "viewCount": 429888,
+      "answerCount": 15,
+      "isAnswered": true,
+      "tags": [
+        "css"
+      ],
+      "created": "2009-01-27T23:28:18.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-16476924",
+      "title": "How can I iterate over rows in a Pandas DataFrame?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/16476924/how-can-i-iterate-over-rows-in-a-pandas-dataframe",
+      "author": "Roman",
+      "authorRep": 132502,
+      "score": 4251,
+      "viewCount": 8100043,
+      "answerCount": 35,
+      "isAnswered": true,
+      "tags": [
+        "python",
+        "pandas",
+        "dataframe",
+        "loops"
+      ],
+      "created": "2013-05-10T07:04:49.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-2010892",
+      "title": "How to store objects in HTML5 localStorage/sessionStorage",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/2010892/how-to-store-objects-in-html5-localstorage-sessionstorage",
+      "author": "Kristopher Johnson",
+      "authorRep": 82784,
+      "score": 3103,
+      "viewCount": 1499373,
+      "answerCount": 24,
+      "isAnswered": true,
+      "tags": [
+        "javascript",
+        "html",
+        "local-storage"
+      ],
+      "created": "2010-01-06T04:05:51.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-16056591",
+      "title": "Font scaling based on size of container",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/16056591/font-scaling-based-on-size-of-container",
+      "author": "Francesca",
+      "authorRep": 28498,
+      "score": 1863,
+      "viewCount": 2395346,
+      "answerCount": 43,
+      "isAnswered": true,
+      "tags": [
+        "css",
+        "responsive-design",
+        "font-size"
+      ],
+      "created": "2013-04-17T09:37:18.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "superuser-1416410",
+      "title": "Excel over 100% then = 100%",
+      "text": "",
+      "url": "https://superuser.com/questions/1416410/excel-over-100-then-100",
+      "author": "Sachit Sachdev",
+      "authorRep": 1,
+      "score": -1,
+      "viewCount": 3986,
+      "answerCount": 2,
+      "isAnswered": true,
+      "tags": [
+        "microsoft-excel",
+        "worksheet-function",
+        "conditional-statements"
+      ],
+      "created": "2019-03-22T18:23:46.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    },
+    {
+      "id": "superuser-1644019",
+      "title": "100% Cpu Utilization",
+      "text": "",
+      "url": "https://superuser.com/questions/1644019/100-cpu-utilization",
+      "author": "Minary",
+      "authorRep": 1,
+      "score": 0,
+      "viewCount": 374,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "windows-8.1",
+        "cpu",
+        "cpu-usage"
+      ],
+      "created": "2021-04-23T09:45:47.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    },
+    {
+      "id": "superuser-477507",
+      "title": "Excel percent over 100%",
+      "text": "",
+      "url": "https://superuser.com/questions/477507/excel-percent-over-100",
+      "author": "user68062",
+      "authorRep": 187,
+      "score": 0,
+      "viewCount": 9500,
+      "answerCount": 2,
+      "isAnswered": true,
+      "tags": [
+        "microsoft-excel",
+        "microsoft-excel-2010"
+      ],
+      "created": "2012-09-20T14:06:01.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    },
+    {
+      "id": "superuser-1503782",
+      "title": "BTRFS Balance taking 100% cpu and 100% I/O",
+      "text": "",
+      "url": "https://superuser.com/questions/1503782/btrfs-balance-taking-100-cpu-and-100-i-o",
+      "author": "stufuller",
+      "authorRep": 13,
+      "score": 1,
+      "viewCount": 1990,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "linux",
+        "btrfs",
+        "suse"
+      ],
+      "created": "2019-11-20T20:31:03.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    },
+    {
+      "id": "superuser-568122",
+      "title": "Getting more than 100 data points to only represent part of 100%",
+      "text": "",
+      "url": "https://superuser.com/questions/568122/getting-more-than-100-data-points-to-only-represent-part-of-100",
+      "author": "Nicole Perdue",
+      "authorRep": 1,
+      "score": 0,
+      "viewCount": 1126,
+      "answerCount": 1,
+      "isAnswered": false,
+      "tags": [
+        "microsoft-excel",
+        "charts"
+      ],
+      "created": "2013-03-19T04:26:53.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    },
+    {
+      "id": "superuser-1827144",
+      "title": "100% disk full on Centos?",
+      "text": "",
+      "url": "https://superuser.com/questions/1827144/100-disk-full-on-centos",
+      "author": "Alfa",
+      "authorRep": 11,
+      "score": 1,
+      "viewCount": 219,
+      "answerCount": 0,
+      "isAnswered": false,
+      "tags": [
+        "centos",
+        "disk-space"
+      ],
+      "created": "2024-01-24T07:08:24.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    },
+    {
+      "id": "superuser-1531580",
+      "title": "Why doesn&#39;t Excel recognize =SUM(B2*C2*100:B3*C3*100)?",
+      "text": "",
+      "url": "https://superuser.com/questions/1531580/why-doesnt-excel-recognize-sumb2c2100b3c3100",
+      "author": "user269574",
+      "authorRep": 0,
+      "score": -2,
+      "viewCount": 347,
+      "answerCount": 3,
+      "isAnswered": true,
+      "tags": [
+        "microsoft-excel"
+      ],
+      "created": "2020-03-10T05:05:38.000Z",
+      "source": "stackexchange",
+      "sourceSite": "superuser",
+      "topComments": []
+    }
+  ],
+  "semanticScholarAnalysis": [],
+  "arxivAnalysis": [],
+  "metadata": {
+    "topic": "100",
+    "timestamp": "2026-07-19T07:01:54.534Z",
+    "depth": 100,
+    "duration": "0m 17s",
+    "redditPosts": 0,
+    "youtubeVideos": 0,
+    "newsArticles": 50,
+    "webSearchResults": 15,
+    "hackernewsStories": 15,
+    "blueskyPosts": 0,
+    "discourseTopics": 12,
+    "stackexchangeAnswers": 15,
+    "semanticScholarPapers": 0,
+    "arxivPapers": 0,
+    "totalComments": 50,
+    "totalSources": 107,
+    "uniqueSources": 103
+  }
+}
