@@ -74,13 +74,13 @@ class RedditBulkScraper {
         } catch (error) {
           this.stats.errors++;
 
-          if (error.response && error.response.status === 429) {
+          if (error.response && (error.response.status === 429 || error.response.status === 422)) {
             this.rateLimitCount = (this.rateLimitCount || 0) + 1;
             this.consecutiveFailCount = 0;
 
             if (this.rateLimitCount >= 2) {
               if (this.primarySource === 'arctic-shift' && !this.fallbackTriggered) {
-                this.log('warn', `Arctic Shift rate limited, switching to PullPush...`);
+                this.log('warn', `Arctic Shift failed (${error.response.status}), switching to PullPush...`);
                 this.primarySource = 'pullpush';
                 this.fallbackTriggered = true;
                 this.rateLimitCount = 0;
@@ -104,7 +104,7 @@ class RedditBulkScraper {
               return allPosts;
             }
 
-            this.log('warn', `429 on ${this.primarySource} (attempt ${this.rateLimitCount}/3)`);
+            this.log('warn', `${error.response.status} on ${this.primarySource} (attempt ${this.rateLimitCount}/2)`);
             await limiter.backoff(this.log);
           } else {
             this.log('error', `r/${sub.name} failed: ${error.message}`);
@@ -179,6 +179,9 @@ class RedditBulkScraper {
   async scrapeSubredditArcticShift(subreddit, query, limit = 50) {
     await limiter.wait();
 
+    const now = Math.floor(Date.now() / 1000);
+    const oneYearAgo = now - 365 * 24 * 60 * 60;
+
     const response = await limiter.retryRequest(() =>
       axios.get(`${ARCTIC_SHIFT_BASE}/api/posts/search`, {
         params: {
@@ -187,6 +190,7 @@ class RedditBulkScraper {
           limit: Math.min(limit, 100),
           sort: 'desc',
           fields: 'id,title,selftext,score,num_comments,subreddit,author,created_utc,url',
+          after: oneYearAgo,
         },
         headers: this.headers,
         timeout: 20000,
