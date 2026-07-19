@@ -3,6 +3,7 @@ const RateLimiter = require('../utils/rateLimiter');
 
 const limiter = new RateLimiter(1);
 const PUBLIC_API = 'https://public.api.bsky.app/xrpc';
+const AUTHENTICATED_API = 'https://api.bsky.app/xrpc';
 
 class BlueskySource {
   constructor() {
@@ -38,10 +39,15 @@ class BlueskySource {
     await limiter.wait();
 
     const jwt = await this.ensureAuth();
-    const headers = jwt ? { Authorization: `Bearer ${jwt}` } : {};
+    if (!jwt) {
+      log('warn', 'Bluesky search requires authentication. Set BLUESKY_IDENTIFIER and BLUESKY_PASSWORD in .env');
+      return [];
+    }
+
+    const headers = { Authorization: `Bearer ${jwt}` };
 
     try {
-      const response = await axios.get(`${PUBLIC_API}/app.bsky.feed.searchPosts`, {
+      const response = await axios.get(`${AUTHENTICATED_API}/app.bsky.feed.searchPosts`, {
         params: {
           q: query,
           limit: Math.min(maxResults, 100),
@@ -73,8 +79,8 @@ class BlueskySource {
       const status = error.response?.status;
       if (status === 429) {
         log('warn', 'Bluesky rate limited (429)');
-      } else if (status === 401) {
-        log('warn', 'Bluesky auth failed — search may require login');
+      } else if (status === 401 || status === 403) {
+        log('warn', `Bluesky search blocked (${status}) — authentication required`);
         this.accessJwt = null;
       } else {
         log('error', `Bluesky search error: ${error.message}`);
