@@ -219,6 +219,7 @@ class ResearchOrchestrator {
           results.discourse = await discourse.search(topic, {
             maxResults: Math.min(25, Math.ceil(depth * 0.15)),
             onLog,
+            keywords: analysis.keywords,
           });
           if (results.discourse.length > 0) await cache.set(topic, 'discourse', results.discourse);
           log('success', `Discourse done: ${results.discourse.length} posts`);
