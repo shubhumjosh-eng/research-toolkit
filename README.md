@@ -2,15 +2,15 @@
   <h1 align="center">Research Toolkit</h1>
   <p align="center">
     <strong>Deep research assistant for the terminal</strong><br>
-    Search 8 platforms with smart query understanding, TF-IDF ranking, and automatic clustering.
+    Search 10 platforms with smart query understanding, TF-IDF ranking, and automatic clustering.
   </p>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-BSL%201.1-blue.svg" alt="License"></a>
-  <a href="package.json"><img src="https://img.shields.io/badge/version-3.0.0-green.svg" alt="Version"></a>
+  <a href="package.json"><img src="https://img.shields.io/badge/version-3.1.0-green.svg" alt="Version"></a>
   <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg" alt="Node.js"></a>
-  <a href="#platforms"><img src="https://img.shields.io/badge/platforms-8-orange.svg" alt="Platforms"></a>
+  <a href="#platforms"><img src="https://img.shields.io/badge/platforms-10-orange.svg" alt="Platforms"></a>
   <a href="#smart-features"><img src="https://img.shields.io/badge/AI-free-yes-brightgreen.svg" alt="AI-free"></a>
 </p>
 
@@ -111,7 +111,7 @@ node src/cli.js "topic" --output report.html # Custom output path
 
 ## Platforms
 
-All 8 platforms work without API keys. Optional keys increase rate limits.
+All 10 platforms work without API keys. Optional keys increase rate limits.
 
 | | Platform | Source | API Key |
 |---|----------|--------|---------|
@@ -123,6 +123,8 @@ All 8 platforms work without API keys. Optional keys increase rate limits.
 | 🦋 | **Bluesky** | AT Protocol (auth required) | Required |
 | 💬 | **Discourse** | REST API (40+ forums) | No |
 | 📚 | **Stack Exchange** | SE v2.3 API (180+ sites) | Optional |
+| 📄 | **Semantic Scholar** | S2 Graph API | No (rate limited) |
+| 📑 | **arXiv** | arXiv Atom API | No |
 
 ### Platform Details
 
@@ -141,6 +143,10 @@ All 8 platforms work without API keys. Optional keys increase rate limits.
 **Discourse** — Searches 40+ public Discourse forums. Smart forum selection based on topic keywords.
 
 **Stack Exchange** — Searches 180+ Stack Exchange sites (Stack Overflow, Super User, Server Fault, etc.). Optional API key increases daily quota from 300 to 10,000.
+
+**Semantic Scholar** — Academic paper search via Semantic Scholar Graph API. Returns titles, authors, citation counts, abstracts. Rate limited without API key (~100 requests/5 minutes).
+
+**arXiv** — Preprint paper search via arXiv Atom API. Returns titles, authors, abstracts, categories, PDF links. No rate limits.
 
 ---
 
