@@ -22,13 +22,21 @@ class ResearchCLI {
       noCache: false,
       batch: false,
       report: null,
+      format: null,
+      since: null,
+      until: null,
+      diff: false,
+      template: null,
     };
+
+    this.optionValues = new Set();
 
     for (let i = 0; i < this.args.length; i++) {
       const arg = this.args[i];
       switch (arg) {
         case '--depth':
-          options.depth = parseInt(this.args[++i], 10) || 500;
+          this.optionValues.add(++i);
+          options.depth = parseInt(this.args[i], 10) || 500;
           break;
         case '--transcripts':
           options.transcripts = true;
@@ -41,24 +49,49 @@ class ResearchCLI {
           break;
         case '--output':
         case '-o':
-          options.output = this.args[++i];
+          this.optionValues.add(++i);
+          options.output = this.args[i];
+          break;
+        case '--format':
+        case '-f':
+          this.optionValues.add(++i);
+          options.format = this.args[i];
+          break;
+        case '--since':
+          this.optionValues.add(++i);
+          options.since = this.args[i];
+          break;
+        case '--until':
+          this.optionValues.add(++i);
+          options.until = this.args[i];
+          break;
+        case '--diff':
+          options.diff = true;
+          break;
+        case '--template':
+        case '-t':
+          this.optionValues.add(++i);
+          options.template = this.args[i];
           break;
         case '--no-cache':
           options.noCache = true;
           break;
         case '--video':
         case '-v':
-          options.video = this.args[++i];
+          this.optionValues.add(++i);
+          options.video = this.args[i];
           break;
         case '--scrape':
         case '-s':
-          options.scrape = this.args[++i];
+          this.optionValues.add(++i);
+          options.scrape = this.args[i];
           break;
         case '--batch':
           options.batch = true;
           break;
         case '--report':
-          options.report = this.args[++i];
+          this.optionValues.add(++i);
+          options.report = this.args[i];
           break;
         case '--help':
         case '-h':
@@ -72,15 +105,17 @@ class ResearchCLI {
   }
 
   getTopic() {
-    const nonFlagArgs = this.args.filter(a => !a.startsWith('-') && a !== 'research');
-    return nonFlagArgs.find(a => a !== this.command) || nonFlagArgs[0] || null;
+    return this.args
+      .filter((a, i) => !a.startsWith('-') && a !== 'research' && !this.optionValues.has(i))
+      .join(' ')
+      .trim() || null;
   }
 
   showHelp() {
     console.log(`
 ${'='.repeat(60)}
-  RESEARCH TOOLKIT v3.0
-  Deep Research Across 8 Platforms — No API Keys Needed
+  RESEARCH TOOLKIT v3.1
+  Deep Research Across 10 Platforms — No API Keys Needed
 ${'='.repeat(60)}
 
 USAGE:
@@ -92,9 +127,14 @@ OPTIONS:
   --depth <number>     Scrape depth: 100, 200, 500, 1000, 2000 (default: 500)
   --batch              Non-interactive batch mode (for scripting)
   --report <format>    Report format: terminal, html, both (default: both)
+  --format <fmt>       Export format: html, markdown, json (default: html)
   --transcripts        Also extract YouTube video transcripts
   --output, -o <file>  Output filename
   --no-cache           Skip cache, fetch fresh data
+  --since <date>       Filter results after date (YYYY-MM-DD or 7d, 30d, 90d)
+  --until <date>       Filter results before date (YYYY-MM-DD or 7d, 30d, 90d)
+  --diff               Compare with previous research session (requires topic)
+  --template, -t <tpl> Research template: literature-review, comparison, trend-analysis
 
 PLATFORMS (all free, no API keys):
   🔴 Reddit           Posts & comments via JSON API
@@ -105,6 +145,8 @@ PLATFORMS (all free, no API keys):
   🦋 Bluesky          AT Protocol public search
   💬 Discourse        40+ public forum search
   📚 Stack Exchange   SE v2.3 API (180+ sites)
+  📄 Semantic Scholar Academic papers (free, no key)
+  📑 arXiv            Preprint papers (free, no key)
 
 INTERACTIVE COMMANDS (TUI mode):
   Tab                  Open slash command palette
@@ -122,6 +164,9 @@ SMART FEATURES:
   ✓ Automatic deduplication & clustering
   ✓ Session memory (follow-up questions)
   ✓ Persistent config (~/.research-toolkit/config.json)
+  ✓ Parallel fetching (~60s → ~25s for 10 platforms)
+  ✓ Date range filtering
+  ✓ Markdown & JSON export
 
 EXAMPLES:
   # Interactive mode (recommended)
@@ -135,6 +180,18 @@ EXAMPLES:
 
   # Terminal-only output
   node src/cli.js "machine learning trends" --report terminal
+
+  # Export as Markdown
+  node src/cli.js "AI safety research" --format markdown
+
+  # Export as JSON
+  node src/cli.js "rust vs go" --format json --depth 200
+
+  # Date-filtered research
+  node src/cli.js "COVID vaccine" --since 2025-01-01 --until 2025-12-31
+
+  # Recent research only
+  node src/cli.js "AI news" --since 30d
 
 ZERO COST:
   ✓ No API keys required (all platforms have free tiers)
@@ -195,7 +252,20 @@ ZERO COST:
       youtubeOnly: this.options.youtubeOnly,
       output: this.options.output,
       noCache: this.options.noCache,
+      format: this.options.format,
+      since: this.options.since,
+      until: this.options.until,
     });
+
+    if (this.options.format && this.options.format !== 'html') {
+      const { exportReport } = require('./report/exportReport');
+      const exportPath = await exportReport(
+        { executiveSummary: result.executiveSummary, clusters: result.clusters, redditAnalysis: result.reddit, youtubeAnalysis: result.youtube, newsAnalysis: result.news, webSearchAnalysis: result.webSearch, hackernewsAnalysis: result.hackernews, blueskyAnalysis: result.bluesky, discourseAnalysis: result.discourse, stackexchangeAnalysis: result.stackexchange, semanticScholarAnalysis: result.semanticScholar || [], arxivAnalysis: result.arxiv || [], metadata: result.metadata },
+        this.options.format,
+        this.options.output
+      );
+      console.log(`\n📁 Exported: ${exportPath}`);
+    }
   }
 
   async runVideoAnalysis() {
