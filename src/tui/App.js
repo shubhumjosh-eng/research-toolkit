@@ -137,7 +137,11 @@ function App({ initialTopic }) {
         setConfig(prev => ({ ...prev, depth: 1000 }));
         break;
       case '/sources':
-        addLog('info', 'Active sources: Reddit, YouTube, News, Web, HN, Bluesky, Discourse, StackExchange');
+        addLog('info', 'Toggle sources (type number to toggle):');
+        addLog('info', ' [1] Reddit      [2] YouTube    [3] News       [4] Web Search');
+        addLog('info', ' [5] HN          [6] Bluesky    [7] Discourse  [8] Stack Exchange');
+        addLog('info', ' [S] SemanticScholar  [A] arXiv  [0] All ON  [-] All OFF');
+        addLog('info', ` Active: ${Object.entries(config.sources || {}).filter(([,v]) => v !== false).map(([k]) => k).join(', ') || 'all'}`);
         break;
       default:
         addLog('warn', `Unknown command: ${cmd}`);
