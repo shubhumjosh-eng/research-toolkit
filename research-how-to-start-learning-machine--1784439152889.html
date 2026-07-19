@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report: how to start learning machine learning</title>
+    <style>
+        :root {
+            --bg: #ffffff; --bg2: #f8f9fa; --bg3: #f0f0f0;
+            --text: #333333; --text2: #666666; --text3: #888888;
+            --accent: #1a73e8; --accent2: #e3f2fd;
+            --border: #e0e0e0; --border2: #d0d0d0;
+            --red: #c62828; --red-bg: #fce4ec;
+            --green: #2e7d32; --green-bg: #e8f5e9;
+            --blue: #1565c0; --blue-bg: #e3f2fd;
+            --purple: #7b1fa2; --purple-bg: #f3e5f5;
+            --yellow: #f57f17; --yellow-bg: #fff8e1;
+            --shadow: rgba(0,0,0,0.06);
+        }
+        .dark {
+            --bg: #1a1a2e; --bg2: #16213e; --bg3: #0f3460;
+            --text: #e0e0e0; --text2: #b0b0b0; --text3: #808080;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --border2: #3a3a5a;
+            --red: #ef9a9a; --red-bg: #3e2723;
+            --green: #a5d6a7; --green-bg: #1b5e20;
+            --blue: #90caf9; --blue-bg: #0d47a1;
+            --purple: #ce93d8; --purple-bg: #4a148c;
+            --yellow: #fff176; --yellow-bg: #f57f17;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--text); background: var(--bg);
+            max-width: 1000px; margin: 0 auto; padding: 40px 20px;
+        }
+        .dark body, body.dark { background: var(--bg); color: var(--text); }
+        h1 { color: var(--text); border-bottom: 3px solid var(--accent); padding-bottom: 12px; margin-bottom: 10px; font-size: 2.2em; }
+        h2 { color: var(--accent); margin-top: 40px; margin-bottom: 15px; font-size: 1.6em; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        h3 { color: var(--text); margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .subtitle { color: var(--text2); font-size: 1.1em; margin-bottom: 25px; }
+        .toolbar { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; align-items: center; }
+        .toolbar button {
+            padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); cursor: pointer; font-size: 0.85em;
+        }
+        .toolbar button:hover { background: var(--accent2); border-color: var(--accent); }
+        .toolbar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        #searchBox {
+            padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); font-size: 0.9em; width: 220px;
+        }
+        .toc {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; margin: 20px 0;
+        }
+        .toc h3 { margin-top: 0; color: var(--accent); font-size: 1em; text-transform: uppercase; letter-spacing: 1px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin: 6px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 0.95em; }
+        .toc a:hover { color: var(--accent); text-decoration: underline; }
+        .toc a::before { content: '→ '; color: var(--accent); }
+        .stats-bar { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .stat-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; min-width: 130px; text-align: center; flex: 1;
+        }
+        .stat-box .number { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+        .stat-box .label { font-size: 0.82em; color: var(--text2); margin-top: 2px; }
+        .charts-row { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .chart-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; flex: 1; min-width: 280px;
+        }
+        .chart-box h4 { font-size: 0.9em; color: var(--text2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+        .bar-label { width: 110px; font-size: 0.85em; color: var(--text2); text-align: right; }
+        .bar-track { flex: 1; height: 20px; background: var(--bg3); border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .bar-fill.positive { background: var(--green); }
+        .bar-fill.negative { background: var(--red); }
+        .bar-fill.neutral { background: var(--yellow); }
+        .bar-fill.reddit { background: var(--red); }
+        .bar-fill.news { background: var(--green); }
+        .bar-fill.web { background: var(--blue); }
+        .bar-fill.youtube { background: var(--purple); }
+        .bar-value { width: 40px; font-size: 0.85em; color: var(--text2); }
+        .sentiment-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.75em; font-weight: bold; margin-left: 5px;
+        }
+        .sentiment-positive { background: var(--green-bg); color: var(--green); }
+        .sentiment-negative { background: var(--red-bg); color: var(--red); }
+        .sentiment-neutral { background: var(--yellow-bg); color: var(--yellow); }
+        .section { margin-bottom: 40px; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .section-header h2 { margin: 0; border: none; padding: 0; }
+        .collapse-btn {
+            padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+            background: var(--bg2); color: var(--text2); cursor: pointer; font-size: 0.75em;
+        }
+        .collapse-btn:hover { background: var(--accent2); }
+        .post-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); transition: all 0.2s;
+        }
+        .post-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px var(--shadow); }
+        .post-card.highlight { border-left: 4px solid var(--accent); background: var(--accent2); }
+        .post-card h4 { color: var(--text); margin-bottom: 5px; font-size: 1.05em; }
+        .post-card .text { color: var(--text2); font-size: 0.93em; margin: 8px 0; }
+        .post-card .meta { color: var(--text3); font-size: 0.85em; }
+        .post-card a { color: var(--accent); text-decoration: none; }
+        .post-card a:hover { text-decoration: underline; }
+        .comment-card {
+            margin: 8px 0 8px 20px; padding: 10px 15px; background: var(--bg);
+            border-left: 3px solid var(--border); border-radius: 0 6px 6px 0;
+        }
+        .comment-card .author { color: var(--text3); font-size: 0.85em; }
+        .comment-card .text { color: var(--text); font-size: 0.93em; margin: 5px 0; }
+        .comment-card .score { color: var(--accent); font-size: 0.85em; font-weight: bold; }
+        .video-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); display: flex; gap: 15px;
+        }
+        .video-card .thumb { width: 160px; min-width: 120px; }
+        .video-card .thumb img { width: 100%; border-radius: 6px; }
+        .video-card .info { flex: 1; }
+        .video-card h4 { color: var(--text); margin-bottom: 5px; }
+        .video-card .channel { color: var(--text2); font-size: 0.9em; }
+        .video-card .meta { color: var(--text3); font-size: 0.85em; margin-top: 5px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 5px; }
+        .badge-reddit { background: var(--red-bg); color: var(--red); }
+        .badge-youtube { background: var(--purple-bg); color: var(--purple); }
+        .badge-news { background: var(--green-bg); color: var(--green); }
+        .badge-web { background: var(--blue-bg); color: var(--blue); }
+        .badge-score { background: var(--blue-bg); color: var(--blue); }
+        .cluster-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2);
+        }
+        .cluster-card h4 { color: var(--accent); font-size: 1em; margin-bottom: 4px; }
+        .cluster-card .count { color: var(--text3); font-size: 0.85em; }
+        .cluster-card .post-list { margin-top: 8px; font-size: 0.9em; color: var(--text2); }
+        .cluster-card .post-list li { margin: 3px 0; }
+        .author-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center;
+        }
+        .author-card .name { font-weight: bold; color: var(--accent); }
+        .author-card .stats { color: var(--text3); font-size: 0.85em; }
+        .collapsible-content { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible-content.collapsed { max-height: 0; }
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; text-align: center; }
+        @media print {
+            .toolbar, .toc, .collapse-btn { display: none !important; }
+            .collapsible-content { max-height: none !important; }
+            body { padding: 0; background: #fff; color: #333; }
+            .post-card, .video-card, .comment-card { page-break-inside: avoid; }
+        }
+        @media (max-width: 600px) {
+            .stats-bar { flex-direction: column; }
+            .charts-row { flex-direction: column; }
+            .video-card { flex-direction: column; }
+            .video-card .thumb { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p class="subtitle">"how to start learning machine learning" &mdash; July 19, 2026</p>
+
+    <div class="toolbar">
+        <button onclick="toggleDark()" id="darkBtn">Dark Mode</button>
+        <button onclick="expandAll()">Expand All</button>
+        <button onclick="collapseAll()">Collapse All</button>
+        <button onclick="window.print()">Export PDF</button>
+        <input type="text" id="searchBox" placeholder="Search report..." oninput="filterCards(this.value)">
+    </div>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#topic-clusters">Topic Clusters</a></li>
+            <li><a href="#news-section">News Articles (50)</a></li>
+            <li><a href="#web-section">Web Results (46)</a></li>
+            <li><a href="#reddit-section">Reddit Analysis (0 posts)</a></li>
+            
+            <li><a href="#youtube-section">YouTube Videos (85)</a></li>
+        </ul>
+    </nav>
+
+    <div class="stats-bar">
+        <div class="stat-box"><div class="number">0</div><div class="label">Reddit Posts</div></div>
+        <div class="stat-box"><div class="number">20</div><div class="label">Comments</div></div>
+        <div class="stat-box"><div class="number">50</div><div class="label">News</div></div>
+        <div class="stat-box"><div class="number">46</div><div class="label">Web</div></div>
+        <div class="stat-box"><div class="number">85</div><div class="label">Videos</div></div>
+        <div class="stat-box"><div class="number">1m 17s</div><div class="label">Time</div></div>
+    </div>
+
+    <div class="charts-row">
+        <div class="chart-box">
+            <h4>Source Breakdown</h4>
+            <div class="bar-chart">
+                <div class="bar-row"><div class="bar-label">Reddit</div><div class="bar-track"><div class="bar-fill reddit" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">News</div><div class="bar-track"><div class="bar-fill news" style="width:100%"></div></div><div class="bar-value">50</div></div>
+                <div class="bar-row"><div class="bar-label">Web</div><div class="bar-track"><div class="bar-fill web" style="width:92%"></div></div><div class="bar-value">46</div></div>
+                <div class="bar-row"><div class="bar-label">YouTube</div><div class="bar-track"><div class="bar-fill youtube" style="width:100%"></div></div><div class="bar-value">85</div></div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Reddit Sentiment</h4>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Positive</div>
+                    <div class="bar-track"><div class="bar-fill positive" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Neutral</div>
+                    <div class="bar-track"><div class="bar-fill neutral" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Negative</div>
+                    <div class="bar-track"><div class="bar-fill negative" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="section" id="executive-summary"><div class="section-header"><h2>Executive Summary</h2></div><h3>Top Reddit Discussions</h3>
+        <div class="post-card highlight" data-searchable="Ask HN: How or where to begin learning mathematics from first principles?">
+          <h4>Ask HN: How or where to begin learning mathematics from first principles? </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 345</span> <span class="badge badge-reddit">r/</span> 💬 123 comments · <a href="https://news.ycombinator.com/item?id=8697772" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="The cold start problem: how to build your machine learning portfolio">
+          <h4>The cold start problem: how to build your machine learning portfolio </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 340</span> <span class="badge badge-reddit">r/</span> 💬 99 comments · <a href="https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Ask HN: How to Seriously Start with Machine Learning and AI">
+          <h4>Ask HN: How to Seriously Start with Machine Learning and AI </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 264</span> <span class="badge badge-reddit">r/</span> 💬 71 comments · <a href="https://news.ycombinator.com/item?id=16167620" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="How to Start with Machine Learning">
+          <h4>How to Start with Machine Learning </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 255</span> <span class="badge badge-reddit">r/</span> 💬 31 comments · <a href="https://www.blog.duomly.com/how-to-start-with-machine-learning/" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Ask HN: Starting machine learning? Books, videos and other resources">
+          <h4>Ask HN: Starting machine learning? Books, videos and other resources </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 20</span> <span class="badge badge-reddit">r/</span> 💬 9 comments · <a href="https://news.ycombinator.com/item?id=12374837" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Ask HN: How to start with maths required for ML or Deep Learning?">
+          <h4>Ask HN: How to start with maths required for ML or Deep Learning? </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 15</span> <span class="badge badge-reddit">r/</span> 💬 8 comments · <a href="https://news.ycombinator.com/item?id=11458966" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Ask HN: How to Start with ML in 2024?">
+          <h4>Ask HN: How to Start with ML in 2024? </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 14</span> <span class="badge badge-reddit">r/</span> 💬 2 comments · <a href="https://news.ycombinator.com/item?id=41289173" target="_blank">View →</a></div>
+        </div><h3 style="margin-top:20px;">Top Insights</h3>
+        <div class="comment-card" data-searchable="You can start Coursera prof Ng course on machine learning to test waters if you don&amp;#x27;t know anything about machine learning.">
+          <div class="text">"You can start Coursera prof Ng course on machine learning to test waters if you don&amp;#x27;t know anything about machine learning." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by ignasl in: Ask HN: How to start learning Machine Learning in 2019?</div>
+        </div>
+        <div class="comment-card" data-searchable="These were to 2 books I had when I took AI classes in college(~1998) pre-deep learning, CNN etc..http:&amp;#x2F;&amp;#x2F;aima.cs.berkeley.eduhttps:&amp;#x2F;&amp;#x2F;www.allbookstores.com&amp;#x2F;book&amp;#x2F;compare&amp;#x2F;9780201533774might be good for some foundational stuff. I felt they were pretty readable.I remembe">
+          <div class="text">"These were to 2 books I had when I took AI classes in college(~1998) pre-deep learning, CNN etc..http:&amp;#x2F;&amp;#x2F;aima.cs.berkeley.eduhttps:&amp;#x2F;&amp;#x2F;www.allbookstores.com&amp;#x2F;book&amp;#x2F;compare&amp;#x2F;9780201533774might be good for some foundational stuff. I felt they were pretty readable.I remembe" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by sharemywin in: Ask HN: How to Seriously Start with Machine Learning and AI</div>
+        </div>
+        <div class="comment-card" data-searchable="some free courses:https:&amp;#x2F;&amp;#x2F;www.class-central.com&amp;#x2F;subject&amp;#x2F;aiSome guys self made Master&amp;#x27;s program: 
+https:&amp;#x2F;&amp;#x2F;hackernoon.com&amp;#x2F;my-self-created-ai-masters-degree-ddc...">
+          <div class="text">"some free courses:https:&amp;#x2F;&amp;#x2F;www.class-central.com&amp;#x2F;subject&amp;#x2F;aiSome guys self made Master&amp;#x27;s program: 
+https:&amp;#x2F;&amp;#x2F;hackernoon.com&amp;#x2F;my-self-created-ai-masters-degree-ddc..." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by sharemywin in: Ask HN: How to Seriously Start with Machine Learning and AI</div>
+        </div>
+        <div class="comment-card" data-searchable="I would highly recommend starting with course.fast.ai. Really helped me.">
+          <div class="text">"I would highly recommend starting with course.fast.ai. Really helped me." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by joshgel in: Ask HN: How to Seriously Start with Machine Learning and AI</div>
+        </div>
+        <div class="comment-card" data-searchable="Think you should pick a project that seems reasonable and then start working on it, learning what you need to along the way.">
+          <div class="text">"Think you should pick a project that seems reasonable and then start working on it, learning what you need to along the way." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by darepublic in: Ask HN: How to Seriously Start with Machine Learning and AI</div>
+        </div>
+        <div class="comment-card" data-searchable="IMO, to start with AI, it&amp;#x27;s best to start as simple as possible so that you understand the algorithms that drive things that are accessible to tweak. If you are a gamer, think about the various AI routines that control pathfinding, resource collection, and strategy for computer players in strat">
+          <div class="text">"IMO, to start with AI, it&amp;#x27;s best to start as simple as possible so that you understand the algorithms that drive things that are accessible to tweak. If you are a gamer, think about the various AI routines that control pathfinding, resource collection, and strategy for computer players in strat" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by nrjames in: Ask HN: How to Seriously Start with Machine Learning and AI</div>
+        </div>
+        <div class="comment-card" data-searchable="Download Anaconda, get a dataset that can help you solve some problem and figure out with Google what you should do if error messages appear. ML is easy.">
+          <div class="text">"Download Anaconda, get a dataset that can help you solve some problem and figure out with Google what you should do if error messages appear. ML is easy." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by Ftuuky in: How to Start with Machine Learning</div>
+        </div>
+        <div class="comment-card" data-searchable="Amongst dozens guides on AI and ML (&amp;quot;how to start&amp;quot;), I found Siraj Raval&amp;#x27;s YT channel really helpful and inspiring.">
+          <div class="text">"Amongst dozens guides on AI and ML (&amp;quot;how to start&amp;quot;), I found Siraj Raval&amp;#x27;s YT channel really helpful and inspiring." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by r34 in: How to Start with Machine Learning</div>
+        </div>
+        <div class="comment-card" data-searchable="I hope this post helps someone looking to start with ML.When I started my journey, I thought I should do what this article mentions.&amp;gt;&amp;gt;First, you should learn the fundamentals:&amp;gt;&amp;gt;    Learn mathematicsMy problem is that &amp;quot;learn mathematics&amp;quot; can take years.  To me, it would be very ">
+          <div class="text">"I hope this post helps someone looking to start with ML.When I started my journey, I thought I should do what this article mentions.&amp;gt;&amp;gt;First, you should learn the fundamentals:&amp;gt;&amp;gt;    Learn mathematicsMy problem is that &amp;quot;learn mathematics&amp;quot; can take years.  To me, it would be very " </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by knob in: How to Start with Machine Learning</div>
+        </div>
+        <div class="comment-card" data-searchable="For people who want to dive into Deep Learning, I highly recommend checking these resources:1. Fast.ai: https:&amp;#x2F;&amp;#x2F;www.fast.ai&amp;#x2F;2. Open AI Spinning Up: https:&amp;#x2F;&amp;#x2F;spinningup.openai.com&amp;#x2F;en&amp;#x2F;latest&amp;#x2F;index.htmlRead:1. A Google Brain engineer’s guide to entering AI
+https:&amp;">
+          <div class="text">"For people who want to dive into Deep Learning, I highly recommend checking these resources:1. Fast.ai: https:&amp;#x2F;&amp;#x2F;www.fast.ai&amp;#x2F;2. Open AI Spinning Up: https:&amp;#x2F;&amp;#x2F;spinningup.openai.com&amp;#x2F;en&amp;#x2F;latest&amp;#x2F;index.htmlRead:1. A Google Brain engineer’s guide to entering AI
+https:&amp;" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by allenleein in: How to Start with Machine Learning</div>
+        </div><h3 style="margin-top:20px;">Top News Coverage</h3>
+        <div class="post-card" data-searchable="Deep Learning vs Machine Learning: Beginner’s Guide - Coursera">
+          <h4>Deep Learning vs Machine Learning: Beginner’s Guide - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · June 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQVy11SmFVRk9nZER2ZkRXODB2WmdHaDREc2RkYldLMkpzczlORDI2ZjJPZmVQSXRYU2ZTV0lWaFozRVlKejZKeFVmbWZodXZwZ3NJaGF0R3MzX3pWZW1wRWxUQWhPSWpkNEtJZmJZR3dObjYtSkM2MjVCaTNUb09XcE10dlVza21BYVNkQVRFbHhaeWktUlRv?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Machine Learning Roadmap 2025 | Your Guide to ML Mastery - Simplilearn.com">
+          <h4>Machine Learning Roadmap 2025 | Your Guide to ML Mastery - Simplilearn.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Simplilearn.com · July 7, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE8tbC1qSnRxQjRGMC1SbjhuSTg4NGtyUUFiaVdwQVI1UHFEOF9QeUdaTXBib2xTU3lCYVhnallPMnJMbU81eDBXdElaNW9EN2xtZWJWNThrX3MxaUszZTVzOVlQVm1uNnlNR3Vidg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Lessons Learned After 8 Years of Machine Learning - towardsdatascience.com">
+          <h4>Lessons Learned After 8 Years of Machine Learning - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · December 16, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNR3d5T3c5TWdtYUZickZGM1NHX3lCSC1Lc0E1Y3NSLUhWVThUeHZUS3FaNVpsQ2xLWWhQS1lMd2ZmamlqY2VRY2pDc1E2UG9SZHZUZ19JZHljYUc0MFpDT1g5WHlOdzd2SkZqbjNjbkdWeEJVakNpZ2VqQS1XOWduS2RKWGNiUGxm?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Learn AI in 2026? The Complete Roadmap - iSchool | Syracuse University">
+          <h4>How to Learn AI in 2026? The Complete Roadmap - iSchool | Syracuse University</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> iSchool | Syracuse University · March 12, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE1KSnhUR0hmbHYzdlplUF9HM2dGWjJFTWFQdUJWREFzV01nVUZUb0ZGVlBuOTBRc1JQNmJNZnI3bUFScTV0N1VCU1BrZ0JUY0RHRUc0aEpmaE8?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is Machine Learning? Explained Simply (2026) - tech-insider.org">
+          <h4>What Is Machine Learning? Explained Simply (2026) - tech-insider.org</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> tech-insider.org · June 5, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE5fOW1CVjZzTkdfRVRnY1d4QkFkT1pkSjFQTGI5TkJILUFWdGNNM0xBemJQQ21yU1BjTm5yc3FjaVlJLXN0X2pMQXFEWTZBTG9yQjJIMEZmMGc0US1PWWNIWWdnRQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Learn Artificial Intelligence (Plus Helpful Courses and Skills) - Southern New Hampshire University">
+          <h4>How to Learn Artificial Intelligence (Plus Helpful Courses and Skills) - Southern New Hampshire University</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Southern New Hampshire University · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE9GM2p5X2d3blh1SFJ3Y2VOVUZGeW1ESXI4X1pQbHpMRXQxbzFMSjVHSGQ3RXFncjR0YlFKckNESENiR01rWEpCVTlvS3dKZnRzQ244N0FnaXNtNzdoeFZRVUlDQUJiUkd4ZnUw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is a Machine Learning Engineer? (+ How to Get Started) - Coursera">
+          <h4>What Is a Machine Learning Engineer? (+ How to Get Started) - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · June 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5MTGdtVWxLRlRYcVE5SzZfUHM1T0lGeWExUi1WUmF5N040ZEFYSXNLMUYtT01zcjd0Yk1vUkFFT2IzRXRBaDVOcHQtaU1qazhNcEpsSkJWOEx5N2psUlhmLVBoS2NRMC1oS1RERHFMX0dKa0s3R3g2Qm9R?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="16 open source projects transforming AI and machine learning - InfoWorld">
+          <h4>16 open source projects transforming AI and machine learning - InfoWorld</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> InfoWorld · January 26, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMmJHSERZdFdlY3pSYjQyR0RkUmJGVVl3aHR3RVBvdkJtU2tEenNHek5OMzI5THBET1ViV1YxYjdfeEY0eU1iak5YY3N2RlFGTTNRaEhhcU9aQThvUDBWTU0zcXJranZiRHpjcXpaTFZUOUltUlhxTVlQRF9HLW9NdUdWM1JKcVBLaDFVSXRrSW9vVUtsWS1kX1lCRUhNcFVOMUFkNWd1Uk5fRnM?oc=5" target="_blank">Read article →</a></div>
+        </div><h3 style="margin-top:20px;">Top Web Findings</h3>
+        <div class="post-card" data-searchable="Reddit reddit.com   › r/mlquestions  › how to learn machine learning? my roadmap   r/MLQuestions on Reddit: How to learn Machine Learning? My Roadmap">
+          <h4>Reddit reddit.com   › r/mlquestions  › how to learn machine learning? my roadmap   r/MLQuestions on Reddit: How to learn Machine Learning? My Roadmap</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          <div class="text">Hello! Machine learning sparked my interest, and I&#039;m ready to dive in. I have some previous programming knowledge but I basically start at zero in data science. So naturally, I don&#039;t really know where to begin this journey. I&#039;ve researched for resources and roadmaps to learn machine learning and cre</div>
+          <div class="meta"><a href="https://www.reddit.com/r/MLQuestions/comments/u6l4bn/how_to_learn_machine_learning_my_roadmap/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Hands on Machine learning course">
+          <h4>Hands on Machine learning course</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1htscex/hands_on_machine_learning_course/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Learning ML through projects">
+          <h4>Learning ML through projects</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1mh3xet/learning_ml_through_projects/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Is this a good way to start learning ML?">
+          <h4>Is this a good way to start learning ML?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1ic1t98/is_this_a_good_way_to_start_learning_ml/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Starting on Machine Learning">
+          <h4>Starting on Machine Learning</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1j68n0q/starting_on_machine_learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Project roadmap for learning Machine Learning (from scratch → advanced)">
+          <h4>Project roadmap for learning Machine Learning (from scratch → advanced)</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1rqmn87/project_roadmap_for_learning_machine_learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MachineLearningMastery machinelearningmastery.com   › home  › start here with machine learning   Start Here with Machine Learning - MachineLearningMastery.com">
+          <h4>MachineLearningMastery machinelearningmastery.com   › home  › start here with machine learning   Start Here with Machine Learning - MachineLearningMastery.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> machinelearningmastery.com</div>
+          
+          <div class="meta"><a href="https://machinelearningmastery.com/start-here/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on community.deeplearning.ai">
+          <h4>More on community.deeplearning.ai</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> community.deeplearning.ai</div>
+          
+          <div class="meta"><a href="https://community.deeplearning.ai/t/introduction-steps-to-understand-machine-learning/721618" target="_blank">Visit page →</a></div>
+        </div></div><div class="section" id="topic-clusters"><div class="section-header"><h2>Topic Clusters</h2></div>
+        <div class="cluster-card" data-searchable="Getting Started">
+          <h4>Getting Started <span class="count">(217 posts)</span></h4>
+          <ul class="post-list"><li>Quora quora.com › How-can-I-start-learning-machine-learning-from-scratch   How t... <span class="badge badge-score">⬆ undefined</span></li><li>how to start learning machine learning from scratch <span class="badge badge-score">⬆ undefined</span></li><li>Ask HN: How to start learning Machine Learning in 2019? <span class="badge badge-score">⬆ 2</span></li><li>Ask HN: How to Seriously Start with Machine Learning and AI <span class="badge badge-score">⬆ 264</span></li><li>How to Start with Machine Learning <span class="badge badge-score">⬆ 255</span></li><li>Ask HN: How or where to begin learning mathematics from first principles? <span class="badge badge-score">⬆ 345</span></li><li>The cold start problem: how to build your machine learning portfolio <span class="badge badge-score">⬆ 340</span></li><li>Ask HN: Starting machine learning? Books, videos and other resources <span class="badge badge-score">⬆ 20</span></li></ul></div>
+        <div class="cluster-card" data-searchable="General">
+          <h4>General <span class="count">(12 posts)</span></h4>
+          <ul class="post-list"><li>Ai &amp; ML Roadmap | FREE 😲 <span class="badge badge-score">⬆ undefined</span></li><li>AI Doesn&#039;t Know Anything. It Just Passes Tests. <span class="badge badge-score">⬆ undefined</span></li><li>PyTorch in 100 Seconds <span class="badge badge-score">⬆ undefined</span></li><li>Computer Vision Explained in 5 Minutes | AI Explained <span class="badge badge-score">⬆ undefined</span></li><li>the TRUTH about C++ (is it worth your time?) <span class="badge badge-score">⬆ undefined</span></li><li>How Large Language Models Work <span class="badge badge-score">⬆ undefined</span></li><li>Not able to copy a file with ansible <span class="badge badge-score">⬆ 0</span></li><li>No internet connection on Kali Linux VirtualBox after changing MAC adress with m... <span class="badge badge-score">⬆ 0</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Comparisons &amp; Reviews">
+          <h4>Comparisons &amp; Reviews <span class="count">(5 posts)</span></h4>
+          <ul class="post-list"><li>Artificial Intelligence: Everything You Need to Know (Complete Course Review) <span class="badge badge-score">⬆ undefined</span></li><li>SAS vs. R for Artificial Intelligence - Coursera <span class="badge badge-score">⬆ undefined</span></li><li>An average function builtin? <span class="badge badge-score">⬆ 0</span></li><li>Thoth - an enhanced server-side resolution offered to the Python community <span class="badge badge-score">⬆ 0</span></li><li>vSphere Linux cannot connect to internet <span class="badge badge-score">⬆ 1</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Common Problems">
+          <h4>Common Problems <span class="count">(3 posts)</span></h4>
+          <ul class="post-list"><li>Report a security issue <span class="badge badge-score">⬆ undefined</span></li><li>Fine-tuned davinci - prompt/completion - terrible responses <span class="badge badge-score">⬆ 0</span></li><li>Renamed etc directory Ubuntu 14.04, rolling back changes doesn&amp;#39;t fix created... <span class="badge badge-score">⬆ 1</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tools &amp; Resources">
+          <h4>Tools &amp; Resources <span class="count">(2 posts)</span></h4>
+          <ul class="post-list"><li>What Is the BERT Model and How Does It Work? - Coursera <span class="badge badge-score">⬆ undefined</span></li><li>Big Data Applications: What They Are and How They Transform Industries - Courser... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Community Discussion">
+          <h4>Community Discussion <span class="count">(1 posts)</span></h4>
+          <ul class="post-list"><li>More on reddit.com <span class="badge badge-score">⬆ undefined</span></li></ul></div></div><div class="section" id="news-section"><div class="section-header"><h2>News Articles (50)</h2>
+        <button class="collapse-btn" onclick="toggleSection('news-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="news-cards">
+        <div class="post-card" data-searchable="Deep Learning vs Machine Learning: Beginner’s Guide - Coursera ">
+          <h4>Deep Learning vs Machine Learning: Beginner’s Guide - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · June 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQVy11SmFVRk9nZER2ZkRXODB2WmdHaDREc2RkYldLMkpzczlORDI2ZjJPZmVQSXRYU2ZTV0lWaFozRVlKejZKeFVmbWZodXZwZ3NJaGF0R3MzX3pWZW1wRWxUQWhPSWpkNEtJZmJZR3dObjYtSkM2MjVCaTNUb09XcE10dlVza21BYVNkQVRFbHhaeWktUlRv?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Machine Learning Roadmap 2025 | Your Guide to ML Mastery - Simplilearn.com ">
+          <h4>Machine Learning Roadmap 2025 | Your Guide to ML Mastery - Simplilearn.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Simplilearn.com · July 7, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE8tbC1qSnRxQjRGMC1SbjhuSTg4NGtyUUFiaVdwQVI1UHFEOF9QeUdaTXBib2xTU3lCYVhnallPMnJMbU81eDBXdElaNW9EN2xtZWJWNThrX3MxaUszZTVzOVlQVm1uNnlNR3Vidg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Lessons Learned After 8 Years of Machine Learning - towardsdatascience.com ">
+          <h4>Lessons Learned After 8 Years of Machine Learning - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · December 16, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNR3d5T3c5TWdtYUZickZGM1NHX3lCSC1Lc0E1Y3NSLUhWVThUeHZUS3FaNVpsQ2xLWWhQS1lMd2ZmamlqY2VRY2pDc1E2UG9SZHZUZ19JZHljYUc0MFpDT1g5WHlOdzd2SkZqbjNjbkdWeEJVakNpZ2VqQS1XOWduS2RKWGNiUGxm?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Learn AI in 2026? The Complete Roadmap - iSchool | Syracuse University ">
+          <h4>How to Learn AI in 2026? The Complete Roadmap - iSchool | Syracuse University</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> iSchool | Syracuse University · March 12, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE1KSnhUR0hmbHYzdlplUF9HM2dGWjJFTWFQdUJWREFzV01nVUZUb0ZGVlBuOTBRc1JQNmJNZnI3bUFScTV0N1VCU1BrZ0JUY0RHRUc0aEpmaE8?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is Machine Learning? Explained Simply (2026) - tech-insider.org ">
+          <h4>What Is Machine Learning? Explained Simply (2026) - tech-insider.org</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> tech-insider.org · June 5, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE5fOW1CVjZzTkdfRVRnY1d4QkFkT1pkSjFQTGI5TkJILUFWdGNNM0xBemJQQ21yU1BjTm5yc3FjaVlJLXN0X2pMQXFEWTZBTG9yQjJIMEZmMGc0US1PWWNIWWdnRQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Learn Artificial Intelligence (Plus Helpful Courses and Skills) - Southern New Hampshire University ">
+          <h4>How to Learn Artificial Intelligence (Plus Helpful Courses and Skills) - Southern New Hampshire University</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Southern New Hampshire University · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE9GM2p5X2d3blh1SFJ3Y2VOVUZGeW1ESXI4X1pQbHpMRXQxbzFMSjVHSGQ3RXFncjR0YlFKckNESENiR01rWEpCVTlvS3dKZnRzQ244N0FnaXNtNzdoeFZRVUlDQUJiUkd4ZnUw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is a Machine Learning Engineer? (+ How to Get Started) - Coursera ">
+          <h4>What Is a Machine Learning Engineer? (+ How to Get Started) - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · June 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5MTGdtVWxLRlRYcVE5SzZfUHM1T0lGeWExUi1WUmF5N040ZEFYSXNLMUYtT01zcjd0Yk1vUkFFT2IzRXRBaDVOcHQtaU1qazhNcEpsSkJWOEx5N2psUlhmLVBoS2NRMC1oS1RERHFMX0dKa0s3R3g2Qm9R?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="16 open source projects transforming AI and machine learning - InfoWorld ">
+          <h4>16 open source projects transforming AI and machine learning - InfoWorld</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> InfoWorld · January 26, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMmJHSERZdFdlY3pSYjQyR0RkUmJGVVl3aHR3RVBvdkJtU2tEenNHek5OMzI5THBET1ViV1YxYjdfeEY0eU1iak5YY3N2RlFGTTNRaEhhcU9aQThvUDBWTU0zcXJranZiRHpjcXpaTFZUOUltUlhxTVlQRF9HLW9NdUdWM1JKcVBLaDFVSXRrSW9vVUtsWS1kX1lCRUhNcFVOMUFkNWd1Uk5fRnM?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Become an AI Developer and Start Your Career - iSchool | Syracuse University ">
+          <h4>How to Become an AI Developer and Start Your Career - iSchool | Syracuse University</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> iSchool | Syracuse University · February 28, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTFBjUHEyOHVnRVItTmkwSjhKNEtNVXVLME5IeUw0cTF5SHdhRFU4aTlHb1VOQS1yanBUdF9kRnUxNDdDdTlvcWdEcVozYkgxbjI0N3llMHN4RXBsN1NJSDNqZGs5eVhtNlpSdy1F?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Learn Python for Data Science Fast in 2026 (Without Wasting Time) - towardsdatascience.com ">
+          <h4>How to Learn Python for Data Science Fast in 2026 (Without Wasting Time) - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · April 18, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxNbmM2ak9TT0tsLWs4U1hreDd4SHFheVFaeVVEM21kcnRqeXNNX28xRXB2RTl0SmpabTBxaGVtX3I1cUxTRVpSZGJ3OG9ELS1mbS1Pb3BLLS0zcjVlNGg3RUlDeEZVUENqR1hZUUJIN0NoVU5CNlhKQjNWT0d1eURHcDJtX05KOTV3LWc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Become an AI Engineer: Skills, Roles, and Career Guide - Simplilearn.com ">
+          <h4>How to Become an AI Engineer: Skills, Roles, and Career Guide - Simplilearn.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Simplilearn.com · July 2, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPNjI3Sk1ON3NvYUtDM3B5YktNaHpwaEs2VHlIMTdaMFBGRlBUX0ZHQ3VldVNjQk1LV0pZQVVSX1ZsbHdwMmpidWF6N0lXMHZ6a1Y3ak54NEE3N2FKOU96OVNNSWl5b09tbExxOVE0dXl1Vmp4SHFPVjF3Rkh4NmRPc2JmdGNtWDd6d2ZjdVpEcU1pMW9UdW93cmFEcWQyVnVn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="7 Machine Learning Roles and How to Get Started - Coursera ">
+          <h4>7 Machine Learning Roles and How to Get Started - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · April 18, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9LNHItakJ2UTZlb3IzS1VNNm16SE1aM2ZYbnVYcGVYZHhpMWp1aGlkR2lRS280UWpuZVltWWZZSXVtM0dzSjF2SWhMTzBKb0xJQk4ta29aWC1WY003T2RkRzRqdy1wSDA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to Start a Career in Artificial Intelligence (2026 Guide) - iSchool | Syracuse University ">
+          <h4>How to Start a Career in Artificial Intelligence (2026 Guide) - iSchool | Syracuse University</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> iSchool | Syracuse University · March 13, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOUGpGb2pKZ0xvcUJlM3RveklQSU1HSExvRU5uM2M3a2RpNkVqZ1hOWlF2eDROR3IxcUpRelpxSExRRWZkNlZ3N2xzb1JUYkpMaGlSUFlPZXJic3JqWVEtV0FQTTl5c3VjSHdFQkx1eEFHTFgwUjFKaXJxMWpIYXlsLS1fNU8?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Deep Reinforcement Learning: 0 to 100 - towardsdatascience.com ">
+          <h4>Deep Reinforcement Learning: 0 to 100 - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · October 28, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE81OVp1Y29CUzRuNFF2WWt4YVhJMXJLRFR1Q1ExY0dlOG92ZEFNYkNjNXo5Z1hJZ1k5aU1vOThVVEJadWx4ZS1oYnEwTHM5UzBWUjdaQlE3Y1UtX1RRQWdnQXJDbXRmWThBcGlUWmViNndyTW9JZlRyLVlYMA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Machine Learning Career Path: Charting Your Journey in a Dynamic Field - Coursera ">
+          <h4>Machine Learning Career Path: Charting Your Journey in a Dynamic Field - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · April 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE5ZZHBlaE5qV3AwQUYtYUE0U3pSSGpOR0tVdEpQVVowTVJhaG1NdUZsbG84dEdsZXVXeThDMEx1NzlWNVlaSElSOUF4d0dUbDNIOUZueUdXdkQzN281LVI3elloTVFHMVAwRHZCMDFKcw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is a Generative AI Learning Path? - Coursera ">
+          <h4>What Is a Generative AI Learning Path? - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · June 22, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9aek5PLTlqUGZvRDlVd2RiTUI5bzdZMlhMY1k4UmJtc0NBNndNSjY3b1pXd0R3VDFmUmZiZmNmOEt4X09sV09jLVNNazFvZzJ1NHpyV0R3VXRXTlRpVnZ5OXpGX2pHNkZZVWhheFhR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Machine Learning Roadmap: Beginner to Expert (2026) - Coursera ">
+          <h4>Machine Learning Roadmap: Beginner to Expert (2026) - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBRc2Vzd0FpaHNLLWN4czR4cEF5UC1aOHpRd204bG9aT25fTlRyMC1SeWtlYWtadTh5ejItSlZrRXJlekFkWjhxSW5janNfNjlHZ3RrM2syUVU0RzkzR1JpTGw1azY?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Synthetic Data Sets: Data Generation for Machine Learning - Coursera ">
+          <h4>Synthetic Data Sets: Data Generation for Machine Learning - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · May 6, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE94bnF2THdCczcwdk5JUlF4UEV4alpPazBucXQ3REJlLUVzcnJ2RVIzREpCalZyMElWSlNLdENMaEw2MVBfbE1ZRkpuT19CZlcyOE1SYmMxenc1R2NjRi05SFN3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="9 Machine Learning Books for Beginners: A 2026 Reading List - Coursera ">
+          <h4>9 Machine Learning Books for Beginners: A 2026 Reading List - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 4, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE4tYUlZYUltYjN3SVFEWTlPZEc2ZTROd2ZrNW4xRWRfalZITUdPOGo1MWJWRDh5bUQ0azFsbHpzUkpVNGZPZjZ5WkYtVlNidXFRSnZJNjVGcWVRenhHT3lqY3BaZ1JGMkN1TG5r?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MLOps Learning Road: Step by Step Guide (2026) - Coursera ">
+          <h4>MLOps Learning Road: Step by Step Guide (2026) - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · March 9, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBQMjBWS3ZBYVZTaWdDZk5BMmJDemd4QjZESXZoNGRzWTBvMVBYbGg2WUhJOXlRNUh1LWVFSVVMRWl1TmdHM0c5cnRsWkhZdDdxTjNOTDRmTC1oQTJBNmlzSzRvbGc2U05R?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Machine Learning Salary: A 2026 Guide - Coursera ">
+          <h4>Machine Learning Salary: A 2026 Guide - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 4, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1KME05aVpiWl81QncxSUs5OHdBTVVUY3lVcDM2d2hKTGd4T3U2QlRaY1lNV25hX2YzS1R0X0pIRkVkaWJfRzBnZXROWWJoVHNZcTBRRGNoeVBXaGpPbGNPdGZoSjQ4VWEw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Best Way to Learn Deep Learning - Coursera ">
+          <h4>The Best Way to Learn Deep Learning - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · August 22, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1NanczTFJmdUVGOG9heTA0dnM0LWt2emVsSzZyNjJJc05uNDhnQ3JlUnpHRy1OMmV5VGZRQVBMT1dPLWV5a2tKSmVnczRvREFoaENGRW96QjZwNjJlUHd3REhzZmkyMDA4ekktZUhBR1NnRW8?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is the BERT Model and How Does It Work? - Coursera ">
+          <h4>What Is the BERT Model and How Does It Work? - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · March 6, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTFBSM3lJRFhrQWxqbHd4Zmh0NXJqTDB3VF9WTVFGTWlWT01QaU1NLW5nOWM0cGhBWk1tOVZ5cVplQVo3cVBMQmpxYXJncXdCbE9XRF9lZl9MUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="AI Learning Roadmap: Step-by-Step from Basics to Expert (2026) - Coursera ">
+          <h4>AI Learning Roadmap: Step-by-Step from Basics to Expert (2026) - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBNdmtJUi1jbkN4dmtLZVdGUU1yTE9CeHN3WHNJVnBnV19XazYzYnpfLXpPVHUyNDRMNWFvaVFaTlo3NlhNR0NrY2Z3OEFUdU1VZDZtUUJyNmg0bmhYejhFMWI1Wm8?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="A Realistic Roadmap to Start an AI Career in 2026 - towardsdatascience.com ">
+          <h4>A Realistic Roadmap to Start an AI Career in 2026 - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · December 9, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaTZNWjRvZzFTSUpwQm5wNnF2ejhydjlpN3FjVTZDb2Q3blZuMXlTNWdySzUzUzIxTVpUR3RaNTlkdjNKRlpJbHJRWVYyUTlrTnNBZVVhaHQzVW9CYUlEOGFuT3l4WmFyOHBiaVhsVGhZNU5TTlBXdVVya25XVDZtR1NDT0g2Sm1n?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Best Machine Learning Courses of 2026: Mastering AI - Simplilearn.com ">
+          <h4>Best Machine Learning Courses of 2026: Mastering AI - Simplilearn.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Simplilearn.com · June 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9KazMyc0UySXF2NEFrTUsxZXVxa3ZGWGVtYi1OaktwWjBzc2syX3ZSWWg3ajJHSHNYd0VjNWk5bFNTTTdqdVV0X2lVMDdtX2VvX2Nya2w1TkR5czByNnA5Y2lrNXd2bTd1N0dJSHpsdWJ0OGM?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Machine Learning Interview Prep Guide for 2026 - Coursera ">
+          <h4>The Machine Learning Interview Prep Guide for 2026 - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE93ckx2MlRXdjg1VjNRbllha1ZuTXlVVndWTVNCUzdmVUdwQ1NMaVpNTlJqSkFjWkN4eF92ZWpPdVlOVHpaN0JOZkVRYm9HMFBKY0NaUDNtcHlPOVhpTGNmYXhwOXU4d1pVMlItalo5eFFlYzcyNlRMZ1hGYlg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="10 Machine Learning Algorithms to Know in 2026 - Coursera ">
+          <h4>10 Machine Learning Algorithms to Know in 2026 - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 4, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1wYy1TZ3VnMmlGN2ZQVXItV1VabE5tVmNOYmNINkVFZE9VUmpzTmQyTEJxNmVHeUpuQ3hJcUpoLWZoQkhSNHZXV0tyUHVrSDc0LTVtOFpZVlUxN2hsZnJqYXprcWU1b3VoQl8tZENMdUowUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How I’d Learn Machine Learning (If I Could Start Over) - towardsdatascience.com ">
+          <h4>How I’d Learn Machine Learning (If I Could Start Over) - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · January 27, 2024</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNNDU4OW50TlJFbGZOQ180RXhnNVhNU1F4MTk0QWZobE5WUmxhb05oclhvTW0yOTJGNHJiUkw1UTBoeGVVVFI4T0RoanVQR1RFSDZXWERpdUNOZHFvNXVpUE5FTDY0ZHFHb09MT25McnRCUVFWMDI3d1pqY0F6LUtjMWRFTV9nLWdoLVFZX1VvZWJoeFRTY28yRDBVcWQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="SAS vs. R for Artificial Intelligence - Coursera ">
+          <h4>SAS vs. R for Artificial Intelligence - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 31, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE1hcmhzejhKQlpVZWEzNkJtdzZIYUxZTDQ4WnJNSUxlN192VFlBLTZmMk91ZTJyTDFWOTZzM21iVU00S1JFRzVad3lGaVI2NF9RbVlFMA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Causal Machine Learning: How AI Moves from Correlation to Causation - Coursera ">
+          <h4>Causal Machine Learning: How AI Moves from Correlation to Causation - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1icEY1a3l1ZzV4TzF2ampYR05mMTYyaGswZXRIYWlqQURGdnhOMndRdEo0dndWTHdsMUw4QUxoc05qSmtXXzVfNUlFLTNzM1JvMURfWklFY09mWmlIZkFQVlMyZHJ2bUVp?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Big Data Applications: What They Are and How They Transform Industries - Coursera ">
+          <h4>Big Data Applications: What They Are and How They Transform Industries - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · April 1, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBaX2tRaHYyQjhqaElqWmtINHEyMjRyV1NJNUZnTi1RbDdjQ0VLU1Fja2djUkwwZEM1OWk5UU1kbXFlTUJvMlRGV05ZbHZsTDMxTWZJLXpRSDNZY2JhaWxOOUdKa1diZw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is Data Annotation in Machine Learning? - Coursera ">
+          <h4>What Is Data Annotation in Machine Learning? - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · December 19, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFAweHFFc0k2V2tLazBtQlRlM0QwcDdEcm14YkVsYko0R3d4bjFqQ3JkakdFTnFCNDRJc2t0TEJMWDBSZjhaYVBZS2I5V1B6bHdVU1VZZjMzNUxpMmFQaUtFNFA0THlsTldrR3ozUVFwNnNlNE0wSndYNQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Discover Your Career in AI and Machine Learning - Coursera ">
+          <h4>Discover Your Career in AI and Machine Learning - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · August 8, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQZnMxTXZHWHlNSzJGZnpFbW43Nm9EdmtRR2R5VVhWQ3hIX0x2YTRJUVY4MnU4YW8yNDlhUkVZRi1UT3U1ZE8tYjBfTzU2aF9KM1VwV1hQTmhCRE9QLWxmMUdaTmZYSmJjRDZhQ0oyR0cwb2EwcUJKYXNqMVB3OVdQTmhR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Lessons Learned After 7.5 Years Of Machine Learning - towardsdatascience.com ">
+          <h4>Lessons Learned After 7.5 Years Of Machine Learning - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · June 30, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcW5KQldJUnVrVktFX1V6M1hweVEyRGV1UVVxR0liVU41ZHVLZDBLdGo5NHJpWWtzYXE3R2MwYlpHQ3d3ZEV0dEQ1b0s4bUIxaV9qcHc1QjAwSzhUYU9OR002MUtRd2lpMG0wS1hkcVJtQ3RUYklkX1lTMC11N3dXcTVaTGRQS19QMUo0?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="5 Compelling Reasons to Master Machine Learning in 2026 - Simplilearn.com ">
+          <h4>5 Compelling Reasons to Master Machine Learning in 2026 - Simplilearn.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Simplilearn.com · November 11, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxNZWhob0dnU0IxejBmSjYtaGxDUGR1bkt1aXJLa3VoNkMtQW5YWVdYSjZzWGlHZ1lwVjN4ZE5iakNRbjdxT2NkbVd6UkpvS3pERlVPd3NNeDRiRG1IWjFfR2dKZ0JnelM0VmhvcEptcVp5eGdsUXl4LUdBa1d1MHdhcE03WVI1azNNS0ZJ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Top 10 Machine Learning Algorithms You Must Know [Updated] - Jaro Education ">
+          <h4>Top 10 Machine Learning Algorithms You Must Know [Updated] - Jaro Education</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Jaro Education · December 12, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFBqZThlNE5QejFBeXRCWi1rVHJId0N3Zk0wU3RSdjFuMVpZTGNOZm9FSFREbnRYNmJrNUwwWHctUVFXWkJmS0o5ckQ0cUtjZDJBNHFTSG5wQjl3dW9hRFJzc2Q0YjhEdUZDZXA1ak5kclVyb1k1?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Three Phases of Learning Machine Learning - towardsdatascience.com ">
+          <h4>The Three Phases of Learning Machine Learning - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · January 28, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPZHJxbUFuR0JXcGhIMVdzMzdPbFFkSzlpeFZfdWVaaXh1ZGFlMnc4dzYxWHJBZHJKV19EeGxCWXNHSGFyMnpUMEtvSk5NeDFUUjFreTNmT3d6dW5NajJtb0xMbF9HWWxzY0VDMm1MWkJucmV6X1lRb2hBMVlxempDcXlzcFdqSEpaX0w1eEsxLU0wUlFC?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="10 Machine Learning Applications - Coursera ">
+          <h4>10 Machine Learning Applications - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · June 27, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE9ib1c5S1phekRTd3loTnVSZGxsM1g1YlpNcnVubWFmV0N4MW1fM1J1V1pkbHlUYi0wQlo2S0VDa0dsNmxzTVVSR3llbmYyVUU3ODVQVkItd0Y0UGVxbjh2bFZlbkJqcmR1V0lnMUtzSC0?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How I’d Learn AI in 2025 (If I Could Start Over) - towardsdatascience.com ">
+          <h4>How I’d Learn AI in 2025 (If I Could Start Over) - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · December 13, 2024</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxOaHQ3bC04VkM4QVBaUWk0ZHVRc0l0eU5YWGFWNkJqQTdPWEotczU5c0I3V1BHejZNcFJSX1NHOFBvS0lnSF95Sm9OSjVxdHVzS0kzVDVHZ2N3S3dmTTBaU3otRmJiQmNLaDZzVTVQNFVZWW9JOW1VcGdHSkJmVWVfdnJqQWJWZ242ZXc1QmlvOA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How I Would Learn To Code (If I Could Start Over) - towardsdatascience.com ">
+          <h4>How I Would Learn To Code (If I Could Start Over) - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · April 4, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPemJRU3Ezc0JkbnlReC1ndERoN3kxc2k2WTh6dGo3UlpIQ3djcWpjV1dhWVR1cV9xYkdjM0RMVVYzcDFmNzZVaXR3UlVFYkNBQXNsNV85RTdSdjA5YjYwcmVtN0JYc2Q3ZmVDakE3SDdlVG1sUkFkU2o3NzViWTM5N1k1djdxZw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="IIT Madras to offer free Machine Learning course in 2026: How to enrol, what you will learn, who should a - The Times of India ">
+          <h4>IIT Madras to offer free Machine Learning course in 2026: How to enrol, what you will learn, who should a - The Times of India</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Times of India · November 23, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMikAJBVV95cUxOODB2aEpIbjhITHdXOWczbkx6VV9wWXZGbEJXc09UcGJrXzNTYjhyZzJILUpwS2N3bkZKMGhwQ09IeWMzQVprRVdfdnZJQ3VpMTN2RGlfb2RqSTEyVnFoUEItQVhWbnoySEd2VURHSWFFWVUwWllnSGxySHdDRndkVEw5S3Q5Yjg4amQtYmM4UFF5RnZPT2Fib3g5ZDJ2YVFsRU9HS2RsS2NGOXpzdm5JNnNDRGR3bi05eGJzYVJmbFF1dEU4RE9VRGNFQm5ndGR3Zkh4OVNXRGZ4R1N4WS1Qc2hlaVBaT3hTeEJyZjVtMm9GYXAxeEhsRmt4MzBEVDBaaFNWaVhXZTB6RldkdHhSWdIBlgJBVV95cUxNTEo2eGFBbTlpd0NmMXF2OUVoWUN6dUktX3c5YVBWTzEtS3RmOFZIal9YalBkQWNkVklzcVppWkNaVDFQLW50UTRoMFFoY1VuRldkMW1mSXBPR2RuLW9zb2N2WTVSZHZDRkF2ZGQ2SjE4R19EaGREM2RfeXZ5cUNhVWVhVDV3UF96WnVXaC1OZVl4WHE3bURWMFZoTGhWMDU3eHBiS3FTdWZEWkVQNkNwTlJXR0ZiRUFOVlduejdKSzlueTZ4UTZ4ZzVaeWJ1T1hPblYwSmtIQ1NzMnV4LV9xa0VVM0tHT284SFhSTTkzWHVsWTU0VzhKTEtFbjRidmZZUE4wTEI0VE16bzJwdk9rOVhieUdzQQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Landing your First Machine Learning Job: Startup vs Big Tech vs Academia - towardsdatascience.com ">
+          <h4>Landing your First Machine Learning Job: Startup vs Big Tech vs Academia - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · June 3, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPVzR3S09HdGZvbXFQbzZDSElhSGhXSjVRVndJdTc2THpZamFNZ1dIMTNTbkVFZzZQY0dqYmxpVjFXZ0EyZEJSMnNwZmdxY29ka2VhancwOHRJSV9NSUp6NzJlUUZFa0dVaU5Fb3pES3V1cDgxUDBRZUV3bTFyOHZFamZOS3E0eFJNQlVZZ19FODJTUV9QOEFZT1dVbHN3UXRGNE0tbC13?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="I work at Meta as a machine learning engineer. Here&#039;s how I leveraged my startup and Amazon experience to land the role. - Business Insider ">
+          <h4>I work at Meta as a machine learning engineer. Here&#039;s how I leveraged my startup and Amazon experience to land the role. - Business Insider</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Business Insider · March 6, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPUncxZEgybWxoYmhIUmUyX3A1SzljcUdYRE45ZmZldDlLVXdSMExvVTZHWmtyRExUYWdVWVNEWDd1TlhQMWhfbklTa256MW5EaXFQaTBYR0xwQUFhY2JfSGRnUkZHR2hEamszeklSeGstNE5jNHdFWVhRNW12eldUUFg2M1V0eDdyaDZNZ1VaZEwzYUNjN19HYUhaaDdUVnV0?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) - towardsdatascience.com ">
+          <h4>The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · November 11, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigAJBVV95cUxOalRoTDRLMTVXYVJqQ3BZc0o2WDJxWElMMUdZeVdfTU11eTdYc1BrYy12enA4QjJONHYzSXlJcGZ6VDBvVEY5N2hQVXBNQ2Q3QzlobHBvZ1RnMHJRUWg1TjYyWkxxejA0d1pKQ1lCUS1zUFVnM1d4WWExVXNGMTlocGNHeXdxaDRnTEM0WDYwbnpNT1VrWkdNMHhVTXdna0tJUVdpZ0VLNDg0RnVVTEhRUnBHWFlsalR5MzRfNWxnbEVVREYzdmlIYVFIbHZhaWFhVllWUEtDV3NzSkRkbkRReldBa3NLWjJ0X1pSOVVZZmN5dHBNMDQ5ZVExUDZRSUNu?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The analysis of artificial intelligence-based mobile learning in students’ open teaching recommendation system based on deep learning - Nature ">
+          <h4>The analysis of artificial intelligence-based mobile learning in students’ open teaching recommendation system based on deep learning - Nature</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Nature · July 1, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1Cd2VPR0FCSGE5UVlNYUxPNGpEbmJEOGVyMW5ybmk3cmMxWExvaXpTejJyMFB3NkVWaWFBY1Rxb0p2WUtrLUFEaXlvNU50LUE2WFl5SmtaT1EtWVZPMmsw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What Is a Machine Learning Engineer? (+ How to Get Started) - Coursera ">
+          <h4>What Is a Machine Learning Engineer? (+ How to Get Started) - Coursera</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Coursera · July 9, 2024</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5tM3dqLXdoQm5zcmk3VVZnY0NCcU1pWTlJWVNiOTRHaFJGekJNOHNmUTFrZ3pVTHRRaW0yUHo0czIxSXpXYU5ITjR5RE9SLVRXeGVKOHBmc2FGZ2VIZmZhV2Q2UmxwZmtFZ1JPTTBYX3pjZFZreWttenl3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The Ultimate AI/ML Roadmap For Beginners - towardsdatascience.com ">
+          <h4>The Ultimate AI/ML Roadmap For Beginners - towardsdatascience.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> towardsdatascience.com · March 25, 2025</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBHNDlBVnQyeUpHeFNOOGl6NTZBQVlVakRGQ3FieHpIdUZwYUlSdXdkRF9Bc3VUaFY1b0t1c1ctaWt0WHhyRmd3czM3RHYzQXJZUzVlWjF5dEJ5VW5MV2xrRmxUU052Q1JfRGstTVh2ME1NaXc0OEhJWnExVVU?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to start with machine learning in your organization - TechTalks ">
+          <h4>How to start with machine learning in your organization - TechTalks</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> TechTalks · November 14, 2024</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFBoeDIzZ0poVFN0V3lacHFRbmRxSl9xYUN6S0tWZ1pZWUhlMVMwY3ZuQmZ4ak4tUkFQSFcwOTZVTEluQ3Btalo3MDlyYnFjVmp3QjRIbVhGaXlZbW1LSFZlejF0NFlMTGFLOFJMNWRvNXZrU3pz0gF6QVVfeXFMTThkTEM2UnlyZzB1OHJMeGljQmNIek5OaDV4NmdhNm01ajVLS05wQ0hlSzFoa1RGVEEtVG1YTjVMTW9qWVZjdUFjZXZqT0lLdTdmbjlHemU1ODJXdk9HQTQyVmdJZnZxb1d6OUFiT0tJRVB1Q3BuNHdmMFE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Pangeo ML: Open Source Tools and Pipelines for Scalable Machine Learning Using NASA Earth Observation Data - NASA Earthdata (.gov) ">
+          <h4>Pangeo ML: Open Source Tools and Pipelines for Scalable Machine Learning Using NASA Earth Observation Data - NASA Earthdata (.gov)</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> NASA Earthdata (.gov) · July 3, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9HSFNqTFpNUUxMTy0yam5GZEFIdFFYVHBDc0ZITWFXUUhlZTZxWHIyTzYwZHY2em9qR2xqUkVrUXVPUHNOYjlPTXpCa1FTOWlwWm9oSlhfWjF6LVpjLTUxd3dkRlY0b014YmgzdVR1cS15TzZPNjVzX05EeHBrMWM?oc=5" target="_blank">Read article →</a></div>
+        </div></div></div><div class="section" id="web-section"><div class="section-header"><h2>Web Results (46)</h2>
+        <button class="collapse-btn" onclick="toggleSection('web-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="web-cards">
+        <div class="post-card" data-searchable="Reddit reddit.com   › r/mlquestions  › how to learn machine learning? my roadmap   r/MLQuestions on Reddit: How to learn Machine Learning? My Roadmap Hello! Machine learning sparked my interest, and I&#039;m ready to dive in. I have some previous programming knowledge but I basically start at zero in data science. So naturally, I don&#039;t really know where to begin this journey. I&#039;ve researched for resources and roadmaps to learn machine learning and cre">
+          <h4>Reddit reddit.com   › r/mlquestions  › how to learn machine learning? my roadmap   r/MLQuestions on Reddit: How to learn Machine Learning? My Roadmap</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          <div class="text">Hello! Machine learning sparked my interest, and I&#039;m ready to dive in. I have some previous programming knowledge but I basically start at zero in data science. So naturally, I don&#039;t really know where to begin this journey. I&#039;ve researched for resources and roadmaps to learn machine learning and cre</div>
+          <div class="meta"><a href="https://www.reddit.com/r/MLQuestions/comments/u6l4bn/how_to_learn_machine_learning_my_roadmap/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Hands on Machine learning course ">
+          <h4>Hands on Machine learning course</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1htscex/hands_on_machine_learning_course/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Learning ML through projects ">
+          <h4>Learning ML through projects</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1mh3xet/learning_ml_through_projects/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Is this a good way to start learning ML? ">
+          <h4>Is this a good way to start learning ML?</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1ic1t98/is_this_a_good_way_to_start_learning_ml/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Starting on Machine Learning ">
+          <h4>Starting on Machine Learning</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1j68n0q/starting_on_machine_learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Project roadmap for learning Machine Learning (from scratch → advanced) ">
+          <h4>Project roadmap for learning Machine Learning (from scratch → advanced)</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1rqmn87/project_roadmap_for_learning_machine_learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MachineLearningMastery machinelearningmastery.com   › home  › start here with machine learning   Start Here with Machine Learning - MachineLearningMastery.com ">
+          <h4>MachineLearningMastery machinelearningmastery.com   › home  › start here with machine learning   Start Here with Machine Learning - MachineLearningMastery.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> machinelearningmastery.com</div>
+          
+          <div class="meta"><a href="https://machinelearningmastery.com/start-here/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on community.deeplearning.ai ">
+          <h4>More on community.deeplearning.ai</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> community.deeplearning.ai</div>
+          
+          <div class="meta"><a href="https://community.deeplearning.ai/t/introduction-steps-to-understand-machine-learning/721618" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on reddit.com ">
+          <h4>More on reddit.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1ij8h73/how_to_start_in_the_field_of_ai_and_ml/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on reddit.com ">
+          <h4>More on reddit.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1khtnt6/where_to_start_machine_learning_in_2025/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="More on reddit.com ">
+          <h4>More on reddit.com</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.reddit.com</div>
+          
+          <div class="meta"><a href="https://www.reddit.com/r/learnmachinelearning/comments/1fzfstf/what_are_some_beginner_machine_learning_projects/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Learn more ">
+          <h4>Learn more</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> discussions</div>
+          
+          <div class="meta"><a href="/help/discussions" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="11:09  YouTube How I&#039;d Learn Machine Learning in 2026 (If I Was Starting Over) ... May 26, 2026 ">
+          <h4>11:09  YouTube How I&#039;d Learn Machine Learning in 2026 (If I Was Starting Over) ... May 26, 2026</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=UZ_rK9gzVSc" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="15:20  YouTube How to learn Machine Learning like a GENIUS and not waste time ... May 26, 2026 ">
+          <h4>15:20  YouTube How to learn Machine Learning like a GENIUS and not waste time ... May 26, 2026</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=_hdUddANh_o" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="10:43  YouTube How I&#039;d Learn ML/AI FAST If I Had to Start Over - YouTube April 28, 2025 ">
+          <h4>10:43  YouTube How I&#039;d Learn ML/AI FAST If I Had to Start Over - YouTube April 28, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=8xUher8-5_Q" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="16:24  YouTube How I&#039;d learn ML in 2025 (if I could start over) - YouTube December 27, 2024   151K ">
+          <h4>16:24  YouTube How I&#039;d learn ML in 2025 (if I could start over) - YouTube December 27, 2024   151K</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=_xIwjmCH6D4" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="youtube.com How to learn machine learning as a complete beginner: a self ... ">
+          <h4>youtube.com How to learn machine learning as a complete beginner: a self ...</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=0F2paWV4eEA" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="15:06  YouTube The Ultimate AI/ML Roadmap For Beginners - YouTube March 30, 2025 ">
+          <h4>15:06  YouTube The Ultimate AI/ML Roadmap For Beginners - YouTube March 30, 2025</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.youtube.com</div>
+          
+          <div class="meta"><a href="https://www.youtube.com/watch?v=JAWSqX2fBvQ" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Kaggle kaggle.com › learn  › intro-to-machine-learning   Learn Intro to Machine Learning Tutorials | Kaggle ">
+          <h4>Kaggle kaggle.com › learn  › intro-to-machine-learning   Learn Intro to Machine Learning Tutorials | Kaggle</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.kaggle.com</div>
+          
+          <div class="meta"><a href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Towards Data Science towardsdatascience.com   › home  › latest  › how i’d learn machine learning (if i could start over)   How I’d Learn Machine Learning (If I Could Start Over) | Towards Data Science ">
+          <h4>Towards Data Science towardsdatascience.com   › home  › latest  › how i’d learn machine learning (if i could start over)   How I’d Learn Machine Learning (If I Could Start Over) | Towards Data Science</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> towardsdatascience.com</div>
+          
+          <div class="meta"><a href="https://towardsdatascience.com/how-id-learn-machine-learning-if-i-could-start-over-c68d697e6a8a/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Quora quora.com › How-can-a-complete-beginner-start-learning-artificial-intelligence-and-machine-learning-without-feeling-overwhelmed   How can a complete beginner start learning artificial intelligen ">
+          <h4>Quora quora.com › How-can-a-complete-beginner-start-learning-artificial-intelligence-and-machine-learning-without-feeling-overwhelmed   How can a complete beginner start learning artificial intelligen</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.quora.com</div>
+          
+          <div class="meta"><a href="https://www.quora.com/How-can-a-complete-beginner-start-learning-artificial-intelligence-and-machine-learning-without-feeling-overwhelmed" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Medium medium.com › @willywijaya577  › how-i-started-learning-machine-learning-from-scratch-and-what-id-do-differently-b0329a4b8db8   How I Started Learning Machine Learning from Scratch (and What I’d ">
+          <h4>Medium medium.com › @willywijaya577  › how-i-started-learning-machine-learning-from-scratch-and-what-id-do-differently-b0329a4b8db8   How I Started Learning Machine Learning from Scratch (and What I’d</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> medium.com</div>
+          
+          <div class="meta"><a href="https://medium.com/@willywijaya577/how-i-started-learning-machine-learning-from-scratch-and-what-id-do-differently-b0329a4b8db8" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GeeksforGeeks geeksforgeeks.org   › machine learning  › introduction-machine-learning   Introduction to Machine Learning: - GeeksforGeeks ">
+          <h4>GeeksforGeeks geeksforgeeks.org   › machine learning  › introduction-machine-learning   Introduction to Machine Learning: - GeeksforGeeks</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.geeksforgeeks.org</div>
+          
+          <div class="meta"><a href="https://www.geeksforgeeks.org/machine-learning/introduction-machine-learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Google developers.google.com › machine-learning  › crash-course   Machine Learning | Google for Developers ">
+          <h4>Google developers.google.com › machine-learning  › crash-course   Machine Learning | Google for Developers</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> developers.google.com</div>
+          
+          <div class="meta"><a href="https://developers.google.com/machine-learning/crash-course" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Coursera coursera.org   › coursera articles  › data  › ai and machine learning  › is machine learning hard? a guide to getting started   Is Machine Learning Hard? A Guide to Getting Started | Coursera ">
+          <h4>Coursera coursera.org   › coursera articles  › data  › ai and machine learning  › is machine learning hard? a guide to getting started   Is Machine Learning Hard? A Guide to Getting Started | Coursera</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.coursera.org</div>
+          
+          <div class="meta"><a href="https://www.coursera.org/articles/is-machine-learning-hard" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GeeksforGeeks geeksforgeeks.org   › machine learning  › machine-learning   Machine Learning Tutorial - GeeksforGeeks ">
+          <h4>GeeksforGeeks geeksforgeeks.org   › machine learning  › machine-learning   Machine Learning Tutorial - GeeksforGeeks</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.geeksforgeeks.org</div>
+          
+          <div class="meta"><a href="https://www.geeksforgeeks.org/machine-learning/machine-learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="TensorFlow tensorflow.org › resources  › learn-ml   Machine learning education | TensorFlow ">
+          <h4>TensorFlow tensorflow.org › resources  › learn-ml   Machine learning education | TensorFlow</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.tensorflow.org</div>
+          
+          <div class="meta"><a href="https://www.tensorflow.org/resources/learn-ml" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="MIT Sloan mitsloan.mit.edu › ideas-made-to-matter  › machine-learning-explained   Machine learning, explained | MIT Sloan ">
+          <h4>MIT Sloan mitsloan.mit.edu › ideas-made-to-matter  › machine-learning-explained   Machine learning, explained | MIT Sloan</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> mitsloan.mit.edu</div>
+          
+          <div class="meta"><a href="https://mitsloan.mit.edu/ideas-made-to-matter/machine-learning-explained" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="W3Schools w3schools.com › python  › python_ml_getting_started.asp   Python Machine Learning ">
+          <h4>W3Schools w3schools.com › python  › python_ml_getting_started.asp   Python Machine Learning</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.w3schools.com</div>
+          
+          <div class="meta"><a href="https://www.w3schools.com/python/python_ml_getting_started.asp" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Google Cloud cloud.google.com   › learn  › machine learning &amp; ai courses   Machine Learning &amp; AI Courses &amp;nbsp;| Google Cloud Training ">
+          <h4>Google Cloud cloud.google.com   › learn  › machine learning &amp; ai courses   Machine Learning &amp; AI Courses &amp;nbsp;| Google Cloud Training</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> cloud.google.com</div>
+          
+          <div class="meta"><a href="https://cloud.google.com/learn/training/machinelearning-ai" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="EliteDataScience elitedatascience.com   › home  › how to learn machine learning, the self starter way   How to Learn Machine Learning, The Self Starter Way ">
+          <h4>EliteDataScience elitedatascience.com   › home  › how to learn machine learning, the self starter way   How to Learn Machine Learning, The Self Starter Way</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> elitedatascience.com</div>
+          
+          <div class="meta"><a href="https://elitedatascience.com/learn-machine-learning" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Quora quora.com › How-can-I-start-learning-machine-learning-from-scratch   How to start learning machine learning from scratch - Quora ">
+          <h4>Quora quora.com › How-can-I-start-learning-machine-learning-from-scratch   How to start learning machine learning from scratch - Quora</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.quora.com</div>
+          
+          <div class="meta"><a href="https://www.quora.com/How-can-I-start-learning-machine-learning-from-scratch" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Microsoft Learn learn.microsoft.com › en-us  › training  › modules  › fundamentals-machine-learning   Introduction to Machine Learning Concepts - Training | Microsoft Learn ">
+          <h4>Microsoft Learn learn.microsoft.com › en-us  › training  › modules  › fundamentals-machine-learning   Introduction to Machine Learning Concepts - Training | Microsoft Learn</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> learn.microsoft.com</div>
+          
+          <div class="meta"><a href="https://learn.microsoft.com/en-us/training/modules/fundamentals-machine-learning/" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Coursera coursera.org   › browse  › data science  › machine learning   Machine Learning | Coursera ">
+          <h4>Coursera coursera.org   › browse  › data science  › machine learning   Machine Learning | Coursera</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.coursera.org</div>
+          
+          <div class="meta"><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Quora quora.com › How-do-I-start-my-journey-to-learn-machine-learning-having-acquired-some-knowledge-on-programming-with-Python   How to start my journey to learn machine learning, having acquired som ">
+          <h4>Quora quora.com › How-do-I-start-my-journey-to-learn-machine-learning-having-acquired-some-knowledge-on-programming-with-Python   How to start my journey to learn machine learning, having acquired som</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> www.quora.com</div>
+          
+          <div class="meta"><a href="https://www.quora.com/How-do-I-start-my-journey-to-learn-machine-learning-having-acquired-some-knowledge-on-programming-with-Python" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="how to start learning machine learning from scratch ">
+          <h4>how to start learning machine learning from scratch</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=how%20to%20start%20learning%20</div>
+          
+          <div class="meta"><a href="/search?q=how%20to%20start%20learning%20machine%20learning%20from%20scratch&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="machine learning algorithms ">
+          <h4>machine learning algorithms</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=machine%20learning%20algorithm</div>
+          
+          <div class="meta"><a href="/search?q=machine%20learning%20algorithms&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="how to start machine learning with python ">
+          <h4>how to start machine learning with python</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=how%20to%20start%20machine%20l</div>
+          
+          <div class="meta"><a href="/search?q=how%20to%20start%20machine%20learning%20with%20python&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="how to learn machine learning with python ">
+          <h4>how to learn machine learning with python</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=how%20to%20learn%20machine%20l</div>
+          
+          <div class="meta"><a href="/search?q=how%20to%20learn%20machine%20learning%20with%20python&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="learn machine learning from scratch free ">
+          <h4>learn machine learning from scratch free</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=learn%20machine%20learning%20f</div>
+          
+          <div class="meta"><a href="/search?q=learn%20machine%20learning%20from%20scratch%20free&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="machine learning mastery ">
+          <h4>machine learning mastery</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=machine%20learning%20mastery&amp;s</div>
+          
+          <div class="meta"><a href="/search?q=machine%20learning%20mastery&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="machine learning for beginners pdf ">
+          <h4>machine learning for beginners pdf</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=machine%20learning%20for%20beg</div>
+          
+          <div class="meta"><a href="/search?q=machine%20learning%20for%20beginners%20pdf&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="how to learn machine learning step by step ">
+          <h4>how to learn machine learning step by step</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /search?q=how%20to%20learn%20machine%20l</div>
+          
+          <div class="meta"><a href="/search?q=how%20to%20learn%20machine%20learning%20step%20by%20step&source=relatedQueries" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Brave Search Help ">
+          <h4>Brave Search Help</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> /help</div>
+          
+          <div class="meta"><a href="/help" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Report a security issue ">
+          <h4>Report a security issue</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> hackerone.com</div>
+          
+          <div class="meta"><a href="https://hackerone.com/brave" target="_blank">Visit page →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Privacy Policy ">
+          <h4>Privacy Policy</h4>
+          <div class="meta"><span class="badge badge-web">WEB</span> privacy-policy</div>
+          
+          <div class="meta"><a href="/help/privacy-policy" target="_blank">Visit page →</a></div>
+        </div></div></div><div class="section" id="youtube-section"><div class="section-header"><h2>YouTube Analysis (85 videos)</h2>
+        <button class="collapse-btn" onclick="toggleSection('youtube-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="youtube-cards">
+        <div class="video-card" data-searchable="Python for Beginners - Learn Coding with Python in 1 Hour Programming with Mosh">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/kqtD5dpn9C8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDoYD4sT1l-1w5fEUQt6pdtsKdfLQ" alt="Python for Beginners - Learn Coding with Python in 1 Hour" loading="lazy"></div>
+          <div class="info">
+            <h4>Python for Beginners - Learn Coding with Python in 1 Hour</h4>
+            <div class="channel">Programming with Mosh</div>
+            <div class="meta">
+              👁 24,716,217 views
+               · ⏱ 1:00:06
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=kqtD5dpn9C8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="But what is a neural network? | Deep learning chapter 1 3Blue1Brown">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/aircAruvnKk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDb_uqS4447GTVKyM-tBryF9gG29Q" alt="But what is a neural network? | Deep learning chapter 1" loading="lazy"></div>
+          <div class="info">
+            <h4>But what is a neural network? | Deep learning chapter 1</h4>
+            <div class="channel">3Blue1Brown</div>
+            <div class="meta">
+              👁 23,704,450 views
+               · ⏱ 18:40
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="AI Doesn&#039;t Know Anything. It Just Passes Tests. CGP Grey">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/R9OHn5ZF4Uo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCwAmquFam6un7gIIM0VBvUrg25nQ" alt="AI Doesn&#039;t Know Anything. It Just Passes Tests." loading="lazy"></div>
+          <div class="info">
+            <h4>AI Doesn&#039;t Know Anything. It Just Passes Tests.</h4>
+            <div class="channel">CGP Grey</div>
+            <div class="meta">
+              👁 12,382,487 views
+               · ⏱ 8:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=R9OHn5ZF4Uo" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Start Coding | Programming for Beginners | Learn Coding | Intellipaat Intellipaat">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/HIj8wU_rGIU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC8jyc-Z-XPuIqFJqembXpcl7kXUQ" alt="How to Start Coding | Programming for Beginners | Learn Coding | Intellipaat" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Start Coding | Programming for Beginners | Learn Coding | Intellipaat</h4>
+            <div class="channel">Intellipaat</div>
+            <div class="meta">
+              👁 11,254,011 views
+               · ⏱ 33:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=HIj8wU_rGIU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning | What Is Machine Learning? | Introduction To Machine Learning | 2026 | Simplilearn Simplilearn">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ukzFI9rgwfU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCSxQE6itq163GCqL9riFrKCLQ0eA" alt="Machine Learning | What Is Machine Learning? | Introduction To Machine Learning | 2026 | Simplilearn" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning | What Is Machine Learning? | Introduction To Machine Learning | 2026 | Simplilearn</h4>
+            <div class="channel">Simplilearn</div>
+            <div class="meta">
+              👁 5,491,032 views
+               · ⏱ 7:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ukzFI9rgwfU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners | Edureka edureka!">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JMUxmLyrhSk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCYSZEzERL8QBZHVxI5q1XxoxwpNQ" alt="Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners | Edureka" loading="lazy"></div>
+          <div class="info">
+            <h4>Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners | Edureka</h4>
+            <div class="channel">edureka!</div>
+            <div class="meta">
+              👁 4,995,483 views
+               · ⏱ 4:52:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JMUxmLyrhSk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Stanford CS229: Machine Learning Lecture 1 - Andrew Ng (Autumn 2018) Stanford Online">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/jGwO_UgTS7I/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLCgM6ldYfmsuiTIMUhcJHceasggTg" alt="Stanford CS229: Machine Learning Lecture 1 - Andrew Ng (Autumn 2018)" loading="lazy"></div>
+          <div class="info">
+            <h4>Stanford CS229: Machine Learning Lecture 1 - Andrew Ng (Autumn 2018)</h4>
+            <div class="channel">Stanford Online</div>
+            <div class="meta">
+              👁 4,609,142 views
+               · ⏱ 1:15:20
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=jGwO_UgTS7I" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Python Machine Learning Tutorial (Data Science) Programming with Mosh">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/7eh4d6sabA0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDN1JWolqLLX-BgZBhYx9w-hGPj_Q" alt="Python Machine Learning Tutorial (Data Science)" loading="lazy"></div>
+          <div class="info">
+            <h4>Python Machine Learning Tutorial (Data Science)</h4>
+            <div class="channel">Programming with Mosh</div>
+            <div class="meta">
+              👁 3,597,771 views
+               · ⏱ 49:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=7eh4d6sabA0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Full Course - Learn Machine Learning 10 Hours | Machine Learning Tutorial | Edureka edureka!">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/GwIo3gDZCVQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCEr8qd7Nm1isQJ6f5DomlI7Eme8w" alt="Machine Learning Full Course - Learn Machine Learning 10 Hours | Machine Learning Tutorial | Edureka" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Full Course - Learn Machine Learning 10 Hours | Machine Learning Tutorial | Edureka</h4>
+            <div class="channel">edureka!</div>
+            <div class="meta">
+              👁 3,593,496 views
+               · ⏱ 9:38:32
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=GwIo3gDZCVQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="TensorFlow 2.0 Complete Course - Python Neural Networks for Beginners Tutorial freeCodeCamp.org">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/tPYj3fFJGjk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAK8aK9-f9aE0_QqayH3ag4pD3-4g" alt="TensorFlow 2.0 Complete Course - Python Neural Networks for Beginners Tutorial" loading="lazy"></div>
+          <div class="info">
+            <h4>TensorFlow 2.0 Complete Course - Python Neural Networks for Beginners Tutorial</h4>
+            <div class="channel">freeCodeCamp.org</div>
+            <div class="meta">
+              👁 3,475,539 views
+               · ⏱ 6:52:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=tPYj3fFJGjk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Computer Scientist Explains Machine Learning in 5 Levels of Difficulty | WIRED WIRED">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/5q87K1WaoFI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD3S-BahtZ-5PXR1SRawiWkXbcD0g" alt="Computer Scientist Explains Machine Learning in 5 Levels of Difficulty | WIRED" loading="lazy"></div>
+          <div class="info">
+            <h4>Computer Scientist Explains Machine Learning in 5 Levels of Difficulty | WIRED</h4>
+            <div class="channel">WIRED</div>
+            <div class="meta">
+              👁 2,508,201 views
+               · ⏱ 26:09
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=5q87K1WaoFI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Course for Beginners freeCodeCamp.org">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/NWONeJKn6kc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDUXO_HqgYZLXwn3TeWSBafYYqyug" alt="Machine Learning Course for Beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Course for Beginners</h4>
+            <div class="channel">freeCodeCamp.org</div>
+            <div class="meta">
+              👁 2,050,974 views
+               · ⏱ 9:52:19
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=NWONeJKn6kc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Complete Machine Learning In 6 Hours| Krish Naik Krish Naik">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JxgmHe2NyeY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDOOzHN3QIAJo4QQXwtjaF5MRuVYA" alt="Complete Machine Learning In 6 Hours| Krish Naik" loading="lazy"></div>
+          <div class="info">
+            <h4>Complete Machine Learning In 6 Hours| Krish Naik</h4>
+            <div class="channel">Krish Naik</div>
+            <div class="meta">
+              👁 2,047,651 views
+               · ⏱ 6:37:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JxgmHe2NyeY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="11. Introduction to Machine Learning MIT OpenCourseWare">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/h0e2HAPTGF4/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLDA2xb9yoTBg9iaaAqbs-g9V-z0lg" alt="11. Introduction to Machine Learning" loading="lazy"></div>
+          <div class="info">
+            <h4>11. Introduction to Machine Learning</h4>
+            <div class="channel">MIT OpenCourseWare</div>
+            <div class="meta">
+              👁 1,816,008 views
+               · ⏱ 51:31
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=h0e2HAPTGF4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Fundamentals: Bias and Variance StatQuest with Josh Starmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/EuBBz3bI-aA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAILmjrz5Vi2-ME9UIkoYaQCJnYsg" alt="Machine Learning Fundamentals: Bias and Variance" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Fundamentals: Bias and Variance</h4>
+            <div class="channel">StatQuest with Josh Starmer</div>
+            <div class="meta">
+              👁 1,727,905 views
+               · ⏱ 6:36
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=EuBBz3bI-aA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Deep Learning | What is Deep Learning? | Deep Learning Tutorial For Beginners | 2026 | Simplilearn Simplilearn">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/6M5VXKLf4D4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAz0f_vwysYeh0XjA86CTk6uOxigQ" alt="Deep Learning | What is Deep Learning? | Deep Learning Tutorial For Beginners | 2026 | Simplilearn" loading="lazy"></div>
+          <div class="info">
+            <h4>Deep Learning | What is Deep Learning? | Deep Learning Tutorial For Beginners | 2026 | Simplilearn</h4>
+            <div class="channel">Simplilearn</div>
+            <div class="meta">
+              👁 1,640,557 views
+               · ⏱ 5:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=6M5VXKLf4D4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Detailed Roadmap for Machine Learning | Free Study Resources | Simply Explained Apna College">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/1vsmaEfbnoE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAO6AYvtw23Ob0ax8JjswM3Qk4GFA" alt="Detailed Roadmap for Machine Learning | Free Study Resources | Simply Explained" loading="lazy"></div>
+          <div class="info">
+            <h4>Detailed Roadmap for Machine Learning | Free Study Resources | Simply Explained</h4>
+            <div class="channel">Apna College</div>
+            <div class="meta">
+              👁 1,607,510 views
+               · ⏱ 14:59
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=1vsmaEfbnoE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="A Gentle Introduction to Machine Learning StatQuest with Josh Starmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Gv9_4yMHFhI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYX4SXRijmzOCtu97Vv2m1My45MA" alt="A Gentle Introduction to Machine Learning" loading="lazy"></div>
+          <div class="info">
+            <h4>A Gentle Introduction to Machine Learning</h4>
+            <div class="channel">StatQuest with Josh Starmer</div>
+            <div class="meta">
+              👁 1,594,178 views
+               · ⏱ 12:45
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="All Machine Learning Models Explained in 5 Minutes | Types of ML Models Basics Learn with Whiteboard">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/yN7ypxC7838/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBIyLwt7h-r4ZdqTDxFgtv4oTpXTw" alt="All Machine Learning Models Explained in 5 Minutes | Types of ML Models Basics" loading="lazy"></div>
+          <div class="info">
+            <h4>All Machine Learning Models Explained in 5 Minutes | Types of ML Models Basics</h4>
+            <div class="channel">Learn with Whiteboard</div>
+            <div class="meta">
+              👁 1,551,034 views
+               · ⏱ 5:01
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=yN7ypxC7838" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How Large Language Models Work IBM Technology">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/5sLYAQS9sWQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAlsSvW0NM22oF4yMmVIQvSOqr0cQ" alt="How Large Language Models Work" loading="lazy"></div>
+          <div class="info">
+            <h4>How Large Language Models Work</h4>
+            <div class="channel">IBM Technology</div>
+            <div class="meta">
+              👁 1,549,385 views
+               · ⏱ 5:34
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=5sLYAQS9sWQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Fundamentals: Cross Validation StatQuest with Josh Starmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/fSytzGwwBVw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAvq3J-RyfRt6RBoB_mKaeHjKk4fA" alt="Machine Learning Fundamentals: Cross Validation" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Fundamentals: Cross Validation</h4>
+            <div class="channel">StatQuest with Josh Starmer</div>
+            <div class="meta">
+              👁 1,471,068 views
+               · ⏱ 6:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=fSytzGwwBVw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="PyTorch in 100 Seconds Fireship">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ORMx45xqWkA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDOkVO5_1zB_kENzkRX_ZIMwuLXZw" alt="PyTorch in 100 Seconds" loading="lazy"></div>
+          <div class="info">
+            <h4>PyTorch in 100 Seconds</h4>
+            <div class="channel">Fireship</div>
+            <div class="meta">
+              👁 1,347,985 views
+               · ⏱ 2:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ORMx45xqWkA" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Learn Machine Learning Like a GENIUS and Not Waste Time Infinite Codes">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/qNxrPri1V0I/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDBWvTvvolUviEqrYANg6C4PKX9QQ" alt="Learn Machine Learning Like a GENIUS and Not Waste Time" loading="lazy"></div>
+          <div class="info">
+            <h4>Learn Machine Learning Like a GENIUS and Not Waste Time</h4>
+            <div class="channel">Infinite Codes</div>
+            <div class="meta">
+              👁 1,305,830 views
+               · ⏱ 15:03
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=qNxrPri1V0I" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Deep Learning Crash Course for Beginners freeCodeCamp.org">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/VyWAvY2CF9c/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYS1pr9XaiSmiZEBtbcD-SRw0tGQ" alt="Deep Learning Crash Course for Beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>Deep Learning Crash Course for Beginners</h4>
+            <div class="channel">freeCodeCamp.org</div>
+            <div class="meta">
+              👁 1,210,252 views
+               · ⏱ 1:25:39
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=VyWAvY2CF9c" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="the TRUTH about C++ (is it worth your time?) Low Level">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/q1ZmFc-sqNc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBBjfZTl6zsbhWhaJXLjhTLeghVZg" alt="the TRUTH about C++ (is it worth your time?)" loading="lazy"></div>
+          <div class="info">
+            <h4>the TRUTH about C++ (is it worth your time?)</h4>
+            <div class="channel">Low Level</div>
+            <div class="meta">
+              👁 1,193,430 views
+               · ⏱ 3:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=q1ZmFc-sqNc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Advice for machine learning beginners | Andrej Karpathy and Lex Fridman Lex Clips">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/I2ZK3ngNvvI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCN6u7bUcJDdQQfvlwirByaxdcqFw" alt="Advice for machine learning beginners | Andrej Karpathy and Lex Fridman" loading="lazy"></div>
+          <div class="info">
+            <h4>Advice for machine learning beginners | Andrej Karpathy and Lex Fridman</h4>
+            <div class="channel">Lex Clips</div>
+            <div class="meta">
+              👁 1,169,172 views
+               · ⏱ 5:48
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=I2ZK3ngNvvI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Intro to Machine Learning (ML Zero to Hero - Part 1) TensorFlow">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/KNAWp2S3w94/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbrSjjWrgEqVW8plSF4G4sAqWzng" alt="Intro to Machine Learning (ML Zero to Hero - Part 1)" loading="lazy"></div>
+          <div class="info">
+            <h4>Intro to Machine Learning (ML Zero to Hero - Part 1)</h4>
+            <div class="channel">TensorFlow</div>
+            <div class="meta">
+              👁 1,141,004 views
+               · ⏱ 7:18
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=KNAWp2S3w94" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="2020 Machine Learning Roadmap (87% valid for 2024) Daniel Bourke">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/pHiMN_gy9mk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAK4V-2UaZsCan34WysdlXBrSgN2A" alt="2020 Machine Learning Roadmap (87% valid for 2024)" loading="lazy"></div>
+          <div class="info">
+            <h4>2020 Machine Learning Roadmap (87% valid for 2024)</h4>
+            <div class="channel">Daniel Bourke</div>
+            <div class="meta">
+              👁 1,100,737 views
+               · ⏱ 2:37:14
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=pHiMN_gy9mk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Explained in 100 Seconds Fireship">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/PeMlggyqz0Y/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCXtueCScI9EKpU801DjyEcs0FCiw" alt="Machine Learning Explained in 100 Seconds" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Explained in 100 Seconds</h4>
+            <div class="channel">Fireship</div>
+            <div class="meta">
+              👁 1,082,871 views
+               · ⏱ 2:35
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=PeMlggyqz0Y" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="The Complete Machine Learning Roadmap Programming with Mosh">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/7IgVGSaQPaw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAiUoQc0CfWTP0h1QhsbMVRFma6iA" alt="The Complete Machine Learning Roadmap" loading="lazy"></div>
+          <div class="info">
+            <h4>The Complete Machine Learning Roadmap</h4>
+            <div class="channel">Programming with Mosh</div>
+            <div class="meta">
+              👁 1,063,762 views
+               · ⏱ 5:25
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=7IgVGSaQPaw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning &amp; Artificial Intelligence: Crash Course Computer Science #34 CrashCourse">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/z-EtmaFJieY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCciOf51NajYhUetWxKiyst-9hclg" alt="Machine Learning &amp; Artificial Intelligence: Crash Course Computer Science #34" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning &amp; Artificial Intelligence: Crash Course Computer Science #34</h4>
+            <div class="channel">CrashCourse</div>
+            <div class="meta">
+              👁 995,902 views
+               · ⏱ 11:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=z-EtmaFJieY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning vs Deep Learning IBM Technology">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/q6kJ71tEYqM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB72yM85_sOVjMkUE0KxDtRe6iRxQ" alt="Machine Learning vs Deep Learning" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning vs Deep Learning</h4>
+            <div class="channel">IBM Technology</div>
+            <div class="meta">
+              👁 951,574 views
+               · ⏱ 7:50
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=q6kJ71tEYqM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How I&#039;d learn ML in 2025 (if I could start over) Boris Meinardus">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_xIwjmCH6D4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBi08XzceWHoRbKOSoold_vrHVIUA" alt="How I&#039;d learn ML in 2025 (if I could start over)" loading="lazy"></div>
+          <div class="info">
+            <h4>How I&#039;d learn ML in 2025 (if I could start over)</h4>
+            <div class="channel">Boris Meinardus</div>
+            <div class="meta">
+              👁 854,629 views
+               · ⏱ 16:24
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_xIwjmCH6D4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What are Transformers (Machine Learning Model)? IBM Technology">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ZXiruGOCn9s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDrcMe1mgG3bFl66SGx1HR5KxZ3cg" alt="What are Transformers (Machine Learning Model)?" loading="lazy"></div>
+          <div class="info">
+            <h4>What are Transformers (Machine Learning Model)?</h4>
+            <div class="channel">IBM Technology</div>
+            <div class="meta">
+              👁 772,326 views
+               · ⏱ 5:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ZXiruGOCn9s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Scikit-learn Crash Course - Machine Learning Library for Python freeCodeCamp.org">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/0B5eIE_1vpU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAkP6UBasT-96SNfOMUiATMzgCyrw" alt="Scikit-learn Crash Course - Machine Learning Library for Python" loading="lazy"></div>
+          <div class="info">
+            <h4>Scikit-learn Crash Course - Machine Learning Library for Python</h4>
+            <div class="channel">freeCodeCamp.org</div>
+            <div class="meta">
+              👁 725,889 views
+               · ⏱ 2:09:22
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=0B5eIE_1vpU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What is Pandas? Why and How to Use Pandas in Python Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/dcqPhpY7tWk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAuYVSxipIsPz9-ylgxUC4WtezXhw" alt="What is Pandas? Why and How to Use Pandas in Python" loading="lazy"></div>
+          <div class="info">
+            <h4>What is Pandas? Why and How to Use Pandas in Python</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 701,926 views
+               · ⏱ 10:08
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=dcqPhpY7tWk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="1. Artificial Intelligence and Machine Learning MIT OpenCourseWare">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/t4K6lney7Zw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDUzl3aePTnGDDuX3jVvOf_WaiukQ" alt="1. Artificial Intelligence and Machine Learning" loading="lazy"></div>
+          <div class="info">
+            <h4>1. Artificial Intelligence and Machine Learning</h4>
+            <div class="channel">MIT OpenCourseWare</div>
+            <div class="meta">
+              👁 699,864 views
+               · ⏱ 1:14:24
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=t4K6lney7Zw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Build your first machine learning model in Python Data Professor">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/29ZQ3TDGgRQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDLFaj3kkn5J9T4LE6lFVHNMVecSQ" alt="Build your first machine learning model in Python" loading="lazy"></div>
+          <div class="info">
+            <h4>Build your first machine learning model in Python</h4>
+            <div class="channel">Data Professor</div>
+            <div class="meta">
+              👁 661,222 views
+               · ⏱ 30:57
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=29ZQ3TDGgRQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Ai &amp; ML Roadmap | FREE 😲 Neeraj Walia">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/tiplN2Qc_ws/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCW-VUjmOOWb2FzplWtrFc4cukeaA" alt="Ai &amp; ML Roadmap | FREE 😲" loading="lazy"></div>
+          <div class="info">
+            <h4>Ai &amp; ML Roadmap | FREE 😲</h4>
+            <div class="channel">Neeraj Walia</div>
+            <div class="meta">
+              👁 659,284 views
+               · ⏱ 1:39
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=tiplN2Qc_ws" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="AI &amp; Machine Learning Roadmap (No Fluff) CodeWithHarry">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/t1h5vHJ0mCQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCLuihtxkB6Qtoleg1_H7fggE6ueA" alt="AI &amp; Machine Learning Roadmap (No Fluff)" loading="lazy"></div>
+          <div class="info">
+            <h4>AI &amp; Machine Learning Roadmap (No Fluff)</h4>
+            <div class="channel">CodeWithHarry</div>
+            <div class="meta">
+              👁 636,707 views
+               · ⏱ 13:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=t1h5vHJ0mCQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What is Machine Learning? OxfordSparks">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/f_uwKZIAeM0/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhBIGUoZTAP&rs=AOn4CLCx0fbo5c45A9j87KfQvjYOPENPIA" alt="What is Machine Learning?" loading="lazy"></div>
+          <div class="info">
+            <h4>What is Machine Learning?</h4>
+            <div class="channel">OxfordSparks</div>
+            <div class="meta">
+              👁 625,345 views
+               · ⏱ 2:19
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=f_uwKZIAeM0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Ultimate AI ML Roadmap for beginners Chai aur Code">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/6dqAwh2MCg0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA9ZLT3Tswl8esGe8xK-ySuYpDRPg" alt="Ultimate AI ML Roadmap for beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>Ultimate AI ML Roadmap for beginners</h4>
+            <div class="channel">Chai aur Code</div>
+            <div class="meta">
+              👁 580,407 views
+               · ⏱ 28:28
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=6dqAwh2MCg0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Should I study Machine Learning? Is it required for Placements? Apna College">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/jyd4uH5dWJ8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBkl47B0BpseecdaiPVXpnfBsFMBg" alt="Should I study Machine Learning? Is it required for Placements?" loading="lazy"></div>
+          <div class="info">
+            <h4>Should I study Machine Learning? Is it required for Placements?</h4>
+            <div class="channel">Apna College</div>
+            <div class="meta">
+              👁 558,467 views
+               · ⏱ 7:31
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=jyd4uH5dWJ8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Mathematics for Machine Learning Tutorial (3 Complete Courses in 1 video) My Lesson">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/0z6AhrOSrRs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDK2ZzEkGiMPfc1D9ksEjtqRYrBFg" alt="Mathematics for Machine Learning Tutorial (3 Complete Courses in 1 video)" loading="lazy"></div>
+          <div class="info">
+            <h4>Mathematics for Machine Learning Tutorial (3 Complete Courses in 1 video)</h4>
+            <div class="channel">My Lesson</div>
+            <div class="meta">
+              👁 554,553 views
+               · ⏱ 9:26:15
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=0z6AhrOSrRs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Is this the BEST BOOK on Machine Learning? Hands On Machine Learning Review Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/1RiFIYwuwHM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAlY6kxQ1r_5Z2g0Mfv4hPUfl_X4A" alt="Is this the BEST BOOK on Machine Learning? Hands On Machine Learning Review" loading="lazy"></div>
+          <div class="info">
+            <h4>Is this the BEST BOOK on Machine Learning? Hands On Machine Learning Review</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 532,714 views
+               · ⏱ 5:31
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=1RiFIYwuwHM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to start AI/ML in 2026 ? Apna College">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/8WzSEikpHk8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAKrj4EArqCQvJ1Ghyb3bT4yGC6Vw" alt="How to start AI/ML in 2026 ?" loading="lazy"></div>
+          <div class="info">
+            <h4>How to start AI/ML in 2026 ?</h4>
+            <div class="channel">Apna College</div>
+            <div class="meta">
+              👁 521,875 views
+               · ⏱ 14:06
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=8WzSEikpHk8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Supervised vs Unsupervised vs Reinforcement Learning | Machine Learning Tutorial | Simplilearn Simplilearn">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/1FZ0A1QCMWc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBqsvt6ckE2JY9wprn6aQC2jupxSw" alt="Supervised vs Unsupervised vs Reinforcement Learning | Machine Learning Tutorial | Simplilearn" loading="lazy"></div>
+          <div class="info">
+            <h4>Supervised vs Unsupervised vs Reinforcement Learning | Machine Learning Tutorial | Simplilearn</h4>
+            <div class="channel">Simplilearn</div>
+            <div class="meta">
+              👁 475,355 views
+               · ⏱ 6:27
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=1FZ0A1QCMWc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to learn Computational Neuroscience on your Own (a self-study guide) Charlotte Fraza">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/MhF3R_0LWbk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAPSQ20xl12-Auabyg63pNCkWeZ7A" alt="How to learn Computational Neuroscience on your Own (a self-study guide)" loading="lazy"></div>
+          <div class="info">
+            <h4>How to learn Computational Neuroscience on your Own (a self-study guide)</h4>
+            <div class="channel">Charlotte Fraza</div>
+            <div class="meta">
+              👁 459,012 views
+               · ⏱ 13:24
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=MhF3R_0LWbk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="10 ML algorithms in 45 minutes | machine learning algorithms for data science | machine learning Unfold Data Science">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/z18nw4adsx4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBNIVjvnFp9TnnsR9Nk3HlpnsMa9w" alt="10 ML algorithms in 45 minutes | machine learning algorithms for data science | machine learning" loading="lazy"></div>
+          <div class="info">
+            <h4>10 ML algorithms in 45 minutes | machine learning algorithms for data science | machine learning</h4>
+            <div class="channel">Unfold Data Science</div>
+            <div class="meta">
+              👁 455,043 views
+               · ⏱ 46:18
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=z18nw4adsx4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Learn Machine Learning Like a GENIUS and Not Waste Time Sahil &amp; Sarra">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/2wTRQqoDM1A/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCNfTmk_-0Oo3-DfCTw8KylI7u4yA" alt="Learn Machine Learning Like a GENIUS and Not Waste Time" loading="lazy"></div>
+          <div class="info">
+            <h4>Learn Machine Learning Like a GENIUS and Not Waste Time</h4>
+            <div class="channel">Sahil &amp; Sarra</div>
+            <div class="meta">
+              👁 379,682 views
+               · ⏱ 10:33
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=2wTRQqoDM1A" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What is Machine Learning? IBM Technology">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/9gGnTQTYNaE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLANlI8qGBgon9dURVuNQfHrZC8F-g" alt="What is Machine Learning?" loading="lazy"></div>
+          <div class="info">
+            <h4>What is Machine Learning?</h4>
+            <div class="channel">IBM Technology</div>
+            <div class="meta">
+              👁 371,800 views
+               · ⏱ 8:23
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=9gGnTQTYNaE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="3 Great Books for Learning Python - Beginner to Proficiency Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ubV-8EYzTyc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBH10eh0dPlMI1jr9SMVCPJqUufDg" alt="3 Great Books for Learning Python - Beginner to Proficiency" loading="lazy"></div>
+          <div class="info">
+            <h4>3 Great Books for Learning Python - Beginner to Proficiency</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 369,185 views
+               · ⏱ 4:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ubV-8EYzTyc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="If you&#039;re struggling to learn to code, you must watch this Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/3M3TX7TGdgs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCVrw1HDrh4AGRzxAZNBN2-rtKWFQ" alt="If you&#039;re struggling to learn to code, you must watch this" loading="lazy"></div>
+          <div class="info">
+            <h4>If you&#039;re struggling to learn to code, you must watch this</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 353,073 views
+               · ⏱ 2:21
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=3M3TX7TGdgs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Master *AI&amp;ML* In 2026🔥.Free Resources With Detailed Roadmap in Telugu Harsha Verse">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/4KqKUKDrXzU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAyr7IgBccRB7CdSBfdbJ3Onci7gw" alt="How to Master *AI&amp;ML* In 2026🔥.Free Resources With Detailed Roadmap in Telugu" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Master *AI&amp;ML* In 2026🔥.Free Resources With Detailed Roadmap in Telugu</h4>
+            <div class="channel">Harsha Verse</div>
+            <div class="meta">
+              👁 336,948 views
+               · ⏱ 15:12
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=4KqKUKDrXzU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How I&#039;d Learn ML/AI FAST If I Had to Start Over Tech With Tim">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/8xUher8-5_Q/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmt2BK50ur5XgLm8g8TTf-vtQ6HA" alt="How I&#039;d Learn ML/AI FAST If I Had to Start Over" loading="lazy"></div>
+          <div class="info">
+            <h4>How I&#039;d Learn ML/AI FAST If I Had to Start Over</h4>
+            <div class="channel">Tech With Tim</div>
+            <div class="meta">
+              👁 325,593 views
+               · ⏱ 10:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=8xUher8-5_Q" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Complete Roadmap for Machine Learning | ML Roadmap for Beginners codebasics">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/T4MLrtOKPjY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAi1LhrxNsbCCcJfKmsiuw1b63L1w" alt="Complete Roadmap for Machine Learning | ML Roadmap for Beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>Complete Roadmap for Machine Learning | ML Roadmap for Beginners</h4>
+            <div class="channel">codebasics</div>
+            <div class="meta">
+              👁 304,994 views
+               · ⏱ 22:26
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=T4MLrtOKPjY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Grant Sanderson (3Blue1Brown): Best Way to Learn Math | AI Podcast Clips Lex Clips">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/zvrleanEYOw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC9SPfi9yfmc8AzDV1k7PEfSeUh_Q" alt="Grant Sanderson (3Blue1Brown): Best Way to Learn Math | AI Podcast Clips" loading="lazy"></div>
+          <div class="info">
+            <h4>Grant Sanderson (3Blue1Brown): Best Way to Learn Math | AI Podcast Clips</h4>
+            <div class="channel">Lex Clips</div>
+            <div class="meta">
+              👁 293,183 views
+               · ⏱ 3:22
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=zvrleanEYOw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Is this still the best book on Machine Learning? Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/gJ9NcxPUSPE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDBCyah2vaVtpFLK0UR-SabdbWo9Q" alt="Is this still the best book on Machine Learning?" loading="lazy"></div>
+          <div class="info">
+            <h4>Is this still the best book on Machine Learning?</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 281,850 views
+               · ⏱ 3:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=gJ9NcxPUSPE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What is Machine Learning? CodeAI">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/KHbwOetbmbs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDxIOouRjyQUioSYD_JKagz-rbvIA" alt="What is Machine Learning?" loading="lazy"></div>
+          <div class="info">
+            <h4>What is Machine Learning?</h4>
+            <div class="channel">CodeAI</div>
+            <div class="meta">
+              👁 263,786 views
+               · ⏱ 2:53
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=KHbwOetbmbs" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="AZ-900 Episode 16 | Azure Artificial Intelligence (AI) Services | Machine Learning Studio &amp; Service Adam Marczak - Azure for Everyone">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/8aMzR8iaB9s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDdvgQi_rW7pucF33I8mQoTtL-rvQ" alt="AZ-900 Episode 16 | Azure Artificial Intelligence (AI) Services | Machine Learning Studio &amp; Service" loading="lazy"></div>
+          <div class="info">
+            <h4>AZ-900 Episode 16 | Azure Artificial Intelligence (AI) Services | Machine Learning Studio &amp; Service</h4>
+            <div class="channel">Adam Marczak - Azure for Everyone</div>
+            <div class="meta">
+              👁 262,988 views
+               · ⏱ 8:10
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=8aMzR8iaB9s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Reinforcement Learning: Crash Course AI #9 CrashCourse">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/nIgIv4IfJ6s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCKdmX3mXy_wMeWIVBQEbA8TMxh_g" alt="Reinforcement Learning: Crash Course AI #9" loading="lazy"></div>
+          <div class="info">
+            <h4>Reinforcement Learning: Crash Course AI #9</h4>
+            <div class="channel">CrashCourse</div>
+            <div class="meta">
+              👁 260,959 views
+               · ⏱ 11:28
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=nIgIv4IfJ6s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Kaggle Competitions: A Beginner&#039;s Guide to Winning Rob Mulla">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/4BOtr1PZ2D8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC5gQsb00S96nHrCBuqazCQo64nMw" alt="Kaggle Competitions: A Beginner&#039;s Guide to Winning" loading="lazy"></div>
+          <div class="info">
+            <h4>Kaggle Competitions: A Beginner&#039;s Guide to Winning</h4>
+            <div class="channel">Rob Mulla</div>
+            <div class="meta">
+              👁 258,585 views
+               · ⏱ 18:39
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=4BOtr1PZ2D8" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Build Your First Machine Learning Project [Full Beginner Walkthrough] Dataquest">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Hr06nSA-qww/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCnj4kCkBLcLLvGtkFSnyRgNagQsw" alt="Build Your First Machine Learning Project [Full Beginner Walkthrough]" loading="lazy"></div>
+          <div class="info">
+            <h4>Build Your First Machine Learning Project [Full Beginner Walkthrough]</h4>
+            <div class="channel">Dataquest</div>
+            <div class="meta">
+              👁 232,291 views
+               · ⏱ 37:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Hr06nSA-qww" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="All the maths you need for machine learning for FREE! Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/mnhrQxdzHqE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDaJP8o7QhNdr1RIYQfuxfiFstpZg" alt="All the maths you need for machine learning for FREE!" loading="lazy"></div>
+          <div class="info">
+            <h4>All the maths you need for machine learning for FREE!</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 231,983 views
+               · ⏱ 3:23
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=mnhrQxdzHqE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Computer Vision Explained in 5 Minutes | AI Explained AI Sciences">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/puB-4LuRNys/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDvOtAZIDdf1fWLiRr2CNNBYbxsWQ" alt="Computer Vision Explained in 5 Minutes | AI Explained" loading="lazy"></div>
+          <div class="info">
+            <h4>Computer Vision Explained in 5 Minutes | AI Explained</h4>
+            <div class="channel">AI Sciences</div>
+            <div class="meta">
+              👁 218,867 views
+               · ⏱ 5:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=puB-4LuRNys" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning | What Is Machine Learning? | Machine Learning Basics | 2026 | Simplilearn Simplilearn">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/cfSDvPlFFVQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAKh7QFG6RhfY8Nbx7aCYl_t5k0IA" alt="Machine Learning | What Is Machine Learning? | Machine Learning Basics | 2026 | Simplilearn" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning | What Is Machine Learning? | Machine Learning Basics | 2026 | Simplilearn</h4>
+            <div class="channel">Simplilearn</div>
+            <div class="meta">
+              👁 205,225 views
+               · ⏱ 1:56
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=cfSDvPlFFVQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Reinforcement Learning Series: Overview of Methods Steve Brunton">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/i7q8bISGwMQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDFxJW6YJPemFIsEn6IyKP5fPCPOA" alt="Reinforcement Learning Series: Overview of Methods" loading="lazy"></div>
+          <div class="info">
+            <h4>Reinforcement Learning Series: Overview of Methods</h4>
+            <div class="channel">Steve Brunton</div>
+            <div class="meta">
+              👁 166,829 views
+               · ⏱ 21:37
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=i7q8bISGwMQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to evaluate ML models | Evaluation metrics for machine learning AssemblyAI">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/LbX4X71-TFI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDqgbYsFoRImxydjSdQBBdmpP5sjQ" alt="How to evaluate ML models | Evaluation metrics for machine learning" loading="lazy"></div>
+          <div class="info">
+            <h4>How to evaluate ML models | Evaluation metrics for machine learning</h4>
+            <div class="channel">AssemblyAI</div>
+            <div class="meta">
+              👁 124,016 views
+               · ⏱ 10:05
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=LbX4X71-TFI" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How is data prepared for machine learning? AltexSoft">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/P8ERBy91Y90/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCWvthqQJusn1Qs_0unMrPwQx-gpw" alt="How is data prepared for machine learning?" loading="lazy"></div>
+          <div class="info">
+            <h4>How is data prepared for machine learning?</h4>
+            <div class="channel">AltexSoft</div>
+            <div class="meta">
+              👁 123,632 views
+               · ⏱ 13:57
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=P8ERBy91Y90" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="BE PREPARED Machine Learning Engineer interview questions Data with Sandro">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/n8NgELVMRS0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyhrf9GSOP3hZUxWyBEMuAxV9udw" alt="BE PREPARED Machine Learning Engineer interview questions" loading="lazy"></div>
+          <div class="info">
+            <h4>BE PREPARED Machine Learning Engineer interview questions</h4>
+            <div class="channel">Data with Sandro</div>
+            <div class="meta">
+              👁 73,704 views
+               · ⏱ 13:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=n8NgELVMRS0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Federated Learning: Machine Learning on Decentralized Data (Google I/O&#039;19) TensorFlow">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/89BGjQYA0uE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBcHaVb7kVsMX8b99Nizyo2KaYyEg" alt="Federated Learning: Machine Learning on Decentralized Data (Google I/O&#039;19)" loading="lazy"></div>
+          <div class="info">
+            <h4>Federated Learning: Machine Learning on Decentralized Data (Google I/O&#039;19)</h4>
+            <div class="channel">TensorFlow</div>
+            <div class="meta">
+              👁 72,861 views
+               · ⏱ 41:11
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=89BGjQYA0uE" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning 101: Intro To Neural Networks (NVIDIA Jetson Nano Review and Setup) Super Make Something">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/1BneqPdEhMM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDjU0HuSqvacc5mnjZXUyEw4cMTow" alt="Machine Learning 101: Intro To Neural Networks (NVIDIA Jetson Nano Review and Setup)" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning 101: Intro To Neural Networks (NVIDIA Jetson Nano Review and Setup)</h4>
+            <div class="channel">Super Make Something</div>
+            <div class="meta">
+              👁 70,469 views
+               · ⏱ 14:44
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=1BneqPdEhMM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Roadmap 2025 - What Skills Should You Learn First? Marina Wyss - AI &amp; Machine Learning">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/lU12aoer3Mk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB8y9jmyPOCHoFzmp5IK_hgp9vfiA" alt="Machine Learning Roadmap 2025 - What Skills Should You Learn First?" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Roadmap 2025 - What Skills Should You Learn First?</h4>
+            <div class="channel">Marina Wyss - AI &amp; Machine Learning</div>
+            <div class="meta">
+              👁 65,465 views
+               · ⏱ 11:00
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=lU12aoer3Mk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Math for Machine Learning and Data Science Specialization Review | Why You Need to Learn Math 🤔 Thu Vu">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JPHS10dt_CY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLChSpg1a5sg9PCRoteMgVzJMvofxQ" alt="Math for Machine Learning and Data Science Specialization Review | Why You Need to Learn Math 🤔" loading="lazy"></div>
+          <div class="info">
+            <h4>Math for Machine Learning and Data Science Specialization Review | Why You Need to Learn Math 🤔</h4>
+            <div class="channel">Thu Vu</div>
+            <div class="meta">
+              👁 65,164 views
+               · ⏱ 10:39
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JPHS10dt_CY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How I Would Learn Machine Learning (If I Could Start Over) Sreemanti Dey">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/414bAWiKl38/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLClNQeNvY0Uq73ILt4Bhu-sFLBC1Q" alt="How I Would Learn Machine Learning (If I Could Start Over)" loading="lazy"></div>
+          <div class="info">
+            <h4>How I Would Learn Machine Learning (If I Could Start Over)</h4>
+            <div class="channel">Sreemanti Dey</div>
+            <div class="meta">
+              👁 61,086 views
+               · ⏱ 8:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=414bAWiKl38" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Math for Machine Learning by Imperial &amp; Coursera: REVIEW Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/loLEqvaQ-Wc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBM45RxPB6YpgqeEKIFFEdWMR001A" alt="Math for Machine Learning by Imperial &amp; Coursera: REVIEW" loading="lazy"></div>
+          <div class="info">
+            <h4>Math for Machine Learning by Imperial &amp; Coursera: REVIEW</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 56,598 views
+               · ⏱ 9:29
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=loLEqvaQ-Wc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Probably the best introduction to machine learning! 100 page machine learning book! Python Programmer">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/DjuyBfflWto/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC1jU0JeJjj0H6DU_Bn4eOBMOq9Jw" alt="Probably the best introduction to machine learning! 100 page machine learning book!" loading="lazy"></div>
+          <div class="info">
+            <h4>Probably the best introduction to machine learning! 100 page machine learning book!</h4>
+            <div class="channel">Python Programmer</div>
+            <div class="meta">
+              👁 51,554 views
+               · ⏱ 6:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=DjuyBfflWto" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How I&#039;d Learn ML in 2026 (If I Could Start Over) Boris Meinardus">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/yKeNBjo_lJU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCF2lbLlteeswaz50grKL_Qr3AXjA" alt="How I&#039;d Learn ML in 2026 (If I Could Start Over)" loading="lazy"></div>
+          <div class="info">
+            <h4>How I&#039;d Learn ML in 2026 (If I Could Start Over)</h4>
+            <div class="channel">Boris Meinardus</div>
+            <div class="meta">
+              👁 45,605 views
+               · ⏱ 25:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=yKeNBjo_lJU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Complete ROADMAP to Machine Learning (Beginner to Pro) Nishant Chahar">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/quTX3fevt3s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDIw7uQVUpcIkOvjcS2sYKKQ0Ti4g" alt="Complete ROADMAP to Machine Learning (Beginner to Pro)" loading="lazy"></div>
+          <div class="info">
+            <h4>Complete ROADMAP to Machine Learning (Beginner to Pro)</h4>
+            <div class="channel">Nishant Chahar</div>
+            <div class="meta">
+              👁 41,031 views
+               · ⏱ 13:14
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=quTX3fevt3s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Is it worth doing PG Diploma In Machine Learning and AI Musings by Amit">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/61rJFFfgBxw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC3Y3HcOesgmtP4CJMzB3sbrAQT1w" alt="Is it worth doing PG Diploma In Machine Learning and AI" loading="lazy"></div>
+          <div class="info">
+            <h4>Is it worth doing PG Diploma In Machine Learning and AI</h4>
+            <div class="channel">Musings by Amit</div>
+            <div class="meta">
+              👁 40,765 views
+               · ⏱ 2:41
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=61rJFFfgBxw" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Hands-On Machine Learning with Scikit-Learn, Keras, &amp; TensorFlow (Book Review) Dimitri Bianco">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/vLuwxDySiLk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDFY9f2BzhFOJlehWFI9SyCjRu8-A" alt="Hands-On Machine Learning with Scikit-Learn, Keras, &amp; TensorFlow (Book Review)" loading="lazy"></div>
+          <div class="info">
+            <h4>Hands-On Machine Learning with Scikit-Learn, Keras, &amp; TensorFlow (Book Review)</h4>
+            <div class="channel">Dimitri Bianco</div>
+            <div class="meta">
+              👁 38,288 views
+               · ⏱ 13:23
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=vLuwxDySiLk" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Designing Machine Learning Systems | book summary | Read a book with me Sophia Yang">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/_SmkfnH_oOc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAFqok7UgD-DacnXCW51niZ0YmHxA" alt="Designing Machine Learning Systems | book summary | Read a book with me" loading="lazy"></div>
+          <div class="info">
+            <h4>Designing Machine Learning Systems | book summary | Read a book with me</h4>
+            <div class="channel">Sophia Yang</div>
+            <div class="meta">
+              👁 29,332 views
+               · ⏱ 25:14
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=_SmkfnH_oOc" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How Machine Learning uses Linear Algebra to solve data problems Harshit Tyagi">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/wyoS89J3ap4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB64Pj-q2JkTEXNamYobJ-OPlQZ1Q" alt="How Machine Learning uses Linear Algebra to solve data problems" loading="lazy"></div>
+          <div class="info">
+            <h4>How Machine Learning uses Linear Algebra to solve data problems</h4>
+            <div class="channel">Harshit Tyagi</div>
+            <div class="meta">
+              👁 26,920 views
+               · ⏱ 11:38
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=wyoS89J3ap4" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Artificial Intelligence: Everything You Need to Know (Complete Course Review) Banq Official">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/A0iAuGE-wcY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA5GSK2NITQjrn0DGXN8BAzVoyX2A" alt="Artificial Intelligence: Everything You Need to Know (Complete Course Review)" loading="lazy"></div>
+          <div class="info">
+            <h4>Artificial Intelligence: Everything You Need to Know (Complete Course Review)</h4>
+            <div class="channel">Banq Official</div>
+            <div class="meta">
+              👁 14 views
+               · ⏱ 28:32
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=A0iAuGE-wcY" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Machine Learning Specialization by Andrew Ng (2026 Updated Review) App Unbox">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/vCGV5Za9V5w/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAw7uA86qRg0e-Siwqfb5E9luH7BA" alt="Machine Learning Specialization by Andrew Ng (2026 Updated Review)" loading="lazy"></div>
+          <div class="info">
+            <h4>Machine Learning Specialization by Andrew Ng (2026 Updated Review)</h4>
+            <div class="channel">App Unbox</div>
+            <div class="meta">
+              👁 1 views
+               · ⏱ 2:24
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=vCGV5Za9V5w" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div></div></div>
+    <div class="footer">
+        <p>Generated by Research Toolkit · 2026-07-19T05:31:15.739Z</p>
+        <p>Free &amp; Open Source · Zero API Keys Required</p>
+    </div>
+
+    <script>
+    function toggleDark() {
+        document.documentElement.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+        document.getElementById('darkBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+    (function() {
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            document.getElementById('darkBtn').textContent = 'Light Mode';
+        }
+    })();
+
+    function toggleSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('collapsed');
+    }
+
+    function expandAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.remove('collapsed'));
+    }
+
+    function collapseAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.add('collapsed'));
+    }
+
+    function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        document.querySelectorAll('.post-card, .comment-card, .video-card, .cluster-card, .author-card').forEach(card => {
+            if (!q) { card.style.display = ''; return; }
+            const text = (card.getAttribute('data-searchable') || card.textContent).toLowerCase();
+            card.style.display = text.includes(q) ? '' : 'none';
+        });
+    }
+
+    const POSITIVE=["love","great","amazing","excellent","awesome","fantastic","best","perfect","brilliant","wonderful","excited","happy","recommend","success","win"];const NEGATIVE=["hate","terrible","awful","worst","horrible","bad","fail","problem","struggle","difficult","frustrat","annoying","waste","scam","avoid"];const NEUTRAL=["maybe","perhaps","might","could","think","opinion","consider","wonder"];
+    function getSentimentText(text) {
+        const lower = text.toLowerCase();
+        let p=0,n=0,ne=0;
+        for(const w of POSITIVE){if(lower.includes(w))p++;}
+        for(const w of NEGATIVE){if(lower.includes(w))n++;}
+        for(const w of NEUTRAL){if(lower.includes(w))ne++;}
+        if(p>n&&p>ne)return'positive';if(n>p&&n>ne)return'negative';return'neutral';
+    }
+    </script>
+</body>
+</html>
