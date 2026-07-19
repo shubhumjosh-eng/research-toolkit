@@ -1,7 +1,7 @@
 {
   "name": "research-toolkit",
-  "version": "3.0.0",
-  "description": "Deep research assistant for the terminal — searches 8 platforms (Reddit, YouTube, Hacker News, Bluesky, Discourse, Stack Exchange, News, Web) with smart query understanding and cross-source analysis",
+  "version": "3.1.0",
+  "description": "Deep research assistant for the terminal — searches 10 platforms (Reddit, YouTube, Hacker News, Bluesky, Discourse, Stack Exchange, News, Web, Semantic Scholar, arXiv) with smart query understanding, TF-IDF ranking, and parallel fetching",
   "main": "src/cli.js",
   "bin": {
     "research": "./src/cli.js"
