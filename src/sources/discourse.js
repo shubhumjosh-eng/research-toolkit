@@ -6,29 +6,31 @@ const limiter = new RateLimiter(1);
 
 const KNOWN_FORUMS = {
   tech: [
-    'discuss.python.org', 'forum.huggingface.co', 'discourse.gnome.org',
+    'discuss.python.org', 'discourse.gnome.org',
     'forum.ubuntu.com', 'discuss.ruby-lang.org', 'forum.kicad.org',
-    'discuss.elm-lang.org', 'community.min.io', 'forums.unrealengine.com',
-    'discourse.openstreetmap.org', 'meta.wikimedia.org',
+    'forums.unrealengine.com', 'community.openai.com',
+    'discuss.tensorflow.org', 'community.home-assistant.io',
+    'meta.wikimedia.org',
   ],
   science: [
-    'community.openai.com', 'discuss.tensorflow.org', 'forum.crossplane.io',
-    'discuss.atomized.org', 'community.home-assistant.io',
+    'discuss.tensorflow.org', 'forum.crossplane.io',
+    'community.home-assistant.io',
   ],
   gaming: [
     'forums.tomshardware.com', 'discourse.libretro.com',
-    'forums.gentoo.org', 'bbs.archlinux.org',
+    'forums.gentoo.org',
   ],
   general: [
-    'meta.discourse.org', 'forums.factorio.com', 'community.helix.video',
+    'meta.discourse.org', 'forums.tomshardware.com',
+    'community.openai.com', 'forums.unrealengine.com',
   ],
 };
 
 const CATEGORY_KEYWORDS = {
-  tech: ['programming', 'software', 'code', 'developer', 'python', 'javascript', 'rust', 'linux', 'api', 'database', 'server', 'docker', 'kubernetes', 'git', 'ai', 'machine learning'],
+  tech: ['programming', 'software', 'code', 'developer', 'python', 'javascript', 'rust', 'linux', 'api', 'database', 'server', 'docker', 'kubernetes', 'git', 'ai', 'machine learning', 'keyboard', 'hardware', 'computer'],
   science: ['research', 'study', 'experiment', 'hypothesis', 'theory', 'physics', 'chemistry', 'biology', 'math', 'data', 'analysis'],
   gaming: ['game', 'gaming', 'play', 'steam', 'console', 'pc gaming', 'mod', 'multiplayer'],
-  general: ['how to', 'best', 'recommend', 'advice', 'tips', 'help', 'question'],
+  general: ['how to', 'best', 'recommend', 'advice', 'tips', 'help', 'question', 'buy', 'review', 'compare'],
 };
 
 class DiscourseSource {
@@ -60,11 +62,13 @@ class DiscourseSource {
     await limiter.wait();
 
     try {
-      const response = await axios.get(`https://${domain}/search.json`, {
-        params: { q: query },
-        headers: { Accept: 'application/json' },
-        timeout: 15000,
-      });
+      const response = await limiter.retryRequest(() =>
+        axios.get(`https://${domain}/search.json`, {
+          params: { q: query },
+          headers: { Accept: 'application/json' },
+          timeout: 15000,
+        })
+      , 2, log);
 
       const data = response.data;
       const topics = (data.topics || []).slice(0, maxResults);
@@ -77,9 +81,9 @@ class DiscourseSource {
         results.push({
           id: `${domain}-${topic.id}`,
           title: topic.title || '',
-          text: matchingPost ? this.stripHtml(matchingPost.cooked || '') : '',
+          text: matchingPost ? this.stripHtml(matchingPost.blurb || '') : this.stripHtml(topic.excerpt || ''),
           url: `https://${domain}/t/${topic.slug}/${topic.id}`,
-          author: matchingPost?.display_username || '',
+          author: matchingPost?.username || topic.last_poster_username || '',
           score: topic.like_count || 0,
           views: topic.views || 0,
           replyCount: topic.posts_count || 0,
@@ -95,9 +99,9 @@ class DiscourseSource {
         results.push({
           id: `${domain}-post-${post.id}`,
           title: post.topic_title || '',
-          text: this.stripHtml(post.cooked || ''),
-          url: `https://${domain}/t/${post.topic_slug}/${post.topic_id}/${post.post_number}`,
-          author: post.display_username || '',
+          text: this.stripHtml(post.blurb || ''),
+          url: `https://${domain}/t/${post.topic_slug || ''}/${post.topic_id}/${post.post_number}`,
+          author: post.username || '',
           score: Math.round(post.score || 0),
           views: 0,
           replyCount: post.reply_count || 0,
@@ -123,18 +127,22 @@ class DiscourseSource {
   }
 
   async search(topic, options = {}) {
-    const { maxResults = 25, onLog } = options;
+    const { maxResults = 25, onLog, keywords } = options;
     const log = onLog || (() => {});
 
     const forums = this.discoverForums(topic);
     log('info', `Discourse: searching ${forums.length} forums...`);
+
+    const searchQuery = (keywords && keywords.length > 0)
+      ? keywords.slice(0, 4).join(' ')
+      : topic.split(/\s+/).filter(w => w.length > 3).slice(0, 4).join(' ');
 
     const allResults = [];
 
     for (const forum of forums) {
       if (allResults.length >= maxResults) break;
       try {
-        const results = await this.searchForum(forum, topic, {
+        const results = await this.searchForum(forum, searchQuery, {
           maxResults: Math.ceil(maxResults / forums.length),
           onLog,
         });
