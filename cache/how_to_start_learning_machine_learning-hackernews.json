@@ -1,0 +1,440 @@
+{
+  "timestamp": 1784439140331,
+  "topic": "how to start learning machine learning",
+  "source": "hackernews",
+  "count": 25,
+  "data": [
+    {
+      "id": "19294858",
+      "title": "Ask HN: How to start learning Machine Learning in 2019?",
+      "text": "",
+      "url": "https://news.ycombinator.com/item?id=19294858",
+      "author": "iamrobschiavone",
+      "score": 2,
+      "numComments": 1,
+      "created": "2019-03-03T15:28:03Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19294858",
+      "topComments": [
+        {
+          "author": "ignasl",
+          "text": "You can start Coursera prof Ng course on machine learning to test waters if you don&#x27;t know anything about machine learning.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "16167620",
+      "title": "Ask HN: How to Seriously Start with Machine Learning and AI",
+      "text": "Hey,<p>Since years I&#x27;ve been seeing tones of news &quot;how machine learing did smth... &quot; and today that&#x27;s enough with just reading how other people change the world with AI. I want to join into this area and scientificly understand how it everything works - make my own projects...<p>-I&#x27;m a third-year Computer Science student who just has passed most of the needed courses like obj programming,python course, databases, math statistics, algebra etc... I really enjoy playing with data like projecting databases, programming backed etc...<p>Everything I know until today - I have learned on my own(swift, python, backend). Mostly by practice and solving problems. Now I really want to start serious journey with Machine Learning and AI.<p>But by making some small research which made me realised that I don&#x27;t want just to implement already done frameworks for e.q face recognition (maybe I should?) \nI would like to understand the topic really seriously and be able to explore this area...\n---but here&#x27;s a problem because I don&#x27;t know how to start it. I&#x27;ve got enthusiasm, some ideas for a projects, but still don&#x27;t know almost anything about how exactly everything works.<p>When I was starting with programming, I read some books, watched online lecture and bang. I started doing my own projects. How to start in this more scientifically sophisticated area?<p>Are there any courses, books, online lectures which you can recommend me for a start to understand how it all works? Unfortunately, my university doesn&#x27;t lead any more interesting courses in this area... People here are just fascinated with it but nothing more complex...<p>I&#x27;m still young so why not to lose time on something that seems to be really fascinating ;)",
+      "url": "https://news.ycombinator.com/item?id=16167620",
+      "author": "meddy",
+      "score": 264,
+      "numComments": 71,
+      "created": "2018-01-17T13:19:24Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=16167620",
+      "topComments": [
+        {
+          "author": "sharemywin",
+          "text": "These were to 2 books I had when I took AI classes in college(~1998) pre-deep learning, CNN etc..http:&#x2F;&#x2F;aima.cs.berkeley.eduhttps:&#x2F;&#x2F;www.allbookstores.com&#x2F;book&#x2F;compare&#x2F;9780201533774might be good for some foundational stuff. I felt they were pretty readable.I remember having to do backprop in excel as one assignment.",
+          "score": 0
+        },
+        {
+          "author": "sharemywin",
+          "text": "some free courses:https:&#x2F;&#x2F;www.class-central.com&#x2F;subject&#x2F;aiSome guys self made Master&#x27;s program: \nhttps:&#x2F;&#x2F;hackernoon.com&#x2F;my-self-created-ai-masters-degree-ddc...",
+          "score": 0
+        },
+        {
+          "author": "joshgel",
+          "text": "I would highly recommend starting with course.fast.ai. Really helped me.",
+          "score": 0
+        },
+        {
+          "author": "darepublic",
+          "text": "Think you should pick a project that seems reasonable and then start working on it, learning what you need to along the way.",
+          "score": 0
+        },
+        {
+          "author": "nrjames",
+          "text": "IMO, to start with AI, it&#x27;s best to start as simple as possible so that you understand the algorithms that drive things that are accessible to tweak. If you are a gamer, think about the various AI routines that control pathfinding, resource collection, and strategy for computer players in strategy games. Some of the concepts of BFS and DFS build into Minimax strategies and other types of &quot;simple&quot; approaches to searching decision spaces&#x2F;states for optimal approaches to problem",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "20765553",
+      "title": "How to Start with Machine Learning",
+      "text": "",
+      "url": "https://www.blog.duomly.com/how-to-start-with-machine-learning/",
+      "author": "duomly",
+      "score": 255,
+      "numComments": 31,
+      "created": "2019-08-22T07:36:43Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20765553",
+      "topComments": [
+        {
+          "author": "Ftuuky",
+          "text": "Download Anaconda, get a dataset that can help you solve some problem and figure out with Google what you should do if error messages appear. ML is easy.",
+          "score": 0
+        },
+        {
+          "author": "r34",
+          "text": "Amongst dozens guides on AI and ML (&quot;how to start&quot;), I found Siraj Raval&#x27;s YT channel really helpful and inspiring.",
+          "score": 0
+        },
+        {
+          "author": "knob",
+          "text": "I hope this post helps someone looking to start with ML.When I started my journey, I thought I should do what this article mentions.&gt;&gt;First, you should learn the fundamentals:&gt;&gt;    Learn mathematicsMy problem is that &quot;learn mathematics&quot; can take years.  To me, it would be very frustrating.So I started down that path... and got completely overwhelmed.When everything took off and I went from 2 mph to 60 mph was when I did the fast.ai course.  The fast.ai course is strongly re",
+          "score": 0
+        },
+        {
+          "author": "allenleein",
+          "text": "For people who want to dive into Deep Learning, I highly recommend checking these resources:1. Fast.ai: https:&#x2F;&#x2F;www.fast.ai&#x2F;2. Open AI Spinning Up: https:&#x2F;&#x2F;spinningup.openai.com&#x2F;en&#x2F;latest&#x2F;index.htmlRead:1. A Google Brain engineer’s guide to entering AI\nhttps:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=184214222. How I became a machine learning practitioner\nhttps:&#x2F;&#x2F;blog.gregbrockman.com&#x2F;how-i-became-a-machine-learnin...",
+          "score": 0
+        },
+        {
+          "author": "streetcat1",
+          "text": "Another suggestion, get familiar with using auto ml tools, as those would likely perform most of the mathematics&#x2F;tuning&#x2F;training and deployment within the next 3 years.The key to ML is:1) The use case.\n2) The data (collecting, pre processing)\n3) The integration with other software.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "17880673",
+      "title": "How to Start in Machine Learning and Data Science",
+      "text": "",
+      "url": "https://semanti.ca/blog/?how-to-start-in-machine-learning-and-data-science",
+      "author": "semanti_ca",
+      "score": 6,
+      "numComments": 0,
+      "created": "2018-08-30T20:55:54Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=17880673",
+      "topComments": []
+    },
+    {
+      "id": "19064595",
+      "title": "How not to start with machine learning",
+      "text": "",
+      "url": "https://gergely.imreh.net/blog/2019/02/how-not-to-start-with-machine-learning/",
+      "author": "imrehg",
+      "score": 3,
+      "numComments": 0,
+      "created": "2019-02-02T18:15:19Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19064595",
+      "topComments": []
+    },
+    {
+      "id": "19333861",
+      "title": "How to Start with Machine Learning",
+      "text": "",
+      "url": "https://pythonbasics.org/how-to-seriously-start-with-machine-learning-and-ai/",
+      "author": "thecode",
+      "score": 2,
+      "numComments": 0,
+      "created": "2019-03-07T23:52:37Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19333861",
+      "topComments": []
+    },
+    {
+      "id": "10185786",
+      "title": "How to start with AI and machine learning?",
+      "text": "I&#x27;ve been coding for more than 14 years, but I haven&#x27;t figures out how to really code AI, I&#x27;ve learned to code all my lufe on my own, I have made some basic AI but it&#x27;s really complex full of recursuve functions, lots of ifs and complex ways of analyzing natural language, all done &quot;handmade&quot;. I bet I&#x27;m doing it wrong, I&#x27;m doing it the way I can. How can I really start with this?",
+      "url": "https://news.ycombinator.com/item?id=10185786",
+      "author": "mrcabada",
+      "score": 2,
+      "numComments": 1,
+      "created": "2015-09-08T14:16:08Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=10185786",
+      "topComments": [
+        {
+          "author": "RNeff",
+          "text": "There are MOOCs on Machine Learning and AI at both coursera.org and edx.org.  Stanford CS224N, Natural Language Processing, will be on the web, not a MOOC. http:&#x2F;&#x2F;web.stanford.edu&#x2F;class&#x2F;cs224n&#x2F;",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "15417014",
+      "title": "AI Weekly 6th Oct 2017",
+      "text": "Hi!<p>This is first AI Weekly! I decided to create this for people who don&#x27;t have enough time to check news every day, but still want to be up to date with AI industry. Hopefully also you will like it.<p>GENERAL\n1. Teachable Machine from Google - Teachable Machine is an experiment that makes it easier for anyone to start exploring how machine learning works. It lets you teach a machine using your camera – live in the browser, no coding required. It’s built with a library called deeplearn.js, which makes it easier for any web developer to get into machine learning, by training and running neural nets right in the browser. http:&#x2F;&#x2F;bit.ly&#x2F;2hPMG40<p>2. WaveNet launches in the Google Assistant - WaveNet is a new deep neural network for generating raw audio waveforms that is capable of producing better and more realistic-sounding speech than existing techniques. http:&#x2F;&#x2F;bit.ly&#x2F;2xWOVGD<p>3. Deep linear networks can learn to perform nonlinear computation due to imprecision in floating point arithmetic. http:&#x2F;&#x2F;bit.ly&#x2F;2hRgWeK<p>EVENTS\n1. StarCraft II AI Workshop - On November 3 and 4, Blizzard and DeepMind will co-host the StarCraft II AI Workshop at the Hilton Anaheim hotel, next to the Anaheim Convention Center. The workshop is an opportunity for AI researchers, academics, bot programmers, and industry professionals to get together, exchange ideas, and collaborate on all things AI, utilizing the recently-released StarCraft II Learning Environment and StarCraft II API as a development platform. The deadline to apply is October 11. http:&#x2F;&#x2F;blizz.ly&#x2F;2y5LhMR<p>PAPERS\n1. Neural Color Transfer between Images - propose of a new algorithm for color transfer between images that have perceptually similar semantic structures. http:&#x2F;&#x2F;bit.ly&#x2F;2yupYp4<p>VIDEOS\n1. How Support Vector Machines work - http:&#x2F;&#x2F;bit.ly&#x2F;2xV4DEr\n2. The Microsoft AI platform - GS07 - http:&#x2F;&#x2F;bit.ly&#x2F;2xkLacf\n3. Machine Learning for Managers (Lecture given at Harvard Business School) - http:&#x2F;&#x2F;bit.ly&#x2F;2z2DugP",
+      "url": "https://news.ycombinator.com/item?id=15417014",
+      "author": "TommyBar",
+      "score": 3,
+      "numComments": 1,
+      "created": "2017-10-06T14:27:16Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=15417014",
+      "topComments": [
+        {
+          "author": "PaulHoule",
+          "text": "I like 1 and 2.  As for 3,  I don&#x27;t think we should reward agents for abusing floats!",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "11458966",
+      "title": "Ask HN: How to start with maths required for ML or Deep Learning?",
+      "text": "I really want to learn about Machine&#x2F;Deep Learning. I tried to start with some ML courses and online resources but I got intimidated when I saw that it required really good background in Maths. I do have basic intro to Calculus, but I don&#x27;t know much. It seems to get really good at ML, you need to know a lot about Maths. I&#x27;m sure some of you have already crossed this hurdle, so I&#x27;m really interested to learn about your experience. I did google search and encountered this link[1] but by looking at the resources, it seems that it&#x27;s a lot of ground to cover. I feel overwhelmed, so I&#x27;m just looking to cover the minimal ground.<p>[1] https:&#x2F;&#x2F;www.quora.com&#x2F;How-do-I-learn-mathematics-for-machine-learning",
+      "url": "https://news.ycombinator.com/item?id=11458966",
+      "author": "n13",
+      "score": 15,
+      "numComments": 8,
+      "created": "2016-04-08T23:29:36Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=11458966",
+      "topComments": [
+        {
+          "author": "tgflynn",
+          "text": "To understand ML you&#x27;ll at least need a good understanding of vector differential calculus and linear algebra.  There are many free ressources available for learning math today, MOOC&#x27;s, free textbooks, etc. but if you were studying this in college it would amount to at least 2 semesters of courses that many people find quite challenging. So while you can probably learn this on your own it will likely require quite a significant time commitment as well as strong self-discipline.You may ",
+          "score": 0
+        },
+        {
+          "author": "curuinor",
+          "text": "This may not be the answer you were hoping for, but if you do not have the background already to do this sort of thing and if you are not already stubborn enough to start learning mathematics on your own, school may be for you. I assume you are not stubborn enough to start doing so because you have not done so already.A short master&#x27;s (3-4 semesters) is about enough to have all the math background + some application classes.",
+          "score": 0
+        },
+        {
+          "author": "kafkaesq",
+          "text": "Yes, it&#x27;s a lot of turf to cover.  Until very recently, most of it was at best, barely touched on in a typical undergraduate curriculum.  But here&#x27;s one source you&#x27;ll see cited a lot:An Introduction to Statistical Learninghttp:&#x2F;&#x2F;www-bcf.usc.edu&#x2F;~gareth&#x2F;ISL&#x2F;",
+          "score": 0
+        },
+        {
+          "author": "GFK_of_xmaspast",
+          "text": "To quote a mathematician you might have heard of, &quot;μή εἶναι βασιλικήν ἀτραπόν ἐπί γεωμετρίαν&quot;, that is, &quot;there is no royal road to geometry&quot;, that is, there&#x27;s no easy way to get there without doing it.",
+          "score": 0
+        },
+        {
+          "author": "chollida1",
+          "text": "I wrote this comment a while ago but I think its still very relevant...I wrote about this here: https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=8767092 and here: https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=9433316Long story short, the biggest mistake I see people making is not actually rolling up their sleeves and learning the math.People are often content to watch hour after hour of Udacity, Khan academy and Coursera videos but the applied follow up is where most people drop off. At",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "41289173",
+      "title": "Ask HN: How to Start with ML in 2024?",
+      "text": "I am a JavaScript developer looking to expand my skills into AI and machine learning (ML). However, my research online has left me feeling confused due to the overwhelming number of courses, books, and resources available. I’m uncertain about where to begin and what to prioritize. In my professional network, I’ve received mixed advice. Some recommend starting with Andrew Ng&#x27;s course on Coursera, while others suggest skipping it entirely.<p>To clarify my inquiry, I’d like to break it down into two parts:<p><pre><code>    1. Applied ML: What should I focus on when it comes to integrating machine learning into products?\n    2. Theoretical ML: What should I prioritize regarding the theoretical or research aspects of machine learning?\n</code></pre>\nSo far, I have shortlisted two O&#x27;Reilly books[1][2] for the applied part.<p>For the theoretical part, I’m considering the fast.ai course[3]<p>Is this a good starting point, or is there a better approach I could take?<p>[1] Hands on LLM -  https:&#x2F;&#x2F;learning.oreilly.com&#x2F;library&#x2F;view&#x2F;hands-on-large-language&#x2F;9781098150952&#x2F;<p>[2] Applied machine learning and ai for engineers - https:&#x2F;&#x2F;learning.oreilly.com&#x2F;library&#x2F;view&#x2F;applied-machine-learning&#x2F;9781492098041&#x2F;<p>[3] https:&#x2F;&#x2F;course.fast.ai&#x2F;",
+      "url": "https://news.ycombinator.com/item?id=41289173",
+      "author": "inapis",
+      "score": 14,
+      "numComments": 2,
+      "created": "2024-08-19T08:52:01Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=41289173",
+      "topComments": [
+        {
+          "author": "Greamy",
+          "text": "I&#x27;ve only quickly skimmed the course on fast.ai and it seems to me that it has a more practical approach. It also says that math is not really important and high school math should do, which i do not agree with unless you only care about how to implement different techniques and hope for the best.To understand the subject properly, I would say that you actually need a bit of a mathematical background to be able to understand the whys and hows of ML and DL.\nFor this, I would start with Eleme",
+          "score": 0
+        },
+        {
+          "author": "pizza",
+          "text": "FastAI course for 1, the Little Book of Deep Learning [0] &#x2F; Deep Learning (Goodfellow et al) &#x2F; the entire set of Kevin Murphy textbooks for 2 (in order of detail)[0] https:&#x2F;&#x2F;fleuret.org&#x2F;francois&#x2F;lbdl.html",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "13996522",
+      "title": "Ask HN: How to get start with publishing research papers?",
+      "text": "I work as an engineer in machine learning&#x2F;big data field. Its not part of my day job but I wanted to get started with publishing research papers. A research portfolio will help me with job, learning, immigration and higher studies.<p>There is no one I can find to pair with. I am willing to do a lot of engineering work, data work but I have no experience when it comes to writing and publishing papers. A lot of papers from ICML and NIPS are beyond my understanding even though I can easily implement classification, regression, etc.<p>Is there a platform or community that could be of help?",
+      "url": "https://news.ycombinator.com/item?id=13996522",
+      "author": "vs2370",
+      "score": 5,
+      "numComments": 3,
+      "created": "2017-03-30T15:59:43Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=13996522",
+      "topComments": []
+    },
+    {
+      "id": "4183663",
+      "title": "Getting into the machine learning/NLP business",
+      "text": "I'm working as a web software developer but I'm really interested in the Machine Learning and Natural Language Processing fields. I've begun self studying(I took the ML class from Stanford) and I'm playing with the idea to start a business using this technologies.<p>The point is that I don't know how to start, what could be the potential clients and market, how much knowledge would be necessary to get clients...<p>There are a lot of stories in HN about web applications, but I didn't read anything about this kind of companies/startups, maybe because this technologies require building personalized solutions instead of the one to many from most startups.<p>I think that the path will get clearer as I keep reading and getting practice, but I'd nice to know some experiences from another people with similar interests.",
+      "url": "https://news.ycombinator.com/item?id=4183663",
+      "author": "mfalcon",
+      "score": 5,
+      "numComments": 1,
+      "created": "2012-07-01T02:59:26Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=4183663",
+      "topComments": []
+    },
+    {
+      "id": "14108198",
+      "title": "Ask HN: MachineLearning consulting for feedback on predictive analytics platform",
+      "text": "I&#x27;m working on machine learning platform for building predictive models (https:&#x2F;&#x2F;mljar.com). I&#x27;m looking for people who need predictive analytics, but don&#x27;t know how to start or how to train models or deploy models. I would like to offer you ML consulting in exchange for feedback on my product.",
+      "url": "https://news.ycombinator.com/item?id=14108198",
+      "author": "pplonski86",
+      "score": 4,
+      "numComments": 2,
+      "created": "2017-04-13T16:06:55Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=14108198",
+      "topComments": []
+    },
+    {
+      "id": "34394136",
+      "title": "Ask HN: How to negotiate start up job offers?",
+      "text": "Hi HN,<p>I am about to finish grad school and am looking to get a job at an early stage startup (roughly something 1-2 years old and in the 10-100 employee stage). For context, I am finishing a PhD in Machine Learning&#x2F;robotics at a top school, and am hoping to land a job in the bay area. I am about to start reaching out to people &#x2F; submitting applications, and am wondering if you could offer me some tips about how to negotiate offers.<p>Stuff like businessinsider and levels.FYI have job salary info for machine learning engineers at big tech companies, but I am not sure to what extent that informs salaries for start ups, and people in my network didn&#x27;t have much to share about that. There are some pretty good articles about this online (https:&#x2F;&#x2F;theriveter.co&#x2F;voice&#x2F;ask-for-equity-in-your-startup-company&#x2F; , https:&#x2F;&#x2F;www.stockoptioncounsel.com&#x2F;blog&#x2F;joining-an-early-stage-startup-negotiateyour-equity-wisely-with-stock-option-counsel-tips&#x2F;2014&#x2F;2&#x2F;12), but I couldn&#x27;t find any prior discussion of this on HN so figured i&#x27;d ask.",
+      "url": "https://news.ycombinator.com/item?id=34394136",
+      "author": "andreyk",
+      "score": 1,
+      "numComments": 0,
+      "created": "2023-01-15T22:11:51Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=34394136",
+      "topComments": []
+    },
+    {
+      "id": "19116337",
+      "title": "Machine learning explained on how to perform linear classification with TF",
+      "text": "Machine learning explained on fritz hearbeat. A great article to start machine learning with TensorFlow and Dense Neural Networks.\n.\nhttps:&#x2F;&#x2F;heartbeat.fritz.ai&#x2F;classification-with-tensorflow-and-dense-neural-networks-8299327a818a",
+      "url": "https://news.ycombinator.com/item?id=19116337",
+      "author": "mohomr",
+      "score": 1,
+      "numComments": 0,
+      "created": "2019-02-08T17:11:29Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19116337",
+      "topComments": []
+    },
+    {
+      "id": "14767060",
+      "title": "Ask HN: How to start blogging",
+      "text": "Hi HN,<p>I&#x27;m currently a software engineering student, looking forward to start a master in machine learning and with some experience as developer. I really like to read blogs and papers, and I would like to have my own blog. Often I have some ideas but I can&#x27;t create posts regularly. How did you start blogging? Did you have a schedule (blog weekly maybe?)? Where do ideas come from?<p>Thanks HN!",
+      "url": "https://news.ycombinator.com/item?id=14767060",
+      "author": "aaossa",
+      "score": 1,
+      "numComments": 0,
+      "created": "2017-07-14T02:50:14Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=14767060",
+      "topComments": []
+    },
+    {
+      "id": "8697772",
+      "title": "Ask HN: How or where to begin learning mathematics from first principles?",
+      "text": "A little bit of background:<p>As I&#x27;ve become more skilled with programming and electronics I have felt myself begin to near a wall. My knowledge of and skills in math is relatively poor and all the interesting things that make up the more advanced programming and electronics pursuits seem to be heavily based on math.<p>When I butt heads with these more advanced topics I find I resort to scouring the internet to cobble together pieces of various tutorials and guides. While it does feel good in a way to hack together limited understandings to make satisfactory solutions I&#x27;m beginning to feel less like a hacker and more like a hack. The knowledge I gain is shallow and I don&#x27;t think my tactics will get me much further.<p>Instead of working backwards from implementation I would like to start from the beginning and learn math the proper way. Unfortunately most of the resources I find online seem to more focused on teaching me how to <i>solve math problems</i>. I have no interest in solving specific math problems on a test, I&#x27;m not going to school and I doubt I will ever take a math test again in my life. I want to work up from first principles and gain the tools to reason about the world mathematically and understand the cool things that are currently out of my reach like antenna design, machine learning, electromagnetism, cryptography etc.<p>Unfortunately I so know so little I have no idea how where to start. What websites are helpful, what books I should buy, etc. I was hoping someone here could share. Thank you.",
+      "url": "https://news.ycombinator.com/item?id=8697772",
+      "author": "smtucker",
+      "score": 345,
+      "numComments": 123,
+      "created": "2014-12-04T04:00:20Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=8697772",
+      "topComments": []
+    },
+    {
+      "id": "12374837",
+      "title": "Ask HN: Starting machine learning? Books, videos and other resources",
+      "text": "I want to start learning about machine learning.<p>I&#x27;m a seasoned software developer, worked with things like C#, Ruby, Go, Javascript, Elixir throughout the years.<p>Never touched machine learning, but eager to get started.<p>How would you recommend a developer start diving into machine learning?<p>Any paid for video resources or books?",
+      "url": "https://news.ycombinator.com/item?id=12374837",
+      "author": "sergiotapia",
+      "score": 20,
+      "numComments": 9,
+      "created": "2016-08-28T01:00:40Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12374837",
+      "topComments": []
+    },
+    {
+      "id": "18649568",
+      "title": "The cold start problem: how to build your machine learning portfolio",
+      "text": "",
+      "url": "https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9",
+      "author": "sharemywin",
+      "score": 340,
+      "numComments": 99,
+      "created": "2018-12-10T17:35:41Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=18649568",
+      "topComments": []
+    },
+    {
+      "id": "18592242",
+      "title": "The cold start problem: how to build a machine learning portfolio",
+      "text": "",
+      "url": "https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9",
+      "author": "edouard-harris",
+      "score": 4,
+      "numComments": 0,
+      "created": "2018-12-03T19:48:03Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=18592242",
+      "topComments": []
+    },
+    {
+      "id": "17800527",
+      "title": "The cold start problem: how to break into machine learning",
+      "text": "",
+      "url": "https://towardsdatascience.com/the-cold-start-problem-how-to-break-into-machine-learning-732ee9fedf1d",
+      "author": "edouard-harris",
+      "score": 1,
+      "numComments": 0,
+      "created": "2018-08-20T15:04:05Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=17800527",
+      "topComments": []
+    },
+    {
+      "id": "10676405",
+      "title": "Ask HN: Where to begin learning about Neural Nets",
+      "text": "I want to start learning more about machine learning, neural nets, and how to apply them practically. I&#x27;m looking for advice, links, recommendations. Any thing python related would be a huge plus too.",
+      "url": "https://news.ycombinator.com/item?id=10676405",
+      "author": "MollyR",
+      "score": 4,
+      "numComments": 2,
+      "created": "2015-12-04T14:17:47Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=10676405",
+      "topComments": []
+    },
+    {
+      "id": "19575013",
+      "title": "Ask HN: Machine Learning Where to Start?",
+      "text": "How&#x2F;where to learn machine learning from scratch? i previously asked a similar question on learning code and got awesome answers, so trying my luck on this topic :)",
+      "url": "https://news.ycombinator.com/item?id=19575013",
+      "author": "totaldude87",
+      "score": 3,
+      "numComments": 1,
+      "created": "2019-04-04T17:39:33Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19575013",
+      "topComments": []
+    },
+    {
+      "id": "22173935",
+      "title": "Ask HN: How would you start Machine Learning consultancy?",
+      "text": "If you were to start consulting as Machine Learning expert, how would you go about doing that? Assuming you have enough knowledge.<p>I have some background in ML and I can catch up quickly when given opportunity. Right now, I work for a major company but I would like the freedom of consultant, to be able to work on smaller projects and gain a lot of exposure to various ML&#x2F;AI areas.",
+      "url": "https://news.ycombinator.com/item?id=22173935",
+      "author": "getintoML",
+      "score": 1,
+      "numComments": 1,
+      "created": "2020-01-28T20:56:13Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=22173935",
+      "topComments": []
+    },
+    {
+      "id": "38412161",
+      "title": "Ask HN: How do I make math captivating for myself?",
+      "text": "I did a bachelor&#x27;s program in computer science, which, at other universities, might be classified as a software engineering program. The curriculum focused on programming, software engineering, algorithms, and other essentials for the average developer in my country, but it lacked courses in math. This absence of math has led to occasional poor self-esteem on my part. Additionally, I&#x27;ve grown tired of what I can best describe as &#x27;code monkey&#x27; grunt work, finding it lacking in intellectual stimulation. I also enjoy hacking around with machine learning in my spare time, and a stronger foundation in math would be beneficial.<p>This led me to study up on the prerequisites for university-level math, specifically algebra and calculus. Now, I&#x27;m on track to take courses in linear algebra and other undergraduate math subjects this spring. To prepare, I&#x27;ve self-studied linear algebra and it&#x27;s been going well so far. However, I&#x27;ve noticed that my behavior is a hindrance. Allow me to explain:<p>As a teenager learning programming, I found it captivating. I could sit for 12 hours, completely losing track of the world, forgetting even to eat and drink. This intense focus continued through university and into my career, benefiting me greatly. I&#x27;ve noticed similar levels of focus when gaming or working out, a state of deep concentration.<p>However, this is not the case with mathematics. My mind seems to actively resist it. I catch myself thinking, &#x27;I deserve a break for the day,&#x27; and then turn to doom-scrolling on HN, or I start considering how to make math more fun by turning it into a game and brainstorming a new programming project. This might be the first occasion I spend a considerable amount of time on something that doesn&#x27;t make me &quot;lose myself&quot;, which is unsettling. I&#x27;ve reflected on whether I am neurodivergent or if this is normal. Regardless, I can&#x27;t change how my brain behaves, which poses a challenge to my further studies in math unless I work around it somehow.<p>Thus, I turn to you. Have any of you experienced something similar? Did you manage to overcome it with the help of anything more than sheer force of will?",
+      "url": "https://news.ycombinator.com/item?id=38412161",
+      "author": "prendino",
+      "score": 3,
+      "numComments": 3,
+      "created": "2023-11-25T08:33:00Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=38412161",
+      "topComments": []
+    }
+  ]
+}
