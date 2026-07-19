@@ -1,0 +1,2181 @@
+{
+  "clusters": [
+    {
+      "name": "General",
+      "count": 44,
+      "items": [
+        {
+          "title": "Rust rust-lang.org › en-US   Rust Programming Language",
+          "url": "https://rust-lang.org/en-US/",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 100,
+          "snippet": "org › en-US   Rust Programming Language"
+        },
+        {
+          "title": "04:03  YouTube Rust programming language explained | ThePrimeagen and Lex Fridman ... March 25, 2025",
+          "url": "https://www.youtube.com/watch?v=cA7flwaBiC0",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 100,
+          "snippet": "04:03  YouTube Rust programming language explained | ThePrimeagen and Lex Fridman"
+        },
+        {
+          "id": "16302530",
+          "title": "RustBelt: securing the foundations of the Rust programming language",
+          "text": "",
+          "url": "https://dl.acm.org/citation.cfm?doid=3177123.3158154",
+          "author": "based2",
+          "score": 294,
+          "numComments": 105,
+          "created": "2018-02-04T12:49:34Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=16302530",
+          "topComments": [
+            {
+              "author": "fovc",
+              "text": "Adrian Colyer did a good write up of this paper recently on The Morning Paper : https:&#x2F;&#x2F;blog.acolyer.org&#x2F;2018&#x2F;01&#x2F;18&#x2F;rustbelt-securing-the-fo...",
+              "score": 0
+            },
+            {
+              "author": "chrismorgan",
+              "text": "My favourite part:&gt; our verification work resulted in uncovering and fixing a bug in Rust’s standard library, demonstrating that our model of Rust is realistic enough to be useful.The bug was https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;issues&#x2F;41622.",
+              "score": 0
+            },
+            {
+              "author": "bennofs",
+              "text": "Does this prove that the current borrowck rules are sufficient to catch all possible mistakes? For example, does it catch stuff like https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;issues&#x2F;31287 or https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;issues&#x2F;38899?",
+              "score": 0
+            },
+            {
+              "author": "Asdfbla",
+              "text": "I think I can understand and appreciate many different aspects of Computer science, but programming language theory truly is a bit too arcane and formal for me. I still try to follow it somewhat though (like when the Morning Paper had its nice writeup about RustBelt) and I enjoy learning Rust (which exposes you to the theory underlying its design more than other languages). Maybe it&#x27;s good that the results of formal methods now find more practical application, so it&#x27;s easier to get peo",
+              "score": 0
+            },
+            {
+              "author": "nukeop",
+              "text": "I have recently performed a relatively simple development by using programming languages on which I had low-to-to-no experience: Perl (low), Ruby (no), Rust (no) and Go (no). Note that I am quite adaptable on the programming language front and that this small experiment was precisely meant to showcase these adaptability skills. Rust was, by far, the most difficult-to-learn, difficult-to-research, counter-intuitive, unfriendly, constrained, unappealing, etc. of all of them. Warnings and errors ap",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "RustBelt: securing the foundations of the Rust programming language"
+        },
+        {
+          "id": "3501980",
+          "title": "Mozilla releases version 0.1 of the Rust programming language",
+          "text": "",
+          "url": "http://mail.mozilla.org/pipermail/rust-dev/2012-January/001256.html",
+          "author": "pcwalton",
+          "score": 236,
+          "numComments": 82,
+          "created": "2012-01-23T20:26:22Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=3501980",
+          "topComments": [
+            {
+              "author": "markerdmann",
+              "text": "In case you're wondering why we need another programming language, this short audio clip from Brendan Eich is great:http://www.aminutewithbrendan.com/pages/20101206\"With Rust, what Graydon has been trying to do is focus on safety and also on you could say concurrency -- the actor model which I've spoken about recently - and the two are related in subtle ways.\"",
+              "score": 0
+            },
+            {
+              "author": "kibwen",
+              "text": "If anyone decides to give Rust a spin and is compelled to help out by providing feedback, the devs love to hear comments and criticism from users of the language:https://mail.mozilla.org/listinfo/rust-dev",
+              "score": 0
+            },
+            {
+              "author": "protomyth",
+              "text": "Is there a reference manual anywhere?",
+              "score": 0
+            },
+            {
+              "author": "kristianp",
+              "text": "Original HN thread here: http://news.ycombinator.com/item?id=3491557https and http links should be treated the same for de-duplication purposes, although this thread has a few more links, and points.",
+              "score": 0
+            },
+            {
+              "author": "swah",
+              "text": "Implementation partially in OCaml! (But why don't we use Ocaml again?)",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "1 of the Rust programming language Mozilla releases version 0"
+        },
+        {
+          "id": "45680023",
+          "title": "Rouille – Rust Programming, in French",
+          "text": "",
+          "url": "https://github.com/bnjbvr/rouille",
+          "author": "mihau",
+          "score": 216,
+          "numComments": 157,
+          "created": "2025-10-23T09:43:52Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=45680023",
+          "topComments": [
+            {
+              "author": "the__alchemist",
+              "text": "There is also a Rust minimal HTTP server by this name. (Incidentally, one of the few that isn&#x27;t Async.)",
+              "score": 0
+            },
+            {
+              "author": "gnarlouse",
+              "text": "Listen, if you didn’t just spend at least 5 minutes trying to make random foreign accents reading the code to yourself out loud trying to figure out what the code does…We’re different people.",
+              "score": 0
+            },
+            {
+              "author": "jacknews",
+              "text": "This is fun. My son is learning esperanto, is there a version for that, maybe a weekend projekto for him.",
+              "score": 0
+            },
+            {
+              "author": "joshdavham",
+              "text": "Is the compiler now gonna scream at me for using the wrong gender?",
+              "score": 0
+            },
+            {
+              "author": "userbinator",
+              "text": "Be sure to look at the &quot;other languages&quot; section; and then wonder whether all of it was generated by AI.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "Rouille – Rust Programming, in French"
+        },
+        {
+          "id": "12065912",
+          "title": "The Rustonomicon: The Dark Arts of Advanced and Unsafe Rust Programming",
+          "text": "",
+          "url": "https://doc.rust-lang.org/nomicon/README.html",
+          "author": "jvns",
+          "score": 191,
+          "numComments": 59,
+          "created": "2016-07-10T15:32:22Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=12065912",
+          "topComments": [
+            {
+              "author": "rattray",
+              "text": "I really hope nobody mistakes the sexy title of this book as a reason to learn unsafe rust. If it can be done without this advanced feature, it probably should.",
+              "score": 0
+            },
+            {
+              "author": "Gankro",
+              "text": "Hey there, I wrote pretty much all of this. Sadly I wasn&#x27;t ever able to finish it, and won&#x27;t ever be able to due to contractual obligations. It has since languished due to lack of maintainership, even though it&#x27;s part of the official rust docs.If anyone wants to take up the mantle and clean it up, it would be greatly appreciated!",
+              "score": 0
+            },
+            {
+              "author": "Animats",
+              "text": "&quot;However BTreeMap is implemented using a modest spoonful of Unsafe Rust (most collections are).&quot;Unsafe pure Rust code reflects a lack of expressive power.  How raw memory becomes a typed object is a touchy area for arrays. To do collections safely, you have to be able to talk about an array which is partially valid. This is quite possible, but you need formal verification like constructs to do it.  You need to be able to express that a slice of an array is valid, even though the whole ",
+              "score": 0
+            },
+            {
+              "author": "arc0re",
+              "text": "I&#x27;m a Lovecraft fan, never really touched Rust, and a name like &quot;Rustonomicon&quot; could really get me into it, hehe.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "The Rustonomicon: The Dark Arts of Advanced and Unsafe Rust Programming"
+        },
+        {
+          "id": "17831933",
+          "title": "The Dark Arts of Advanced and Unsafe Rust Programming",
+          "text": "",
+          "url": "https://doc.rust-lang.org/nomicon/",
+          "author": "ngaut",
+          "score": 181,
+          "numComments": 25,
+          "created": "2018-08-24T00:54:09Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=17831933",
+          "topComments": [
+            {
+              "author": "gwbas1c",
+              "text": "I recently had to write a lot of unsafe code in C# to interoperate with a driver.As advanced as modern languages are, the excellent memory models only work within the language. Interoperability requires that you can work with memory directly when needed. (And only when needed.) I don&#x27;t have a lot of Rust experience, but C# has plenty of tricks to avoid unsafe code but get close enough to working with real memory.One thing that would help is if there was some kind of a tool that could take C",
+              "score": 0
+            },
+            {
+              "author": "exitcode00",
+              "text": "Ada does, and has better and more clear conventions for &quot;unsafe&quot; programming (pointer arithmetic, conversions, etc) but does it naturally without special keywords and esoteric conventions through its package system. Too bad no one will ever give it a chance due to is syntax :(Rust is nothing but a slapdash C style copy of its semantics.",
+              "score": 0
+            },
+            {
+              "author": "habitue",
+              "text": "It&#x27;s a shame they didn&#x27;t ever resume work on this. Apparently the guy who wrote it can&#x27;t work on it any more",
+              "score": 0
+            },
+            {
+              "author": "_cbsz",
+              "text": "IMO title should at least contain &quot;The Rustonomicon&quot;; &quot;The Dark Arts of Advanced and Unsafe Rust Programming&quot; is the subtitle. I wouldn&#x27;t have clicked through if I had known that the link was to this document.",
+              "score": 0
+            },
+            {
+              "author": "jake_the_third",
+              "text": "This is not meant as criticism of this book as it is of my own reading and comprehension abilities (English is not my mother tongue), but when I attempted to read the book, I found the writing style employed very off-putting and distracting. In contrast, I usually find documentation written in a formal technical style like standards and references to be clear and concise; I don&#x27;t have to exert mental effort trying to decipher inconsequential verbiage, idioms, and cultural references beyond ",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "The Dark Arts of Advanced and Unsafe Rust Programming"
+        },
+        {
+          "id": "3027777",
+          "title": "The Rust Programming Language",
+          "text": "",
+          "url": "http://dl.dropbox.com/u/4186469/rust-all-hands-w2011/assets/fallback/index.html",
+          "author": "jamii",
+          "score": 170,
+          "numComments": 79,
+          "created": "2011-09-22T20:59:59Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=3027777",
+          "topComments": [
+            {
+              "author": "cnlwsu",
+              "text": "In chrome I am just getting a blank page with some javascript errors.  In IE I only can see the right half of the presentation.  Mozilla is supporting FF well though :)",
+              "score": 0
+            },
+            {
+              "author": "pcwalton",
+              "text": "Slideshare here for those having trouble with the Dropbox-hosted version: http://www.slideshare.net/pcwalton/rust-all-hands-winter-201...",
+              "score": 0
+            },
+            {
+              "author": "ynniv",
+              "text": "Good call on single threaded language bridging. Multithreading in XPCOM was either bad or worse depending on the phase of the moon. I almost had an important project tank because XPCOM \"out\" parameters (unfortunately used internally whenever a method had a return value) were not thread-safe. We ended up using a different threading library and only making synchronous XPCOM calls.",
+              "score": 0
+            },
+            {
+              "author": "zobzu",
+              "text": "It looks pretty cool and oriented at making a browser engine. (tl;dr version i guess)",
+              "score": 0
+            },
+            {
+              "author": "icebraining",
+              "text": "Older discussion: http://news.ycombinator.com/item?id=1498528",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "The Rust Programming Language"
+        }
+      ]
+    },
+    {
+      "name": "Getting Started",
+      "count": 26,
+      "items": [
+        {
+          "title": "Rust Programming Tutorial: 13 Steps from Zero to CLI [2026] - tech-insider.org",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1vZERnQXh6OWUtQkstX1hQeDJUU3ZSZ3lnNkRqTlYyQ2J3N3Qzc0VLWjlZekVsUmtYQXp5RERadUZmVl9ocE9FSi1DTExwcTBrUDVCYmhyRXdKejZETVBNNlNZeUtkY2J2QkpkZG1sSnlTbEJsQ05J?oc=5",
+          "publishedAt": "Fri, 24 Apr 2026 07:00:00 GMT",
+          "source": "tech-insider.org",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 100,
+          "snippet": "Rust Programming Tutorial: 13 Steps from Zero to CLI [2026] - tech-insider"
+        },
+        {
+          "title": "Python Developers Looking At Introducing The Rust Programming Language In CPython - Phoronix",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5NVnVFOHlHa25LcHB6VlcyNHIxaExPMlNxVlNMZTdpTFFTRG9QV3BIemdwUGtyU0k5alprOFZmd1h1YWRFYUZiMngyMW1HUXpFZTk0cXlJNmxJS0NUck1WNmZXbTM?oc=5",
+          "publishedAt": "Tue, 18 Nov 2025 08:00:00 GMT",
+          "source": "Phoronix",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 100,
+          "snippet": "Python Developers Looking At Introducing The Rust Programming Language In CPython - Phoronix"
+        },
+        {
+          "title": "15:09  YouTube Rust Tutorial #1 - Introduction To Rust Programming - YouTube May 9, 2022   477K",
+          "url": "https://www.youtube.com/watch?v=T_KrYLW4jw8",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 100,
+          "snippet": "15:09  YouTube Rust Tutorial #1 - Introduction To Rust Programming - YouTube May 9, 2022   477K"
+        },
+        {
+          "title": "03:30:58  YouTube Learn the Rust programming language - Course for beginners - YouTube May 6, 2025",
+          "url": "https://www.youtube.com/watch?v=gAX3Zj-JGE0",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 100,
+          "snippet": "03:30:58  YouTube Learn the Rust programming language - Course for beginners - YouTube May 6, 2025"
+        },
+        {
+          "id": "35522076",
+          "title": "Becoming Rustacean: Resources to Learn Rust Programming",
+          "text": "",
+          "url": "https://www.nativebyx.dev/rust/becoming-rustacean/awesome-free-online-resources-to-earn-rust-programming-language.html",
+          "author": "abelhn",
+          "score": 153,
+          "numComments": 47,
+          "created": "2023-04-11T07:45:07Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=35522076",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "Becoming Rustacean: Resources to Learn Rust Programming"
+        },
+        {
+          "id": "stackoverflow-13322479",
+          "title": "How to benchmark programs in Rust?",
+          "text": "",
+          "url": "https://stackoverflow.com/questions/13322479/how-to-benchmark-programs-in-rust",
+          "author": "php--",
+          "authorRep": 3327,
+          "score": 204,
+          "viewCount": 132192,
+          "answerCount": 9,
+          "isAnswered": true,
+          "tags": [
+            "time",
+            "benchmarking",
+            "rust"
+          ],
+          "created": "2012-11-10T13:31:24.000Z",
+          "source": "stackexchange",
+          "sourceSite": "stackoverflow",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 35,
+          "snippet": "How to benchmark programs in Rust"
+        },
+        {
+          "title": "Why you should learn Rust, especially if you're new to programming - How-To Geek",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQeEkyLWFrZW5xSzdoMEhmaF83T0wydmdzZEdXZUlDa2JtSlRTMzNhZGcxYU1kejRpODBiZTBZeUNOU2VhZ1E4aktKeWhqVlRnTkNsVVZQY1Q5clhnQko4TjlUSlhNMUJWenIybDlIZUpsVTY4Si00TzJXdFJTR3dfaFVWTm1VR0dxM1p5SDR0MXgtbjFzZ1E?oc=5",
+          "publishedAt": "Mon, 16 Feb 2026 08:00:00 GMT",
+          "source": "How-To Geek",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 30,
+          "snippet": "Why you should learn Rust, especially if you're new to programming - How-To Geek"
+        },
+        {
+          "title": "Reddit reddit.com   › r/learnrust  › rust - a living hell - the perspective from a programmer of 30 years   r/learnrust on Reddit: Rust - A Living Hell - The Perspective From A Programmer Of 30 Years",
+          "url": "https://www.reddit.com/r/learnrust/comments/1binxlv/rust_a_living_hell_the_perspective_from_a/",
+          "description": "I have been programming for 30 years. I know C, Haskell, Java, Kotlin, Swift, Python, APL. I have always had fun programming. Every language I have learned and used was an exciting experience. It has always been fun to learn new ways of thinking for approaching and solving problems. Each one gave a ",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 30,
+          "snippet": "I have been programming for 30 years I have always had fun programming I know C, Haskell, Java, Kotlin, Swift, Python, APL Every language I have learned and used was an exciting experience"
+        }
+      ]
+    },
+    {
+      "name": "Future & Trends",
+      "count": 9,
+      "items": [
+        {
+          "id": "12291615",
+          "title": "What’s New with “The Rust Programming Language”?",
+          "text": "",
+          "url": "http://words.steveklabnik.com/whats-new-with-the-rust-programming-language",
+          "author": "doppp",
+          "score": 143,
+          "numComments": 50,
+          "created": "2016-08-15T16:50:24Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=12291615",
+          "topComments": [],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "What’s New with “The Rust Programming Language”"
+        },
+        {
+          "id": "21682867",
+          "title": "Microsoft is creating a new Rust-based programming language for secure coding",
+          "text": "",
+          "url": "https://www.zdnet.com/article/microsoft-were-creating-a-new-rust-based-programming-language-for-secure-coding/",
+          "author": "TanakaTarou",
+          "score": 274,
+          "numComments": 194,
+          "created": "2019-12-02T15:00:17Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=21682867",
+          "topComments": [
+            {
+              "author": "sansnomme",
+              "text": "Oh no, I bet it&#x27;s gonna be a C# flavored Rust. None of Rust&#x27;s terse syntax and functional influence. It&#x27;s going to be full-blown Java-style OOP with plenty of Wnd handles to be thrown around. Yikes, I certainly hope I am not right.",
+              "score": 0
+            },
+            {
+              "author": "dlbucci",
+              "text": "What does &quot;Rust-based&quot; even mean? Inspired by Rust? Does it transpile to Rust or something? Very confusing phrasing to me...",
+              "score": 0
+            },
+            {
+              "author": "yarrel",
+              "text": "RScript.",
+              "score": 0
+            },
+            {
+              "author": "Someone1234",
+              "text": "This slideshow is pretty interesting (in particular slide 14):https:&#x2F;&#x2F;www.slideshare.net&#x2F;KTNUK&#x2F;digital-security-by-design-...Talks about sandboxing C&#x2F;C++ libraries that interact with Rust. Kinda make a safe unsafe sandbox Rust interface (&quot;less unsafe?&quot;) if I understand it correctly (I likely don&#x27;t).The actual linked article is all over the place, I cannot make heads or tails of it and seems to be conflating multiple security issues&#x2F;mitigations togethe",
+              "score": 0
+            },
+            {
+              "author": "saagarjha",
+              "text": "Video where this was introduced, which has more details: https:&#x2F;&#x2F;vimeo.com&#x2F;376180843Slides: https:&#x2F;&#x2F;www.slideshare.net&#x2F;KTNUK&#x2F;digital-security-by-design-...",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 60,
+          "snippet": "Microsoft is creating a new Rust-based programming language for secure coding"
+        },
+        {
+          "title": "Rust adoption stalls amid shift in memory-safe programming trends - Developer Tech News",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQeWNFTFdfMDlBV2V5TURUZEVZd2lSOGE4NzVUUHZRZ2VoYkd1WV80dnFSRTFIOE9Ka1RqT3FnU01vUElYTVRvMkk5X3gybzFkMjdlakVGN0VNQTVXM2NZM1ZWYzBmUDhfVHYwdnNsbmdFdUZJQzFyRzJ2MzMxaS1WbG5TR0xDMjNwVmlmT0dJcDBQQQ?oc=5",
+          "publishedAt": "Mon, 13 Apr 2026 16:46:20 GMT",
+          "source": "Developer Tech News",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 30,
+          "snippet": "Rust adoption stalls amid shift in memory-safe programming trends - Developer Tech News"
+        },
+        {
+          "title": "13-Year Rust Veteran Creates New Programming Language from Scratch with Claude, Writes 100,000 Lines of Code in 11 Days - 36Kr",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9hZFJ3anZlemVYQlMxV1Bva2xzaF9fd2pwbldKT1lmRjk4TkpsNll6SXo0Q0hfMkVXRVlhV3FHaTQzY25ZQ2lZTm5CTUh1cWJYcE9n?oc=5",
+          "publishedAt": "Wed, 07 Jan 2026 08:00:00 GMT",
+          "source": "36Kr",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 30,
+          "snippet": "13-Year Rust Veteran Creates New Programming Language from Scratch with Claude, Writes 100,000 Lines of Code in 11 Days - 36Kr"
+        },
+        {
+          "id": "softwareengineering-395230",
+          "title": "Can Rust replace the C or C++ programs in the Future?",
+          "text": "",
+          "url": "https://softwareengineering.stackexchange.com/questions/395230/can-rust-replace-the-c-or-c-programs-in-the-future",
+          "author": "Avinash",
+          "authorRep": 141,
+          "score": 3,
+          "viewCount": 2879,
+          "answerCount": 2,
+          "isAnswered": true,
+          "tags": [
+            "c++",
+            "c",
+            "memory",
+            "bug",
+            "rust"
+          ],
+          "created": "2019-07-26T06:48:51.000Z",
+          "source": "stackexchange",
+          "sourceSite": "softwareengineering",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 20,
+          "snippet": "Can Rust replace the C or C++ programs in the Future"
+        },
+        {
+          "title": "How AI coding is breathing new life into Rust - ReversingLabs",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9VODFXSHFUNVZXZHJvbU1vVzNhRUdlUWxtNl9GSm94TnI0RU5LbjRkc2FmNWxMUDhpampOYzY2QTZxaGIwcW80aTk0RF94WE13MHBPTzZZZXB6dEdUTFE?oc=5",
+          "publishedAt": "Wed, 28 Jan 2026 08:00:00 GMT",
+          "source": "ReversingLabs",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "How AI coding is breathing new life into Rust - ReversingLabs"
+        },
+        {
+          "title": "Rust-Based Wild Linker 0.9 Brings New Platform Coverage, Linker Plugin API - Phoronix",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9mZ2RuSUtVVXAtNjZ4bHFWM1R0ak12aThic245eXNRcXdLbkMyS0I1UjRyLTdWcEx5Umh5TjRteGZWT2Q2V0VvYVZuSngyeG9hbWFtRnlJdzg?oc=5",
+          "publishedAt": "Sat, 23 May 2026 07:00:00 GMT",
+          "source": "Phoronix",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Rust-Based Wild Linker 0 9 Brings New Platform Coverage, Linker Plugin API - Phoronix"
+        },
+        {
+          "title": "Nearly half of all companies now use Rust in production, survey finds - The New Stack",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAxMlR6MGFxWjFwaTlwNXlqSHdkaW1XZVNwcGpRSnNsOGJfNlotcDRtaVkxQVZhMGplVzFoN0lZWERQSmN4Tm1VZTE2NU1falF3UVZacHZ2bngwQ0dXNk53?oc=5",
+          "publishedAt": "Fri, 06 Mar 2026 08:00:00 GMT",
+          "source": "The New Stack",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Nearly half of all companies now use Rust in production, survey finds - The New Stack"
+        }
+      ]
+    },
+    {
+      "name": "Comparisons & Reviews",
+      "count": 7,
+      "items": [
+        {
+          "title": "Rust Enters TIOBE Top 10 - i-programmer.info",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPTmJmclZqWVN1di1uSmJEUnZHT3dUb2V4SHVHWHV4RmhLNUxaRi1WVTBrQ2RxYjFUZ045dFViTzk0Snc5bnR0Y3lmV1RFeUZzZmNPSC1HeVdKeS1LT3BTVy1wY0V5MVlRcGNjdk9qVE1DUHVmVzA5VFhTa1ZwY2ZlOEhQWnhqc1ljY2M0?oc=5",
+          "publishedAt": "Wed, 15 Jul 2026 17:29:17 GMT",
+          "source": "i-programmer.info",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Rust Enters TIOBE Top 10 - i-programmer"
+        },
+        {
+          "title": "Zig creator calls Bun’s Claude Rust rewrite ‘unreviewed slop’ - The Register",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmozMXpDdkRqZE1lV3hsSHBobFNrSXEtN0wzV2FlZFVzSzFkUTFJdFhJZVBxb2h2UjRaUHZnU0JqdFN0SlVHX19MZnA5MnZiSkpFdTJWd1VXMjJDRnVxVmFSam8weDdQenRkcFdoSmtFUjkySGRPZFNRSVppanhjUVNSVjNXYXE1Q2ZGcU1yNGE1UXRHZGtCNHBmLUs0X3lLTWF1ekdHRF8wV2lBLUtucER3?oc=5",
+          "publishedAt": "Mon, 13 Jul 2026 23:21:17 GMT",
+          "source": "The Register",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Zig creator calls Bun’s Claude Rust rewrite ‘unreviewed slop’ - The Register"
+        },
+        {
+          "title": "Rust nears top 10 in TIOBE Index, Python drops - Techzine Global",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNaHNMTmtjalA2Q1hyYi12MjNlZ1FEamM2d2JtNUVKblFKZ3dXdHhRX3Z3ZVExLThBVlpVZFFOZlhoajZRaVM0S1hWRXEtUGR1cG05M183T21JcHZGaU9tWnBtNkJXSmNVb01adWhjcS10N1FnMWo2VWtHSG9BTkw4WWNxc09IUjB5UE1KUnlmZUZ0VmtF?oc=5",
+          "publishedAt": "Tue, 16 Jun 2026 07:00:00 GMT",
+          "source": "Techzine Global",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Rust nears top 10 in TIOBE Index, Python drops - Techzine Global"
+        },
+        {
+          "title": "Rust vs Go: 40% Latency Gap in 2026 Benchmarks - tech-insider.org",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0wZDBsOXNxQWpFbEpEYnRrUVg1SUhiU0lxdktZS0drVnFBc1ZZWlJDbTJJUE9UdXF2TFVQbUNWbHJybFN4R1VaM3cwMVVmTXFuYmF3?oc=5",
+          "publishedAt": "Fri, 20 Mar 2026 07:00:00 GMT",
+          "source": "tech-insider.org",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Rust vs Go: 40% Latency Gap in 2026 Benchmarks - tech-insider"
+        },
+        {
+          "title": "Rust Code Delivers Better Security, Also Streamlines DevOps - Dark Reading",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPZHByaDJ2UFZEczh5MDJCLTQ5ZkZkRWduMVB0Q0gtMXNaZU9BWllYQWcwRlAycHIwT1dPMlJCSDVyTENvRko3RFZNOTFsaTBYOWE5aExSbVFNN193V2t6Vkt0SlFCQjdkQ005ZXBUT0o3N1RhVE9QcGNJZmgtVnQ1dkV1SXlkcmxLZzFPNldfaER1T2dPUFBUZDdvTU5ZUE5WUUpBTQ?oc=5",
+          "publishedAt": "Fri, 05 Dec 2025 08:00:00 GMT",
+          "source": "Dark Reading",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Rust Code Delivers Better Security, Also Streamlines DevOps - Dark Reading"
+        },
+        {
+          "title": "Sashiko Now Providing AI Reviews On Rust Code For The Linux Kernel - Phoronix",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9DZUZCT1MySEpuMW01SDMwY3l6UWswNVVic3BlbVpJaTF0d2oxZUxINjJidHNOa3V6VnhkLTBkZ2dqclAxdjRRSldEUi1OaTh2cnhjWVI4a3NkM1FnVkVmUVB0WENQcEUwai1vZXJB?oc=5",
+          "publishedAt": "Sat, 21 Mar 2026 07:00:00 GMT",
+          "source": "Phoronix",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Sashiko Now Providing AI Reviews On Rust Code For The Linux Kernel - Phoronix"
+        },
+        {
+          "id": "discourse.gnome.org-6993",
+          "title": "Entire shell / system crashes when I close the application I'm developing",
+          "text": "You are using that in place closure notation app.connect_activate(|app| { Are you sure that works reliable? In other rust examples from https://gtk.org/ or https://gtk-rs.org/gtk4-rs/stable/latest/book/hello_world.html Hello World! - GUI development with Rust and GTK 4 I generally see use of top ...",
+          "url": "https://discourse.gnome.org/t/entire-shell-system-crashes-when-i-close-the-application-im-developing/6993",
+          "author": "StefanSalewski",
+          "score": 0,
+          "views": 0,
+          "replyCount": 16,
+          "created": "2021-07-18T13:39:38.583Z",
+          "source": "discourse",
+          "sourceForum": "discourse.gnome.org",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 15,
+          "snippet": "In other rust examples from https://gtk - GUI development with Rust and GTK 4 I generally see use of top You are using that in place closure notation app org/ or https://gtk-rs html Hello World"
+        }
+      ]
+    },
+    {
+      "name": "Tools & Resources",
+      "count": 5,
+      "items": [
+        {
+          "id": "13663751",
+          "title": "Next Iteration of “The Rust Programming Language” Book",
+          "text": "",
+          "url": "https://rust-lang.github.io/book/",
+          "author": "nanxor",
+          "score": 346,
+          "numComments": 108,
+          "created": "2017-02-16T21:34:27Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=13663751",
+          "topComments": [
+            {
+              "author": "Dangeranger",
+              "text": "This book has been hugely helpful for me to get started in Rust. I&#x27;ve been following since the original &quot;Rust for Rubyists&quot; from Steve Klabnik.Steve if you are listening, thanks for putting all the hard work into the original book, the revision as The Rust Programming Language, and this most recent revision.",
+              "score": 0
+            },
+            {
+              "author": "purple-again",
+              "text": "Sigh. Looks like it&#x27;s time for round 5 of time to learn Rust(my personal failing, not meant as a slight against the language at all).  Has the pace of sweeping changes to the language slowed down in the past year?I rode the Ember train from 1.4 to now and it was an extremely ehausting process to get to 2.0 with nearly every version requiring frustrating architectural rewrites. The upgrade from 2.0 to 2.8 took like 15 minutes and didn&#x27;t require a single major refactor. I&#x27;m not tryi",
+              "score": 0
+            },
+            {
+              "author": "ohazi",
+              "text": "This new book isn&#x27;t finished yet, is it? If I remember correctly [0], there were several more chapters to go, and a likely timeline of months...[0] https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;book&#x2F;issues",
+              "score": 0
+            },
+            {
+              "author": "manaskarekar",
+              "text": "Echo all the positives about the book. Thank you.I hope the quick link to the rust playground in the sample code stays around.Also curious, is this supposed to be reflected on Rust Stable at https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;stable&#x2F;book&#x2F;",
+              "score": 0
+            },
+            {
+              "author": "lacampbell",
+              "text": "I&#x27;m reading the section on ownership. Valgrind usually thinks my &#x27;modern C++&#x27; code is leak free, and when it complains I understand why, so I&#x27;m not a complete stranger to systems programming. But for whatever reason I have always run into a brick wall with rusts strange compiler messages regarding lifetimes.I read the previous books bit on ownership. I&#x27;m not sure if this new version is better written or I&#x27;ve come across this stuff so many times that it&#x27;s starti",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "Next Iteration of “The Rust Programming Language” Book"
+        },
+        {
+          "id": "9593294",
+          "title": "Rust Programming Language Book",
+          "text": "",
+          "url": "https://doc.rust-lang.org/book/",
+          "author": "dolftax",
+          "score": 220,
+          "numComments": 48,
+          "created": "2015-05-23T16:00:45Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=9593294",
+          "topComments": [
+            {
+              "author": "killercup",
+              "text": "Unofficial (but mostly up-to-date) ebook versions (PDF, EPUB, MOBI, HTML): http:&#x2F;&#x2F;killercup.github.io&#x2F;trpl-ebook&#x2F;",
+              "score": 0
+            },
+            {
+              "author": "charlieegan3",
+              "text": "http:&#x2F;&#x2F;rustbyexample.com Is also good.",
+              "score": 0
+            },
+            {
+              "author": "alexnewman",
+              "text": "From a smart friendRust needs a better tutorial of ownership. It&#x27;s novel, so it warrants the most explanation.",
+              "score": 0
+            },
+            {
+              "author": "brakmic",
+              "text": "My small Rust-related link-collection.https:&#x2F;&#x2F;rust.zeef.com&#x2F;harris.brakmic",
+              "score": 0
+            },
+            {
+              "author": "Q6T46nT668w6i3m",
+              "text": "The Rust Programming Language Book has been a fantastic resource.I was recently complaining to myself about some style and grammar issues (e.g. &quot;Book&quot; is redundant in the title of a book), but I realized I&#x27;m complaining about style and grammar issues of comprehensive documentation for a recently released programming language!I respect the effort Rust and Steve have invested in documentation and hope their effort is replicated elsewhere.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "Rust Programming Language Book"
+        },
+        {
+          "id": "9979234",
+          "title": "The Advanced Rust Programming Language Book Draft",
+          "text": "",
+          "url": "https://doc.rust-lang.org/nightly/adv-book/",
+          "author": "adamnemecek",
+          "score": 215,
+          "numComments": 47,
+          "created": "2015-07-31T00:37:11Z",
+          "source": "hackernews",
+          "sourceUrl": "https://news.ycombinator.com/item?id=9979234",
+          "topComments": [
+            {
+              "author": "Gankro",
+              "text": "Author here. Didn&#x27;t really want to post this to the wider programming community yet, but oh well.This is basically the first draft. Lots of errors and TODOs.Source is here if you want to file issues or patches:  https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;tree&#x2F;master&#x2F;src&#x2F;doc&#x2F;tarpl",
+              "score": 0
+            },
+            {
+              "author": "silisili",
+              "text": "I apologize to ask this, but what is Rust&#x27;s end game or claim to fame?  It seems to a beginners eyes as if it is a new, far more complex c++.",
+              "score": 0
+            },
+            {
+              "author": "taliesinb",
+              "text": "To anyone else who spots the switched around &#x27;b&#x27; and &#x27;c&#x27; on the repr(rust) page: don&#x27;t bother, I&#x27;ve already created a PR.",
+              "score": 0
+            },
+            {
+              "author": "jimmoores",
+              "text": "Great to have a resource like this.  By way of providing some hopefully constructive feedback, the language seems a bit excessively informal: &quot;Safe Rust is For Reals Totally Safe. Unsafe Rust, unsurprisingly, is not For Reals Totally Safe. In fact, Unsafe Rust lets you do some really crazy unsafe things&quot;.  I get the idea that&#x27;s it&#x27;s trying to be friendly and street, but it&#x27;s a bit out of place in a document like this (I was just waiting for &#x27;shizzle&#x27; to pop up)",
+              "score": 0
+            },
+            {
+              "author": "shmerl",
+              "text": "This is great, I&#x27;ll get to it when it will be in a solid state. I&#x27;m also waiting for some good high level chapters on Rust&#x27;s approach to OOP and so on.",
+              "score": 0
+            }
+          ],
+          "platform": "HN",
+          "relevanceScore": 100,
+          "snippet": "The Advanced Rust Programming Language Book Draft"
+        },
+        {
+          "id": "discuss.python.org-5603",
+          "title": "PEP proposal: Automatically Formatting the CPython Code",
+          "text": "...re also a wide variety of large open source projects that have adopted some form of automation for their formatting. Some prominent projects are: The Rust programming language uses rustfmt to keep their standard library and compiler written in Rust formatted [4]. The Linux kernel uses clang-format to keep their C/C...",
+          "url": "https://discuss.python.org/t/pep-proposal-automatically-formatting-the-cpython-code/5603",
+          "author": "taleinat",
+          "score": 0,
+          "views": 0,
+          "replyCount": 67,
+          "created": "2021-03-26T20:01:36.665Z",
+          "source": "discourse",
+          "sourceForum": "discuss.python.org",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 100,
+          "snippet": "Some prominent projects are: The Rust programming language uses rustfmt to keep their standard library and compiler written in Rust formatted [4] The Linux kernel uses clang-format to keep their C/C"
+        },
+        {
+          "id": "stackoverflow-26946646",
+          "title": "Package with both a library and a binary?",
+          "text": "",
+          "url": "https://stackoverflow.com/questions/26946646/package-with-both-a-library-and-a-binary",
+          "author": "Andrew Wagner",
+          "authorRep": 25083,
+          "score": 441,
+          "viewCount": 183244,
+          "answerCount": 5,
+          "isAnswered": true,
+          "tags": [
+            "rust",
+            "rust-cargo"
+          ],
+          "created": "2014-11-15T14:04:29.000Z",
+          "source": "stackexchange",
+          "sourceSite": "stackoverflow",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 20,
+          "snippet": "Package with both a library and a binary"
+        }
+      ]
+    },
+    {
+      "name": "Tips & Advice",
+      "count": 5,
+      "items": [
+        {
+          "title": "Rust MEMS drivers: 3 reasons to try and adopt our new sensor drivers written in Rust - STMicroelectronics",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1fWU9xUDRvTUFpTmp4VVBRUXBWelF2cktuMDFKdlZXV1IwbXl5MTlXMnQ1UzRIWmxpc0JHdUpycmZzaFNLOFlSQUhFSllwX0U?oc=5",
+          "publishedAt": "Tue, 14 Jul 2026 13:00:00 GMT",
+          "source": "STMicroelectronics",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Rust MEMS drivers: 3 reasons to try and adopt our new sensor drivers written in Rust - STMicroelectronics"
+        },
+        {
+          "title": "Coding Rust With Claude Code and Codex - HackerNoon",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE40STF5Vm5NMk1PcHA1MnpDMTRXY1ZyU0s3Ti04azNNalpFcmFrakNidTcwNHRBVHJoNWgxcU1nT3R6endjWERlWkpkMHRnZFNQNkUtcUVCa2wzb2lGSklGMFNrNHQtbjdNUmpWU3l3?oc=5",
+          "publishedAt": "Fri, 26 Dec 2025 08:00:00 GMT",
+          "source": "HackerNoon",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Coding Rust With Claude Code and Codex - HackerNoon"
+        },
+        {
+          "title": "Why Odin Deserves a Place Beside C, Zig, and Rust in Your Toolbox - HackerNoon",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNnUxRU5PZkdWajNvWU9ib1BtR2dyRWk5cWZuSUhHV1MyMjVuR2ZJQWNpRUxOWHVSVHFxMzdZeU1GaU1hMkNZZzhSUk51RC0xZVk3UXNUdTVUOW1oWVd3MkdFczVwdG14SlBGTnZtbDNiOUZLYmZ5QXJjaGJJNDJqcndHUUNMM01rcjR4SUdERQ?oc=5",
+          "publishedAt": "Thu, 09 Oct 2025 07:00:00 GMT",
+          "source": "HackerNoon",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Why Odin Deserves a Place Beside C, Zig, and Rust in Your Toolbox - HackerNoon"
+        },
+        {
+          "title": "The Rust Rewrites Nobody Asked For - HackerNoon",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9QYnZ2NnkwR0ZJM25BOXlybnNDd2FrYzhmMkRXRVZxS2ZXVVYxUVNUUnMwbVhFZDN3RDMtdF8zWThxOWhGVW05ZGI0S200VTVocS12eEhXN2J3VldzTVVEQjQ3QzA0OUlm?oc=5",
+          "publishedAt": "Wed, 15 Oct 2025 07:00:00 GMT",
+          "source": "HackerNoon",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "The Rust Rewrites Nobody Asked For - HackerNoon"
+        },
+        {
+          "title": "14:44  YouTube Why Everyone's Switching to Rust (And Why You Shouldn't) - YouTube August 19, 2025",
+          "url": "https://www.youtube.com/watch?v=meEXag1XCFw",
+          "description": "",
+          "type": "web",
+          "platform": "Web",
+          "relevanceScore": 15,
+          "snippet": "14:44  YouTube Why Everyone's Switching to Rust (And Why You Shouldn't) - YouTube August 19, 2025"
+        }
+      ]
+    },
+    {
+      "name": "Expert Opinions",
+      "count": 2,
+      "items": [
+        {
+          "id": "community.openai.com-963949",
+          "title": "New Playground features: Generate in the Playground",
+          "text": "...l the prompt with expertise and confidence in its abilities. New System message : You are Rusty, an expert assistant with a deep understanding of the Rust programming language, always ready to offer confident and accurate guidance. Modify Schemas? Try that on a response schema though Remove description fields You l...",
+          "url": "https://community.openai.com/t/new-playground-features-generate-in-the-playground/963949",
+          "author": "_j",
+          "score": 0,
+          "views": 0,
+          "replyCount": 7,
+          "created": "2024-12-17T08:00:13.836Z",
+          "source": "discourse",
+          "sourceForum": "community.openai.com",
+          "topComments": [],
+          "platform": "Discourse",
+          "relevanceScore": 100,
+          "snippet": "New System message : You are Rusty, an expert assistant with a deep understanding of the Rust programming language, always ready to offer confident and accurate guidance"
+        },
+        {
+          "title": "Study compares Rust and C languages for embedded firmware development - CNX Software",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdnQxQmdPUlk2dDdEN2tuZUduVXYxU21fN3NJZUZXOGlEYTlTRzVZN2o2akpXUDBKUmFyVV94SktUR1hTcktxZXYySERCV3JoSkRlOHFaU0U5a095d3l2d2syZkp5VXdjTjJ1aF9EUjB5WjlIS2Z6Z0RuLVBmNXVpLUVLOV9XeGt5WXU3djQxT0dVSXdxcFJ0a1Q5bzk0QkRHQ25adTFxYmxvWDlIMmxn0gG3AUFVX3lxTE5vRzZKOWhmcXNpZVZLWGFyMzVpNld3b25jOVd3UW93ZmtyOUZ6dHFLZzhhc19aQ1hUMjAwRXVfZzJIUWdqTVN5UGQ1NnlDX3k0QktYQWtGS2FUeDVLeXVxZnZVcWRtRXRlNWlaSmkyTE9hM1ltSVFsRHB5cnJIR1hIQWJLUk4wX3JVQ05VNldSQmJFVkQwZnQycHI5dm9zRUlZaENCZUt5ZGlIcmRzNzRPS05kQTk3QQ?oc=5",
+          "publishedAt": "Wed, 06 May 2026 07:00:00 GMT",
+          "source": "CNX Software",
+          "type": "news",
+          "platform": "News",
+          "relevanceScore": 15,
+          "snippet": "Study compares Rust and C languages for embedded firmware development - CNX Software"
+        }
+      ]
+    },
+    {
+      "name": "Common Problems",
+      "count": 1,
+      "items": [
+        {
+          "id": "softwareengineering-420898",
+          "title": "Why do &quot;checked exceptions&quot;, i.e., &quot;value-or-error return values&quot;, work well in Rust and Go but not in Java?",
+          "text": "",
+          "url": "https://softwareengineering.stackexchange.com/questions/420898/why-do-checked-exceptions-i-e-value-or-error-return-values-work-well-in",
+          "author": "Heinzi",
+          "authorRep": 9868,
+          "score": 67,
+          "viewCount": 8893,
+          "answerCount": 9,
+          "isAnswered": true,
+          "tags": [
+            "java",
+            "language-design",
+            "exceptions",
+            "go",
+            "rust"
+          ],
+          "created": "2021-01-11T09:26:55.000Z",
+          "source": "stackexchange",
+          "sourceSite": "softwareengineering",
+          "topComments": [],
+          "platform": "StackExchange",
+          "relevanceScore": 25,
+          "snippet": ", &quot;value-or-error return values&quot;, work well in Rust and Go but not in Java Why do &quot;checked exceptions&quot;, i"
+        }
+      ]
+    }
+  ],
+  "redditAnalysis": [],
+  "youtubeAnalysis": [],
+  "newsAnalysis": [
+    {
+      "title": "Rust MEMS drivers: 3 reasons to try and adopt our new sensor drivers written in Rust - STMicroelectronics",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1fWU9xUDRvTUFpTmp4VVBRUXBWelF2cktuMDFKdlZXV1IwbXl5MTlXMnQ1UzRIWmxpc0JHdUpycmZzaFNLOFlSQUhFSllwX0U?oc=5",
+      "publishedAt": "Tue, 14 Jul 2026 13:00:00 GMT",
+      "source": "STMicroelectronics",
+      "type": "news"
+    },
+    {
+      "title": "GNU Hurd Makes Progress On AArch64, Writing Translators In Rust - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9UT25ZT0t4RnVxZUVkWnBWM05ZN0tJVHFfS3RUYkVGZjU2emQ5QzRmdTFoeWhWNGdzSVFjb1ZpTjBsS0NkWXU2UGVOTHgtc1paanNxTlgwckFEQQ?oc=5",
+      "publishedAt": "Sun, 19 Jul 2026 00:53:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "'Rust makes coding fun again': Why Linux is moving away from C, according to Greg Kroah-Hartman - ZDNET",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5BUUFvc2c0R2g5R0o0Nk56c1duanplXzVoRUUwZndIRjQxNTlCeFZ1ZWNZN1loT19OQWJLLWowNS02WWNMV1k5Z194STRkcXVvUlYtUmtKem1iTEF6RjE1anM3UnlOVkRPLTk3TFo5TVZCOXB6cmc?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 16:13:00 GMT",
+      "source": "ZDNET",
+      "type": "news"
+    },
+    {
+      "title": "What I learned using Claude Sonnet to migrate Python to Rust - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOWTFkdnRPQkVPTDVrX19ZVDBORXpaeF9WaGV3OWs2WGt0MXZwVHNYdlFuT3RiWU9DckRNYTB6bDF4dGl4RlpjVXoxYm1zZ3M2QVBzaWVMX0JucFJZVzNyQko1OVZCbFdLZG9rT0h6dVg1RE41ODRha3NpVlBVbkxGbHlOeko4RFdvdFVYM2dxSkcwY3BMR3FxZDNhZk1TWTJZNnhDczNhNy1GdU0?oc=5",
+      "publishedAt": "Wed, 04 Mar 2026 08:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "Top 10 AI Programming Languages You Should Learn in 2026 - iSchool | Syracuse University",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5yVk9jLTIzNEx4VGRUT21UT0VRakJDT1Q5NDg3WWRFcERWd21ONVhxMVZjQjVqZTZRYXU5dzdIVl9rME5RWmtFZWxZbXFIVC1ZZUMzOUd2TGdIdmNHMlpqdGNrd0RjdkY4WFE?oc=5",
+      "publishedAt": "Thu, 11 Jun 2026 07:00:00 GMT",
+      "source": "iSchool | Syracuse University",
+      "type": "news"
+    },
+    {
+      "title": "How AI coding is breathing new life into Rust - ReversingLabs",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9VODFXSHFUNVZXZHJvbU1vVzNhRUdlUWxtNl9GSm94TnI0RU5LbjRkc2FmNWxMUDhpampOYzY2QTZxaGIwcW80aTk0RF94WE13MHBPTzZZZXB6dEdUTFE?oc=5",
+      "publishedAt": "Wed, 28 Jan 2026 08:00:00 GMT",
+      "source": "ReversingLabs",
+      "type": "news"
+    },
+    {
+      "title": "Rust Enters TIOBE Top 10 - i-programmer.info",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPTmJmclZqWVN1di1uSmJEUnZHT3dUb2V4SHVHWHV4RmhLNUxaRi1WVTBrQ2RxYjFUZ045dFViTzk0Snc5bnR0Y3lmV1RFeUZzZmNPSC1HeVdKeS1LT3BTVy1wY0V5MVlRcGNjdk9qVE1DUHVmVzA5VFhTa1ZwY2ZlOEhQWnhqc1ljY2M0?oc=5",
+      "publishedAt": "Wed, 15 Jul 2026 17:29:17 GMT",
+      "source": "i-programmer.info",
+      "type": "news"
+    },
+    {
+      "title": "Rust adoption stalls amid shift in memory-safe programming trends - Developer Tech News",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQeWNFTFdfMDlBV2V5TURUZEVZd2lSOGE4NzVUUHZRZ2VoYkd1WV80dnFSRTFIOE9Ka1RqT3FnU01vUElYTVRvMkk5X3gybzFkMjdlakVGN0VNQTVXM2NZM1ZWYzBmUDhfVHYwdnNsbmdFdUZJQzFyRzJ2MzMxaS1WbG5TR0xDMjNwVmlmT0dJcDBQQQ?oc=5",
+      "publishedAt": "Mon, 13 Apr 2026 16:46:20 GMT",
+      "source": "Developer Tech News",
+      "type": "news"
+    },
+    {
+      "title": "Zig creator calls Bun’s Claude Rust rewrite ‘unreviewed slop’ - The Register",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmozMXpDdkRqZE1lV3hsSHBobFNrSXEtN0wzV2FlZFVzSzFkUTFJdFhJZVBxb2h2UjRaUHZnU0JqdFN0SlVHX19MZnA5MnZiSkpFdTJWd1VXMjJDRnVxVmFSam8weDdQenRkcFdoSmtFUjkySGRPZFNRSVppanhjUVNSVjNXYXE1Q2ZGcU1yNGE1UXRHZGtCNHBmLUs0X3lLTWF1ekdHRF8wV2lBLUtucER3?oc=5",
+      "publishedAt": "Mon, 13 Jul 2026 23:21:17 GMT",
+      "source": "The Register",
+      "type": "news"
+    },
+    {
+      "title": "Coding Rust With Claude Code and Codex - HackerNoon",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE40STF5Vm5NMk1PcHA1MnpDMTRXY1ZyU0s3Ti04azNNalpFcmFrakNidTcwNHRBVHJoNWgxcU1nT3R6endjWERlWkpkMHRnZFNQNkUtcUVCa2wzb2lGSklGMFNrNHQtbjdNUmpWU3l3?oc=5",
+      "publishedAt": "Fri, 26 Dec 2025 08:00:00 GMT",
+      "source": "HackerNoon",
+      "type": "news"
+    },
+    {
+      "title": "How to Call Rust from Python - towardsdatascience.com",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA5MkIzLTFEMi1MTFkzeUpXQk9fT0pfcmhQbUFELTF0Q1FJbWR4QTlTSVhvbjNaUGNRZEc5RHRBQktpWm1zQXQyWm1BcGtlVllYLS0xV2RpZmN6aGFTYlp5TGRaX3lWUms?oc=5",
+      "publishedAt": "Tue, 21 Apr 2026 07:00:00 GMT",
+      "source": "towardsdatascience.com",
+      "type": "news"
+    },
+    {
+      "title": "Trust in Rust: Foundation debuts official training to tackle steep learning curve - The New Stack",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5YTE14VDAwR2NTVUxMYkR0Xy1wdHpqSUtGZ1czc19hSzZya2lJdndSeTFCSzhMTndLXzdiQ2NFV2dDb3BnRWg1U2ZIV28yTDJ4WlRRQ2FGdTFyRFZCSC05WWRPWllJVkxLTDFGR1luMA?oc=5",
+      "publishedAt": "Thu, 25 Jun 2026 07:00:00 GMT",
+      "source": "The New Stack",
+      "type": "news"
+    },
+    {
+      "title": "Rust nears top 10 in TIOBE Index, Python drops - Techzine Global",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNaHNMTmtjalA2Q1hyYi12MjNlZ1FEamM2d2JtNUVKblFKZ3dXdHhRX3Z3ZVExLThBVlpVZFFOZlhoajZRaVM0S1hWRXEtUGR1cG05M183T21JcHZGaU9tWnBtNkJXSmNVb01adWhjcS10N1FnMWo2VWtHSG9BTkw4WWNxc09IUjB5UE1KUnlmZUZ0VmtF?oc=5",
+      "publishedAt": "Tue, 16 Jun 2026 07:00:00 GMT",
+      "source": "Techzine Global",
+      "type": "news"
+    },
+    {
+      "title": "Rust Programming Tutorial: 13 Steps from Zero to CLI [2026] - tech-insider.org",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1vZERnQXh6OWUtQkstX1hQeDJUU3ZSZ3lnNkRqTlYyQ2J3N3Qzc0VLWjlZekVsUmtYQXp5RERadUZmVl9ocE9FSi1DTExwcTBrUDVCYmhyRXdKejZETVBNNlNZeUtkY2J2QkpkZG1sSnlTbEJsQ05J?oc=5",
+      "publishedAt": "Fri, 24 Apr 2026 07:00:00 GMT",
+      "source": "tech-insider.org",
+      "type": "news"
+    },
+    {
+      "title": "Why is Rust a critical programming language in 2026? - TechTarget",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTzQ0RUFvcnp3TXJRM1NnWXJKVlY2Y1kwTGtQc0VyTnVXc1BqOTI5U2JJREFYY0NmV1VaZFpWenVnODNPUmlTLV9ISWZPeFc5ald2QXRELW5uT2g5MDhvcXVMcnNmZ2t6T2ZLSHdaYVIwelJxY3A3NjFBSlpiY3pnTkxzaXhkd0JtVWg5OV9mU1hmVV9TRmVJMU5lbW4?oc=5",
+      "publishedAt": "Mon, 08 Dec 2025 08:00:00 GMT",
+      "source": "TechTarget",
+      "type": "news"
+    },
+    {
+      "title": "Rust introduces new Range types - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNNXJOb2VidXc0WmU1NV9TQ05JNE1pNUtXb3c1ejFXSjZBbW04NTV3OEx4eDBIOElRYTFxLUFjcTQzSkZtRTdxSk1CTEJkUW1QNEhjNmJUbFIydnZmOTd1c2J1V0djZUIxd3hjbWZfTndqaTdFS2VJZEg3TWFibzBpRHVNb2c?oc=5",
+      "publishedAt": "Tue, 30 Jun 2026 07:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "Rust on the Rise; Python in Decline? - i-programmer.info",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWnlVTXJod2xSdXcydGVMTW1zcldQX3BaWnJlam1qbGthcjcyckJrYWN1emdXeVpVNzFneEdhVXlKUnFnWUl4VXJWalROdy0tY0dqRTdHSUNtd2JRbXRrcl9PalM1TnE0TU9VNFlpbGlWSFFiN1lvdTBjMVpneTFWWC1qS2M5bFdhOUZRV2hpMlZpdW9VQU4tdnBxUQ?oc=5",
+      "publishedAt": "Wed, 10 Jun 2026 07:00:00 GMT",
+      "source": "i-programmer.info",
+      "type": "news"
+    },
+    {
+      "title": "Rust-Based Wild Linker 0.9 Brings New Platform Coverage, Linker Plugin API - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9mZ2RuSUtVVXAtNjZ4bHFWM1R0ak12aThic245eXNRcXdLbkMyS0I1UjRyLTdWcEx5Umh5TjRteGZWT2Q2V0VvYVZuSngyeG9hbWFtRnlJdzg?oc=5",
+      "publishedAt": "Sat, 23 May 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Rust developers have three big worries – survey - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQN2VWTm44bEQ3Ukd4elJTQTZhUjdTNzdaeUJXejB2QzVhN0tGRFUwaExydEJqZ1R4U2poVGNEYXZCNm1yMUZjM2xCWkFLU2laQm9sbGpCUkk1QjF3bUJqZXpfaElfeU5faFB1c1cxem81d3ZXalNWRGY5U0FhZEdkY21WaFpCQnprc0lWTDREM200VTVVbFow?oc=5",
+      "publishedAt": "Mon, 02 Mar 2026 08:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "First look: Mojo 1.0 mixes Python and Rust - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQRUpjdTNWRGRhbVBBVzlVMklOWjJlbTg0MHM1Tmo5NFFIWm1GNEJENGgzZmdQNWZqMTk3Y3o1YkhGcl9uOGJrdjhILUFqVlVxNVA5WVVlVWpUT1JDZkRUUV83dmdTeFdkX1dCeGhick9ycmdIb043bDNRa2xhX183Y3ZWVTZyMXBfaV9qRGZHc0ZMUQ?oc=5",
+      "publishedAt": "Wed, 20 May 2026 07:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "Rust enters the Linux kernel, but its adoption is leveling off - Techzine Global",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYl9valZiYVhrOFVnTlBYMW0yVENSZEc0dmMyTXRSN3d2LTN5V2x0UmNLajFCVVJYMl90cGdWUVFfTzFnVlJlcHY2eFQ4SXlyTEgxWU5vN0t0UXAtNWRrMWs3OUJiQjROaXhtZ3ZWSTBZUGVPS3NBdU1PVlUxcXZuVURzWXF4M3EtTmV6ZGgwY3d2ZXo0UFRraHBRRXBmc3BsOU5sR3FsbTg?oc=5",
+      "publishedAt": "Mon, 13 Apr 2026 07:00:00 GMT",
+      "source": "Techzine Global",
+      "type": "news"
+    },
+    {
+      "title": "Rust vs Go: 40% Latency Gap in 2026 Benchmarks - tech-insider.org",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0wZDBsOXNxQWpFbEpEYnRrUVg1SUhiU0lxdktZS0drVnFBc1ZZWlJDbTJJUE9UdXF2TFVQbUNWbHJybFN4R1VaM3cwMVVmTXFuYmF3?oc=5",
+      "publishedAt": "Fri, 20 Mar 2026 07:00:00 GMT",
+      "source": "tech-insider.org",
+      "type": "news"
+    },
+    {
+      "title": "Why Odin Deserves a Place Beside C, Zig, and Rust in Your Toolbox - HackerNoon",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNnUxRU5PZkdWajNvWU9ib1BtR2dyRWk5cWZuSUhHV1MyMjVuR2ZJQWNpRUxOWHVSVHFxMzdZeU1GaU1hMkNZZzhSUk51RC0xZVk3UXNUdTVUOW1oWVd3MkdFczVwdG14SlBGTnZtbDNiOUZLYmZ5QXJjaGJJNDJqcndHUUNMM01rcjR4SUdERQ?oc=5",
+      "publishedAt": "Thu, 09 Oct 2025 07:00:00 GMT",
+      "source": "HackerNoon",
+      "type": "news"
+    },
+    {
+      "title": "Rust Coreutils cp Ended Up Breaking Ubuntu Image Builds With Latest Incompatibility - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1CSkR4LTcxZ3RsRGNpd1V2UkFjTXZCQ1JORC05eDdpSHdlN3JhX2N4dkFqVnd6VWt2V2g5ZURBX19BcWh2YW1SQmVSVGMxOXNMalFmV0VNWFptdkZscWQ2OWxLV05laklfcWgzWVlR?oc=5",
+      "publishedAt": "Fri, 03 Jul 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Why you should learn Rust, especially if you're new to programming - How-To Geek",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQeEkyLWFrZW5xSzdoMEhmaF83T0wydmdzZEdXZUlDa2JtSlRTMzNhZGcxYU1kejRpODBiZTBZeUNOU2VhZ1E4aktKeWhqVlRnTkNsVVZQY1Q5clhnQko4TjlUSlhNMUJWenIybDlIZUpsVTY4Si00TzJXdFJTR3dfaFVWTm1VR0dxM1p5SDR0MXgtbjFzZ1E?oc=5",
+      "publishedAt": "Mon, 16 Feb 2026 08:00:00 GMT",
+      "source": "How-To Geek",
+      "type": "news"
+    },
+    {
+      "title": "Microsoft Extends Rust-Influenced Memory-Safety Push to C# - Visual Studio Magazine",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNa2xWdnFDX1YtblY5Uk1SRk85SmNoblRzOVh0b0ROYmxIOVJ4cEdMSU8wNlBpYmZlWnJpQmtJcEdhT3VFcDdrWFVOZldnalVoc2ZlR3dXcnVCQktGZDJuSFpiNTlIOWZEV3VFdngycDJNQmVLeUllN2hETVh2VTNiSHlVSTlxOFJac3J1Tkp3Ny0wNjZ0d3ZLbEdpWjg2S2NPV1prSmt1amM4QVZVN2owVkY4SnoxYlpwUXY1dw?oc=5",
+      "publishedAt": "Wed, 27 May 2026 07:00:00 GMT",
+      "source": "Visual Studio Magazine",
+      "type": "news"
+    },
+    {
+      "title": "Rust-Written Zed 1.0 Code Editor Released - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA1VWZQYVotMmVQeE1kMEdHUUVwUThoUjJoMDdsb3hCaXdIU2lsZlJ4emt1N0ZLNXJwaTFNajU3X0ZTaGxMQWh2Q3lyc01WY2tUSURmR2ZsQ1pGQQ?oc=5",
+      "publishedAt": "Wed, 29 Apr 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "The Linux Kernel posture shift: Practical realities of the rust transition - Spiceworks",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPM0JZdzVxaFlpR3cyQWJMYmwwWGxCWkw2THRaV2Z6R2wzcmc0ZGJHUEdaVlNpbjdZTE5LRGNLS1pxanFUZF9LQVRPME1aQjIxVnN2RTV2NV81Yk9YOGZYVmhMM01pNzh1NFBqNGRIcVphRUlURVFNOUZFRlYyQkhRUDI5ZHJHQkZMSUxuV3N3SDcyakVGZk52ODJ2Yw?oc=5",
+      "publishedAt": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "source": "Spiceworks",
+      "type": "news"
+    },
+    {
+      "title": "CUDA-Oxide 0.2 Brings Early Improvements To Pure Rust CUDA Kernels - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9sU2FoTXpNY2I5MkpQMDVQNlAtdjFBYlZGcUdiSHpTRkI5NnVfbFlLUC1VbDFXSUdWMWV3R044QmMzQzBaRERSeV9iRFJOTGlTd1l0YjdpSQ?oc=5",
+      "publishedAt": "Fri, 05 Jun 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Brush v0.4 Released As \"Significant\" Release For This Rust-Based Shell - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9pRUtsZVZDSlJ1TEExTHdpUXg4RWlGbVpvazNnSkROaXV6WHQ5R01IbjVhUFBSb0lFNlozVzBBbXVBWmJyeFBpNDRGU3dTLXRXY2R3VlJFRUR6LWZyYUliWF9vemQ?oc=5",
+      "publishedAt": "Sun, 03 May 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Is AI the Key to Converting Code to Rust Efficiently? - IEEE Spectrum",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE84Z05ZUUFfQ0p4NWhaZmhoZG84OVcya1FaN09teWF6dUp3REdGTEQtajFoT0h2RFRrNUdWUDhSS290ZzJfNDJQZlB6ekczV2ZhWXpBYU1FVWFfR2J0OE5aS2tONA?oc=5",
+      "publishedAt": "Wed, 28 Jan 2026 08:00:00 GMT",
+      "source": "IEEE Spectrum",
+      "type": "news"
+    },
+    {
+      "title": "Python Developers Looking At Introducing The Rust Programming Language In CPython - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5NVnVFOHlHa25LcHB6VlcyNHIxaExPMlNxVlNMZTdpTFFTRG9QV3BIemdwUGtyU0k5alprOFZmd1h1YWRFYUZiMngyMW1HUXpFZTk0cXlJNmxJS0NUck1WNmZXbTM?oc=5",
+      "publishedAt": "Tue, 18 Nov 2025 08:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "IBM s390 Is The Latest Architecture Seeing Rust Linux Kernel Support - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE4xcld2bjFNSkptZDQ4czZNYVpGSEQ1dm5YTWF0RGcyV1U3OWxURndwSFhPYW1pMG1oS256bklHNDlVRkUyYlR2aXg4MHlzUHRsZ0JhLUNhWFJKOEVtNW52bm1qYWJNaEE?oc=5",
+      "publishedAt": "Tue, 12 May 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Rust 1.94 introduces array windows to iterate slices - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM1N0WTFVMU10b0NkWU9fSER6TmctM1VBeGpkWkgyODJsS1dhN29HTnJQcWdETVFBTUFrbVBkUGtTSjFmaWpXNlFlMXhxZ0dSVWhpSWd6UGxmRi1hcGdoRlhUWURXby1jc1VkQUtza1hzTEtJWU5LMEdCd0t6cWI3dzNiUV9PcmwxREFDS3FtNk5iZEVtU1BZYjlWOVNGWHpG?oc=5",
+      "publishedAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "Rust Code Delivers Better Security, Also Streamlines DevOps - Dark Reading",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPZHByaDJ2UFZEczh5MDJCLTQ5ZkZkRWduMVB0Q0gtMXNaZU9BWllYQWcwRlAycHIwT1dPMlJCSDVyTENvRko3RFZNOTFsaTBYOWE5aExSbVFNN193V2t6Vkt0SlFCQjdkQ005ZXBUT0o3N1RhVE9QcGNJZmgtVnQ1dkV1SXlkcmxLZzFPNldfaER1T2dPUFBUZDdvTU5ZUE5WUUpBTQ?oc=5",
+      "publishedAt": "Fri, 05 Dec 2025 08:00:00 GMT",
+      "source": "Dark Reading",
+      "type": "news"
+    },
+    {
+      "title": "The Rust Rewrites Nobody Asked For - HackerNoon",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9QYnZ2NnkwR0ZJM25BOXlybnNDd2FrYzhmMkRXRVZxS2ZXVVYxUVNUUnMwbVhFZDN3RDMtdF8zWThxOWhGVW05ZGI0S200VTVocS12eEhXN2J3VldzTVVEQjQ3QzA0OUlm?oc=5",
+      "publishedAt": "Wed, 15 Oct 2025 07:00:00 GMT",
+      "source": "HackerNoon",
+      "type": "news"
+    },
+    {
+      "title": "Mir 2.27 Released With More Wayland Rust Code - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9XQU9VRTUxQUhpUVVQSW16YVdSUnc2SlFsZEp6Y2FGNUlGR1hnM3FBSjE3S1ZZXzJ6SU9WRUhwRTdKVUpBZWRtY0JNd1YyR25PT1AzSUx1N1Y0M2c?oc=5",
+      "publishedAt": "Tue, 02 Jun 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Study compares Rust and C languages for embedded firmware development - CNX Software",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdnQxQmdPUlk2dDdEN2tuZUduVXYxU21fN3NJZUZXOGlEYTlTRzVZN2o2akpXUDBKUmFyVV94SktUR1hTcktxZXYySERCV3JoSkRlOHFaU0U5a095d3l2d2syZkp5VXdjTjJ1aF9EUjB5WjlIS2Z6Z0RuLVBmNXVpLUVLOV9XeGt5WXU3djQxT0dVSXdxcFJ0a1Q5bzk0QkRHQ25adTFxYmxvWDlIMmxn0gG3AUFVX3lxTE5vRzZKOWhmcXNpZVZLWGFyMzVpNld3b25jOVd3UW93ZmtyOUZ6dHFLZzhhc19aQ1hUMjAwRXVfZzJIUWdqTVN5UGQ1NnlDX3k0QktYQWtGS2FUeDVLeXVxZnZVcWRtRXRlNWlaSmkyTE9hM1ltSVFsRHB5cnJIR1hIQWJLUk4wX3JVQ05VNldSQmJFVkQwZnQycHI5dm9zRUlZaENCZUt5ZGlIcmRzNzRPS05kQTk3QQ?oc=5",
+      "publishedAt": "Wed, 06 May 2026 07:00:00 GMT",
+      "source": "CNX Software",
+      "type": "news"
+    },
+    {
+      "title": "Nearly half of all companies now use Rust in production, survey finds - The New Stack",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAxMlR6MGFxWjFwaTlwNXlqSHdkaW1XZVNwcGpRSnNsOGJfNlotcDRtaVkxQVZhMGplVzFoN0lZWERQSmN4Tm1VZTE2NU1falF3UVZacHZ2bngwQ0dXNk53?oc=5",
+      "publishedAt": "Fri, 06 Mar 2026 08:00:00 GMT",
+      "source": "The New Stack",
+      "type": "news"
+    },
+    {
+      "title": "Has Rust Reached Its Level On TIOBE? - i-programmer.info",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQMHQzRjdtRmhfZ0ZCTk40cnJCV3ZMcVBlTURWZ3h3bjBKaTN1N1JMMlRtTnZtSU1UUHJrRUZ2WGJVWFJCVkRNZ3dhazJYU2FhdXVYTEprQlQ0c2g3TmJWYVppOENDblNFaDBSd2NORzNqZnlPaklQOEIyOXBNaGFPUktEWUd3Y180dHhYbzNScWt6cmpoV19VZkFReWNhZEdHaFE?oc=5",
+      "publishedAt": "Tue, 14 Apr 2026 07:00:00 GMT",
+      "source": "i-programmer.info",
+      "type": "news"
+    },
+    {
+      "title": "Zed, the Rust-Made Coding Editor, Hits 1.0 - Thurrott.com",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNYkc2X1kwazBxc3lKV2RpbmRSYUQ5ZUdIRVA1SHpYcFVGNlBNVFJRODI4c29mYktMT2pkSUpSSFE3b1ZJZVpBVzBmcmx3dDhTX2ltMXBZYVVpTTNjX3oyLUdFeV93V1FhZnBJOFk1Wk5EZXRsSVBIMW4tZFFpYlZCdFBn?oc=5",
+      "publishedAt": "Thu, 30 Apr 2026 07:00:00 GMT",
+      "source": "Thurrott.com",
+      "type": "news"
+    },
+    {
+      "title": "The State of Rust In 2025 - i-programmer.info",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdDBqSUtWQ3hQX2FCY2Qtb3NSZVhaRENXLXQ5dmZxWi1uSHo4QTNqaVoxaVVGZDkwd2JQdURKRGJTOHZTTkNwbkdQeEpLSGRVMk9RT1c3aUpQX2FHZGd0QU0xam5qR2E3WHpSTEpnU1RSNGlYLVVCeEdNOGl6QzRnUnJOQnA2SHlw?oc=5",
+      "publishedAt": "Wed, 04 Mar 2026 08:00:00 GMT",
+      "source": "i-programmer.info",
+      "type": "news"
+    },
+    {
+      "title": "13-Year Rust Veteran Creates New Programming Language from Scratch with Claude, Writes 100,000 Lines of Code in 11 Days - 36Kr",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9hZFJ3anZlemVYQlMxV1Bva2xzaF9fd2pwbldKT1lmRjk4TkpsNll6SXo0Q0hfMkVXRVlhV3FHaTQzY25ZQ2lZTm5CTUh1cWJYcE9n?oc=5",
+      "publishedAt": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "source": "36Kr",
+      "type": "news"
+    },
+    {
+      "title": "Ubuntu Maker Canonical Joins The Rust Foundation - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE02cHZHY1p1R0JEX19uZTJYYWViNHZPYjdqVl95UXhkakY1dkJuWTdtNU5zXzVaalV2UHBJSk9MMmVhYkRBc0N4dEplSHdiUnJFdk5ZTlFqSnhUOFFhZW9XYmNnWkhvek5RVjlZWElR?oc=5",
+      "publishedAt": "Mon, 23 Mar 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "NetBSD's Kernel Supports Lua Scripting But Don't Look For Rust In There Anytime Soon - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBEZDl6SHdnNnNRMGR3Y2Q5UW9PWWJpaUxjSHNyZVdLMkJkOS1OS0FMRTkzTzR3NThmXzlkRHMwWW9tUVlfVzdWRk40WHRycHVvRnBmekg5RFFycGJxd0piQURUNUw?oc=5",
+      "publishedAt": "Thu, 05 Feb 2026 08:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    },
+    {
+      "title": "Rust team warns of WebAssembly change - InfoWorld",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNQ1YydWJ5QW1PR050YlpaalZhcGFQS2FHUzlaeVRMa1lLUURBeFREdnptTWVmd05pVVROd0g5SjhFQldsVzVDd3pkd0xLNDl2N01PajMyVWs4S2t1OW5mZkFibnIzb21sRlNBQWRXdDJNRnJKWkc2MmlaQXFUeTAtQ2t0X2dZRWcyaVpxRQ?oc=5",
+      "publishedAt": "Tue, 07 Apr 2026 07:00:00 GMT",
+      "source": "InfoWorld",
+      "type": "news"
+    },
+    {
+      "title": "Linux Kernel 7.0 Released With Official Rust Language Support - thelec.net",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9XMDRCVXhvaURQOFA1RUVFV0txc1YtbTVxUXFiLVViOGJzbnM3NjNWMHlFNy0wZ0VnQXE5SmQzZnpnTTY1Qng1Sk9oVTAyUXFRT3RqUlQxaEc5Rl94SGpNWkF3LTRXQQ?oc=5",
+      "publishedAt": "Tue, 14 Apr 2026 07:00:00 GMT",
+      "source": "thelec.net",
+      "type": "news"
+    },
+    {
+      "title": "AWS shows Rust love at re:Invent: 10 times faster than Kotlin, one tenth the latency of Go - DevClass",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOMHdINWdxM2l1SE1fNWdtcHJQcU9DR3BrOGk0X2xENTlJcmhpbUREdmg2cmNIa082ZzVoRnFkRkhsWTZGRjlXaDF2Zk9GUE13WVNjWHkzWlEtTUo0aVFWRUpyRU9udGRtWWJadGxkOFFCT1hGUVF5dkJoeExnNk5QMy12d2otaE1tS0RJMHFjMnk3N0FSd1gweGlDZmRXTFkwQS1xcXJWdGU2azF1WWRqal85X1RXYkJxN0ExZEYzcERjLVktb001MlFKVHFXaFEtOEJmM3ZWeG4xUFU?oc=5",
+      "publishedAt": "Mon, 08 Dec 2025 08:00:00 GMT",
+      "source": "DevClass",
+      "type": "news"
+    },
+    {
+      "title": "Beyond Memory Safety: What Makes Rust Different – Lessons from Autonomous Robotics - infoq.com",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQN1JFUUMtYW5xWE5DYjh3TXFQbkVRQnVqUmJMZjBBbWRIUDFnc0VaWkdEY3J2WUdRX2ZWTndnUkVQRUJVZ0ZJVEN0MHdpMENXUXNTNFBFNTBtS0hCMHRqSDhIbzF2TE50MERKeGxpYXRIS1V5RThtQkd4d2laTHAtSS1iTkdqUldDbUFSUA?oc=5",
+      "publishedAt": "Wed, 18 Mar 2026 07:00:00 GMT",
+      "source": "infoq.com",
+      "type": "news"
+    },
+    {
+      "title": "Sashiko Now Providing AI Reviews On Rust Code For The Linux Kernel - Phoronix",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9DZUZCT1MySEpuMW01SDMwY3l6UWswNVVic3BlbVpJaTF0d2oxZUxINjJidHNOa3V6VnhkLTBkZ2dqclAxdjRRSldEUi1OaTh2cnhjWVI4a3NkM1FnVkVmUVB0WENQcEUwai1vZXJB?oc=5",
+      "publishedAt": "Sat, 21 Mar 2026 07:00:00 GMT",
+      "source": "Phoronix",
+      "type": "news"
+    }
+  ],
+  "webSearchAnalysis": [
+    {
+      "title": "Rust rust-lang.org › en-US   Rust Programming Language",
+      "url": "https://rust-lang.org/en-US/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Reddit reddit.com   › r/learnrust  › rust - a living hell - the perspective from a programmer of 30 years   r/learnrust on Reddit: Rust - A Living Hell - The Perspective From A Programmer Of 30 Years",
+      "url": "https://www.reddit.com/r/learnrust/comments/1binxlv/rust_a_living_hell_the_perspective_from_a/",
+      "description": "I have been programming for 30 years. I know C, Haskell, Java, Kotlin, Swift, Python, APL. I have always had fun programming. Every language I have learned and used was an exciting experience. It has always been fun to learn new ways of thinking for approaching and solving problems. Each one gave a ",
+      "type": "web"
+    },
+    {
+      "title": "I am new to programming and just I found out that rust is the most loved language. Should a beginner like me learn rust first?",
+      "url": "https://www.reddit.com/r/rust/comments/xr7ted/i_am_new_to_programming_and_just_i_found_out_that/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Learning Rust as my first programming language, could use some advice",
+      "url": "https://www.reddit.com/r/rust/comments/1jd3fns/learning_rust_as_my_first_programming_language/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Does learning Rust make you a better programmer in general?",
+      "url": "https://www.reddit.com/r/rust/comments/12e5jo7/does_learning_rust_make_you_a_better_programmer/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "I feel like an imbecile trying to learn rust.",
+      "url": "https://www.reddit.com/r/rust/comments/ygvgub/i_feel_like_an_imbecile_trying_to_learn_rust/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Struggling to learn Rust",
+      "url": "https://www.reddit.com/r/rust/comments/1dr743k/struggling_to_learn_rust/",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "13:26  YouTube Learn a New Programming Language (Rust) with Me - YouTube July 14, 2024   29.5K",
+      "url": "https://www.youtube.com/watch?v=owtLkXNDMv4",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "04:03  YouTube Rust programming language explained | ThePrimeagen and Lex Fridman ... March 25, 2025",
+      "url": "https://www.youtube.com/watch?v=cA7flwaBiC0",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "15:09  YouTube Rust Tutorial #1 - Introduction To Rust Programming - YouTube May 9, 2022   477K",
+      "url": "https://www.youtube.com/watch?v=T_KrYLW4jw8",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "03:30:58  YouTube Learn the Rust programming language - Course for beginners - YouTube May 6, 2025",
+      "url": "https://www.youtube.com/watch?v=gAX3Zj-JGE0",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "14:44  YouTube Why Everyone's Switching to Rust (And Why You Shouldn't) - YouTube August 19, 2025",
+      "url": "https://www.youtube.com/watch?v=meEXag1XCFw",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "01:10:27  YouTube Stop writing slow code: Rust for Developers (Full Beginner Course) ... November 25, 2025",
+      "url": "https://www.youtube.com/watch?v=tgJ8d9yQtKY",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Wikipedia en.wikipedia.org › wiki  › Rust_(programming_language)   Rust (programming language) - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Rust_(programming_language)",
+      "description": "",
+      "type": "web"
+    },
+    {
+      "title": "Syntax and features",
+      "url": "https://en.wikipedia.org/wiki/Rust_(programming_language)#Syntax_and_features",
+      "description": "",
+      "type": "web"
+    }
+  ],
+  "hackernewsAnalysis": [
+    {
+      "id": "13663751",
+      "title": "Next Iteration of “The Rust Programming Language” Book",
+      "text": "",
+      "url": "https://rust-lang.github.io/book/",
+      "author": "nanxor",
+      "score": 346,
+      "numComments": 108,
+      "created": "2017-02-16T21:34:27Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=13663751",
+      "topComments": [
+        {
+          "author": "Dangeranger",
+          "text": "This book has been hugely helpful for me to get started in Rust. I&#x27;ve been following since the original &quot;Rust for Rubyists&quot; from Steve Klabnik.Steve if you are listening, thanks for putting all the hard work into the original book, the revision as The Rust Programming Language, and this most recent revision.",
+          "score": 0
+        },
+        {
+          "author": "purple-again",
+          "text": "Sigh. Looks like it&#x27;s time for round 5 of time to learn Rust(my personal failing, not meant as a slight against the language at all).  Has the pace of sweeping changes to the language slowed down in the past year?I rode the Ember train from 1.4 to now and it was an extremely ehausting process to get to 2.0 with nearly every version requiring frustrating architectural rewrites. The upgrade from 2.0 to 2.8 took like 15 minutes and didn&#x27;t require a single major refactor. I&#x27;m not tryi",
+          "score": 0
+        },
+        {
+          "author": "ohazi",
+          "text": "This new book isn&#x27;t finished yet, is it? If I remember correctly [0], there were several more chapters to go, and a likely timeline of months...[0] https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;book&#x2F;issues",
+          "score": 0
+        },
+        {
+          "author": "manaskarekar",
+          "text": "Echo all the positives about the book. Thank you.I hope the quick link to the rust playground in the sample code stays around.Also curious, is this supposed to be reflected on Rust Stable at https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;stable&#x2F;book&#x2F;",
+          "score": 0
+        },
+        {
+          "author": "lacampbell",
+          "text": "I&#x27;m reading the section on ownership. Valgrind usually thinks my &#x27;modern C++&#x27; code is leak free, and when it complains I understand why, so I&#x27;m not a complete stranger to systems programming. But for whatever reason I have always run into a brick wall with rusts strange compiler messages regarding lifetimes.I read the previous books bit on ownership. I&#x27;m not sure if this new version is better written or I&#x27;ve come across this stuff so many times that it&#x27;s starti",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "16302530",
+      "title": "RustBelt: securing the foundations of the Rust programming language",
+      "text": "",
+      "url": "https://dl.acm.org/citation.cfm?doid=3177123.3158154",
+      "author": "based2",
+      "score": 294,
+      "numComments": 105,
+      "created": "2018-02-04T12:49:34Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=16302530",
+      "topComments": [
+        {
+          "author": "fovc",
+          "text": "Adrian Colyer did a good write up of this paper recently on The Morning Paper : https:&#x2F;&#x2F;blog.acolyer.org&#x2F;2018&#x2F;01&#x2F;18&#x2F;rustbelt-securing-the-fo...",
+          "score": 0
+        },
+        {
+          "author": "chrismorgan",
+          "text": "My favourite part:&gt; our verification work resulted in uncovering and fixing a bug in Rust’s standard library, demonstrating that our model of Rust is realistic enough to be useful.The bug was https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;issues&#x2F;41622.",
+          "score": 0
+        },
+        {
+          "author": "bennofs",
+          "text": "Does this prove that the current borrowck rules are sufficient to catch all possible mistakes? For example, does it catch stuff like https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;issues&#x2F;31287 or https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;issues&#x2F;38899?",
+          "score": 0
+        },
+        {
+          "author": "Asdfbla",
+          "text": "I think I can understand and appreciate many different aspects of Computer science, but programming language theory truly is a bit too arcane and formal for me. I still try to follow it somewhat though (like when the Morning Paper had its nice writeup about RustBelt) and I enjoy learning Rust (which exposes you to the theory underlying its design more than other languages). Maybe it&#x27;s good that the results of formal methods now find more practical application, so it&#x27;s easier to get peo",
+          "score": 0
+        },
+        {
+          "author": "nukeop",
+          "text": "I have recently performed a relatively simple development by using programming languages on which I had low-to-to-no experience: Perl (low), Ruby (no), Rust (no) and Go (no). Note that I am quite adaptable on the programming language front and that this small experiment was precisely meant to showcase these adaptability skills. Rust was, by far, the most difficult-to-learn, difficult-to-research, counter-intuitive, unfriendly, constrained, unappealing, etc. of all of them. Warnings and errors ap",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "21682867",
+      "title": "Microsoft is creating a new Rust-based programming language for secure coding",
+      "text": "",
+      "url": "https://www.zdnet.com/article/microsoft-were-creating-a-new-rust-based-programming-language-for-secure-coding/",
+      "author": "TanakaTarou",
+      "score": 274,
+      "numComments": 194,
+      "created": "2019-12-02T15:00:17Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=21682867",
+      "topComments": [
+        {
+          "author": "sansnomme",
+          "text": "Oh no, I bet it&#x27;s gonna be a C# flavored Rust. None of Rust&#x27;s terse syntax and functional influence. It&#x27;s going to be full-blown Java-style OOP with plenty of Wnd handles to be thrown around. Yikes, I certainly hope I am not right.",
+          "score": 0
+        },
+        {
+          "author": "dlbucci",
+          "text": "What does &quot;Rust-based&quot; even mean? Inspired by Rust? Does it transpile to Rust or something? Very confusing phrasing to me...",
+          "score": 0
+        },
+        {
+          "author": "yarrel",
+          "text": "RScript.",
+          "score": 0
+        },
+        {
+          "author": "Someone1234",
+          "text": "This slideshow is pretty interesting (in particular slide 14):https:&#x2F;&#x2F;www.slideshare.net&#x2F;KTNUK&#x2F;digital-security-by-design-...Talks about sandboxing C&#x2F;C++ libraries that interact with Rust. Kinda make a safe unsafe sandbox Rust interface (&quot;less unsafe?&quot;) if I understand it correctly (I likely don&#x27;t).The actual linked article is all over the place, I cannot make heads or tails of it and seems to be conflating multiple security issues&#x2F;mitigations togethe",
+          "score": 0
+        },
+        {
+          "author": "saagarjha",
+          "text": "Video where this was introduced, which has more details: https:&#x2F;&#x2F;vimeo.com&#x2F;376180843Slides: https:&#x2F;&#x2F;www.slideshare.net&#x2F;KTNUK&#x2F;digital-security-by-design-...",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "3501980",
+      "title": "Mozilla releases version 0.1 of the Rust programming language",
+      "text": "",
+      "url": "http://mail.mozilla.org/pipermail/rust-dev/2012-January/001256.html",
+      "author": "pcwalton",
+      "score": 236,
+      "numComments": 82,
+      "created": "2012-01-23T20:26:22Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=3501980",
+      "topComments": [
+        {
+          "author": "markerdmann",
+          "text": "In case you're wondering why we need another programming language, this short audio clip from Brendan Eich is great:http://www.aminutewithbrendan.com/pages/20101206\"With Rust, what Graydon has been trying to do is focus on safety and also on you could say concurrency -- the actor model which I've spoken about recently - and the two are related in subtle ways.\"",
+          "score": 0
+        },
+        {
+          "author": "kibwen",
+          "text": "If anyone decides to give Rust a spin and is compelled to help out by providing feedback, the devs love to hear comments and criticism from users of the language:https://mail.mozilla.org/listinfo/rust-dev",
+          "score": 0
+        },
+        {
+          "author": "protomyth",
+          "text": "Is there a reference manual anywhere?",
+          "score": 0
+        },
+        {
+          "author": "kristianp",
+          "text": "Original HN thread here: http://news.ycombinator.com/item?id=3491557https and http links should be treated the same for de-duplication purposes, although this thread has a few more links, and points.",
+          "score": 0
+        },
+        {
+          "author": "swah",
+          "text": "Implementation partially in OCaml! (But why don't we use Ocaml again?)",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "9593294",
+      "title": "Rust Programming Language Book",
+      "text": "",
+      "url": "https://doc.rust-lang.org/book/",
+      "author": "dolftax",
+      "score": 220,
+      "numComments": 48,
+      "created": "2015-05-23T16:00:45Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=9593294",
+      "topComments": [
+        {
+          "author": "killercup",
+          "text": "Unofficial (but mostly up-to-date) ebook versions (PDF, EPUB, MOBI, HTML): http:&#x2F;&#x2F;killercup.github.io&#x2F;trpl-ebook&#x2F;",
+          "score": 0
+        },
+        {
+          "author": "charlieegan3",
+          "text": "http:&#x2F;&#x2F;rustbyexample.com Is also good.",
+          "score": 0
+        },
+        {
+          "author": "alexnewman",
+          "text": "From a smart friendRust needs a better tutorial of ownership. It&#x27;s novel, so it warrants the most explanation.",
+          "score": 0
+        },
+        {
+          "author": "brakmic",
+          "text": "My small Rust-related link-collection.https:&#x2F;&#x2F;rust.zeef.com&#x2F;harris.brakmic",
+          "score": 0
+        },
+        {
+          "author": "Q6T46nT668w6i3m",
+          "text": "The Rust Programming Language Book has been a fantastic resource.I was recently complaining to myself about some style and grammar issues (e.g. &quot;Book&quot; is redundant in the title of a book), but I realized I&#x27;m complaining about style and grammar issues of comprehensive documentation for a recently released programming language!I respect the effort Rust and Steve have invested in documentation and hope their effort is replicated elsewhere.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "45680023",
+      "title": "Rouille – Rust Programming, in French",
+      "text": "",
+      "url": "https://github.com/bnjbvr/rouille",
+      "author": "mihau",
+      "score": 216,
+      "numComments": 157,
+      "created": "2025-10-23T09:43:52Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=45680023",
+      "topComments": [
+        {
+          "author": "the__alchemist",
+          "text": "There is also a Rust minimal HTTP server by this name. (Incidentally, one of the few that isn&#x27;t Async.)",
+          "score": 0
+        },
+        {
+          "author": "gnarlouse",
+          "text": "Listen, if you didn’t just spend at least 5 minutes trying to make random foreign accents reading the code to yourself out loud trying to figure out what the code does…We’re different people.",
+          "score": 0
+        },
+        {
+          "author": "jacknews",
+          "text": "This is fun. My son is learning esperanto, is there a version for that, maybe a weekend projekto for him.",
+          "score": 0
+        },
+        {
+          "author": "joshdavham",
+          "text": "Is the compiler now gonna scream at me for using the wrong gender?",
+          "score": 0
+        },
+        {
+          "author": "userbinator",
+          "text": "Be sure to look at the &quot;other languages&quot; section; and then wonder whether all of it was generated by AI.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "9979234",
+      "title": "The Advanced Rust Programming Language Book Draft",
+      "text": "",
+      "url": "https://doc.rust-lang.org/nightly/adv-book/",
+      "author": "adamnemecek",
+      "score": 215,
+      "numComments": 47,
+      "created": "2015-07-31T00:37:11Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=9979234",
+      "topComments": [
+        {
+          "author": "Gankro",
+          "text": "Author here. Didn&#x27;t really want to post this to the wider programming community yet, but oh well.This is basically the first draft. Lots of errors and TODOs.Source is here if you want to file issues or patches:  https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rust&#x2F;tree&#x2F;master&#x2F;src&#x2F;doc&#x2F;tarpl",
+          "score": 0
+        },
+        {
+          "author": "silisili",
+          "text": "I apologize to ask this, but what is Rust&#x27;s end game or claim to fame?  It seems to a beginners eyes as if it is a new, far more complex c++.",
+          "score": 0
+        },
+        {
+          "author": "taliesinb",
+          "text": "To anyone else who spots the switched around &#x27;b&#x27; and &#x27;c&#x27; on the repr(rust) page: don&#x27;t bother, I&#x27;ve already created a PR.",
+          "score": 0
+        },
+        {
+          "author": "jimmoores",
+          "text": "Great to have a resource like this.  By way of providing some hopefully constructive feedback, the language seems a bit excessively informal: &quot;Safe Rust is For Reals Totally Safe. Unsafe Rust, unsurprisingly, is not For Reals Totally Safe. In fact, Unsafe Rust lets you do some really crazy unsafe things&quot;.  I get the idea that&#x27;s it&#x27;s trying to be friendly and street, but it&#x27;s a bit out of place in a document like this (I was just waiting for &#x27;shizzle&#x27; to pop up)",
+          "score": 0
+        },
+        {
+          "author": "shmerl",
+          "text": "This is great, I&#x27;ll get to it when it will be in a solid state. I&#x27;m also waiting for some good high level chapters on Rust&#x27;s approach to OOP and so on.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "12065912",
+      "title": "The Rustonomicon: The Dark Arts of Advanced and Unsafe Rust Programming",
+      "text": "",
+      "url": "https://doc.rust-lang.org/nomicon/README.html",
+      "author": "jvns",
+      "score": 191,
+      "numComments": 59,
+      "created": "2016-07-10T15:32:22Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12065912",
+      "topComments": [
+        {
+          "author": "rattray",
+          "text": "I really hope nobody mistakes the sexy title of this book as a reason to learn unsafe rust. If it can be done without this advanced feature, it probably should.",
+          "score": 0
+        },
+        {
+          "author": "Gankro",
+          "text": "Hey there, I wrote pretty much all of this. Sadly I wasn&#x27;t ever able to finish it, and won&#x27;t ever be able to due to contractual obligations. It has since languished due to lack of maintainership, even though it&#x27;s part of the official rust docs.If anyone wants to take up the mantle and clean it up, it would be greatly appreciated!",
+          "score": 0
+        },
+        {
+          "author": "Animats",
+          "text": "&quot;However BTreeMap is implemented using a modest spoonful of Unsafe Rust (most collections are).&quot;Unsafe pure Rust code reflects a lack of expressive power.  How raw memory becomes a typed object is a touchy area for arrays. To do collections safely, you have to be able to talk about an array which is partially valid. This is quite possible, but you need formal verification like constructs to do it.  You need to be able to express that a slice of an array is valid, even though the whole ",
+          "score": 0
+        },
+        {
+          "author": "arc0re",
+          "text": "I&#x27;m a Lovecraft fan, never really touched Rust, and a name like &quot;Rustonomicon&quot; could really get me into it, hehe.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "17831933",
+      "title": "The Dark Arts of Advanced and Unsafe Rust Programming",
+      "text": "",
+      "url": "https://doc.rust-lang.org/nomicon/",
+      "author": "ngaut",
+      "score": 181,
+      "numComments": 25,
+      "created": "2018-08-24T00:54:09Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=17831933",
+      "topComments": [
+        {
+          "author": "gwbas1c",
+          "text": "I recently had to write a lot of unsafe code in C# to interoperate with a driver.As advanced as modern languages are, the excellent memory models only work within the language. Interoperability requires that you can work with memory directly when needed. (And only when needed.) I don&#x27;t have a lot of Rust experience, but C# has plenty of tricks to avoid unsafe code but get close enough to working with real memory.One thing that would help is if there was some kind of a tool that could take C",
+          "score": 0
+        },
+        {
+          "author": "exitcode00",
+          "text": "Ada does, and has better and more clear conventions for &quot;unsafe&quot; programming (pointer arithmetic, conversions, etc) but does it naturally without special keywords and esoteric conventions through its package system. Too bad no one will ever give it a chance due to is syntax :(Rust is nothing but a slapdash C style copy of its semantics.",
+          "score": 0
+        },
+        {
+          "author": "habitue",
+          "text": "It&#x27;s a shame they didn&#x27;t ever resume work on this. Apparently the guy who wrote it can&#x27;t work on it any more",
+          "score": 0
+        },
+        {
+          "author": "_cbsz",
+          "text": "IMO title should at least contain &quot;The Rustonomicon&quot;; &quot;The Dark Arts of Advanced and Unsafe Rust Programming&quot; is the subtitle. I wouldn&#x27;t have clicked through if I had known that the link was to this document.",
+          "score": 0
+        },
+        {
+          "author": "jake_the_third",
+          "text": "This is not meant as criticism of this book as it is of my own reading and comprehension abilities (English is not my mother tongue), but when I attempted to read the book, I found the writing style employed very off-putting and distracting. In contrast, I usually find documentation written in a formal technical style like standards and references to be clear and concise; I don&#x27;t have to exert mental effort trying to decipher inconsequential verbiage, idioms, and cultural references beyond ",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "3027777",
+      "title": "The Rust Programming Language",
+      "text": "",
+      "url": "http://dl.dropbox.com/u/4186469/rust-all-hands-w2011/assets/fallback/index.html",
+      "author": "jamii",
+      "score": 170,
+      "numComments": 79,
+      "created": "2011-09-22T20:59:59Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=3027777",
+      "topComments": [
+        {
+          "author": "cnlwsu",
+          "text": "In chrome I am just getting a blank page with some javascript errors.  In IE I only can see the right half of the presentation.  Mozilla is supporting FF well though :)",
+          "score": 0
+        },
+        {
+          "author": "pcwalton",
+          "text": "Slideshare here for those having trouble with the Dropbox-hosted version: http://www.slideshare.net/pcwalton/rust-all-hands-winter-201...",
+          "score": 0
+        },
+        {
+          "author": "ynniv",
+          "text": "Good call on single threaded language bridging. Multithreading in XPCOM was either bad or worse depending on the phase of the moon. I almost had an important project tank because XPCOM \"out\" parameters (unfortunately used internally whenever a method had a return value) were not thread-safe. We ended up using a different threading library and only making synchronous XPCOM calls.",
+          "score": 0
+        },
+        {
+          "author": "zobzu",
+          "text": "It looks pretty cool and oriented at making a browser engine. (tl;dr version i guess)",
+          "score": 0
+        },
+        {
+          "author": "icebraining",
+          "text": "Older discussion: http://news.ycombinator.com/item?id=1498528",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "43488490",
+      "title": "Rost – Rust Programming in German",
+      "text": "",
+      "url": "https://github.com/michidk/rost",
+      "author": "miniBill",
+      "score": 161,
+      "numComments": 115,
+      "created": "2025-03-26T23:04:33Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=43488490",
+      "topComments": []
+    },
+    {
+      "id": "29295707",
+      "title": "Rust programming for web developers, by a web developer",
+      "text": "",
+      "url": "https://codeamigo.dev/lessons/161",
+      "author": "plondon514",
+      "score": 154,
+      "numComments": 32,
+      "created": "2021-11-21T11:54:15Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29295707",
+      "topComments": []
+    },
+    {
+      "id": "35522076",
+      "title": "Becoming Rustacean: Resources to Learn Rust Programming",
+      "text": "",
+      "url": "https://www.nativebyx.dev/rust/becoming-rustacean/awesome-free-online-resources-to-earn-rust-programming-language.html",
+      "author": "abelhn",
+      "score": 153,
+      "numComments": 47,
+      "created": "2023-04-11T07:45:07Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=35522076",
+      "topComments": []
+    },
+    {
+      "id": "3792403",
+      "title": "The Rust Programming Language",
+      "text": "",
+      "url": "http://www.rust-lang.org/",
+      "author": "gregnavis",
+      "score": 145,
+      "numComments": 126,
+      "created": "2012-04-03T11:11:58Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=3792403",
+      "topComments": []
+    },
+    {
+      "id": "12291615",
+      "title": "What’s New with “The Rust Programming Language”?",
+      "text": "",
+      "url": "http://words.steveklabnik.com/whats-new-with-the-rust-programming-language",
+      "author": "doppp",
+      "score": 143,
+      "numComments": 50,
+      "created": "2016-08-15T16:50:24Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12291615",
+      "topComments": []
+    }
+  ],
+  "blueskyAnalysis": [],
+  "discourseAnalysis": [
+    {
+      "id": "discuss.python.org-5603",
+      "title": "PEP proposal: Automatically Formatting the CPython Code",
+      "text": "...re also a wide variety of large open source projects that have adopted some form of automation for their formatting. Some prominent projects are: The Rust programming language uses rustfmt to keep their standard library and compiler written in Rust formatted [4]. The Linux kernel uses clang-format to keep their C/C...",
+      "url": "https://discuss.python.org/t/pep-proposal-automatically-formatting-the-cpython-code/5603",
+      "author": "taleinat",
+      "score": 0,
+      "views": 0,
+      "replyCount": 67,
+      "created": "2021-03-26T20:01:36.665Z",
+      "source": "discourse",
+      "sourceForum": "discuss.python.org",
+      "topComments": []
+    },
+    {
+      "id": "discuss.python.org-29282",
+      "title": "Mismatch between assert's semantics and how it's used (-O, -OO, disable)",
+      "text": "TL;DR Python's assert statement in a NOP https://docs.python.org/3/using/cmdline.html#cmdoption-O in optimized mode ( python -O or python -OO ). There exists code that assumes this, and much much more code that is ignorant of this and broken when running with -O . Lets do something about this, tr...",
+      "url": "https://discuss.python.org/t/mismatch-between-asserts-semantics-and-how-its-used-o-oo-disable/29282",
+      "author": "SonOfLilit",
+      "score": 0,
+      "views": 0,
+      "replyCount": 85,
+      "created": "2023-07-27T17:44:35.795Z",
+      "source": "discourse",
+      "sourceForum": "discuss.python.org",
+      "topComments": []
+    },
+    {
+      "id": "discourse.gnome.org-13609",
+      "title": "Getting auto-height of ShortcutsSection working when creating a ShortcutsWindow programmically",
+      "text": "When I to create a help overlay programmatically auto-height is ignored. All shortcuts are listen in one column. I have this sample code: use gtk::prelude::*; use gtk::{ApplicationWindow, Button, ShortcutsWindow}; const GENERAL_SHORTCUTS: [( & str, & str); 3] = [ (\"Open Command Pallette\", \" < Pri...",
+      "url": "https://discourse.gnome.org/t/getting-auto-height-of-shortcutssection-working-when-creating-a-shortcutswindow-programmically/13609",
+      "author": "mipmip",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2023-01-19T22:36:55.436Z",
+      "source": "discourse",
+      "sourceForum": "discourse.gnome.org",
+      "topComments": []
+    },
+    {
+      "id": "discourse.gnome.org-6993",
+      "title": "Entire shell / system crashes when I close the application I'm developing",
+      "text": "You are using that in place closure notation app.connect_activate(|app| { Are you sure that works reliable? In other rust examples from https://gtk.org/ or https://gtk-rs.org/gtk4-rs/stable/latest/book/hello_world.html Hello World! - GUI development with Rust and GTK 4 I generally see use of top ...",
+      "url": "https://discourse.gnome.org/t/entire-shell-system-crashes-when-i-close-the-application-im-developing/6993",
+      "author": "StefanSalewski",
+      "score": 0,
+      "views": 0,
+      "replyCount": 16,
+      "created": "2021-07-18T13:39:38.583Z",
+      "source": "discourse",
+      "sourceForum": "discourse.gnome.org",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-607473",
+      "title": "Can I use rust (programming language) in ue5?",
+      "text": "Are there any examples or tutorials on using Rust in UE5?",
+      "url": "https://forums.unrealengine.com/t/can-i-use-rust-programming-language-in-ue5/607473",
+      "author": "anonymous_user_f704edf4",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2022-07-18T10:13:10.067Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-1861683",
+      "title": "I wrote a tutorial on how to make a Rust plugin",
+      "text": "https://codingbabble.com/posts/how-to-create-a-rust-plugin-for-unreal-engine/ codingbabble.com https://codingbabble.com/posts/how-to-create-a-rust-plugin-for-unreal-engine/ How to Create a Rust Plugin for Unreal Engine | Coding Babble Learn how to use Rust code in Unreal Engine.",
+      "url": "https://forums.unrealengine.com/t/i-wrote-a-tutorial-on-how-to-make-a-rust-plugin/1861683",
+      "author": "Kochab",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2024-05-18T10:01:19.257Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-267190",
+      "title": "How to generate/modify rust-scripts sourcecode with OpenAI API?",
+      "text": "When I asked GPT-4 ChatGPT if can make Rust scripts ( rust-script_ org (too new account to post links)) it replied that does not know. However Rust scripts is very simple flavor/convention to run: you add UNIX shebang! (so one can run it directly, and compilation is \"magically taken care of\") eve...",
+      "url": "https://community.openai.com/t/how-to-generate-modify-rust-scripts-sourcecode-with-openai-api/267190",
+      "author": "grzegorz",
+      "score": 0,
+      "views": 0,
+      "replyCount": 4,
+      "created": "2023-07-26T08:13:50.985Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-963949",
+      "title": "New Playground features: Generate in the Playground",
+      "text": "...l the prompt with expertise and confidence in its abilities. New System message : You are Rusty, an expert assistant with a deep understanding of the Rust programming language, always ready to offer confident and accurate guidance. Modify Schemas? Try that on a response schema though Remove description fields You l...",
+      "url": "https://community.openai.com/t/new-playground-features-generate-in-the-playground/963949",
+      "author": "_j",
+      "score": 0,
+      "views": 0,
+      "replyCount": 7,
+      "created": "2024-12-17T08:00:13.836Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ],
+  "stackexchangeAnalysis": [
+    {
+      "id": "stackoverflow-27840394",
+      "title": "How can a Rust program access metadata from its Cargo package?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/27840394/how-can-a-rust-program-access-metadata-from-its-cargo-package",
+      "author": "Jimmy",
+      "authorRep": 37591,
+      "score": 304,
+      "viewCount": 71953,
+      "answerCount": 4,
+      "isAnswered": true,
+      "tags": [
+        "rust",
+        "rust-cargo"
+      ],
+      "created": "2015-01-08T12:41:59.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-13322479",
+      "title": "How to benchmark programs in Rust?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/13322479/how-to-benchmark-programs-in-rust",
+      "author": "php--",
+      "authorRep": 3327,
+      "score": 204,
+      "viewCount": 132192,
+      "answerCount": 9,
+      "isAnswered": true,
+      "tags": [
+        "time",
+        "benchmarking",
+        "rust"
+      ],
+      "created": "2012-11-10T13:31:24.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-26946646",
+      "title": "Package with both a library and a binary?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/26946646/package-with-both-a-library-and-a-binary",
+      "author": "Andrew Wagner",
+      "authorRep": 25083,
+      "score": 441,
+      "viewCount": 183244,
+      "answerCount": 5,
+      "isAnswered": true,
+      "tags": [
+        "rust",
+        "rust-cargo"
+      ],
+      "created": "2014-11-15T14:04:29.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "stackoverflow-29008127",
+      "title": "Why are Rust executables so huge?",
+      "text": "",
+      "url": "https://stackoverflow.com/questions/29008127/why-are-rust-executables-so-huge",
+      "author": "BitTickler",
+      "authorRep": 12240,
+      "score": 396,
+      "viewCount": 124014,
+      "answerCount": 6,
+      "isAnswered": true,
+      "tags": [
+        "rust",
+        "rust-cargo"
+      ],
+      "created": "2015-03-12T11:07:45.000Z",
+      "source": "stackexchange",
+      "sourceSite": "stackoverflow",
+      "topComments": []
+    },
+    {
+      "id": "softwareengineering-395230",
+      "title": "Can Rust replace the C or C++ programs in the Future?",
+      "text": "",
+      "url": "https://softwareengineering.stackexchange.com/questions/395230/can-rust-replace-the-c-or-c-programs-in-the-future",
+      "author": "Avinash",
+      "authorRep": 141,
+      "score": 3,
+      "viewCount": 2879,
+      "answerCount": 2,
+      "isAnswered": true,
+      "tags": [
+        "c++",
+        "c",
+        "memory",
+        "bug",
+        "rust"
+      ],
+      "created": "2019-07-26T06:48:51.000Z",
+      "source": "stackexchange",
+      "sourceSite": "softwareengineering",
+      "topComments": []
+    },
+    {
+      "id": "softwareengineering-442532",
+      "title": "Creating a new type as slice of strings in Rust?",
+      "text": "",
+      "url": "https://softwareengineering.stackexchange.com/questions/442532/creating-a-new-type-as-slice-of-strings-in-rust",
+      "author": "Daniel",
+      "authorRep": 119,
+      "score": 1,
+      "viewCount": 395,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "object-oriented-design",
+        "rust",
+        "go"
+      ],
+      "created": "2022-11-29T15:37:09.000Z",
+      "source": "stackexchange",
+      "sourceSite": "softwareengineering",
+      "topComments": []
+    },
+    {
+      "id": "softwareengineering-420898",
+      "title": "Why do &quot;checked exceptions&quot;, i.e., &quot;value-or-error return values&quot;, work well in Rust and Go but not in Java?",
+      "text": "",
+      "url": "https://softwareengineering.stackexchange.com/questions/420898/why-do-checked-exceptions-i-e-value-or-error-return-values-work-well-in",
+      "author": "Heinzi",
+      "authorRep": 9868,
+      "score": 67,
+      "viewCount": 8893,
+      "answerCount": 9,
+      "isAnswered": true,
+      "tags": [
+        "java",
+        "language-design",
+        "exceptions",
+        "go",
+        "rust"
+      ],
+      "created": "2021-01-11T09:26:55.000Z",
+      "source": "stackexchange",
+      "sourceSite": "softwareengineering",
+      "topComments": []
+    },
+    {
+      "id": "softwareengineering-317873",
+      "title": "How does Rust diverge from the concurrency facilities of C++?",
+      "text": "",
+      "url": "https://softwareengineering.stackexchange.com/questions/317873/how-does-rust-diverge-from-the-concurrency-facilities-of-c",
+      "author": "thb",
+      "authorRep": 757,
+      "score": 40,
+      "viewCount": 4289,
+      "answerCount": 2,
+      "isAnswered": true,
+      "tags": [
+        "c++",
+        "concurrency",
+        "rust",
+        "c++14"
+      ],
+      "created": "2016-05-08T12:46:27.000Z",
+      "source": "stackexchange",
+      "sourceSite": "softwareengineering",
+      "topComments": []
+    },
+    {
+      "id": "codereview-269165",
+      "title": "The Rust Programming Language Pig Latin",
+      "text": "",
+      "url": "https://codereview.stackexchange.com/questions/269165/the-rust-programming-language-pig-latin",
+      "author": "CGLike",
+      "authorRep": 121,
+      "score": 2,
+      "viewCount": 124,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "strings",
+        "rust",
+        "pig-latin"
+      ],
+      "created": "2021-10-19T21:29:12.000Z",
+      "source": "stackexchange",
+      "sourceSite": "codereview",
+      "topComments": []
+    },
+    {
+      "id": "codereview-253979",
+      "title": "The Rust Programming Language Pig Latin Exercise",
+      "text": "",
+      "url": "https://codereview.stackexchange.com/questions/253979/the-rust-programming-language-pig-latin-exercise",
+      "author": "Teodor Maxim",
+      "authorRep": 113,
+      "score": 1,
+      "viewCount": 318,
+      "answerCount": 1,
+      "isAnswered": true,
+      "tags": [
+        "rust"
+      ],
+      "created": "2020-12-28T00:21:46.000Z",
+      "source": "stackexchange",
+      "sourceSite": "codereview",
+      "topComments": []
+    },
+    {
+      "id": "codereview-263343",
+      "title": "Rust program to create mail.tm accounts",
+      "text": "",
+      "url": "https://codereview.stackexchange.com/questions/263343/rust-program-to-create-mail-tm-accounts",
+      "author": "cavalry1223",
+      "authorRep": 21,
+      "score": 2,
+      "viewCount": 79,
+      "answerCount": 0,
+      "isAnswered": false,
+      "tags": [
+        "multithreading",
+        "rust",
+        "concurrency",
+        "networking"
+      ],
+      "created": "2021-06-22T20:18:16.000Z",
+      "source": "stackexchange",
+      "sourceSite": "codereview",
+      "topComments": []
+    },
+    {
+      "id": "codereview-252740",
+      "title": "First Rust program - squares which are sum of squares",
+      "text": "",
+      "url": "https://codereview.stackexchange.com/questions/252740/first-rust-program-squares-which-are-sum-of-squares",
+      "author": "Pierre Abbat",
+      "authorRep": 218,
+      "score": 1,
+      "viewCount": 320,
+      "answerCount": 2,
+      "isAnswered": true,
+      "tags": [
+        "beginner",
+        "rust"
+      ],
+      "created": "2020-11-27T07:54:51.000Z",
+      "source": "stackexchange",
+      "sourceSite": "codereview",
+      "topComments": []
+    }
+  ],
+  "semanticScholarAnalysis": [],
+  "arxivAnalysis": [],
+  "metadata": {
+    "topic": "rust programming",
+    "timestamp": "2026-07-19T07:03:05.999Z",
+    "depth": 100,
+    "duration": "0m 13s",
+    "redditPosts": 0,
+    "youtubeVideos": 0,
+    "newsArticles": 50,
+    "webSearchResults": 15,
+    "hackernewsStories": 15,
+    "blueskyPosts": 0,
+    "discourseTopics": 8,
+    "stackexchangeAnswers": 12,
+    "semanticScholarPapers": 0,
+    "arxivPapers": 0,
+    "totalComments": 49,
+    "totalSources": 100,
+    "uniqueSources": 99
+  }
+}
