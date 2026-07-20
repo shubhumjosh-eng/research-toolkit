@@ -82,7 +82,7 @@ class TopicAnalyzer {
       cat: ['cats', 'CatAdvice', 'CatsAreAssholes', 'kitten'],
       music: ['Music', 'WeAreTheMusicMakers', 'guitar', 'piano', 'listentothis', 'spotify'],
       movies: ['movies', 'moviecritic', 'NetflixBestOf', 'tipofmytongue', 'television', 'MovieDetails'],
-      tv: ['television', ' television', 'NetflixBestOf', 'HBOmax', 'DisneyPlus'],
+      tv: ['television', 'NetflixBestOf', 'HBOmax', 'DisneyPlus'],
       photography: ['photography', 'AskPhotography', 'photo', 'itookapicture', 'photoshop'],
       fashion: ['malefashionadvice', 'femalefashionadvice', 'sneakers', 'watches', 'frugalmalefashion'],
       language: ['languagelearning', 'Spanish', 'french', 'German', 'Japanese', 'Korean', 'ChineseLanguage'],
