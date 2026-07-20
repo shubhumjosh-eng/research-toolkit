@@ -255,6 +255,8 @@ ZERO COST:
       format: this.options.format,
       since: this.options.since,
       until: this.options.until,
+      template: this.options.template,
+      diff: this.options.diff,
     });
 
     if (this.options.format && this.options.format !== 'html') {
