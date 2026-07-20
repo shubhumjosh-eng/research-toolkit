@@ -1,4 +1,6 @@
 require('dotenv').config();
+const path = require('path');
+const os = require('os');
 
 module.exports = {
   GNEWS_API_KEY: process.env.GNEWS_API_KEY || '',
@@ -35,7 +37,7 @@ module.exports = {
   },
 
   VIDEO: {
-    tempDir: path.join(require('os').tmpdir(), 'research-toolkit', 'temp'),
+    tempDir: path.join(os.tmpdir(), 'research-toolkit', 'temp'),
     maxVideoDuration: 600,
     whisperModel: 'base',
   },
