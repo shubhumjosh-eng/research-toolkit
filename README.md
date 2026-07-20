@@ -23,8 +23,6 @@ Tired of searching Reddit, YouTube, Google, Hacker News, arXiv, and a dozen brow
 npx research-toolkit "quantum computing advances"
 ```
 
-![Research Toolkit Demo](demo.gif)
-
 ---
 
 ## Features at a Glance
