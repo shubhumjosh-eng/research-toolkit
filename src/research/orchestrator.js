@@ -245,7 +245,7 @@ class ResearchOrchestrator {
 
     const ranked = queryAnalyzer.rankAndDeduplicate(allResults, analysis);
     const clusters = queryAnalyzer.clusterResults(ranked);
-    const sentiment = analyzeBatch(results.reddit);
+    const sentiment = analyzeBatch([...results.reddit, ...results.hackernews, ...results.bluesky]);
     const authorProfiles = this.buildAuthorProfiles(results.reddit);
 
     // Compute diff if requested
@@ -301,7 +301,10 @@ class ResearchOrchestrator {
         semanticScholarPapers: results.semanticScholar.length,
         arxivPapers: results.arxiv.length,
         totalComments: results.reddit.reduce((sum, p) => sum + (p.topComments?.length || 0), 0)
-          + results.hackernews.reduce((sum, p) => sum + (p.topComments?.length || 0), 0),
+          + results.hackernews.reduce((sum, p) => sum + (p.topComments?.length || 0), 0)
+          + results.bluesky.reduce((sum, p) => sum + (p.replyCount || 0), 0)
+          + results.discourse.reduce((sum, p) => sum + (p.replyCount || 0), 0)
+          + results.stackexchange.reduce((sum, p) => sum + (p.answerCount || 0), 0),
         totalSources: allResults.length,
         uniqueSources: ranked.length,
       },
@@ -317,7 +320,8 @@ class ResearchOrchestrator {
     log('info', `Duration: ${minutes}m ${seconds}s | Report: ${finalPath}`);
     report('report', `Report saved: ${finalPath}`, 1, 1);
 
-    return { ...results, reportPath: finalPath, metadata: reportData.metadata, ranked, clusters, analysis };
+    logger.endSession();
+    return { ...results, reportPath: finalPath, metadata: reportData.metadata, ranked, clusters, analysis, executiveSummary: reportData.executiveSummary };
   }
 
   generateSummary(results, analysis, ranked) {
