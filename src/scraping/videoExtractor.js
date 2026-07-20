@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 class VideoExtractor {
   constructor() {
     this.headers = {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     };
   }
 
@@ -66,8 +66,13 @@ class VideoExtractor {
 
   async extractTikTok(url) {
     try {
-      const response = await axios.get(url, { 
+      const parsedUrl = new URL(url);
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        throw new Error('Only HTTP/HTTPS URLs supported');
+      }
+      const response = await axios.get(url, {
         headers: this.headers,
+        timeout: 10000,
         maxRedirects: 5,
       });
       
@@ -93,8 +98,8 @@ class VideoExtractor {
     const vimeoId = url.match(/vimeo\.com\/(\d+)/)?.[1];
     
     try {
-      const oembedUrl = `https://vimeo.com/api/oembed.json?url=${url}`;
-      const response = await axios.get(oembedUrl, { headers: this.headers });
+      const oembedUrl = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(url)}`;
+      const response = await axios.get(oembedUrl, { headers: this.headers, timeout: 10000 });
       const data = response.data;
       
       return {
@@ -118,6 +123,10 @@ class VideoExtractor {
 
   async extractGeneric(url) {
     try {
+      const parsedUrl = new URL(url);
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        throw new Error('Only HTTP/HTTPS URLs supported');
+      }
       const response = await axios.get(url, { 
         headers: this.headers,
         timeout: 10000,
@@ -160,6 +169,8 @@ class VideoExtractor {
       /youtu\.be\/([^?]+)/,
       /youtube\.com\/embed\/([^?]+)/,
       /youtube\.com\/v\/([^?]+)/,
+      /youtube\.com\/shorts\/([^?]+)/,
+      /youtube\.com\/live\/([^?]+)/,
     ];
     
     for (const pattern of patterns) {
