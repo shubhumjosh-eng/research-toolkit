@@ -1,0 +1,112 @@
+{
+  "timestamp": 1784536891877,
+  "topic": "machine learning transformers 2025",
+  "source": "hackernews",
+  "count": 6,
+  "data": [
+    {
+      "id": "43767838",
+      "title": "Show HN: Talk to 3000 ICLR 2025 (machine learning conference) papers",
+      "text": "ICLR is one of the top machine learning &#x2F; AI conferences. We put the over 3000+ accepted papers into a “Pod” which you can chat.<p>Example queries:<p><pre><code>  “find papers with more than one OpenAI-affiliated author”\n\n  “find papers that propose alternatives to Transformer architecture in LLM”\n\n  “give an overview of all spotlight or oral papers with Yann Lecun as author”\n</code></pre>\nRadPod is an agentic AI system that supports reasoning over a large amount of context, in this case over 90M tokens, with high accuracy.",
+      "url": "http://radpod.ai/iclr-2025",
+      "author": "somerandomness",
+      "score": 3,
+      "numComments": 0,
+      "created": "2025-04-23T01:21:48Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=43767838",
+      "topComments": []
+    },
+    {
+      "id": "43020982",
+      "title": "Show HN: ML Library created by Python+NumPy (trains CNNs to a toy GPT-2)",
+      "text": "Hi HN,\nI built a machine learning library entirely from scratch using only Python and NumPy. I then used it to train a range of models—from classical CNNs, ResNets, RNNs, and LSTMs to modern Transformers and even a toy GPT-2. The motivation came from my curiosity about how to build deep learning models from scratch, like literally from mathematical formulas. I built this project not to replace production-ready libraries like PyTorch or TensorFlow, but to strip away the abstractions and reveal the underlying mathematics of machine learning.<p>Key points:<p>- Everything is derived in code — no opaque black boxes.<p>- API mirrors PyTorch so you can pick it up quickly.<p>- You can train CNNs, RNNs, Transformers, and even GPT models.<p>- Designed more for learning&#x2F;debugging than raw performance.<p>What’s different here?<p>While there are many powerful ML libraries available (TensorFlow, PyTorch, Scikit-learn, etc.), they often hide the underlying math behind layers of abstraction. I believe that to truly master these tools, you first need to understand how they work from the ground up. This project explicitly derives all the mathematical and calculus operations in the code, making it a hands-on resource for deepening the understanding of neural networks and library building :)<p>Check it out:<p>- Github Repository: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand\">https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand</a><p>- API Documentation: <a href=\"https:&#x2F;&#x2F;ml-by-hand.readthedocs.io&#x2F;en&#x2F;latest&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ml-by-hand.readthedocs.io&#x2F;en&#x2F;latest&#x2F;</a><p>- Examples: Explore models like GPT-2, CNNs, Transformers, and LSTMs in the examples&#x2F; folder: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand&#x2F;tree&#x2F;main&#x2F;examples\">https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand&#x2F;tree&#x2F;main&#x2F;examples</a><p>- Blog Post: Read about the project’s motivation, design, and challenges at <a href=\"https:&#x2F;&#x2F;www.henrypan.com&#x2F;blog&#x2F;2025-02-06-ml-by-hand&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.henrypan.com&#x2F;blog&#x2F;2025-02-06-ml-by-hand&#x2F;</a><p>I’d love to hear any thoughts, questions, or suggestions — thanks for checking it out!",
+      "url": "https://github.com/workofart/ml-by-hand",
+      "author": "megadragon9",
+      "score": 1,
+      "numComments": 0,
+      "created": "2025-02-12T02:07:31Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=43020982",
+      "topComments": []
+    },
+    {
+      "id": "42986598",
+      "title": "Show HN: From-Scratch ML Library (trains models from CNNs to a toy GPT-2)",
+      "text": "Hi HN,<p>I built a machine learning library entirely from scratch using only Python and NumPy. I then used it to train a range of models—from classical CNNs, ResNets, RNNs, and LSTMs to modern Transformers and even a toy GPT-2. The motivation came from my curiosity about how to build deep learning models from scratch, like literally from mathematical formulas. I built this project not to replace production-ready libraries like PyTorch or TensorFlow, but to strip away the abstractions and reveal the underlying mathematics of machine learning.<p>Key points:<p>- Everything is derived in code — no opaque black boxes.<p>- API mirrors PyTorch so you can pick it up quickly.<p>- You can train CNNs, RNNs, Transformers, and even GPT models.<p>- Designed more for learning&#x2F;debugging than raw performance.<p>What’s different here?<p>While there are many powerful ML libraries available (TensorFlow, PyTorch, Scikit-learn, etc.), they often hide the underlying math behind layers of abstraction. I believe that to truly master these tools, you first need to understand how they work from the ground up. This project explicitly derives all the mathematical and calculus operations in the code, making it a hands-on resource for deepening the understanding of neural networks and library building :)<p>Check it out:<p>- Github Repository: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand\">https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand</a><p>- API Documentation: <a href=\"https:&#x2F;&#x2F;ml-by-hand.readthedocs.io&#x2F;en&#x2F;latest&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;ml-by-hand.readthedocs.io&#x2F;en&#x2F;latest&#x2F;</a><p>- Examples: Explore models like GPT-2, CNNs, Transformers, and LSTMs in the examples&#x2F; folder: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand&#x2F;tree&#x2F;main&#x2F;examples\">https:&#x2F;&#x2F;github.com&#x2F;workofart&#x2F;ml-by-hand&#x2F;tree&#x2F;main&#x2F;examples</a><p>- Blog Post: Read about the project’s motivation, design, and challenges at <a href=\"https:&#x2F;&#x2F;www.henrypan.com&#x2F;blog&#x2F;2025-02-06-ml-by-hand&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.henrypan.com&#x2F;blog&#x2F;2025-02-06-ml-by-hand&#x2F;</a><p>I’d love to hear any thoughts, questions, or suggestions — thanks for checking it out!",
+      "url": "https://github.com/workofart/ml-by-hand",
+      "author": "megadragon9",
+      "score": 1,
+      "numComments": 0,
+      "created": "2025-02-08T22:05:59Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=42986598",
+      "topComments": []
+    },
+    {
+      "id": "40375903",
+      "title": "Ask HN: What's the role GCP/Google's LLM play in GenAI market",
+      "text": "This ask post is very opinionated.<p>I used be a die-hard Google&#x2F;GCP lover, from wanting to enter Google as an engineer when I was a student, to proposing to try out GCP for a new project at my first internship (and succeeded). Used Firebase for my on-campus goods trading platform, course projects, and contract projects, and got good experiences. I also used Colab as my go-to choice for my study of machine learning, running models for tasks including object detection, image segmentation, basic machine learning projects, and fine-tuning transformer models for my NLP course projects.<p>I still remembered the release Google&#x27;s LaMDA model in 2021, and the beautiful blog post site. They used to be the leading role in GenAI or AI serving in general with TensorFlow serve on GCP. However, ever since last year, I really felt that Google is severely lagging behind in the cloud service or GenAI in general.<p>For GCP, especially the AI related workspace, I see no meaningful improvement over the years. The file system still has a weird triangle that when you click it does nothing, the UI is extremely laggy when the data is huge just like in colab. I don&#x27;t even want to mention the accidental deletion of Unisuper&#x27;s data.<p>For Gemini, despite it has large context window (2M for 1.5 Pro, 1M for 1.5 Flash), I see no value at all to use this. I generally judge a service&#x27;s usability on three things: model competency &gt; API (design, price, speed) &gt; playground ease of use (because you can always use other playgrounds when you have the API). Gemini sucks on every aspect. It&#x27;s never in par with GPT-4o (opinionated, tested on all my graduate CS quiz questions). The API is such a pain in the ass (500, 400 all over the place when I was following the cookbook and Gemini&#x27;s team could not even solve my issue at a hackathon!) They playground is the most counter-intuitive thing I&#x27;ve ever used in my life.<p>What&#x27;s more, the executive team of the Google seems to believe that Gemini 1.5 Pro is as satisfying as GPT-4, and Gemini 1.5 Flash is better, faster, and cheaper than GPT-3.5. First statement is false (to me). Second statement is meaningless, because you should be comparing Gemini 1.5 Flash to Llama 3 or Mistral instead of GPT-3.5. Don&#x27;t even bring up that Gemini is not fine-tunable at this moment.<p>They have a slide number that over 60% GenAI startup is using GCP. I simply don&#x27;t understand where this number is from. Almost every startup I encountered is either using OpenAI or Azure Studio (if they have some scale). I used to be a MSFT hater, but Azure AI Studio just has far better DX and model catalog compared to Vertex AI.<p>Therefore, unless my company has already signed a contract with GCP, I really don&#x27;t see the point of a new startup starting to use GCP or Gemini in general.",
+      "url": "https://news.ycombinator.com/item?id=40375903",
+      "author": "music_is_loud",
+      "score": 2,
+      "numComments": 0,
+      "created": "2024-05-16T07:04:28Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=40375903",
+      "topComments": []
+    },
+    {
+      "id": "43894431",
+      "title": "Ask HN: Does machine learning make sense if GenAI keep evolving?",
+      "text": "Hi HN!\nAbout a year ago I bought A. Burkov&#x27;s &quot;The hundred-page machine learning book&quot;.<p>I thought it could be a good starting point for learning about transformers and GenAI.<p>But then I discovered here [1] the logic is far more complex, and a bit more specific (it also contains a lot of black magic in form of parameters to tune).<p>My impression is that a lot of &#x27;plain vanilla&#x27; Machine Learning topics (ML) are faded away this last 2 years... so it makes sense to study ML today?<p>And if yes, in the next 2-5 years, what are the things a GenAI cannot do than ML will continue to be useful to?<p>[1] https:&#x2F;&#x2F;gioorgi.com&#x2F;2024&#x2F;gemma-gem&#x2F;",
+      "url": "https://news.ycombinator.com/item?id=43894431",
+      "author": "daitangio",
+      "score": 3,
+      "numComments": 0,
+      "created": "2025-05-05T12:36:27Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=43894431",
+      "topComments": []
+    },
+    {
+      "id": "36233487",
+      "title": "Ask HN: Is the rate of progress in AI exponential?",
+      "text": "I&#x27;ve frequently seen the claim that progress in machine learning and artificial intelligence, particularly with respect to large language models, has been exponential over the recent past. This arises often in discussions around the existential risk posed by artificial general or super intelligence, but even those more positively disposed to such technology seem to believe in rapid advancements.<p>My problem is that I just don&#x27;t see it? I see progress, yes, but not exponentially accelerating progress. Focusing on large language models, it took several years to go from the invention of the transformer architecture to a broadly useful autoregressive text completer. Between March of 2022 and March of 2023 OpenAI went from GPT-3.5 to GPT-4; a clear improvement, but not a transformationally massive one. GPT-4 remains the most capable model widely available and that shows no signs of changing -- it&#x27;s not clear at this point if GPT-5 is even a glimmer in Ilya Sutskever&#x27;s eye.<p>Further progress towards more capable large language models requires either ever-increasing amounts of data and compute for marginal gains, or (IMO) the development of new approaches that better leverage available data. But the research and development I&#x27;m seeing is all about:<p>1. Better ways to prompt LLMs (chain of thought, tree of thoughts)<p>2. New LLMs that use less compute than GPT-4 (but are almost uniformly worse, e.g. Bard)<p>3. Better ways of running smaller (i.e. worse) models on commodity hardware<p>4. New software tools that employ LLMs (document search, web search, etc)<p>That stuff might be important, but does it count as exponential progress? I think it only seems exponential because ChatGPT seemed to come out of nowhere and now LLMs have sucked all the energy out of the room, but high interest and activity aren&#x27;t perfect indicators of rapid progress; precisely how many versions of &quot;use embeddings to search through documents&quot; do we need? If progress were truly exponential, I would expect something noticeably better than GPT-4 on the horizon, if not already released. But I&#x27;m not even sure such a thing is at all imminent. Heck, OpenAI can&#x27;t even keep up with the GPT-4 demand right now, let alone a more compute-intensive successor.<p>Maybe something like GPT-5 comes out tomorrow and makes me look like a fool, I just don&#x27;t see any indication that it will.<p>I&#x27;m not <i>necessarily</i> arguing that this means we shouldn&#x27;t worry about the risks posed by AI. Disinformation is still an issue, and it&#x27;s possible that jobs will be automated by GPT-4 (though I think such job losses will be marginal for the time being). I just don&#x27;t see the rapid progress that I&#x27;m apparently supposed to be seeing, and I don&#x27;t know if I&#x27;m just missing something obvious?",
+      "url": "https://news.ycombinator.com/item?id=36233487",
+      "author": "mrtranscendence",
+      "score": 11,
+      "numComments": 13,
+      "created": "2023-06-07T21:00:32Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=36233487",
+      "topComments": [
+        {
+          "author": "david927",
+          "text": "I&#x27;m not expert enough to chime in but the people that I respect on this subject agree with you.  I would also be surprised if GPT-5 was miles ahead of 4.  The airplane of today is extraordinarily similar to one from 50 years ago.I think the biggest improvement we&#x27;ll see in LLMs is (we normal people) finally getting access to what exists but which we currently don&#x27;t have access to, and the slow leak of these technologies into our day-to-day.",
+          "score": 0
+        },
+        {
+          "author": "PaulHoule",
+          "text": "I went to a talk by Geoff Hinton around 2005 before he became a celebrity and he was very much thinking about the problems of “blackboard architectures” and similar systems where the layers are treated separately and proposing that we train all the levels together.  I’d say we got on the S-curve for “deep learning” about 20 years ago by that measure and we might be closer to the end than we are to the beginning.Overall my take is that we are approaching an asymptote and if anything the sign of t",
+          "score": 0
+        },
+        {
+          "author": "james-revisoai",
+          "text": "Well really, what people in the field felt and saw was that on metrics for measuring tasks, what had happened in computer vision with giant jumps in performance for tasks previously considered hard to ever get to human level (like identifying cats in photos), then came to pass for NLP: Tasks and metrics we never thought we&#x27;d see even close to human level without some new theories or approaches to thinking and language, jumped up overnight. The metrics and applications of NLP before 2017 hea",
+          "score": 0
+        },
+        {
+          "author": "h_mirin",
+          "text": "What might be seen as exponential progress could actually be the accumulation of a few tremendous leaps, I believe. For instance, within the architecture realm, we&#x27;ve witnessed leaps such as:Stacked neural networks (deep learning) &#x2F; CNN &#x2F; TransformerFrom the application perspective, there are also areas that have seen significant progress:AlphaGo (An application of reinforcement learning) &#x2F; AlphaFold (An application for biological sequences) &#x2F; ChatGPT (An application of ",
+          "score": 0
+        },
+        {
+          "author": "Madmallard",
+          "text": "This is impossible to know because our advancements in this field are basically at the PHD of the PHD level. Every advancement is an unknown timeline with unknown impact.",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}
