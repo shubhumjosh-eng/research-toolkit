@@ -18,6 +18,10 @@ class StaticScraper {
     await limiter.wait();
     
     try {
+      const parsedUrl = new URL(url);
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        throw new Error('Only HTTP/HTTPS URLs are supported');
+      }
       const response = await axios.get(url, {
         headers: this.headers,
         timeout: config.SCRAPING.timeout,
@@ -64,7 +68,6 @@ class StaticScraper {
       
       return result;
     } catch (error) {
-      console.error(`Failed to scrape ${url}: ${error.message}`);
       throw error;
     }
   }
