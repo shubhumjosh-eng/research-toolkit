@@ -27,9 +27,19 @@ class ResearchOrchestrator {
       noCache = false,
       onProgress = null,
       onLog = null,
+      since = null,
+      until = null,
+      template = null,
+      diff = false,
     } = options;
 
     if (noCache) cache.disable();
+
+    // Parse date range
+    const dateRange = this.parseDateRange(since, until);
+
+    // Apply template overrides
+    const templateConfig = template ? this.getTemplate(template) : null;
 
     const startTime = Date.now();
     const log = onLog || ((level, msg) => {
@@ -39,6 +49,8 @@ class ResearchOrchestrator {
 
     const analysis = queryAnalyzer.analyze(topic);
     log('info', `Research: "${topic}" (depth: ${depth})`);
+    if (dateRange) log('info', `Date range: ${dateRange.from ? dateRange.from.toISOString().split('T')[0] : 'any'} to ${dateRange.to ? dateRange.to.toISOString().split('T')[0] : 'any'}`);
+    if (templateConfig) log('info', `Template: ${templateConfig.name} — ${templateConfig.description}`);
     log('info', `Phrases: [${analysis.phrases.join(', ')}] | Keywords: [${analysis.keywords.slice(0, 5).join(', ')}]`);
     log('info', `Intent: ${analysis.intent} | Expanded: ${analysis.expanded.length} queries`);
 
@@ -81,7 +93,7 @@ class ResearchOrchestrator {
       const cached = await cache.get(topic, 'news');
       if (cached) { log('success', `Found ${cached.length} news articles (cached)`); return cached; }
       try {
-        const r = await newsApi.search(topic, { maxResults: Math.min(depth, config.RESEARCH.newsMaxResults), onLog });
+        const r = await newsApi.search(topic, { maxResults: Math.min(depth, config.RESEARCH.newsMaxResults), onLog, dateRange });
         if (r.length > 0) await cache.set(topic, 'news', r);
         log('success', `Found ${r.length} news articles`);
         return r;
@@ -94,7 +106,7 @@ class ResearchOrchestrator {
       if (cached) { log('success', `Found ${cached.length} web results (cached)`); return cached; }
       try {
         const webTarget = Math.min(Math.ceil(depth * config.RESEARCH.webSearchRatio), config.RESEARCH.webSearchMax);
-        const r = await webSearch.search(topic, { maxResults: webTarget, onLog });
+        const r = await webSearch.search(topic, { maxResults: webTarget, onLog, dateRange });
         if (r.length > 0) await cache.set(topic, 'web', r);
         log('success', `Found ${r.length} web results`);
         return r;
@@ -106,7 +118,7 @@ class ResearchOrchestrator {
       const cached = await cache.get(topic, 'hackernews');
       if (cached) { log('success', `Found ${cached.length} HN stories (cached)`); return cached; }
       try {
-        const r = await hackerNews.searchWithComments(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), maxCommentsPerPost: 5, onLog });
+        const r = await hackerNews.searchWithComments(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), maxCommentsPerPost: 5, onLog, dateRange });
         if (r.length > 0) await cache.set(topic, 'hackernews', r);
         log('success', `HN done: ${r.length} stories`);
         return r;
@@ -118,7 +130,7 @@ class ResearchOrchestrator {
       const cached = await cache.get(topic, 'bluesky');
       if (cached) { log('success', `Found ${cached.length} Bluesky posts (cached)`); return cached; }
       try {
-        const r = await bluesky.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog });
+        const r = await bluesky.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog, dateRange });
         if (r.length > 0) await cache.set(topic, 'bluesky', r);
         log('success', `Bluesky done: ${r.length} posts`);
         return r;
@@ -130,7 +142,7 @@ class ResearchOrchestrator {
       const cached = await cache.get(topic, 'discourse');
       if (cached) { log('success', `Found ${cached.length} Discourse posts (cached)`); return cached; }
       try {
-        const r = await discourse.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog, keywords: analysis.keywords });
+        const r = await discourse.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog, keywords: analysis.keywords, dateRange });
         if (r.length > 0) await cache.set(topic, 'discourse', r);
         log('success', `Discourse done: ${r.length} posts`);
         return r;
@@ -142,7 +154,7 @@ class ResearchOrchestrator {
       const cached = await cache.get(topic, 'stackexchange');
       if (cached) { log('success', `Found ${cached.length} SE results (cached)`); return cached; }
       try {
-        const r = await stackExchange.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog });
+        const r = await stackExchange.search(topic, { maxResults: Math.min(25, Math.ceil(depth * 0.15)), onLog, dateRange });
         if (r.length > 0) await cache.set(topic, 'stackexchange', r);
         log('success', `Stack Exchange done: ${r.length} results`);
         return r;
@@ -153,7 +165,8 @@ class ResearchOrchestrator {
       const cached = await cache.get(topic, 'semanticScholar');
       if (cached) { log('success', `Found ${cached.length} Semantic Scholar papers (cached)`); return cached; }
       try {
-        const r = await semanticScholar.searchSemanticScholar(topic, { maxResults: Math.min(20, Math.ceil(depth * 0.1)) });
+        const yearRange = dateRange ? { from: dateRange.from ? dateRange.from.getFullYear() : undefined, to: dateRange.to ? dateRange.to.getFullYear() : undefined } : undefined;
+        const r = await semanticScholar.searchSemanticScholar(topic, { maxResults: Math.min(20, Math.ceil(depth * 0.1)), yearRange });
         if (r.results && r.results.length > 0) { await cache.set(topic, 'semanticScholar', r.results); log('success', `Semantic Scholar done: ${r.results.length} papers`); return r.results; }
         log('info', 'No Semantic Scholar results');
         return [];
@@ -208,6 +221,17 @@ class ResearchOrchestrator {
     const sentiment = analyzeBatch(results.reddit);
     const authorProfiles = this.buildAuthorProfiles(results.reddit);
 
+    // Compute diff if requested
+    let diffResult = null;
+    if (diff) {
+      diffResult = await this.computeDiff(topic, results);
+      if (diffResult) {
+        log('info', `Diff: +${diffResult.added} new, -${diffResult.removed} removed, ${diffResult.kept} unchanged since ${diffResult.previousTimestamp}`);
+      } else {
+        log('info', 'No previous session found for diff comparison');
+      }
+    }
+
     const elapsed = Math.round((Date.now() - startTime) / 1000);
     const minutes = Math.floor(elapsed / 60);
     const seconds = elapsed % 60;
@@ -217,6 +241,8 @@ class ResearchOrchestrator {
       clusters,
       sentiment,
       authorProfiles,
+      diff: diffResult,
+      template: templateConfig ? templateConfig.name : null,
       redditAnalysis: results.reddit,
       youtubeAnalysis: results.youtube,
       newsAnalysis: results.news,
@@ -234,6 +260,9 @@ class ResearchOrchestrator {
         timestamp: results.timestamp,
         depth,
         duration: `${minutes}m ${seconds}s`,
+        dateRange: dateRange ? `${since || 'any'} → ${until || 'any'}` : null,
+        template: templateConfig ? templateConfig.name : null,
+        diff: diffResult ? `${diffResult.added} new, ${diffResult.removed} removed` : null,
         redditPosts: results.reddit.length,
         youtubeVideos: results.youtube.length,
         newsArticles: results.news.length,
@@ -386,6 +415,83 @@ class ResearchOrchestrator {
       .map(a => ({ ...a, avgScore: Math.round(a.totalScore / a.posts), subreddits: [...a.subreddits] }))
       .sort((a, b) => b.totalScore - a.totalScore)
       .slice(0, 10);
+  }
+
+  parseDateRange(since, until) {
+    if (!since && !until) return null;
+    const parse = (val) => {
+      if (!val) return null;
+      if (/^\d+d$/.test(val)) {
+        const days = parseInt(val);
+        return new Date(Date.now() - days * 86400000);
+      }
+      if (/^\d+w$/.test(val)) {
+        const weeks = parseInt(val);
+        return new Date(Date.now() - weeks * 7 * 86400000);
+      }
+      if (/^\d+m$/.test(val)) {
+        const months = parseInt(val);
+        return new Date(Date.now() - months * 30 * 86400000);
+      }
+      return new Date(val);
+    };
+    return { from: parse(since), to: parse(until) };
+  }
+
+  getTemplate(template) {
+    const templates = {
+      'literature-review': {
+        name: 'Literature Review',
+        description: 'Focus on academic papers, citation counts, and research trends',
+        prioritize: ['semanticScholar', 'arxiv'],
+        querySuffix: 'research paper survey',
+        minCitations: 5,
+      },
+      'comparison': {
+        name: 'Comparison',
+        description: 'Side-by-side comparison of options, alternatives, vs posts',
+        prioritize: ['reddit', 'hackernews'],
+        querySuffix: 'vs comparison review',
+        clusters: ['Comparisons & Reviews', 'Tips & Advice'],
+      },
+      'trend-analysis': {
+        name: 'Trend Analysis',
+        description: 'Focus on recent news, latest developments, and emerging trends',
+        prioritize: ['news', 'hackernews', 'bluesky'],
+        querySuffix: 'latest news trends 2025',
+        since: '30d',
+      },
+    };
+    return templates[template] || null;
+  }
+
+  async computeDiff(topic, currentResults) {
+    const sessionStore = require('../tui/sessionStore');
+    const sessions = sessionStore.getAll ? sessionStore.getAll() : [];
+    const previous = sessions.find(s => s.topic === topic);
+    if (!previous || !previous.results) return null;
+
+    const prevUrls = new Set();
+    const currUrls = new Set();
+    for (const arr of Object.values(previous.results)) {
+      if (Array.isArray(arr)) arr.forEach(r => { if (r.url) prevUrls.add(r.url); });
+    }
+    for (const arr of Object.values(currentResults)) {
+      if (Array.isArray(arr)) arr.forEach(r => { if (r.url) currUrls.add(r.url); });
+    }
+
+    const added = [...currUrls].filter(u => !prevUrls.has(u));
+    const removed = [...prevUrls].filter(u => !currUrls.has(u));
+    const kept = [...currUrls].filter(u => prevUrls.has(u));
+
+    return {
+      previousTimestamp: previous.timestamp,
+      added: added.length,
+      removed: removed.length,
+      kept: kept.length,
+      addedUrls: added.slice(0, 10),
+      removedUrls: removed.slice(0, 10),
+    };
   }
 }
 
