@@ -31,7 +31,13 @@ class NewsApi {
         },
       });
 
-      return response.data.articles.map(article => ({
+      const articles = response.data?.articles;
+      if (!Array.isArray(articles)) {
+        log('warn', 'GNews returned unexpected response structure');
+        return [];
+      }
+
+      return articles.map(article => ({
         title: article.title,
         description: article.description,
         url: article.url,
