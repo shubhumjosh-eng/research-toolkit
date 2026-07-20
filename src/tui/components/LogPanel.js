@@ -30,7 +30,7 @@ function LogPanel({ logs }) {
       React.createElement(Box, { key: i },
         React.createElement(Text, { dimColor: true }, `[${log.time}] `),
         React.createElement(Text, { color: LOG_COLORS[log.level] }, (LOG_ICONS[log.level] || '  ') + ' '),
-        React.createElement(Text, { color: LOG_COLORS[log.level] }, log.msg),
+        React.createElement(Text, { color: LOG_COLORS[log.level] }, String(log.msg || '')),
       )
     ),
   );
