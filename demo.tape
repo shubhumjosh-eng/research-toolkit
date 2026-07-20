@@ -1,8 +1,5 @@
 Output demo.gif
 
-Type "node src/cli.js"
+Type "node src/cli.js "quantum computing advances" --depth 100 --no-cache"
 Enter
-Sleep 1.5s
-Type "quantum computing advances"
-Enter
-Sleep 10s
+Sleep 15s
