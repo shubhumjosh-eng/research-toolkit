@@ -86,7 +86,7 @@ class DiscourseSource {
           author: matchingPost?.username || topic.last_poster_username || '',
           score: topic.like_count || 0,
           views: topic.views || 0,
-          replyCount: topic.posts_count || 0,
+          replyCount: Math.max(0, (topic.posts_count || 1) - 1),
           created: topic.last_posted_at || '',
           source: 'discourse',
           sourceForum: domain,
