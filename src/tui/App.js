@@ -51,6 +51,7 @@ function App({ initialTopic }) {
   const [config, setConfig] = useState(configStore.load());
   const [session, setSession] = useState(null);
   const [sessionHistory, setSessionHistory] = useState([]);
+  const [commandOutput, setCommandOutput] = useState([]);
   const { exit } = useApp();
   const runningRef = useRef(false);
   const initialDone = useRef(false);
@@ -77,6 +78,7 @@ function App({ initialTopic }) {
     setLogs([]);
     setProgress({});
     setResults(null);
+    setCommandOutput([]);
     setHistory(prev => [topic, ...prev.filter(t => t !== topic)].slice(0, config.historySize || 20));
     setHistoryIndex(-1);
 
@@ -113,43 +115,61 @@ function App({ initialTopic }) {
   }, [results, handleResearch]);
 
   const handleCommand = useCallback((cmd) => {
+    const output = [];
+    const cmdLog = (level, msg) => {
+      const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      output.push({ time, level, msg });
+    };
+
+    setCommandOutput([]);
+
     switch (cmd) {
       case '/config':
         setState(STATES.CONFIG);
-        break;
+        return;
       case '/clear':
         cache.clear().then(() => {
           sessionStore.clearAll();
           setSessionHistory([]);
-          addLog('success', 'Cache and sessions cleared');
+          cmdLog('success', 'Cache and sessions cleared');
+          setCommandOutput(output);
+          setState(STATES.IDLE);
         });
-        break;
+        return;
       case '/history':
-        addLog('info', `Recent sessions (${sessionHistory.length}):`);
+        cmdLog('info', `Recent sessions (${sessionHistory.length}):`);
         sessionHistory.forEach(s => {
-          addLog('info', `  ${s.topic} — ${s.queryCount} queries — ${s.startedAt?.split('T')[0] || '?'}`);
+          cmdLog('info', `  ${s.topic} — ${s.queryCount} queries — ${s.startedAt?.split('T')[0] || '?'}`);
         });
         break;
       case '/help':
-        addLog('info', 'Commands: /config /history /clear /help /deep /sources');
-        addLog('info', 'Type any topic to research. Follow-ups use previous context.');
+        cmdLog('info', 'Commands:');
+        cmdLog('info', '  /config   — Settings');
+        cmdLog('info', '  /history  — Past sessions');
+        cmdLog('info', '  /clear    — Clear cache & sessions');
+        cmdLog('info', '  /sources  — Show platform sources');
+        cmdLog('info', '  /help     — This help');
+        cmdLog('info', '');
+        cmdLog('info', 'Type any topic to research.');
+        cmdLog('info', 'After results, type a follow-up question.');
         break;
       case '/deep':
-        addLog('info', 'Deep search mode: uses depth 1000, searches all 8 platforms');
+        cmdLog('info', 'Deep search mode: depth set to 1000');
         setConfig(prev => ({ ...prev, depth: 1000 }));
         break;
       case '/sources':
-        addLog('info', 'Toggle sources (type number to toggle):');
-        addLog('info', ' [1] Reddit      [2] YouTube    [3] News       [4] Web Search');
-        addLog('info', ' [5] HN          [6] Bluesky    [7] Discourse  [8] Stack Exchange');
-        addLog('info', ' [S] SemanticScholar  [A] arXiv  [0] All ON  [-] All OFF');
-        addLog('info', ` Active: ${Object.entries(config.sources || {}).filter(([,v]) => v !== false).map(([k]) => k).join(', ') || 'all'}`);
+        cmdLog('info', 'Platforms:');
+        cmdLog('info', '  [1] Reddit  [2] YouTube  [3] News  [4] Web Search');
+        cmdLog('info', '  [5] HN      [6] Bluesky  [7] Discourse  [8] Stack Exchange');
+        cmdLog('info', '  [S] Semantic Scholar  [A] arXiv');
+        cmdLog('info', `  Active: ${Object.entries(config.sources || {}).filter(([,v]) => v !== false).map(([k]) => k).join(', ') || 'all'}`);
         break;
       default:
-        addLog('warn', `Unknown command: ${cmd}`);
+        cmdLog('warn', `Unknown command: ${cmd}`);
     }
+    setCommandOutput(output);
     setState(STATES.IDLE);
-  }, [addLog, sessionHistory]);
+  }, [addLog, sessionHistory, config]);
 
   const handleConfigSave = useCallback((key, value) => {
     configStore.set(key, value);
@@ -224,6 +244,17 @@ function App({ initialTopic }) {
         logs,
         onNewTopic: () => setState(STATES.IDLE),
       }),
+
+      state === STATES.RESULTS && commandOutput.length > 0 && React.createElement(Box, { flexDirection: 'column', marginTop: 0, borderStyle: 'round', borderColor: 'gray', paddingX: 1 },
+        ...commandOutput.map((log, i) =>
+          React.createElement(Box, { key: i },
+            React.createElement(Text, { dimColor: true }, `[${log.time}] `),
+            React.createElement(Text, { color: log.level === 'warn' ? 'yellow' : log.level === 'error' ? 'red' : log.level === 'success' ? 'green' : undefined },
+              (log.level === 'success' ? '✓ ' : log.level === 'warn' ? '⚠ ' : log.level === 'error' ? '✕ ' : '  ') + log.msg
+            ),
+          )
+        ),
+      ),
 
       state === STATES.RESULTS && React.createElement(InputPrompt, {
         onSubmit: handleFollowUp,
