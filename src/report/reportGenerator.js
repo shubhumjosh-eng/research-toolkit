@@ -190,7 +190,7 @@ class PdfGenerator {
 </head>
 <body>
     <h1>Research Report</h1>
-    <p class="subtitle">"${this.esc(metadata.topic)}" &mdash; ${formatDate(new Date())}</p>
+    <p class="subtitle">"${this.esc(metadata.topic)}" &mdash; ${formatDate(new Date())}${metadata.template ? ' &mdash; Template: ' + this.esc(metadata.template) : ''}${metadata.dateRange ? ' &mdash; Since: ' + this.esc(metadata.dateRange) : ''}${metadata.diff ? ' &mdash; Diff: ' + this.esc(metadata.diff) : ''}</p>
 
     <div class="toolbar">
         <button onclick="toggleDark()" id="darkBtn">Dark Mode</button>
