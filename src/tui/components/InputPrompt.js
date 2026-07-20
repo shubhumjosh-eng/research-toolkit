@@ -14,6 +14,11 @@ function InputPrompt({ onSubmit, onCommand, onOpenCommands, history, historyInde
   const [value, setValue] = useState('');
   const [showQuickCmds, setShowQuickCmds] = useState(false);
   const [selectedCmd, setSelectedCmd] = useState(0);
+  const mountedRef = React.useRef(true);
+
+  React.useEffect(() => {
+    return () => { mountedRef.current = false; };
+  }, []);
 
   useInput((input, key) => {
     if (key.return && value.trim()) {
@@ -28,8 +33,10 @@ function InputPrompt({ onSubmit, onCommand, onOpenCommands, history, historyInde
       } else {
         onSubmit(trimmed);
       }
-      setValue('');
-      setShowQuickCmds(false);
+      if (mountedRef.current) {
+        setValue('');
+        setShowQuickCmds(false);
+      }
     } else if (key.backspace || key.delete) {
       setValue(prev => prev.slice(0, -1));
       if (value.length <= 1) setShowQuickCmds(false);
