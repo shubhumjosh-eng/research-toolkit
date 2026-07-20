@@ -1,10 +1,11 @@
 const React = require('react');
 const { Box, Text } = require('ink');
 
-const STEP_ORDER = ['discover', 'news', 'web', 'reddit', 'youtube', 'hackernews', 'bluesky', 'discourse', 'stackexchange', 'report'];
+const STEP_ORDER = ['discover', 'news', 'web', 'reddit', 'youtube', 'hackernews', 'bluesky', 'discourse', 'stackexchange', 'semanticScholar', 'arxiv', 'report'];
 const STEP_ICONS = {
   discover: '🔍', news: '📰', web: '🌐', reddit: '🔴', youtube: '▶',
-  hackernews: '🟠', bluesky: '🦋', discourse: '💬', stackexchange: '📚', report: '📄',
+  hackernews: '🟠', bluesky: '🦋', discourse: '💬', stackexchange: '📚',
+  semanticScholar: '🎓', arxiv: '📄', report: '📄',
 };
 const STEP_LABELS = {
   discover: 'Discovering',
@@ -16,6 +17,8 @@ const STEP_LABELS = {
   bluesky: 'Bluesky',
   discourse: 'Discourse',
   stackexchange: 'Stack Exchange',
+  semanticScholar: 'Semantic Scholar',
+  arxiv: 'arXiv',
   report: 'Report',
 };
 
