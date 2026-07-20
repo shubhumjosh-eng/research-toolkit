@@ -7,7 +7,7 @@ module.exports = {
   STACKEXCHANGE_API_KEY: process.env.STACKEXCHANGE_API_KEY || '',
 
   SCRAPING: {
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     delayBetweenRequests: 2000,
     maxRetries: 3,
     timeout: 30000,
@@ -29,13 +29,13 @@ module.exports = {
 
   PUPPETEER: {
     headless: true,
-    windowWidth: 400,
-    windowHeight: 300,
+    windowWidth: 1280,
+    windowHeight: 800,
     timeout: 15000,
   },
 
   VIDEO: {
-    tempDir: '/tmp/research-toolkit/temp',
+    tempDir: path.join(require('os').tmpdir(), 'research-toolkit', 'temp'),
     maxVideoDuration: 600,
     whisperModel: 'base',
   },
