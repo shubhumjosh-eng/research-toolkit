@@ -78,8 +78,9 @@ class YouTubeDiscovery {
     // Puppeteer fallback if we got very few results
     if (allVideos.length < 10 && this.scraper) {
       log('warn', `Only ${allVideos.length} videos found, trying browser fallback...`);
+      let browser;
       try {
-        const browser = await this.scraper.launch();
+        browser = await this.scraper.launch();
         for (const query of queries) {
           if (allVideos.length >= maxVideos) break;
           try {
@@ -100,6 +101,8 @@ class YouTubeDiscovery {
         }
       } catch (e) {
         log('error', `Browser fallback failed: ${e.message}`);
+      } finally {
+        if (browser) await browser.close().catch(() => {});
       }
     }
 
@@ -234,7 +237,7 @@ class YouTubeDiscovery {
               videoId,
               title: titleEl.textContent.trim(),
               channelName: channelEl?.textContent?.trim() || '',
-              viewCount: parseInt((viewEl?.textContent || '').replace(/[^\d]/g, '') || '0', 10),
+              viewCount: this.parseViewCount(viewEl?.textContent || ''),
               url: `https://www.youtube.com/watch?v=${videoId}`,
             });
           }
@@ -257,9 +260,14 @@ class YouTubeDiscovery {
   }
 
   parseViewCount(text) {
-    const match = text.match(/([\d,]+)/);
+    const match = text.match(/([\d,.]+)\s*([KkMmBb])?/);
     if (match) {
-      return parseInt(match[1].replace(/,/g, ''), 10);
+      let num = parseFloat(match[1].replace(/,/g, ''));
+      const suffix = (match[2] || '').toUpperCase();
+      if (suffix === 'K') num *= 1000;
+      else if (suffix === 'M') num *= 1000000;
+      else if (suffix === 'B') num *= 1000000000;
+      return Math.round(num);
     }
     return 0;
   }
