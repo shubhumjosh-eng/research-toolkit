@@ -272,19 +272,19 @@ class PdfGenerator {
     // ── Executive Summary ──
     html += `<div class="section" id="executive-summary"><div class="section-header"><h2>Executive Summary</h2></div>`;
 
-    if (executiveSummary.topPosts.length > 0) {
+    if (executiveSummary && executiveSummary.topPosts && executiveSummary.topPosts.length > 0) {
       html += `<h3>Top Reddit Discussions</h3>`;
       for (const post of executiveSummary.topPosts.slice(0, 10)) {
         const sentBadge = post.sentiment ? `<span class="sentiment-badge sentiment-${post.sentiment}">${post.sentiment}</span>` : '';
         html += `
         <div class="post-card highlight" data-searchable="${this.esc(post.title)}">
           <h4>${this.esc(post.title)} ${sentBadge}</h4>
-          <div class="meta"><span class="badge badge-score">⬆ ${post.score}</span> <span class="badge badge-reddit">r/${this.esc(post.subreddit)}</span> 💬 ${post.numComments || 0} comments · <a href="${post.url}" target="_blank">View →</a></div>
+          <div class="meta"><span class="badge badge-score">⬆ ${post.score}</span> <span class="badge badge-reddit">r/${this.esc(post.subreddit)}</span> 💬 ${post.numComments || 0} comments · <a href="${this.esc(post.url)}" target="_blank">View →</a></div>
         </div>`;
       }
     }
 
-    if (executiveSummary.topComments.length > 0) {
+    if (executiveSummary && executiveSummary.topComments && executiveSummary.topComments.length > 0) {
       html += `<h3 style="margin-top:20px;">Top Insights</h3>`;
       for (const insight of executiveSummary.topComments.slice(0, 10)) {
         const sentBadge = insight.sentiment ? `<span class="sentiment-badge sentiment-${insight.sentiment}">${insight.sentiment}</span>` : '';
@@ -296,7 +296,7 @@ class PdfGenerator {
       }
     }
 
-    if (executiveSummary.topNews.length > 0) {
+    if (executiveSummary && executiveSummary.topNews && executiveSummary.topNews.length > 0) {
       html += `<h3 style="margin-top:20px;">Top News Coverage</h3>`;
       for (const news of executiveSummary.topNews.slice(0, 8)) {
         html += `
@@ -304,7 +304,7 @@ class PdfGenerator {
           <h4>${this.esc(news.title)}</h4>
           <div class="meta"><span class="badge badge-news">NEWS</span> ${this.esc(news.source)} ${news.publishedAt ? `· ${formatDate(news.publishedAt)}` : ''}</div>
           ${news.description ? `<div class="text">${this.esc(news.description.substring(0, 300))}${news.description.length > 300 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${news.url}" target="_blank">Read article →</a></div>
+          <div class="meta"><a href="${this.esc(news.url)}" target="_blank">Read article →</a></div>
         </div>`;
       }
     }
@@ -317,7 +317,7 @@ class PdfGenerator {
           <h4>${this.esc(web.title)}</h4>
           <div class="meta"><span class="badge badge-web">WEB</span> ${this.esc(this.extractHostname(web.url))}</div>
           ${web.description ? `<div class="text">${this.esc(web.description.substring(0, 300))}${web.description.length > 300 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${web.url}" target="_blank">Visit page →</a></div>
+          <div class="meta"><a href="${this.esc(web.url)}" target="_blank">Visit page →</a></div>
         </div>`;
       }
     }
@@ -350,7 +350,7 @@ class PdfGenerator {
           <h4>${this.esc(article.title || 'Untitled')}</h4>
           <div class="meta"><span class="badge badge-news">NEWS</span> ${this.esc(article.source || 'Unknown')} ${article.publishedAt ? `· ${formatDate(article.publishedAt)}` : ''}</div>
           ${article.description ? `<div class="text">${this.esc(article.description.substring(0, 400))}${article.description.length > 400 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${article.url}" target="_blank">Read article →</a></div>
+          <div class="meta"><a href="${this.esc(article.url)}" target="_blank">Read article →</a></div>
         </div>`;
       }
       html += `</div></div>`;
@@ -367,7 +367,7 @@ class PdfGenerator {
           <h4>${this.esc(result.title || 'Untitled')}</h4>
           <div class="meta"><span class="badge badge-web">WEB</span> ${this.esc(this.extractHostname(result.url))}</div>
           ${result.description ? `<div class="text">${this.esc(result.description.substring(0, 400))}${result.description.length > 400 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${result.url}" target="_blank">Visit page →</a></div>
+          <div class="meta"><a href="${this.esc(result.url)}" target="_blank">Visit page →</a></div>
         </div>`;
       }
       html += `</div></div>`;
@@ -392,7 +392,7 @@ class PdfGenerator {
             💬 ${post.numComments} comments · ${this.esc(post.author)} · ${formatDate(post.created)}
           </div>
           ${post.text ? `<div class="text">${this.esc(post.text.substring(0, 500))}${post.text.length > 500 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${post.url}" target="_blank">View on Reddit →</a></div>`;
+          <div class="meta"><a href="${this.esc(post.url)}" target="_blank">View on Reddit →</a></div>`;
 
         if (post.topComments && post.topComments.length > 0) {
           html += `<div style="margin-top:10px;"><strong>Top Comments:</strong></div>`;
@@ -440,11 +440,11 @@ class PdfGenerator {
             <h4>${this.esc(video.title)}</h4>
             <div class="channel">${this.esc(video.channelName || 'Unknown')}</div>
             <div class="meta">
-              ${video.viewCount ? `👁 ${video.viewCount.toLocaleString()} views` : ''}
+              ${video.viewCount ? `👁 ${(video.viewCount || 0).toLocaleString()} views` : ''}
               ${video.duration ? ` · ⏱ ${video.duration}` : ''}
               ${video.publishedAt ? ` · ${video.publishedAt}` : ''}
             </div>
-            <div class="meta"><a href="${video.url}" target="_blank">Watch on YouTube →</a></div>
+            <div class="meta"><a href="${this.esc(video.url)}" target="_blank">Watch on YouTube →</a></div>
           </div>
         </div>`;
       }
@@ -463,13 +463,13 @@ class PdfGenerator {
           <div class="meta">
             <span class="badge badge-hn">HN</span>
             ${story.score ? `<span class="badge badge-score">⬆ ${story.score}</span>` : ''}
-            ${story.commentCount ? `💬 ${story.commentCount} comments` : ''}
+            ${story.numComments ? `💬 ${story.numComments} comments` : ''}
             ${story.author ? `· ${this.esc(story.author)}` : ''}
-            ${story.publishedAt ? `· ${formatDate(story.publishedAt)}` : ''}
+            ${story.created ? `· ${formatDate(story.created)}` : ''}
           </div>
           <div class="meta">
-            <a href="${story.url || story.hackerNewsUrl || '#'}" target="_blank">${story.url ? 'Read article →' : 'View on HN →'}</a>
-            ${story.hackerNewsUrl && story.url ? ` · <a href="${story.hackerNewsUrl}" target="_blank">HN Discussion →</a>` : ''}
+            <a href="${this.esc(story.url || story.sourceUrl || '#')}" target="_blank">${story.url ? 'Read article →' : 'View on HN →'}</a>
+            ${story.sourceUrl && story.url ? ` · <a href="${this.esc(story.sourceUrl)}" target="_blank">HN Discussion →</a>` : ''}
           </div>
         </div>`;
       }
@@ -494,10 +494,10 @@ class PdfGenerator {
             ${post.replyCount ? ` · 💬 ${post.replyCount}` : ''}
             ${sentBadge}
             · ${this.esc(post.author || 'unknown')}
-            ${post.publishedAt ? ` · ${formatDate(post.publishedAt)}` : ''}
+            ${post.created ? ` · ${formatDate(post.created)}` : ''}
           </div>
           ${post.text && post.text.length > 200 ? `<div class="text">${this.esc(post.text.substring(0, 400))}...</div>` : ''}
-          <div class="meta"><a href="${post.url || '#'}" target="_blank">View on Bluesky →</a></div>
+          <div class="meta"><a href="${this.esc(post.url || '#')}" target="_blank">View on Bluesky →</a></div>
         </div>`;
       }
       html += `</div></div>`;
@@ -515,13 +515,13 @@ class PdfGenerator {
           <div class="meta">
             <span class="badge badge-discourse">DISCOURSE</span>
             <span class="badge badge-score">⬆ ${topic.score || 0}</span>
-            💬 ${topic.postsCount || 0} posts
+            💬 ${(topic.replyCount || 0) - 1} replies
             ${topic.views ? ` · 👁 ${topic.views} views` : ''}
             ${topic.author ? ` · ${this.esc(topic.author)}` : ''}
-            ${topic.lastPostedAt ? ` · ${formatDate(topic.lastPostedAt)}` : ''}
+            ${topic.created ? ` · ${formatDate(topic.created)}` : ''}
           </div>
-          ${topic.blurb ? `<div class="text">${this.esc(topic.blurb.substring(0, 400))}${topic.blurb.length > 400 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${topic.url || '#'}" target="_blank">View topic →</a></div>
+          ${topic.text ? `<div class="text">${this.esc(topic.text.substring(0, 400))}${topic.text.length > 400 ? '...' : ''}</div>` : ''}
+          <div class="meta"><a href="${this.esc(topic.url || '#')}" target="_blank">View topic →</a></div>
         </div>`;
       }
       html += `</div></div>`;
@@ -540,13 +540,13 @@ class PdfGenerator {
             <span class="badge badge-se">STACK EXCHANGE</span>
             <span class="badge badge-score">⬆ ${q.score || 0}</span>
             💬 ${q.answerCount || 0} answers
-            ${q.views ? ` · 👁 ${q.views} views` : ''}
-            ${q.accepted ? ' · ✅ Accepted' : ''}
+            ${q.viewCount ? ` · 👁 ${q.viewCount.toLocaleString()} views` : ''}
+            ${q.isAnswered ? ' · ✅ Accepted' : ''}
             ${q.author ? ` · ${this.esc(q.author)}` : ''}
           </div>
           ${q.tags && q.tags.length > 0 ? `<div class="meta" style="margin-top:5px;">${q.tags.map(t => '<span class="badge badge-web" style="margin-right:3px;">' + this.esc(t) + '</span>').join('')}</div>` : ''}
-          ${q.body ? `<div class="text">${this.esc(q.body.substring(0, 400))}${q.body.length > 400 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${q.url || '#'}" target="_blank">View on SE →</a></div>
+          ${q.text ? `<div class="text">${this.esc(q.text.substring(0, 400))}${q.text.length > 400 ? '...' : ''}</div>` : ''}
+          <div class="meta"><a href="${this.esc(q.url || '#')}" target="_blank">View on SE →</a></div>
         </div>`;
       }
       html += `</div></div>`;
@@ -569,7 +569,7 @@ class PdfGenerator {
           </div>
           <div class="meta">${this.esc(paper.authors || 'Unknown authors')}</div>
           ${paper.abstract ? `<div class="text">${this.esc(paper.abstract.substring(0, 400))}${paper.abstract.length > 400 ? '...' : ''}</div>` : ''}
-          <div class="meta"><a href="${paper.url || '#'}" target="_blank">View paper →</a></div>
+          <div class="meta"><a href="${this.esc(paper.url || '#')}" target="_blank">View paper →</a></div>
         </div>`;
       }
       html += `</div></div>`;
@@ -592,8 +592,8 @@ class PdfGenerator {
           ${paper.categories && paper.categories.length > 0 ? `<div class="meta" style="margin-top:5px;">${paper.categories.slice(0, 5).map(c => '<span class="badge badge-arxiv" style="margin-right:3px;">' + this.esc(c) + '</span>').join('')}</div>` : ''}
           ${paper.summary ? `<div class="text">${this.esc(paper.summary.substring(0, 400))}${paper.summary.length > 400 ? '...' : ''}</div>` : ''}
           <div class="meta">
-            <a href="${paper.url || '#'}" target="_blank">View abstract →</a>
-            ${paper.pdfUrl ? ` · <a href="${paper.pdfUrl}" target="_blank">PDF →</a>` : ''}
+            <a href="${this.esc(paper.url || '#')}" target="_blank">View abstract →</a>
+            ${paper.pdfUrl ? ` · <a href="${this.esc(paper.pdfUrl)}" target="_blank">PDF →</a>` : ''}
           </div>
         </div>`;
       }
@@ -663,7 +663,7 @@ class PdfGenerator {
   }
 
   sourceBar(label, count, cls) {
-    const max = 50;
+    const max = Math.max(50, count || 0);
     const pct = Math.min(Math.round((count / max) * 100), 100);
     return `<div class="bar-row"><div class="bar-label">${label}</div><div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"></div></div><div class="bar-value">${count}</div></div>`;
   }
