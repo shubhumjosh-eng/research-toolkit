@@ -1,0 +1,20 @@
+{
+  "timestamp": 1784555375671,
+  "topic": "npm install",
+  "source": "reddit",
+  "count": 1,
+  "data": [
+    {
+      "id": "1medg36",
+      "title": "What would enforcing id verification for browsing the internet entail realistically?",
+      "text": "After all the data breaches like the tea app and stuff, I wouldn't be particularly keen on showing my id to any random website, and I actually think it would be healthy for me to stop using social media so much, but I'd still need to use the internet for things like getting programming documentation. I don't think the government will force me to give them my id to `npm install is-odd`, but just to make sure, is that likely to happen in any way? are there any precedents in countries with heavy internet censorship like china or the like?",
+      "score": 1,
+      "numComments": 0,
+      "subreddit": "NoStupidQuestions",
+      "author": "0x_by_me",
+      "url": "https://www.reddit.com/r/NoStupidQuestions/comments/1medg36",
+      "created": "2025-07-31T21:03:47.000Z",
+      "topComments": []
+    }
+  ]
+}
