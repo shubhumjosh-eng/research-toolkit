@@ -55,16 +55,26 @@ function parseXmlEntries(xml) {
     const updated = get('updated');
     const summary = get('summary').replace(/\s+/g, ' ').trim();
 
+    const idStr = getAttr('id', 'term') || get('id');
+    const arxivId = idStr.replace(/.*\/abs\/([^v]+).*/, '$1').replace(/.*\/pdf\/([^v]+).*/, '$1').trim() || idStr;
+
+    const pdfLinkMatch = entry.match(/<a[^>]*href="([^"]*\/pdf\/[^"]*)"[^>]*>/i);
+    let pdfUrl = '';
+    if (pdfLinkMatch) {
+      const href = pdfLinkMatch[1];
+      pdfUrl = href.startsWith('http') ? href : `https://arxiv.org${href.startsWith('/') ? '' : '/'}${href}`;
+    }
+
     entries.push({
       title: get('title').replace(/\s+/g, ' ').trim(),
       authors,
       summary: summary.substring(0, 500),
       published: published || undefined,
       updated: updated || undefined,
-      arxivId: getAttr('id', 'term') || get('id'),
+      arxivId,
       url: get('id'),
       categories,
-      pdfUrl: get('link[title="pdf"]') || '',
+      pdfUrl,
       source: 'arxiv',
     });
   }
