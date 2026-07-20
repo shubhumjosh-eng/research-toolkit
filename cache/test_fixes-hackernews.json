@@ -1,0 +1,66 @@
+{
+  "timestamp": 1784567618662,
+  "topic": "test fixes",
+  "source": "hackernews",
+  "count": 2,
+  "data": [
+    {
+      "id": "35951703",
+      "title": "Show HN: Openlayer – Test, fix, and improve your ML models",
+      "text": "Hey HN, my name is Vikas, and my cofounders Rish, Gabe and I are building Openlayer: <a href=\"http:&#x2F;&#x2F;openlayer.com&#x2F;\">http:&#x2F;&#x2F;openlayer.com&#x2F;</a><p>Openlayer is an ML testing, evaluation, and observability platform designed to help teams pinpoint and resolve issues in their models.<p>We were ML engineers experiencing the struggle that goes into properly evaluating models, making them robust to the myriad of unexpected edge cases they encounter in production, and understanding the reasons behind their mistakes. It was like playing an endless game of whack-a-mole with Jupyter notebooks and CSV files — fix one issue and another pops up. This shouldn’t be the case. Error analysis is vital to establishing guardrails for AI and ensuring fairness across model predictions.<p>Traditional software testing platforms are designed for deterministic systems, where a given input produces an expected output. Since ML models are probabilistic, testing them reliably has been a challenge. What sets Openlayer apart from other companies in the space is our end-to-end approach to tackling both pre- and post-deployment stages of the ML pipeline. This &quot;shift-left&quot; approach emphasizes the importance of thorough validation before you ship, rather than relying solely on monitoring after you deploy. Having a strong evaluation process pre-ship means fewer bugs for your users, shorter and more efficient dev-cycles, and lower chances of getting into a PR disaster or having to recall a model.<p>Openlayer provides ML teams and individuals with a suite of powerful tools to understand models and data beyond your typical metrics. The platform offers insights about the quality of your training and validation sets, the performance of your model across subpopulations of your data, and much more. Each of these insights can be turned into a “goal.” As you commit new versions of your models and data, you can see how your model progresses towards these goals, as you guard against regressions you may have otherwise not picked up on and continually raise the bar.<p>Here&#x27;s a quick rundown of the Openlayer workflow:<p>1. Add a hook in your training &#x2F; data ingestion pipeline to upload your data and model predictions to Openlayer via our API<p>2. Explore insights about your models and data and create goals around them [1]<p>3. Diagnose issues with the help of our platform, using powerful tools like explainability (e.g. SHAP values) to get actionable recommendations on how to improve<p>4. Track the progress over time towards your goals with our UI and API and create new ones to keep improving<p>We&#x27;ve got a free sandbox for you to try out the platform today! You can sign up here: <a href=\"https:&#x2F;&#x2F;app.openlayer.com&#x2F;\">https:&#x2F;&#x2F;app.openlayer.com&#x2F;</a>. We are also soon adding support for even more ML tasks, so please reach out if your use case is not supported and we can add you to a waitlist.<p>Give Openlayer a spin and join us in revolutionizing ML development for greater efficiency and success. Let us know what you think, or if you have any questions about Openlayer or model evaluation in general.<p>[1] A quick run-down of the categories of goals you can track:<p>- <i>Integrity</i> goals measure the quality of your validation and training sets<p>- <i>Consistency</i> goals guard against drift between your datasets<p>- <i>Performance</i> goals evaluate your model&#x27;s performance across subpopulations of the data<p>- <i>Robustness</i> goals stress-test your model using synthetic data to uncover edge cases<p>- <i>Fairness</i> goals help you understand biases in your model on sensitive populations",
+      "url": "https://www.openlayer.com/?ref=hn",
+      "author": "vikasnair",
+      "score": 53,
+      "numComments": 11,
+      "created": "2023-05-15T17:35:24Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=35951703",
+      "topComments": [
+        {
+          "author": "null4bl3",
+          "text": "The naming is a bit to close to OpenLayers imo.Looks interesting though",
+          "score": 0
+        },
+        {
+          "author": "oreilles",
+          "text": "Tought this was about https:&#x2F;&#x2F;openlayers.org&#x2F;, got confused for a moment.",
+          "score": 0
+        },
+        {
+          "author": "hoerzu",
+          "text": "Nice to see more data-centric platforms. One I found helpful for CV, NER and TC:\nhttps:&#x2F;&#x2F;rungalileo.io",
+          "score": 0
+        },
+        {
+          "author": "yubozhao",
+          "text": "Any real world examples? How does it work out for them?",
+          "score": 0
+        },
+        {
+          "author": "esafak",
+          "text": "I realize it is primitive today, but how is it eventually going to be different or better than aporia, arize, arthur, dioptra, evidently, gantry, graphsignal, guardrails, metaplane, superwise, uptrain, whylogs, etc. ?A comparison table on your site would help.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "35886396",
+      "title": "Show HN: Openlayer – test, fix, and improve your ML models",
+      "text": "Hey HN!<p>My name is Vikas, and my cofounders Rish, Gabe and I are building [Openlayer](<a href=\"http:&#x2F;&#x2F;openlayer.com&#x2F;?ref=hn\">http:&#x2F;&#x2F;openlayer.com&#x2F;?ref=hn</a>). Openlayer is an ML testing, evaluation, and observability platform designed to help teams pinpoint and resolve issues in their models.<p>We were ML engineers experiencing the struggle that goes into properly evaluating models, making them robust to the myriad of unexpected edge cases they will encounter in production, and understanding the reasons behind their mistakes. It was like playing an endless game of whack-a-mole with Jupyter notebooks and CSV files — fix one issue and another pops up. This shouldn’t be the case. Error analysis is vital to establishing guardrails for AI and ensuring fairness across model predictions.<p>Traditional software testing platforms are designed for deterministic systems, where a given input produces an expected output. Since ML models are probabilistic, testing them reliably has been a challenge. What sets Openlayer apart from other companies in the space is our end-to-end approach to tackling both pre- and post-deployment stages of the ML pipeline. This &quot;shift-left&quot; approach emphasizes the importance of thorough validation in pre-production rather than solely focusing on monitoring after deployment. Having a strong evaluation process pre-ship means fewer bugs in production, shorter and more efficient dev-cycles, and lower chances of getting into a PR disaster or having to recall a model.<p>Openlayer provides ML teams and individuals with a suite of powerful tools to understand your models and data beyond simple metrics. The platform offers insights about the quality of your training and validation sets, the performance of your model across subpopulations of that data, and much more. Each of these insights can be turned into a “goal.” As you commit new versions of your models and data, you can see how your model progresses towards these goals, as you guard against regressions you may have otherwise not picked up on and continue to raise the bar.<p>Here&#x27;s a quick rundown of Openlayer&#x27;s workflow:<p>1. Add a hook in your training &#x2F; data ingestion pipeline to upload your data and model predictions to Openlayer via our API<p>2. Explore insights about your models and data and create goals around them\n    - *Integrity* goals track the quality of your validation and training sets\n    - *Consistency* goals guard against drift between your datasets\n    - *Performance* goals evaluate your model&#x27;s performance across subpopulations of the data\n    - *Robustness* goals stress-test your model using synthetic data to uncover edge cases\n    - *Fairness* goals help you understand biases in your model on sensitive populations<p>3. Diagnose issues with the help of our platform, using powerful tools like explainability (e.g. SHAP values) to get actionable recommendations on how to improve<p>4. Track the progress over time towards your goals with our UI and API and create new ones to keep improving<p>Openlayer works best for teams — technical and non-technical folk can all play a role in the process of understanding, goal-setting, and improving. The platform enables this through a user-friendly UI (and API) with comments and notifications built-in to help keep everyone on the same page.<p>We&#x27;re excited to offer a free sandbox for you to try out the platform today! [You can sign up here](<a href=\"https:&#x2F;&#x2F;app.openlayer.com&#x2F;?ref=hn\">https:&#x2F;&#x2F;app.openlayer.com&#x2F;?ref=hn</a>). We are also soon adding support for even more ML tasks, so please reach out if your use case is not supported and we can add you to a waitlist.<p>Give Openlayer a spin and join us in revolutionizing ML development for greater efficiency and success. Let us know what you think, or if you have any questions about Openlayer or model evaluation in general.",
+      "url": "https://www.openlayer.com",
+      "author": "vikasnair",
+      "score": 14,
+      "numComments": 2,
+      "created": "2023-05-10T12:30:53Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=35886396",
+      "topComments": [
+        {
+          "author": "yubozhao",
+          "text": "How does Openlayer handle the privacy and security of the data that&#x27;s uploaded to the platform, especially considering the sensitive nature of some ML datasets?",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}
