@@ -4,6 +4,19 @@ const os = require('os');
 
 const LOG_DIR = path.join(os.homedir(), '.research-toolkit', 'logs');
 
+let masterStream = null;
+
+function ensureDirSync(dir) {
+  try { fs.mkdirSync(dir, { recursive: true }); } catch {}
+}
+
+function ensureMasterLog() {
+  if (masterStream) return;
+  ensureDirSync(LOG_DIR);
+  const masterLog = path.join(LOG_DIR, 'latest.log');
+  masterStream = fs.createWriteStream(masterLog, { flags: 'a' });
+}
+
 class Logger {
   constructor() {
     this.stream = null;
@@ -12,9 +25,9 @@ class Logger {
 
   startSession(topic) {
     const ts = new Date().toISOString().replace(/[:.]/g, '-').substring(0, 19);
-    const safeTopic = topic.replace(/[^a-zA-Z0-9]/g, '-').substring(0, 40);
+    const safeTopic = (topic || 'unknown').replace(/[^a-zA-Z0-9]/g, '-').substring(0, 40);
     this.sessionFile = path.join(LOG_DIR, `${ts}_${safeTopic}.log`);
-    fs.mkdirSync(LOG_DIR, { recursive: true });
+    ensureDirSync(LOG_DIR);
     this.stream = fs.createWriteStream(this.sessionFile, { flags: 'a' });
     this.write('info', `=== Session started: ${topic} ===`);
     this.write('info', `Time: ${new Date().toISOString()}`);
@@ -23,16 +36,14 @@ class Logger {
 
   write(level, msg) {
     const ts = new Date().toISOString();
-    const line = `[${ts}] [${level.toUpperCase().padEnd(7)}] ${msg}\n`;
+    const line = `[${ts}] [${(level || 'info').toUpperCase().padEnd(7)}] ${msg || ''}\n`;
     if (this.stream) {
       this.stream.write(line);
     }
-    // Also append to a master log
-    const masterLog = path.join(LOG_DIR, 'latest.log');
-    try {
-      fs.mkdirSync(LOG_DIR, { recursive: true });
-      fs.appendFileSync(masterLog, line);
-    } catch {}
+    ensureMasterLog();
+    if (masterStream) {
+      masterStream.write(line);
+    }
   }
 
   endSession() {
