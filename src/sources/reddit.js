@@ -27,12 +27,19 @@ class RedditSearch {
           limit: maxResults,
           sort,
           t: 'year',
+          restrict_sr: subreddit ? 1 : undefined,
         },
         headers: this.headers,
         timeout: 15000,
       });
 
-      return response.data.data.children.map(post => ({
+      const children = response.data?.data?.children;
+      if (!Array.isArray(children)) {
+        log('warn', 'Reddit returned unexpected response structure');
+        return [];
+      }
+
+      return children.map(post => ({
         id: post.data.id,
         title: post.data.title,
         text: (post.data.selftext || '').substring(0, 3000),
