@@ -1,0 +1,36 @@
+{
+  "timestamp": 1784536822688,
+  "topic": "test",
+  "source": "discourse",
+  "count": 2,
+  "data": [
+    {
+      "id": "meta.discourse.org-49167",
+      "title": "Write acceptance tests and component tests for Ember code in Discourse",
+      "text": "Automated tests are a great way to protect your code against future regressions. Many people are familiar with how to do this in our Rails codebase with http://rspe...",
+      "url": "https://meta.discourse.org/t/write-acceptance-tests-and-component-tests-for-ember-code-in-discourse/49167",
+      "author": "Discourse",
+      "score": 0,
+      "views": 0,
+      "replyCount": 4,
+      "created": "2024-02-23T12:42:10.452Z",
+      "source": "discourse",
+      "sourceForum": "meta.discourse.org",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-156837",
+      "title": "Test topic is here. Test topic is here. Test topic is here. Test topic is here",
+      "text": "Mobile phones entered the human life in 1980s and since then have become the part and parcel of the very human existence. From being a luxury, to becoming indispensible, mobile phones have covered this distance rather quickly and ‘smartly’. It is hard to imagine an hour, let alone a day, without ...",
+      "url": "https://community.openai.com/t/test-topic-is-here-test-topic-is-here-test-topic-is-here-test-topic-is-here/156837",
+      "author": "burbudo",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2023-04-13T12:31:33.267Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ]
+}
