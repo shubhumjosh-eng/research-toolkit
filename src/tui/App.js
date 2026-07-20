@@ -224,6 +224,16 @@ function App({ initialTopic }) {
         logs,
         onNewTopic: () => setState(STATES.IDLE),
       }),
+
+      state === STATES.RESULTS && React.createElement(InputPrompt, {
+        onSubmit: handleFollowUp,
+        onCommand: handleCommand,
+        onOpenCommands: () => setState(STATES.COMMANDS),
+        history,
+        historyIndex,
+        setHistoryIndex,
+        hasResults: true,
+      }),
     )
   );
 }
