@@ -27,6 +27,7 @@ class ResearchCLI {
       until: null,
       diff: false,
       template: null,
+      log: false,
     };
 
     this.optionValues = new Set();
@@ -75,6 +76,9 @@ class ResearchCLI {
           break;
         case '--no-cache':
           options.noCache = true;
+          break;
+        case '--log':
+          options.log = true;
           break;
         case '--video':
         case '-v':
@@ -131,6 +135,7 @@ OPTIONS:
   --transcripts        Also extract YouTube video transcripts
   --output, -o <file>  Output filename
   --no-cache           Skip cache, fetch fresh data
+  --log                Save detailed log to ~/.research-toolkit/logs/
   --since <date>       Filter results after date (YYYY-MM-DD or 7d, 30d, 90d)
   --until <date>       Filter results before date (YYYY-MM-DD or 7d, 30d, 90d)
   --diff               Compare with previous research session (requires topic)
@@ -267,6 +272,12 @@ ZERO COST:
         this.options.output
       );
       console.log(`\n📁 Exported: ${exportPath}`);
+    }
+
+    const logger = require('./utils/logger');
+    const logFile = logger.getLogFile();
+    if (logFile) {
+      console.log(`📝 Log saved: ${logFile}`);
     }
   }
 
