@@ -24,8 +24,10 @@ function load() {
 function save(updates) {
   const current = load();
   const merged = { ...current, ...updates };
-  fs.mkdirSync(CONFIG_DIR, { recursive: true });
-  fs.writeFileSync(CONFIG_FILE, JSON.stringify(merged, null, 2));
+  try {
+    fs.mkdirSync(CONFIG_DIR, { recursive: true });
+    fs.writeFileSync(CONFIG_FILE, JSON.stringify(merged, null, 2));
+  } catch {}
   return merged;
 }
 
