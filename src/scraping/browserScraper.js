@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer-core');
 const config = require('../config');
+const { execSync } = require('child_process');
 
 class DynamicScraper {
   constructor(options = {}) {
@@ -14,11 +15,17 @@ class DynamicScraper {
   }
 
   async launch() {
+    if (this.browser) {
+      try { await this.browser.close(); } catch {}
+      this.browser = null;
+    }
+
     const fs = require('fs');
     const path = require('path');
 
     const possiblePaths = [
       '/usr/bin/google-chrome',
+      '/usr/bin/google-chrome-stable',
       '/usr/bin/chromium',
       '/usr/bin/chromium-browser',
       '/snap/bin/chromium',
@@ -26,45 +33,25 @@ class DynamicScraper {
       'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     ];
 
-    // Also check Puppeteer's own bundled Chrome
-    const puppeteerCacheDir = path.join(
-      require('os').homedir(), '.cache', 'puppeteer', 'chrome'
-    );
-
     let executablePath = null;
 
     for (const p of possiblePaths) {
       if (fs.existsSync(p)) {
-        const stat = fs.statSync(p);
-        if (stat.size > 1000000) {
-          executablePath = p;
-          break;
-        }
+        executablePath = p;
+        break;
       }
     }
 
-    if (!executablePath && fs.existsSync(puppeteerCacheDir)) {
-      const findChrome = (dir) => {
-        for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-          const full = path.join(dir, entry.name);
-          if (entry.isFile() && (entry.name === 'chrome' || entry.name === 'chromium')) {
-            return full;
-          }
-          if (entry.isDirectory()) {
-            const found = findChrome(full);
-            if (found) return found;
-          }
-        }
-        return null;
-      };
-      executablePath = findChrome(puppeteerCacheDir);
+    if (!executablePath) {
+      try {
+        executablePath = execSync('which google-chrome || which chromium || which chromium-browser', { encoding: 'utf8' }).trim();
+      } catch {}
     }
 
     if (!executablePath) {
-      throw new Error('Chrome/Chromium not found. Install with: npm install puppeteer');
+      throw new Error('Chrome/Chromium not found. Install with: apt install chromium');
     }
 
-    // Auto-fallback to headless if no display available
     const headless = this.headless || !DynamicScraper.isDisplayAvailable();
 
     const launchArgs = ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'];
@@ -97,15 +84,11 @@ class DynamicScraper {
         await page.waitForSelector(waitForSelector, { timeout: 10000 });
       }
       
-      // Wait a bit for dynamic content
-      await new Promise(r => setTimeout(r, 2000));
-      
       let result;
       
       if (extractFn) {
         result = await page.evaluate(extractFn);
       } else {
-        // Default extraction
         result = await page.evaluate(() => {
           return {
             title: document.title,
@@ -122,7 +105,6 @@ class DynamicScraper {
       result.url = url;
       return result;
     } catch (error) {
-      console.error(`Failed to scrape ${url}: ${error.message}`);
       throw error;
     } finally {
       await page.close();
