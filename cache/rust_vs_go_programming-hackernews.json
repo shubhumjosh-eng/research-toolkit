@@ -1,0 +1,103 @@
+{
+  "timestamp": 1784536539031,
+  "topic": "rust vs go programming",
+  "source": "hackernews",
+  "count": 4,
+  "data": [
+    {
+      "id": "41253584",
+      "title": "Programming vs. Software Engineering (Rust vs. Go)",
+      "text": "",
+      "url": "https://kerkour.com/programming-vs-software-engineering-rust-vs-go",
+      "author": "stareatgoats",
+      "score": 42,
+      "numComments": 15,
+      "created": "2024-08-15T06:34:02Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=41253584",
+      "topComments": [
+        {
+          "author": "acl777",
+          "text": "great article highlighting how a programming language&#x27;s design philosophy can make such a big difference - the UUID example, fantastic.I found it funny when I was reading, in the middle article there was an ad for a book to be a production grade Rust programmer - if anything, that article convinced me to go with Go ;-)",
+          "score": 0
+        },
+        {
+          "author": "matly",
+          "text": "Very fun article to read!\nThere&#x27;s one catch: Go styleguides strongly recommend short variable names.\nThey do have a whole chapter about single&#x2F;double letter vars [1] which boils down to:\nThey have their place, as receiver variables and in any place where the short name would be too repetitive.1: https:&#x2F;&#x2F;google.github.io&#x2F;styleguide&#x2F;go&#x2F;decisions.html",
+          "score": 0
+        },
+        {
+          "author": "dannersy",
+          "text": "It is hard for me to rebut all the points in this article because my experience is entirely the opposite save for the point of simple syntax.In opposition to another comment here claiming the UUID example is fantastic, the author admits that their criticism is surface level at best:&quot;Here is a telling example: Go&#x27;s most popular UUID library ... has 165 commits and 0 dependencies. Rust&#x27;s most popular UUID library ... has 1594 commits. *I didn&#x27;t analyze* why so many commits were",
+          "score": 0
+        },
+        {
+          "author": "zeristor",
+          "text": "Looking at this from my work machine and a malware detection warning came up.",
+          "score": 0
+        },
+        {
+          "author": "jmartin2683",
+          "text": "I couldn’t possibly disagree with every point in this post any more. Rust is bad because.. people update things?  What?",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "8741887",
+      "title": "Ask HN: Rust concurrency vs. Go after drop of green threads and segmented stacks?",
+      "text": "I have been a big fan of the Go programming language, and how it allowed me to write concurrent multi-core programs with minimal effort.<p>The lack of generics and an enforced GC still makes me very intrigued of the Rust programming language as an option for many future use cases, especially as Rust used to have something comparable to the go-routines and channels in Go.<p>After I heard they are moving out green threads to the standard library [1], and also abandoning segmented stacks [2] (something I&#x27;m not as much knowledgeable about, but have understood it has implications for concurrency), I&#x27;m starting to wonder whether it ever will offer the same strength in terms of building concurrent multi-core programs, as in Go.<p>Would be cool to have some experts give their views on this, and elaborate a little on what the consequences of those decisions will be, especially compared to what we have in Golang.<p>[1] https:&#x2F;&#x2F;mail.mozilla.org&#x2F;pipermail&#x2F;rust-dev&#x2F;2013-December&#x2F;007565.html<p>[2] https:&#x2F;&#x2F;mail.mozilla.org&#x2F;pipermail&#x2F;rust-dev&#x2F;2013-November&#x2F;006314.html",
+      "url": "https://news.ycombinator.com/item?id=8741887",
+      "author": "samuell",
+      "score": 4,
+      "numComments": 3,
+      "created": "2014-12-12T18:40:51Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=8741887",
+      "topComments": [
+        {
+          "author": "alco",
+          "text": "Just a small note: Go has also abandoned segmented stacks. They were a placeholder until Go got precise GC which enabled it to use contiguous stacks with pointer rewriting. Here&#x27;s a good explanation of this – http:&#x2F;&#x2F;agis.io&#x2F;2014&#x2F;03&#x2F;25&#x2F;contiguous-stacks-in-go.html.",
+          "score": 0
+        },
+        {
+          "author": "bjourne",
+          "text": "What exactly are the &quot;concurrent multi-core programs&quot; you wrote in Go doing? Do you have any examples of concrete problems you had that became easier to solve when you used Go&#x27;s concurrent multi-core features?",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "17481908",
+      "title": "Rust Concurrency vs. Go, How are they different?",
+      "text": "",
+      "url": "https://medium.com/@srinathperera/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f",
+      "author": "hemapani",
+      "score": 4,
+      "numComments": 0,
+      "created": "2018-07-08T02:46:09Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=17481908",
+      "topComments": []
+    },
+    {
+      "id": "16254906",
+      "title": "C vs. Rust vs. Go for IDS",
+      "text": "I have spent a lot of time writing network tools with Python&#x27;s scapy module, which I love. I prototyped an Intrusion Detection System using scapy, inspired by Snort, but know it will not be able to process a large amount of packets and want to start programming with a faster, more powerful language.<p>My issues are:<p>-C seems like the best option speed-wise but there is very little documentation for doing certain things, like IPv6, for example.\n-I can&#x27;t get a straight answer out of anyone for whether to choose Go over Rust, or vice-versa.<p>My question is, if I want to write programs that process, parse, and classify a large amount of packets, which of the three languages would you suggest learning?",
+      "url": "https://news.ycombinator.com/item?id=16254906",
+      "author": "splithorizon",
+      "score": 2,
+      "numComments": 1,
+      "created": "2018-01-29T02:26:10Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=16254906",
+      "topComments": [
+        {
+          "author": "thatinstant",
+          "text": "There are several blog posts out there on the Go vs Rust debate and how both languages are not really in the same boxing weight class, so to speak, but people tend to compare and contrast the two languages more often because they both launched around the same time. With that said, I&#x27;ll take a crack at this question... Without having to define what &quot;large amount&quot; means to you or others, I would guess you want to pick Rust. Go uses a runtime to perform garbage collection; while Rust",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}
