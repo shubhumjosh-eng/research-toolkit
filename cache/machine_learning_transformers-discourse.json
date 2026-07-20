@@ -1,0 +1,50 @@
+{
+  "timestamp": 1784536571094,
+  "topic": "machine learning transformers",
+  "source": "discourse",
+  "count": 3,
+  "data": [
+    {
+      "id": "discuss.python.org-105436",
+      "title": "Inference of unspecified type parameters as Never",
+      "text": "For example list() is inferred as list[Never] initially. Both type checkers add an error in foo = list() if there is no foo.append(…) that completes this partial type. Instead of adding even more special casing to built-ins it would be better to introduce a mechanism that allows late binding of t...",
+      "url": "https://discuss.python.org/t/inference-of-unspecified-type-parameters-as-never/105436",
+      "author": "randolf-scholz",
+      "score": 0,
+      "views": 0,
+      "replyCount": 14,
+      "created": "2026-01-05T23:39:08.861Z",
+      "source": "discourse",
+      "sourceForum": "discuss.python.org",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-836218",
+      "title": "Metahuman and Iphone",
+      "text": "Unfortunately without the whole ‘machine learning’ logic to transform read information into blend weights for face capture, you end up with fairly limited result. The android solution is doing some linear/polynomial blend weight generation, but you really need machine learning for this. I stopped...",
+      "url": "https://forums.unrealengine.com/t/metahuman-and-iphone/836218",
+      "author": "MaximeDupart",
+      "score": 0,
+      "views": 0,
+      "replyCount": 15,
+      "created": "2023-11-16T06:56:58.623Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-794788",
+      "title": "Is it correct to consider any GPT , a machine learning model?",
+      "text": "A brilliant question, and one that people much smarter than me are more qualified to answer. I do know that GPT models are \"Generative Pre-trained Transformers\" which does fall under Deep Learning, and more specifically generative AI. Highly recommend the video that @anon22939549 has linked, they...",
+      "url": "https://community.openai.com/t/is-it-correct-to-consider-any-gpt-a-machine-learning-model/794788",
+      "author": "trenton.dambrowitz",
+      "score": 0,
+      "views": 0,
+      "replyCount": 4,
+      "created": "2025-01-23T10:19:07.980Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ]
+}
