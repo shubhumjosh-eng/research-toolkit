@@ -5,7 +5,7 @@ function toMarkdown(data) {
   let md = '';
 
   md += `# Research Report: ${metadata.topic}\n\n`;
-  md += `*Generated: ${metadata.timestamp} | Duration: ${metadata.duration} | Sources: ${metadata.totalSources}*\n`;
+  md += `*Generated: ${metadata.timestamp} | Duration: ${metadata.duration || 'N/A'} | Sources: ${metadata.totalSources || 0}*\n`;
   if (metadata.template) md += `*Template: ${metadata.template}*\n`;
   if (metadata.dateRange) md += `*Date Range: ${metadata.dateRange}*\n`;
   if (metadata.diff) md += `*Diff: ${metadata.diff}*\n`;
@@ -13,17 +13,34 @@ function toMarkdown(data) {
 
   md += `## Summary Statistics\n\n`;
   md += `| Platform | Count |\n|----------|-------|\n`;
-  md += `| Reddit Posts | ${metadata.redditPosts} |\n`;
-  md += `| YouTube Videos | ${metadata.youtubeVideos} |\n`;
-  md += `| News Articles | ${metadata.newsArticles} |\n`;
-  md += `| Web Results | ${metadata.webSearchResults} |\n`;
-  md += `| Hacker News | ${metadata.hackernewsStories} |\n`;
-  md += `| Bluesky Posts | ${metadata.blueskyPosts} |\n`;
+  md += `| Reddit Posts | ${metadata.redditPosts || 0} |\n`;
+  md += `| YouTube Videos | ${metadata.youtubeVideos || 0} |\n`;
+  md += `| News Articles | ${metadata.newsArticles || 0} |\n`;
+  md += `| Web Results | ${metadata.webSearchResults || 0} |\n`;
+  md += `| Hacker News | ${metadata.hackernewsStories || 0} |\n`;
+  md += `| Bluesky Posts | ${metadata.blueskyPosts || 0} |\n`;
   md += `| Discourse Topics | ${metadata.discourseTopics || 0} |\n`;
   md += `| Stack Exchange | ${metadata.stackexchangeAnswers || 0} |\n`;
   md += `| Semantic Scholar | ${metadata.semanticScholarPapers || 0} |\n`;
   md += `| arXiv Papers | ${metadata.arxivPapers || 0} |\n`;
   md += `\n`;
+
+  if (executiveSummary && executiveSummary.topPosts && executiveSummary.topPosts.length > 0) {
+    md += `## Executive Summary\n\n`;
+    md += `### Top Posts\n\n`;
+    for (const post of executiveSummary.topPosts.slice(0, 10)) {
+      md += `- **${post.title}** (⬆ ${post.score}, ${post.numComments || 0} comments) [${post.platform}](${post.url})\n`;
+    }
+    md += `\n`;
+  }
+
+  if (executiveSummary && executiveSummary.topComments && executiveSummary.topComments.length > 0) {
+    md += `### Top Insights\n\n`;
+    for (const c of executiveSummary.topComments.slice(0, 5)) {
+      md += `- "${c.text}" — u/${c.author} (${c.platform}, ⬆ ${c.score})\n`;
+    }
+    md += `\n`;
+  }
 
   if (clusters && clusters.length > 0) {
     md += `## Topic Clusters\n\n`;
@@ -59,8 +76,8 @@ function toMarkdown(data) {
   if (hackernewsAnalysis && hackernewsAnalysis.length > 0) {
     md += `## Hacker News\n\n`;
     for (const s of hackernewsAnalysis.slice(0, 15)) {
-      md += `- **${s.title}** (⬆ ${s.score || 0}, 💬 ${s.commentCount || 0})\n`;
-      md += `  [Article](${s.url || s.hackerNewsUrl || '#'}) | [HN Discussion](${s.hackerNewsUrl || s.url || '#'})\n\n`;
+      md += `- **${s.title}** (⬆ ${s.score || 0}, 💬 ${s.numComments || 0})\n`;
+      md += `  [Article](${s.url || s.sourceUrl || '#'}) | [HN Discussion](${s.sourceUrl || s.url || '#'})\n\n`;
     }
   }
 
@@ -69,6 +86,41 @@ function toMarkdown(data) {
     for (const p of blueskyAnalysis.slice(0, 15)) {
       md += `- **${(p.text || '').substring(0, 200)}** (❤ ${p.likeCount || 0})\n`;
       md += `  by ${p.author || 'unknown'} | [View](${p.url || '#'})\n\n`;
+    }
+  }
+
+  if (youtubeAnalysis && youtubeAnalysis.length > 0) {
+    md += `## YouTube Videos\n\n`;
+    for (const v of youtubeAnalysis.slice(0, 15)) {
+      md += `- **${v.title}** by ${v.channelName || 'Unknown'} (${v.viewCount ? v.viewCount.toLocaleString() + ' views' : 'N/A'})\n`;
+      md += `  [Watch](${v.url})\n\n`;
+    }
+  }
+
+  if (webSearchAnalysis && webSearchAnalysis.length > 0) {
+    md += `## Web Results\n\n`;
+    for (const w of webSearchAnalysis.slice(0, 15)) {
+      md += `- **${w.title}**\n`;
+      if (w.description) md += `  ${w.description.substring(0, 200)}\n`;
+      md += `  [Visit](${w.url})\n\n`;
+    }
+  }
+
+  if (discourseAnalysis && discourseAnalysis.length > 0) {
+    md += `## Discourse\n\n`;
+    for (const d of discourseAnalysis.slice(0, 15)) {
+      md += `- **${d.title}** (${(d.replyCount || 0) - 1} replies)\n`;
+      if (d.text) md += `  ${d.text.substring(0, 200)}\n`;
+      md += `  [View](${d.url})\n\n`;
+    }
+  }
+
+  if (stackexchangeAnalysis && stackexchangeAnalysis.length > 0) {
+    md += `## Stack Exchange\n\n`;
+    for (const q of stackexchangeAnalysis.slice(0, 15)) {
+      md += `- **${q.title}** (⬆ ${q.score || 0}, ${q.answerCount || 0} answers${q.isAnswered ? ', ✅ accepted' : ''})\n`;
+      if (q.text) md += `  ${q.text.substring(0, 200)}\n`;
+      md += `  [View](${q.url})\n\n`;
     }
   }
 
