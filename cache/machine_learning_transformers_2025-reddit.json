@@ -1,0 +1,129 @@
+{
+  "timestamp": 1784536898030,
+  "topic": "machine learning transformers 2025",
+  "source": "reddit",
+  "count": 1,
+  "data": [
+    {
+      "id": "1px1agd",
+      "title": "[D] r/MachineLearning - a year in review",
+      "text": "This is a review of most upvoted posts on this sub in 2025, loosely grouped into high-level themes. Many important news will be missing, however that is indicative of discussion lying elsewhere at that time. I hope that you'll find it informative.\n\n---\n\n## Open-Source Parity and Training Efficiency\n\nThe year began with excitement about frontier models becoming accessible. [DeepSeek R1 and its open-source distillations dominated discussion](https://www.reddit.com/r/MachineLearning/comments/1i9xwbr/r_learn_how_to_run_deepseekr1_locally_a_free/) (386 upvotes, by u/Brief-Zucchini-180), though users noted that locally-runnable versions were distilled models (8B or 32B) rather than the full 671B version, performing at roughly GPT-3.5 level. The broader story was [DeepSeek's decision to open-source](https://www.reddit.com/r/MachineLearning/comments/1ib2vtx/d_why_did_deepseek_opensource_their_work/) (965 upvotes, by u/we_are_mammals), despite reportedly achieving 45x training efficiency gains. Discussion centered on monetization models - commenters drew parallels to Meta's Llama strategy, noting open-source drives adoption and hosting revenue while reducing self-hosting friction. By late year, [a researcher replicated DeepSeek-R1-Zero's RL recipe on a 3B model for under $30](https://www.reddit.com/r/MachineLearning/comments/1i9dmwc/r_replicating_deepseekr3zero_rl_recipe_on_3b_llm/) (278 upvotes, by u/Happysedits), though skepticism emerged about whether improvements represented genuine iterative development or data leakage.\n\n## The Conference Crisis\n\nNeurIPS became a cautionary tale about scale. The community watched submission volumes climb to unprecedented levels (from 9k in 2022 to 25k in 2025 according to [one discussion](https://www.reddit.com/r/MachineLearning/comments/1kph8k7/d_has_a_research_field_ever_been_as_saturated_or/) (243 upvotes, by u/lapurita)), with acceptance becoming \"increasingly lottery-like.\" Reports emerged that [NeurIPS was instructing Senior Area Chairs to reject already-accepted papers due to venue constraints](https://www.reddit.com/r/MachineLearning/comments/1n4bebi/d_neurips_is_pushing_to_sacs_to_reject_already/) (433 upvotes, by u/impatiens-capensis), despite positive reviews. [AAAI 2026 received 29,000 submissions](https://www.reddit.com/r/MachineLearning/comments/1n1wm8n/n_unprecedented_number_of_submissions_at_aaai_2026/) (201 upvotes, by u/Adventurous-Cut-7077), with roughly 20,000 from China, but reviewers reported widespread quality issues (incomplete implementations, unreproducible code, trivial errors). A researcher published [a position paper arguing the current conference model is unsustainable](https://www.reddit.com/r/MachineLearning/comments/1mo0ynr/r_position_the_current_ai_conference_model_is/) (399 upvotes, by u/NuoJohnChen), citing environmental costs and mental health concerns alongside publication saturation.\n\nThe infrastructure groaned under the load. [Overleaf went down ahead of a NeurIPS deadline](htt",
+      "score": 140,
+      "numComments": 10,
+      "subreddit": "MachineLearning",
+      "author": "Everlier",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1px1agd",
+      "created": "2025-12-27T16:04:27.000Z",
+      "topComments": [
+        {
+          "author": "SlayahhEUW",
+          "text": "Thank you, nice summary!  \n\n\nFor the linear attention/Mamba fans, I think that Mamba's disappearance can also be attributed to that the field of Linear Attention has generalized and expanded beyond Mamba. Here is a list of 50 submissions to ICLR sorted by topic that all use similar techniques to Mamba.\n\n[https://docs.google.com/spreadsheets/d/1ooCMOwkUup\\_WRsHJuu5Dmjj29lB60YrZPdUP-02kq\\_g/edit?gid=1013819544#gid=1013819544](https://docs.google.com/spreadsheets/d/1ooCMOwkUup_WRsHJuu5Dmjj29lB60YrZPdUP-02kq_g/edit?gid=1013819544#gid=1013819544)",
+          "score": 11,
+          "created": "2025-12-27T16:20:40.000Z"
+        },
+        {
+          "author": "GeorgeBird1",
+          "text": "This was a fantastic read to summarise the year! Thanks for all the effort :))",
+          "score": 8,
+          "created": "2025-12-28T00:03:08.000Z"
+        },
+        {
+          "author": "dannyf7",
+          "text": "Nice and helpful summary! Thanks for doing this!",
+          "score": 2,
+          "created": "2025-12-29T09:16:33.000Z"
+        },
+        {
+          "author": "VHQN",
+          "text": "Thanks for your effort.",
+          "score": 2,
+          "created": "2025-12-28T00:49:34.000Z"
+        },
+        {
+          "author": "bujibudax",
+          "text": "One hell of a year huh.\n\nDetecting generated content might be the next thing.",
+          "score": 2,
+          "created": "2025-12-27T18:17:32.000Z"
+        },
+        {
+          "author": "Everlier",
+          "text": "Thank you for the kind words and for sharing the list!\n\nThese 50 papers on Linear Attention and state space modelling alone is just mind-boggling, so I guess that [this meme](https://www.reddit.com/r/LocalLLaMA/comments/1flac62/thats_it_thanks/) is more relevant than ever.   \n  \nLast few years were really a scaling test of all the academia \"infrastructure\" for research and review.",
+          "score": 2,
+          "created": "2025-12-27T16:29:09.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-05-12T12:39:27.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-05-12T12:36:56.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-04-01T09:06:27.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-03-13T14:49:22.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-01-14T22:17:51.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-01-06T14:54:11.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2026-01-03T15:25:32.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2025-12-28T09:42:23.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2025-12-28T09:42:03.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2025-12-28T07:02:48.000Z"
+        },
+        {
+          "author": "theawesomenachos",
+          "text": "the openreview leak was incredible times, was checking the ML subreddit almost like a drama subreddit for a bit",
+          "score": 1,
+          "created": "2025-12-28T01:37:06.000Z"
+        },
+        {
+          "author": "[deleted]",
+          "text": "[removed]",
+          "score": 1,
+          "created": "2025-12-28T01:23:36.000Z"
+        }
+      ]
+    }
+  ]
+}
