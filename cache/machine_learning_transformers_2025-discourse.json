@@ -1,0 +1,64 @@
+{
+  "timestamp": 1784536898464,
+  "topic": "machine learning transformers 2025",
+  "source": "discourse",
+  "count": 4,
+  "data": [
+    {
+      "id": "forums.unrealengine.com-2451323",
+      "title": "Cropout Sample Project - Unreal 5.5.4 - Mega Learning Thread ",
+      "text": "[INFO DUMP: Island Generator Blueprint] I couldn't make the Functional Tests work with the current project set up (levels being opened and everything being destroyed afterwards), so those are still being aborted on level change. Not a big deal at the moment as my Functional UI Tests within a sing...",
+      "url": "https://forums.unrealengine.com/t/cropout-sample-project-unreal-5-5-4-mega-learning-thread/2451323",
+      "author": "Kakalop",
+      "score": 0,
+      "views": 0,
+      "replyCount": 24,
+      "created": "2026-02-27T23:51:33.795Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-2346079",
+      "title": "Packaging failed, SDK various issues",
+      "text": "This is probably one of those \"extremely newbie\" questions, but I searched for this everywhere, and I while I found many results on the City Sample not packaging, the log is so vast that I can't even figure out the best way to search for it. Just to clarify, I've used UE in 2022 for a work projec...",
+      "url": "https://forums.unrealengine.com/t/packaging-failed-sdk-various-issues/2346079",
+      "author": "sebalv70",
+      "score": 0,
+      "views": 0,
+      "replyCount": 4,
+      "created": "2025-02-22T12:03:09.680Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-1365812",
+      "title": "Python packages listing of what is available in API code interpreter",
+      "text": "You might find it useful to provide an AI application that you know will be employing code interpreter the listing of Python modules that are installed in its notebook environment. You can list them in a system (developer) message or an early cacheable message input. The AI doesn't have absolute ...",
+      "url": "https://community.openai.com/t/python-packages-listing-of-what-is-available-in-api-code-interpreter/1365812",
+      "author": "_j",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2025-11-10T17:40:22.962Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-1284906",
+      "title": "Sam Altman's a new blog post - June 10, 2025",
+      "text": "Sam Altman tells us the singularity has arrived. Quietly. Smoothly. No need for alarm. Apparently the most profound transformation in human history is unfolding like a software update. It is frictionless, polite, and oddly boring. Machines are now smarter than us in many ways, but not to worry. P...",
+      "url": "https://community.openai.com/t/sam-altmans-a-new-blog-post-june-10-2025/1284906",
+      "author": "lucmachine",
+      "score": 0,
+      "views": 0,
+      "replyCount": 24,
+      "created": "2025-06-22T23:57:48.592Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ]
+}
