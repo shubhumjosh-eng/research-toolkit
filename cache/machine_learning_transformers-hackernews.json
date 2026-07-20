@@ -1,0 +1,66 @@
+{
+  "timestamp": 1784536562414,
+  "topic": "machine learning transformers",
+  "source": "hackernews",
+  "count": 4,
+  "data": [
+    {
+      "id": "40186660",
+      "title": "Ask HN: Getting Started with Machine Learning? (Not AI/NLP/Transformers)",
+      "text": "Few days ago I felt like learning the &quot;basics of ML&quot;. But most of the pages I found on the internet were about transformers, GPT, fine tuning llama, etc.. and that&#x27;s not what I&#x27;m looking for.<p>I want to start with the stuff that was cool before ChatGPT was a thing. And I&#x27;m not that interested in NLP.\nI also won&#x27;t expect much from the output, as I just want to train some small models and play around with them.<p>I have a fairly powerful PC and enough RAM and VRAM, so hardware shouldn&#x27;t be the problem.<p>Any keywords, resources, links, hints are appreciated!",
+      "url": "https://news.ycombinator.com/item?id=40186660",
+      "author": "SushiHippie",
+      "score": 3,
+      "numComments": 0,
+      "created": "2024-04-28T07:12:12Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=40186660",
+      "topComments": []
+    },
+    {
+      "id": "24931724",
+      "title": "The Illustrated Transformer Visualizing machine learning one concept at a time",
+      "text": "",
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "author": "mrfusion",
+      "score": 2,
+      "numComments": 0,
+      "created": "2020-10-29T15:45:04Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=24931724",
+      "topComments": []
+    },
+    {
+      "id": "27305377",
+      "title": "Understanding Transformers, the machine learning model behind GPT-3",
+      "text": "",
+      "url": "https://thenextweb.com/news/understanding-transformers-the-machine-learning-model-behind-gpt-3-machine-learning-ai-syndication",
+      "author": "jonbaer",
+      "score": 1,
+      "numComments": 0,
+      "created": "2021-05-27T17:09:42Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=27305377",
+      "topComments": []
+    },
+    {
+      "id": "44135196",
+      "title": "Show HN: Mastering Modern Time Series Forecasting – A Practical Guide in Python",
+      "text": "I’ve been working on a practical guide for time series forecasting in Python, called Mastering Modern Time Series Forecasting.\nThe goal is to bridge the gap between theory and implementation. It covers both classical statistical models (ARIMA, SARIMA, Prophet) and modern machine&#x2F;deep learning approaches (N-BEATS, Transformers, Temporal Fusion Transformer).\nThe code examples use Python libraries like statsmodels, scikit-learn, PyTorch, and Darts, and the book focuses on real-world workflows: messy data, feature engineering, model selection, and evaluation.\nI wrote this after struggling to find forecasting resources that were both practical and up-to-date — especially for applied ML practitioners.\nYou can find the book here: <a href=\"https:&#x2F;&#x2F;valeman.gumroad.com&#x2F;l&#x2F;MasteringModernTimeSeriesForecasting\" rel=\"nofollow\">https:&#x2F;&#x2F;valeman.gumroad.com&#x2F;l&#x2F;MasteringModernTimeSeriesForec...</a> <a href=\"https:&#x2F;&#x2F;leanpub.com&#x2F;mastering_modern_time_series_forecasting\" rel=\"nofollow\">https:&#x2F;&#x2F;leanpub.com&#x2F;mastering_modern_time_series_forecasting</a>\nHappy to answer questions or hear feedback from anyone working with time series forecasting or Python ML tools.",
+      "url": "https://news.ycombinator.com/item?id=44135196",
+      "author": "predict_addict",
+      "score": 2,
+      "numComments": 1,
+      "created": "2025-05-30T11:44:50Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=44135196",
+      "topComments": [
+        {
+          "author": "yoeven",
+          "text": "This is awesome, I&#x27;ve been following time series forecasting a ton so build a zero-shot time series model that allows you to pass in historical data and provide a 98% accurate forecast compared to custom training your own model with custom dataset. https:&#x2F;&#x2F;jigsawstack.com&#x2F;ai-predictionif you find it interesting, you could add it to your articles too as a comparison :)",
+          "score": 0
+        }
+      ]
+    }
+  ]
+}
