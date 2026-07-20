@@ -1,0 +1,108 @@
+{
+  "timestamp": 1784536514915,
+  "topic": "quantum computing applications 2025",
+  "source": "hackernews",
+  "count": 6,
+  "data": [
+    {
+      "id": "42954283",
+      "title": "Google says commercial quantum computing applications arriving within five years",
+      "text": "",
+      "url": "https://www.reuters.com/technology/google-says-commercial-quantum-computing-applications-arriving-within-five-years-2025-02-05/",
+      "author": "donutloop",
+      "score": 1,
+      "numComments": 1,
+      "created": "2025-02-05T20:01:56Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=42954283",
+      "topComments": [
+        {
+          "author": "hello102913",
+          "text": "hi",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "42923329",
+      "title": "Material discovery reborn: Applications of quantum computing in quantum dynamics",
+      "text": "",
+      "url": "https://pennylane.ai/blog/2025/02/material-discovery-quantum-dynamics",
+      "author": "infinitewalk",
+      "score": 2,
+      "numComments": 0,
+      "created": "2025-02-03T21:19:58Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=42923329",
+      "topComments": []
+    },
+    {
+      "id": "45669148",
+      "title": "Show HN: Transfer Learning Boosts GQE Accelerating Drug Discovery in the NISQEra",
+      "text": "ISCA Workshop Paper: Integration of Quantum Computing and AI, Transfer Learning Boosts GQE, Accelerating Drug Discovery in the NISQ Era<p>In June 2025, at the International Symposium on Computer Architecture (ISCA)—one of the top-tier academic conferences in computer architecture—and the 4th International Workshop on Quantum-Classical Collaborative Computing (QCCC-25), a collaborative research effort by QureGenAI, Ningbo University of Engineering, and China Pharmaceutical University was presented. The paper, titled &quot;SMILES-Inspired Transfer Learning for Quantum Operator Pools in Generative Quantum Eigensolver,&quot;was delivered as a keynote presentation. The paper sparked extensive discussion and received high recognition during the symposium. Notably, QureGenAI was the only Chinese team awarded a Contributed Talk at the event. Recently, an updated version of this research has been published on arXiv, marking a significant breakthrough in the integration of quantum computing and artificial intelligence.<p>This study pioneers a &quot;transfer learning framework for quantum operator representation based on the Generative Quantum Eigensolver (GQE).&quot;By drawing inspiration from the representation learning ideas of SMILES (Simplified Molecular Input Line Entry System) in cheminformatics, the research applies transfer learning techniques to optimize quantum operator pools in the Generative Quantum Eigensolver. The core innovations include:\n1.Chemically Inspired Operator Representation Learning \nLeveraging the sequential representation characteristics of SMILES strings, the research team constructed an embedded representation space for quantum operators. A pre-trained model was used to learn the semantic features of the operators, forming a transferable operator representation library. This approach captures functional correlations between quantum operators, significantly improving the efficiency of operator selection.\n2.Dynamic Operator Pool Optimization Mechanism \nTraditional methods like ADAPT-VQE require iterative selection of optimal operators from a fixed operator pool, which incurs high computational costs. This study introduces a dynamic operator pool construction mechanism via transfer learning, utilizing a pre-trained model to rapidly generate customized operator sequences tailored to specific molecular systems. This avoids the brute-force search process inherent in conventional methods.\n3.Knowledge Transfer Across Molecular Systems \nBy transferring operator representation knowledge from previously trained molecular systems to new ones, a &quot;warm-start&quot; optimization is achieved. Experimental results demonstrate that this method maintains high computational accuracy, ensures consistency of similar features across molecules, and significantly reduces the number of iterations and computational time required for convergence. It is particularly suitable for quantum chemistry problems such as electronic structure calculations and molecular simulations.\nThis research represents a major advancement at the intersection of quantum computing and biomedicine, offering a new paradigm for quantum algorithm design in the Noisy Intermediate-Scale Quantum (NISQ) era. It opens new pathways for the application of quantum computing in drug design, materials science, and related fields.<p>Paper Address:  \n<a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2509.19715\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2509.19715</a><p>Repository Address:  \n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;QureGenAI-Biotech&#x2F;TyxonQ&#x2F;tree&#x2F;main&#x2F;research&#x2F;gqe_drug_design\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;QureGenAI-Biotech&#x2F;TyxonQ&#x2F;tree&#x2F;main&#x2F;resear...</a><p>TyxonQ Website:  \n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;QureGenAI-Biotech&#x2F;TyxonQ&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;QureGenAI-Biotech&#x2F;TyxonQ&#x2F;</a>",
+      "url": "https://www.facebook.com/acemapai/posts/isca-workshop-paper-integration-of-quantum-computing-and-ai-transfer-learning-bo/800117856243879/",
+      "author": "TyxonQ",
+      "score": 1,
+      "numComments": 0,
+      "created": "2025-10-22T13:50:41Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=45669148",
+      "topComments": []
+    },
+    {
+      "id": "44736353",
+      "title": "Show HN: TyxonQ, A Chinese Full-Stack Quantum Software Framework on Real Machine",
+      "text": "TyxonQ Quantum&quot; Global Launch: Dawn of Stable Quantum Computing Era<p>QureGenAI—TyxonQ: World&#x27;s First Production-Ready Quantum-Classical Hybrid Computing Platform with Pulse-Level Control Now Fully Open<p>Beijing, July 22, 2025 – Quantum computing industrialization achieves a critical milestone. TyxonQ, the full-stack quantum software framework developed by QureGenAI BioTech (Suzhou) Life Science Technology Co., Ltd., officially launches today. Built under the  Apache 2.0 open-source license, this framework pioneers deep integration of quantum hardware and software stacks, delivering a production-ready toolchain for industrial users to access quantum computing power.<p>1. Core Advancement: Real Quantum Hardware Integration \nTyxonQ enables enterprise users to directly schedule tasks on  Homebrew_S2 superconducting quantum processors  via its self-developed quantum cloud platform:<p># 量子硬件调用示例\nimport tyxonq as tq\nfrom tyxonq.cloud import apis\napis.set_token(&quot;YOUR_API_KEY&quot;)  # 通过tyxonq.com获取\ntask = apis.submit_task(device=&quot;homebrew_s2&quot;, circuit=my_circuit)<p>The platform supports multi-layer quantum control, including  gate operations  and  pulse signal modulation. In benchmark quantum chemistry tasks, Homebrew_S2 demonstrates significant efficiency gains over classical architectures, enabling practical applications in drug discovery and beyond.<p>2. Breakthrough Tech: Quantum + AI Dual-Engine Architecture \nTyxonQ innovatively merges generative AI with heterogeneous computing, offering three core advantages:\n ① Accessible Quantum Computing Power \nIt is the first global deployment of Homebrew_S2 superconducting processors, executes algorithms on real quantum hardware (not simulators), pioneers Quantum-Per-Second (qps) granular billing system and slashes usage barriers.\n ② AI-Native Quantum Compilation \n ③ World’s first Generative Quantum Eigensolver (GQE) integrated\nIt accomplishes &quot;natural language →quantum circuit&quot; translation (experimental), supports quantum machine learning (QML) pretrained models. The cross-domain solutions for quantum chemistry, drug discovery &amp; materials science, integrates auto-differentiation, tensor network acceleration with seamless PyTorch&#x2F;TensorFlow compatibility.<p>3. Biomedical Innovation \nTyxonQ delivers transformative value in biomedicine:\nAccelerated Schrödinger Equation Solving: Simulates non-standard amino acids&#x2F;metal ion effects—beyond traditional AI capabilities\nQM&#x2F;MM Integration: Unified quantum chemistry&#x2F;molecular dynamics workflows via Python\n“Since 2023, we’ve proven industrial-scale quantum drug design feasibility in QureGenAI’s 2024 paper A Hybrid Quantum Computing Pipeline for Real World Drug Discovery. With TyxonQ&#x27;s launch, we aspire to attract broader interdisciplinary communities to join us. We are committed to minimizing quantum computing entry barriers for collaborators across all knowledge domains.&quot; states Dr. Li Xiaoran, CEO of QureGenAI. &quot;<p>4. Developer Ecosystem &amp; Roadmap \nThe platform adopts the Apache 2.0 open-source license, enabling developers to access resources through:<p>pip install tyxonq<p>or access the GitHub repository for immediate integration. Our version roadmap maintains full transparency:\nV1.x (Released): Hardware execution &#x2F; Auto-differentiation &#x2F; VQE algorithms\nV2.x (Development): Quantum API gateway &#x2F; LLM integration &#x2F; Pulse-level control\nV3.x (Planned): Distributed quantum networks &#x2F; Enterprise cloud platform<p>5. Experience Quantum Today \nVisit  www.tyxonq.com and redeem code  &quot;量子未来无限可能&quot; for  100 QAU computing credits  to run your first quantum program on Homebrew_S2!<p>&quot;We’re turning blueprints into reality,&quot; emphasizes QureGenAI’s CEO. &quot;Traditional tools build houses; quantum tools create molecular-scale materials. This marks the true dawn of QuantumAIDD.&quot;<p>Resource Links:\nOfficial Platform: <a href=\"https:&#x2F;&#x2F;www.tyxonq.com\" rel=\"nofollow\">https:&#x2F;&#x2F;www.tyxonq.com</a>\nBusiness Inquiries: bd@quregenai.com\nDeveloper Support: code@quregenai.com",
+      "url": "https://github.com/QureGenAI-Biotech/TyxonQ",
+      "author": "TyxonQ",
+      "score": 1,
+      "numComments": 0,
+      "created": "2025-07-30T16:32:38Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=44736353",
+      "topComments": []
+    },
+    {
+      "id": "19311778",
+      "title": "Build a Quantum Machine Learning Startup",
+      "text": "The Creative Destruction Lab is calling for applications for its 2019-2020 Quantum Machine Learning Stream. We’re looking for both established quantum technology startups and for individuals who have yet to find the right partner and idea for their quantum startups.<p>Program participants all receive:\n(1) Investment - access to pre-seed capital of $80K US;\n(2) Training - one month technical bootcamp intensive run by Peter Wittek; and\n(3) Hardware Access - quantum computing resources from D-Wave, Rigetti, and Xanadu.<p>Please apply at https:&#x2F;&#x2F;bit.ly&#x2F;2Tid1ss by March 14, 2019\nTo learn more visit our webpage at https:&#x2F;&#x2F;bit.ly&#x2F;2EAgJUR<p>If you&#x27;d like to learn more send an email to Ani Chemilian at ani@creativedestructionlab.com",
+      "url": "https://news.ycombinator.com/item?id=19311778",
+      "author": "chemilian",
+      "score": 10,
+      "numComments": 3,
+      "created": "2019-03-05T16:43:23Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19311778",
+      "topComments": [
+        {
+          "author": "tbabej",
+          "text": "At ProteinQure [1], we were part of this incubator in the 2017-2018 batch. Happy to answer any questions![1] http:&#x2F;&#x2F;proteinqure.com&#x2F;",
+          "score": 0
+        },
+        {
+          "author": "robsharma",
+          "text": "Play with the DWave, Rigetti and Xanadu stacks and know current trends at: https:&#x2F;&#x2F;www.quantumcomputingreport.comThe program is very challenging from both technical and business development perspectives so be prepared to learn A LOT!",
+          "score": 0
+        },
+        {
+          "author": "hansmelo",
+          "text": "We&#x27;re going through the program right now. Definitely a great learning experience in many ways. Happy to answer any questions. Learn more about our work at https:&#x2F;&#x2F;menten.ai",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "37639878",
+      "title": "Why do most hackers work on software projects?",
+      "text": "Why do most hackers work on software projects? Explore how Public Good Staking is changing the game for frontier technology development. Read here: https:&#x2F;&#x2F;research.dorahacks.io&#x2F;2023&#x2F;09&#x2F;22&#x2F;frontier-staking&#x2F;<p>In the era of open source software, universities are terrible places to learn how to develop software, or transform an idea into a product.<p>Hackers can build new products based on open platform technologies. To be more clear here, an open platform technology is one that is not exclusive or restricted to a specific group of developers; it is accessible to a diverse range of people for development purposes.<p>However, it’s important to note that an open platform technology does not have to be open source.<p>Starship, by SpaceX, can be categorized as an open platform technology, as it offers a universal platform for myriad developmental ideas, given its substantial volume and potentially reduced costs for space payloads. Generally, SpaceX does not impose restrictions on use cases or user demographics. Even if it does, alternative providers from varying jurisdictions would likely emerge, offering comparable technologies. For hackers, the design of payloads becomes a compelling endeavor, with well-conceived payloads potentially birthing successful startups.<p>Another example is quantum computers. The majority of quantum computing hardware is proprietary, akin to the Mac computer and operating system. However, hackers can develop useful algorithms and distinctive applications on quantum computers, facing considerably less competition than they would when developing for Mac or Windows.<p>The owner of a platform technology does not invariably dictate its applications and, more often than not, cannot monopolize its use cases. A company specializing in quantum computers may not necessarily offer the most prevalent algorithm on its platform, much like the most popular applications on the iPhone are not developed by Apple.<p>Developing platform technology often necessitates substantial capital and resources, particularly when it involves hardware and manufacturing. It’s not a prerequisite to assume that every hacker is equipped to develop a platform technology from scratch. Instead, hackers can swiftly develop groundbreaking applications with relatively minimal initial capital and resources, leveraging existing platform technologies.<p>Public Good Staking essentially involves allocating a portion of a blockchain network’s incentives to fund innovative ideas and developers&#x27; activities, all without compromising the network’s protocol security. For Proof of Stake (PoS) networks, adopting Public Good Staking can offer long-term benefits by providing sustained funding to developers and the broader ecosystem. Given the current rate of adoption, we are poised to transform the way PoS ecosystems fund hackers’ projects and ventures over time.<p>Read Full Article: https:&#x2F;&#x2F;research.dorahacks.io&#x2F;2023&#x2F;09&#x2F;22&#x2F;frontier-staking&#x2F;",
+      "url": "https://news.ycombinator.com/item?id=37639878",
+      "author": "DoraHacks",
+      "score": 1,
+      "numComments": 0,
+      "created": "2023-09-25T05:16:02Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=37639878",
+      "topComments": []
+    }
+  ]
+}
