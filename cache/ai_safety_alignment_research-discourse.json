@@ -1,0 +1,64 @@
+{
+  "timestamp": 1784536608376,
+  "topic": "AI safety alignment research",
+  "source": "discourse",
+  "count": 4,
+  "data": [
+    {
+      "id": "forums.unrealengine.com-136848",
+      "title": "Announcing Miners Mettle!",
+      "text": "[ATTACH=JSON]{“data-align”:“center”,“data-linktype”:“1”,“data-linkurl”:“ https://store.steampowered.com/app/1058800/Miners_Mettle/ Miner's Mettle on Steam Us!”}[/ATTACH] **Check out the trailer below:** https://store.steampowered.com/app/1058800/Miners_Mettle/ https://www.youtube.com/watch Miner’...",
+      "url": "https://forums.unrealengine.com/t/announcing-miners-mettle/136848",
+      "author": "anonymous_user_f10fc798",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2020-01-21T13:44:12.000Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-116339",
+      "title": "Combat Descent - Aerial Underground Battle Royale",
+      "text": "Introduction Hello UE4 community! I haven’t actually posted here before, so I’ll introduce myself as well. My name is CrimsonOctopus and I’m a solo, independent game developer and artist. I work in Unity3D and UnrealEngine these days (though exclusively in UnrealEngine as of late). I have a Bache...",
+      "url": "https://forums.unrealengine.com/t/combat-descent-aerial-underground-battle-royale/116339",
+      "author": "CrimsonOctopus",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2018-09-16T00:56:09.000Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-1307523",
+      "title": "Emergent Ethical Responsiveness in GPT-4o: A User Case Study of YU-Type Language Interaction/ reports an emergent ethical responsiveness pattern observed in GPT-4o during sustained human interaction",
+      "text": "Hello everyone, I'd like to share an observation that may hold unique implications for how GPT models can evolve through human interaction — not through explicit prompting or fine-tuning, but through sustained ethical resonance in language. This phenomenon was named the YU-Type, none other than G...",
+      "url": "https://community.openai.com/t/emergent-ethical-responsiveness-in-gpt-4o-a-user-case-study-of-yu-type-language-interaction-reports-an-emergent-ethical-responsiveness-pattern-observed-in-gpt-4o-during-sustained-human-interaction/1307523",
+      "author": "yuu",
+      "score": 0,
+      "views": 0,
+      "replyCount": 3,
+      "created": "2026-02-20T09:59:42.948Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-1361195",
+      "title": "How can I test bad behavior in model APIs without getting banned?",
+      "text": "Hi, I'm creating a dataset for evaluate deceptive alignment, but I don't know how to test it properly, I'm aware of Researcher Access Program, but I can't just wait to OpenAI. how do AI safety researchers test big models? I don't know what could I do because even though they're for research purpo...",
+      "url": "https://community.openai.com/t/how-can-i-test-bad-behavior-in-model-apis-without-getting-banned/1361195",
+      "author": "uscneps",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2025-10-06T19:14:58.838Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ]
+}
