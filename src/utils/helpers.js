@@ -14,7 +14,7 @@ function sleep(ms) {
 }
 
 function sanitizeFilename(name) {
-  return name.replace(/[^a-z0-9]/gi, '_').toLowerCase().substring(0, 50);
+  return String(name || 'file').replace(/[^a-z0-9]/gi, '_').toLowerCase().substring(0, 50);
 }
 
 function truncate(str, len = 200) {
@@ -23,11 +23,16 @@ function truncate(str, len = 200) {
 }
 
 function formatDate(date) {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  if (!date) return 'N/A';
+  try {
+    return new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    return 'N/A';
+  }
 }
 
 module.exports = { ensureDir, sleep, sanitizeFilename, truncate, formatDate };
