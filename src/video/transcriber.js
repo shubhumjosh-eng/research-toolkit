@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 const fs = require('fs').promises;
 const config = require('../config');
 
@@ -9,7 +9,7 @@ class VideoTranscriber {
 
   async checkWhisper() {
     return new Promise((resolve) => {
-      exec('whisper --help', (error) => {
+      execFile('whisper', ['--help'], (error) => {
         resolve(!error);
       });
     });
@@ -21,21 +21,21 @@ class VideoTranscriber {
       throw new Error('Whisper not found. Install with: pip install openai-whisper');
     }
     
-    const langFlag = language ? `--language ${language}` : '';
-    const outputDir = require('path').dirname(audioPath);
+    const path = require('path');
+    const outputDir = path.dirname(audioPath);
+    const baseName = path.basename(audioPath, path.extname(audioPath));
+    
+    const args = [audioPath, '--model', this.model, '--output_format', 'json', '--output_dir', outputDir];
+    if (language) args.push('--language', language);
     
     return new Promise((resolve, reject) => {
-      const cmd = `whisper "${audioPath}" --model ${this.model} --output_format json --output_dir "${outputDir}" ${langFlag}`;
-      
-      exec(cmd, { timeout: 300000 }, async (error, stdout, stderr) => {
+      execFile('whisper', args, { timeout: 300000 }, async (error, stdout, stderr) => {
         if (error) {
           reject(new Error(`Transcription failed: ${stderr || error.message}`));
           return;
         }
         
-        // Find the output JSON file
-        const baseName = require('path').basename(audioPath, require('path').extname(audioPath));
-        const jsonPath = require('path').join(outputDir, `${baseName}.json`);
+        const jsonPath = path.join(outputDir, `${baseName}.json`);
         
         try {
           const data = await fs.readFile(jsonPath, 'utf8');
@@ -51,7 +51,6 @@ class VideoTranscriber {
             language: result.language,
           });
         } catch (e) {
-          // Fallback to stdout
           resolve({
             text: stdout,
             segments: [],
