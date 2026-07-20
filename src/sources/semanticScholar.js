@@ -9,7 +9,8 @@ function request(url, timeout = 10000, retries = 2) {
     const mod = url.startsWith('https') ? https : http;
     const req = mod.get(url, { timeout }, res => {
       let body = '';
-      res.on('data', c => { body += c; });
+      const MAX_BODY_SIZE = 1024 * 512;
+      res.on('data', c => { if (body.length < MAX_BODY_SIZE) body += c; });
       res.on('end', async () => {
         if (res.statusCode === 429 && retries > 0) {
           const delay = Math.min(3000 * (3 - retries), 5000);
