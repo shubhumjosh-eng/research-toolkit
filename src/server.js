@@ -151,13 +151,12 @@ app.post('/api/research', async (req, res) => {
     const minutes = Math.floor(elapsed / 60);
     const seconds = elapsed % 60;
 
-    const results = { topic, reddit: redditResults, youtube: youtubeResults, news: newsResults, webSearch: webSearchResults };
-    const clusters = orchestrator.clusterTopics(redditResults, topic);
-    const sentiment = analyzeBatch(redditResults);
+    const results = { topic, reddit: redditResults, hackernews: [], bluesky: [], discourse: [], stackexchange: [], semanticScholar: [], arxiv: [], youtube: youtubeResults, news: newsResults, webSearch: webSearchResults };
+    const sentiment = analyzeBatch([...redditResults, ...youtubeResults]);
     const authorProfiles = orchestrator.buildAuthorProfiles(redditResults);
 
     const reportData = {
-      executiveSummary: orchestrator.generateSummary(results),
+      executiveSummary: orchestrator.generateSummary(results, redditResults),
       clusters,
       sentiment,
       authorProfiles,
@@ -174,7 +173,8 @@ app.post('/api/research', async (req, res) => {
         youtubeVideos: youtubeResults.length,
         newsArticles: newsResults.length,
         webSearchResults: webSearchResults.length,
-        totalComments: redditResults.reduce((sum, p) => sum + (p.topComments?.length || 0), 0),
+        totalComments: redditResults.reduce((sum, p) => sum + (p.topComments?.length || 0), 0)
+          + youtubeResults.reduce((sum, v) => sum + (v.commentCount || 0), 0),
       },
     };
 
@@ -220,7 +220,8 @@ app.get('/api/reports', async (req, res) => {
 });
 
 app.get('/api/reports/:name', async (req, res) => {
-  const filepath = path.join(REPORTS_DIR, req.params.name);
+  const safeName = path.basename(req.params.name);
+  const filepath = path.join(REPORTS_DIR, safeName);
   try {
     const content = await fs.readFile(filepath, 'utf8');
     res.setHeader('Content-Type', 'text/html');
@@ -230,7 +231,7 @@ app.get('/api/reports/:name', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 function gracefulShutdown(signal) {
   console.log(`\n${signal} received. Shutting down...`);
