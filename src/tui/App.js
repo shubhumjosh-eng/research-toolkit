@@ -12,6 +12,7 @@ const orchestrator = require('../research/orchestrator');
 const configStore = require('./configStore');
 const sessionStore = require('./sessionStore');
 const cache = require('../utils/cache');
+const logger = require('../utils/logger');
 
 const STATES = { IDLE: 'idle', RESEARCHING: 'researching', RESULTS: 'results', CONFIG: 'config', COMMANDS: 'commands' };
 
@@ -62,6 +63,7 @@ function App({ initialTopic }) {
   const addLog = useCallback((level, msg) => {
     const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
     setLogs(prev => [...prev.slice(-149), { time, level, msg }]);
+    logger.write(level, msg);
   }, []);
 
   const handleProgress = useCallback((p) => {
@@ -152,6 +154,7 @@ function App({ initialTopic }) {
   const handleConfigSave = useCallback((key, value) => {
     configStore.set(key, value);
     setConfig(prev => ({ ...prev, [key]: value }));
+    logger.write('info', `Setting saved: ${key} = ${value}`);
   }, []);
 
   useInput((input, key) => {
