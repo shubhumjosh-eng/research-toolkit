@@ -5,3 +5,12 @@ reports/
 logs/
 dist/
 *.log
+cache/
+research-*.json
+research-*.md
+research-*.html
+*.md.md
+test-report.html
+scrape-test.html
+video-test.html
+ROADMAP.html
