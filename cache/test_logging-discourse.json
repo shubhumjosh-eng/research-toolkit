@@ -1,0 +1,36 @@
+{
+  "timestamp": 1784549711563,
+  "topic": "test logging",
+  "source": "discourse",
+  "count": 2,
+  "data": [
+    {
+      "id": "meta.discourse.org-190747",
+      "title": ":tada: WP Discourse now has logs and tests",
+      "text": "We're very excited to announce a new feature in v2.2.5 of WP Discourse plugin: Logs! Logging may sound a bit boring, but I've been excited about this update for months :sweat_smile: . You can check out the details here https://meta.discourse.org/t/wp-discourse-logging/190745 View logs for the WP ...",
+      "url": "https://meta.discourse.org/t/wp-discourse-now-has-logs-and-tests/190747",
+      "author": "angus",
+      "score": 0,
+      "views": 0,
+      "replyCount": 5,
+      "created": "2021-05-18T04:39:18.142Z",
+      "source": "discourse",
+      "sourceForum": "meta.discourse.org",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-27152",
+      "title": "Extract code from Text gpt response",
+      "text": "Yeah good catch on the corner cases. Forgetting inline for a second, both solutions actually have bugs. The regex version fails with extra '```' in the code. The loop version fails if there are multiple code blocks. For example: parseCode is the regex impl parseCode2 is the loop impl const testOn...",
+      "url": "https://community.openai.com/t/extract-code-from-text-gpt-response/27152",
+      "author": "barryscary",
+      "score": 0,
+      "views": 0,
+      "replyCount": 16,
+      "created": "2024-02-05T03:51:38.248Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ]
+}
