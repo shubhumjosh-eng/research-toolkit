@@ -1,7 +1,7 @@
 const React = require('react');
 const { Box, Text } = require('ink');
 
-function ResultsView({ results, logs, onNewTopic }) {
+function ResultsView({ results, logs, resultCount, onNewTopic }) {
   if (!results) {
     return React.createElement(Text, { color: 'red' }, 'No results to display');
   }
@@ -38,10 +38,12 @@ function ResultsView({ results, logs, onNewTopic }) {
       platformStatus('Web Search', meta.webSearchResults || 0, '🌐'),
       platformStatus('Hacker News', meta.hackernewsStories || 0, '🟠'),
       platformStatus('Bluesky', meta.blueskyPosts || 0, '🦋'),
-      platformStatus('Discourse', meta.discoursePosts || 0, '💬'),
-      platformStatus('Stack Exchange', meta.stackexchangeResults || 0, '📚'),
+      platformStatus('Discourse', meta.discourseTopics || 0, '💬'),
+      platformStatus('Stack Exchange', meta.stackexchangeAnswers || 0, '📚'),
+      platformStatus('Semantic Scholar', meta.semanticScholarPapers || 0, '🎓'),
+      platformStatus('arXiv', meta.arxivPapers || 0, '📄'),
       React.createElement(Text, { dimColor: true },
-        ` Total: ${meta.totalSources || 0} sources (${meta.uniqueSources || 0} unique)`
+        ` Total: ${resultCount || meta.totalSources || 0} results`
       ),
     ),
 
