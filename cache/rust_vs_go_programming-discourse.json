@@ -1,0 +1,64 @@
+{
+  "timestamp": 1784536545715,
+  "topic": "rust vs go programming",
+  "source": "discourse",
+  "count": 4,
+  "data": [
+    {
+      "id": "discuss.python.org-5603",
+      "title": "PEP proposal: Automatically Formatting the CPython Code",
+      "text": "Hi all, In the dev sprint last week the issue of auto-formatting came up again, despite nobody having planned to discuss or work on the topic in advance. Several participarts started a discussion, where we reconsidered this from a fresh perspective. After getting positive feedback on the concept ...",
+      "url": "https://discuss.python.org/t/pep-proposal-automatically-formatting-the-cpython-code/5603",
+      "author": "taleinat",
+      "score": 0,
+      "views": 0,
+      "replyCount": 67,
+      "created": "2021-03-26T20:01:36.665Z",
+      "source": "discourse",
+      "sourceForum": "discuss.python.org",
+      "topComments": []
+    },
+    {
+      "id": "discourse.gnome.org-13609",
+      "title": "Getting auto-height of ShortcutsSection working when creating a ShortcutsWindow programmically",
+      "text": "When I to create a help overlay programmatically auto-height is ignored. All shortcuts are listen in one column. I have this sample code: use gtk::prelude::*; use gtk::{ApplicationWindow, Button, ShortcutsWindow}; const GENERAL_SHORTCUTS: [( & str, & str); 3] = [ (\"Open Command Pallette\", \" < Pri...",
+      "url": "https://discourse.gnome.org/t/getting-auto-height-of-shortcutssection-working-when-creating-a-shortcutswindow-programmically/13609",
+      "author": "mipmip",
+      "score": 0,
+      "views": 0,
+      "replyCount": 1,
+      "created": "2023-01-19T22:36:55.436Z",
+      "source": "discourse",
+      "sourceForum": "discourse.gnome.org",
+      "topComments": []
+    },
+    {
+      "id": "forums.unrealengine.com-607473",
+      "title": "Can I use rust (programming language) in ue5?",
+      "text": "Are there any examples or tutorials on using Rust in UE5?",
+      "url": "https://forums.unrealengine.com/t/can-i-use-rust-programming-language-in-ue5/607473",
+      "author": "anonymous_user_f704edf4",
+      "score": 0,
+      "views": 0,
+      "replyCount": 2,
+      "created": "2022-07-18T10:13:10.067Z",
+      "source": "discourse",
+      "sourceForum": "forums.unrealengine.com",
+      "topComments": []
+    },
+    {
+      "id": "community.openai.com-267190",
+      "title": "How to generate/modify rust-scripts sourcecode with OpenAI API?",
+      "text": "When I asked GPT-4 ChatGPT if can make Rust scripts ( rust-script_ org (too new account to post links)) it replied that does not know. However Rust scripts is very simple flavor/convention to run: you add UNIX shebang! (so one can run it directly, and compilation is \"magically taken care of\") eve...",
+      "url": "https://community.openai.com/t/how-to-generate-modify-rust-scripts-sourcecode-with-openai-api/267190",
+      "author": "grzegorz",
+      "score": 0,
+      "views": 0,
+      "replyCount": 4,
+      "created": "2023-07-26T08:13:50.985Z",
+      "source": "discourse",
+      "sourceForum": "community.openai.com",
+      "topComments": []
+    }
+  ]
+}
