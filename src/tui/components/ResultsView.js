@@ -51,13 +51,14 @@ function ResultsView({ results, logs, onNewTopic }) {
       ...results.ranked.slice(0, 8).map((r, i) =>
         React.createElement(Box, { key: i, flexDirection: 'column' },
           React.createElement(Text, null,
-            ` ${i + 1}. ${React.createElement(Text, { bold: true }, (r.title || '').substring(0, 55))}`
+            ` ${i + 1}. `,
+            React.createElement(Text, { bold: true }, String(r.title || '').substring(0, 55))
           ),
           React.createElement(Text, { dimColor: true },
             `    ${r.platform || '?'} · Score: ${r.relevanceScore || 0}${r.score ? ` · Upvotes: ${r.score}` : ''}${r.viewCount ? ` · Views: ${r.viewCount}` : ''}`
           ),
           r.snippet && React.createElement(Text, { dimColor: true },
-            `    "${r.snippet.substring(0, 80)}${r.snippet.length > 80 ? '...' : ''}"`
+            `    "${String(r.snippet || '').substring(0, 80)}${(r.snippet || '').length > 80 ? '...' : ''}"`
           ),
         )
       ),
