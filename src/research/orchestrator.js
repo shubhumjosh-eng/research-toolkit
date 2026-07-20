@@ -3,6 +3,7 @@ const queryAnalyzer = require('./queryAnalyzer');
 const redditBulk = require('./redditBulk');
 const youtubeDiscovery = require('./youtubeSearch');
 const newsApi = require('../sources/newsApi');
+const logger = require('../utils/logger');
 const webSearch = require('../sources/webSearch');
 const hackerNews = require('../sources/hackerNews');
 const bluesky = require('../sources/bluesky');
@@ -42,9 +43,11 @@ class ResearchOrchestrator {
     const templateConfig = template ? this.getTemplate(template) : null;
 
     const startTime = Date.now();
+    const logFile = logger.startSession(topic);
     const log = onLog || ((level, msg) => {
       const prefix = { info: '  ', success: '✓ ', warn: '⚠ ', error: '✕ ' }[level] || '  ';
       console.log(`${prefix} ${msg}`);
+      logger.write(level, msg);
     });
 
     const analysis = queryAnalyzer.analyze(topic);
@@ -85,8 +88,30 @@ class ResearchOrchestrator {
     report('discover', `Found ${subreddits.length} subreddits`, 1, 1);
 
     // Step 2: Search all independent sources in parallel
-    report('search', 'Searching all platforms in parallel...', 0, 8);
+    report('search', 'Searching all platforms in parallel...', 0, 10);
     log('info', 'Searching all platforms in parallel...');
+
+    const fetchReddit = async () => {
+      const cached = await cache.get(topic, 'reddit');
+      if (cached) { log('success', `Found ${cached.length} Reddit posts (cached)`); return cached; }
+      try {
+        const r = await redditBulk.scrapeAll(subreddits, queries, depth, null, onLog);
+        if (r.length > 0) await cache.set(topic, 'reddit', r);
+        log('success', `Found ${r.length} Reddit posts`);
+        return r;
+      } catch (e) { log('error', `Reddit search failed: ${e.message}`); return []; }
+    };
+
+    const fetchYouTube = async () => {
+      const cached = await cache.get(topic, 'youtube');
+      if (cached) { log('success', `Found ${cached.length} YouTube videos (cached)`); return cached; }
+      try {
+        const r = await youtubeDiscovery.discover(topic, Math.min(25, Math.ceil(depth * 0.15)), null, onLog);
+        if (r.length > 0) await cache.set(topic, 'youtube', r);
+        log('success', `Found ${r.length} YouTube videos`);
+        return r;
+      } catch (e) { log('error', `YouTube search failed: ${e.message}`); return []; }
+    };
 
     const fetchNews = async () => {
       if (youtubeOnly) return [];
@@ -184,10 +209,12 @@ class ResearchOrchestrator {
       } catch (e) { log('error', `arXiv search failed: ${e.message}`); return []; }
     };
 
-    const [newsRes, webRes, hnRes, bskyRes, discRes, seRes, ssRes, arxivRes] = await Promise.allSettled([
-      fetchNews(), fetchWeb(), fetchHN(), fetchBluesky(), fetchDiscourse(), fetchSE(), fetchSS(), fetchArxiv()
+    const [redditRes, ytRes, newsRes, webRes, hnRes, bskyRes, discRes, seRes, ssRes, arxivRes] = await Promise.allSettled([
+      fetchReddit(), fetchYouTube(), fetchNews(), fetchWeb(), fetchHN(), fetchBluesky(), fetchDiscourse(), fetchSE(), fetchSS(), fetchArxiv()
     ]);
 
+    results.reddit = redditRes.status === 'fulfilled' ? redditRes.value : [];
+    results.youtube = ytRes.status === 'fulfilled' ? ytRes.value : [];
     results.news = newsRes.status === 'fulfilled' ? newsRes.value : [];
     results.webSearch = webRes.status === 'fulfilled' ? webRes.value : [];
     results.hackernews = hnRes.status === 'fulfilled' ? hnRes.value : [];
@@ -197,7 +224,7 @@ class ResearchOrchestrator {
     results.semanticScholar = ssRes.status === 'fulfilled' ? ssRes.value : [];
     results.arxiv = arxivRes.status === 'fulfilled' ? arxivRes.value : [];
 
-    report('search', `Found ${results.news.length} news, ${results.webSearch.length} web, ${results.hackernews.length} HN, ${results.bluesky.length} bsky, ${results.discourse.length} discourse, ${results.stackexchange.length} SE, ${results.semanticScholar.length} SS, ${results.arxiv.length} arXiv`, 8, 8);
+    report('search', `Found ${results.reddit.length} reddit, ${results.youtube.length} youtube, ${results.news.length} news, ${results.webSearch.length} web, ${results.hackernews.length} HN, ${results.bluesky.length} bsky, ${results.discourse.length} discourse, ${results.stackexchange.length} SE, ${results.semanticScholar.length} SS, ${results.arxiv.length} arXiv`, 10, 10);
 
     // Step 10: Rank, cluster, and generate report
     report('report', 'Analyzing and generating report...', 0, 1);
