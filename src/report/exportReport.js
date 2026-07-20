@@ -5,8 +5,11 @@ function toMarkdown(data) {
   let md = '';
 
   md += `# Research Report: ${metadata.topic}\n\n`;
-  md += `*Generated: ${metadata.timestamp} | Duration: ${metadata.duration} | Sources: ${metadata.totalSources}*\n\n`;
-  md += `---\n\n`;
+  md += `*Generated: ${metadata.timestamp} | Duration: ${metadata.duration} | Sources: ${metadata.totalSources}*\n`;
+  if (metadata.template) md += `*Template: ${metadata.template}*\n`;
+  if (metadata.dateRange) md += `*Date Range: ${metadata.dateRange}*\n`;
+  if (metadata.diff) md += `*Diff: ${metadata.diff}*\n`;
+  md += `\n---\n\n`;
 
   md += `## Summary Statistics\n\n`;
   md += `| Platform | Count |\n|----------|-------|\n`;
