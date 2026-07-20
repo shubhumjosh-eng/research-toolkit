@@ -34,6 +34,36 @@ class ResearchCLI {
 
     for (let i = 0; i < this.args.length; i++) {
       const arg = this.args[i];
+      if (arg.startsWith('--output=')) {
+        options.output = arg.split('=')[1];
+        this.optionValues.add(i);
+        continue;
+      }
+      if (arg.startsWith('--format=')) {
+        options.format = arg.split('=')[1];
+        this.optionValues.add(i);
+        continue;
+      }
+      if (arg.startsWith('--since=')) {
+        options.since = arg.split('=')[1];
+        this.optionValues.add(i);
+        continue;
+      }
+      if (arg.startsWith('--until=')) {
+        options.until = arg.split('=')[1];
+        this.optionValues.add(i);
+        continue;
+      }
+      if (arg.startsWith('--template=')) {
+        options.template = arg.split('=')[1];
+        this.optionValues.add(i);
+        continue;
+      }
+      if (arg.startsWith('--depth=')) {
+        options.depth = parseInt(arg.split('=')[1], 10) || 500;
+        this.optionValues.add(i);
+        continue;
+      }
       switch (arg) {
         case '--depth':
           this.optionValues.add(++i);
@@ -110,7 +140,7 @@ class ResearchCLI {
 
   getTopic() {
     return this.args
-      .filter((a, i) => !a.startsWith('-') && a !== 'research' && !this.optionValues.has(i))
+      .filter((a, i) => !a.startsWith('-') && (i > 0 || a !== 'research') && !this.optionValues.has(i))
       .join(' ')
       .trim() || null;
   }
@@ -302,27 +332,25 @@ ZERO COST:
   async runScrape() {
     const staticScraper = require('./scraping/scraper');
     const DynamicScraper = require('./scraping/browserScraper');
-    const pdfGenerator = require('./report/reportGenerator');
-    console.log('\n🔍 Research Toolkit - Scraping website...\n');
+      const pdfGenerator = require('./report/reportGenerator');
+      console.log('\n🔍 Research Toolkit - Scraping website...\n');
 
-    try {
-      let result;
       try {
-        result = await staticScraper.scrape(this.options.scrape);
-      } catch {
-        console.log('Static scrape failed, trying dynamic scraper...');
-        const dynamicScraper = new DynamicScraper();
+        let result;
         try {
-          result = await dynamicScraper.scrape(this.options.scrape);
-        } finally {
-          await dynamicScraper.close();
+          result = await staticScraper.scrape(this.options.scrape);
+        } catch {
+          console.log('Static scrape failed, trying dynamic scraper...');
+          const dynamicScraper = new DynamicScraper();
+          try {
+            result = await dynamicScraper.scrape(this.options.scrape);
+          } finally {
+            await dynamicScraper.close();
+          }
         }
-      }
 
-      const outputPath = this.options.output || 'scrape-result.html';
-      const html = await pdfGenerator.generate({ scraped: [result] }, outputPath, {
-        title: `Scrape: ${this.options.scrape}`,
-      });
+        const outputPath = this.options.output || 'scrape-result.html';
+        const html = await pdfGenerator.generateResearchReport({ scraped: [result], metadata: { topic: this.options.scrape, timestamp: new Date().toISOString() } }, outputPath);
 
       console.log('\n✅ Scrape complete!');
       console.log(`📁 Report saved to: ${html}`);
