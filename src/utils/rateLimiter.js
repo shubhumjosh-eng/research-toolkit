@@ -3,7 +3,7 @@ const { sleep } = require('./helpers');
 function isTransient(err) {
   if (!err) return false;
   if (err.code && ['ECONNRESET', 'ETIMEDOUT', 'ECONNREFUSED', 'ENOTFOUND'].includes(err.code)) return true;
-  if (err.response && [422, 500, 502, 503, 504].includes(err.response.status)) return true;
+  if (err.response && [500, 502, 503, 504].includes(err.response.status)) return true;
   return false;
 }
 
@@ -37,17 +37,18 @@ class RateLimiter {
     this.consecutive429s = 0;
   }
 
-  async retryRequest(fn, maxRetries = 3, log) {
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+  async retryRequest(fn, maxAttempts = 3, log) {
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
       try {
         return await fn();
       } catch (err) {
-        if (attempt === maxRetries || (!isTransient(err) && !(err.response && err.response.status === 429))) {
+        if (attempt === maxAttempts || (!isTransient(err) && !(err.response && err.response.status === 429))) {
           throw err;
         }
         if (err.response && err.response.status === 429) {
           await this.backoff(log);
         } else {
+          this.reset();
           const delay = 1000 * attempt + Math.random() * 1000;
           if (log) log('warn', `Transient error, retry ${attempt}/${maxRetries} in ${Math.round(delay / 1000)}s`);
           await sleep(delay);
