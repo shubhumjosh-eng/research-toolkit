@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report: The thermodynamic and economic viability of scaling space-based solar power (SBSP) compared to terrestrial fusion energy over the next decade</title>
+    <style>
+        :root {
+            --bg: #ffffff; --bg2: #f8f9fa; --bg3: #f0f0f0;
+            --text: #333333; --text2: #666666; --text3: #888888;
+            --accent: #1a73e8; --accent2: #e3f2fd;
+            --border: #e0e0e0; --border2: #d0d0d0;
+            --red: #c62828; --red-bg: #fce4ec;
+            --green: #2e7d32; --green-bg: #e8f5e9;
+            --blue: #1565c0; --blue-bg: #e3f2fd;
+            --purple: #7b1fa2; --purple-bg: #f3e5f5;
+            --yellow: #f57f17; --yellow-bg: #fff8e1;
+            --shadow: rgba(0,0,0,0.06);
+        }
+        .dark {
+            --bg: #1a1a2e; --bg2: #16213e; --bg3: #0f3460;
+            --text: #e0e0e0; --text2: #b0b0b0; --text3: #808080;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --border2: #3a3a5a;
+            --red: #ef9a9a; --red-bg: #3e2723;
+            --green: #a5d6a7; --green-bg: #1b5e20;
+            --blue: #90caf9; --blue-bg: #0d47a1;
+            --purple: #ce93d8; --purple-bg: #4a148c;
+            --yellow: #fff176; --yellow-bg: #f57f17;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--text); background: var(--bg);
+            max-width: 1000px; margin: 0 auto; padding: 40px 20px;
+        }
+        .dark body, body.dark { background: var(--bg); color: var(--text); }
+        h1 { color: var(--text); border-bottom: 3px solid var(--accent); padding-bottom: 12px; margin-bottom: 10px; font-size: 2.2em; }
+        h2 { color: var(--accent); margin-top: 40px; margin-bottom: 15px; font-size: 1.6em; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        h3 { color: var(--text); margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .subtitle { color: var(--text2); font-size: 1.1em; margin-bottom: 25px; }
+        .toolbar { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; align-items: center; }
+        .toolbar button {
+            padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); cursor: pointer; font-size: 0.85em;
+        }
+        .toolbar button:hover { background: var(--accent2); border-color: var(--accent); }
+        .toolbar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        #searchBox {
+            padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); font-size: 0.9em; width: 220px;
+        }
+        .toc {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; margin: 20px 0;
+        }
+        .toc h3 { margin-top: 0; color: var(--accent); font-size: 1em; text-transform: uppercase; letter-spacing: 1px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin: 6px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 0.95em; }
+        .toc a:hover { color: var(--accent); text-decoration: underline; }
+        .toc a::before { content: '→ '; color: var(--accent); }
+        .stats-bar { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .stat-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; min-width: 130px; text-align: center; flex: 1;
+        }
+        .stat-box .number { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+        .stat-box .label { font-size: 0.82em; color: var(--text2); margin-top: 2px; }
+        .charts-row { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .chart-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; flex: 1; min-width: 280px;
+        }
+        .chart-box h4 { font-size: 0.9em; color: var(--text2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+        .bar-label { width: 110px; font-size: 0.85em; color: var(--text2); text-align: right; }
+        .bar-track { flex: 1; height: 20px; background: var(--bg3); border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .bar-fill.positive { background: var(--green); }
+        .bar-fill.negative { background: var(--red); }
+        .bar-fill.neutral { background: var(--yellow); }
+        .bar-fill.reddit { background: var(--red); }
+        .bar-fill.news { background: var(--green); }
+        .bar-fill.web { background: var(--blue); }
+        .bar-fill.youtube { background: var(--purple); }
+        .bar-value { width: 40px; font-size: 0.85em; color: var(--text2); }
+        .sentiment-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.75em; font-weight: bold; margin-left: 5px;
+        }
+        .sentiment-positive { background: var(--green-bg); color: var(--green); }
+        .sentiment-negative { background: var(--red-bg); color: var(--red); }
+        .sentiment-neutral { background: var(--yellow-bg); color: var(--yellow); }
+        .section { margin-bottom: 40px; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .section-header h2 { margin: 0; border: none; padding: 0; }
+        .collapse-btn {
+            padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+            background: var(--bg2); color: var(--text2); cursor: pointer; font-size: 0.75em;
+        }
+        .collapse-btn:hover { background: var(--accent2); }
+        .post-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); transition: all 0.2s;
+        }
+        .post-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px var(--shadow); }
+        .post-card.highlight { border-left: 4px solid var(--accent); background: var(--accent2); }
+        .post-card h4 { color: var(--text); margin-bottom: 5px; font-size: 1.05em; }
+        .post-card .text { color: var(--text2); font-size: 0.93em; margin: 8px 0; }
+        .post-card .meta { color: var(--text3); font-size: 0.85em; }
+        .post-card a { color: var(--accent); text-decoration: none; }
+        .post-card a:hover { text-decoration: underline; }
+        .comment-card {
+            margin: 8px 0 8px 20px; padding: 10px 15px; background: var(--bg);
+            border-left: 3px solid var(--border); border-radius: 0 6px 6px 0;
+        }
+        .comment-card .author { color: var(--text3); font-size: 0.85em; }
+        .comment-card .text { color: var(--text); font-size: 0.93em; margin: 5px 0; }
+        .comment-card .score { color: var(--accent); font-size: 0.85em; font-weight: bold; }
+        .video-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); display: flex; gap: 15px;
+        }
+        .video-card .thumb { width: 160px; min-width: 120px; }
+        .video-card .thumb img { width: 100%; border-radius: 6px; }
+        .video-card .info { flex: 1; }
+        .video-card h4 { color: var(--text); margin-bottom: 5px; }
+        .video-card .channel { color: var(--text2); font-size: 0.9em; }
+        .video-card .meta { color: var(--text3); font-size: 0.85em; margin-top: 5px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 5px; }
+        .badge-reddit { background: var(--red-bg); color: var(--red); }
+        .badge-youtube { background: var(--purple-bg); color: var(--purple); }
+        .badge-news { background: var(--green-bg); color: var(--green); }
+        .badge-web { background: var(--blue-bg); color: var(--blue); }
+        .badge-score { background: var(--blue-bg); color: var(--blue); }
+        .badge-hn { background: #FF660015; color: #FF6600; }
+        .badge-bluesky { background: #0085FF15; color: #0085FF; }
+        .badge-discourse { background: #0A0A0A15; color: #666; }
+        .badge-se { background: #F4802415; color: #F48024; }
+        .badge-ss { background: #1857B615; color: #1857B6; }
+        .badge-arxiv { background: #B31B1B15; color: #B31B1B; }
+        .cluster-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2);
+        }
+        .cluster-card h4 { color: var(--accent); font-size: 1em; margin-bottom: 4px; }
+        .cluster-card .count { color: var(--text3); font-size: 0.85em; }
+        .cluster-card .post-list { margin-top: 8px; font-size: 0.9em; color: var(--text2); }
+        .cluster-card .post-list li { margin: 3px 0; }
+        .author-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center;
+        }
+        .author-card .name { font-weight: bold; color: var(--accent); }
+        .author-card .stats { color: var(--text3); font-size: 0.85em; }
+        .collapsible-content { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible-content.collapsed { max-height: 0; }
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; text-align: center; }
+        @media print {
+            .toolbar, .toc, .collapse-btn { display: none !important; }
+            .collapsible-content { max-height: none !important; }
+            body { padding: 0; background: #fff; color: #333; }
+            .post-card, .video-card, .comment-card { page-break-inside: avoid; }
+        }
+        @media (max-width: 600px) {
+            .stats-bar { flex-direction: column; }
+            .charts-row { flex-direction: column; }
+            .video-card { flex-direction: column; }
+            .video-card .thumb { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p class="subtitle">"The thermodynamic and economic viability of scaling space-based solar power (SBSP) compared to terrestrial fusion energy over the next decade" &mdash; July 21, 2026</p>
+
+    <div class="toolbar">
+        <button onclick="toggleDark()" id="darkBtn">Dark Mode</button>
+        <button onclick="expandAll()">Expand All</button>
+        <button onclick="collapseAll()">Collapse All</button>
+        <button onclick="window.print()">Export PDF</button>
+        <input type="text" id="searchBox" placeholder="Search report..." oninput="filterCards(this.value)">
+    </div>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#topic-clusters">Topic Clusters</a></li>
+            <li><a href="#news-section">News Articles (0)</a></li>
+            <li><a href="#web-section">Web Results (0)</a></li>
+            <li><a href="#reddit-section">Reddit Analysis (0 posts)</a></li>
+            
+            <li><a href="#youtube-section">YouTube Videos (0)</a></li>
+            <li><a href="#hn-section">Hacker News (0)</a></li>
+            <li><a href="#bluesky-section">Bluesky (0)</a></li>
+            <li><a href="#discourse-section">Discourse (0)</a></li>
+            <li><a href="#se-section">Stack Exchange (0)</a></li>
+            
+            <li><a href="#arxiv-section">arXiv (10)</a></li>
+        </ul>
+    </nav>
+
+    <div class="stats-bar">
+        <div class="stat-box"><div class="number">0</div><div class="label">Reddit Posts</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Comments</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">News</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Web</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Videos</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">HN</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Bluesky</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Discourse</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">SE</div></div>
+        <div class="stat-box"><div class="number">0m 28s</div><div class="label">Time</div></div>
+    </div>
+
+    <div class="charts-row">
+        <div class="chart-box">
+            <h4>Source Breakdown</h4>
+            <div class="bar-chart">
+                <div class="bar-row"><div class="bar-label">Reddit</div><div class="bar-track"><div class="bar-fill reddit" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">News</div><div class="bar-track"><div class="bar-fill news" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">Web</div><div class="bar-track"><div class="bar-fill web" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">YouTube</div><div class="bar-track"><div class="bar-fill youtube" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">HN</div><div class="bar-track"><div class="bar-fill news" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">Bluesky</div><div class="bar-track"><div class="bar-fill web" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">Discourse</div><div class="bar-track"><div class="bar-fill reddit" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">SE</div><div class="bar-track"><div class="bar-fill youtube" style="width:0%"></div></div><div class="bar-value">0</div></div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Reddit Sentiment</h4>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Positive</div>
+                    <div class="bar-track"><div class="bar-fill positive" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Neutral</div>
+                    <div class="bar-track"><div class="bar-fill neutral" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Negative</div>
+                    <div class="bar-track"><div class="bar-fill negative" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="section" id="executive-summary"><div class="section-header"><h2>Executive Summary</h2></div></div><div class="section" id="topic-clusters"><div class="section-header"><h2>Topic Clusters</h2></div>
+        <div class="cluster-card" data-searchable="General">
+          <h4>General <span class="count">(9 posts)</span></h4>
+          <ul class="post-list"><li>Criteria for the economic viability of fusion power plants <span class="badge badge-score">⬆ undefined</span></li><li>Solar magnetic fields and terrestrial climate <span class="badge badge-score">⬆ undefined</span></li><li>The Multiview Observatory for Solar Terrestrial Science (MOST) <span class="badge badge-score">⬆ undefined</span></li><li>On the Relation between Solar Activity and Clear-Sky Terrestrial Irradiance <span class="badge badge-score">⬆ undefined</span></li><li>SEP environment in the inner heliosphere from Solar Orbiter and Parker Solar Pro... <span class="badge badge-score">⬆ undefined</span></li><li>Retrospective of the ARPA-E ALPHA fusion program <span class="badge badge-score">⬆ undefined</span></li><li>The Dark Energy Survey <span class="badge badge-score">⬆ undefined</span></li><li>Large Synoptic Survey Telescope: Dark Energy Science Collaboration <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Expert Opinions">
+          <h4>Expert Opinions <span class="count">(1 posts)</span></h4>
+          <ul class="post-list"><li>Power Challenges of Large Scale Research Infrastructures: the Square Kilometer A... <span class="badge badge-score">⬆ undefined</span></li></ul></div></div><div class="section" id="arxiv-section"><div class="section-header"><h2>arXiv (10 papers)</h2>
+        <button class="collapse-btn" onclick="toggleSection('arxiv-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="arxiv-cards">
+        <div class="post-card" data-searchable="Multi-messenger Observations of a Binary Neutron Star Merger LIGO Scientific Collaboration, Virgo Collaboration, Fermi GBM, INTEGRAL, IceCube Collaboration, AstroSat Cadmium Zinc Telluride Imager Team, IPN Collaboration, The Insight-Hxmt Collaboration, ANTARES Collaboration, The Swift Collaboration, AGILE Team, The 1M2H Team, The Dark Energy Camera GW-EM Collaboration, the DES Collaboration, The DLT40 Collaboration, GRAWITA, :, GRAvitational Wave Inaf TeAm, The Fermi Large Area Telescope Collaboration, ATCA, :, Australia Telescope Compact Array, ASKAP, :, Australian SKA Pathfinder, Las Cumbres Observatory Group, OzGrav, DWF, AST3, CAASTRO Collaborations, The VINROUGE Collaboration, MASTER Collaboration, J-GEM, GROWTH, JAGWAR, Caltech- NRAO, TTU-NRAO, NuSTAR Collaborations, Pan-STARRS, The MAXI Team, TZAC Consortium, KU Collaboration, Nordic Optical Telescope, ePESSTO, GROND, Texas Tech University, SALT Group, TOROS, :, Transient Robotic Observatory of the South Collaboration, The BOOTES Collaboration, MWA, :, Murchison Widefield Array, The CALET Collaboration, IKI-GW Follow-up Collaboration, H. E. S. S. Collaboration, LOFAR Collaboration, LWA, :, Long Wavelength Array, HAWC Collaboration, The Pierre Auger Collaboration, ALMA Collaboration, Euro VLBI Team, Pi of the Sky Collaboration, The Chandra Team at McGill University, DFN, :, Desert Fireball Network, ATLAS, High Time Resolution Universe Survey, RIMAS, RATIR, SKA South Africa/MeerKAT">
+          <h4>Multi-messenger Observations of a Binary Neutron Star Merger</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2017-10-16
+          </div>
+          <div class="meta">LIGO Scientific Collaboration, Virgo Collaboration, Fermi GBM, INTEGRAL, IceCube Collaboration, AstroSat Cadmium Zinc Telluride Imager Team, IPN Collaboration, The Insight-Hxmt Collaboration, ANTARES Collaboration, The Swift Collaboration, AGILE Team, The 1M2H Team, The Dark Energy Camera GW-EM Collaboration, the DES Collaboration, The DLT40 Collaboration, GRAWITA, :, GRAvitational Wave Inaf TeAm, The Fermi Large Area Telescope Collaboration, ATCA, :, Australia Telescope Compact Array, ASKAP, :, Australian SKA Pathfinder, Las Cumbres Observatory Group, OzGrav, DWF, AST3, CAASTRO Collaborations, The VINROUGE Collaboration, MASTER Collaboration, J-GEM, GROWTH, JAGWAR, Caltech- NRAO, TTU-NRAO, NuSTAR Collaborations, Pan-STARRS, The MAXI Team, TZAC Consortium, KU Collaboration, Nordic Optical Telescope, ePESSTO, GROND, Texas Tech University, SALT Group, TOROS, :, Transient Robotic Observatory of the South Collaboration, The BOOTES Collaboration, MWA, :, Murchison Widefield Array, The CALET Collaboration, IKI-GW Follow-up Collaboration, H. E. S. S. Collaboration, LOFAR Collaboration, LWA, :, Long Wavelength Array, HAWC Collaboration, The Pierre Auger Collaboration, ALMA Collaboration, Euro VLBI Team, Pi of the Sky Collaboration, The Chandra Team at McGill University, DFN, :, Desert Fireball Network, ATLAS, High Time Resolution Universe Survey, RIMAS, RATIR, SKA South Africa/MeerKAT</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.HE</span><span class="badge badge-arxiv" style="margin-right:3px;">gr-qc</span></div>
+          <div class="text">On 2017 August 17 a binary neutron star coalescence candidate (later designated GW170817) with merger time 12:41:04 UTC was observed through gravitational waves by the Advanced LIGO and Advanced Virgo detectors. The Fermi Gamma-ray Burst Monitor independently detected a gamma-ray burst (GRB 170817A) with a time delay of $\sim$1.7 s with respect to the merger time. From the gravitational-wave signa...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1710.05833v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Solar magnetic fields and terrestrial climate Katya Georgieva, Yury Nagovitsyn, Boian Kirov">
+          <h4>Solar magnetic fields and terrestrial climate</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2014-11-21
+          </div>
+          <div class="meta">Katya Georgieva, Yury Nagovitsyn, Boian Kirov</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.SR</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.space-ph</span></div>
+          <div class="text">Solar irradiance is considered one of the main natural factors affecting terrestrial climate, and its variations are included in most numerical models estimating the effects of natural versus anthropogenic factors for climate change. Solar wind causing geomagnetic disturbances is another solar activity agent whose role in climate change is not yet fully estimated but is a subject of intense resear...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1411.6030v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="SEP environment in the inner heliosphere from Solar Orbiter and Parker Solar Probe Robert F. Wimmer-Schweingruber, Javier Rodriguez-Pacheco, George C. Ho, Christina M. Cohen, Glenn M. Mason, the Solar Orbiter EPD, Parker Solar Probe ISIS teams">
+          <h4>SEP environment in the inner heliosphere from Solar Orbiter and Parker Solar Probe</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2024-08-05
+          </div>
+          <div class="meta">Robert F. Wimmer-Schweingruber, Javier Rodriguez-Pacheco, George C. Ho, Christina M. Cohen, Glenn M. Mason, the Solar Orbiter EPD, Parker Solar Probe ISIS teams</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.SR</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.space-ph</span></div>
+          <div class="text">The Sun drives a supersonic wind which inflates a giant plasma bubble in our very local interstellar neighborhood, the heliosphere. It is bathed in an extremely variable background of energetic ions and electrons which originate from a number of sources. Solar energetic particles (SEPs) are accelerated in the vicinity of the Sun, whereas shocks driven by solar disturbances are observed to accelera...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2408.02330v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Power Challenges of Large Scale Research Infrastructures: the Square Kilometer Array and Solar Energy Integration; Towards a zero-carbon footprint next generation telescope Domingos Barbosa, Gonzalo Lobo Márquez, Valeriano Ruiz, Manuel Silva, Lourdes Verdes-Montenegro, Juande Santander-Vela, Dalmiro Maia, Sonia Antón, Arnold van Ardenne, Matthias Vetter, Michael Kramer, Reinhard Keller, Nuno Pereira, Vitor Silva, The BIOSTIRLING Consortium">
+          <h4>Power Challenges of Large Scale Research Infrastructures: the Square Kilometer Array and Solar Energy Integration; Towards a zero-carbon footprint next generation telescope</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2012-10-17
+          </div>
+          <div class="meta">Domingos Barbosa, Gonzalo Lobo Márquez, Valeriano Ruiz, Manuel Silva, Lourdes Verdes-Montenegro, Juande Santander-Vela, Dalmiro Maia, Sonia Antón, Arnold van Ardenne, Matthias Vetter, Michael Kramer, Reinhard Keller, Nuno Pereira, Vitor Silva, The BIOSTIRLING Consortium</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.IM</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.ins-det</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.soc-ph</span></div>
+          <div class="text">The Square Kilometer Array (SKA) will be the largest Global science project of the next two decades. It will encompass a sensor network dedicated to radioastronomy, covering two continents. It will be constructed in remote areas of South Africa and Australia, spreading over 3000Km, in high solar irradiance latitudes. Solar Power supply is therefore an option to power supply the SKA and contribute ...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1210.4972v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Retrospective of the ARPA-E ALPHA fusion program C. L. Nehl, R. J. Umstattd, W. R. Regan, S. C. Hsu, P. B. McGrath">
+          <h4>Retrospective of the ARPA-E ALPHA fusion program</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2019-07-23
+          </div>
+          <div class="meta">C. L. Nehl, R. J. Umstattd, W. R. Regan, S. C. Hsu, P. B. McGrath</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">physics.plasm-ph</span></div>
+          <div class="text">This paper provides a retrospective of the ALPHA (Accelerating Low-cost Plasma Heating and Assembly) fusion program of the Advanced Research Projects Agency-Energy (ARPA-E) of the U.S. Department of Energy. ALPHA&#039;s objective was to catalyze research and development efforts to enable substantially lower-cost pathways to economical fusion power. To do this in a targeted, focused program, ALPHA focus...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1907.09921v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="The Multiview Observatory for Solar Terrestrial Science (MOST) N. Gopalswamy, S. Christe, S. F. Fung, Q. Gong, J. R. Gruesbeck, L. K. Jian, S. G. Kanekal, C. Kay, T. A. Kucera, J. E. Leake, L. Li, P. Makela, P. Nikulla, N. L. Reginald, A. Shih, S. K. Tadikonda, N. Viall, L. B. Wilson, S. Yashiro, L. Golub, E. DeLuca, K. Reeves, A. C. Sterling, A. R. Winebarger, C. DeForest, D. M. Hassler, D. B. Seaton, M. I. Desai, P. S. Mokashi, J. Lazio, E. A. Jensen, W. B. Manchester, N. Sachdeva, B. Wood, J. Kooi, P. Hess, D. B. Wexler, S. D. Bale, S. Krucker, N. Hurlburt, M. DeRosa, S. Gosain, K. Jain, S. Kholikov, G. J. D. Petrie, A. Pevtsov, S. C. Tripathy, J. Zhao, P. H. Scherrer, S. P. Rajaguru, T. Woods, M. Kenney, J. Zhang, C. Scolini, K. S. Cho, Y. D. Park, B. V. Jackson">
+          <h4>The Multiview Observatory for Solar Terrestrial Science (MOST)</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2023-03-06
+          </div>
+          <div class="meta">N. Gopalswamy, S. Christe, S. F. Fung, Q. Gong, J. R. Gruesbeck, L. K. Jian, S. G. Kanekal, C. Kay, T. A. Kucera, J. E. Leake, L. Li, P. Makela, P. Nikulla, N. L. Reginald, A. Shih, S. K. Tadikonda, N. Viall, L. B. Wilson, S. Yashiro, L. Golub, E. DeLuca, K. Reeves, A. C. Sterling, A. R. Winebarger, C. DeForest, D. M. Hassler, D. B. Seaton, M. I. Desai, P. S. Mokashi, J. Lazio, E. A. Jensen, W. B. Manchester, N. Sachdeva, B. Wood, J. Kooi, P. Hess, D. B. Wexler, S. D. Bale, S. Krucker, N. Hurlburt, M. DeRosa, S. Gosain, K. Jain, S. Kholikov, G. J. D. Petrie, A. Pevtsov, S. C. Tripathy, J. Zhao, P. H. Scherrer, S. P. Rajaguru, T. Woods, M. Kenney, J. Zhang, C. Scolini, K. S. Cho, Y. D. Park, B. V. Jackson</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.SR</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.space-ph</span></div>
+          <div class="text">We report on a study of the Multiview Observatory for Solar Terrestrial Science (MOST) mission that will provide comprehensive imagery and time series data needed to understand the magnetic connection between the solar interior and the solar atmosphere/inner heliosphere. MOST will build upon the successes of SOHO and STEREO missions with new views of the Sun and enhanced instrument capabilities. T...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2303.02895v3" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="The Dark Energy Survey The Dark Energy Survey Collaboration">
+          <h4>The Dark Energy Survey</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2005-10-12
+          </div>
+          <div class="meta">The Dark Energy Survey Collaboration</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph</span></div>
+          <div class="text">We describe the Dark Energy Survey (DES), a proposed optical-near infrared survey of 5000 sq. deg of the South Galactic Cap to ~24th magnitude in SDSS griz, that would use a new 3 sq. deg CCD camera to be mounted on the Blanco 4-m telescope at Cerro Telolo Inter-American Observatory (CTIO). The survey data will allow us to measure the dark energy and dark matter densities and the dark energy equat...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/astro-ph/0510346v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Criteria for the economic viability of fusion power plants D. G. Whyte, A. Lo, R. Bielajew, M. Hancock, R. Moeykens, G. Shaw">
+          <h4>Criteria for the economic viability of fusion power plants</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2026-04-06
+          </div>
+          <div class="meta">D. G. Whyte, A. Lo, R. Bielajew, M. Hancock, R. Moeykens, G. Shaw</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">physics.plasm-ph</span><span class="badge badge-arxiv" style="margin-right:3px;">econ.GN</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.soc-ph</span></div>
+          <div class="text">Commercial fusion energy requires frameworks to assess both the scientific and economic viability of a wide variety of fusion concepts. Inspired by the Lawson criterion&#039;s ability to universally describe fusion energy gain, a generalized framework is developed to determine the economic gain of fusion power plants. The model exploits temporal equilibrium, and engineering and cost parameters normaliz...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2604.07367v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Large Synoptic Survey Telescope: Dark Energy Science Collaboration LSST Dark Energy Science Collaboration">
+          <h4>Large Synoptic Survey Telescope: Dark Energy Science Collaboration</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2012-11-01
+          </div>
+          <div class="meta">LSST Dark Energy Science Collaboration</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.CO</span><span class="badge badge-arxiv" style="margin-right:3px;">hep-ex</span></div>
+          <div class="text">This white paper describes the LSST Dark Energy Science Collaboration (DESC), whose goal is the study of dark energy and related topics in fundamental physics with data from the Large Synoptic Survey Telescope (LSST). It provides an overview of dark energy science and describes the current and anticipated state of the field. It makes the case for the DESC by laying out a robust analytical framewor...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1211.0310v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="On the Relation between Solar Activity and Clear-Sky Terrestrial Irradiance Georg Feulner">
+          <h4>On the Relation between Solar Activity and Clear-Sky Terrestrial Irradiance</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2012-09-04
+          </div>
+          <div class="meta">Georg Feulner</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">astro-ph.EP</span><span class="badge badge-arxiv" style="margin-right:3px;">physics.ao-ph</span></div>
+          <div class="text">The Mauna Loa Observatory record of direct-beam solar irradiance measurements for the years 1958-2010 is analysed to investigate the variation of clear-sky terrestrial insolation with solar activity over more than four solar cycles. The raw irradiance data exhibit a marked seasonal cycle, extended periods of lower irradiance due to emissions of volcanic aerosols, and a long-term decrease in atmosp...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1209.0602v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div></div></div>
+    <div class="footer">
+        <p>Generated by Research Toolkit · 2026-07-20T18:20:16.972Z</p>
+        <p>Free &amp; Open Source · Zero API Keys Required</p>
+    </div>
+
+    <script>
+    function toggleDark() {
+        document.documentElement.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+        document.getElementById('darkBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+    (function() {
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            document.getElementById('darkBtn').textContent = 'Light Mode';
+        }
+    })();
+
+    function toggleSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('collapsed');
+    }
+
+    function expandAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.remove('collapsed'));
+    }
+
+    function collapseAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.add('collapsed'));
+    }
+
+    function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        document.querySelectorAll('.post-card, .comment-card, .video-card, .cluster-card, .author-card').forEach(card => {
+            if (!q) { card.style.display = ''; return; }
+            const text = (card.getAttribute('data-searchable') || card.textContent).toLowerCase();
+            card.style.display = text.includes(q) ? '' : 'none';
+        });
+    }
+
+    const POSITIVE=["love","great","amazing","excellent","awesome","fantastic","best","perfect","brilliant","wonderful","excited","happy","recommend","success","win"];const NEGATIVE=["hate","terrible","awful","worst","horrible","bad","fail","problem","struggle","difficult","frustrat","annoying","waste","scam","avoid"];const NEUTRAL=["maybe","perhaps","might","could","think","opinion","consider","wonder"];
+    function getSentimentText(text) {
+        const lower = text.toLowerCase();
+        let p=0,n=0,ne=0;
+        for(const w of POSITIVE){if(lower.includes(w))p++;}
+        for(const w of NEGATIVE){if(lower.includes(w))n++;}
+        for(const w of NEUTRAL){if(lower.includes(w))ne++;}
+        if(p>n&&p>ne)return'positive';if(n>p&&n>ne)return'negative';return'neutral';
+    }
+    </script>
+</body>
+</html>
