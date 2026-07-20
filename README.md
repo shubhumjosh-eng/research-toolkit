@@ -23,10 +23,7 @@ Tired of searching Reddit, YouTube, Google, Hacker News, arXiv, and a dozen brow
 npx research-toolkit "quantum computing advances"
 ```
 
-<!-- TODO: Render this GIF with VHS (requires ffmpeg on a real system):
-  vhs demo.tape > demo.gif
-  Then uncomment the line below: -->
-<!-- ![Research Toolkit Demo](demo.gif) -->
+![Research Toolkit Demo](demo.gif)
 
 ---
 
