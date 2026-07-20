@@ -55,10 +55,10 @@ function App({ initialTopic }) {
   const { exit } = useApp();
   const runningRef = useRef(false);
   const initialDone = useRef(false);
+  const abortRef = useRef(null);
 
   useEffect(() => {
-    const recent = sessionStore.listRecent(10);
-    setSessionHistory(recent);
+    sessionStore.listRecent(10).then(recent => setSessionHistory(recent));
   }, []);
 
   const addLog = useCallback((level, msg) => {
@@ -72,8 +72,13 @@ function App({ initialTopic }) {
   }, []);
 
   const handleResearch = useCallback(async (topic) => {
-    if (runningRef.current) return;
+    if (runningRef.current) {
+      runningRef.current = false;
+      if (abortRef.current) abortRef.current();
+      await new Promise(r => setTimeout(r, 100));
+    }
     runningRef.current = true;
+    abortRef.current = () => { runningRef.current = false; };
     setState(STATES.RESEARCHING);
     setLogs([]);
     setProgress({});
@@ -98,7 +103,7 @@ function App({ initialTopic }) {
       setResults(result);
       setState(STATES.RESULTS);
 
-      const updated = sessionStore.listRecent(10);
+      const updated = await sessionStore.listRecent(10);
       setSessionHistory(updated);
     } catch (error) {
       addLog('error', `Research failed: ${error.message}`);
@@ -128,13 +133,12 @@ function App({ initialTopic }) {
         setState(STATES.CONFIG);
         return;
       case '/clear':
-        cache.clear().then(() => {
-          sessionStore.clearAll();
-          setSessionHistory([]);
+        cache.clear().then(() => sessionStore.clearAll().then(() => {
+          sessionStore.listRecent(10).then(h => setSessionHistory(h));
           cmdLog('success', 'Cache and sessions cleared');
           setCommandOutput(output);
           setState(STATES.IDLE);
-        });
+        }));
         return;
       case '/history':
         cmdLog('info', `Recent sessions (${sessionHistory.length}):`);
@@ -220,11 +224,13 @@ function App({ initialTopic }) {
     );
   }
 
+  const resultCount = results ? Object.values(results).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0) : 0;
+
   return React.createElement(ErrorBoundary, { onError: () => setState(STATES.IDLE) },
     React.createElement(Box, { flexDirection: 'column', padding: 1 },
       React.createElement(Header, { config, session }),
 
-      state === STATES.IDLE && React.createElement(InputPrompt, {
+      (state === STATES.IDLE || state === STATES.RESULTS) && React.createElement(InputPrompt, {
         onSubmit: results ? handleFollowUp : handleResearch,
         onCommand: handleCommand,
         onOpenCommands: () => setState(STATES.COMMANDS),
@@ -242,10 +248,11 @@ function App({ initialTopic }) {
       state === STATES.RESULTS && React.createElement(ResultsView, {
         results,
         logs,
+        resultCount,
         onNewTopic: () => setState(STATES.IDLE),
       }),
 
-      state === STATES.RESULTS && commandOutput.length > 0 && React.createElement(Box, { flexDirection: 'column', marginTop: 0, borderStyle: 'round', borderColor: 'gray', paddingX: 1 },
+      commandOutput.length > 0 && React.createElement(Box, { flexDirection: 'column', marginTop: 0, borderStyle: 'round', borderColor: 'gray', paddingX: 1 },
         ...commandOutput.map((log, i) =>
           React.createElement(Box, { key: i },
             React.createElement(Text, { dimColor: true }, `[${log.time}] `),
@@ -255,16 +262,6 @@ function App({ initialTopic }) {
           )
         ),
       ),
-
-      state === STATES.RESULTS && React.createElement(InputPrompt, {
-        onSubmit: handleFollowUp,
-        onCommand: handleCommand,
-        onOpenCommands: () => setState(STATES.COMMANDS),
-        history,
-        historyIndex,
-        setHistoryIndex,
-        hasResults: true,
-      }),
     )
   );
 }
