@@ -1,5 +1,5 @@
 const React = require('react');
-const { useState, useEffect } = React;
+const { useState } = React;
 const { Box, Text, useInput } = require('ink');
 
 const QUICK_COMMANDS = [
@@ -10,75 +10,83 @@ const QUICK_COMMANDS = [
   { name: '/help', desc: 'Help' },
 ];
 
-function InputPrompt({ onSubmit, onCommand, onOpenCommands, history, historyIndex, setHistoryIndex, hasResults }) {
+function InputPrompt({ onSubmit, onCommand, history, historyIndex, setHistoryIndex, hasResults }) {
   const [value, setValue] = useState('');
   const [showQuickCmds, setShowQuickCmds] = useState(false);
   const [selectedCmd, setSelectedCmd] = useState(0);
   const mountedRef = React.useRef(true);
+  const valueRef = React.useRef('');
+  const showQuickCmdsRef = React.useRef(false);
+  const selectedCmdRef = React.useRef(0);
 
   React.useEffect(() => {
     return () => { mountedRef.current = false; };
   }, []);
 
+  const updateState = (setter, val, ref) => {
+    if (ref) ref.current = val;
+    if (mountedRef.current) setter(val);
+  };
+
   useInput((input, key) => {
-    if (key.return && value.trim()) {
-      const trimmed = value.trim();
+    const curValue = valueRef.current;
+    const curShow = showQuickCmdsRef.current;
+    const curSelected = selectedCmdRef.current;
+
+    if (key.return && curValue.trim()) {
+      const trimmed = curValue.trim();
       if (trimmed.startsWith('/')) {
-        const cmd = QUICK_COMMANDS.find(c => c.name === trimmed);
-        if (cmd) {
-          onCommand(trimmed);
-        } else if (onCommand) {
-          onCommand(trimmed);
-        }
+        if (onCommand) onCommand(trimmed);
       } else {
         onSubmit(trimmed);
       }
       if (mountedRef.current) {
         setValue('');
+        valueRef.current = '';
         setShowQuickCmds(false);
+        showQuickCmdsRef.current = false;
       }
     } else if (key.backspace || key.delete) {
-      setValue(prev => prev.slice(0, -1));
-      if (value.length <= 1) setShowQuickCmds(false);
+      const next = curValue.slice(0, -1);
+      updateState(setValue, next, valueRef);
+      if (next.length === 0) updateState(setShowQuickCmds, false, showQuickCmdsRef);
     } else if (key.upArrow) {
-      if (showQuickCmds) {
-        setSelectedCmd(prev => Math.max(0, prev - 1));
+      if (curShow) {
+        const next = Math.max(0, curSelected - 1);
+        updateState(setSelectedCmd, next, selectedCmdRef);
       } else if (history.length > 0) {
-        const newIndex = Math.min(historyIndex + 1, history.length - 1);
-        setHistoryIndex(newIndex);
-        setValue(history[newIndex]);
+        const next = Math.min(historyIndex + 1, history.length - 1);
+        setHistoryIndex(next);
+        updateState(setValue, history[next], valueRef);
       }
     } else if (key.downArrow) {
-      if (showQuickCmds) {
-        setSelectedCmd(prev => Math.min(QUICK_COMMANDS.length - 1, prev + 1));
+      if (curShow) {
+        const next = Math.min(QUICK_COMMANDS.length - 1, curSelected + 1);
+        updateState(setSelectedCmd, next, selectedCmdRef);
       } else if (historyIndex > 0) {
-        const newIndex = historyIndex - 1;
-        setHistoryIndex(newIndex);
-        setValue(history[newIndex]);
+        const next = historyIndex - 1;
+        setHistoryIndex(next);
+        updateState(setValue, history[next], valueRef);
       } else {
         setHistoryIndex(-1);
-        setValue('');
+        updateState(setValue, '', valueRef);
       }
     } else if (key.tab) {
-      if (showQuickCmds && QUICK_COMMANDS[selectedCmd]) {
-        setValue(QUICK_COMMANDS[selectedCmd].name);
-        setShowQuickCmds(false);
-      } else if (value.startsWith('/')) {
-        const match = QUICK_COMMANDS.find(c => c.name.startsWith(value));
-        if (match) {
-          setValue(match.name);
-        }
+      if (curShow && QUICK_COMMANDS[curSelected]) {
+        updateState(setValue, QUICK_COMMANDS[curSelected].name, valueRef);
+        updateState(setShowQuickCmds, false, showQuickCmdsRef);
+      } else if (curValue.startsWith('/')) {
+        const match = QUICK_COMMANDS.find(c => c.name.startsWith(curValue));
+        if (match) updateState(setValue, match.name, valueRef);
       }
     } else if (key.ctrlC || key.escape) {
       // handled by parent
-    } else if (input === '/' && value === '') {
-      setValue('/');
-      setShowQuickCmds(true);
-      setSelectedCmd(0);
     } else if (input && !key.ctrl && !key.meta) {
-      setValue(prev => prev + input);
-      if (value.length === 0 && input === '/') {
-        setShowQuickCmds(true);
+      const next = curValue + input;
+      updateState(setValue, next, valueRef);
+      if (curValue.length === 0 && input === '/') {
+        updateState(setShowQuickCmds, true, showQuickCmdsRef);
+        updateState(setSelectedCmd, 0, selectedCmdRef);
       }
     }
   });
