@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report: npm install</title>
+    <style>
+        :root {
+            --bg: #ffffff; --bg2: #f8f9fa; --bg3: #f0f0f0;
+            --text: #333333; --text2: #666666; --text3: #888888;
+            --accent: #1a73e8; --accent2: #e3f2fd;
+            --border: #e0e0e0; --border2: #d0d0d0;
+            --red: #c62828; --red-bg: #fce4ec;
+            --green: #2e7d32; --green-bg: #e8f5e9;
+            --blue: #1565c0; --blue-bg: #e3f2fd;
+            --purple: #7b1fa2; --purple-bg: #f3e5f5;
+            --yellow: #f57f17; --yellow-bg: #fff8e1;
+            --shadow: rgba(0,0,0,0.06);
+        }
+        .dark {
+            --bg: #1a1a2e; --bg2: #16213e; --bg3: #0f3460;
+            --text: #e0e0e0; --text2: #b0b0b0; --text3: #808080;
+            --accent: #4fc3f7; --accent2: #1a237e;
+            --border: #2a2a4a; --border2: #3a3a5a;
+            --red: #ef9a9a; --red-bg: #3e2723;
+            --green: #a5d6a7; --green-bg: #1b5e20;
+            --blue: #90caf9; --blue-bg: #0d47a1;
+            --purple: #ce93d8; --purple-bg: #4a148c;
+            --yellow: #fff176; --yellow-bg: #f57f17;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--text); background: var(--bg);
+            max-width: 1000px; margin: 0 auto; padding: 40px 20px;
+        }
+        .dark body, body.dark { background: var(--bg); color: var(--text); }
+        h1 { color: var(--text); border-bottom: 3px solid var(--accent); padding-bottom: 12px; margin-bottom: 10px; font-size: 2.2em; }
+        h2 { color: var(--accent); margin-top: 40px; margin-bottom: 15px; font-size: 1.6em; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        h3 { color: var(--text); margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .subtitle { color: var(--text2); font-size: 1.1em; margin-bottom: 25px; }
+        .toolbar { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; align-items: center; }
+        .toolbar button {
+            padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); cursor: pointer; font-size: 0.85em;
+        }
+        .toolbar button:hover { background: var(--accent2); border-color: var(--accent); }
+        .toolbar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        #searchBox {
+            padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
+            background: var(--bg2); color: var(--text); font-size: 0.9em; width: 220px;
+        }
+        .toc {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; margin: 20px 0;
+        }
+        .toc h3 { margin-top: 0; color: var(--accent); font-size: 1em; text-transform: uppercase; letter-spacing: 1px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin: 6px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 0.95em; }
+        .toc a:hover { color: var(--accent); text-decoration: underline; }
+        .toc a::before { content: '→ '; color: var(--accent); }
+        .stats-bar { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+        .stat-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; min-width: 130px; text-align: center; flex: 1;
+        }
+        .stat-box .number { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+        .stat-box .label { font-size: 0.82em; color: var(--text2); margin-top: 2px; }
+        .charts-row { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .chart-box {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 15px 20px; flex: 1; min-width: 280px;
+        }
+        .chart-box h4 { font-size: 0.9em; color: var(--text2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+        .bar-label { width: 110px; font-size: 0.85em; color: var(--text2); text-align: right; }
+        .bar-track { flex: 1; height: 20px; background: var(--bg3); border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 10px; transition: width 0.3s; }
+        .bar-fill.positive { background: var(--green); }
+        .bar-fill.negative { background: var(--red); }
+        .bar-fill.neutral { background: var(--yellow); }
+        .bar-fill.reddit { background: var(--red); }
+        .bar-fill.news { background: var(--green); }
+        .bar-fill.web { background: var(--blue); }
+        .bar-fill.youtube { background: var(--purple); }
+        .bar-value { width: 40px; font-size: 0.85em; color: var(--text2); }
+        .sentiment-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.75em; font-weight: bold; margin-left: 5px;
+        }
+        .sentiment-positive { background: var(--green-bg); color: var(--green); }
+        .sentiment-negative { background: var(--red-bg); color: var(--red); }
+        .sentiment-neutral { background: var(--yellow-bg); color: var(--yellow); }
+        .section { margin-bottom: 40px; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .section-header h2 { margin: 0; border: none; padding: 0; }
+        .collapse-btn {
+            padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+            background: var(--bg2); color: var(--text2); cursor: pointer; font-size: 0.75em;
+        }
+        .collapse-btn:hover { background: var(--accent2); }
+        .post-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); transition: all 0.2s;
+        }
+        .post-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px var(--shadow); }
+        .post-card.highlight { border-left: 4px solid var(--accent); background: var(--accent2); }
+        .post-card h4 { color: var(--text); margin-bottom: 5px; font-size: 1.05em; }
+        .post-card .text { color: var(--text2); font-size: 0.93em; margin: 8px 0; }
+        .post-card .meta { color: var(--text3); font-size: 0.85em; }
+        .post-card a { color: var(--accent); text-decoration: none; }
+        .post-card a:hover { text-decoration: underline; }
+        .comment-card {
+            margin: 8px 0 8px 20px; padding: 10px 15px; background: var(--bg);
+            border-left: 3px solid var(--border); border-radius: 0 6px 6px 0;
+        }
+        .comment-card .author { color: var(--text3); font-size: 0.85em; }
+        .comment-card .text { color: var(--text); font-size: 0.93em; margin: 5px 0; }
+        .comment-card .score { color: var(--accent); font-size: 0.85em; font-weight: bold; }
+        .video-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px;
+            margin-bottom: 12px; background: var(--bg2); display: flex; gap: 15px;
+        }
+        .video-card .thumb { width: 160px; min-width: 120px; }
+        .video-card .thumb img { width: 100%; border-radius: 6px; }
+        .video-card .info { flex: 1; }
+        .video-card h4 { color: var(--text); margin-bottom: 5px; }
+        .video-card .channel { color: var(--text2); font-size: 0.9em; }
+        .video-card .meta { color: var(--text3); font-size: 0.85em; margin-top: 5px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 5px; }
+        .badge-reddit { background: var(--red-bg); color: var(--red); }
+        .badge-youtube { background: var(--purple-bg); color: var(--purple); }
+        .badge-news { background: var(--green-bg); color: var(--green); }
+        .badge-web { background: var(--blue-bg); color: var(--blue); }
+        .badge-score { background: var(--blue-bg); color: var(--blue); }
+        .badge-hn { background: #FF660015; color: #FF6600; }
+        .badge-bluesky { background: #0085FF15; color: #0085FF; }
+        .badge-discourse { background: #0A0A0A15; color: #666; }
+        .badge-se { background: #F4802415; color: #F48024; }
+        .badge-ss { background: #1857B615; color: #1857B6; }
+        .badge-arxiv { background: #B31B1B15; color: #B31B1B; }
+        .cluster-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2);
+        }
+        .cluster-card h4 { color: var(--accent); font-size: 1em; margin-bottom: 4px; }
+        .cluster-card .count { color: var(--text3); font-size: 0.85em; }
+        .cluster-card .post-list { margin-top: 8px; font-size: 0.9em; color: var(--text2); }
+        .cluster-card .post-list li { margin: 3px 0; }
+        .author-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+            margin-bottom: 10px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center;
+        }
+        .author-card .name { font-weight: bold; color: var(--accent); }
+        .author-card .stats { color: var(--text3); font-size: 0.85em; }
+        .collapsible-content { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible-content.collapsed { max-height: 0; }
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; text-align: center; }
+        @media print {
+            .toolbar, .toc, .collapse-btn { display: none !important; }
+            .collapsible-content { max-height: none !important; }
+            body { padding: 0; background: #fff; color: #333; }
+            .post-card, .video-card, .comment-card { page-break-inside: avoid; }
+        }
+        @media (max-width: 600px) {
+            .stats-bar { flex-direction: column; }
+            .charts-row { flex-direction: column; }
+            .video-card { flex-direction: column; }
+            .video-card .thumb { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p class="subtitle">"npm install" &mdash; July 20, 2026</p>
+
+    <div class="toolbar">
+        <button onclick="toggleDark()" id="darkBtn">Dark Mode</button>
+        <button onclick="expandAll()">Expand All</button>
+        <button onclick="collapseAll()">Collapse All</button>
+        <button onclick="window.print()">Export PDF</button>
+        <input type="text" id="searchBox" placeholder="Search report..." oninput="filterCards(this.value)">
+    </div>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#topic-clusters">Topic Clusters</a></li>
+            <li><a href="#news-section">News Articles (50)</a></li>
+            <li><a href="#web-section">Web Results (0)</a></li>
+            <li><a href="#reddit-section">Reddit Analysis (1 posts)</a></li>
+            <li><a href="#author-section">Top Authors</a></li>
+            <li><a href="#youtube-section">YouTube Videos (15)</a></li>
+            <li><a href="#hn-section">Hacker News (15)</a></li>
+            <li><a href="#bluesky-section">Bluesky (0)</a></li>
+            <li><a href="#discourse-section">Discourse (12)</a></li>
+            <li><a href="#se-section">Stack Exchange (15)</a></li>
+            
+            <li><a href="#arxiv-section">arXiv (10)</a></li>
+        </ul>
+    </nav>
+
+    <div class="stats-bar">
+        <div class="stat-box"><div class="number">1</div><div class="label">Reddit Posts</div></div>
+        <div class="stat-box"><div class="number">50</div><div class="label">Comments</div></div>
+        <div class="stat-box"><div class="number">50</div><div class="label">News</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Web</div></div>
+        <div class="stat-box"><div class="number">15</div><div class="label">Videos</div></div>
+        <div class="stat-box"><div class="number">15</div><div class="label">HN</div></div>
+        <div class="stat-box"><div class="number">0</div><div class="label">Bluesky</div></div>
+        <div class="stat-box"><div class="number">12</div><div class="label">Discourse</div></div>
+        <div class="stat-box"><div class="number">15</div><div class="label">SE</div></div>
+        <div class="stat-box"><div class="number">0m 38s</div><div class="label">Time</div></div>
+    </div>
+
+    <div class="charts-row">
+        <div class="chart-box">
+            <h4>Source Breakdown</h4>
+            <div class="bar-chart">
+                <div class="bar-row"><div class="bar-label">Reddit</div><div class="bar-track"><div class="bar-fill reddit" style="width:2%"></div></div><div class="bar-value">1</div></div>
+                <div class="bar-row"><div class="bar-label">News</div><div class="bar-track"><div class="bar-fill news" style="width:100%"></div></div><div class="bar-value">50</div></div>
+                <div class="bar-row"><div class="bar-label">Web</div><div class="bar-track"><div class="bar-fill web" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">YouTube</div><div class="bar-track"><div class="bar-fill youtube" style="width:30%"></div></div><div class="bar-value">15</div></div>
+                <div class="bar-row"><div class="bar-label">HN</div><div class="bar-track"><div class="bar-fill news" style="width:30%"></div></div><div class="bar-value">15</div></div>
+                <div class="bar-row"><div class="bar-label">Bluesky</div><div class="bar-track"><div class="bar-fill web" style="width:0%"></div></div><div class="bar-value">0</div></div>
+                <div class="bar-row"><div class="bar-label">Discourse</div><div class="bar-track"><div class="bar-fill reddit" style="width:24%"></div></div><div class="bar-value">12</div></div>
+                <div class="bar-row"><div class="bar-label">SE</div><div class="bar-track"><div class="bar-fill youtube" style="width:30%"></div></div><div class="bar-value">15</div></div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Reddit Sentiment</h4>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Positive</div>
+                    <div class="bar-track"><div class="bar-fill positive" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Neutral</div>
+                    <div class="bar-track"><div class="bar-fill neutral" style="width:100%"></div></div>
+                    <div class="bar-value">100%</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Negative</div>
+                    <div class="bar-track"><div class="bar-fill negative" style="width:0%"></div></div>
+                    <div class="bar-value">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="section" id="executive-summary"><div class="section-header"><h2>Executive Summary</h2></div><h3>Top Reddit Discussions</h3>
+        <div class="post-card highlight" data-searchable="Disabling npm&#039;s progress bar yields a 2x npm install speed improvement">
+          <h4>Disabling npm&#039;s progress bar yields a 2x npm install speed improvement </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 544</span> <span class="badge badge-reddit">r/</span> 💬 174 comments · <a href="https://twitter.com/gavinjoyce/status/691773956144119808" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Malicious code in the purescript NPM installer">
+          <h4>Malicious code in the purescript NPM installer </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 521</span> <span class="badge badge-reddit">r/</span> 💬 267 comments · <a href="https://harry.garrood.me/blog/malicious-code-in-purescript-npm-installer/" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="ChatGPT Containers can now run bash, pip/npm install packages and download files">
+          <h4>ChatGPT Containers can now run bash, pip/npm install packages and download files </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 451</span> <span class="badge badge-reddit">r/</span> 💬 324 comments · <a href="https://simonwillison.net/2026/Jan/26/chatgpt-containers/" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="$ sudo rm -rf / === NPM install">
+          <h4>$ sudo rm -rf / === NPM install </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 171</span> <span class="badge badge-reddit">r/</span> 💬 173 comments · <a href="https://ghuntley.com/sudo-rm-rf/" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Install NPM dependencies that run in browser without Browserify, Webpack">
+          <h4>Install NPM dependencies that run in browser without Browserify, Webpack </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 170</span> <span class="badge badge-reddit">r/</span> 💬 25 comments · <a href="https://github.com/pikapkg/web/blob/master/README.md" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Standard JS: npm install funding">
+          <h4>Standard JS: npm install funding </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 168</span> <span class="badge badge-reddit">r/</span> 💬 123 comments · <a href="https://github.com/standard/standard/issues/1381" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="RFC: Make NPM install scripts opt-in">
+          <h4>RFC: Make NPM install scripts opt-in </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 130</span> <span class="badge badge-reddit">r/</span> 💬 72 comments · <a href="https://github.com/npm/rfcs/pull/488" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Npm install could be dangerous">
+          <h4>Npm install could be dangerous </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 122</span> <span class="badge badge-reddit">r/</span> 💬 97 comments · <a href="https://github.com/joaojeronimo/rimrafall" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Show HN: Turn NPM installs into a Space Invaders style game in your terminal">
+          <h4>Show HN: Turn NPM installs into a Space Invaders style game in your terminal </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 105</span> <span class="badge badge-reddit">r/</span> 💬 34 comments · <a href="https://www.npmjs.com/nplaym" target="_blank">View →</a></div>
+        </div>
+        <div class="post-card highlight" data-searchable="Show HN: Safe-NPM – only install packages that are +90 days old">
+          <h4>Show HN: Safe-NPM – only install packages that are +90 days old </h4>
+          <div class="meta"><span class="badge badge-score">⬆ 90</span> <span class="badge badge-reddit">r/</span> 💬 64 comments · <a href="https://github.com/kevinslin/safe-npm" target="_blank">View →</a></div>
+        </div><h3 style="margin-top:20px;">Top Insights</h3>
+        <div class="comment-card" data-searchable="Some further details on the issue: https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;npm&amp;#x2F;npm&amp;#x2F;issues&amp;#x2F;11283">
+          <div class="text">"Some further details on the issue: https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;npm&amp;#x2F;npm&amp;#x2F;issues&amp;#x2F;11283" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by gavinjoyce in: Disabling npm&#039;s progress bar yields a 2x npm install speed improvement</div>
+        </div>
+        <div class="comment-card" data-searchable="I don&amp;#x27;t see this at all, what&amp;#x27;s more worrying is that npm 3.* is apparently way slower than npm 2.*I did this test on a npm library I wrote, installs some test tools and also has to compile some gyp stuff2.14.2progress=false
+real  0m26.589s
+user  0m12.086s
+sys 0m3.362sprogress=true
+real  0">
+          <div class="text">"I don&amp;#x27;t see this at all, what&amp;#x27;s more worrying is that npm 3.* is apparently way slower than npm 2.*I did this test on a npm library I wrote, installs some test tools and also has to compile some gyp stuff2.14.2progress=false
+real  0m26.589s
+user  0m12.086s
+sys 0m3.362sprogress=true
+real  0" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by swang in: Disabling npm&#039;s progress bar yields a 2x npm install speed improvement</div>
+        </div>
+        <div class="comment-card" data-searchable="The funky progress bar is about the coolest thing with npm. They could let it take a minute if they wanted too and i would keep watching it with amazement.">
+          <div class="text">"The funky progress bar is about the coolest thing with npm. They could let it take a minute if they wanted too and i would keep watching it with amazement." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by Too in: Disabling npm&#039;s progress bar yields a 2x npm install speed improvement</div>
+        </div>
+        <div class="comment-card" data-searchable="...has he controlled for network speed? Unless he&amp;#x27;s set up a local NPM caching proxy, he&amp;#x27;s going over the &amp;#x27;net for these packages. It&amp;#x27;ll take more than 1 datum before I believe this hype.">
+          <div class="text">"...has he controlled for network speed? Unless he&amp;#x27;s set up a local NPM caching proxy, he&amp;#x27;s going over the &amp;#x27;net for these packages. It&amp;#x27;ll take more than 1 datum before I believe this hype." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by bitwarrior in: Disabling npm&#039;s progress bar yields a 2x npm install speed improvement</div>
+        </div>
+        <div class="comment-card" data-searchable="Progress bar or not, npm has gotten extremely slow with v3, to the extent that someone is working on a performance-centered alternative called ied:http:&amp;#x2F;&amp;#x2F;gugel.io&amp;#x2F;ied&amp;#x2F;installs are literally the #1 thing npm needs to do well, and I really hope we see some improvement soon.">
+          <div class="text">"Progress bar or not, npm has gotten extremely slow with v3, to the extent that someone is working on a performance-centered alternative called ied:http:&amp;#x2F;&amp;#x2F;gugel.io&amp;#x2F;ied&amp;#x2F;installs are literally the #1 thing npm needs to do well, and I really hope we see some improvement soon." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by untog in: Disabling npm&#039;s progress bar yields a 2x npm install speed improvement</div>
+        </div>
+        <div class="comment-card" data-searchable="I wonder how bad will this cred-stuffing package authors problem will get before npm&amp;#x2F;other package managers flat out require 2FA for maintainers">
+          <div class="text">"I wonder how bad will this cred-stuffing package authors problem will get before npm&amp;#x2F;other package managers flat out require 2FA for maintainers" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by bsamuels in: Malicious code in the purescript NPM installer</div>
+        </div>
+        <div class="comment-card" data-searchable="Not actually malicious. It doesn&amp;#x27;t steal user data, drop malware, or damage a computer. Just crashes the library. Looks like another developer-developer slap fight.">
+          <div class="text">"Not actually malicious. It doesn&amp;#x27;t steal user data, drop malware, or damage a computer. Just crashes the library. Looks like another developer-developer slap fight." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by ga-vu in: Malicious code in the purescript NPM installer</div>
+        </div>
+        <div class="comment-card" data-searchable="Another reminder of how annoying it is for a package system to have unqualified package names.Having to ask someone to gift a `purescript` package shouldn&amp;#x27;t even be a thing. It should&amp;#x27;ve been `@shinn&amp;#x2F;purescript` and the compiler developers just create their own `@whatever&amp;#x2F;purescr">
+          <div class="text">"Another reminder of how annoying it is for a package system to have unqualified package names.Having to ask someone to gift a `purescript` package shouldn&amp;#x27;t even be a thing. It should&amp;#x27;ve been `@shinn&amp;#x2F;purescript` and the compiler developers just create their own `@whatever&amp;#x2F;purescr" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by hombre_fatal in: Malicious code in the purescript NPM installer</div>
+        </div>
+        <div class="comment-card" data-searchable="Well I guess it&amp;#x27;s good I didn&amp;#x27;t start using this after an article I saw yesterday about it.">
+          <div class="text">"Well I guess it&amp;#x27;s good I didn&amp;#x27;t start using this after an article I saw yesterday about it." </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by sieabahlpark in: Malicious code in the purescript NPM installer</div>
+        </div>
+        <div class="comment-card" data-searchable="Before &amp;quot;tree shaking&amp;quot; I stored all npm modules in SCM and reviwed all updates as I had to commit after &amp;quot;npm update&amp;quot;. I also put ton of files in .ignore as 90% of files in some packages are not required. I also used to include npm modules in distribution&amp;#x2F;deployment. So my req">
+          <div class="text">"Before &amp;quot;tree shaking&amp;quot; I stored all npm modules in SCM and reviwed all updates as I had to commit after &amp;quot;npm update&amp;quot;. I also put ton of files in .ignore as 90% of files in some packages are not required. I also used to include npm modules in distribution&amp;#x2F;deployment. So my req" </div>
+          <div class="meta"><span class="score">⬆ 0</span> — by z3t4 in: Malicious code in the purescript NPM installer</div>
+        </div><h3 style="margin-top:20px;">Top News Coverage</h3>
+        <div class="post-card" data-searchable="Introducing Secure Registry: install-time defense for the npm supply chain - StepSecurity">
+          <h4>Introducing Secure Registry: install-time defense for the npm supply chain - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxNR2NpSmotdG54NXNBX29keGx1ajRmVmlLTFpIQUVUQmwyWnM4Q0YyZW1veFFiSXBlWFNKR21RNkJuNV9lRk1VZlktUVptUlZqN09QTDFEXzgtX2V0VFdfMlY3YUJidWlta21ZZ0NfNmJkZDc0UGZoZmtKTjJMbjM0WS1zS1h3bzJHNWVvLU9zTmFwUWJyaF93T2xZdEFkMDVWOXFGQVhLY1FMQQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install - The Hacker News">
+          <h4>Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · July 12, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQNnVZT1lmeUFXWmt6V3FmZjlYMHRleTZpZ3VWX0F4RVJWay1SY2V4WG1zRkJ2ZTRLS1ZZaFo5TTVFZTFRRlkxSVJSRmdMWXVxZm05a294WnBEaUxIblBuN25SQ2VUYmMwQlFIdkllQTZrQWR0LVVZYnB5dnBSbndDWDBOZ0g?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Unpacking the AsyncAPI npm supply chain compromise and import-time payload delivery - Microsoft">
+          <h4>Unpacking the AsyncAPI npm supply chain compromise and import-time payload delivery - Microsoft</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Microsoft · July 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxQQUs0VENRb3lGZjFfTDhCLWZ5c19GYTJXcS0tcnBPbjBRUzJCTlNpdTNjOGlGcEx3bHMzLW9xR0x6MkRHS3FPTERldFMtWHBkb0lmT0Z1ZXlLa04zSnVBTVRWTDRUQ0VDTXBZYVdOcG9QTlRnYWI5U21CYzRGNnZYRTc0MFgtelJEUzNpaWdqUFN4aUVhbmdxdm0xMFJUdVF6TFJUazgyUkY5Mk1fRTR3emhudzRtSTZjQW10anpIT3J6V2NQUDVwdExZcGtSUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Active Exploitation Alert: Jscrambler npm Packages Compromised in Coordinated Supply Chain Attack (July 2026) - Rescana">
+          <h4>Active Exploitation Alert: Jscrambler npm Packages Compromised in Coordinated Supply Chain Attack (July 2026) - Rescana</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Rescana · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPa0VRZFROMTVzdUsyQlpIZEwyS0lONTE3WEVDdlREb1BLYUk3Q1ZkZlJtMTlCR1JrNUpYSy01N3hwdkI3NnUtQlUtRlJqRmpoYVZnaFRKZGJwRWw1VDNPQkZMaUFyY1MwWXd6QURSSzVQZU5QdzRhODVtdzdfV2hud1VhLWpYZlFVZDdWMTJBTV9UZ3NxdlRsZG5WOEFDZXlHbTkwSGdRZFh0NjE4Y1FteG9HLTFRa1c5Mnc5R3ZiZjlWcV9DZkFiMTdNUHlaSjY4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Malicious npm packages use fake install logs to load RAT | RL Blog - ReversingLabs">
+          <h4>Malicious npm packages use fake install logs to load RAT | RL Blog - ReversingLabs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> ReversingLabs · March 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1XaVFXMEplM2t3REdVRm12Mk9VMHRZMjdEUml2eFl5TG5wN1cyNmZnamRvaUE3eUhuUlMzQktSN0VKRjRqZmxuYTlsWVVoamVTbnFNSXl3dEZjY0VBa3QxeU8zSmd1RHJ1VUV1WQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Axios compromised: hijacked maintainer account pushes malicious npm versions - Endor Labs">
+          <h4>Axios compromised: hijacked maintainer account pushes malicious npm versions - Endor Labs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Endor Labs · March 31, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5veUZzVzR3TE40djFmTS1MaXhZcXdGM2dqelhRZTliOGlpbVhxV1Fhc3lnYjFibV9WcXEtM19KTVpneGd5NDB0Z0Qta1A4WHZuazVuWWRkczFGSDQtWkVmTzVR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Axios npm Package Compromised: Supply Chain Attack Delivers Cross-Platform RAT - Snyk">
+          <h4>Axios npm Package Compromised: Supply Chain Attack Delivers Cross-Platform RAT - Snyk</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Snyk · March 30, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxNWkpMbU9meDNCa2tTT2V1Yk1zX1JVWkNLZlEycUhITnZMTHlDRE9HOVQycUVUajhxa2p2ZmJlR3NGdzVUSjZHblUtYkxFWHU2M0k0NmNRS2EybGkxUEY1aHlPU2c2WmpyRlpVMkJPZmgzWWpfVmYxMm1Cdm03dDUxTzBCaWNvVkEyN0FwdjZzT2p0Sk1wejkycHl5RQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Coordinated AsyncAPI Supply Chain Attack: Miasma RAT Delivered via Compromised CI/CD Pipelines in Two Repositories - StepSecurity">
+          <h4>Coordinated AsyncAPI Supply Chain Attack: Miasma RAT Delivered via Compromised CI/CD Pipelines in Two Repositories - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOS1dXRldYTjRoLXU5cXduYWkzU2dtcUZPMnNrZ1pPR3hiS1l2ZkE5alpyMVRmVG5scXpGSHJIdXBsaWJsdTVNbHRUZEFBVVlBYnNCeDExSUFEM3A3aGdPemY0djdJdkhibVc4YVNKdU9RYWdXWkdYcGNVSEl3U2JpVFBpQkdnTXd5cEp4TnVMQjBudTVzdmtYXzk2d0lBRncwUHNNZWZtY25TU3A5eVdsS1dybEZQa0o1cTVMOW5DZlBEcUtzOWZ5UUgzZGtBQV90c0NTQU9jTk0xdw?oc=5" target="_blank">Read article →</a></div>
+        </div></div><div class="section" id="topic-clusters"><div class="section-header"><h2>Topic Clusters</h2></div>
+        <div class="cluster-card" data-searchable="General">
+          <h4>General <span class="count">(70 posts)</span></h4>
+          <ul class="post-list"><li>Disabling npm&#039;s progress bar yields a 2x npm install speed improvement <span class="badge badge-score">⬆ 544</span></li><li>Malicious code in the purescript NPM installer <span class="badge badge-score">⬆ 521</span></li><li>ChatGPT Containers can now run bash, pip/npm install packages and download files <span class="badge badge-score">⬆ 451</span></li><li>$ sudo rm -rf / === NPM install <span class="badge badge-score">⬆ 171</span></li><li>Standard JS: npm install funding <span class="badge badge-score">⬆ 168</span></li><li>RFC: Make NPM install scripts opt-in <span class="badge badge-score">⬆ 130</span></li><li>Npm install could be dangerous <span class="badge badge-score">⬆ 122</span></li><li>Show HN: Turn NPM installs into a Space Invaders style game in your terminal <span class="badge badge-score">⬆ 105</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Getting Started">
+          <h4>Getting Started <span class="count">(17 posts)</span></h4>
+          <ul class="post-list"><li>npm installs can hack your laptop (Here&#039;s how to stop it) <span class="badge badge-score">⬆ undefined</span></li><li>npm install Explained: Your Guide to Installing npm Packages for Beginners <span class="badge badge-score">⬆ undefined</span></li><li>SPARC Code Agent + MCP Server (Built using OpenAi Agents + Deno/TS) <span class="badge badge-score">⬆ 0</span></li><li>Codex not able to start nodejs project <span class="badge badge-score">⬆ 0</span></li><li>OpenAI Quickstart tutorial issue running a code <span class="badge badge-score">⬆ 0</span></li><li>How to use PixelStreaming with out internet? <span class="badge badge-score">⬆ 0</span></li><li>How to install a previous exact version of a NPM package? <span class="badge badge-score">⬆ 1295</span></li><li>How to install an npm package from GitHub directly <span class="badge badge-score">⬆ 1251</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Common Problems">
+          <h4>Common Problems <span class="count">(11 posts)</span></h4>
+          <ul class="post-list"><li>Show HN: npm install actual-malware <span class="badge badge-score">⬆ 55</span></li><li>NPM install error code E502 <span class="badge badge-score">⬆ 1</span></li><li>Node-gyp error on running npm install <span class="badge badge-score">⬆ 2</span></li><li>Node/Npm are verified installed, but npm install throws node not found error in ... <span class="badge badge-score">⬆ 1</span></li><li>npm install not works - `node-gyp rebuild` error <span class="badge badge-score">⬆ 0</span></li><li>Npm install fails due to package.json misconfiguration <span class="badge badge-score">⬆ 0</span></li><li>Error on transcript audio file <span class="badge badge-score">⬆ 0</span></li><li>npm install google-cloud fails <span class="badge badge-score">⬆ 4</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tips &amp; Advice">
+          <h4>Tips &amp; Advice <span class="count">(9 posts)</span></h4>
+          <ul class="post-list"><li>Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install ... <span class="badge badge-score">⬆ undefined</span></li><li>npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain ... <span class="badge badge-score">⬆ undefined</span></li><li>Compromised AsyncAPI npm Packages Deliver Multi-Stage Botnet Malware - The Hacke... <span class="badge badge-score">⬆ undefined</span></li><li>Multiple redhat-cloud-services npm Packages compromised - StepSecurity <span class="badge badge-score">⬆ undefined</span></li><li>148 npm Packages Disguised as Student Proxies Turned Browsers Into a DDoS Botnet... <span class="badge badge-score">⬆ undefined</span></li><li>North Korea-Linked npm Packages Mimic Rollup Polyfills to Steal Developer Secret... <span class="badge badge-score">⬆ undefined</span></li><li>Multiple @immobiliarelabs Backstage Plugins Compromised on npm - StepSecurity <span class="badge badge-score">⬆ undefined</span></li><li>Mastra npm Org Compromised: Multiple Packages Trojanized to Drop a Remote Payloa... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Tools &amp; Resources">
+          <h4>Tools &amp; Resources <span class="count">(4 posts)</span></h4>
+          <ul class="post-list"><li>NPM install is stealing your passwords – I built a tool to catch it <span class="badge badge-score">⬆ 35</span></li><li>What would enforcing id verification for browsing the internet entail realistica... <span class="badge badge-score">⬆ 1</span></li><li>Install Discourse on macOS for development <span class="badge badge-score">⬆ 0</span></li><li>A Mini Shai-Hulud Has Appeared: Obfuscated Bun Runtime Payloads Hit SAP-Related ... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Future &amp; Trends">
+          <h4>Future &amp; Trends <span class="count">(3 posts)</span></h4>
+          <ul class="post-list"><li>GitHub Locks Down npm: What the New Install Defaults Mean for Your Supply Chain ... <span class="badge badge-score">⬆ undefined</span></li><li>New Shai-Hulud Miasma Wave Hits Hundreds of npm Packages - Sonatype <span class="badge badge-score">⬆ undefined</span></li><li>Axios NPM Package Compromised: Supply Chain Attack Hits JavaScript HTTP Client w... <span class="badge badge-score">⬆ undefined</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Comparisons &amp; Reviews">
+          <h4>Comparisons &amp; Reviews <span class="count">(2 posts)</span></h4>
+          <ul class="post-list"><li>GitHub to Disable npm Install Scripts by Default to Stop Supply Chain Attacks - ... <span class="badge badge-score">⬆ undefined</span></li><li>Fully Automating iOS Automation Tests using Gauntlet on Horde  <span class="badge badge-score">⬆ 0</span></li></ul></div>
+        <div class="cluster-card" data-searchable="Expert Opinions">
+          <h4>Expert Opinions <span class="count">(2 posts)</span></h4>
+          <ul class="post-list"><li>On the Impact of Micro-Packages: An Empirical Study of the npm JavaScript Ecosys... <span class="badge badge-score">⬆ undefined</span></li><li>An Exploration of npm Package Co-Usage Examples from Stack Overflow: A Case Stud... <span class="badge badge-score">⬆ undefined</span></li></ul></div></div><div class="section" id="news-section"><div class="section-header"><h2>News Articles (50)</h2>
+        <button class="collapse-btn" onclick="toggleSection('news-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="news-cards">
+        <div class="post-card" data-searchable="Introducing Secure Registry: install-time defense for the npm supply chain - StepSecurity ">
+          <h4>Introducing Secure Registry: install-time defense for the npm supply chain - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxNR2NpSmotdG54NXNBX29keGx1ajRmVmlLTFpIQUVUQmwyWnM4Q0YyZW1veFFiSXBlWFNKR21RNkJuNV9lRk1VZlktUVptUlZqN09QTDFEXzgtX2V0VFdfMlY3YUJidWlta21ZZ0NfNmJkZDc0UGZoZmtKTjJMbjM0WS1zS1h3bzJHNWVvLU9zTmFwUWJyaF93T2xZdEFkMDVWOXFGQVhLY1FMQQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install - The Hacker News ">
+          <h4>Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · July 12, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQNnVZT1lmeUFXWmt6V3FmZjlYMHRleTZpZ3VWX0F4RVJWay1SY2V4WG1zRkJ2ZTRLS1ZZaFo5TTVFZTFRRlkxSVJSRmdMWXVxZm05a294WnBEaUxIblBuN25SQ2VUYmMwQlFIdkllQTZrQWR0LVVZYnB5dnBSbndDWDBOZ0g?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Unpacking the AsyncAPI npm supply chain compromise and import-time payload delivery - Microsoft ">
+          <h4>Unpacking the AsyncAPI npm supply chain compromise and import-time payload delivery - Microsoft</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Microsoft · July 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxQQUs0VENRb3lGZjFfTDhCLWZ5c19GYTJXcS0tcnBPbjBRUzJCTlNpdTNjOGlGcEx3bHMzLW9xR0x6MkRHS3FPTERldFMtWHBkb0lmT0Z1ZXlLa04zSnVBTVRWTDRUQ0VDTXBZYVdOcG9QTlRnYWI5U21CYzRGNnZYRTc0MFgtelJEUzNpaWdqUFN4aUVhbmdxdm0xMFJUdVF6TFJUazgyUkY5Mk1fRTR3emhudzRtSTZjQW10anpIT3J6V2NQUDVwdExZcGtSUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Active Exploitation Alert: Jscrambler npm Packages Compromised in Coordinated Supply Chain Attack (July 2026) - Rescana ">
+          <h4>Active Exploitation Alert: Jscrambler npm Packages Compromised in Coordinated Supply Chain Attack (July 2026) - Rescana</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Rescana · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPa0VRZFROMTVzdUsyQlpIZEwyS0lONTE3WEVDdlREb1BLYUk3Q1ZkZlJtMTlCR1JrNUpYSy01N3hwdkI3NnUtQlUtRlJqRmpoYVZnaFRKZGJwRWw1VDNPQkZMaUFyY1MwWXd6QURSSzVQZU5QdzRhODVtdzdfV2hud1VhLWpYZlFVZDdWMTJBTV9UZ3NxdlRsZG5WOEFDZXlHbTkwSGdRZFh0NjE4Y1FteG9HLTFRa1c5Mnc5R3ZiZjlWcV9DZkFiMTdNUHlaSjY4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Malicious npm packages use fake install logs to load RAT | RL Blog - ReversingLabs ">
+          <h4>Malicious npm packages use fake install logs to load RAT | RL Blog - ReversingLabs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> ReversingLabs · March 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1XaVFXMEplM2t3REdVRm12Mk9VMHRZMjdEUml2eFl5TG5wN1cyNmZnamRvaUE3eUhuUlMzQktSN0VKRjRqZmxuYTlsWVVoamVTbnFNSXl3dEZjY0VBa3QxeU8zSmd1RHJ1VUV1WQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Axios compromised: hijacked maintainer account pushes malicious npm versions - Endor Labs ">
+          <h4>Axios compromised: hijacked maintainer account pushes malicious npm versions - Endor Labs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Endor Labs · March 31, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5veUZzVzR3TE40djFmTS1MaXhZcXdGM2dqelhRZTliOGlpbVhxV1Fhc3lnYjFibV9WcXEtM19KTVpneGd5NDB0Z0Qta1A4WHZuazVuWWRkczFGSDQtWkVmTzVR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Axios npm Package Compromised: Supply Chain Attack Delivers Cross-Platform RAT - Snyk ">
+          <h4>Axios npm Package Compromised: Supply Chain Attack Delivers Cross-Platform RAT - Snyk</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Snyk · March 30, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxNWkpMbU9meDNCa2tTT2V1Yk1zX1JVWkNLZlEycUhITnZMTHlDRE9HOVQycUVUajhxa2p2ZmJlR3NGdzVUSjZHblUtYkxFWHU2M0k0NmNRS2EybGkxUEY1aHlPU2c2WmpyRlpVMkJPZmgzWWpfVmYxMm1Cdm03dDUxTzBCaWNvVkEyN0FwdjZzT2p0Sk1wejkycHl5RQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Coordinated AsyncAPI Supply Chain Attack: Miasma RAT Delivered via Compromised CI/CD Pipelines in Two Repositories - StepSecurity ">
+          <h4>Coordinated AsyncAPI Supply Chain Attack: Miasma RAT Delivered via Compromised CI/CD Pipelines in Two Repositories - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOS1dXRldYTjRoLXU5cXduYWkzU2dtcUZPMnNrZ1pPR3hiS1l2ZkE5alpyMVRmVG5scXpGSHJIdXBsaWJsdTVNbHRUZEFBVVlBYnNCeDExSUFEM3A3aGdPemY0djdJdkhibVc4YVNKdU9RYWdXWkdYcGNVSEl3U2JpVFBpQkdnTXd5cEp4TnVMQjBudTVzdmtYXzk2d0lBRncwUHNNZWZtY25TU3A5eVdsS1dybEZQa0o1cTVMOW5DZlBEcUtzOWZ5UUgzZGtBQV90c0NTQU9jTk0xdw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Compromised AsyncAPI npm Packages Deliver Multi-Stage Botnet Malware - The Hacker News ">
+          <h4>Compromised AsyncAPI npm Packages Deliver Multi-Stage Botnet Malware - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · July 15, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5pV1otWnltYjh6ODBCT3N1YW1nVGpWQk9PV3FaYWRFZTd4WFdqdk8zb2hlSTJDbmVPRWRYWDZxRm9XVUdwY0F1UlUxTklFUXlab29NYUJWbE9JRXJJVndzT0JUd19nQWZETzJXTUJoWW5famcyTkZzNGFiR3Y?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Malicious npm packages abuse dependency confusion to profile developer environments - Microsoft ">
+          <h4>Malicious npm packages abuse dependency confusion to profile developer environments - Microsoft</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Microsoft · May 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxQOTBfa3dzSk85UHFQNGVlZGhIY19pT3FDNEtGSm1oaWIybGNZRjJQUVZVUGhuTEhRNURQNURSSzFxVS1rcGJOTXZWRFgwQUl0d3pFLW1TQWNqeGZOUXB5RndTYVV2RFM2Mkl1ME9UdUpxUXRPWThjUEZwdkNFR2tGcXhHLVpTMU1tY2o3X2docHBfdVM3XzdqdDMzLXc5MFVsWS1JZTRoMEw3Rzh4OGtOWFZfa3o0UlQ5a3JRN1NBcVdESU4zWTFwZEcweC00dENMSkpNZVJ2ZTE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Update to npm blocks install scripts: What it means for security | RL Blog - ReversingLabs ">
+          <h4>Update to npm blocks install scripts: What it means for security | RL Blog - ReversingLabs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> ReversingLabs · June 16, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9OcnRxTnNKc19EY2VDSWVRdVZXT21ud2pnVURDTVB3YlMybjBrX1pCakVIR3U5ZGNOT3RxVkJQTjBPMzJQZVZ4MFNmdkZjdGZ3MkNQbzlncUt5YTR3ZTRZamVMRnZVczc4X0NweXVYZ1NPUm8?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Mini Shai-Hulud Returns: 42 Malicious npm Packages Fake Sigstore Badges in AntV Ecosystem Attack | Blog - Endor Labs ">
+          <h4>Mini Shai-Hulud Returns: 42 Malicious npm Packages Fake Sigstore Badges in AntV Ecosystem Attack | Blog - Endor Labs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Endor Labs · May 19, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOX00zRHBKamFuRWxtU1N4aTBwNk5TLUcwZXNweDI3TUJyVHlxSnd2ZzhpTXZXNWdmVDI4aFEzRW9kMlZaOGZqejROdkMzYXE4N0Nva0h0TFlfWkJpQXZyeE96OW5LVF9kZkxvNTVkN0ZCUVI3ZzRTNS1pYWlGQlZZaWQxbnBZTmhhOWxqQWJuRlhSWU1zZFd0M0tOSFN4UDhYeDFnQ0dzdDI3UVJPeTBzRk8xUXVCajVpVURLZ2tfcENYMm5hUnc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Multiple redhat-cloud-services npm Packages compromised - StepSecurity ">
+          <h4>Multiple redhat-cloud-services npm Packages compromised - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · June 1, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQTmdGZFhFX0trV1lrX0hxRlhJZHpiMTF3clBjb0FlMUM0QjAtVEFoa3lsaWJmYWpiNHFrcEJqTkxLbXR1U3JxLWlabHFnLTZLZzVVS1k0TzR3UGRxR3UtY2MyVWQxeVlMTlNTQmxMM0s1eTBEZEhJQlc0aEs0aENXd2dfN0kxNkdMV1R3OVRLb1pzdw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="148 npm Packages Disguised as Student Proxies Turned Browsers Into a DDoS Botnet - The Hacker News ">
+          <h4>148 npm Packages Disguised as Student Proxies Turned Browsers Into a DDoS Botnet - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · July 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxONEZvQmdkTTUwOEhxSWRRZ0x0Y3pSLTROWm9nQ1pTcGFmdFY0azc2b3hVaTFmTThMTFlrNnNaV25qU1dybjdyRGJsbjBDX2JSd3pjUklFajN2dkdhYVRiZTJreEhJNjJDbGR6SjFvOHh3ZmsybGRnODhTQ3NSV1RGc1dR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Typosquatted npm packages used to steal cloud and CI/CD secrets - Microsoft ">
+          <h4>Typosquatted npm packages used to steal cloud and CI/CD secrets - Microsoft</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Microsoft · May 28, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxNYW9DVko1TnhpZlVEQ2ZLckx4ZkZQYmxVX21JN3B0VE5lcENyWngyOFdPTlUwWlFtMmM4VTM0OW1RTFlVZnBMVkJRU3lyVGY0aHdPSXViNnRoN05NRXItRk9FUW5GS19CdDZ6dXlrMThnSTZJX1BzanhSYlNwTEJmaVVpWmNkWWoyb01jT3FMZWZaODY0Rl9xSVgxeXBuOXNIZmJONlVxXzdQTzRXS0dNc21zbVE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Active Supply Chain Attack: Malicious node-ipc Versions Published to npm - StepSecurity ">
+          <h4>Active Supply Chain Attack: Malicious node-ipc Versions Published to npm - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · May 14, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1lY3hndVd3Y1N1VzN5S19nY1BKWTJibGVaYlBIVW01MXRYdnk4d1N0OGJGRU82VnRVLTdVVV9nSUl3dTVfNGlTTC1uUWV5S2FaNV9lYkFENUI5d2ZMTkZ3QzdmYjBnbTZFU1hySWtRNkVkcVU?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GitHub to Disable npm Install Scripts by Default to Stop Supply Chain Attacks - The Hacker News ">
+          <h4>GitHub to Disable npm Install Scripts by Default to Stop Supply Chain Attacks - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNR2lUaVJPOWxXbmZCLXo4UWpicmlSNFVDQnRiZExWaVdjQkhqSDhQUmQ4VEl5alpYTVF5dHM3WU54alBxeERqMVkxbzdTamhrcXpJWmxZQ2Q5eGR2NmRtUzlhNXljNmZxd0tCekVBVE5VS1g4WmlWS0ZIbnJ5TGQwa21R?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="TeamPCP&#039;s Mini Shai-Hulud Is Back: A Self-Spreading Supply Chain Attack Compromises TanStack npm Packages - StepSecurity ">
+          <h4>TeamPCP&#039;s Mini Shai-Hulud Is Back: A Self-Spreading Supply Chain Attack Compromises TanStack npm Packages - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · May 10, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxNTFI4VEVNR2VVbGFpQWdvUmxxWHZXYXNsN1ZobTIwUUhYbW9tRXhUdUFNY05VZS1zRUMwLVdjMFFEd2JDTmg0Qy1Rb0VVb3JhQ2lyWFJ3NmlobjF1RGVoYU5WaWtIeldFNW81TERwdUdGX3R6Mzc0Nl9FVlJHRUVLM2lkVDU4WUE0bWlJZ29LVE1YWERaQXAwRy0wV1psLUlGV2VaOVBTMU5ySmMwQ1dyVUw4RFc0cWc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="North Korea-Linked npm Packages Mimic Rollup Polyfills to Steal Developer Secrets - The Hacker News ">
+          <h4>North Korea-Linked npm Packages Mimic Rollup Polyfills to Steal Developer Secrets - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · July 3, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNRWp2SW1TTjIzZ0xxeHM0RkJlbVR5aUtUbjlGdkZfOWxlcllTU2YzMkRGTjhJTXJzb28wLXJCNXFuQzBCYnk1Sl9iSWZqNGE0VVNXSllLTEV3bHNpYUpLMkhYcWo0NEhqTnk1dl9TV2p2ZkQ3ZGw1Ym9Uc0FFdk5kMWJn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Multiple @immobiliarelabs Backstage Plugins Compromised on npm - StepSecurity ">
+          <h4>Multiple @immobiliarelabs Backstage Plugins Compromised on npm - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · June 26, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE8tSnFWSTR0cndxYlR5aTBiMndzcDVLS3ByQlVva1hTVENBSXVCdGRVUl9NanJuV3AyZUVmbFhkUEZKbDM2SUhHeS0zaUsyWDYzSDUySTVLaUJYa3lhNmQ1V0JFak5uT0pzR0p0enV6Y3R2TG1RSmtZb0p5VEZUUQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Mass npm Supply Chain Attack: 20 Leo Platform Packages Compromised - StepSecurity ">
+          <h4>Mass npm Supply Chain Attack: 20 Leo Platform Packages Compromised - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · June 24, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxQcWJUa1hVN20wX0lJQjMza0cxM05aZ0pZekdSQmM2UDVEN3phaU1sQnRwZVFHYnZNYk5nbE02dnNnME9tc1pod01wYUlGajRlQU90Ry1DV3p5c0Z5UG9mRmxERDFOM1ktRVNzbGQyR29YbHJ3ZGdEN0c5UGRLMVpTY1ZSX21lU0VmT2xPcGtpWk8xUm9naHdzQ3dOMEFJejA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="New Shai-Hulud Miasma Wave Hits Hundreds of npm Packages - Sonatype ">
+          <h4>New Shai-Hulud Miasma Wave Hits Hundreds of npm Packages - Sonatype</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Sonatype · June 4, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPNnU1VUVIUzRsZnZKOHVqR1ZheVNvZjFhY0xWUEhWY1JlZVdrLWdld3pSZjk2WkF6UEhvWkdvbm5SMGdobDZRNVJQOHZuN3VDR1pRLWRhN3hhOWYyZUxodFFGSzlxdjFCYk5kWmF6alRGVlhaRVVFRnpUb1RWdHZFRnh4c04tRktRZzFfM2lwQdIBnwFBVV95cUxPSW5sQi1ncWQxcUFPWmdaNEVDckw5ZjJaLThVOC12eDM5RnZWOWlUYTB6Z0hRNU9fSzRuU2djYWpkX0VLVzctTktGMnQwckw0RXkxT0gwU05vdVgxRlFjcnBXNjNqUUVTY1hfTktYTkVPbFFFMmFQOGR2MHpHM2w3RkFnaVpQTHA0QlMzcGdtVkpIRkUtOFM3UFZ5MDVXajg?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Mastra npm Supply Chain Attack: 140+ Packages Backdoored via easy-day-js Typosquat - StepSecurity ">
+          <h4>Mastra npm Supply Chain Attack: 140+ Packages Backdoored via easy-day-js Typosquat - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · June 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQVWt5TENWWXNlenB4X3lvRUtPMkFkQmNlcGRuTVhnQVpzcDd4aURUdElOUHhJX0VqanJESDFFTnd6Q2ZnekZocnV1NmNKd1Z0QWZtSDQyWUtJVUNkLUY3UV9vaHF1TlRGbmFrRkJ1MmxyUVAyVExScm9aMXhZcHV5UUI5b1oxVmhyUEE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="npm v12 Ships This Month, Blocking Install Scripts That Enabled Year of Supply Chain Attacks - Tech Times ">
+          <h4>npm v12 Ships This Month, Blocking Install Scripts That Enabled Year of Supply Chain Attacks - Tech Times</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Tech Times · July 8, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxPTkxTYnJNYkJIRUxpNmlQWGVkVjE1aDdxdjdneDJxc2RuM0JQNlZvLVFDUHZTUVozcWZZdmxwb1MyUlJEbGFMSXpkNFpfRHBpUnM3em43a3N0TnB6azBndjQ2NGN6TmRlYnFPVGtOd1pDRVYzUElmSGk2NUszOER3N28tYlN2Q3p6T2dLcjhHZXBpZHU1VENRdElROTJOWkt4RmRqbjVBV3BLWmU1MDBDcW9GaDhzN2lNUWhCdV85X2R2MFEtTld5VWY3eFFCVUFhaTJtWHhERS1ZR2s?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How 56 npm packages used binding.gyp to steal CI/CD secrets | RL Blog - ReversingLabs ">
+          <h4>How 56 npm packages used binding.gyp to steal CI/CD secrets | RL Blog - ReversingLabs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> ReversingLabs · June 4, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE4xaWo5UzdhWExiUlJJdFl0RDR1QW5UV01lWW54THlHaFFwRWdJR3U5VmFzSkFTVE9MaGhGMk5tNlY1RGRRaVhKVlh3bHc1NFp3REZxZktlbko0N1ZFenFNYldIZE9DWmhhSE8wQTVpbw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="The @antv Ecosystem Was Compromised with Shai-Hulud Malware, 300+ Packages Affected - OX Security ">
+          <h4>The @antv Ecosystem Was Compromised with Shai-Hulud Malware, 300+ Packages Affected - OX Security</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> OX Security · May 19, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQNjJENV9tX3hvMjRMYTVsamZtS18tRDdobUlDWVdwd2VxRFhTY2R5Q1RQRVZNLUV2Q2xnZUlFNEVfdFN0V2RjWTN4OXlQR2w3UWw5YXp6Tl9HTS02c0dxemd6VEl4UmdWLThMSmswc0JveXRNVkJsN3ZBNUZNVEp0a3Rud2pCR3lBME5rSUxEbmZHQXVUZnhOSEtkSTd5cXkwTEt3RENweUpwN0g5OXk4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Node.js Trust Falls: Dangerous Module Resolution on Windows - thezdi.com ">
+          <h4>Node.js Trust Falls: Dangerous Module Resolution on Windows - thezdi.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> thezdi.com · April 8, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNem9rZWU0OXFjV1V4cTY3WVdqUldOaDh6NmJZVFhxSEFnSzNnTERpQ29hN0F1M3VmSm5oOVVjZzhXUU5NU2RPSU5jX2tiaGFLNHY1NDVhUmJLdDNNNW93T0JNaDVtOE5abzlkMEtHeEhlSzdhMFdTNDlDaUIxblZEak1wZ2p4eXByeDlFa2RDMzZ4S2taX09Hb1FR?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Red Hat Cloud Services npm Packages Hijacked - Sonatype ">
+          <h4>Red Hat Cloud Services npm Packages Hijacked - Sonatype</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Sonatype · June 1, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBvb0c0V1VXeEw0YVF1eGlIbHN0Z3JGcE5lMHVTTDViVE82cUpTWW1ZazFqZ1FXM0syNW1kZ2NLUVJQZkN1eFJiWHE3QXV2LV9BQ19oMkI4Y24ySW5vT2pzbGdaOHhUdkkxckpBbkVjMUJ5UHZZOXFLYVVTSTZWT0nSAY8BQVVfeXFMTklQbnJoSmxMWTUzRGc3REphdVZxeXowSlc5OThncUdMVlVvYTFpWnJidV9oS2J3WDlvN0F0ZDQ5UFBHWHRpQW9vTVBZa1RMOUVqNVAzRjFYTEpoMkkySjlxcXVHd3kza1pmWFRRRzN4Y21PMm5VV0xFNE1Udm9PdGN4WElpMVBONG40cUdpNEU?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Mini Shai Hulud: Compromised @antv npm packages enable CI/CD credential theft - Microsoft ">
+          <h4>Mini Shai Hulud: Compromised @antv npm packages enable CI/CD credential theft - Microsoft</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Microsoft · May 20, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxPZkkxOGdWV0JPVzhGZndaVEhDTzBqXy1rR3hJWG5LSEFfenFoSW90TVdVcFo5TTc0dkNnS1BtOVR2YUVxc3REOXFqZzROOW5MZTIwb2RYby0waXBQTVIxaXZXVk9IRHhmWlk4UUFvc3hhbFZsZW5XcXlqbEpfRHJkUWtBbG85U2pIa0tKeXJoNkFOZ2x1aWJ6WVZHc19td0M1ZGo2QnVnODhDZWVSWmRFSngtYkRpa1lOWjVhVTR4dFg1dGQyREMzdFZ4WEsydw?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Supply Chain Attack Impacts Widely Used Axios npm Package - Arctic Wolf ">
+          <h4>Supply Chain Attack Impacts Widely Used Axios npm Package - Arctic Wolf</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Arctic Wolf · March 31, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQN1VxbGlOTXlrNFMtcnJaVFp6ajFmdHQzcDJoRllIb3Qxc3BoUDR5dmxhX1Z4TFhDMXNaVHR2WnRZU21zUXNTR2ZaSE5wWks5ZU90bUNSd0RoRUFEVkZCNVlWQ0tHdHdTUEZKR1JHX0NFLS1iNW1IY0t6a3ppU3BuWGVuMUtYUTlXMnFfUGZNcEp2cjRHQkR4Z3ByV28?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="&quot;Shai-Hulud, Here We Go Again&quot;: 170+ Packages Hit Across npm &amp; PyPi - OX Security ">
+          <h4>&quot;Shai-Hulud, Here We Go Again&quot;: 170+ Packages Hit Across npm &amp; PyPi - OX Security</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> OX Security · May 12, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPaTJjb2d2WU9rWkVkTUYxQU45SGhzdjNWMkM1WVZEZVVSeGtUbjAxV01QZ3BNTDFLcTllYmV6anEzRkY1MnBneUFVNzVCT1c0dnNLdXAxa0NMSTA0Y25HbkgyNE12Wm5vc1FJbzRNM2tpREFUQWRfZFNhLU85c3BQVmFjbDhyVi04ejJpem5PM1lFaWpy?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Et Tu, Agent? Did You Install the Backdoor? - Andreessen Horowitz ">
+          <h4>Et Tu, Agent? Did You Install the Backdoor? - Andreessen Horowitz</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Andreessen Horowitz · April 2, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFA2RGIzeFZJSXF1Y0Y0YUJJekd1ZGRmMzVXTWJIOHplTDZvUmgzMTZwQ2tLQmxoRUIwUURoTU9HamdRUlpCam9sbC00TzFHcnc2LUlRQWVDZGFqaXkxOVRrV0w2WDdZMDlvOWc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Mastra npm Org Compromised: Multiple Packages Trojanized to Drop a Remote Payload via easy-day-js - Endor Labs ">
+          <h4>Mastra npm Org Compromised: Multiple Packages Trojanized to Drop a Remote Payload via easy-day-js - Endor Labs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Endor Labs · June 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPTmdvZjlQMzNLQXZkTFZ4SWVfNzh1UW5KbHJjelVjbC1NU2k2S3NKNlVpTndSLV84NWx6cGVRTnN4V3R4T0hSQmNzb0hFdDlDb1VvU2dDNk5VRG1jX2U0OEJxbURhZEswX3g5Q3R3TDg2MV9fV1JBWGd2cWJIUXBhRDFyclNmd1lEOGo2M2pRWlRaVmZhb2xySXl4OW5GUUZGSTVVdmtuTDkyVDZEdFd6eTIyU3diamYwa29UR0VJbGMtdFpiZVVn?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Axios NPM Package Compromised: Supply Chain Attack Hits JavaScript HTTP Client with 100M+ Weekly Downloads - www.trendmicro.com ">
+          <h4>Axios NPM Package Compromised: Supply Chain Attack Hits JavaScript HTTP Client with 100M+ Weekly Downloads - www.trendmicro.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> www.trendmicro.com · March 31, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVFB5Qk9Sa0RaQl9TaWI0VU83UDVxMnc3dlBXc251dzdOdERwLUpsbXA3alVQMkl4UHEtQnhuUUZ4akVuRnJBTVVUTjBSVDE3MDI0YXZfSTBEVGFvWldMYk9WSUxZdGhfMG1WQlNhbGh2aklGb3Bha1Nibm1Yd3VPTm5ucGswYjNs?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="npm v12 Is Coming in July — Here’s What Developers Need to Do Now - DevOps.com ">
+          <h4>npm v12 Is Coming in July — Here’s What Developers Need to Do Now - DevOps.com</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> DevOps.com · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOMjk0TkF3LXFnTF9RTDQ5UlFxVDhfRXl6TjJqMTk1aFUxUkxrSUZkMDdmeFNmYjJaZFFKY3R6TGNjcG1yTGJTVTRVQUxnbVpkUVNXVVdNd0NxcXFqdlIwU3ZaMjBGRXd3UVIyOGR0ZHZxeVRXb0hjVF9aSTBfZGJrWHJjaDRGTGJNemc?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Malicious node-ipc versions published to npm in suspected maintainer account compromise - Snyk ">
+          <h4>Malicious node-ipc versions published to npm in suspected maintainer account compromise - Snyk</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Snyk · May 15, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE82RDBRNkdIdWZ6T290bVNDZXJGWWQ4MGs2bzdEd0o1MGg0M0ZGalU5LTVXQV9WM05hVDFWMmxIOUZacjFteEZiOUh2bW5iTVFkWU9TZFV3aEc4MUpsVGRvOEdMV1pBbGZRd3JGVHhwZS0?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Red Hat npm Packages Hit by Miasma Credential-Stealing Attack - SOC Prime ">
+          <h4>Red Hat npm Packages Hit by Miasma Credential-Stealing Attack - SOC Prime</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> SOC Prime · June 8, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxQWEw0NUZvVVktOWVvcWUwbWJzOGMtVkJUbEZ4TG5ud25QRzA4RHpFZ2g4WFltRE5nN2p5NWg2dTJwZ19mXzJrRnp0VGhLY190b0Nob0o5MFAyNl9VbExfY3dwdmVoWDlFNTA1TENYWlRkYzdKSFp2WVgwMkFTVnQzUDRXNjNjd1h2M1F2TW5JX2k3dEo2ZVIzUlgtZ2JHSmk0bWFtajZ0cU1YOHhSSDBuWDFsLU56WTM4cUE?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Miasma Returns: Leo Platform Compromise Shows Why Package Detection Needs Context - Sonatype ">
+          <h4>Miasma Returns: Leo Platform Compromise Shows Why Package Detection Needs Context - Sonatype</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Sonatype · June 25, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNR3F1MnNtSExNbjl0dDdoMFJBQWcxeWFpRUg4U0o4RUhhWnJEMzdqOGltMmRLeXlfV3RzUkhTTGRoSG5GenlvakppT3ZjV0FCZ0ZKblhHdHBrN2pBZjBMeFpyWDRJS0NrOGZLUDZuNjJYUE5KVTRGWkVueC1zdklvRdIBkAFBVV95cUxORldsTVRrNXFlNVhabGhrTTZOd2VYNkFYckd6RHVtMzMxSGpwNy1vVzVtMFhVcTA5Y0lYU3BVZEo3UkI1ZlhMUFJDa0NITW5pVE8wMnNIMGl3RDQwempZekoyQzBDSTVqWEVxYVNhWEFIcGpwMG5jSkoyS0t0YzJoVWdLbVdmSFBqOEdLdndmZ0c?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Mitigating the Axios npm supply chain compromise - Microsoft ">
+          <h4>Mitigating the Axios npm supply chain compromise - Microsoft</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Microsoft · April 1, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOallIdUhSQm81WlZobmlobUpnR3cwc3hENVRmUkNKUkhDcXJTZ0kySHdVM2ozcTdJaVBmMHNXV012eTh3d3dpZ09hSEk4dUNoUEdEWHp1bXM3TjZMQ2w5NUlZR195TFhVa0g4eFFKNzA2OTBJMS1SSjBfVVRMTi0zSjlzQVFoMExjRlIxcGNkc1g2SF9RWWxWaU5qZ0VoQ1NhaHpTVVhFcG54UQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="A Mini Shai-Hulud Has Appeared: Obfuscated Bun Runtime Payloads Hit SAP-Related npm Packages - StepSecurity ">
+          <h4>A Mini Shai-Hulud Has Appeared: Obfuscated Bun Runtime Payloads Hit SAP-Related npm Packages - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · April 29, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE9zYjJDTGowVVBIY2F5ZzRrTGs5Tm5NcmZsYllpVUEzRko5eU5LS0xtTUtFTzNBS3JrYlRPbEQyMEt5bGZza3c5cmQ5NXhROTlwWVY5ZWVrTG5fNTdfalNySC1veHBBRVRpUWxuZFZCUEY?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="npm adds preventive account protection for high-impact accounts - The GitHub Blog ">
+          <h4>npm adds preventive account protection for high-impact accounts - The GitHub Blog</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The GitHub Blog · June 25, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQMmU2c0FUR0loOVFRQjdlUUFYc1NETVV3ZTdPWnF5RHNudWxrZ0d0U2tabWJ0UmRfT1NBZ1NRRjFGZFBFd3BqOHJocEVvSG8xZFhwcDJqTlpzMmtmVTJ6Uzg4RUN4ZVhLYWFKeng3U1M5TDF5Wml2RHRCVjJ6Rm1Ob1pBTm40YXZxQ2lQSVR5SmlxNWJyN1hQZllWWDNja0dwS3kySFVYaHk?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain Attacks - The Hacker News ">
+          <h4>npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain Attacks - The Hacker News</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> The Hacker News · May 23, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE41Q3BFY1FYaTJFRVMwWE12c0dpLUNxcHJXX1FLZHJFVTRMeGlDOVpMQVN4MDBoLWlPRUhQQmUzVmF4RVJCa2N0R2poX0ZzNG1ST2xFREszbTR3N2FCNTFYMlJLYm9zSXdHVWwtUXd6c01sSXNsUkVqRm1TT0Y?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GitHub Disables npm Install Scripts by Default in v12 to Prevent JavaScript Supply Chain Attacks - Rescana ">
+          <h4>GitHub Disables npm Install Scripts by Default in v12 to Prevent JavaScript Supply Chain Attacks - Rescana</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Rescana · June 11, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOX3NtYXJJSEhwQjVuZkVEQ0hic2IyQXFSTTYxdHFEMWxXZWZmR0JaYmx4S0NCenJfZ0ZZUTJ6YU9WSHVjcDRLNXZtY1RuYVg0UkllYUc1Q1hYanFsWkF2M093UUV5S25TZUZCYUZRQ3J0ZHpCTWNUR2FDb2tObC1yTHBQVGVMQkdiOWlCZHlIRDdTV0haVGtNRm1PTUVYZlk2MWFhWGsxSFVqMHJHTXVGaUx3V0pYVzc0MW4xRm5Ma25RbzA?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="TanStack npm Supply Chain Attack: Detailed Analysis of the May 2026 GitHub Actions Breach and Multi-Ecosystem Impact - Rescana ">
+          <h4>TanStack npm Supply Chain Attack: Detailed Analysis of the May 2026 GitHub Actions Breach and Multi-Ecosystem Impact - Rescana</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Rescana · May 21, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxNWHFCemV4MW5uMUZuUVNyN2FwNk4wa0lsVm5oblFXVF9fYkVabjBheE5hZklZU0F5Wk1hVFNuT3EzVlBDbFNhNVNlWEluOWxOblFXdEZvU2tVT3J6TnNPeFNSaW1Yc0MxWm5uQTExS3VRQUJ5NFVGMWxjUWVWNW9TbmVBdEV2ekhPaDZSXzZzRXJFTlBrUjUxWW5iMVp3VHZGY3E4MkIyd3lyQWtzaW9Gbks2U1FMclRwTkxISjBNZk5QeWctUzRrV1NGNGI3eURodG9lMkRnWThtcGJB?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GitHub finally pulls the plug on automatic install script execution for npm - InfoWorld ">
+          <h4>GitHub finally pulls the plug on automatic install script execution for npm - InfoWorld</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> InfoWorld · June 10, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQRFk3LWhZeURmQWpUUWR4Nk5wSjJrR2l2OTl4MVpVNV9IWFFnR2JsOW9TcVFzZ3M5d3FJR1pBcXJIZ0ZUX2toY2N5YkFuM19OQWw5VU0yRTlZckJUOWZKX2loSGJyb3hudV8yaUJOaVFMbi1vM2FJMk5fbDgtTVVhRU1wSlkyMWZuODFMWWMwckhfa2NYMEUyQkRPRmtjVmVIZUhoQjJRazUzck91T2dYalhYVTZ6VlpDSWpRblNNWQ?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Shai-Hulud Is Back, and npm Maintainer Accounts Are Still the Soft Target - Sonatype ">
+          <h4>Shai-Hulud Is Back, and npm Maintainer Accounts Are Still the Soft Target - Sonatype</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Sonatype · May 19, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE9ZV0hLWFR5d2lYYlA2all1Q1k3dEVYaGNOMUEwNnB6RkFoYk1PdGF2OTNfVXNadE1sU29zRUg5S3hEY3Y1VXUzS0hoNFZTNHdxcnc0dG5UVGRGZTdZUGUweGJ5T0YxdU1TN2JjVThzYkJpYllSaFg3V1BYONIBiwFBVV95cUxNcnpEU2lLbVJEMWRob1BISjFCRXZVLVZwNEo4SHE3UFZnT3BXMUxieHlUbGZ3dlRYOFQ0VnJHZ3d5QklmWmVoMURYSUNIYVBrR1BSWGNEUVdaRWJzeGFpdy1Jc0lkU244WDlZSVFtQ1BVU2hNQVNmWmowb0pYam41UEVMOTVfcTFPSDE4?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="CanisterSprawl: pgserve Compromised on npm: Malicious Versions Harvest Credentials and Exfiltrate to a Decentralized ICP Canister - StepSecurity ">
+          <h4>CanisterSprawl: pgserve Compromised on npm: Malicious Versions Harvest Credentials and Exfiltrate to a Decentralized ICP Canister - StepSecurity</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> StepSecurity · April 21, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOalZYSHdteWNYNTROb2taTlhxS1g4UUgwM2dSamRSTFNyRW5vWjJYNkptQnBPUzhYV3o2dlBlSnJlOVRJb291UDRPS1NGTGQxd3ZtdnlWbHFab1J3cGRNLXpHQjlydmNjNGFpcFpYSllrYmFaajZyeXVZcVVHRkpxM3RMMzJHMEhQRnpMek81dTdTeXhmeFFpWFFnOFl0M1E?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GitHub Locks Down npm: What the New Install Defaults Mean for Your Supply Chain - Security Boulevard ">
+          <h4>GitHub Locks Down npm: What the New Install Defaults Mean for Your Supply Chain - Security Boulevard</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> Security Boulevard · June 17, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeXFJQXpaUkFPYXBKUm9Td3VRbmtZeEtCYlVOc05WbjdiVzZLLS1xNko0aUFkVlRUdHR6dEV0OUZ0dUlMVmRfY2VtcDFmTlpsTW1LbW94cUJSUFQ5Q1VhUlRhV3BMR2stSGlSTEtabGFnNFdieUpVZ3dRR0VJQUlId3YwNU56dUF2U2sydTh0WTFfM2txZjdIUFdPZTFWc2RiY3ZrbWpoSlFKMlQ0LXBVT3gzU3NGaHN5?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="31 Red Hat npm packages backdoored in 72 seconds - ReversingLabs ">
+          <h4>31 Red Hat npm packages backdoored in 72 seconds - ReversingLabs</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> ReversingLabs · June 1, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNaUtyN1c3WXQtcDJ5aDl2LUR2VEZIVkduc2pXQ2NTZURLcXh2UHdhMXl0TC1ta012TWp5NE44a0dNVDFsbFR2NDFQMTRtUVlsU2tmOV9NS2dkMzcyRDJvVjk3Mmx3ZG1DaVREb3huaEM4VXA1UkJaa0p1dmh1SVV5MktPdFBOZ3Z0VklLWU5YLTZrZl9uVDYzS2N3?oc=5" target="_blank">Read article →</a></div>
+        </div>
+        <div class="post-card" data-searchable="GitHub announces npm security changes to tackle supply-chain attacks - BleepingComputer ">
+          <h4>GitHub announces npm security changes to tackle supply-chain attacks - BleepingComputer</h4>
+          <div class="meta"><span class="badge badge-news">NEWS</span> BleepingComputer · June 10, 2026</div>
+          
+          <div class="meta"><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxOeVdIMnZxeEdNcDMzWTI5TUkxWHJabF9FVzFibUpvUUxKdWdpV2JoM2JmSXUwS2VHVG1SRWRLQ2RuZUFaME1qa3JqYjRVem5JRk1uamNHZDR1dnAzQ1RxUzBmUmZsS2FFdDVyc0RFZHFqb2VxR0FtZ1ZhVlNUcXZhZTJxTWozb2xLdUVYVU5zUUZtM1F4YUxTeTNCYzNWLVJwSm1mZFVtdVBzTEY3M1lTc3BRTklRcFHSAbwBQVVfeXFMTzA4cVNEeUgzdm5lWDFZdUxFRGtRTTJ6eW1CNlR0SzVPWktJVHFFMXJ3VE1fM2RLZUxzcTRKemRtYTd6QTlpdWFHTWdIb21HU3dWa2wtX1NwSm92aElvdzJwbnJmZ2M5bkZPQ2NLQWp2YjJmZGp4X0d3SHZIVGtFZkI5YzlNTDhOUDNsZ1JjSTRiOTdVVENCNjFEQ3EteVlWdUdyamhGNEg0ZTZRanhscFN2cEYzSDlqV0dKRTk?oc=5" target="_blank">Read article →</a></div>
+        </div></div></div><div class="section" id="reddit-section"><div class="section-header"><h2>Reddit Analysis (1 posts)</h2>
+        <button class="collapse-btn" onclick="toggleSection('reddit-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="reddit-cards">
+        <div class="post-card" data-searchable="What would enforcing id verification for browsing the internet entail realistically? After all the data breaches like the tea app and stuff, I wouldn&#039;t be particularly keen on showing my id to any random website, and I actually think it would be healthy for me to stop using social media so much, but I&#039;d still need to use the internet for things like getting programming documentation. I don&#039;t think the government will force me to give them my id to `npm install is-odd`, but just to make sure, is that likely to happen in any way? are there any precedents in countries with heavy internet censorship like china or the like? 0x_by_me">
+          <h4>What would enforcing id verification for browsing the internet entail realistically?</h4>
+          <div class="meta">
+            <span class="badge badge-reddit">r/NoStupidQuestions</span>
+            <span class="badge badge-score">⬆ 1</span>
+            <span class="sentiment-badge sentiment-neutral">neutral</span>
+            💬 0 comments · 0x_by_me · August 1, 2025
+          </div>
+          <div class="text">After all the data breaches like the tea app and stuff, I wouldn&#039;t be particularly keen on showing my id to any random website, and I actually think it would be healthy for me to stop using social media so much, but I&#039;d still need to use the internet for things like getting programming documentation. I don&#039;t think the government will force me to give them my id to `npm install is-odd`, but just to make sure, is that likely to happen in any way? are there any precedents in countries with heavy in...</div>
+          <div class="meta"><a href="https://www.reddit.com/r/NoStupidQuestions/comments/1medg36" target="_blank">View on Reddit →</a></div></div></div></div><div class="section" id="author-section"><div class="section-header"><h2>Top Authors</h2></div>
+        <div class="author-card" data-searchable="0x_by_me">
+          <div>
+            <div class="name">u/0x_by_me</div>
+            <div class="stats">1 posts · ⬆ 1 total · avg ⬆ 1</div>
+            <div class="stats">Active in: r/NoStupidQuestions</div>
+          </div>
+        </div></div><div class="section" id="youtube-section"><div class="section-header"><h2>YouTube Analysis (15 videos)</h2>
+        <button class="collapse-btn" onclick="toggleSection('youtube-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="youtube-cards">
+        <div class="video-card" data-searchable="The largest supply-chain attack ever… Fireship">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/QVqIx-Y8s-s/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDYeuWBaMCiQYpHTjgQgdoWdbPurg" alt="The largest supply-chain attack ever…" loading="lazy"></div>
+          <div class="info">
+            <h4>The largest supply-chain attack ever…</h4>
+            <div class="channel">Fireship</div>
+            <div class="meta">
+              👁 697,064 views
+               · ⏱ 4:00
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=QVqIx-Y8s-s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="the WORST hack of 2026 NetworkChuck">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/eGSsoSEppNU/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLAPHtAs_4xNV-Z-uXBsRc_Pipz8qQ" alt="the WORST hack of 2026" loading="lazy"></div>
+          <div class="info">
+            <h4>the WORST hack of 2026</h4>
+            <div class="channel">NetworkChuck</div>
+            <div class="meta">
+              👁 495,295 views
+               · ⏱ 11:00
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=eGSsoSEppNU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="What is NPM, and why do we need it? | Tutorial for beginners Coder Coder">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/P3aKRdUyr0s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAfo1bBbXwM8B0pqdmHSb9SDUiiRg" alt="What is NPM, and why do we need it? | Tutorial for beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>What is NPM, and why do we need it? | Tutorial for beginners</h4>
+            <div class="channel">Coder Coder</div>
+            <div class="meta">
+              👁 414,684 views
+               · ⏱ 14:27
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=P3aKRdUyr0s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="HOW TO INSTALL NPM NODEJS IN VISUAL STUDIO CODE skopioeye">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/eft-LJb4kW0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDvNN7zsozN-dO3k-O5Aj0-dMPheQ" alt="HOW TO INSTALL NPM NODEJS IN VISUAL STUDIO CODE" loading="lazy"></div>
+          <div class="info">
+            <h4>HOW TO INSTALL NPM NODEJS IN VISUAL STUDIO CODE</h4>
+            <div class="channel">skopioeye</div>
+            <div class="meta">
+              👁 170,060 views
+               · ⏱ 1:51
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=eft-LJb4kW0" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="I Finally Changed Package Managers Theo - t3․gg">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/ZIKDJBrk56k/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLBEM_2kQwIX8J9tiGmOS8j7R0oD7w" alt="I Finally Changed Package Managers" loading="lazy"></div>
+          <div class="info">
+            <h4>I Finally Changed Package Managers</h4>
+            <div class="channel">Theo - t3․gg</div>
+            <div class="meta">
+              👁 130,398 views
+               · ⏱ 4:01
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=ZIKDJBrk56k" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Install Node.JS and NPM on Windows | How to Install NPM Packages | Node Installation Fabio Musanni - Programming Channel">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/kQabFyl9r9I/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD2ywR7rq6qNWiprxMZ46QVEVkByg" alt="How to Install Node.JS and NPM on Windows | How to Install NPM Packages | Node Installation" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Install Node.JS and NPM on Windows | How to Install NPM Packages | Node Installation</h4>
+            <div class="channel">Fabio Musanni - Programming Channel</div>
+            <div class="meta">
+              👁 74,408 views
+               · ⏱ 9:04
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=kQabFyl9r9I" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="npm for absolute beginners Kevin Powell">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/UYz-9UaUp2E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDe3EqB8x5deAVRQau39uQV0LWZQQ" alt="npm for absolute beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>npm for absolute beginners</h4>
+            <div class="channel">Kevin Powell</div>
+            <div class="meta">
+              👁 62,960 views
+               · ⏱ 15:32
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=UYz-9UaUp2E" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Install Node.js on Window 11 (2026) ProgrammingKnowledge">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Iqj8bUJweiU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAdSaO6GK-TopGnRnYxavREKvAgKQ" alt="How to Install Node.js on Window 11 (2026)" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Install Node.js on Window 11 (2026)</h4>
+            <div class="channel">ProgrammingKnowledge</div>
+            <div class="meta">
+              👁 50,846 views
+               · ⏱ 19:52
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Iqj8bUJweiU" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Install NPM in Visual Studio Code (2025 Update) The Code City">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/w4Xm46_UmJM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDTw2HEFWlSAOQj2bft-_u29TwBpw" alt="How to Install NPM in Visual Studio Code (2025 Update)" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Install NPM in Visual Studio Code (2025 Update)</h4>
+            <div class="channel">The Code City</div>
+            <div class="meta">
+              👁 34,985 views
+               · ⏱ 2:04
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=w4Xm46_UmJM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="npm installs can hack your laptop (Here&#039;s how to stop it) Better Stack">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Wq6yMdt11LM/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDEPAvHKknzgS4VpnnnbZzZiYzf4w" alt="npm installs can hack your laptop (Here&#039;s how to stop it)" loading="lazy"></div>
+          <div class="info">
+            <h4>npm installs can hack your laptop (Here&#039;s how to stop it)</h4>
+            <div class="channel">Better Stack</div>
+            <div class="meta">
+              👁 21,483 views
+               · ⏱ 9:55
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Wq6yMdt11LM" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="How to Install Node.js With npm on Window 11 (2026) ProgrammingKnowledge2">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/016RE6hevds/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBzOWwZN4Pxgkq5ZOnSvlupP8wndw" alt="How to Install Node.js With npm on Window 11 (2026)" loading="lazy"></div>
+          <div class="info">
+            <h4>How to Install Node.js With npm on Window 11 (2026)</h4>
+            <div class="channel">ProgrammingKnowledge2</div>
+            <div class="meta">
+              👁 4,658 views
+               · ⏱ 3:23
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=016RE6hevds" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Making &#039;npm install&#039; Safe InfoQ">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/hP00w4r4zhg/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDysPmPYCMdd9adaYZaMBJnPdb8Yw" alt="Making &#039;npm install&#039; Safe" loading="lazy"></div>
+          <div class="info">
+            <h4>Making &#039;npm install&#039; Safe</h4>
+            <div class="channel">InfoQ</div>
+            <div class="meta">
+              👁 3,327 views
+               · ⏱ 45:43
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=hP00w4r4zhg" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="npm install Explained: Your Guide to Installing npm Packages for Beginners CodeLucky">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/JuaV14CDJ6k/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCccQMOOJqiyoL3qEid_FL-ME6dyQ" alt="npm install Explained: Your Guide to Installing npm Packages for Beginners" loading="lazy"></div>
+          <div class="info">
+            <h4>npm install Explained: Your Guide to Installing npm Packages for Beginners</h4>
+            <div class="channel">CodeLucky</div>
+            <div class="meta">
+              👁 433 views
+               · ⏱ 3:09
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=JuaV14CDJ6k" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="Never use npm install  in code pipeline . Why ? Code Review">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/Z3Q8SU53D8s/hqdefault.jpg?sqp=-oaymwEgCOADEI4CSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLDCd96vdgH53Pz4rPTgbExx7hZSZA" alt="Never use npm install  in code pipeline . Why ?" loading="lazy"></div>
+          <div class="info">
+            <h4>Never use npm install  in code pipeline . Why ?</h4>
+            <div class="channel">Code Review</div>
+            <div class="meta">
+              👁 80 views
+               · ⏱ 8:17
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=Z3Q8SU53D8s" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div>
+        <div class="video-card" data-searchable="npm Install Is Changing: What Node.js Teams Need to Know IT Path Solutions">
+          <div class="thumb"><img src="https://i.ytimg.com/vi/r8yLcvC2nsQ/hq720.jpg?sqp=-oaymwEgCNAFEJQDSFXyq4qpAxIIARUAAIhCGAFwAcABBrgC9xg=&rs=AOn4CLCJ_RW-SNnm1uRpmRC35dgRKA0b2Q" alt="npm Install Is Changing: What Node.js Teams Need to Know" loading="lazy"></div>
+          <div class="info">
+            <h4>npm Install Is Changing: What Node.js Teams Need to Know</h4>
+            <div class="channel">IT Path Solutions</div>
+            <div class="meta">
+              👁 17 views
+               · ⏱ 3:21
+              
+            </div>
+            <div class="meta"><a href="https://www.youtube.com/watch?v=r8yLcvC2nsQ" target="_blank">Watch on YouTube →</a></div>
+          </div>
+        </div></div></div><div class="section" id="hn-section"><div class="section-header"><h2>Hacker News (15 stories)</h2>
+        <button class="collapse-btn" onclick="toggleSection('hn-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="hn-cards">
+        <div class="post-card" data-searchable="Disabling npm&#039;s progress bar yields a 2x npm install speed improvement">
+          <h4>Disabling npm&#039;s progress bar yields a 2x npm install speed improvement</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 544</span>
+            
+            · ishtu
+            
+          </div>
+          <div class="meta">
+            <a href="https://twitter.com/gavinjoyce/status/691773956144119808" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Malicious code in the purescript NPM installer">
+          <h4>Malicious code in the purescript NPM installer</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 521</span>
+            
+            · braythwayt
+            
+          </div>
+          <div class="meta">
+            <a href="https://harry.garrood.me/blog/malicious-code-in-purescript-npm-installer/" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="ChatGPT Containers can now run bash, pip/npm install packages and download files">
+          <h4>ChatGPT Containers can now run bash, pip/npm install packages and download files</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 451</span>
+            
+            · simonw
+            
+          </div>
+          <div class="meta">
+            <a href="https://simonwillison.net/2026/Jan/26/chatgpt-containers/" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="$ sudo rm -rf / === NPM install">
+          <h4>$ sudo rm -rf / === NPM install</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 171</span>
+            
+            · ghuntley
+            
+          </div>
+          <div class="meta">
+            <a href="https://ghuntley.com/sudo-rm-rf/" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Install NPM dependencies that run in browser without Browserify, Webpack">
+          <h4>Install NPM dependencies that run in browser without Browserify, Webpack</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 170</span>
+            
+            · darrinm
+            
+          </div>
+          <div class="meta">
+            <a href="https://github.com/pikapkg/web/blob/master/README.md" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Standard JS: npm install funding">
+          <h4>Standard JS: npm install funding</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 168</span>
+            
+            · ndrake
+            
+          </div>
+          <div class="meta">
+            <a href="https://github.com/standard/standard/issues/1381" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="RFC: Make NPM install scripts opt-in">
+          <h4>RFC: Make NPM install scripts opt-in</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 130</span>
+            
+            · tolmasky
+            
+          </div>
+          <div class="meta">
+            <a href="https://github.com/npm/rfcs/pull/488" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Npm install could be dangerous">
+          <h4>Npm install could be dangerous</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 122</span>
+            
+            · joaojeronimo
+            
+          </div>
+          <div class="meta">
+            <a href="https://github.com/joaojeronimo/rimrafall" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Show HN: Turn NPM installs into a Space Invaders style game in your terminal">
+          <h4>Show HN: Turn NPM installs into a Space Invaders style game in your terminal</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 105</span>
+            
+            · massivedragon
+            
+          </div>
+          <div class="meta">
+            <a href="https://www.npmjs.com/nplaym" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Show HN: Safe-NPM – only install packages that are +90 days old">
+          <h4>Show HN: Safe-NPM – only install packages that are +90 days old</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 90</span>
+            
+            · kevinslin
+            
+          </div>
+          <div class="meta">
+            <a href="https://github.com/kevinslin/safe-npm" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="npm install firebase">
+          <h4>npm install firebase</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 72</span>
+            
+            · mayop100
+            
+          </div>
+          <div class="meta">
+            <a href="https://www.firebase.com/blog/2013-03-14-firebase-now-available-in-the-npm.html" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Show HN: Auto install npm dependencies as you code">
+          <h4>Show HN: Auto install npm dependencies as you code</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 60</span>
+            
+            · siddharthkp
+            
+          </div>
+          <div class="meta">
+            <a href="https://www.npmjs.com/package/auto-install" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Show HN: npm install actual-malware">
+          <h4>Show HN: npm install actual-malware</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 55</span>
+            
+            · lhmiles
+            
+          </div>
+          <div class="meta">
+            <a href="https://github.com/qpwo/actual-malware" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="NPM Install Everything, and the Complete and Utter Chaos That Follows">
+          <h4>NPM Install Everything, and the Complete and Utter Chaos That Follows</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 54</span>
+            
+            · maowtm
+            
+          </div>
+          <div class="meta">
+            <a href="https://boehs.org/node/npm-everything" target="_blank">Read article →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="NPM install is stealing your passwords – I built a tool to catch it">
+          <h4>NPM install is stealing your passwords – I built a tool to catch it</h4>
+          <div class="meta">
+            <span class="badge badge-hn">HN</span>
+            <span class="badge badge-score">⬆ 35</span>
+            
+            · ComCat
+            
+          </div>
+          <div class="meta">
+            <a href="https://westbayberry.com/product" target="_blank">Read article →</a>
+            
+          </div>
+        </div></div></div><div class="section" id="discourse-section"><div class="section-header"><h2>Discourse (12 topics)</h2>
+        <button class="collapse-btn" onclick="toggleSection('discourse-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="discourse-cards">
+        <div class="post-card" data-searchable="Npm install fails due to package.json misconfiguration">
+          <h4>Npm install fails due to package.json misconfiguration</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · kleinfreund
+            
+          </div>
+          
+          <div class="meta"><a href="https://meta.discourse.org/t/npm-install-fails-due-to-package-json-misconfiguration/101193" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to install npm packages in custom themes/plugins">
+          <h4>How to install npm packages in custom themes/plugins</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · eatcodetravel
+            
+          </div>
+          
+          <div class="meta"><a href="https://meta.discourse.org/t/how-to-install-npm-packages-in-custom-themes-plugins/142695" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Discourse installed in UNRAID Ubuntu Server VM behind NPM reverse proxy not resolving hostname">
+          <h4>Discourse installed in UNRAID Ubuntu Server VM behind NPM reverse proxy not resolving hostname</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · randyp
+            
+          </div>
+          
+          <div class="meta"><a href="https://meta.discourse.org/t/discourse-installed-in-unraid-ubuntu-server-vm-behind-npm-reverse-proxy-not-resolving-hostname/293313" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Install Discourse on macOS for development">
+          <h4>Install Discourse on macOS for development</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · Pieces
+            
+          </div>
+          
+          <div class="meta"><a href="https://meta.discourse.org/t/install-discourse-on-macos-for-development/15772" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="SPARC Code Agent + MCP Server (Built using OpenAi Agents + Deno/TS)">
+          <h4>SPARC Code Agent + MCP Server (Built using OpenAi Agents + Deno/TS)</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · ruvnet
+            
+          </div>
+          
+          <div class="meta"><a href="https://community.openai.com/t/sparc-code-agent-mcp-server-built-using-openai-agents-deno-ts/1152861" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Error on transcript audio file">
+          <h4>Error on transcript audio file</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · robisonweb
+            
+          </div>
+          
+          <div class="meta"><a href="https://community.openai.com/t/error-on-transcript-audio-file/505798" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Codex not able to start nodejs project">
+          <h4>Codex not able to start nodejs project</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · Luis_Simosa
+            
+          </div>
+          
+          <div class="meta"><a href="https://community.openai.com/t/codex-not-able-to-start-nodejs-project/1286599" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="OpenAI Quickstart tutorial issue running a code">
+          <h4>OpenAI Quickstart tutorial issue running a code</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · Leon_M
+            
+          </div>
+          
+          <div class="meta"><a href="https://community.openai.com/t/openai-quickstart-tutorial-issue-running-a-code/595235" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How do I access the Marketplace from Linux?">
+          <h4>How do I access the Marketplace from Linux?</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · LDK_Bagel
+            
+          </div>
+          
+          <div class="meta"><a href="https://forums.unrealengine.com/t/how-do-i-access-the-marketplace-from-linux/246722" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Unofficial UE4 Launcher for Linux (download assets from the marketplace)">
+          <h4>Unofficial UE4 Launcher for Linux (download assets from the marketplace)</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · LDK_Bagel
+            
+          </div>
+          
+          <div class="meta"><a href="https://forums.unrealengine.com/t/unofficial-ue4-launcher-for-linux-download-assets-from-the-marketplace/135617" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to use PixelStreaming with out internet?">
+          <h4>How to use PixelStreaming with out internet?</h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · user_3386d006d552cce0816e6e9c7fcbb2568d2a3652b63da56f39f73d
+            
+          </div>
+          
+          <div class="meta"><a href="https://forums.unrealengine.com/t/how-to-use-pixelstreaming-with-out-internet/1999276" target="_blank">View topic →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Fully Automating iOS Automation Tests using Gauntlet on Horde ">
+          <h4>Fully Automating iOS Automation Tests using Gauntlet on Horde </h4>
+          <div class="meta">
+            <span class="badge badge-discourse">DISCOURSE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 posts
+            
+             · step_jac_eg
+            
+          </div>
+          
+          <div class="meta"><a href="https://forums.unrealengine.com/t/fully-automating-ios-automation-tests-using-gauntlet-on-horde/2670919" target="_blank">View topic →</a></div>
+        </div></div></div><div class="section" id="se-section"><div class="section-header"><h2>Stack Exchange (15 questions)</h2>
+        <button class="collapse-btn" onclick="toggleSection('se-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="se-cards">
+        <div class="post-card" data-searchable="What is the --save option for npm install?">
+          <h4>What is the --save option for npm install?</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 3164</span>
+            💬 17 answers
+            
+            
+             · Dmitri
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/19578796/what-is-the-save-option-for-npm-install" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Find the version of an installed npm package">
+          <h4>Find the version of an installed npm package</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 3077</span>
+            💬 31 answers
+            
+            
+             · Laurent Couvidou
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">package</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/10972176/find-the-version-of-an-installed-npm-package" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="What&amp;#39;s the difference between tilde(~) and caret(^) in package.json?">
+          <h4>What&amp;#39;s the difference between tilde(~) and caret(^) in package.json?</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 5611</span>
+            💬 23 answers
+            
+            
+             · Fizer Khan
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">npm</span><span class="badge badge-web" style="margin-right:3px;">package.json</span><span class="badge badge-web" style="margin-right:3px;">caret</span><span class="badge badge-web" style="margin-right:3px;">semantic-versioning</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Where does npm install packages?">
+          <h4>Where does npm install packages?</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 1554</span>
+            💬 23 answers
+            
+            
+             · trnc
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">javascript</span><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">location</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/5926672/where-does-npm-install-packages" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to install a previous exact version of a NPM package?">
+          <h4>How to install a previous exact version of a NPM package?</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 1295</span>
+            💬 10 answers
+            
+            
+             · stewart99
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/15890958/how-to-install-a-previous-exact-version-of-a-npm-package" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Do I commit the package-lock.json file created by npm 5?">
+          <h4>Do I commit the package-lock.json file created by npm 5?</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 2548</span>
+            💬 15 answers
+            
+            
+             · rink.attendant.6
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">git</span><span class="badge badge-web" style="margin-right:3px;">npm</span><span class="badge badge-web" style="margin-right:3px;">version-control</span><span class="badge badge-web" style="margin-right:3px;">lockfile</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/44206782/do-i-commit-the-package-lock-json-file-created-by-npm-5" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Why does &amp;quot;npm install&amp;quot; rewrite package-lock.json?">
+          <h4>Why does &amp;quot;npm install&amp;quot; rewrite package-lock.json?</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 979</span>
+            💬 12 answers
+            
+            
+             · Viper Bailey
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">npm</span><span class="badge badge-web" style="margin-right:3px;">npm-install</span><span class="badge badge-web" style="margin-right:3px;">package-lock.json</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/45022048/why-does-npm-install-rewrite-package-lock-json" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="How to install an npm package from GitHub directly">
+          <h4>How to install an npm package from GitHub directly</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 1251</span>
+            💬 23 answers
+            
+            
+             · guy mograbi
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">github</span><span class="badge badge-web" style="margin-right:3px;">npm</span><span class="badge badge-web" style="margin-right:3px;">npm-install</span><span class="badge badge-web" style="margin-right:3px;">node-modules</span></div>
+          
+          <div class="meta"><a href="https://stackoverflow.com/questions/17509669/how-to-install-an-npm-package-from-github-directly" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="npm install google-cloud fails">
+          <h4>npm install google-cloud fails</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 4</span>
+            💬 1 answers
+            
+            
+             · Flock Dawson
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">google-cloud-platform</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/1148066/npm-install-google-cloud-fails" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="NPM install error code E502">
+          <h4>NPM install error code E502</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 1</span>
+            💬 0 answers
+            
+            
+             · Nakatax
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">gateway</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/1420496/npm-install-error-code-e502" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Node-gyp error on running npm install">
+          <h4>Node-gyp error on running npm install</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 2</span>
+            💬 1 answers
+            
+            
+             · karansys
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/1421261/node-gyp-error-on-running-npm-install" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Node/Npm are verified installed, but npm install throws node not found error in gitbash">
+          <h4>Node/Npm are verified installed, but npm install throws node not found error in gitbash</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 1</span>
+            💬 1 answers
+            
+            
+             · jameseg
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">windows</span><span class="badge badge-web" style="margin-right:3px;">powershell</span><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">git-bash</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/1455750/node-npm-are-verified-installed-but-npm-install-throws-node-not-found-error-in" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="sudo npm install command throw errors">
+          <h4>sudo npm install command throw errors</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 0 answers
+            
+            
+             · njavig
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">macos</span><span class="badge badge-web" style="margin-right:3px;">permissions</span><span class="badge badge-web" style="margin-right:3px;">sudo</span><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">npm</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/1422688/sudo-npm-install-command-throw-errors" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="npm install not works - `node-gyp rebuild` error">
+          <h4>npm install not works - `node-gyp rebuild` error</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 0</span>
+            💬 1 answers
+            
+            
+             · user1017850
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/1422204/npm-install-not-works-node-gyp-rebuild-error" target="_blank">View on SE →</a></div>
+        </div>
+        <div class="post-card" data-searchable="Cant install NPM as user not root">
+          <h4>Cant install NPM as user not root</h4>
+          <div class="meta">
+            <span class="badge badge-se">STACK EXCHANGE</span>
+            <span class="badge badge-score">⬆ 1</span>
+            💬 0 answers
+            
+            
+             · eciusr
+          </div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-web" style="margin-right:3px;">node.js</span><span class="badge badge-web" style="margin-right:3px;">ubuntu</span></div>
+          
+          <div class="meta"><a href="https://superuser.com/questions/595795/cant-install-npm-as-user-not-root" target="_blank">View on SE →</a></div>
+        </div></div></div><div class="section" id="arxiv-section"><div class="section-header"><h2>arXiv (10 papers)</h2>
+        <button class="collapse-btn" onclick="toggleSection('arxiv-cards')">Toggle</button></div>
+        <div class="collapsible-content" id="arxiv-cards">
+        <div class="post-card" data-searchable="&quot;I wasn&#039;t sure if this is indeed a security risk&quot;: Data-driven Understanding of Security Issue Reporting in GitHub Repositories of Open Source npm Packages Rajdeep Ghosh, Shiladitya De, Mainack Mondal">
+          <h4>&quot;I wasn&#039;t sure if this is indeed a security risk&quot;: Data-driven Understanding of Security Issue Reporting in GitHub Repositories of Open Source npm Packages</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2025-06-09
+          </div>
+          <div class="meta">Rajdeep Ghosh, Shiladitya De, Mainack Mondal</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.CR</span></div>
+          <div class="text">The npm (Node Package Manager) ecosystem is the most important package manager for JavaScript development with millions of users. Consequently, a plethora of earlier work investigated how vulnerability reporting, patch propagation, and in general detection as well as resolution of security issues in such ecosystems can be facilitated. However, understanding the ground reality of security-related i...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2506.07728v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="npm-filter: Automating the mining of dynamic information from npm packages Ellen Arteca, Alexi Turcotte">
+          <h4>npm-filter: Automating the mining of dynamic information from npm packages</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2022-01-20
+          </div>
+          <div class="meta">Ellen Arteca, Alexi Turcotte</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">The static properties of code repositories, e.g., lines of code, dependents, dependencies, etc. can be readily scraped from code hosting platforms such as GitHub, and from package management systems such as npm for JavaScript; Although no less important, information related to the dynamic properties of programs, e.g., number of tests in a test suite that pass or fail, is less readily available. Th...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2201.08452v4" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="What are Weak Links in the npm Supply Chain? Nusrat Zahan, Thomas Zimmermann, Patrice Godefroid, Brendan Murphy, Chandra Maddila, Laurie Williams">
+          <h4>What are Weak Links in the npm Supply Chain?</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2021-12-19
+          </div>
+          <div class="meta">Nusrat Zahan, Thomas Zimmermann, Patrice Godefroid, Brendan Murphy, Chandra Maddila, Laurie Williams</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.CR</span><span class="badge badge-arxiv" style="margin-right:3px;">cs.CY</span><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">Modern software development frequently uses third-party packages, raising the concern of supply chain security attacks. Many attackers target popular package managers, like npm, and their users with supply chain attacks. In 2021 there was a 650% year-on-year growth in security attacks by exploiting Open Source Software&#039;s supply chain. Proactive approaches are needed to predict package vulnerabilit...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2112.10165v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="A Large Scale Analysis of Semantic Versioning in NPM Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell">
+          <h4>A Large Scale Analysis of Semantic Versioning in NPM</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2023-04-01
+          </div>
+          <div class="meta">Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">The NPM package repository contains over two million packages and serves tens of billions of downloads per-week. Nearly every single JavaScript application uses the NPM package manager to install packages from the NPM repository. NPM relies on a &quot;semantic versioning&quot; (&#039;semver&#039;) scheme to maintain a healthy ecosystem, where bug-fixes are reliably delivered to downstream packages as quickly as possi...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2304.00394v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="npm-follower: A Complete Dataset Tracking the NPM Ecosystem Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell">
+          <h4>npm-follower: A Complete Dataset Tracking the NPM Ecosystem</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2023-08-24
+          </div>
+          <div class="meta">Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">Software developers typically rely upon a large network of dependencies to build their applications. For instance, the NPM package repository contains over 3 million packages and serves tens of billions of downloads weekly. Understanding the structure and nature of packages, dependencies, and published code requires datasets that provide researchers with easy access to metadata and code of package...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2308.12545v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="On the Impact of Micro-Packages: An Empirical Study of the npm JavaScript Ecosystem Raula Gaikovina Kula, Ali Ouni, Daniel M. German, Katsuro Inoue">
+          <h4>On the Impact of Micro-Packages: An Empirical Study of the npm JavaScript Ecosystem</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2017-09-14
+          </div>
+          <div class="meta">Raula Gaikovina Kula, Ali Ouni, Daniel M. German, Katsuro Inoue</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">The rise of user-contributed Open Source Software (OSS) ecosystems demonstrate their prevalence in the software engineering discipline. Libraries work together by depending on each other across the ecosystem. From these ecosystems emerges a minimized library called a micro-package. Micro- packages become problematic when breaks in a critical ecosystem dependency ripples its effects to unsuspecting...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/1709.04638v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="Understanding and Detecting Peer Dependency Resolving Loop in npm Ecosystem Xingyu Wang, Mingsen Wang, Wenbo Shen, Rui Chang">
+          <h4>Understanding and Detecting Peer Dependency Resolving Loop in npm Ecosystem</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2025-05-19
+          </div>
+          <div class="meta">Xingyu Wang, Mingsen Wang, Wenbo Shen, Rui Chang</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">As the default package manager for Node.js, npm has become one of the largest package management systems in the world. To facilitate dependency management for developers, npm supports a special type of dependency, Peer Dependency, whose installation and usage differ from regular dependencies. However, conflicts between peer dependencies can trap the npm client into infinite loops, leading to resou...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2505.12676v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="On the Feasibility of Cross-Language Detection of Malicious Packages in npm and PyPI Piergiorgio Ladisa, Serena Elisa Ponta, Nicola Ronzoni, Matias Martinez, Olivier Barais">
+          <h4>On the Feasibility of Cross-Language Detection of Malicious Packages in npm and PyPI</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2023-10-14
+          </div>
+          <div class="meta">Piergiorgio Ladisa, Serena Elisa Ponta, Nicola Ronzoni, Matias Martinez, Olivier Barais</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.CR</span><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">Current software supply chains heavily rely on open-source packages hosted in public repositories. Given the popularity of ecosystems like npm and PyPI, malicious users started to spread malware by publishing open-source packages containing malicious code. Recent works apply machine learning techniques to detect malicious packages in the npm ecosystem. However, the scarcity of samples poses a chal...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2310.09571v1" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="On the Impact of Security Vulnerabilities in the npm and RubyGems Dependency Networks Ahmed Zerouali, Tom Mens, Alexandre Decan, Coen De Roover">
+          <h4>On the Impact of Security Vulnerabilities in the npm and RubyGems Dependency Networks</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2021-06-12
+          </div>
+          <div class="meta">Ahmed Zerouali, Tom Mens, Alexandre Decan, Coen De Roover</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">The increasing interest in open source software has led to the emergence of large language-specific package distributions of reusable software libraries, such as npm and RubyGems. These software packages can be subject to vulnerabilities that may expose dependent packages through explicitly declared dependencies. Using Snyk&#039;s vulnerability database, this article empirically studies vulnerabilities...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2106.06747v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div>
+        <div class="post-card" data-searchable="An Exploration of npm Package Co-Usage Examples from Stack Overflow: A Case Study Syful Islam, Dong Wang, Raula Gaikovina Kula, Takashi Ishio, Kenichi Matsumoto">
+          <h4>An Exploration of npm Package Co-Usage Examples from Stack Overflow: A Case Study</h4>
+          <div class="meta">
+            <span class="badge badge-arxiv">ARXIV</span>
+            · 2021-09-18
+          </div>
+          <div class="meta">Syful Islam, Dong Wang, Raula Gaikovina Kula, Takashi Ishio, Kenichi Matsumoto</div>
+          <div class="meta" style="margin-top:5px;"><span class="badge badge-arxiv" style="margin-right:3px;">cs.SE</span></div>
+          <div class="text">Third-party package usage has become a common practice in contemporary software development. Developers often face different challenges, including choosing the right libraries, installing errors, discrepancies, setting up the environment, and building failures during software development. The risks of maintaining a third-party package are well known, but it is unclear how information from Stack Ov...</div>
+          <div class="meta">
+            <a href="http://arxiv.org/abs/2109.08848v2" target="_blank">View abstract →</a>
+            
+          </div>
+        </div></div></div>
+    <div class="footer">
+        <p>Generated by Research Toolkit · 2026-07-20T13:48:58.011Z</p>
+        <p>Free &amp; Open Source · Zero API Keys Required</p>
+    </div>
+
+    <script>
+    function toggleDark() {
+        document.documentElement.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+        document.getElementById('darkBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+    (function() {
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            document.getElementById('darkBtn').textContent = 'Light Mode';
+        }
+    })();
+
+    function toggleSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('collapsed');
+    }
+
+    function expandAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.remove('collapsed'));
+    }
+
+    function collapseAll() {
+        document.querySelectorAll('.collapsible-content').forEach(el => el.classList.add('collapsed'));
+    }
+
+    function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        document.querySelectorAll('.post-card, .comment-card, .video-card, .cluster-card, .author-card').forEach(card => {
+            if (!q) { card.style.display = ''; return; }
+            const text = (card.getAttribute('data-searchable') || card.textContent).toLowerCase();
+            card.style.display = text.includes(q) ? '' : 'none';
+        });
+    }
+
+    const POSITIVE=["love","great","amazing","excellent","awesome","fantastic","best","perfect","brilliant","wonderful","excited","happy","recommend","success","win"];const NEGATIVE=["hate","terrible","awful","worst","horrible","bad","fail","problem","struggle","difficult","frustrat","annoying","waste","scam","avoid"];const NEUTRAL=["maybe","perhaps","might","could","think","opinion","consider","wonder"];
+    function getSentimentText(text) {
+        const lower = text.toLowerCase();
+        let p=0,n=0,ne=0;
+        for(const w of POSITIVE){if(lower.includes(w))p++;}
+        for(const w of NEGATIVE){if(lower.includes(w))n++;}
+        for(const w of NEUTRAL){if(lower.includes(w))ne++;}
+        if(p>n&&p>ne)return'positive';if(n>p&&n>ne)return'negative';return'neutral';
+    }
+    </script>
+</body>
+</html>
