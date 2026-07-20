@@ -1,0 +1,463 @@
+{
+  "timestamp": 1784555350424,
+  "topic": "npm install",
+  "source": "hackernews",
+  "count": 15,
+  "data": [
+    {
+      "id": "10974929",
+      "title": "Disabling npm's progress bar yields a 2x npm install speed improvement",
+      "text": "",
+      "url": "https://twitter.com/gavinjoyce/status/691773956144119808",
+      "author": "ishtu",
+      "score": 544,
+      "numComments": 174,
+      "created": "2016-01-26T18:25:01Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=10974929",
+      "topComments": [
+        {
+          "author": "gavinjoyce",
+          "text": "Some further details on the issue: https:&#x2F;&#x2F;github.com&#x2F;npm&#x2F;npm&#x2F;issues&#x2F;11283",
+          "score": 0
+        },
+        {
+          "author": "swang",
+          "text": "I don&#x27;t see this at all, what&#x27;s more worrying is that npm 3.* is apparently way slower than npm 2.*I did this test on a npm library I wrote, installs some test tools and also has to compile some gyp stuff2.14.2progress=false\nreal  0m26.589s\nuser  0m12.086s\nsys 0m3.362sprogress=true\nreal  0m29.553s\nuser  0m12.455s\nsys 0m3.486s3.5.2progress=false\nreal  0m57.489s\nuser  0m13.298s\nsys 0m3.421sprogress=true\nreal  1m1.084s\nuser  0m15.690s\nsys 0m3.644sWhile I don&#x27;t see any significant dif",
+          "score": 0
+        },
+        {
+          "author": "Too",
+          "text": "The funky progress bar is about the coolest thing with npm. They could let it take a minute if they wanted too and i would keep watching it with amazement.",
+          "score": 0
+        },
+        {
+          "author": "bitwarrior",
+          "text": "...has he controlled for network speed? Unless he&#x27;s set up a local NPM caching proxy, he&#x27;s going over the &#x27;net for these packages. It&#x27;ll take more than 1 datum before I believe this hype.",
+          "score": 0
+        },
+        {
+          "author": "untog",
+          "text": "Progress bar or not, npm has gotten extremely slow with v3, to the extent that someone is working on a performance-centered alternative called ied:http:&#x2F;&#x2F;gugel.io&#x2F;ied&#x2F;installs are literally the #1 thing npm needs to do well, and I really hope we see some improvement soon.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "20549457",
+      "title": "Malicious code in the purescript NPM installer",
+      "text": "",
+      "url": "https://harry.garrood.me/blog/malicious-code-in-purescript-npm-installer/",
+      "author": "braythwayt",
+      "score": 521,
+      "numComments": 267,
+      "created": "2019-07-28T19:45:08Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20549457",
+      "topComments": [
+        {
+          "author": "bsamuels",
+          "text": "I wonder how bad will this cred-stuffing package authors problem will get before npm&#x2F;other package managers flat out require 2FA for maintainers",
+          "score": 0
+        },
+        {
+          "author": "ga-vu",
+          "text": "Not actually malicious. It doesn&#x27;t steal user data, drop malware, or damage a computer. Just crashes the library. Looks like another developer-developer slap fight.",
+          "score": 0
+        },
+        {
+          "author": "hombre_fatal",
+          "text": "Another reminder of how annoying it is for a package system to have unqualified package names.Having to ask someone to gift a `purescript` package shouldn&#x27;t even be a thing. It should&#x27;ve been `@shinn&#x2F;purescript` and the compiler developers just create their own `@whatever&#x2F;purescript`.This is something Elm and many others got right. https:&#x2F;&#x2F;package.elm-lang.org&#x2F; It&#x27;s just infinitely, obviously better.You see all sorts of problems because of this, like peopl",
+          "score": 0
+        },
+        {
+          "author": "sieabahlpark",
+          "text": "Well I guess it&#x27;s good I didn&#x27;t start using this after an article I saw yesterday about it.",
+          "score": 0
+        },
+        {
+          "author": "z3t4",
+          "text": "Before &quot;tree shaking&quot; I stored all npm modules in SCM and reviwed all updates as I had to commit after &quot;npm update&quot;. I also put ton of files in .ignore as 90% of files in some packages are not required. I also used to include npm modules in distribution&#x2F;deployment. So my request to npm is to add an option in the main package.json to disable tree shaking.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "46770221",
+      "title": "ChatGPT Containers can now run bash, pip/npm install packages and download files",
+      "text": "",
+      "url": "https://simonwillison.net/2026/Jan/26/chatgpt-containers/",
+      "author": "simonw",
+      "score": 451,
+      "numComments": 324,
+      "created": "2026-01-26T19:19:40Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=46770221",
+      "topComments": [
+        {
+          "author": "simonw",
+          "text": "Regular default ChatGPT can also now run code in Node.js, Ruby, Perl, PHP, Go, Java, Swift, Kotlin, C and C++.I&#x27;m not sure when these new features landed because they&#x27;re not listed anywhere in the official ChatGPT release notes, but I checked it with a free account and it&#x27;s available there as well.",
+          "score": 0
+        },
+        {
+          "author": "jmacd",
+          "text": "I wonder how long npm&#x2F;pip etc even makes sense.Dependancies introduce unnecessary LOC and features which are, more and more, just written by LLMs themselves. It is easier to just write the necessary functionality directly. Whether that is more maintainable or not is a bit YMMV at this stage, but I would wager it is improving.",
+          "score": 0
+        },
+        {
+          "author": "randomtoast",
+          "text": "Maybe soon we have single use applications. Where ChatGPT can write an App for you on-the-fly in a cloud sandbox you interact with it in the browser and fulfill your goal and afterwards the App is shutdown and thrown away.",
+          "score": 0
+        },
+        {
+          "author": "behnamoh",
+          "text": "I wonder if the era of dynamic programming languages is over. Python&#x2F;JS&#x2F;Ruby&#x2F;etc. were good tradeoffs when developer time mattered. But now that most code is written by LLMs, it&#x27;s as &quot;hard&quot; for the LLM to write Python as it is to write Rust&#x2F;Go (assuming enough training data on the language ofc; LLMs still can&#x27;t write Gleam&#x2F;Janet&#x2F;CommonLisp&#x2F;etc.).Esp. with Go&#x27;s quick compile time, I can see myself using it more and more even in my one-of",
+          "score": 0
+        },
+        {
+          "author": "candiddevmike",
+          "text": "Seems like everyone is trying to get ahead of tool calling moving people &quot;off platform&quot; and creating differentiators around what tools are available &quot;locally&quot; to the models etc.  This also takes the wind out of the sandboxing folks, as it probably won&#x27;t be long before the &quot;local&quot; tool calling can effectively do anything you&#x27;d need to do on your local machine.I wonder when they&#x27;ll start offering virtual, persistent dev environments...",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "29160672",
+      "title": "$ sudo rm -rf / === NPM install",
+      "text": "",
+      "url": "https://ghuntley.com/sudo-rm-rf/",
+      "author": "ghuntley",
+      "score": 171,
+      "numComments": 173,
+      "created": "2021-11-09T12:17:16Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29160672",
+      "topComments": [
+        {
+          "author": "tao_oat",
+          "text": "I wrote a [similar post](https:&#x2F;&#x2F;btao.org&#x2F;2021&#x2F;09&#x2F;09&#x2F;npm-install-is-curl-bash&#x2F;) recently, and I think it&#x27;s worth sharing this part:&gt; When installing an untrusted package, run `npm install` or `yarn add` with the `--ignore-scripts flag`. If, like me, you tend to forget this, you can set npm&#x2F;yarn to never run scripts with `{npm,yarn} config set ignore-scripts true`.This disables install scripts, which is a primary attack vector for malware on npm. It",
+          "score": 0
+        },
+        {
+          "author": "ainar-g",
+          "text": "Just as a funny data point, when it turned out that Go&#x27;s go get\ncommand allowed you to run “arbitrary” code during build (not\ndirectly, but through gcc and clang&#x27;s -plugin and -ftplugin\nfeatures), it was marked as a CVE[1], heh.[1]: https:&#x2F;&#x2F;www.cvedetails.com&#x2F;cve&#x2F;CVE-2018-6574&#x2F;",
+          "score": 0
+        },
+        {
+          "author": "jdorfman",
+          "text": "Great article. The JS ecosystem&#x2F;supply chain scares me. 94% of all active repos on GitHub rely on Javascript (according to the 2020 state of the octoverse report). There is a lot of motivation for black hats to insert Bitcoin miners into semi-popular npm packages so they can fly under the radar. Scary times.",
+          "score": 0
+        },
+        {
+          "author": "protoman3000",
+          "text": "I never understood the reason why anybody would sensibly install and run NPM (or even any other development tools) outside a sandboxed environment like container or VM on your workbench machine. Let alone cluttering the system with massive amounts of packages that will be a huge pain to remove once they are not needed anymore.The reason I use a VM or container is so that I can get rid of it easily.",
+          "score": 0
+        },
+        {
+          "author": "tlackemann",
+          "text": "Some of this is solved with locked dependencies and an understanding of how &quot;npm install&quot; actually works, but I find this point really takes away any credibility for this article:&gt; This is just one of the reasons why I think by 2023 working with ephemeral cloud-based dev environments will be the standard. Just like CI&#x2F;CD is today.Over my dead body will I ever use a cloud environment to write code. tmate[0] might be the closest I ever get.I get some developers don&#x27;t care ab",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "19289865",
+      "title": "Install NPM dependencies that run in browser without Browserify, Webpack",
+      "text": "",
+      "url": "https://github.com/pikapkg/web/blob/master/README.md",
+      "author": "darrinm",
+      "score": 170,
+      "numComments": 25,
+      "created": "2019-03-02T16:36:39Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=19289865",
+      "topComments": [
+        {
+          "author": "Klathmon",
+          "text": "Wow, they claim that this is equal to or better than most apps that are bundled into a single bundle file due to the cache benefits!I never would have guessed they could manage that and keep it this easy to use!How common is the es module entry point in major packages?",
+          "score": 0
+        },
+        {
+          "author": "rubbingalcohol",
+          "text": "I&#x27;m very curious how you could possibly avoid code bloat with this. Installing hundreds of megabytes of dependencies is fine server side, but won&#x27;t this approach lead to massive JS downloads?",
+          "score": 0
+        },
+        {
+          "author": "kevinsimper",
+          "text": "This is what I wished for when I began using Web Components, and it is super awesome +1",
+          "score": 0
+        },
+        {
+          "author": "nailer",
+          "text": "Does this work with commonjs modules or not? There&#x27;s so few tc39 modules it&#x27;s almost not worth considering otherwise.",
+          "score": 0
+        },
+        {
+          "author": "chrisweekly",
+          "text": "Way to take advantage of HTTP&#x2F;2. Really cool idea, and at a glance it looks like a reasonable implementation. Stoked to give this a try! :)",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "20786981",
+      "title": "Standard JS: npm install funding",
+      "text": "",
+      "url": "https://github.com/standard/standard/issues/1381",
+      "author": "ndrake",
+      "score": 168,
+      "numComments": 123,
+      "created": "2019-08-24T13:24:11Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20786981",
+      "topComments": [
+        {
+          "author": "clappski",
+          "text": "&gt; The sponsorship pays directly for maintainer time. That is, writing new features, fixing bugs, answering user questions, and improving documentation.As far as I can tell, this project is literally just a 200 line configuration file for a linter. Not even editor integrations for the linter, just a configuration file for it.Is it truly something that requires funding to &#x27;add new features&#x27;? How much time does it take out of your day to add a new line of JSON to a configuration file, ",
+          "score": 0
+        },
+        {
+          "author": "ryanlol",
+          "text": "What’s the deal with these people acting like their terminals are some sacred advertising-free spaces?",
+          "score": 0
+        },
+        {
+          "author": "RyanCavanaugh",
+          "text": "&quot;This command barely outputs any text; if we display a sponsorship message here it&#x27;ll get noticed - great idea! Can&#x27;t believe no one thought of this before.&quot;&quot;The city park has tons of grass, but no one is having their cattle eat it. Missed opportunity! I&#x27;m bringing my herd over to get some sweet public grazing in.&quot;",
+          "score": 0
+        },
+        {
+          "author": "kethinov",
+          "text": "I made an ad blocker for this: https:&#x2F;&#x2F;github.com&#x2F;kethinov&#x2F;no-cli-ads",
+          "score": 0
+        },
+        {
+          "author": "why-oh-why",
+          "text": "Regardless of Feross’ choice, it’s hard to believe how bullish are many of the commenters there. It’s saddening. Manners are dead and people feel entitled.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "29122473",
+      "title": "RFC: Make NPM install scripts opt-in",
+      "text": "",
+      "url": "https://github.com/npm/rfcs/pull/488",
+      "author": "tolmasky",
+      "score": 130,
+      "numComments": 72,
+      "created": "2021-11-05T17:44:39Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29122473",
+      "topComments": [
+        {
+          "author": "SahAssar",
+          "text": "I don&#x27;t think this would have much of an impact since it would only require the attacker to change the injection point from the install to swapping out the &quot;main&quot; entry in the package json to a compromised file, right?I think the problems of npm and the js world in general is the depth and breadth of the dependency trees and the misunderstanding of transitive dependencies. I&#x27;ve heard devs say that they only have a single dependency when using CRA (which IIRC pulls in 1500ish ",
+          "score": 0
+        },
+        {
+          "author": "KayL",
+          "text": "default or not, you still run it... I doubt regular developers will review the whole script before run it.how many Linux users copy&amp;paste the command from random webpages without doubt? It&#x27;s 100% opt-in. So it won&#x27;t help at all.",
+          "score": 0
+        },
+        {
+          "author": "megumax",
+          "text": "That&#x27;s not really a solution to the problem because the attacker might change the contents of the package instead of adding `postinstall` or `preinstall` hooks.The more realistic solution would be teams of volunteers that are auditing the packages and check the differences between specific versions of those. This doesn&#x27;t block all possible infected packages, but most of them, which is better than what we have now. Everything is based on trust so you can&#x27;t stop this, but maybe prev",
+          "score": 0
+        },
+        {
+          "author": "dane-pgp",
+          "text": "It&#x27;s sad to see people reject this suggestion based on such weak grounds.  &quot;It won&#x27;t stop all attacks&quot; is true, but if it raises the costs of attacks, and protects more people that it harms, then it is worthwhile.  Similarly, &quot;It&#x27;s a backwards incompatible change&quot; is not a sufficient argument, as changes like that are made all the time (of course requiring a major version bump).To address the resistance, I would propose a compromise, namely that install scripts",
+          "score": 0
+        },
+        {
+          "author": "ljm",
+          "text": "IIRC, yarn disables script invocation when installing a package, and there is a separate mechanism to run them if you need to. I don&#x27;t remember the full details of how it works, though.Given NPM&#x27;s increasing viability for large scale supply-chain attacks, there are other things to worry about still. Perhaps those other things are more fundamental to NPM&#x27;s design and can&#x27;t be changed overnight. It&#x27;s still helpful to solve these simpler problems.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "8947493",
+      "title": "Npm install could be dangerous",
+      "text": "",
+      "url": "https://github.com/joaojeronimo/rimrafall",
+      "author": "joaojeronimo",
+      "score": 122,
+      "numComments": 97,
+      "created": "2015-01-26T15:31:51Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=8947493",
+      "topComments": [
+        {
+          "author": "tomphoolery",
+          "text": "it would be cool if there was a way to show which commands npm was running in its scripts.",
+          "score": 0
+        },
+        {
+          "author": "detaro",
+          "text": "Somehow I feel like using something that just simulates rm -rf &#x2F;* would have brought the point across just as well and a bit safer...",
+          "score": 0
+        },
+        {
+          "author": "tenderlove",
+          "text": "It&#x27;s not just Npm, RubyGems has essentially the same issue.  I think the real lesson is &quot;be careful what you install&quot;.",
+          "score": 0
+        },
+        {
+          "author": "tootie",
+          "text": "I could just as easily embed something like that in any code on any open source project in any language as part of the installer or the main code base.",
+          "score": 0
+        },
+        {
+          "author": "moe",
+          "text": "This applies to pretty much every pkg manager ever created.That&#x27;s why it&#x27;s important to have end-to-end package signing with a reasonable UI, so people can choose to selectively trust the sources they need and get alerted before new dependencies get pulled in.Sadly I don&#x27;t know of any pkg manager that implements this correctly.",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "11284972",
+      "title": "Show HN: Turn NPM installs into a Space Invaders style game in your terminal",
+      "text": "",
+      "url": "https://www.npmjs.com/nplaym",
+      "author": "massivedragon",
+      "score": 105,
+      "numComments": 34,
+      "created": "2016-03-14T19:33:52Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=11284972",
+      "topComments": [
+        {
+          "author": "Khao",
+          "text": "Feels like this &quot;do [x] while npm install is running&quot; silly project is turning into a running gag. Why not fix the issues with NPM install that makes it extremely slow instead? Not saying that people shouldn&#x27;t make things just for fun, but when you&#x27;ve got 10 different projects around the idea that NPM install is slow and you should do play a game or watch silly gifs while it&#x27;s installing, maybe the time would have been better spend fixing the problem.",
+          "score": 0
+        },
+        {
+          "author": "teddyh",
+          "text": "It’s Invade-a-Load all over again!https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Invade-a-Load",
+          "score": 0
+        },
+        {
+          "author": "andrewstuart2",
+          "text": "Feature request: Only install dependencies once you&#x27;ve blasted them.",
+          "score": 0
+        },
+        {
+          "author": "marshray",
+          "text": "As an old boss of mine put it once: &quot;What this means to users is that there are no bugs in the program.&quot;",
+          "score": 0
+        },
+        {
+          "author": "ericwood",
+          "text": "I love the idea of user interfaces that provide little distractions from long-running (usually unavoidable) tasks. It&#x27;s silly, but the right kind of silly.I recently purchased a Korg Minilogue analog synthesizer. Because of the instability of analog oscillators it has to go through a tuning procedure when it&#x27;s first powered on (which can take around 20sec). They included a little game of breakout to help pass the time, though :)https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=LDWv-KgzMXM",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "46027878",
+      "title": "Show HN: Safe-NPM – only install packages that are +90 days old",
+      "text": "This past quarter has been awash with sophisticated npm supply chain attacks like [Shai-Hulud](<a href=\"https:&#x2F;&#x2F;www.cisa.gov&#x2F;news-events&#x2F;alerts&#x2F;2025&#x2F;09&#x2F;23&#x2F;widespread-supply-chain-compromise-impacting-npm-ecosystem\" rel=\"nofollow\">https:&#x2F;&#x2F;www.cisa.gov&#x2F;news-events&#x2F;alerts&#x2F;2025&#x2F;09&#x2F;23&#x2F;widesprea...</a>() and the [Chalk&#x2F;debug Compromise](<a href=\"https:&#x2F;&#x2F;www.wiz.io&#x2F;blog&#x2F;widespread-npm-supply-chain-attack-breaking-down-impact-scope-across-debug-chalk\" rel=\"nofollow\">https:&#x2F;&#x2F;www.wiz.io&#x2F;blog&#x2F;widespread-npm-supply-chain-attack-b...</a>). This CLI helps protect users from recently compromised packages by only downloading packages that have been public for a while (default is 90 days or older).<p>Install: npm install -g @dendronhq&#x2F;safe-npm\nUsage: safe-npm install react@^18 lodash<p>How it works:\n- Queries npm registry for all versions matching your semver range\n- Filters out anything published in the last 90 days\n- Installs the newest &quot;aged&quot; version<p>Limitations:\n- Won&#x27;t protect against packages malicious from day one\n- Doesn&#x27;t control transitive dependencies (yet - looking into overrides)\n- Delays access to legitimate new features<p>This is meant as a 80&#x2F;20 measure against recently compromised NPM packages and is not a silver bullet. Please give it a try and let me know if you have feedback.",
+      "url": "https://github.com/kevinslin/safe-npm",
+      "author": "kevinslin",
+      "score": 90,
+      "numComments": 64,
+      "created": "2025-11-23T22:14:14Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=46027878",
+      "topComments": [
+        {
+          "author": "pr0xyb0i",
+          "text": "How does it differ from: https:&#x2F;&#x2F;docs.npmjs.com&#x2F;cli&#x2F;v11&#x2F;commands&#x2F;npm-install#before",
+          "score": 0
+        },
+        {
+          "author": "asdkkthrowaway",
+          "text": "Doesn&#x27;t this just mean you&#x27;re 90 days late on any patches?",
+          "score": 0
+        },
+        {
+          "author": "someothherguyy",
+          "text": "https:&#x2F;&#x2F;pnpm.io&#x2F;supply-chain-security",
+          "score": 0
+        },
+        {
+          "author": "tkzed49",
+          "text": "Not controlling transitive deps makes this vastly less useful because direct deps can specify version ranges (e.g. latest minor version). Personally I&#x27;d stick with pnpm&#x27;s feature.",
+          "score": 0
+        },
+        {
+          "author": "moritzwarhier",
+          "text": "As someotherguyy already mentioned, this is a default feature in pnpm.And as far as cat-and-mouse-games go in other package managers, I&#x27;d say that pinning dependencies and disabling postinstall scripts is a much better option. Sure, not a foolproof one either, but as good as it gets.edit: misspelled someotherguyy&#x27;s user name",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "5377888",
+      "title": "npm install firebase",
+      "text": "",
+      "url": "https://www.firebase.com/blog/2013-03-14-firebase-now-available-in-the-npm.html",
+      "author": "mayop100",
+      "score": 72,
+      "numComments": 15,
+      "created": "2013-03-14T21:49:02Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=5377888",
+      "topComments": []
+    },
+    {
+      "id": "12248997",
+      "title": "Show HN: Auto install npm dependencies as you code",
+      "text": "",
+      "url": "https://www.npmjs.com/package/auto-install",
+      "author": "siddharthkp",
+      "score": 60,
+      "numComments": 77,
+      "created": "2016-08-08T16:35:37Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12248997",
+      "topComments": []
+    },
+    {
+      "id": "30679098",
+      "title": "Show HN: npm install actual-malware",
+      "text": "Our package registry ecosystem has a serious problem... and not just npm.<p>People are aware of this but maybe this will make them a bit more aware",
+      "url": "https://github.com/qpwo/actual-malware",
+      "author": "lhmiles",
+      "score": 55,
+      "numComments": 13,
+      "created": "2022-03-14T22:10:10Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=30679098",
+      "topComments": []
+    },
+    {
+      "id": "39717150",
+      "title": "NPM Install Everything, and the Complete and Utter Chaos That Follows",
+      "text": "",
+      "url": "https://boehs.org/node/npm-everything",
+      "author": "maowtm",
+      "score": 54,
+      "numComments": 17,
+      "created": "2024-03-15T15:53:39Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=39717150",
+      "topComments": []
+    },
+    {
+      "id": "47132614",
+      "title": "NPM install is stealing your passwords – I built a tool to catch it",
+      "text": "",
+      "url": "https://westbayberry.com/product",
+      "author": "ComCat",
+      "score": 35,
+      "numComments": 17,
+      "created": "2026-02-24T03:45:45Z",
+      "source": "hackernews",
+      "sourceUrl": "https://news.ycombinator.com/item?id=47132614",
+      "topComments": []
+    }
+  ]
+}
