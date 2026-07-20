@@ -3,7 +3,7 @@ const NEGATIVE = ['hate', 'terrible', 'awful', 'worst', 'horrible', 'bad', 'fail
 const NEUTRAL = ['maybe', 'perhaps', 'might', 'could', 'think', 'opinion', 'consider', 'wonder'];
 
 function getSentiment(text) {
-  const lower = text.toLowerCase();
+  const lower = (text || '').toLowerCase();
   let posCount = 0, negCount = 0, neuCount = 0;
   for (const w of POSITIVE) { if (lower.includes(w)) posCount++; }
   for (const w of NEGATIVE) { if (lower.includes(w)) negCount++; }
@@ -16,8 +16,8 @@ function getSentiment(text) {
 
 function analyzeBatch(posts) {
   let positive = 0, negative = 0, neutral = 0;
-  for (const post of posts) {
-    const text = post.title + ' ' + (post.text || '');
+  for (const post of (posts || [])) {
+    const text = (post.title || '') + ' ' + (post.text || '');
     const sent = getSentiment(text);
     if (sent === 'positive') positive++;
     else if (sent === 'negative') negative++;
