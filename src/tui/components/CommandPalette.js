@@ -37,7 +37,11 @@ function CommandPalette({ onSelect, onClose }) {
     } else if (key.backspace || key.delete) {
       setFilter(prev => prev.slice(0, -1));
       setSelectedIndex(0);
-    } else if (input && !key.ctrl && !key.meta) {
+    } else if (key.tab) {
+      if (filtered.length > 0 && selectedIndex < filtered.length) {
+        onSelect(filtered[selectedIndex].name);
+      }
+    } else if (input && !key.ctrl && !key.meta && input !== '\t') {
       setFilter(prev => prev + input);
       setSelectedIndex(0);
     }
