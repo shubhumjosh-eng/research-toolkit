@@ -17,7 +17,7 @@ const STOP_WORDS = new Set([
   'give', 'use', 'find', 'tell', 'ask', 'work', 'seem', 'feel', 'try', 'leave',
   'call', 'good', 'new', 'first', 'last', 'long', 'great', 'little', 'right',
   'old', 'big', 'high', 'different', 'small', 'large', 'next', 'early', 'young',
-  'important', 'public', 'bad', 'same', 'able'
+  'important', 'public', 'bad', 'able'
 ]);
 
 const KNOWN_PHRASES = [
@@ -152,7 +152,7 @@ class QueryAnalyzer {
     const templates = this.getTemplates(intent);
 
     const expanded = templates.map(template =>
-      template.replace('{topic}', mainTerms).replace('{keywords}', keywords.slice(0, 4).join(' '))
+      template.replace('{topic}', mainTerms)
     );
 
     return [...new Set([mainTerms, ...expanded])].slice(0, 6);
