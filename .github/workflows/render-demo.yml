@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    container:
+      image: ghcr.io/charmbracelet/vhs:latest
     steps:
       - uses: actions/checkout@v4
 
@@ -21,16 +23,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install ffmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
-      - name: Render demo GIF with VHS
-        uses: charmbracelet/vhs-action@v2
-        with:
-          path: demo.tape
+      - name: Render demo GIF
+        run: vhs demo.tape
 
       - name: Commit GIF
         run: |
+          apk add git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add demo.gif
