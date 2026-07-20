@@ -22,17 +22,19 @@ class RedditBulkScraper {
   }
 
   async scrapeAll(subreddits, queries, targetCount = 500, onProgress = null, onLog = null, options = {}) {
-    this.stats = { posts: 0, comments: 0, errors: 0 };
-    this.scraped.clear();
-    this.rateLimitCount = 0;
-    this.consecutiveFailCount = 0;
-    this.primarySource = 'arctic-shift';
-    this.fallbackTriggered = false;
-    this.scraper = options.scraper || null;
-    this.log = onLog || (() => {});
+    const ctx = {
+      stats: { posts: 0, comments: 0, errors: 0 },
+      scraped: new Map(),
+      primarySource: 'arctic-shift',
+      fallbackTriggered: false,
+      rateLimitCount: 0,
+      consecutiveFailCount: 0,
+      scraper: options.scraper || null,
+      log: onLog || (() => {}),
+    };
 
-    this.log('info', `Scraping Reddit: ${subreddits.length} subreddits, target ${targetCount} posts`);
-    this.log('info', `Source: Arctic Shift → PullPush → Reddit Direct${this.scraper ? ' → Browser' : ''}`);
+    ctx.log('info', `Scraping Reddit: ${subreddits.length} subreddits, target ${targetCount} posts`);
+    ctx.log('info', `Source: Arctic Shift → PullPush → Reddit Direct${ctx.scraper ? ' → Browser' : ''}`);
 
     const allPosts = [];
     const postsPerSubreddit = Math.ceil(targetCount / subreddits.length);
@@ -47,78 +49,80 @@ class RedditBulkScraper {
         if (allSourcesFailed) break;
 
         try {
-          const posts = await this.scrapeSubreddit(sub.name, query, Math.min(postsPerSubreddit, 100));
+          const posts = await this.scrapeSubreddit(sub.name, query, Math.min(postsPerSubreddit, 100), ctx);
 
           for (const post of posts) {
-            if (!this.scraped.has(post.id) && allPosts.length < targetCount) {
-              this.scraped.set(post.id, true);
+            if (!ctx.scraped.has(post.id) && allPosts.length < targetCount) {
+              ctx.scraped.set(post.id, true);
               allPosts.push(post);
-              this.stats.posts++;
+              ctx.stats.posts++;
             }
           }
 
           if (onProgress) {
             onProgress({
-              posts: this.stats.posts,
-              comments: this.stats.comments,
+              posts: ctx.stats.posts,
+              comments: ctx.stats.comments,
               target: targetCount,
               currentSub: sub.name,
             });
           }
 
           if (posts.length > 0) {
-            this.log('success', `r/${sub.name}: ${posts.length} posts`);
+            ctx.log('success', `r/${sub.name}: ${posts.length} posts`);
           }
 
           limiter.reset();
         } catch (error) {
-          this.stats.errors++;
+          ctx.stats.errors++;
 
           if (error.response && (error.response.status === 429 || error.response.status === 422)) {
-            this.rateLimitCount = (this.rateLimitCount || 0) + 1;
-            this.consecutiveFailCount = 0;
+            ctx.rateLimitCount = (ctx.rateLimitCount || 0) + 1;
+            ctx.consecutiveFailCount = 0;
 
-            if (this.rateLimitCount >= 2) {
-              if (this.primarySource === 'arctic-shift' && !this.fallbackTriggered) {
-                this.log('warn', `Arctic Shift failed (${error.response.status}), switching to PullPush...`);
-                this.primarySource = 'pullpush';
-                this.fallbackTriggered = true;
-                this.rateLimitCount = 0;
+            if (ctx.rateLimitCount >= 2) {
+              if (ctx.primarySource === 'arctic-shift' && !ctx.fallbackTriggered) {
+                ctx.log('warn', `Arctic Shift failed (${error.response.status}), switching to PullPush...`);
+                ctx.primarySource = 'pullpush';
+                ctx.fallbackTriggered = true;
+                ctx.rateLimitCount = 0;
                 limiter.reset();
                 continue;
               }
-              if (this.primarySource === 'pullpush') {
-                this.log('warn', `PullPush exhausted, switching to Reddit Direct...`);
-                this.primarySource = 'reddit';
-                this.rateLimitCount = 0;
+              if (ctx.primarySource === 'pullpush') {
+                ctx.log('warn', `PullPush exhausted, switching to Reddit Direct...`);
+                ctx.primarySource = 'reddit';
+                ctx.rateLimitCount = 0;
                 limiter.reset();
                 continue;
               }
-              if (this.primarySource === 'reddit' && this.scraper) {
-                this.log('warn', `All API sources exhausted, trying browser fallback...`);
-                this.primarySource = 'puppeteer';
+              if (ctx.primarySource === 'reddit' && ctx.scraper) {
+                ctx.log('warn', `All API sources exhausted, trying browser fallback...`);
+                ctx.primarySource = 'puppeteer';
                 allSourcesFailed = true;
                 break;
               }
-              this.log('error', `All Reddit sources exhausted, stopping...`);
+              ctx.log('error', `All Reddit sources exhausted, stopping...`);
+              this.stats = ctx.stats;
               return allPosts;
             }
 
-            this.log('warn', `${error.response.status} on ${this.primarySource} (attempt ${this.rateLimitCount}/2)`);
-            await limiter.backoff(this.log);
+            ctx.log('warn', `${error.response.status} on ${ctx.primarySource} (attempt ${ctx.rateLimitCount}/2)`);
+            await limiter.backoff(ctx.log);
           } else {
-            this.log('error', `r/${sub.name} failed: ${error.message}`);
+            ctx.log('error', `r/${sub.name} failed: ${error.message}`);
 
-            if (this.primarySource === 'reddit') {
-              this.consecutiveFailCount = (this.consecutiveFailCount || 0) + 1;
-              if (this.consecutiveFailCount >= 3) {
-                if (this.scraper) {
-                  this.log('warn', `Reddit Direct blocked (403), switching to browser fallback...`);
-                  this.primarySource = 'puppeteer';
+            if (ctx.primarySource === 'reddit') {
+              ctx.consecutiveFailCount = (ctx.consecutiveFailCount || 0) + 1;
+              if (ctx.consecutiveFailCount >= 3) {
+                if (ctx.scraper) {
+                  ctx.log('warn', `Reddit Direct blocked (403), switching to browser fallback...`);
+                  ctx.primarySource = 'puppeteer';
                   allSourcesFailed = true;
                   break;
                 }
-                this.log('error', `Reddit Direct blocked and no browser available, stopping...`);
+                ctx.log('error', `Reddit Direct blocked and no browser available, stopping...`);
+                this.stats = ctx.stats;
                 return allPosts;
               }
             }
@@ -129,10 +133,10 @@ class RedditBulkScraper {
       if (allSourcesFailed) break;
     }
 
-    if (allSourcesFailed && this.scraper && allPosts.length < targetCount) {
-      this.log('info', 'Starting browser fallback for remaining posts...');
+    if (allSourcesFailed && ctx.scraper && allPosts.length < targetCount) {
+      ctx.log('info', 'Starting browser fallback for remaining posts...');
       try {
-        const browser = await this.scraper.launch();
+        const browser = await ctx.scraper.launch();
         for (const sub of subreddits) {
           if (allPosts.length >= targetCount) break;
           for (const query of queries) {
@@ -140,43 +144,44 @@ class RedditBulkScraper {
             try {
               const posts = await this.scrapeSubredditPuppeteer(sub.name, query, Math.min(postsPerSubreddit, 25), browser);
               for (const post of posts) {
-                if (!this.scraped.has(post.id) && allPosts.length < targetCount) {
-                  this.scraped.set(post.id, true);
+                if (!ctx.scraped.has(post.id) && allPosts.length < targetCount) {
+                  ctx.scraped.set(post.id, true);
                   allPosts.push(post);
-                  this.stats.posts++;
+                  ctx.stats.posts++;
                 }
               }
               if (posts.length > 0) {
-                this.log('success', `r/${sub.name} (browser): ${posts.length} posts`);
+                ctx.log('success', `r/${sub.name} (browser): ${posts.length} posts`);
               }
               if (onProgress) {
-                onProgress({ posts: this.stats.posts, comments: this.stats.comments, target: targetCount, currentSub: `${sub.name} (browser)` });
+                onProgress({ posts: ctx.stats.posts, comments: ctx.stats.comments, target: targetCount, currentSub: `${sub.name} (browser)` });
               }
             } catch (e) {
-              this.log('error', `r/${sub.name} browser scrape failed: ${e.message}`);
+              ctx.log('error', `r/${sub.name} browser scrape failed: ${e.message}`);
             }
           }
         }
       } catch (e) {
-        this.log('error', `Browser fallback failed: ${e.message}`);
+        ctx.log('error', `Browser fallback failed: ${e.message}`);
       }
     }
 
-    this.log('success', `Reddit done: ${this.stats.posts} posts, ${this.stats.comments} comments via ${this.primarySource}`);
+    ctx.log('success', `Reddit done: ${ctx.stats.posts} posts, ${ctx.stats.comments} comments via ${ctx.primarySource}`);
+    this.stats = ctx.stats;
     return allPosts;
   }
 
-  async scrapeSubreddit(subreddit, query, limit = 50) {
-    if (this.primarySource === 'arctic-shift') {
-      return this.scrapeSubredditArcticShift(subreddit, query, limit);
+  async scrapeSubreddit(subreddit, query, limit = 50, ctx = this) {
+    if (ctx.primarySource === 'arctic-shift') {
+      return this.scrapeSubredditArcticShift(subreddit, query, limit, ctx);
     }
-    if (this.primarySource === 'pullpush') {
-      return this.scrapeSubredditPullPush(subreddit, query, limit);
+    if (ctx.primarySource === 'pullpush') {
+      return this.scrapeSubredditPullPush(subreddit, query, limit, ctx);
     }
-    return this.scrapeSubredditReddit(subreddit, query, limit);
+    return this.scrapeSubredditReddit(subreddit, query, limit, ctx);
   }
 
-  async scrapeSubredditArcticShift(subreddit, query, limit = 50) {
+  async scrapeSubredditArcticShift(subreddit, query, limit = 50, ctx = this) {
     await limiter.wait();
 
     const now = Math.floor(Date.now() / 1000);
@@ -186,7 +191,7 @@ class RedditBulkScraper {
       axios.get(`${ARCTIC_SHIFT_BASE}/api/posts/search`, {
         params: {
           subreddit,
-          query,
+          q: query,
           limit: Math.min(limit, 100),
           sort: 'desc',
           fields: 'id,title,selftext,score,num_comments,subreddit,author,created_utc,url',
@@ -195,7 +200,7 @@ class RedditBulkScraper {
         headers: this.headers,
         timeout: 20000,
       })
-    , 3, this.log);
+    , 3, ctx.log);
 
     const posts = (response.data.data || [])
       .map(p => this.formatPostArcticShift(p, subreddit));
@@ -206,7 +211,7 @@ class RedditBulkScraper {
       try {
         const comments = await this.getPostCommentsArcticShift(post.id, 30);
         post.topComments = comments;
-        this.stats.comments += comments.length;
+        ctx.stats.comments += comments.length;
         postsWithComments.push(post);
       } catch {
         post.topComments = [];
@@ -247,7 +252,7 @@ class RedditBulkScraper {
       .slice(0, limit);
   }
 
-  async scrapeSubredditPullPush(subreddit, query, limit = 50) {
+  async scrapeSubredditPullPush(subreddit, query, limit = 50, ctx = this) {
     await limiter.wait();
 
     const response = await limiter.retryRequest(() =>
@@ -262,7 +267,7 @@ class RedditBulkScraper {
         headers: this.headers,
         timeout: 20000,
       })
-    , 3, this.log);
+    , 3, ctx.log);
 
     const posts = (response.data.data || [])
       .map(p => this.formatPostPullPush(p, subreddit));
@@ -273,7 +278,7 @@ class RedditBulkScraper {
       try {
         const comments = await this.getPostCommentsPullPush(post.id, 30);
         post.topComments = comments;
-        this.stats.comments += comments.length;
+        ctx.stats.comments += comments.length;
         postsWithComments.push(post);
       } catch {
         post.topComments = [];
@@ -314,11 +319,11 @@ class RedditBulkScraper {
       .slice(0, limit);
   }
 
-  async scrapeSubredditReddit(subreddit, query, limit = 50) {
+  async scrapeSubredditReddit(subreddit, query, limit = 50, ctx = this) {
     const posts = await redditDirect.search(query, {
       maxResults: Math.min(limit, 25),
       subreddit,
-      onLog: this.log,
+      onLog: ctx.log,
     });
 
     const postsWithComments = [];
@@ -327,7 +332,7 @@ class RedditBulkScraper {
       try {
         const comments = await redditDirect.getPostComments(post.url, 30);
         post.topComments = comments;
-        this.stats.comments += comments.length;
+        ctx.stats.comments += comments.length;
         postsWithComments.push(post);
       } catch {
         post.topComments = [];
@@ -359,7 +364,7 @@ class RedditBulkScraper {
           if (titleEl) {
             const href = (titleEl.closest('a') || titleEl.querySelector('a') || {}).href || '';
             items.push({
-              id: href.match(/comments\/([a-z0-9]+)/)?.[1] || Math.random().toString(36).substring(7),
+              id: href.match(/comments\/([a-z0-9]+)/)?.[1] || `post_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
               title: titleEl.textContent.trim(),
               text: (bodyEl?.textContent || '').substring(0, 3000),
               author: metaEl?.textContent?.trim() || '[unknown]',
