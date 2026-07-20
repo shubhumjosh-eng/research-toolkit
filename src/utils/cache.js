@@ -4,7 +4,7 @@ const config = require('../config');
 const { ensureDir, sanitizeFilename } = require('./helpers');
 
 const CACHE_DIR = path.join(process.cwd(), 'cache');
-const DEFAULT_TTL_MS = config.RESEARCH.cacheTTLDays * 24 * 60 * 60 * 1000;
+const DEFAULT_TTL_MS = (config.RESEARCH.cacheTTLDays || 1) * 24 * 60 * 60 * 1000;
 
 class Cache {
   constructor(ttlMs = DEFAULT_TTL_MS) {
@@ -14,6 +14,10 @@ class Cache {
 
   disable() {
     this.enabled = false;
+  }
+
+  enable() {
+    this.enabled = true;
   }
 
   getKey(topic, source) {
@@ -34,8 +38,6 @@ class Cache {
         return null;
       }
 
-      const age = Math.round((Date.now() - entry.timestamp) / 60000);
-      console.log(`   Cache hit: ${source} (${entry.data.length} items, ${age}m old)`);
       return entry.data;
     } catch {
       return null;
@@ -45,8 +47,7 @@ class Cache {
   async set(topic, source, data) {
     if (!this.enabled || !data || data.length === 0) return;
 
-    const hasContent = data.some(item => item.text && item.text.trim().length > 0);
-    if (!hasContent) return;
+    if (!Array.isArray(data) || data.length === 0) return;
 
     await ensureDir(CACHE_DIR);
     const filePath = this.getKey(topic, source);
@@ -70,7 +71,6 @@ class Cache {
           await fs.unlink(path.join(CACHE_DIR, file));
         }
       }
-      console.log('   Cache cleared.');
     } catch {
       // Cache dir doesn't exist, nothing to clear
     }
